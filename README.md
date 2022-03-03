@@ -1,14 +1,27 @@
-## Hi! I'm Emerson Felipe!
+# Hi! I'm Emerson Felipe!
 
-<!-- GitHub stats -->
+
 <div align="center">
+  <!-- GitHub stats -->
   <a href="https://github.com/emersonfelipesp">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=emersonfelipesp&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
-  
 </div>
 
-<!-- Most used lenguages -->
-<div style="display: inline_block"><br>
+<br>
+<br>
+  
+## About me and skills
+### DCIM e IPAM using Netbox
+  
+- Full documentation (and automation) of network, from access to core, including low level like physical connections or high level like BGP sessions.
+- Author of Netbox plugins using Django (Python), like [Proxbox](https://github.com/N-Multifibra/netbox-proxbox), which integrates Proxmox with Netbox.
+  
+---
+### Top lenguages used:
+<div style="display: inline_block">
+  <br>
+  
+  <!-- Most used lenguages -->
   <img align="center" alt="Python Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   <img align="center" alt="Django Icon" height="50" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg" />
   <img align="center" alt="JavaScript Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
@@ -16,7 +29,7 @@
   <img align="center" alt="CSS Icon" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
 </div>
 
-##
+---
 
 <div>
   <!-- Media Social Links -->
