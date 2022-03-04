@@ -2,16 +2,16 @@
 
 ## Summary
 - [GitHub Stats](#github-stats) <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" alt="GitHub"> 
-- [Lenguages I currently use](#lenguages-i-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-- [Device Vendors that I feel comfortable working with](#device-vendors) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
-- [Social Media Links](#social-meida) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-- [Open Source Projects](#opensource)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
+- [Lenguages I currently use](#lenguages-i-currently-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+- [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
+- [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+- [Open Source Projects](#open-source-projects)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
 - [About me and skills](#about-me-and-skills) 🤖
-  - [DCIM and IPAM using Netbox](#dcim-ipam-netbox)
+  - [DCIM and IPAM using Netbox](#dcim-and-ipam-using-netbox)
   - [Virtualization](#virtualization)
-  - [BGP management](#bgp)
-  - [GPON Network](#gpon) and [GPON Network](#gpon-network)
-  - [Access Network (Broadband Internet)](#access-network)
+  - [BGP management](#bgp-management)
+  - [GPON Network](#gpon-network)
+  - [Access Network (Broadband Internet)](#access-network-broadband-internet)
   - [Switching](#switching)
   - [Monitoring](#monitoring)
 
@@ -168,20 +168,20 @@ I like process, workflows, building APIs and see two or more systems communicati
   - Huawei NE40E-M2K-B (VRP system)
   - Cisco ASR 9010 (IOS-XR system)
 
-### GPON Network {#gpon}
+### GPON Network
 - Management and full deploy of more than 10 Huawei OLT's (MA56xx and 58xx lines)
 - Huawei OLT automation through SSH/Telnet and SNMP scripts
 - ONT automation through TR069 (AvSystem and GenieACS) integrated with ISP's software 
   - **OBS:** Although I didn't personally did the API code, I got depth expertise through the whole process, both the XML structure of TR069 itself as the ACS servers API
 - Provisioning of LAN to LAN (E-Line and E-LAN) communication above GPON network
 
-### Access Network (Broadband Internet) {access-network}
+### Access Network (Broadband Internet)
 - Full deploy of PPPoE server
 - Devices:
   - Cisco ASR 9010 (IOS-XR system)
   - Mikrotik in general (RouterOS system)
 
-### Switching {switching}
+### Switching
 - L2 knowlodge, about how dot1q, trunking, broadcast domains, etc. works
 - MPLS L2VP (VPWS / pseudowire)
 - Bridge-Domains
@@ -189,7 +189,7 @@ I like process, workflows, building APIs and see two or more systems communicati
   - Huawei S6730 (VRP system)
   - Cisco NEXUS3064-X (NX-OS system)
 
-### Monitoring {monitoring}
+### Monitoring
 - Intermediate knowledge of Zabbix and Grafana (including integration between those)
 - Automation using SNMP protocol through Python and/or Node.js programming lenguages
 
