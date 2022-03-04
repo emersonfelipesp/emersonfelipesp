@@ -153,7 +153,8 @@ Currently I am focused on getting more depth knowledge of Networking (mainly MPL
 <br><br>
 I like process, workflows, building APIs and see two or more systems communicating, but in the end it is all about **solving problems**.
 <br>
-
+<br>
+**Below some of the things I know (and more importantly, that I use):**
 ### DCIM and IPAM using Netbox
 - Full documentation (and automation) of network, from access to core, including low level like physical connections or high level like BGP sessions.
 - Author of Netbox plugins using Django (Python), like Proxbox, which integrates Proxmox with Netbox
