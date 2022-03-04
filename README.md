@@ -3,6 +3,7 @@
 ## Summary
 - [GitHub Stats](#github-stats) <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" alt="GitHub"> 
 - [Lenguages I currently use](#lenguages-i-currently-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+- [Main Softwares and Platforms that I work with](#main-softwares-and-platforms-that-i-work-with)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
 - [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
 - [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
 - [Open Source Projects](#open-source-projects)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
@@ -78,7 +79,54 @@
   <a href="https://www.mongodb.com/" target="_blank">
     <img align="center" height="70" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" />
   </a>
+    
+  ---
+    
+  ### Main Softwares and Platforms that I work with
 
+  <!-- Netbox -->
+  <a href="https://netbox.readthedocs.io/" target="_blank">
+    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
+  </a>
+    
+  <!-- Proxmox -->
+  <a href="https://www.docker.com/">
+    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
+  </a>
+      
+  <!-- Docker -->
+  <a href="https://netbox.readthedocs.io/" target="_blank">
+    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674574-f4380a96-f0c3-4e63-bcef-9ef75e5cfe09.png" />
+  </a>
+    
+  &nbsp;
+  <!-- Zabbix -->
+  <a href="https://www.zabbix.com/" target="_blank">
+    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156674693-0c469c0f-af95-463a-baba-3f0ca7bcbad1.png" />
+  </a>
+    
+  &nbsp;
+  <!-- Grafana -->
+  <a href="https://grafana.com/" target="_blank">
+    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674772-22e0d214-12fd-4dc4-9d79-20698a2b9657.png" />
+  </a>
+  &nbsp;
+
+  <!-- FreeRADIUS -->
+  <a href="https://freeradius.org/" target="_blank">
+    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156674855-c04202f8-1292-4135-97f1-445512707940.svg" />
+  </a>
+    
+  &nbsp;
+  <!-- Take BLiP -->
+  <a href="https://www.take.net/" target="_blank">
+    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156675000-e6f710bd-a834-481a-9f3e-30f783950248.svg" />
+  </a>
+  
+  <br>
+    
+  ---
+ 
   ### Device Vendors that I feel comfortable working with
     
   <!-- Cisco Icon -->
