@@ -7,6 +7,7 @@
 - [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
 - [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
 - [Open Source Projects](#open-source-projects)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
+- [Projects I'm Contributor](#projects-im-contributor)
 - [About me and skills](#about-me-and-skills) 🤖
   - [DCIM and IPAM using Netbox](#dcim-and-ipam-using-netbox)
   - [Virtualization](#virtualization)
@@ -188,6 +189,21 @@
       </a>
     </div>
   </div>
+    
+  ## Projects I'm Contributor
+  <div>
+    <div>
+      <a href="https://github.com/netbox-community/netbox">
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/netbox-community/devicetype-library">
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library" />
+      </a>
+    </div>
+  </div>
+    
 </div>
   
 <br>
