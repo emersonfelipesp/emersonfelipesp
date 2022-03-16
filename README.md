@@ -6,7 +6,7 @@
 - [Main Softwares and Platforms that I work with](#main-softwares-and-platforms-that-i-work-with)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
 - [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
 - [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-- [Open Source Projects](#open-source-projects)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
+- [Open Source Projects I'm Author](#open-source-projects-im-author)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
 - [Projects I'm Contributor](#projects-im-contributor)
 - [About me and skills](#about-me-and-skills) 🤖
   - [DCIM and IPAM using Netbox](#dcim-and-ipam-using-netbox)
@@ -176,7 +176,7 @@
  
   ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
  
-   ## Open Source Projects
+   ## Open Source Projects I'm Author
   <div align=center>
     <div>
       <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
@@ -189,12 +189,30 @@
       </a>
     </div>
   </div>
+  
+  <br>
+  <br>
+  
+  <div align=center>
+    <div>
+      <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
+        <img src="https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png" target="_blank">
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
+      </a>
+    </div>
+  </div>
+    
+  <br>
     
   ## Projects I'm Contributor
   <div>
     <div>
       <a href="https://github.com/netbox-community/netbox">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
       </a>
     </div>
     <div>
