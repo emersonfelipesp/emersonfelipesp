@@ -212,7 +212,7 @@
   <div>
     <div>
       <a href="https://github.com/netbox-community/netbox">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
       </a>
     </div>
     <div>
