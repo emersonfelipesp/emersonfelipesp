@@ -195,7 +195,7 @@
   
   <div align=center>
     <div>
-      <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
+      <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
         <img src="https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png" target="_blank">
       </a>
     </div>
