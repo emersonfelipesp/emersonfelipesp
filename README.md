@@ -33,7 +33,8 @@
   
   ---
 
-    
+<div align=center>
+  
   ### Lenguages I currently use
     
   Although I know more than this, below are the things I could be productive from day one
@@ -176,57 +177,54 @@
     <img src="https://img.shields.io/badge/-Telegram-%230088cc?style=for-the-badge&logo=telegram&logoColor=white" target="_blank">
   </a>    
     
- 
+  
+  # Snake Animation
   ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
  
-   ## Open Source Projects I'm Author
-  <div align=center>
-    <div>
-      <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
-        <img src="https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png" target="_blank">
-      </a>
-    </div>
-    <div>
-      <a href="https://github.com/N-Multifibra/netbox-proxbox">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox" />
-      </a>
-    </div>
-  </div>
   
-  <br>
-  <br>
-  
-  <div align=center>
-    <div>
-      <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
-        <img src="https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png" target="_blank">
-      </a>
-    </div>
-    <div>
-      <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
-      </a>
-    </div>
-  </div>
-    
-  <br>
-    
-  ## Projects I'm Contributor
+  ## Open Source Projects I'm Author
   <div>
-    <div>
-      <a href="https://github.com/netbox-community/netbox">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
-      </a>
-    </div>
-    <div>
-      <a href="https://github.com/netbox-community/devicetype-library">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library" />
-      </a>
-    </div>
+    <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
+      <img src="https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png" target="_blank">
+    </a>
   </div>
-    
+  <div>
+    <a href="https://github.com/N-Multifibra/netbox-proxbox">
+      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox" />
+    </a>
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+    <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
+      <img src="https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png" target="_blank">
+    </a>
+  </div>
+  <div>
+    <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
+      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
+    </a>
+  </div>
+
+  <br>
+
+  ## Projects I'm Contributor
+
+  <div>
+    <a href="https://github.com/netbox-community/netbox">
+      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
+    </a>
+  </div>
+  <div>
+    <a href="https://github.com/netbox-community/devicetype-library">
+      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library" />
+    </a>
+  </div>
+
 </div>
-  
+
 <br>
 <br>
 
