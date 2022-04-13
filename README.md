@@ -176,7 +176,7 @@
   <a href="https://t.me/emersonfelipesp">
     <img src="https://img.shields.io/badge/-Telegram-%230088cc?style=for-the-badge&logo=telegram&logoColor=white" target="_blank">
   </a>
-  <a href="https://cursos.alura.com.br/user/emersonpereira2003">
+  <a href="https://cursos.alura.com.br/user/emersonfelipesp">
     <img src="https://img.shields.io/badge/-Alura-%23051d3b?style=for-the-badge&logo=alura&logoColor=white" target="_blank">
   </a>
   
