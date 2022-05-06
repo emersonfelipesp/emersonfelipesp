@@ -179,10 +179,18 @@
     <img src="https://img.shields.io/badge/-Alura-%23051d3b?style=for-the-badge&logo=alura&logoColor=white" target="_blank">
   </a>
   
+  <br>
+  <br>
   
-  # Snake Animation
+  # My GitHub story
+  
+  ### [2022 GitHub Skyline](https://skyline.github.com/emersonfelipesp/2022)
+  ### [2021 GitHub Skyline](https://skyline.github.com/emersonfelipesp/2021)
+  
   ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
  
+  <br>
+  <br>
   
   ## Open Source Projects I'm Author
   <div>
