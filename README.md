@@ -25,10 +25,6 @@
   
   ### GitHub stats
   
-  <a href="https://github.com/emersonfelipesp">
-    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=emersonfelipesp&theme=dark&show_icons=true&&include_all_commits=true&count_private=true"/>
-  </a>
-  
   ![GitHub streak stats](https://github-readme-streak-stats.herokuapp.com/?user=emersonfelipesp&theme=dark)
   
   <br>
