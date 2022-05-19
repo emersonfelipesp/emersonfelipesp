@@ -2,12 +2,12 @@
 
 ## Summary
 - [GitHub Stats](#github-stats) <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" alt="GitHub"> 
-- [Lenguages I currently use](#lenguages-i-currently-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-- [Main Softwares and Platforms that I work with](#main-softwares-and-platforms-that-i-work-with)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
+- [Languages I currently use](#languages-i-currently-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+- [Main software and platforms that I work with](#main-software-and-platforms-that-i-work-with)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
 - [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
 - [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-- [Open Source Projects I'm Author](#open-source-projects-im-author)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
-- [Projects I'm Contributor](#projects-im-contributor)
+- [Open Source Projects I'm authoring](#open-source-projects-im-authoring)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
+- [Projects I'm contributing to](#projects-im-contributing-to)
 - [About me and skills](#about-me-and-skills) 🤖
   - [DCIM and IPAM using Netbox](#dcim-and-ipam-using-netbox)
   - [Virtualization](#virtualization)
@@ -38,7 +38,7 @@
 
 <div align=center>
   
-  ### Lenguages I currently use
+  ### Languages I currently use
     
   Although I know more than this, below are the things I could be productive from day one
     
@@ -50,7 +50,7 @@
   
   <!-- Django Icon -->
   <a href="https://www.djangoproject.com/" target="_blank">
-    <img align="center" height="100" width="80" alt="Django Icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg" />
+    <img align="center" height="100" width="80" alt="Django Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain-wordmark.svg" />
   </a>
   
   <!-- Jinja2 -->
@@ -90,7 +90,7 @@
     
   ---
     
-  ### Main Softwares and Platforms that I work with
+  ### Main software and platforms that I work with
 
   <!-- Netbox -->
   <a href="https://netbox.readthedocs.io/" target="_blank">
@@ -196,7 +196,7 @@
   <br>
   <br>
   
-  ## Open Source Projects I'm Author
+  ## Open Source Projects I'm authoring
   <div>
     <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
       <img src="https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png" target="_blank">
@@ -224,7 +224,7 @@
 
   <br>
 
-  ## Projects I'm Contributor
+  ## Projects I'm contributing to
 
   <div>
     <a href="https://github.com/netbox-community/netbox">
@@ -246,7 +246,7 @@
   
 I was born in 2003 and always loved Programming, since I first learnt what it is (and I was 10 years if I remember) and through time I started working with Networking and got to the best of the two worlds: **Network Automation**.
 <br><br>
-Currently I am focused on getting more depth knowledge of Networking (mainly MPLS and Service Provider networks) and **automate everything as possible**.
+Currently I am focused on getting more depth knowledge of Networking (mainly MPLS and Service Provider networks) and **automate everything as much as possible**.
 <br><br>
 I like process, workflows, building APIs and see two or more systems communicating, but in the end it is all about **solving problems**.
 <br>
@@ -260,7 +260,7 @@ I like process, workflows, building APIs and see two or more systems communicati
 - Proxmox Hypervisor (GUI e API)
 - Virtual Machines using Qemu
 - Containers (LXC and Docker)
-- General knowledge with Linux (Debian/RedHat)
+- General knowledge with Linux (Debian and RedHat)
 
 ### BGP management
 - BGP session configuration
@@ -274,7 +274,7 @@ I like process, workflows, building APIs and see two or more systems communicati
 - Management and full deploy of more than 10 Huawei OLT's (MA56xx and 58xx lines)
 - Huawei OLT automation through SSH/Telnet and SNMP scripts
 - ONT automation through TR069 (AvSystem and GenieACS) integrated with ISP's software 
-  - **OBS:** Although I didn't personally did the API code, I got depth expertise through the whole process, both the XML structure of TR069 itself as the ACS servers API
+  - **note:** Although I didn't personally did the API code, I got depth expertise through the whole process, both the XML structure of TR069 itself as the ACS servers API
 - Provisioning of LAN to LAN (E-Line and E-LAN) communication above GPON network
 
 ### Access Network (Broadband Internet)
@@ -284,7 +284,7 @@ I like process, workflows, building APIs and see two or more systems communicati
   - Mikrotik in general (RouterOS system)
 
 ### Switching
-- L2 knowlodge, about how dot1q, trunking, broadcast domains, etc. works
+- L2 knowledge, about how dot1q, trunking, broadcast domains, etc. works
 - MPLS L2VP (VPWS / pseudowire)
 - Bridge-Domains
 - Devices:
