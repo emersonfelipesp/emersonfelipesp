@@ -48,11 +48,6 @@
     <img align="center" height="70" width="80" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   </a>
   
-  <!-- Django Icon -->
-  <a href="https://www.djangoproject.com/" target="_blank">
-    <img align="center" height="100" width="80" alt="Django Icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg" />
-  </a>
-  
   <!-- Jinja2 -->
   <a href="https://jinja.palletsprojects.com/" target="_blank">
     <img align="center" height="60" alt="Jinja2 Icon" src="https://user-images.githubusercontent.com/24397251/156644791-17a98cac-375f-4582-86a8-4dc27d20b97d.png">
