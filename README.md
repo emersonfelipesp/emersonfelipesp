@@ -216,7 +216,18 @@
       <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
     </a>
   </div>
-
+  
+  <br>
+  <br>
+  
+  ### Translation of [Offical NetBox Documentation](https://docs.netbox.dev) to [Portuguese](https://docs.netbox.dev.br) (pt-br)
+  
+  <div>
+    <a href="https://github.com/netdevopsbr/docs.netbox.dev.br" target="_blank">
+      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netdevopsbr&repo=docs.netbox.dev.br" />
+    </a>
+  </div>
+  
   <br>
 
   ## Projects I'm Contributor
