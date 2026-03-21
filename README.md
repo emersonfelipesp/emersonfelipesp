@@ -1,303 +1,289 @@
-# Hi! I'm Emerson Felipe!
+<div align="center">
 
-## Summary
-- [GitHub Stats](#github-stats) <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg" alt="GitHub"> 
-- [Lenguages I currently use](#lenguages-i-currently-use) <img align="center" height="25" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-- [Main Softwares and Platforms that I work with](#main-softwares-and-platforms-that-i-work-with)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
-- [Device Vendors that I feel comfortable working with](#device-vendors-that-i-feel-comfortable-working-with) &nbsp; <img align="center" height="18" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
-- [Social Media Links](#social-media-links) &nbsp; <img align="center" height="20" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-- [Open Source Projects I'm Author](#open-source-projects-im-author)&nbsp;<img align="center" height="20" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
-- [Projects I'm Contributor](#projects-im-contributor)
-- [About me and skills](#about-me-and-skills) 🤖
-  - [DCIM and IPAM using Netbox](#dcim-and-ipam-using-netbox)
-  - [Virtualization](#virtualization)
-  - [BGP management](#bgp-management)
-  - [GPON Network](#gpon-network)
-  - [Access Network (Broadband Internet)](#access-network-broadband-internet)
-  - [Switching](#switching)
-  - [Monitoring](#monitoring)
+# 👋 Hi! I'm Emerson Felipe
+
+### 💻 Software Developer | 🌐 Network Automation Engineer | 🚀 Open Source Enthusiast
+
+[![Website](https://img.shields.io/badge/🌐_emersonfelipesp.com-4285F4?style=for-the-badge)](https://emersonfelipesp.com)
+[![Profile Views](https://komarev.com/ghpvc/?username=emersonfelipesp&color=blueviolet&style=for-the-badge&label=Profile+Views)](https://github.com/emersonfelipesp)
+
+</div>
 
 ---
-  
+
+## 🚀 About Me
+
+```python
+class EmersonFelipe:
+    def __init__(self):
+        self.name = "Emerson Felipe"
+        self.role = "Software Developer & Network Automation Engineer"
+        self.location = "Cotia, São Paulo, Brazil 🇧🇷"
+        self.company = "@N-Multifibra"
+        self.communities = ["@netbox-community", "@netdevopsbr"]
+        self.passions = ["NetDevOps", "Open Source", "Network Automation"]
+        
+    def say_hi(self):
+        print("Thanks for dropping by! Let's automate networks together 🚀")
+
+me = EmersonFelipe()
+me.say_hi()
+```
+
+Born in 2003, I've been passionate about programming since I was 10 years old. When I discovered networking, I found the perfect combination: **Network Automation**. I'm focused on gaining deep knowledge of Service Provider networks (MPLS, BGP) while **automating everything possible**.
+
+I love processes, workflows, building APIs, and seeing systems communicate. But in the end, it's all about **solving problems** 💡
+
+---
+
+## 📊 Quick Navigation
+
+- [🏆 GitHub Stats](#-github-stats)
+- [💻 Tech Stack](#-tech-stack)
+- [🛠️ Platforms & Tools](#️-platforms--tools)
+- [🌐 Network Vendors](#-network-vendors)
+- [📫 Connect With Me](#-connect-with-me)
+- [🎯 Featured Projects](#-featured-projects)
+- [💡 Technical Skills](#-technical-skills)
+
+---
+
 <div align="center">
-  
-  <!-- GitHub stats -->
-  
-  ### GitHub stats
-  
-  ![GitHub streak stats](https://github-readme-streak-stats.herokuapp.com/?user=emersonfelipesp&theme=dark)
-  
-  <br>
-  
-  [![trophy](https://github-profile-trophy.vercel.app/?username=emersonfelipesp)](https://github.com/ryo-ma/github-profile-trophy)
 
+## 🏆 GitHub Stats
+
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=emersonfelipesp&theme=tokyonight&hide_border=true&border_radius=10)
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=emersonfelipesp&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true)
+
+[![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=emersonfelipesp&theme=tokyonight&no-frame=true&row=1&column=7)](https://github.com/ryo-ma/github-profile-trophy)
 
 </div>
   
   ---
 
-<div align=center>
-  
-  ### Lenguages I currently use
-    
-  Although I know more than this, below are the things I could be productive from day one
-    
-  <!-- Most used lenguages -->
-  <!-- Python Icon -->
-  <a href="https://www.python.org/" target="_blank">
-    <img align="center" height="70" width="80" alt="Python Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-  </a>
-  
-  <!-- Jinja2 -->
-  <a href="https://jinja.palletsprojects.com/" target="_blank">
-    <img align="center" height="60" alt="Jinja2 Icon" src="https://user-images.githubusercontent.com/24397251/156644791-17a98cac-375f-4582-86a8-4dc27d20b97d.png">
-  </a>
-  
-  <!-- JavaScript Icon -->
-  <a href="https://www.javascript.com/" target="_blank">
-    <img align="center" height="60" width="80" alt="JavaScript Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  </a>
-    
-  <!-- HTML5 Icon -->
-  <a href="https://html.spec.whatwg.org/multipage/" target="_blank">
-    <img align="center" height="60" width="80" alt="HTML Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-  </a>
-    
-  <!-- CSS3 Icon -->
-  <a href="https://www.w3schools.com/css/" target="_blank">
-    <img align="center" height="60" width="80" alt="CSS Icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-  </a>
-  
-  <!-- Bootstrap Icon -->
-  <a href="https://getbootstrap.com/" target="_blank">
-    <img align="center" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
-  </a>
-    
-  <!-- PostgreSQL Icon -->
-  <a href="https://www.postgresql.org/" target="_blank">
-    <img align="center" height="70" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" />
-  </a>
-    
-  <!-- MongoDB Icon -->
-  <a href="https://www.mongodb.com/" target="_blank">
-    <img align="center" height="70" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" />
-  </a>
-    
-  ---
-    
-  ### Main Softwares and Platforms that I work with
+<div align="center">
 
-  <!-- Netbox -->
-  <a href="https://netbox.readthedocs.io/" target="_blank">
-    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674373-81b86f84-d063-41d4-a8ba-9629b8a56251.svg" />
-  </a>
-    
-  <!-- Proxmox -->
-  <a href="https://www.docker.com/">
-    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674465-aee91e85-0fc6-438d-903f-04fc7660963a.png" />
-  </a>
-      
-  <!-- Docker -->
-  <a href="https://netbox.readthedocs.io/" target="_blank">
-    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674574-f4380a96-f0c3-4e63-bcef-9ef75e5cfe09.png" />
-  </a>
-    
-  &nbsp;
-  <!-- Zabbix -->
-  <a href="https://www.zabbix.com/" target="_blank">
-    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156674693-0c469c0f-af95-463a-baba-3f0ca7bcbad1.png" />
-  </a>
-    
-  &nbsp;
-  <!-- Grafana -->
-  <a href="https://grafana.com/" target="_blank">
-    <img align="center" height="80" src="https://user-images.githubusercontent.com/24397251/156674772-22e0d214-12fd-4dc4-9d79-20698a2b9657.png" />
-  </a>
-  &nbsp;
+## 💻 Tech Stack
 
-  <!-- FreeRADIUS -->
-  <a href="https://freeradius.org/" target="_blank">
-    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156674855-c04202f8-1292-4135-97f1-445512707940.svg" />
-  </a>
-    
-  &nbsp;
-  <!-- Take BLiP -->
-  <a href="https://www.take.net/" target="_blank">
-    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156675000-e6f710bd-a834-481a-9f3e-30f783950248.svg" />
-  </a>
-  
-  <br>
-    
-  ---
- 
-  ### Device Vendors that I feel comfortable working with
-    
-  <!-- Cisco Icon -->
-  <a href="https://www.cisco.com/" target="_blank">
-    <img align="center" height="70" src="https://user-images.githubusercontent.com/24397251/156672242-f7a3ace9-c317-4256-9bc6-f938b8ee59bc.png" />
-  </a>
-    
-  <!-- Huawei Icon -->
-  <a href="https://www.huawei.com/" target="_blank">
-    <img align="center" height="70" src="https://user-images.githubusercontent.com/24397251/156672271-14e8a9be-9f4b-4cd7-ba29-6fbfba046cf9.png" />
-  </a>
+**Languages I'm productive with from day one:**
 
-  <!-- A10 Icon -->
-  <a href="https://www.a10networks.com/" target="_blank">
-    <img align="center" height="60" src="https://user-images.githubusercontent.com/24397251/156672297-fd1f6407-48df-4970-b0a8-0a4dca71f287.png" />
-  </a>
-    
-  <!-- DELL Icon -->
-  <a href="https://www.dell.com/" target="_blank">
-    <img align="center" height="90" src="https://user-images.githubusercontent.com/24397251/156673555-e93d7ec4-b145-4164-adc9-8efb3a2769a7.png" />
-  </a>
-    
-  <!-- Mikrotik Icon -->
-  <a href="https://mikrotik.com/" target="_blank">
-    <img align="center" height="70" width="80" src="https://user-images.githubusercontent.com/24397251/156672730-62ea0de1-90e1-4282-a06f-8bf3dd37da9c.svg" />
-  </a>
-    
-  ---
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://www.javascript.com/)
+[![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://golang.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
 
-  ### Social Media Links
+**Frameworks & Libraries:**
 
-  <!-- Social Media Links -->
-  <a href="https://www.linkedin.com/in/emersonfelipesp/" target="_blank">
-    <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
-  </a> 
-  <a href="https://www.instagram.com/emersonfelipesp/" target="_blank">
-    <img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank">
-  </a>
-  <a href="mailto:emersonfelipe.2003@gmail.com">
-    <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
-  </a>
-  <a href="https://t.me/emersonfelipesp">
-    <img src="https://img.shields.io/badge/-Telegram-%230088cc?style=for-the-badge&logo=telegram&logoColor=white" target="_blank">
-  </a>
-  <a href="https://cursos.alura.com.br/user/emersonfelipesp">
-    <img src="https://img.shields.io/badge/-Alura-%23051d3b?style=for-the-badge&logo=alura&logoColor=white" target="_blank">
-  </a>
-  
-  <br>
-  <br>
-  
-  # My GitHub story
-  
-  ### [2022 GitHub Skyline](https://skyline.github.com/emersonfelipesp/2022)
-  ### [2021 GitHub Skyline](https://skyline.github.com/emersonfelipesp/2021)
-  
-  ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
- 
-  <br>
-  <br>
-  
-  ## Open Source Projects I'm Author
-  <div>
-    <a href="https://github.com/N-Multifibra/netbox-proxbox" target="_blank">
-      <img src="https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png" target="_blank">
-    </a>
-  </div>
-  <div>
-    <a href="https://github.com/N-Multifibra/netbox-proxbox">
-      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox" />
-    </a>
-  </div>
+[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Jinja2](https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white)](https://jinja.palletsprojects.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-  <br>
-  <br>
+**Databases:**
 
-  <div>
-    <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
-      <img src="https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png" target="_blank">
-    </a>
-  </div>
-  <div>
-    <a href="https://github.com/emersonfelipesp/netbox-plugins-store" target="_blank">
-      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store" />
-    </a>
-  </div>
-  
-  <br>
-  <br>
-  
-  ### Translation of [Offical NetBox Documentation](https://docs.netbox.dev) to [Portuguese](https://docs.netbox.dev.br) (pt-br)
-  
-  <div>
-    <a href="https://github.com/netdevopsbr/docs.netbox.dev.br" target="_blank">
-      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netdevopsbr&repo=docs.netbox.dev.br" />
-    </a>
-  </div>
-  
-  <br>
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
-  ## Projects I'm Contributor
+</div>
+---
 
-  <div>
-    <a href="https://github.com/netbox-community/netbox">
-      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox" />
-    </a>
-  </div>
-  <div>
-    <a href="https://github.com/netbox-community/devicetype-library">
-      <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library" />
-    </a>
-  </div>
+<div align="center">
+
+## 🛠️ Platforms & Tools
+
+[![NetBox](https://img.shields.io/badge/NetBox-1F4788?style=for-the-badge&logo=netbox&logoColor=white)](https://netbox.dev/)
+[![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=for-the-badge&logo=proxmox&logoColor=white)](https://www.proxmox.com/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Zabbix](https://img.shields.io/badge/Zabbix-CC0000?style=for-the-badge&logo=zabbix&logoColor=white)](https://www.zabbix.com/)
+[![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)](https://grafana.com/)
+[![FreeRADIUS](https://img.shields.io/badge/FreeRADIUS-003399?style=for-the-badge&logo=radius&logoColor=white)](https://freeradius.org/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.linux.org/)
+
+</div>
+---
+
+<div align="center">
+
+## 🌐 Network Vendors
+
+**Devices I feel comfortable working with:**
+
+![Cisco](https://img.shields.io/badge/Cisco-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
+![Huawei](https://img.shields.io/badge/Huawei-FF0000?style=for-the-badge&logo=huawei&logoColor=white)
+![Mikrotik](https://img.shields.io/badge/Mikrotik-293239?style=for-the-badge&logo=mikrotik&logoColor=white)
+![Dell](https://img.shields.io/badge/Dell-007DB8?style=for-the-badge&logo=dell&logoColor=white)
+![A10 Networks](https://img.shields.io/badge/A10_Networks-0066CC?style=for-the-badge&logoColor=white)
+
+</div>
+---
+
+<div align="center">
+
+## 📫 Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emersonfelipesp/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/emersonfelipesp/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:emersonfelipe.2003@gmail.com)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/emersonfelipesp)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emersonfelipesp)
+
+</div>
+---
+
+<div align="center">
+
+## 🎯 Featured Projects
+
+### 🏆 Open Source Projects I Author
 
 </div>
 
-<br>
-<br>
+<div align="center">
 
-## About me and skills
-  
-I was born in 2003 and always loved Programming, since I first learnt what it is (and I was 10 years if I remember) and through time I started working with Networking and got to the best of the two worlds: **Network Automation**.
-<br><br>
-Currently I am focused on getting more depth knowledge of Networking (mainly MPLS and Service Provider networks) and **automate everything as possible**.
-<br><br>
-I like process, workflows, building APIs and see two or more systems communicating, but in the end it is all about **solving problems**.
-<br>
-<br>
-**Below some of the things I know (and more importantly, that I use):**
-### DCIM and IPAM using Netbox
-- Full documentation (and automation) of network, from access to core, including low level like physical connections or high level like BGP sessions.
-- Author of Netbox plugins using Django (Python), like Proxbox, which integrates Proxmox with Netbox
+#### 🔌 NetBox Proxbox Plugin
+*Integration between Proxmox and NetBox for seamless VM management*
 
-### Virtualization
-- Proxmox Hypervisor (GUI e API)
-- Virtual Machines using Qemu
-- Containers (LXC and Docker)
-- General knowledge with Linux (Debian/RedHat)
+[![Proxbox Banner](https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png)](https://github.com/N-Multifibra/netbox-proxbox)
 
-### BGP management
-- BGP session configuration
-- Filters (route-policy, PBR, prefix-list, etc.)
-- RPKI (Krill and Routinator) and IRR (TC and RADb)
-- Devices:
-  - Huawei NE40E-M2K-B (VRP system)
-  - Cisco ASR 9010 (IOS-XR system)
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox&theme=tokyonight)](https://github.com/N-Multifibra/netbox-proxbox)
 
-### GPON Network
-- Management and full deploy of more than 10 Huawei OLT's (MA56xx and 58xx lines)
-- Huawei OLT automation through SSH/Telnet and SNMP scripts
-- ONT automation through TR069 (AvSystem and GenieACS) integrated with ISP's software 
-  - **OBS:** Although I didn't personally did the API code, I got depth expertise through the whole process, both the XML structure of TR069 itself as the ACS servers API
-- Provisioning of LAN to LAN (E-Line and E-LAN) communication above GPON network
+---
 
-### Access Network (Broadband Internet)
-- Full deploy of PPPoE server
-- Devices:
-  - Cisco ASR 9010 (IOS-XR system)
-  - Mikrotik in general (RouterOS system)
+#### 🏪 NetBox Plugins Store
+*Curated collection of NetBox plugins and resources*
 
-### Switching
-- L2 knowlodge, about how dot1q, trunking, broadcast domains, etc. works
-- MPLS L2VP (VPWS / pseudowire)
-- Bridge-Domains
-- Devices:
-  - Huawei S6730 (VRP system)
-  - Cisco NEXUS3064-X (NX-OS system)
+[![Plugins Store Banner](https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png)](https://github.com/emersonfelipesp/netbox-plugins-store)
 
-### Monitoring
-- Intermediate knowledge of Zabbix and Grafana (including integration between those)
-- Automation using SNMP protocol through Python and/or Node.js programming lenguages
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-plugins-store)
+
+---
+
+#### 🌐 NetBox CLI
+*API-first NetBox client for your terminal with CLI and interactive TUI*
+
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-cli&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-cli)
+
+---
+
+#### 📚 NetBox Documentation Translation
+*Official NetBox Documentation translated to Portuguese (pt-br)*
+
+[![Docs Translation](https://github-readme-stats.vercel.app/api/pin/?username=netdevopsbr&repo=docs.netbox.dev.br&theme=tokyonight)](https://github.com/netdevopsbr/docs.netbox.dev.br)
+
+🌐 **Live at:** [docs.netbox.dev.br](https://docs.netbox.dev.br)
+
+---
+
+### 🤝 Projects I Contribute To
+
+[![NetBox](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox&theme=tokyonight)](https://github.com/netbox-community/netbox)
+[![DeviceType Library](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library&theme=tokyonight)](https://github.com/netbox-community/devicetype-library)
+
+</div>
+
+---
+
+## 💡 Technical Skills
+
+<details>
+<summary><b>🔐 DCIM and IPAM using NetBox</b></summary>
+
+- Full network documentation and automation (access to core networks)
+- Physical and logical infrastructure management
+- High-level BGP session management
+- Author of NetBox plugins using Django/Python (e.g., Proxbox)
+- Integration with external systems via NetBox API
+
+</details>
+
+<details>
+<summary><b>☁️ Virtualization</b></summary>
+
+- **Proxmox Hypervisor** (GUI & API management)
+- Virtual Machines using **QEMU/KVM**
+- Container orchestration (**LXC** and **Docker**)
+- Linux system administration (Debian/RHEL-based)
+
+</details>
+
+<details>
+<summary><b>🌐 BGP Management</b></summary>
+
+- BGP session configuration and optimization
+- Advanced filtering (route-policy, PBR, prefix-lists)
+- **RPKI** validation (Krill and Routinator)
+- **IRR** management (TC and RADb)
+- **Devices:**
+  - Huawei NE40E-M2K-B (VRP)
+  - Cisco ASR 9010 (IOS-XR)
+
+</details>
+
+<details>
+<summary><b>📡 GPON Network</b></summary>
+
+- Management and deployment of 10+ **Huawei OLTs** (MA56xx and MA58xx series)
+- OLT automation via SSH/Telnet and SNMP scripts
+- ONT automation through **TR-069** (AvSystem and GenieACS)
+- ISP software integration and API development
+- **E-Line** and **E-LAN** provisioning over GPON
+
+</details>
+
+<details>
+<summary><b>🔌 Access Network (Broadband Internet)</b></summary>
+
+- PPPoE server deployment and management
+- **Devices:**
+  - Cisco ASR 9010 (IOS-XR)
+  - Mikrotik (RouterOS)
+
+</details>
+
+<details>
+<summary><b>🔄 Switching</b></summary>
+
+- Layer 2 expertise (802.1Q, trunking, VLANs, broadcast domains)
+- **MPLS L2VPN** (VPWS / pseudowire)
+- Bridge-Domain configuration
+- **Devices:**
+  - Huawei S6730 (VRP)
+  - Cisco Nexus 3064-X (NX-OS)
+
+</details>
+
+<details>
+<summary><b>📊 Monitoring & Observability</b></summary>
+
+- **Zabbix** and **Grafana** integration and automation
+- SNMP protocol automation using Python and Node.js
+- Custom monitoring scripts and alerting systems
+
+</details>
+
+---
+
+<div align="center">
+
+## 🎮 GitHub Story
+
+[![GitHub Skyline 2022](https://img.shields.io/badge/🏙️_2022_Skyline-View-blue?style=for-the-badge)](https://skyline.github.com/emersonfelipesp/2022)
+[![GitHub Skyline 2021](https://img.shields.io/badge/🏙️_2021_Skyline-View-blue?style=for-the-badge)](https://skyline.github.com/emersonfelipesp/2021)
+
+![Snake Animation](https://github.com/emersonfelipesp/emersonfelipesp/blob/output/github-snake.svg)
+
+</div>
+
+---
+
+<div align="center">
+
+### 💬 "Automating networks, one commit at a time"
+
+<sub>⭐ From [emersonfelipesp](https://github.com/emersonfelipesp) | Built with ❤️ in Brazil 🇧🇷</sub>
+
+</div>
 
