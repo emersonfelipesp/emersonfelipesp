@@ -38,13 +38,73 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 
 ## 📊 Quick Navigation
 
+- [🎯 Featured Projects](#-featured-projects)
 - [🏆 GitHub Stats](#-github-stats)
 - [💻 Tech Stack](#-tech-stack)
 - [🛠️ Platforms & Tools](#️-platforms--tools)
 - [🌐 Network Vendors](#-network-vendors)
 - [📫 Connect With Me](#-connect-with-me)
-- [🎯 Featured Projects](#-featured-projects)
 - [💡 Technical Skills](#-technical-skills)
+
+---
+
+<div align="center">
+
+## 🎯 Featured Projects
+
+### 🌟 Flagship Open Source Projects
+
+---
+
+#### 🖥️ NetBox CLI
+*API-first NetBox client for your terminal with CLI and interactive TUI*
+
+[![NetBox CLI Banner](https://img.shields.io/badge/NetBox_CLI-Terminal_%7C_TUI-009688?style=for-the-badge&logo=gnometerminal&logoColor=white)](https://github.com/emersonfelipesp/netbox-cli)
+[![Docs](https://img.shields.io/badge/📚_Documentation-emersonfelipesp.com%2Fnetbox--cli-4285F4?style=for-the-badge)](https://emersonfelipesp.com/netbox-cli/)
+
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-cli&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-cli)
+
+---
+
+#### 🔌 NetBox Proxbox Plugin
+*Integration between Proxmox and NetBox for seamless VM management*
+
+[![Proxbox Banner](https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png)](https://github.com/N-Multifibra/netbox-proxbox)
+
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox&theme=tokyonight)](https://github.com/N-Multifibra/netbox-proxbox)
+
+---
+
+### 🏆 More Open Source Projects I Author
+
+</div>
+
+<div align="center">
+
+#### 🏪 NetBox Plugins Store
+*Curated collection of NetBox plugins and resources*
+
+[![Plugins Store Banner](https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png)](https://github.com/emersonfelipesp/netbox-plugins-store)
+
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-plugins-store)
+
+---
+
+#### 📚 NetBox Documentation Translation
+*Official NetBox Documentation translated to Portuguese (pt-br)*
+
+[![Docs Translation](https://github-readme-stats.vercel.app/api/pin/?username=netdevopsbr&repo=docs.netbox.dev.br&theme=tokyonight)](https://github.com/netdevopsbr/docs.netbox.dev.br)
+
+🌐 **Live at:** [docs.netbox.dev.br](https://docs.netbox.dev.br)
+
+---
+
+### 🤝 Projects I Contribute To
+
+[![NetBox](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox&theme=tokyonight)](https://github.com/netbox-community/netbox)
+[![DeviceType Library](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library&theme=tokyonight)](https://github.com/netbox-community/devicetype-library)
+
+</div>
 
 ---
 
@@ -131,59 +191,6 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emersonfelipesp)
 
 </div>
----
-
-<div align="center">
-
-## 🎯 Featured Projects
-
-### 🏆 Open Source Projects I Author
-
-</div>
-
-<div align="center">
-
-#### 🔌 NetBox Proxbox Plugin
-*Integration between Proxmox and NetBox for seamless VM management*
-
-[![Proxbox Banner](https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png)](https://github.com/N-Multifibra/netbox-proxbox)
-
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox&theme=tokyonight)](https://github.com/N-Multifibra/netbox-proxbox)
-
----
-
-#### 🏪 NetBox Plugins Store
-*Curated collection of NetBox plugins and resources*
-
-[![Plugins Store Banner](https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png)](https://github.com/emersonfelipesp/netbox-plugins-store)
-
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-plugins-store)
-
----
-
-#### 🌐 NetBox CLI
-*API-first NetBox client for your terminal with CLI and interactive TUI*
-
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-cli&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-cli)
-
----
-
-#### 📚 NetBox Documentation Translation
-*Official NetBox Documentation translated to Portuguese (pt-br)*
-
-[![Docs Translation](https://github-readme-stats.vercel.app/api/pin/?username=netdevopsbr&repo=docs.netbox.dev.br&theme=tokyonight)](https://github.com/netdevopsbr/docs.netbox.dev.br)
-
-🌐 **Live at:** [docs.netbox.dev.br](https://docs.netbox.dev.br)
-
----
-
-### 🤝 Projects I Contribute To
-
-[![NetBox](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=netbox&theme=tokyonight)](https://github.com/netbox-community/netbox)
-[![DeviceType Library](https://github-readme-stats.vercel.app/api/pin/?username=netbox-community&repo=devicetype-library&theme=tokyonight)](https://github.com/netbox-community/devicetype-library)
-
-</div>
-
 ---
 
 ## 💡 Technical Skills
