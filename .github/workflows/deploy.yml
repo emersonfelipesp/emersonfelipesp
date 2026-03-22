@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - master
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours — polls for netbox-cli docs changes
   workflow_dispatch:
 
 permissions:
@@ -17,132 +19,81 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.decide.outputs.should_deploy }}
+      netbox_cli_sha: ${{ steps.get_sha.outputs.sha }}
+    steps:
+      - name: Get netbox-cli gh-pages latest commit SHA
+        id: get_sha
+        run: |
+          SHA=$(curl -s \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/emersonfelipesp/netbox-cli/commits?sha=gh-pages&per_page=1" \
+            | jq -r '.[0].sha')
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
+          echo "Latest netbox-cli gh-pages SHA: $SHA"
+
+      - name: Restore cached SHA (skip deploy if docs unchanged on schedule)
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/netbox-cli-sha-placeholder
+          key: netbox-cli-gh-pages-${{ steps.get_sha.outputs.sha }}
+
+      - name: Decide whether to deploy
+        id: decide
+        run: |
+          EVENT="${{ github.event_name }}"
+          CACHE_HIT="${{ steps.cache.outputs.cache-hit }}"
+          if [ "$EVENT" != "schedule" ]; then
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            echo "Deploy triggered by $EVENT — proceeding."
+          elif [ "$CACHE_HIT" = "true" ]; then
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+            echo "Scheduled run — netbox-cli docs unchanged (SHA cached), skipping deploy."
+          else
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            echo "Scheduled run — netbox-cli docs changed or first run, deploying."
+          fi
+
   build:
     runs-on: ubuntu-latest
+    needs: check-changes
+    if: needs.check-changes.outputs.should_deploy == 'true'
     steps:
-      - name: Checkout
+      - name: Checkout profile repo
         uses: actions/checkout@v4
+
+      - name: Checkout netbox-cli gh-pages docs
+        uses: actions/checkout@v4
+        with:
+          repository: emersonfelipesp/netbox-cli
+          ref: gh-pages
+          path: netbox-cli
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Create index.html
-        run: |
-          cat > index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <meta name="description" content="Emerson Felipe - Software Developer, Network Automation Engineer, and Open Source Contributor">
-              <meta name="author" content="Emerson Felipe">
-              <meta property="og:title" content="Emerson Felipe - Network Automation Engineer">
-              <meta property="og:description" content="Software Developer passionate about Network Automation and Open Source">
-              <meta property="og:type" content="website">
-              <meta property="og:url" content="https://emersonfelipesp.com">
-              <title>Emerson Felipe - Network Automation Engineer</title>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown-dark.min.css">
-              <style>
-                  * {
-                      margin: 0;
-                      padding: 0;
-                      box-sizing: border-box;
-                  }
-                  body {
-                      margin: 0;
-                      padding: 20px;
-                      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                      min-height: 100vh;
-                  }
-                  .container {
-                      max-width: 1000px;
-                      margin: 0 auto;
-                      background: #0d1117;
-                      padding: 40px;
-                      border-radius: 10px;
-                      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-                  }
-                  .markdown-body {
-                      box-sizing: border-box;
-                      min-width: 200px;
-                      max-width: 100%;
-                      background-color: #0d1117;
-                      color: #c9d1d9;
-                  }
-                  .markdown-body img {
-                      background-color: transparent;
-                  }
-                  .loading {
-                      text-align: center;
-                      padding: 50px;
-                      color: #c9d1d9;
-                      font-size: 18px;
-                  }
-                  .loading::after {
-                      content: '...';
-                      animation: dots 1.5s steps(3, end) infinite;
-                  }
-                  @keyframes dots {
-                      0%, 20% { content: '.'; }
-                      40% { content: '..'; }
-                      60%, 100% { content: '...'; }
-                  }
-                  @media (max-width: 767px) {
-                      body {
-                          padding: 10px;
-                      }
-                      .container {
-                          padding: 20px;
-                      }
-                  }
-              </style>
-          </head>
-          <body>
-              <div class="container">
-                  <div class="markdown-body" id="content">
-                      <div class="loading">Loading profile</div>
-                  </div>
-              </div>
-
-              <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-              <script>
-                  fetch('README.md')
-                      .then(response => {
-                          if (!response.ok) throw new Error('Failed to load README');
-                          return response.text();
-                      })
-                      .then(text => {
-                          marked.setOptions({
-                              breaks: true,
-                              gfm: true
-                          });
-                          document.getElementById('content').innerHTML = marked.parse(text);
-                      })
-                      .catch(error => {
-                          document.getElementById('content').innerHTML = 
-                              '<div style="text-align: center; color: #f85149; padding: 50px;">' +
-                              '<h2>⚠️ Error loading content</h2>' +
-                              '<p>Please try again later or visit my <a href="https://github.com/emersonfelipesp" style="color: #58a6ff;">GitHub profile</a>.</p>' +
-                              '</div>';
-                          console.error('Error:', error);
-                      });
-              </script>
-          </body>
-          </html>
-          EOF
-
-      - name: Upload artifact
+      - name: Upload Pages artifact (profile root + netbox-cli/ docs)
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
+      - name: Save netbox-cli SHA to cache (marks docs as deployed)
+        uses: actions/cache/save@v4
+        with:
+          path: /tmp/netbox-cli-sha-placeholder
+          key: netbox-cli-gh-pages-${{ needs.check-changes.outputs.netbox_cli_sha }}
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [check-changes, build]
+    if: needs.check-changes.outputs.should_deploy == 'true'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
