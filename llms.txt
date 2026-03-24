@@ -1,0 +1,22 @@
+# LLMs Index
+
+Repository: emersonfelipesp
+Primary document: README.md
+
+## README.md Summary
+The README presents Emerson Felipe as a software developer and network automation engineer focused on NetDevOps, open source, and service provider networking.
+It highlights flagship work around NetBox tooling and integrations, including a terminal-first NetBox client and a Proxmox-NetBox integration plugin.
+It also documents technical background across Python, JavaScript, Go, Django, FastAPI, PostgreSQL, network automation workflows, and operations with vendors such as Cisco, Huawei, and Mikrotik.
+
+## Repository Index (Restricted)
+Only the repositories below are indexed in this file.
+
+1. netbox-cli
+- URL: https://github.com/emersonfelipesp/netbox-cli
+- Scope: API-first NetBox client with CLI and interactive TUI.
+- Context from README: Presented as a flagship open source project with documentation at https://emersonfelipesp.com/netbox-cli/.
+
+2. netbox-proxbox
+- URL: https://github.com/N-Multifibra/netbox-proxbox
+- Scope: NetBox and Proxmox integration plugin for VM lifecycle and inventory alignment.
+- Context from README: Presented as a featured project for seamless Proxmox-NetBox integration.
