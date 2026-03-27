@@ -6,7 +6,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours — polls for netbox-cli docs changes
+    - cron: '0 */6 * * *'  # Every 6 hours — polls for netbox-sdk docs changes
   workflow_dispatch:
 
 permissions:
@@ -23,24 +23,24 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_deploy: ${{ steps.decide.outputs.should_deploy }}
-      netbox_cli_sha: ${{ steps.get_sha.outputs.sha }}
+      netbox_sdk_sha: ${{ steps.get_sha.outputs.sha }}
     steps:
-      - name: Get netbox-cli gh-pages latest commit SHA
+      - name: Get netbox-sdk gh-pages latest commit SHA
         id: get_sha
         run: |
           SHA=$(curl -s \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/emersonfelipesp/netbox-cli/commits?sha=gh-pages&per_page=1" \
+            "https://api.github.com/repos/emersonfelipesp/netbox-sdk/commits?sha=gh-pages&per_page=1" \
             | jq -r '.[0].sha')
           echo "sha=$SHA" >> $GITHUB_OUTPUT
-          echo "Latest netbox-cli gh-pages SHA: $SHA"
+          echo "Latest netbox-sdk gh-pages SHA: $SHA"
 
       - name: Restore cached SHA (skip deploy if docs unchanged on schedule)
         id: cache
         uses: actions/cache/restore@v4
         with:
-          path: /tmp/netbox-cli-sha-placeholder
-          key: netbox-cli-gh-pages-${{ steps.get_sha.outputs.sha }}
+          path: /tmp/netbox-sdk-sha-placeholder
+          key: netbox-sdk-gh-pages-${{ steps.get_sha.outputs.sha }}
 
       - name: Decide whether to deploy
         id: decide
@@ -52,10 +52,10 @@ jobs:
             echo "Deploy triggered by $EVENT — proceeding."
           elif [ "$CACHE_HIT" = "true" ]; then
             echo "should_deploy=false" >> $GITHUB_OUTPUT
-            echo "Scheduled run — netbox-cli docs unchanged (SHA cached), skipping deploy."
+            echo "Scheduled run — netbox-sdk docs unchanged (SHA cached), skipping deploy."
           else
             echo "should_deploy=true" >> $GITHUB_OUTPUT
-            echo "Scheduled run — netbox-cli docs changed or first run, deploying."
+            echo "Scheduled run — netbox-sdk docs changed or first run, deploying."
           fi
 
   build:
@@ -66,26 +66,26 @@ jobs:
       - name: Checkout profile repo
         uses: actions/checkout@v4
 
-      - name: Checkout netbox-cli gh-pages docs
+      - name: Checkout netbox-sdk gh-pages docs
         uses: actions/checkout@v4
         with:
-          repository: emersonfelipesp/netbox-cli
+          repository: emersonfelipesp/netbox-sdk
           ref: gh-pages
-          path: netbox-cli
+          path: netbox-sdk
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload Pages artifact (profile root + netbox-cli/ docs)
+      - name: Upload Pages artifact (profile root + netbox-sdk/ docs)
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
 
-      - name: Save netbox-cli SHA to cache (marks docs as deployed)
+      - name: Save netbox-sdk SHA to cache (marks docs as deployed)
         uses: actions/cache/save@v4
         with:
-          path: /tmp/netbox-cli-sha-placeholder
-          key: netbox-cli-gh-pages-${{ needs.check-changes.outputs.netbox_cli_sha }}
+          path: /tmp/netbox-sdk-sha-placeholder
+          key: netbox-sdk-gh-pages-${{ needs.check-changes.outputs.netbox_sdk_sha }}
 
   deploy:
     environment:

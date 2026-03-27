@@ -56,13 +56,13 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 
 ---
 
-#### 🖥️ NetBox CLI
-*API-first NetBox client for your terminal with CLI and interactive TUI*
+#### 🖥️ netbox-sdk
+*API-first NetBox SDK for your terminal with CLI and interactive TUI*
 
-[![NetBox CLI Banner](https://img.shields.io/badge/NetBox_CLI-Terminal_%7C_TUI-009688?style=for-the-badge&logo=gnometerminal&logoColor=white)](https://github.com/emersonfelipesp/netbox-cli)
-[![Docs](https://img.shields.io/badge/📚_Documentation-emersonfelipesp.com%2Fnetbox--cli-4285F4?style=for-the-badge)](https://emersonfelipesp.com/netbox-cli/)
+[![netbox-sdk Banner](https://img.shields.io/badge/netbox--sdk-Terminal_%7C_TUI-009688?style=for-the-badge&logo=gnometerminal&logoColor=white)](https://github.com/emersonfelipesp/netbox-sdk)
+[![Docs](https://img.shields.io/badge/📚_Documentation-emersonfelipesp.com%2Fnetbox--sdk-4285F4?style=for-the-badge)](https://emersonfelipesp.com/netbox-sdk/)
 
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-cli&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-cli)
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-sdk&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-sdk)
 
 ---
 
@@ -293,4 +293,3 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 <sub>⭐ From [emersonfelipesp](https://github.com/emersonfelipesp) | Built with ❤️ in Brazil 🇧🇷</sub>
 
 </div>
-
