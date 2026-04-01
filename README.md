@@ -75,21 +75,6 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 
 ---
 
-### 🏆 More Open Source Projects I Author
-
-</div>
-
-<div align="center">
-
-#### 🏪 NetBox Plugins Store
-*Curated collection of NetBox plugins and resources*
-
-[![Plugins Store Banner](https://user-images.githubusercontent.com/24397251/158654881-9256069c-3951-49fd-bb04-88288feb0d74.png)](https://github.com/emersonfelipesp/netbox-plugins-store)
-
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-plugins-store&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-plugins-store)
-
----
-
 #### 📚 NetBox Documentation Translation
 *Official NetBox Documentation translated to Portuguese (pt-br)*
 
