@@ -260,19 +260,6 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 
 <div align="center">
 
-## 🎮 GitHub Story
-
-[![GitHub Skyline 2022](https://img.shields.io/badge/🏙️_2022_Skyline-View-blue?style=for-the-badge)](https://skyline.github.com/emersonfelipesp/2022)
-[![GitHub Skyline 2021](https://img.shields.io/badge/🏙️_2021_Skyline-View-blue?style=for-the-badge)](https://skyline.github.com/emersonfelipesp/2021)
-
-![Snake Animation](https://github.com/emersonfelipesp/emersonfelipesp/blob/output/github-snake.svg)
-
-</div>
-
----
-
-<div align="center">
-
 ### 💬 "Automating networks, one commit at a time"
 
 <sub>⭐ From [emersonfelipesp](https://github.com/emersonfelipesp) | Built with ❤️ in Brazil 🇧🇷</sub>
