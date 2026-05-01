@@ -114,16 +114,48 @@ If you add a new mutating endpoint, add a matching schema under `lib/validators/
 
 ---
 
-## 8. Deployment
+## 8. Running locally
+
+There are two supported run modes — both boot on <http://localhost:3000>.
+
+**Dev (hot reload):**
+
+```bash
+./install.sh dev          # interactive installer, picks dev mode
+# or by hand:
+npm install
+cp .env.example .env      # only the first time
+npx prisma migrate deploy
+npx prisma generate
+npx tsx prisma/seed.ts
+npm run dev               # next dev (Turbopack)
+```
+
+**Prod (optimized build):**
+
+```bash
+./install.sh prod         # interactive installer, picks prod mode
+# or by hand:
+npm install
+cp .env.example .env
+npx prisma migrate deploy
+npx prisma generate
+npm run build             # = prisma generate && next build
+npm run start             # serves the .next build on :3000
+```
+
+`./install.sh` (no arg) shows an interactive menu; `./install.sh setup` runs install + migrate + seed without booting a server. The script checks Node ≥ 20, creates `.env` if missing, and pretty-prints each step.
+
+## 9. Deployment
 
 - Target: **Vercel**. The `CNAME` file (`emersonfelipesp.com`) is preserved so the domain DNS can be repointed from GitHub Pages to Vercel without losing the apex.
 - DNS cutover is the user's call — don't touch it.
-- Build: `npm run build` runs `prisma generate && next build`.
+- Build command on Vercel: `npm run build` (runs `prisma generate && next build`).
 - Set env vars on Vercel: `TURSO_URL`, `TURSO_TOKEN`, optionally `GITHUB_TOKEN` (raises GitHub API rate limit for `lib/github.ts`).
 
 ---
 
-## 9. Conventions & don'ts
+## 10. Conventions & don'ts
 
 **Do**
 - Use `<TypedCommand>` to introduce every section so the page reads like a terminal session.
@@ -141,7 +173,7 @@ If you add a new mutating endpoint, add a matching schema under `lib/validators/
 
 ---
 
-## 10. File map (quick reference)
+## 11. File map (quick reference)
 
 ```
 app/

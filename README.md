@@ -10,15 +10,43 @@ A Next.js 16 + Tailwind 4 + Prisma 7 site with a terminal / NetDevOps aesthetic.
 
 ## Quick start
 
+The fastest path is the interactive installer:
+
+```bash
+./install.sh           # menu: pick dev / prod / setup
+./install.sh dev       # install + run dev server (hot reload)
+./install.sh prod      # install + build + start production server
+./install.sh setup     # install + migrate + seed only (no server)
+./install.sh --help
+```
+
+It checks prerequisites, copies `.env` from `.env.example` if missing, installs deps, runs `prisma migrate deploy`, seeds, then boots the chosen mode on <http://localhost:3000>.
+
+### Run by hand
+
+**Development (hot reload):**
+
 ```bash
 npm install
 cp .env.example .env
-npm run db:migrate
-npm run db:seed
+npx prisma migrate deploy
+npx prisma generate
+npx tsx prisma/seed.ts
 npm run dev
 ```
 
-Then open <http://localhost:3000>.
+**Production (optimized build):**
+
+```bash
+npm install
+cp .env.example .env
+npx prisma migrate deploy
+npx prisma generate
+npm run build       # prisma generate + next build
+npm run start       # serves the .next build on :3000
+```
+
+Both modes serve on <http://localhost:3000>. For prod-on-Vercel, see [`CLAUDE.md`](./CLAUDE.md) §6 for the libSQL/Turso swap.
 
 ## Stack
 
