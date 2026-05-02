@@ -3,7 +3,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { THEMES, useTheme, type Theme } from "./ThemeProvider";
 
-export function ThemeToggle() {
+type Props = { compact?: boolean };
+
+export function ThemeToggle({ compact = false }: Props) {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
@@ -68,18 +70,36 @@ export function ThemeToggle() {
       className="relative inline-block"
       onKeyDown={onKeyDown}
     >
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        className="border border-border px-2 py-1 text-xs hover:border-accent hover:text-accent transition-colors"
-      >
-        <span className="text-muted">--theme=</span>
-        <span className="text-accent">{theme}</span>
-        <span className="text-muted"> ▾</span>
-      </button>
+      {compact ? (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-label={`Theme: ${theme}`}
+          className={`border px-2 py-0.5 text-xs transition-colors ${
+            open
+              ? "border-accent text-accent"
+              : "border-border text-muted hover:border-accent hover:text-accent"
+          }`}
+        >
+          [•••]
+        </button>
+      ) : (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          className="border border-border px-2 py-1 text-xs hover:border-accent hover:text-accent transition-colors"
+        >
+          <span className="text-muted">--theme=</span>
+          <span className="text-accent">{theme}</span>
+          <span className="text-muted"> ▾</span>
+        </button>
+      )}
       {open && (
         <ul
           role="listbox"
