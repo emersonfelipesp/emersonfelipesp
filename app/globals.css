@@ -26,9 +26,9 @@
 :root {
   color-scheme: light;
 
-  --bg: #ffffff;
-  --surface: #f7f7f8;
-  --surface-2: #efeff1;
+  --bg: #f7f5f0;
+  --surface: #efece6;
+  --surface-2: #e7e3da;
   --fg: #0d1117;
   --muted: #6b7280;
   --border: #d1d5db;
