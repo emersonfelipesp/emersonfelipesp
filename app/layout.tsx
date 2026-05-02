@@ -17,12 +17,50 @@ export const metadata: Metadata = {
   },
 };
 
+const VALID_THEMES = [
+  "default-light",
+  "default-dark",
+  "netbox-dark",
+  "netbox-light",
+  "dracula",
+  "tokyo-night",
+  "onedark-pro",
+  "proxmox-dark",
+  "proxmox-light",
+  "monokai",
+];
+const DARK_THEMES = [
+  "default-dark",
+  "netbox-dark",
+  "dracula",
+  "tokyo-night",
+  "onedark-pro",
+  "proxmox-dark",
+  "monokai",
+];
+const NAMED_THEMES = [
+  "netbox-dark",
+  "netbox-light",
+  "dracula",
+  "tokyo-night",
+  "onedark-pro",
+  "proxmox-dark",
+  "proxmox-light",
+  "monokai",
+];
+
 const themeBootScript = `
   (function() {
     try {
+      var valid = ${JSON.stringify(VALID_THEMES)};
+      var dark  = ${JSON.stringify(DARK_THEMES)};
+      var named = ${JSON.stringify(NAMED_THEMES)};
       var stored = localStorage.getItem('theme');
-      var mode = stored === 'light' ? 'light' : 'dark';
-      document.documentElement.classList.toggle('dark', mode === 'dark');
+      var theme = valid.indexOf(stored) >= 0 ? stored : 'default-dark';
+      var root = document.documentElement;
+      if (named.indexOf(theme) >= 0) root.setAttribute('data-theme', theme);
+      else root.removeAttribute('data-theme');
+      root.classList.toggle('dark', dark.indexOf(theme) >= 0);
     } catch (e) {}
   })();
 `;

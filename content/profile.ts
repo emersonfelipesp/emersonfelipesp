@@ -98,6 +98,13 @@ export const featured: FeaturedProject[] = [
   },
 ];
 
+export const homeSections = [
+  { id: "whoami", label: "whoami" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "contact", label: "contact" },
+] as const;
+
 export const profileBanner = String.raw`
   ___                                    _____    _ _
  | __|_ __  ___ _ _ ___ ___ _ _    ___  |  ___|__| (_)_ __  ___

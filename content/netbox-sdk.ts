@@ -47,4 +47,12 @@ export const netboxSdk = {
   |_|\_\___|\__|___/\___/_\_\ |___/___/|_|\_\
    c l i  ·  t u i  ·  s d k  ·  a s y n c
 `,
+  sections: [
+    { id: "overview", label: "overview" },
+    { id: "features", label: "features" },
+    { id: "stack", label: "stack" },
+    { id: "install", label: "install" },
+    { id: "repo", label: "repo" },
+    { id: "links", label: "links" },
+  ],
 };

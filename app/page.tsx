@@ -6,7 +6,9 @@ import { ProfileCard } from "@/components/home/ProfileCard";
 import { SkillsBlock } from "@/components/home/SkillsBlock";
 import { FeaturedProjectsGrid } from "@/components/home/FeaturedProjectsGrid";
 import { ContactForm } from "@/components/home/ContactForm";
-import { profile, profileBanner } from "@/content/profile";
+import { SectionHeading } from "@/components/project/SectionHeading";
+import { SectionNav } from "@/components/nav/SectionNav";
+import { profile, profileBanner, homeSections } from "@/content/profile";
 import { incrementView, readView } from "@/lib/views";
 
 export const dynamic = "force-dynamic";
@@ -21,6 +23,8 @@ export default async function HomePage() {
 
   return (
     <div data-palette="mixed" className="space-y-8">
+      <SectionNav sections={homeSections} />
+
       <TerminalWindow title="~/home">
         <AsciiBanner art={profileBanner} />
         <div className="mt-4 space-y-2">
@@ -43,21 +47,25 @@ export default async function HomePage() {
       </TerminalWindow>
 
       <section className="space-y-3">
+        <SectionHeading id="whoami">whoami</SectionHeading>
         <TypedCommand command="id emerson" />
         <ProfileCard />
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="projects">projects</SectionHeading>
         <TypedCommand command="./list-projects --featured" />
         <FeaturedProjectsGrid />
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="skills">skills</SectionHeading>
         <TypedCommand command="cat ~/.config/skills.toml" />
         <SkillsBlock />
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="contact">contact</SectionHeading>
         <TypedCommand command="echo $ > /var/mail/emerson  # send me a message" />
         <ContactForm />
       </section>

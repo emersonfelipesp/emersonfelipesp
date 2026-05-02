@@ -5,6 +5,8 @@ import { FeatureList } from "@/components/project/FeatureList";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
+import { SectionHeading } from "@/components/project/SectionHeading";
+import { SectionNav } from "@/components/nav/SectionNav";
 import { netboxSdk as p } from "@/content/netbox-sdk";
 import { incrementView, readView } from "@/lib/views";
 
@@ -25,6 +27,8 @@ export default async function Page() {
 
   return (
     <div data-palette={p.palette} className="space-y-8">
+      <SectionNav sections={p.sections} />
+
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero
           banner={p.banner}
@@ -42,6 +46,19 @@ export default async function Page() {
       </TerminalWindow>
 
       <section className="space-y-3">
+        <SectionHeading id="overview">overview</SectionHeading>
+        <TypedCommand command="cat OVERVIEW.md" cwd={`~/${p.slug}`} />
+        <div className="border border-border bg-surface p-5 text-sm">
+          <div className="space-y-3 text-fg/90">
+            {p.description.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <SectionHeading id="features">features</SectionHeading>
         <TypedCommand command="./features --list" cwd={`~/${p.slug}`} />
         <div className="border border-border bg-surface p-5">
           <FeatureList items={p.features} />
@@ -49,6 +66,7 @@ export default async function Page() {
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="stack">stack</SectionHeading>
         <TypedCommand command="cat stack.txt" cwd={`~/${p.slug}`} />
         <div className="border border-border bg-surface p-4 text-sm">
           <ul className="space-y-1">
@@ -62,16 +80,19 @@ export default async function Page() {
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="install">install</SectionHeading>
         <TypedCommand command="install" cwd={`~/${p.slug}`} />
         <InstallSnippet command={p.install.primary} note={p.install.note} />
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="repo">repo</SectionHeading>
         <TypedCommand command="repo:stats" cwd={`~/${p.slug}`} />
         <RepoStatsCard fullName={p.fullName} />
       </section>
 
       <section className="space-y-3">
+        <SectionHeading id="links">links</SectionHeading>
         <TypedCommand command="links" cwd={`~/${p.slug}`} />
         <ul className="border border-border bg-surface p-4 text-sm">
           {Object.entries(p.links).map(([k, v]) => (

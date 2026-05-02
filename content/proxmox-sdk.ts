@@ -47,4 +47,12 @@ export const proxmoxSdk = {
   |_| |_| \___/_\_\_/\_\___/_\_\   |___/___/|_|\_\
    o p e n a p i  ·  f a s t a p i  ·  m o c k + r e a l
 `,
+  sections: [
+    { id: "overview", label: "overview" },
+    { id: "features", label: "features" },
+    { id: "stack", label: "stack" },
+    { id: "install", label: "install" },
+    { id: "repo", label: "repo" },
+    { id: "links", label: "links" },
+  ],
 };
