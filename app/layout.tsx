@@ -21,9 +21,8 @@ const themeBootScript = `
   (function() {
     try {
       var stored = localStorage.getItem('theme');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var mode = stored || (prefersDark ? 'dark' : 'light');
-      if (mode === 'dark') document.documentElement.classList.add('dark');
+      var mode = stored === 'light' ? 'light' : 'dark';
+      document.documentElement.classList.toggle('dark', mode === 'dark');
     } catch (e) {}
   })();
 `;
