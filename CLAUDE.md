@@ -226,3 +226,33 @@ prisma/
   schema.prisma            # ContactMessage, PageView, GitHubStatsCache, Sample
   seed.ts                  # creates initial PageView rows + Sample row
 ```
+
+---
+
+## 12. Folder documentation
+
+Each folder and subfolder has a `CLAUDE.md` with a purpose summary, file-by-file descriptions, and folder-specific conventions.
+
+| Folder | CLAUDE.md | One-line summary |
+|--------|-----------|------------------|
+| `app/` | [app/CLAUDE.md](app/CLAUDE.md) | Next.js App Router root — pages, layouts, global CSS |
+| `app/api/` | [app/api/CLAUDE.md](app/api/CLAUDE.md) | API route handlers; nodejs runtime, Zod-validated |
+| `app/api/contact/` | [app/api/contact/CLAUDE.md](app/api/contact/CLAUDE.md) | `POST /api/contact` — persists contact form submissions |
+| `app/api/views/` | [app/api/views/CLAUDE.md](app/api/views/CLAUDE.md) | `GET/POST /api/views` — page-view counter |
+| `app/netbox-proxbox/` | [app/netbox-proxbox/CLAUDE.md](app/netbox-proxbox/CLAUDE.md) | NetBox-Proxmox plugin showcase page (palette: netbox) |
+| `app/netbox-sdk/` | [app/netbox-sdk/CLAUDE.md](app/netbox-sdk/CLAUDE.md) | NetBox SDK showcase page (palette: netbox) |
+| `app/proxmox-sdk/` | [app/proxmox-sdk/CLAUDE.md](app/proxmox-sdk/CLAUDE.md) | Proxmox SDK showcase page (palette: proxmox) |
+| `components/` | [components/CLAUDE.md](components/CLAUDE.md) | All reusable React/TSX components, grouped by domain |
+| `components/home/` | [components/home/CLAUDE.md](components/home/CLAUDE.md) | Homepage-specific components (ProfileCard, ContactForm, etc.) |
+| `components/nav/` | [components/nav/CLAUDE.md](components/nav/CLAUDE.md) | TopNav and SectionNav |
+| `components/project/` | [components/project/CLAUDE.md](components/project/CLAUDE.md) | Project page building blocks (hero, features, gallery, stats) |
+| `components/terminal/` | [components/terminal/CLAUDE.md](components/terminal/CLAUDE.md) | CLI aesthetic primitives (TerminalWindow, TypedCommand, etc.) |
+| `components/theme/` | [components/theme/CLAUDE.md](components/theme/CLAUDE.md) | ThemeProvider and ThemeToggle — three-axis theme system |
+| `lib/` | [lib/CLAUDE.md](lib/CLAUDE.md) | Server-side utilities: DB singleton, GitHub cache, view helpers |
+| `lib/validators/` | [lib/validators/CLAUDE.md](lib/validators/CLAUDE.md) | Zod schemas for all user input validation |
+| `prisma/` | [prisma/CLAUDE.md](prisma/CLAUDE.md) | Schema, seed script, SQLite dev / Turso prod |
+| `prisma/migrations/` | [prisma/migrations/CLAUDE.md](prisma/migrations/CLAUDE.md) | Auto-generated SQL migration history — do not edit manually |
+| `content/` | [content/CLAUDE.md](content/CLAUDE.md) | Single source of truth for all page copy and project metadata |
+| `public/` | [public/CLAUDE.md](public/CLAUDE.md) | Static assets served at root URL |
+| `public/netbox-proxbox/` | [public/netbox-proxbox/CLAUDE.md](public/netbox-proxbox/CLAUDE.md) | Assets for the netbox-proxbox project page |
+| `public/netbox-proxbox/screenshots/` | [public/netbox-proxbox/screenshots/CLAUDE.md](public/netbox-proxbox/screenshots/CLAUDE.md) | 25 PNG screenshots of the plugin UI |
