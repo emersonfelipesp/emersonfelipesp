@@ -7,7 +7,7 @@
 #        ./install.sh -h        (help)
 set -euo pipefail
 
-# ─── styling ────────────────────────────────────────────────────────────────
+# --- styling -------------------------------------------------------------------
 if [[ -t 1 ]]; then
   BOLD=$'\033[1m'; DIM=$'\033[2m'; RST=$'\033[0m'
   FG_TEAL=$'\033[38;5;43m'; FG_ORANGE=$'\033[38;5;208m'
@@ -47,7 +47,20 @@ run_step() {
   echo
 }
 
-# ─── checks ─────────────────────────────────────────────────────────────────
+# --- package manager detection ------------------------------------------------
+detect_pkg_mgr() {
+  if command -v pnpm >/dev/null 2>&1; then
+    PKG_MGR="pnpm"
+    PKG_X="pnpm exec"
+  else
+    PKG_MGR="npm"
+    PKG_X="npx"
+    warn "pnpm not found — falling back to npm"
+    echo
+  fi
+}
+
+# --- checks -------------------------------------------------------------------
 check_prereqs() {
   info "checking prerequisites"
   command -v node >/dev/null || { fail "node not found — install Node.js 20+"; exit 1; }
@@ -58,11 +71,12 @@ check_prereqs() {
     fail "Node $nv detected — need Node 20 or newer"
     exit 1
   fi
-  ok "node $nv · npm $(npm -v)"
+  detect_pkg_mgr
+  ok "node $nv · $PKG_MGR $($PKG_MGR --version)"
   echo
 }
 
-# ─── steps ──────────────────────────────────────────────────────────────────
+# --- steps --------------------------------------------------------------------
 ensure_env() {
   if [[ ! -f .env ]]; then
     if [[ -f .env.example ]]; then
@@ -78,25 +92,25 @@ ensure_env() {
   echo
 }
 
-install_deps()    { run_step "dependencies installed"  npm install; }
-prisma_generate() { run_step "prisma client generated" npx prisma generate; }
-prisma_migrate()  { run_step "database migrated"       npx prisma migrate deploy; }
-prisma_seed()     { run_step "database seeded"         npx tsx prisma/seed.ts; }
-build_app()       { run_step "production build done"   npm run build; }
+install_deps()    { run_step "dependencies installed"  $PKG_MGR install; }
+prisma_generate() { run_step "prisma client generated" $PKG_X prisma generate; }
+prisma_migrate()  { run_step "database migrated"       $PKG_X prisma migrate deploy; }
+prisma_seed()     { run_step "database seeded"         $PKG_X tsx prisma/seed.ts; }
+build_app()       { run_step "production build done"   $PKG_MGR run build; }
 
 run_dev() {
   info "starting dev server (http://localhost:3000) — Ctrl-C to stop"
   echo
-  exec npm run dev
+  exec $PKG_MGR run dev
 }
 
 run_prod() {
   info "starting production server (http://localhost:3000) — Ctrl-C to stop"
   echo
-  exec npm run start
+  exec $PKG_MGR run start
 }
 
-# ─── modes ──────────────────────────────────────────────────────────────────
+# --- modes --------------------------------------------------------------------
 do_setup() {
   ensure_env
   install_deps
@@ -119,7 +133,7 @@ do_prod() {
   run_prod
 }
 
-# ─── menu ───────────────────────────────────────────────────────────────────
+# --- menu ---------------------------------------------------------------------
 menu() {
   echo
   printf "%spick a mode:%s\n\n" "$BOLD" "$RST"
@@ -155,7 +169,7 @@ ${FG_MUTED}env:${RST}
 EOF
 }
 
-# ─── main ───────────────────────────────────────────────────────────────────
+# --- main ---------------------------------------------------------------------
 banner
 check_prereqs
 
