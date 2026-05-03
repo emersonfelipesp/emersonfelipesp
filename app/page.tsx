@@ -9,17 +9,12 @@ import { ContactForm } from "@/components/home/ContactForm";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { profile, profileBanner, homeSections } from "@/content/profile";
-import { incrementView, readView } from "@/lib/views";
+import { incrementView } from "@/lib/views";
 
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
-  let views = 0;
-  try {
-    views = await incrementView("/");
-  } catch {
-    views = await readView("/").catch(() => 0);
-  }
+export default async function HomePage(): Promise<React.JSX.Element> {
+  const views: number = await incrementView("/");
 
   return (
     <div data-palette="mixed" className="space-y-8">

@@ -144,12 +144,12 @@ There are two supported run modes — both boot on <http://localhost:3000>.
 ```bash
 ./install.sh dev          # interactive installer, picks dev mode
 # or by hand:
-npm install
+pnpm install
 cp .env.example .env      # only the first time
-npx prisma migrate deploy
-npx prisma generate
-npx tsx prisma/seed.ts
-npm run dev               # next dev (Turbopack)
+pnpm exec prisma migrate deploy
+pnpm exec prisma generate
+pnpm db:seed
+pnpm dev                  # next dev (Turbopack)
 ```
 
 **Prod (optimized build):**
@@ -157,21 +157,53 @@ npm run dev               # next dev (Turbopack)
 ```bash
 ./install.sh prod         # interactive installer, picks prod mode
 # or by hand:
-npm install
+pnpm install
 cp .env.example .env
-npx prisma migrate deploy
-npx prisma generate
-npm run build             # = prisma generate && next build
-npm run start             # serves the .next build on :3000
+pnpm exec prisma migrate deploy
+pnpm exec prisma generate
+pnpm build                # = prisma generate && next build
+pnpm start                # serves the .next build on :3000
 ```
 
 `./install.sh` (no arg) shows an interactive menu; `./install.sh setup` runs install + migrate + seed without booting a server. The script checks Node ≥ 20, creates `.env` if missing, and pretty-prints each step.
+
+---
+
+## 8b. Quality checks
+
+```bash
+pnpm lint          # ESLint via eslint.config.js (flat-config, extends eslint-config-next)
+pnpm typecheck     # tsc --noEmit — must run pnpm exec prisma generate first or types are missing
+```
+
+**E2E tests (Playwright, Chromium only):**
+
+```bash
+# Install browsers once
+pnpm exec playwright install --with-deps chromium
+
+# Full suite — requires a production build on :3000
+pnpm build && pnpm start &
+pnpm test:e2e
+
+# Single spec file
+pnpm exec playwright test e2e/smoke.spec.ts
+
+# Filter by test name
+pnpm exec playwright test --grep "theme toggle"
+```
+
+`playwright.config.ts` launches `pnpm start` (prod build) as the web server — not the dev server.
+Locally, `reuseExistingServer: true` so a running `pnpm start` is reused automatically.
+`e2e/` contains four suites: `smoke` (all four routes load), `navigation` (nav links), `theme` (toggle + localStorage persistence), `contact` (form submit → success message).
+
+---
 
 ## 9. Deployment
 
 - Target: **Vercel**. The `CNAME` file (`emersonfelipesp.com`) is preserved so the domain DNS can be repointed from GitHub Pages to Vercel without losing the apex.
 - DNS cutover is the user's call — don't touch it.
-- Build command on Vercel: `npm run build` (runs `prisma generate && next build`).
+- Build command on Vercel: `pnpm build` (runs `prisma generate && next build`).
 - Set env vars on Vercel: `TURSO_URL`, `TURSO_TOKEN`, optionally `GITHUB_TOKEN` (raises GitHub API rate limit for `lib/github.ts`).
 
 ---
@@ -183,6 +215,7 @@ npm run start             # serves the .next build on :3000
 - Cache GitHub responses (already done via `GitHubStatsCache` table + 6h staleness in `lib/github.ts`).
 - Keep `content/*.ts` as the single source of truth for project copy. Pages are pure presentation.
 - Use `data-palette` on the page's outermost `<div>`, not on `<html>`.
+- Run `pnpm typecheck` after any structural change — `pnpm exec prisma generate` must have run first or tsc will error on the missing Prisma client types.
 
 **Don't**
 - Don't add a `tailwind.config.ts` — Tailwind v4 is CSS-first.

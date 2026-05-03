@@ -9,23 +9,19 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { StepList } from "@/components/project/StepList";
 import { ScreenshotGallery } from "@/components/project/ScreenshotGallery";
 import { SectionNav } from "@/components/nav/SectionNav";
+import type { Metadata } from "next";
 import { netboxProxbox as p } from "@/content/netbox-proxbox";
-import { incrementView, readView } from "@/lib/views";
+import { incrementView } from "@/lib/views";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `${p.name} ~ NetBox + Proxmox sync`,
   description: p.tagline,
 };
 
 export const dynamic = "force-dynamic";
 
-export default async function Page() {
-  let views = 0;
-  try {
-    views = await incrementView(`/${p.slug}`);
-  } catch {
-    views = await readView(`/${p.slug}`).catch(() => 0);
-  }
+export default async function Page(): Promise<React.JSX.Element> {
+  const views: number = await incrementView(`/${p.slug}`);
 
   return (
     <div data-palette={p.palette} className="space-y-8">

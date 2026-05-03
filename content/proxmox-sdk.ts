@@ -1,4 +1,6 @@
-export const proxmoxSdk = {
+import type { ProjectContent } from "./types";
+
+export const proxmoxSdk: ProjectContent = {
   slug: "proxmox-sdk",
   name: "proxmox-sdk",
   fullName: "emersonfelipesp/proxmox-sdk",

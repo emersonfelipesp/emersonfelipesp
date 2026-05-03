@@ -1,4 +1,6 @@
-export const netboxSdk = {
+import type { ProjectContent } from "./types";
+
+export const netboxSdk: ProjectContent = {
   slug: "netbox-sdk",
   name: "netbox-sdk",
   fullName: "emersonfelipesp/netbox-sdk",

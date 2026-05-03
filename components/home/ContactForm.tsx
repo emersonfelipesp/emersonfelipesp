@@ -10,9 +10,10 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus("sending");
     setError(null);
-    const fd = new FormData(e.currentTarget);
+    const fd = new FormData(form);
     const payload = {
       name: String(fd.get("name") ?? ""),
       email: String(fd.get("email") ?? ""),
@@ -25,7 +26,7 @@ export function ContactForm() {
     });
     if (res.ok) {
       setStatus("sent");
-      e.currentTarget.reset();
+      form.reset();
     } else {
       const body = (await res.json().catch(() => ({}))) as { error?: string };
       setError(body.error ?? "send failed");

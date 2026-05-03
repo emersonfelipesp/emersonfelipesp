@@ -1,17 +1,18 @@
+import { z } from "zod";
 import { db } from "./db";
 
-const STALE_MS = 1000 * 60 * 60 * 6;
+const CACHE_TTL_MS = 1000 * 60 * 60 * 6; // 6 hours
 
-type GitHubRepo = {
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  description: string | null;
-};
+const githubRepoSchema = z.object({
+  stargazers_count: z.number(),
+  forks_count: z.number(),
+  language: z.string().nullable(),
+  description: z.string().nullable(),
+});
 
-type GitHubRelease = {
-  tag_name: string;
-};
+const githubReleaseSchema = z.object({
+  tag_name: z.string(),
+});
 
 export type RepoStats = {
   fullName: string;
@@ -25,9 +26,11 @@ export type RepoStats = {
 };
 
 export async function getRepoStats(fullName: string): Promise<RepoStats> {
+  if (!fullName) throw new Error("fullName is required");
+
   const cached = await db.gitHubStatsCache.findUnique({ where: { fullName } });
 
-  if (cached && Date.now() - cached.fetchedAt.getTime() < STALE_MS) {
+  if (cached && Date.now() - cached.fetchedAt.getTime() < CACHE_TTL_MS) {
     return { ...cached, cached: true };
   }
 
@@ -39,7 +42,8 @@ export async function getRepoStats(fullName: string): Promise<RepoStats> {
       create: { fullName, ...fresh },
     });
     return { ...saved, cached: false };
-  } catch {
+  } catch (err) {
+    console.error("[github] fetch failed for", fullName, err);
     if (cached) return { ...cached, cached: true };
     return {
       fullName,
@@ -70,7 +74,7 @@ async function fetchFromGitHub(
     next: { revalidate: 3600 },
   });
   if (!repoRes.ok) throw new Error(`github repo ${fullName} ${repoRes.status}`);
-  const repo: GitHubRepo = await repoRes.json();
+  const repo = githubRepoSchema.parse(await repoRes.json());
 
   let latestRelease: string | null = null;
   const relRes = await fetch(
@@ -78,8 +82,8 @@ async function fetchFromGitHub(
     { headers, next: { revalidate: 3600 } },
   );
   if (relRes.ok) {
-    const rel: GitHubRelease = await relRes.json();
-    latestRelease = rel.tag_name ?? null;
+    const rel = githubReleaseSchema.safeParse(await relRes.json());
+    latestRelease = rel.success ? rel.data.tag_name : null;
   }
 
   return {

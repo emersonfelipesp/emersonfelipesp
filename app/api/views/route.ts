@@ -12,27 +12,38 @@ const pathSchema = z.object({
     .max(200),
 });
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<Response> {
   const { searchParams } = new URL(req.url);
   const parsed = pathSchema.safeParse({ path: searchParams.get("path") ?? "" });
   if (!parsed.success) {
-    return NextResponse.json({ error: "invalid path" }, { status: 422 });
+    return NextResponse.json({ error: "invalid_path" }, { status: 422 });
   }
-  const count = await readView(parsed.data.path);
-  return NextResponse.json({ path: parsed.data.path, count });
+  try {
+    const count = await readView(parsed.data.path);
+    return NextResponse.json({ path: parsed.data.path, count });
+  } catch (err) {
+    console.error("[views] read error:", err);
+    return NextResponse.json({ error: "server_error" }, { status: 500 });
+  }
 }
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   let body: unknown;
   try {
     body = await req.json();
-  } catch {
-    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  } catch (err) {
+    console.error("[views] invalid json:", err);
+    return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
   const parsed = pathSchema.safeParse(body);
   if (!parsed.success) {
-    return NextResponse.json({ error: "invalid path" }, { status: 422 });
+    return NextResponse.json({ error: "invalid_path" }, { status: 422 });
   }
-  const count = await incrementView(parsed.data.path);
-  return NextResponse.json({ path: parsed.data.path, count });
+  try {
+    const count = await incrementView(parsed.data.path);
+    return NextResponse.json({ path: parsed.data.path, count }, { status: 201 });
+  } catch (err) {
+    console.error("[views] increment error:", err);
+    return NextResponse.json({ error: "server_error" }, { status: 500 });
+  }
 }

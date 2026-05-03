@@ -7,23 +7,19 @@ import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
+import type { Metadata } from "next";
 import { proxmoxSdk as p } from "@/content/proxmox-sdk";
-import { incrementView, readView } from "@/lib/views";
+import { incrementView } from "@/lib/views";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `${p.name} ~ Schema-driven Proxmox SDK`,
   description: p.tagline,
 };
 
 export const dynamic = "force-dynamic";
 
-export default async function Page() {
-  let views = 0;
-  try {
-    views = await incrementView(`/${p.slug}`);
-  } catch {
-    views = await readView(`/${p.slug}`).catch(() => 0);
-  }
+export default async function Page(): Promise<React.JSX.Element> {
+  const views: number = await incrementView(`/${p.slug}`);
 
   return (
     <div data-palette={p.palette} className="space-y-8">
