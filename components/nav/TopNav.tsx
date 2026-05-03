@@ -43,7 +43,7 @@ export function TopNav() {
     });
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [compact]);
 
   if (compact) {
     return (
