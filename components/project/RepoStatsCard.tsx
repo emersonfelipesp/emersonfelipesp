@@ -15,7 +15,7 @@ export async function RepoStatsCard({ fullName }: Props) {
         <Cell label="lang" value={stats.language ?? "—"} />
         <Cell label="release" value={stats.latestRelease ?? "—"} accent />
       </dl>
-      <p className="mt-2 text-[10px] text-muted">
+      <p className="mt-2 text-xs text-muted">
         {stats.cached ? "↻ cached" : "✓ fresh"} · sourced from
         api.github.com/repos/{fullName}
       </p>

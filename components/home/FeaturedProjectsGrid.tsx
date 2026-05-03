@@ -3,7 +3,7 @@ import { featured } from "@/content/profile";
 
 export function FeaturedProjectsGrid() {
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
+    <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       {featured.map((p) => (
         <Link
           key={p.slug}
@@ -17,7 +17,7 @@ export function FeaturedProjectsGrid() {
             </p>
             <p className="mt-2 text-xs text-fg/80">{p.tagline}</p>
           </div>
-          <p className="mt-3 text-[10px] text-muted">{p.badge}</p>
+          <p className="mt-3 text-xs text-muted">{p.badge}</p>
         </Link>
       ))}
     </div>

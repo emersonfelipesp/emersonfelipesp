@@ -19,7 +19,7 @@ export function InstallSnippet({ command, note }: Props) {
 
   return (
     <div className="border border-border bg-surface-2">
-      <div className="flex items-center justify-between border-b border-border px-3 py-1.5 text-[10px] text-muted">
+      <div className="flex items-center justify-between border-b border-border px-3 py-1.5 text-xs text-muted">
         <span>install</span>
         <button
           type="button"
@@ -34,7 +34,7 @@ export function InstallSnippet({ command, note }: Props) {
         <span className="text-fg">{command}</span>
       </div>
       {note ? (
-        <p className="border-t border-border px-4 py-2 text-[10px] text-muted">
+        <p className="border-t border-border px-4 py-2 text-xs text-muted">
           # {note}
         </p>
       ) : null}

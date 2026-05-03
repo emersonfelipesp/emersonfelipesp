@@ -111,7 +111,7 @@ export default async function Page() {
         </ul>
       </section>
 
-      <p className="text-right text-[10px] text-muted">
+      <p className="text-right text-xs text-muted">
         ~/visits → <span className="text-accent">{views}</span>
       </p>
     </div>

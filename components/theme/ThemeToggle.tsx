@@ -5,6 +5,8 @@ import { THEMES, useTheme, type Theme } from "./ThemeProvider";
 
 type Props = { compact?: boolean };
 
+const NAMED_SEPARATOR_INDEX = THEMES.findIndex((t) => t.group === "named");
+
 export function ThemeToggle({ compact = false }: Props) {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
@@ -15,10 +17,6 @@ export function ThemeToggle({ compact = false }: Props) {
   const currentIndex = THEMES.findIndex((t) => t.name === theme);
 
   useEffect(() => {
-    if (open) setHighlight(currentIndex >= 0 ? currentIndex : 0);
-  }, [open, currentIndex]);
-
-  useEffect(() => {
     if (!open) return;
     function onDocClick(e: MouseEvent) {
       if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
@@ -26,6 +24,19 @@ export function ThemeToggle({ compact = false }: Props) {
     document.addEventListener("mousedown", onDocClick);
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [open]);
+
+  function openDropdown() {
+    setHighlight(currentIndex >= 0 ? currentIndex : 0);
+    setOpen(true);
+  }
+
+  function toggleDropdown() {
+    if (open) {
+      setOpen(false);
+    } else {
+      openDropdown();
+    }
+  }
 
   function pick(next: Theme) {
     setTheme(next);
@@ -37,7 +48,7 @@ export function ThemeToggle({ compact = false }: Props) {
     if (!open) {
       if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
         e.preventDefault();
-        setOpen(true);
+        openDropdown();
       }
       return;
     }
@@ -63,7 +74,6 @@ export function ThemeToggle({ compact = false }: Props) {
     }
   }
 
-  let separatorInjected = false;
   return (
     <div
       ref={rootRef}
@@ -74,7 +84,7 @@ export function ThemeToggle({ compact = false }: Props) {
         <button
           ref={triggerRef}
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={toggleDropdown}
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-label={`Theme: ${theme}`}
@@ -90,7 +100,7 @@ export function ThemeToggle({ compact = false }: Props) {
         <button
           ref={triggerRef}
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={toggleDropdown}
           aria-haspopup="listbox"
           aria-expanded={open}
           className="border border-border px-2 py-1 text-xs hover:border-accent hover:text-accent transition-colors"
@@ -110,8 +120,7 @@ export function ThemeToggle({ compact = false }: Props) {
           {THEMES.map((t, i) => {
             const isActive = t.name === theme;
             const isHighlighted = i === highlight;
-            const showSeparator = t.group === "named" && !separatorInjected;
-            if (showSeparator) separatorInjected = true;
+            const showSeparator = i === NAMED_SEPARATOR_INDEX;
             return (
               <Fragment key={t.name}>
                 {showSeparator && (

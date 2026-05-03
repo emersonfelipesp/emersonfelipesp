@@ -18,7 +18,7 @@ export function CodeSnippet({ code, label = "shell" }: Props) {
 
   return (
     <div className="border border-border bg-surface-2">
-      <div className="flex items-center justify-between border-b border-border px-3 py-1 text-[10px] text-muted">
+      <div className="flex items-center justify-between border-b border-border px-3 py-1 text-xs text-muted">
         <span>{label}</span>
         <button
           type="button"
@@ -28,7 +28,7 @@ export function CodeSnippet({ code, label = "shell" }: Props) {
           {copied ? "copied" : "copy"}
         </button>
       </div>
-      <pre className="overflow-x-auto px-4 py-3 text-xs leading-relaxed text-fg">
+      <pre className="overflow-x-auto px-4 py-3 text-xs sm:text-sm leading-relaxed text-fg">
         {code}
       </pre>
     </div>

@@ -129,7 +129,7 @@ export default async function Page() {
         className="flex items-center gap-3 py-4 text-muted"
       >
         <span className="h-px flex-1 bg-border" />
-        <span className="text-[10px]">// screenshots</span>
+        <span className="text-xs">{"// screenshots"}</span>
         <span className="h-px flex-1 bg-border" />
       </div>
 
@@ -143,7 +143,7 @@ export default async function Page() {
         className="flex items-center gap-3 py-4 text-muted"
       >
         <span className="h-px flex-1 bg-border" />
-        <span className="text-[10px]">// repo</span>
+        <span className="text-xs">{"// repo"}</span>
         <span className="h-px flex-1 bg-border" />
       </div>
 
@@ -173,7 +173,7 @@ export default async function Page() {
         </ul>
       </section>
 
-      <p className="text-right text-[10px] text-muted">
+      <p className="text-right text-xs text-muted">
         ~/visits → <span className="text-accent">{views}</span>
       </p>
     </div>

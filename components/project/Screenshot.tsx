@@ -17,7 +17,7 @@ export function Screenshot({ src, alt, caption, onZoom }: Props) {
       </summary>
 
       <div className="screenshot-body mt-3 border border-border bg-surface-2">
-        <div className="flex items-center justify-between border-b border-border px-2 py-1 text-[10px] text-muted">
+        <div className="flex items-center justify-between border-b border-border px-2 py-1 text-xs text-muted">
           <div className="flex items-center gap-1">
             <span className="inline-block h-2 w-2 rounded-full bg-danger/70" />
             <span className="inline-block h-2 w-2 rounded-full bg-warn/70" />

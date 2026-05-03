@@ -77,7 +77,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-bg text-fg antialiased">
         <ThemeProvider>
-          <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6 sm:px-6">
+          <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6 sm:px-6 xl:max-w-6xl xl:px-8">
             <TopNav />
             <main className="flex-1 pt-6">{children}</main>
             <footer className="mt-12 border-t border-border pt-4 text-xs text-muted">

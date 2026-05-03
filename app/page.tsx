@@ -41,7 +41,7 @@ export default async function HomePage() {
                 {p}
               </p>
             ))}
-            <p className="mt-3 text-accent-2">// {profile.motto}</p>
+            <p className="mt-3 text-accent-2">{"// "}{profile.motto}</p>
           </OutputBlock>
         </div>
       </TerminalWindow>
@@ -70,7 +70,7 @@ export default async function HomePage() {
         <ContactForm />
       </section>
 
-      <p className="text-right text-[10px] text-muted">
+      <p className="text-right text-xs text-muted">
         $ wc -l /var/log/visits ~/  →{" "}
         <span className="text-accent">{views}</span> visits to ~/home
       </p>

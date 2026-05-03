@@ -6,7 +6,7 @@ type Props = {
 
 export function BadgeRow({ badges }: Props) {
   return (
-    <div className="flex flex-wrap gap-2 text-[10px]">
+    <div className="flex flex-wrap gap-2 text-xs">
       {badges.map((b) => (
         <span
           key={b.label}

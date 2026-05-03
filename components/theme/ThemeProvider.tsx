@@ -47,29 +47,29 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(DEFAULT_THEME);
+function applyTheme(next: Theme) {
+  const entry = THEME_INDEX[next];
+  if (!entry) return;
+  const root = document.documentElement;
+  if (entry.group === "named") root.setAttribute("data-theme", next);
+  else root.removeAttribute("data-theme");
+  root.classList.toggle("dark", entry.dark);
+}
 
-  useEffect(() => {
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>(() => {
     const stored =
       (typeof window !== "undefined" && localStorage.getItem("theme")) || null;
-    const initial: Theme =
-      stored && THEME_INDEX[stored] ? (stored as Theme) : DEFAULT_THEME;
-    apply(initial);
-    setThemeState(initial);
-  }, []);
+    return stored && THEME_INDEX[stored] ? (stored as Theme) : DEFAULT_THEME;
+  });
 
-  function apply(next: Theme) {
-    const entry = THEME_INDEX[next];
-    if (!entry) return;
-    const root = document.documentElement;
-    if (entry.group === "named") root.setAttribute("data-theme", next);
-    else root.removeAttribute("data-theme");
-    root.classList.toggle("dark", entry.dark);
-  }
+  useEffect(() => {
+    applyTheme(theme);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Sync DOM on mount; subsequent changes go through setTheme
 
   function setTheme(next: Theme) {
-    apply(next);
+    applyTheme(next);
     localStorage.setItem("theme", next);
     setThemeState(next);
   }
