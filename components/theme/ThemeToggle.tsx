@@ -104,6 +104,7 @@ export function ThemeToggle({ compact = false }: Props) {
         <ul
           role="listbox"
           aria-label="Theme"
+          style={{ animation: "slide-in-down 150ms ease-out" }}
           className="absolute right-0 z-50 mt-1 min-w-[12rem] border border-border bg-surface py-1 text-xs shadow-lg"
         >
           {THEMES.map((t, i) => {

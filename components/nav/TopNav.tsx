@@ -49,7 +49,9 @@ export function TopNav() {
     return (
       <nav
         ref={navRef}
+        key="compact"
         aria-label="Top navigation"
+        style={{ animation: "fade-in 120ms ease-out" }}
         className="sticky top-0 z-40 border border-border bg-surface/90 px-3 py-2 backdrop-blur"
       >
         <ul className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
@@ -82,7 +84,9 @@ export function TopNav() {
   return (
     <nav
       ref={navRef}
+      key="full"
       aria-label="Top navigation"
+      style={{ animation: "fade-in 120ms ease-out" }}
       className="sticky top-0 z-40 flex flex-col gap-3 border border-border bg-surface/90 px-4 py-3 backdrop-blur sm:flex-row sm:items-center sm:justify-between"
     >
       <div className="flex items-center gap-2 text-xs sm:gap-3">

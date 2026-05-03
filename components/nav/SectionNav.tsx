@@ -54,7 +54,7 @@ export function SectionNav({ sections }: Props) {
                 href={`#${s.id}`}
                 onClick={(e) => handleClick(e, s.id)}
                 aria-current={isActive ? "true" : undefined}
-                className={`border px-2 py-0.5 transition-colors ${
+                className={`border px-2 py-0.5 transition-all duration-150 ${
                   isActive
                     ? "border-accent text-accent"
                     : "border-border text-muted hover:border-accent hover:text-accent"

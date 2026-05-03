@@ -62,15 +62,15 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="border border-accent bg-accent/10 px-3 py-1 text-xs text-accent hover:bg-accent/20 disabled:opacity-50"
+          className="border border-accent bg-accent/10 px-3 py-1 text-xs text-accent transition-colors duration-150 hover:bg-accent/20 disabled:opacity-50"
         >
           {status === "sending" ? "sending..." : "$ send"}
         </button>
         {status === "sent" ? (
-          <span className="text-xs text-success">✓ message stored locally</span>
+          <span style={{ animation: "fade-in 200ms ease-out" }} className="text-xs text-success">✓ message stored locally</span>
         ) : null}
         {status === "error" ? (
-          <span className="text-xs text-danger">✗ {error}</span>
+          <span style={{ animation: "fade-in 200ms ease-out" }} className="text-xs text-danger">✗ {error}</span>
         ) : null}
       </div>
     </form>

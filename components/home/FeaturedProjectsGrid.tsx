@@ -8,7 +8,7 @@ export function FeaturedProjectsGrid() {
         <Link
           key={p.slug}
           href={p.href}
-          className="group flex flex-col justify-between border border-border bg-surface p-4 transition-colors hover:border-accent"
+          className="group flex flex-col justify-between border border-border bg-surface p-4 transition-all duration-200 hover:border-accent hover:-translate-y-px"
         >
           <div>
             <p className="text-xs text-muted">$ ./run --project</p>

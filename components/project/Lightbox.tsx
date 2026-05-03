@@ -75,7 +75,7 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
             type="button"
             aria-label="Previous screenshot"
             onClick={() => onIndexChange(index - 1)}
-            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 border border-border bg-surface/80 px-2 py-1 text-sm text-muted backdrop-blur hover:border-accent hover:text-accent"
+            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 border border-border bg-surface/80 px-2 py-1 text-sm text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
           >
             ‹ prev
           </button>
@@ -85,7 +85,7 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
             type="button"
             aria-label="Next screenshot"
             onClick={() => onIndexChange(index + 1)}
-            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 border border-border bg-surface/80 px-2 py-1 text-sm text-muted backdrop-blur hover:border-accent hover:text-accent"
+            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 border border-border bg-surface/80 px-2 py-1 text-sm text-muted backdrop-blur transition-colors hover:border-accent hover:text-accent"
           >
             next ›
           </button>
