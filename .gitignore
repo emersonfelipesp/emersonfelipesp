@@ -12,3 +12,6 @@ prisma/migrations/dev/
 *.log
 .vercel
 next-env.d.ts
+tsconfig.tsbuildinfo
+playwright-report/
+test-results/
