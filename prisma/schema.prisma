@@ -1,0 +1,36 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model PageView {
+  path      String   @id
+  count     Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model GitHubStatsCache {
+  fullName      String   @id
+  stars         Int
+  forks         Int
+  language      String?
+  description   String?
+  latestRelease String?
+  fetchedAt     DateTime @updatedAt
+}
+
+model Sample {
+  id    String @id @default(cuid())
+  label String
+}
