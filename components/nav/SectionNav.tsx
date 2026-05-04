@@ -43,7 +43,7 @@ export function SectionNav({ sections }: Props) {
   return (
     <nav
       aria-label="Section navigation"
-      className="sticky top-[var(--topnav-h,0px)] z-30 border border-t-0 border-border bg-surface/90 px-3 backdrop-blur"
+      className="sticky top-[var(--topnav-h,3.125rem)] z-30 border border-t-0 border-border bg-surface/90 px-3 backdrop-blur"
     >
       <ul className="nav-magnetic flex flex-wrap gap-y-2 text-xs">
         {sections.map((s) => {
