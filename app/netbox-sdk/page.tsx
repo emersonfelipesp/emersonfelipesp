@@ -4,6 +4,7 @@ import { ProjectHero } from "@/components/project/ProjectHero";
 import { FeatureList } from "@/components/project/FeatureList";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { InstallSimulator } from "@/components/project/InstallSimulator";
+import { DemoInitRunner } from "@/components/project/DemoInitRunner";
 import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
@@ -11,6 +12,7 @@ import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
 import type { Metadata } from "next";
 import { netboxSdk as p } from "@/content/netbox-sdk";
+import { getNetboxSdkMeta } from "@/lib/netbox-sdk-meta";
 
 export const metadata: Metadata = {
   title: `${p.name} ~ NetBox SDK + CLI + TUI`,
@@ -18,6 +20,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Page(): Promise<React.JSX.Element> {
+  const liveMeta = await getNetboxSdkMeta();
+  const meta = {
+    netbox: liveMeta?.netbox ?? p.meta.netbox,
+    python: liveMeta?.python ?? p.meta.python,
+    latestRelease: liveMeta?.latestRelease ?? p.meta.latestRelease,
+  };
 
   return (
     <div data-palette={p.palette} className="space-y-8">
@@ -33,9 +41,9 @@ export default async function Page(): Promise<React.JSX.Element> {
         />
         <BadgeRow
           badges={[
-            { label: "netbox", value: p.meta.netbox },
-            { label: "python", value: p.meta.python },
-            { label: "release", value: p.meta.latestRelease },
+            { label: "netbox", value: meta.netbox },
+            { label: "python", value: meta.python },
+            { label: "release", value: meta.latestRelease },
           ]}
         />
         {p.install.runScript ? (
@@ -47,6 +55,9 @@ export default async function Page(): Promise<React.JSX.Element> {
             />
           </div>
         ) : null}
+        <div className="mt-4">
+          <DemoInitRunner />
+        </div>
       </TerminalWindow>
 
       <section className="space-y-3">
@@ -97,7 +108,7 @@ export default async function Page(): Promise<React.JSX.Element> {
           stars={p.meta.stars ?? 0}
           forks={p.meta.forks ?? 0}
           language="Python"
-          latestRelease={p.meta.latestRelease}
+          latestRelease={meta.latestRelease}
         />
       </section>
 
