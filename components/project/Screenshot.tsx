@@ -37,6 +37,8 @@ export function Screenshot({ src, alt, caption, onZoom }: Props) {
               src={src}
               alt={alt}
               loading="lazy"
+              width={1920}
+              height={1080}
               className="block h-auto w-full"
             />
           </button>

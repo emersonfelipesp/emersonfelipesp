@@ -14,7 +14,17 @@ export const metadata: Metadata = {
       "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
     url: "https://emersonfelipesp.com",
     type: "website",
+    siteName: "emersonfelipesp.com",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "emersonfelipesp ~ NetDevOps & Network Automation",
+    description:
+      "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
+    creator: "@emersonfelipesp",
+  },
+  authors: [{ name: "Emerson Felipe", url: "https://emersonfelipesp.com" }],
+  category: "technology",
 };
 
 const VALID_THEMES = [
@@ -76,6 +86,28 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
       <body className="min-h-screen bg-bg text-fg antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Emerson Felipe",
+              url: "https://emersonfelipesp.com",
+              jobTitle: "Software Developer & Network Automation Engineer",
+              worksFor: { "@type": "Organization", name: "N-Multifibra" },
+              address: { "@type": "PostalAddress", addressLocality: "Cotia", addressRegion: "São Paulo", addressCountry: "BR" },
+              sameAs: [
+                "https://github.com/emersonfelipesp",
+                "https://www.linkedin.com/in/emersonfelipesp/",
+              ],
+              knowsAbout: [
+                "Network Automation", "Python", "NetBox", "Proxmox",
+                "BGP", "MPLS", "FastAPI", "Next.js", "TypeScript",
+              ],
+            }),
+          }}
+        />
         <ThemeProvider>
           <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6 sm:px-6 xl:max-w-6xl xl:px-8">
             <TopNav />

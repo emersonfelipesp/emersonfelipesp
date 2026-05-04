@@ -1,0 +1,79 @@
+# emersonfelipesp.com
+
+> Personal portfolio and open-source project showcase for Emerson Felipe — Software Developer and Network Automation Engineer based in Cotia, São Paulo, Brazil.
+
+## About
+
+Emerson Felipe is a software developer and network automation engineer passionate about Service Provider networks and open-source tooling. He works at N-Multifibra and contributes to the @netbox-community and @netdevopsbr communities.
+
+- **Role**: Software Developer & Network Automation Engineer
+- **Location**: Cotia, São Paulo, Brazil
+- **Company**: N-Multifibra (@N-Multifibra)
+- **Email**: emersonfelipe.2003@gmail.com
+- **GitHub**: https://github.com/emersonfelipesp
+- **LinkedIn**: https://www.linkedin.com/in/emersonfelipesp/
+- **Telegram**: https://t.me/emersonfelipesp
+
+## Open-Source Projects
+
+### netbox-proxbox
+- **URL**: https://emersonfelipesp.com/netbox-proxbox
+- **GitHub**: https://github.com/N-Multifibra/netbox-proxbox
+- **Stars**: 539+
+- **Description**: A NetBox plugin that synchronizes Proxmox virtual machine and container infrastructure into NetBox. Enables DCIM/IPAM teams to keep their NetBox source of truth automatically up to date with their Proxmox hypervisor inventory.
+- **Stack**: Python, Django (NetBox plugin system), FastAPI (proxbox-api backend), Server-Sent Events (SSE) for real-time sync progress
+- **Install**: `pip install netbox-proxbox`
+- **Status**: Active, production-used at N-Multifibra
+
+### netbox-sdk
+- **URL**: https://emersonfelipesp.com/netbox-sdk
+- **GitHub**: https://github.com/emersonfelipesp/netbox-sdk
+- **Stars**: 14
+- **Description**: A modern Python async SDK for interacting with the NetBox REST API, bundled with a CLI and a TUI (terminal user interface). Built with httpx, pydantic, and Typer. The TUI ships with 8 theme presets derived from popular editor themes (Dracula, Tokyo Night, One Dark Pro, Monokai, etc.).
+- **Stack**: Python, httpx (async HTTP), Pydantic (data validation), Typer (CLI), Textual (TUI)
+- **Install**: `pip install netbox-sdk`
+- **Latest release**: v0.0.7.post6
+
+### proxmox-sdk
+- **URL**: https://emersonfelipesp.com/proxmox-sdk
+- **GitHub**: https://github.com/emersonfelipesp/proxmox-sdk
+- **Description**: A schema-driven Python SDK for the Proxmox REST API, auto-generated from the official Proxmox OpenAPI specification. Provides a FastAPI application layer on top of raw Proxmox API calls, with full type safety via Pydantic models.
+- **Stack**: Python, FastAPI, Pydantic, OpenAPI/Swagger codegen
+- **Install**: `pip install proxmox-sdk`
+- **Status**: Alpha
+
+## Technical Skills
+
+- **Languages**: Python, JavaScript, TypeScript, Go, HTML, CSS
+- **Frameworks**: Django, FastAPI, Next.js, Bootstrap, Jinja2
+- **Databases**: PostgreSQL, MongoDB, SQLite
+- **Platforms**: NetBox, Proxmox, Docker, Zabbix, Grafana, Linux
+- **Network vendors**: Cisco, Huawei, Mikrotik, Dell, A10 Networks
+- **Domains**: DCIM/IPAM, BGP, MPLS L2VPN, GPON, RPKI, Network Automation
+
+## Site Architecture
+
+This website is built with:
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Language**: TypeScript 6
+- **Styling**: Tailwind CSS v4 (CSS-first, no config file)
+- **Hosting**: Vercel
+- **Design aesthetic**: Terminal / CLI — monospace only, ASCII banners, box-drawing characters, prompt-style section headers
+
+The site supports 10 color themes: `default-light`, `default-dark`, `netbox-dark`, `netbox-light`, `dracula`, `tokyo-night`, `onedark-pro`, `proxmox-dark`, `proxmox-light`, `monokai`. Theme is persisted in `localStorage`.
+
+## Pages
+
+- `/` — Profile, bio, featured projects grid, skills, contact form
+- `/netbox-proxbox` — Full showcase for the netbox-proxbox plugin including screenshots, installation guide (3 paths), configuration steps, and repo stats
+- `/netbox-sdk` — Showcase for the NetBox SDK with features, install instructions, and repo stats
+- `/proxmox-sdk` — Showcase for the Proxmox SDK with features, install instructions, and repo stats
+- `/sitemap.xml` — XML sitemap
+- `/robots.txt` — Crawl directives
+- `/llms.txt` — This file
+
+## Contact
+
+To reach Emerson: emersonfelipe.2003@gmail.com
+
+The contact form on the homepage (`/`) accepts name, email, and message. Form submissions are validated server-side with Zod.
