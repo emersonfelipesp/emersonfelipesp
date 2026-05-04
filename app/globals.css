@@ -323,3 +323,41 @@ textarea:focus-visible {
     }
   }
 }
+
+@supports (anchor-name: --magnetic) {
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-magnetic {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .nav-magnetic::before {
+      content: "";
+      position: absolute;
+      position-anchor: --magnetic;
+      left: anchor(left);
+      top: anchor(top);
+      width: anchor-size(width);
+      height: anchor-size(height);
+      background: var(--surface-2);
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+      transition:
+        left 260ms cubic-bezier(0.2, 0.7, 0, 1),
+        top 260ms cubic-bezier(0.2, 0.7, 0, 1),
+        width 260ms cubic-bezier(0.2, 0.7, 0, 1),
+        height 260ms cubic-bezier(0.2, 0.7, 0, 1),
+        opacity 140ms ease-out;
+    }
+
+    .nav-magnetic:has(a:is(:hover, :focus-visible))::before {
+      opacity: 1;
+    }
+
+    .nav-magnetic a:is(:hover, :focus-visible) {
+      anchor-name: --magnetic;
+    }
+  }
+}
