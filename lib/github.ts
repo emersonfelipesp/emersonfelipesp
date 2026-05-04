@@ -28,7 +28,14 @@ export type RepoStats = {
 export async function getRepoStats(fullName: string): Promise<RepoStats> {
   if (!fullName) throw new Error("fullName is required");
 
-  const cached = await db.gitHubStatsCache.findUnique({ where: { fullName } });
+  let cached: Awaited<
+    ReturnType<typeof db.gitHubStatsCache.findUnique>
+  > = null;
+  try {
+    cached = await db.gitHubStatsCache.findUnique({ where: { fullName } });
+  } catch {
+    // DB unavailable — skip cache lookup
+  }
 
   if (cached && Date.now() - cached.fetchedAt.getTime() < CACHE_TTL_MS) {
     return { ...cached, cached: true };
@@ -36,12 +43,16 @@ export async function getRepoStats(fullName: string): Promise<RepoStats> {
 
   try {
     const fresh = await fetchFromGitHub(fullName);
-    const saved = await db.gitHubStatsCache.upsert({
-      where: { fullName },
-      update: fresh,
-      create: { fullName, ...fresh },
-    });
-    return { ...saved, cached: false };
+    try {
+      const saved = await db.gitHubStatsCache.upsert({
+        where: { fullName },
+        update: fresh,
+        create: { fullName, ...fresh },
+      });
+      return { ...saved, cached: false };
+    } catch {
+      return { fullName, ...fresh, fetchedAt: new Date(), cached: false };
+    }
   } catch (err) {
     console.error("[github] fetch failed for", fullName, err);
     if (cached) return { ...cached, cached: true };
