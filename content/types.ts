@@ -10,7 +10,8 @@ export type SimStep =
   | { kind: "spinner"; label: string; ms: number; ok: string }
   | { kind: "warn"; text: string }
   | { kind: "blank" }
-  | { kind: "tip"; cmd: string; comment?: string };
+  | { kind: "tip"; cmd: string; comment?: string }
+  | { kind: "prompt"; cmd: string; cwd?: string };
 
 export type ProjectMeta = {
   license?: string;

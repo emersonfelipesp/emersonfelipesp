@@ -83,6 +83,8 @@ export const netboxSdk: ProjectContent = {
         ],
       },
       { kind: "blank" },
+      { kind: "prompt", cmd: "nbx demo init" },
+      { kind: "blank" },
       {
         kind: "tip",
         cmd: "nbx demo init",

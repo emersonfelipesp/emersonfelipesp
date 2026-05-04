@@ -24,7 +24,8 @@ type Line =
   | { kind: "ok"; text: string }
   | { kind: "warn"; text: string }
   | { kind: "blank" }
-  | { kind: "tip"; cmd: string; comment?: string; runId?: RunId };
+  | { kind: "tip"; cmd: string; comment?: string; runId?: RunId }
+  | { kind: "prompt"; cmd: string; cwd?: string };
 
 type Status = "idle" | "running" | "done";
 
@@ -154,6 +155,7 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
             <LineView
               key={idx}
               line={line}
+              cwd={cwd}
               activeRun={subRun}
               onPick={(id) => setSubRun((cur) => (cur === id ? null : id))}
             />
@@ -193,10 +195,12 @@ function jitter(reduce: boolean) {
 
 function LineView({
   line,
+  cwd,
   activeRun,
   onPick,
 }: {
   line: Line;
+  cwd: string;
   activeRun: RunId | null;
   onPick: (id: RunId) => void;
 }) {
@@ -240,6 +244,13 @@ function LineView({
       );
     case "blank":
       return <div>{" "}</div>;
+    case "prompt":
+      return (
+        <div>
+          <Prompt cwd={line.cwd ?? cwd} />
+          <span className="text-fg">{line.cmd}</span>
+        </div>
+      );
     case "tip": {
       const runId = line.runId;
       const isActive = runId !== undefined && activeRun === runId;
