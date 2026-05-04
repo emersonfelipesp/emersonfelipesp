@@ -138,13 +138,13 @@ export function SideTOC({ sections }: Props) {
     <nav
       aria-label="Section sub-table of contents"
       aria-hidden={!reveal}
-      className={`fixed left-3 top-[calc(var(--topnav-h,0px)+5rem)] z-30 hidden w-44 2xl:block transition-[opacity,transform] duration-300 ease-out ${
+      className={`fixed left-3 top-[calc(var(--topnav-h,0px)+5rem)] z-30 hidden max-h-[calc(100vh-var(--topnav-h,0px)-6rem)] w-[calc((100vw-72rem)/2-1.5rem)] overflow-y-auto pr-2 xl:block transition-[opacity,transform] duration-300 ease-out ${
         reveal
           ? "opacity-100 translate-x-0"
           : "pointer-events-none -translate-x-2 opacity-0"
       }`}
     >
-      <p className="mb-2 truncate pl-3 text-[10px] uppercase tracking-widest text-muted">
+      <p className="mb-2 break-words pl-3 text-[10px] uppercase tracking-widest text-muted">
         {"// "}
         {sectionLabel}
       </p>
@@ -164,8 +164,7 @@ export function SideTOC({ sections }: Props) {
                 href={`#${it.id}`}
                 onClick={(e) => handleClick(e, it.id)}
                 aria-current={isActive ? "true" : undefined}
-                title={it.label}
-                className={`block truncate py-1 transition-colors duration-150 ${
+                className={`flex gap-1.5 break-words py-1 transition-colors duration-150 ${
                   isGroup
                     ? isActive
                       ? "-ml-3 -my-px border-l-2 border-accent pl-3 text-accent"
@@ -177,15 +176,20 @@ export function SideTOC({ sections }: Props) {
               >
                 {isGroup ? (
                   <>
-                    <span className="text-accent">#</span> {it.label}
+                    <span className="shrink-0 text-accent">#</span>
+                    <span className="min-w-0 flex-1 break-words">
+                      {it.label}
+                    </span>
                   </>
                 ) : (
                   <>
-                    <span className="text-accent/70">→</span>{" "}
-                    <span className="text-accent">
+                    <span className="shrink-0 text-accent/70">→</span>
+                    <span className="shrink-0 text-accent">
                       {String(it.num ?? 0).padStart(2, "0")}.
-                    </span>{" "}
-                    {it.label}
+                    </span>
+                    <span className="min-w-0 flex-1 break-words">
+                      {it.label}
+                    </span>
                   </>
                 )}
               </a>
