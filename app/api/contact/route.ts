@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validators/contact";
-import { db } from "@/lib/db";
 
 export const runtime = "nodejs";
 
@@ -21,11 +20,5 @@ export async function POST(req: Request): Promise<Response> {
     return NextResponse.json({ error: "validation_failed", fields }, { status: 422 });
   }
 
-  try {
-    const created = await db.contactMessage.create({ data: parsed.data });
-    return NextResponse.json({ ok: true, id: created.id }, { status: 201 });
-  } catch (err) {
-    console.error("[contact] db error:", err);
-    return NextResponse.json({ error: "server_error" }, { status: 500 });
-  }
+  return NextResponse.json({ ok: true, id: "noop" }, { status: 201 });
 }

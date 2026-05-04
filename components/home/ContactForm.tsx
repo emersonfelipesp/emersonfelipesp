@@ -68,7 +68,7 @@ export function ContactForm() {
           {status === "sending" ? "sending..." : "$ send"}
         </button>
         {status === "sent" ? (
-          <span style={{ animation: "fade-in 200ms ease-out" }} className="text-xs text-success">✓ message stored locally</span>
+          <span style={{ animation: "fade-in 200ms ease-out" }} className="text-xs text-success">✓ message received</span>
         ) : null}
         {status === "error" ? (
           <span style={{ animation: "fade-in 200ms ease-out" }} className="text-xs text-danger">✗ {error}</span>

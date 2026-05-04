@@ -9,13 +9,7 @@ import { ContactForm } from "@/components/home/ContactForm";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { profile, profileBanner, homeSections } from "@/content/profile";
-import { incrementView } from "@/lib/views";
-
-export const dynamic = "force-dynamic";
-
 export default async function HomePage(): Promise<React.JSX.Element> {
-  const views: number = await incrementView("/");
-
   return (
     <div data-palette="mixed" className="space-y-8">
       <SectionNav sections={homeSections} />
@@ -65,10 +59,6 @@ export default async function HomePage(): Promise<React.JSX.Element> {
         <ContactForm />
       </section>
 
-      <p className="text-right text-xs text-muted">
-        $ wc -l /var/log/visits ~/  →{" "}
-        <span className="text-accent">{views}</span> visits to ~/home
-      </p>
     </div>
   );
 }

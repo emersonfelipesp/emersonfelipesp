@@ -11,17 +11,13 @@ import { ScreenshotGallery } from "@/components/project/ScreenshotGallery";
 import { SectionNav } from "@/components/nav/SectionNav";
 import type { Metadata } from "next";
 import { netboxProxbox as p } from "@/content/netbox-proxbox";
-import { incrementView } from "@/lib/views";
 
 export const metadata: Metadata = {
   title: `${p.name} ~ NetBox + Proxmox sync`,
   description: p.tagline,
 };
 
-export const dynamic = "force-dynamic";
-
 export default async function Page(): Promise<React.JSX.Element> {
-  const views: number = await incrementView(`/${p.slug}`);
 
   return (
     <div data-palette={p.palette} className="space-y-8">
@@ -146,7 +142,13 @@ export default async function Page(): Promise<React.JSX.Element> {
       <section className="space-y-3">
         <SectionHeading id="repo">repo</SectionHeading>
         <TypedCommand command="repo:stats" cwd={`~/${p.slug}`} />
-        <RepoStatsCard fullName={p.fullName} />
+        <RepoStatsCard
+          fullName={p.fullName}
+          stars={p.meta.stars ?? 0}
+          forks={p.meta.forks ?? 0}
+          language="Python"
+          latestRelease={p.meta.latestRelease}
+        />
       </section>
 
       <section className="space-y-3">
@@ -169,9 +171,6 @@ export default async function Page(): Promise<React.JSX.Element> {
         </ul>
       </section>
 
-      <p className="text-right text-xs text-muted">
-        ~/visits → <span className="text-accent">{views}</span>
-      </p>
     </div>
   );
 }
