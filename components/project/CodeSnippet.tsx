@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCopySnippet } from "./use-copy-snippet";
 
 type Props = {
   code: string;
@@ -8,24 +8,24 @@ type Props = {
 };
 
 export function CodeSnippet({ code, label = "shell" }: Props) {
-  const [copied, setCopied] = useState(false);
-
-  async function copy() {
-    await navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  }
+  const { ref, copied, handleClick, handleButtonClick } = useCopySnippet(code);
 
   return (
-    <div className="border border-border bg-surface-2">
-      <div className="flex items-center justify-between border-b border-border px-3 py-1 text-xs text-muted">
+    <div
+      ref={ref}
+      className="group cursor-pointer border border-border bg-surface-2"
+      onClick={handleClick}
+    >
+      <div className="flex items-center justify-between px-3 pt-1 text-xs text-muted">
         <span>{label}</span>
         <button
           type="button"
-          onClick={copy}
-          className="border border-border px-2 py-0.5 hover:border-accent hover:text-accent"
+          onClick={handleButtonClick}
+          className={`transition-opacity hover:text-accent focus-visible:opacity-100 group-hover:opacity-100 ${
+            copied ? "text-accent opacity-100" : "opacity-0"
+          }`}
         >
-          {copied ? "copied" : "copy"}
+          {copied ? "copied!" : "copy"}
         </button>
       </div>
       <pre className="overflow-x-auto px-4 py-3 text-xs sm:text-sm leading-relaxed text-fg">
