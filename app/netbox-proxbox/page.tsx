@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { StepList } from "@/components/project/StepList";
 import { ScreenshotGallery } from "@/components/project/ScreenshotGallery";
 import { SectionNav } from "@/components/nav/SectionNav";
+import { SideTOC } from "@/components/nav/SideTOC";
 import type { Metadata } from "next";
 import { netboxProxbox as p } from "@/content/netbox-proxbox";
 
@@ -22,6 +23,7 @@ export default async function Page(): Promise<React.JSX.Element> {
   return (
     <div data-palette={p.palette} className="space-y-8">
       <SectionNav sections={p.sections} />
+      <SideTOC sections={p.sections} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero
@@ -76,7 +78,12 @@ export default async function Page(): Promise<React.JSX.Element> {
       <section className="space-y-4">
         <SectionHeading id="install">install</SectionHeading>
         <TypedCommand command="./install --help" cwd={`~/${p.slug}`} />
-        <p className="text-xs text-muted">
+        <p
+          id="install-quick"
+          data-toc-group=""
+          data-toc-label="quick install (PyPI)"
+          className="scroll-mt-24 text-xs text-muted"
+        >
           <span className="text-accent">#</span> quick install (PyPI):
         </p>
         <InstallSnippet command={p.install.primary} note={p.install.note} />

@@ -8,11 +8,13 @@ import { FeaturedProjectsGrid } from "@/components/home/FeaturedProjectsGrid";
 import { ContactForm } from "@/components/home/ContactForm";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
+import { SideTOC } from "@/components/nav/SideTOC";
 import { profile, profileBanner, homeSections } from "@/content/profile";
 export default async function HomePage(): Promise<React.JSX.Element> {
   return (
     <div data-palette="mixed" className="space-y-8">
       <SectionNav sections={homeSections} />
+      <SideTOC sections={homeSections} />
 
       <TerminalWindow title="~/home">
         <AsciiBanner art={profileBanner} />

@@ -7,6 +7,7 @@ import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
+import { SideTOC } from "@/components/nav/SideTOC";
 import type { Metadata } from "next";
 import { netboxSdk as p } from "@/content/netbox-sdk";
 
@@ -20,6 +21,7 @@ export default async function Page(): Promise<React.JSX.Element> {
   return (
     <div data-palette={p.palette} className="space-y-8">
       <SectionNav sections={p.sections} />
+      <SideTOC sections={p.sections} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero
