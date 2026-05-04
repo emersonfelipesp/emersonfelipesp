@@ -1,0 +1,15 @@
+{
+  "prompts": [
+    {
+      "label": "NetBox demo username",
+      "hidden": false,
+      "answer": "demo-user"
+    },
+    {
+      "label": "NetBox demo password",
+      "hidden": true,
+      "answer": "********"
+    }
+  ],
+  "ok": "Demo configuration saved."
+}

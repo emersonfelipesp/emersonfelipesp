@@ -37,6 +37,7 @@ Read the nearest scoped guide for the code you are changing.
 - [components/home/CLAUDE.md](components/home/CLAUDE.md)
 - [components/nav/CLAUDE.md](components/nav/CLAUDE.md)
 - [components/project/CLAUDE.md](components/project/CLAUDE.md)
+- [components/project/sims/CLAUDE.md](components/project/sims/CLAUDE.md)
 - [components/terminal/CLAUDE.md](components/terminal/CLAUDE.md)
 - [components/theme/CLAUDE.md](components/theme/CLAUDE.md)
 - [content/CLAUDE.md](content/CLAUDE.md)
@@ -47,10 +48,13 @@ Read the nearest scoped guide for the code you are changing.
 - [public/CLAUDE.md](public/CLAUDE.md)
 - [public/netbox-proxbox/CLAUDE.md](public/netbox-proxbox/CLAUDE.md)
 - [public/netbox-proxbox/screenshots/CLAUDE.md](public/netbox-proxbox/screenshots/CLAUDE.md)
+- [scripts/CLAUDE.md](scripts/CLAUDE.md)
+
 ## Agent Rules
 
 1. Read [CLAUDE.md](CLAUDE.md) before starting any code change in this repo.
 2. Before editing a file, read the nearest applicable `CLAUDE.md` for that path.
-3. Treat `CLAUDE.md` files as the source of truth for implementation context; keep this file as an index.
-4. Preserve the locked stack, terminal/CLI design language, theming rules, Zod validation rule, and Prisma/database constraints from [CLAUDE.md](CLAUDE.md).
-5. If a new `CLAUDE.md` is added, update this index in the same change.
+3. **Real-mock rule:** any CLI or TUI output string rendered by this site must come from a fixture written by `scripts/sync-netbox-sdk-fixtures.ts` (sourced from netbox-sdk's docgen pipeline). Never hand-author terminal output. See top-level [CLAUDE.md](CLAUDE.md) §13 and [components/project/sims/CLAUDE.md](components/project/sims/CLAUDE.md).
+4. Treat `CLAUDE.md` files as the source of truth for implementation context; keep this file as an index.
+5. Preserve the locked stack, terminal/CLI design language, theming rules, Zod validation rule, and Prisma/database constraints from [CLAUDE.md](CLAUDE.md).
+6. If a new `CLAUDE.md` is added, update this index in the same change.

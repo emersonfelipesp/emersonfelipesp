@@ -3,6 +3,7 @@ import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { ProjectHero } from "@/components/project/ProjectHero";
 import { FeatureList } from "@/components/project/FeatureList";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
+import { InstallSimulator } from "@/components/project/InstallSimulator";
 import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
@@ -37,6 +38,15 @@ export default async function Page(): Promise<React.JSX.Element> {
             { label: "release", value: p.meta.latestRelease },
           ]}
         />
+        {p.install.runScript ? (
+          <div className="mt-4">
+            <InstallSimulator
+              command={p.install.primary}
+              cwd={`~/${p.slug}`}
+              steps={p.install.runScript}
+            />
+          </div>
+        ) : null}
       </TerminalWindow>
 
       <section className="space-y-3">

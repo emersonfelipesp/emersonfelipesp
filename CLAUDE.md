@@ -279,6 +279,7 @@ Each folder and subfolder has a `CLAUDE.md` with a purpose summary, file-by-file
 | `components/home/` | [components/home/CLAUDE.md](components/home/CLAUDE.md) | Homepage-specific components (ProfileCard, ContactForm, etc.) |
 | `components/nav/` | [components/nav/CLAUDE.md](components/nav/CLAUDE.md) | TopNav and SectionNav |
 | `components/project/` | [components/project/CLAUDE.md](components/project/CLAUDE.md) | Project page building blocks (hero, features, gallery, stats) |
+| `components/project/sims/` | [components/project/sims/CLAUDE.md](components/project/sims/CLAUDE.md) | Demo-command simulators driven by netbox-sdk docgen fixtures |
 | `components/terminal/` | [components/terminal/CLAUDE.md](components/terminal/CLAUDE.md) | CLI aesthetic primitives (TerminalWindow, TypedCommand, etc.) |
 | `components/theme/` | [components/theme/CLAUDE.md](components/theme/CLAUDE.md) | ThemeProvider and ThemeToggle — three-axis theme system |
 | `lib/` | [lib/CLAUDE.md](lib/CLAUDE.md) | Server-side utilities: DB singleton, GitHub cache, view helpers |
@@ -289,3 +290,31 @@ Each folder and subfolder has a `CLAUDE.md` with a purpose summary, file-by-file
 | `public/` | [public/CLAUDE.md](public/CLAUDE.md) | Static assets served at root URL |
 | `public/netbox-proxbox/` | [public/netbox-proxbox/CLAUDE.md](public/netbox-proxbox/CLAUDE.md) | Assets for the netbox-proxbox project page |
 | `public/netbox-proxbox/screenshots/` | [public/netbox-proxbox/screenshots/CLAUDE.md](public/netbox-proxbox/screenshots/CLAUDE.md) | 25 PNG screenshots of the plugin UI |
+| `scripts/` | [scripts/CLAUDE.md](scripts/CLAUDE.md) | Build-time helpers (e.g. netbox-sdk fixture sync) |
+
+---
+
+## 13. Real-mock rule for CLI/TUI documentation
+
+Any string rendered on a project page that purports to be CLI or TUI
+output **must** originate from netbox-sdk's docgen capture pipeline.
+Concretely:
+
+- The website ships a fixture set at `public/netbox-sdk-fixtures/`,
+  written by `scripts/sync-netbox-sdk-fixtures.ts` from the local
+  `/root/nms/netbox-sdk` checkout. The script runs as a `predev` and
+  `prebuild` hook.
+- All rendered CLI/TUI output strings must be loaded from those
+  fixtures at runtime (via `components/project/sims/useFixture.ts`)
+  — never hardcoded.
+- The only exception is **simulated user input** (the characters typed
+  at a prompt). Even there, the prompt label and the success/echo
+  lines must come from a fixture.
+- Adding a new simulator: see `components/project/sims/CLAUDE.md`.
+- Adding a new netbox-sdk capture: extend
+  `/root/nms/netbox-sdk/netbox_cli/docgen_specs.py` and regenerate
+  `docs/generated/raw/`. The sync script picks it up automatically
+  once added to its `COPIES` table.
+
+If a fixture is missing in CI, the build hard-fails. This is intentional
+— the rule is enforced at build time, not by convention.
