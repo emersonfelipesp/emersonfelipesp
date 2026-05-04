@@ -1,44 +1,17 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import {
+  DEFAULT_THEME,
+  THEME_INDEX,
+  THEMES,
+  isTheme,
+  type Theme,
+  type ThemeEntry,
+} from "./theme-definitions";
 
-export type Theme =
-  | "default-light"
-  | "default-dark"
-  | "netbox-dark"
-  | "netbox-light"
-  | "dracula"
-  | "tokyo-night"
-  | "onedark-pro"
-  | "proxmox-dark"
-  | "proxmox-light"
-  | "monokai";
-
-export type ThemeEntry = {
-  name: Theme;
-  label: string;
-  dark: boolean;
-  group: "default" | "named";
-};
-
-export const THEMES: readonly ThemeEntry[] = [
-  { name: "default-light", label: "default-light", dark: false, group: "default" },
-  { name: "default-dark", label: "default-dark", dark: true, group: "default" },
-  { name: "netbox-dark", label: "netbox-dark", dark: true, group: "named" },
-  { name: "netbox-light", label: "netbox-light", dark: false, group: "named" },
-  { name: "dracula", label: "dracula", dark: true, group: "named" },
-  { name: "tokyo-night", label: "tokyo-night", dark: true, group: "named" },
-  { name: "onedark-pro", label: "onedark-pro", dark: true, group: "named" },
-  { name: "proxmox-dark", label: "proxmox-dark", dark: true, group: "named" },
-  { name: "proxmox-light", label: "proxmox-light", dark: false, group: "named" },
-  { name: "monokai", label: "monokai", dark: true, group: "named" },
-];
-
-const THEME_INDEX: Record<string, ThemeEntry> = Object.fromEntries(
-  THEMES.map((t) => [t.name, t]),
-);
-
-const DEFAULT_THEME: Theme = "default-dark";
+export { THEMES };
+export type { Theme, ThemeEntry };
 
 type ThemeContextValue = {
   theme: Theme;
@@ -60,7 +33,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     const stored =
       (typeof window !== "undefined" && localStorage.getItem("theme")) || null;
-    return stored && THEME_INDEX[stored] ? (stored as Theme) : DEFAULT_THEME;
+    return isTheme(stored) ? stored : DEFAULT_THEME;
   });
 
   useEffect(() => {

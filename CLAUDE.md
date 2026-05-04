@@ -182,8 +182,8 @@ pnpm typecheck     # tsc --noEmit — must run pnpm exec prisma generate first o
 # Install browsers once
 pnpm exec playwright install --with-deps chromium
 
-# Full suite — requires a production build on :3000
-pnpm build && pnpm start &
+# Full suite — Playwright starts the production server on :3100
+pnpm build
 pnpm test:e2e
 
 # Single spec file
@@ -193,9 +193,9 @@ pnpm exec playwright test e2e/smoke.spec.ts
 pnpm exec playwright test --grep "theme toggle"
 ```
 
-`playwright.config.ts` launches `pnpm start` (prod build) as the web server — not the dev server.
-Locally, `reuseExistingServer: true` so a running `pnpm start` is reused automatically.
-`e2e/` contains four suites: `smoke` (all four routes load), `navigation` (nav links), `theme` (toggle + localStorage persistence), `contact` (form submit → success message).
+`playwright.config.ts` runs `pnpm exec prisma migrate deploy` and launches `pnpm exec next start` on `127.0.0.1:3100` — not the dev server.
+`reuseExistingServer` is disabled so tests never attach to another app that happens to be using the same port.
+`e2e/` contains five suites: `smoke` (all four routes load), `navigation` (nav links), `theme` (toggle + localStorage persistence), `contact` (form submit → success message), and `api` (contact persistence + page-view counter).
 
 ---
 

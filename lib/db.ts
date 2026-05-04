@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { resolveSqliteFilename } from "./database-url";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -16,12 +17,8 @@ function makeClient(): PrismaClient {
     return new PrismaClient({ adapter });
   }
 
-  const path = require("node:path");
   const { PrismaBetterSqlite3 } = require("@prisma/adapter-better-sqlite3");
-  const url = process.env.DATABASE_URL ?? "file:./prisma/dev.db";
-  const filename = url.startsWith("file:")
-    ? path.resolve(process.cwd(), url.replace(/^file:/, ""))
-    : url;
+  const filename = resolveSqliteFilename();
   const adapter = new PrismaBetterSqlite3({ url: filename });
   return new PrismaClient({
     adapter,

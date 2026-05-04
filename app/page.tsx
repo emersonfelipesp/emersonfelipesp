@@ -10,7 +10,13 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
 import { profile, profileBanner, homeSections } from "@/content/profile";
+import { incrementView } from "@/lib/views";
+
+export const dynamic = "force-dynamic";
+
 export default async function HomePage(): Promise<React.JSX.Element> {
+  await incrementView("/");
+
   return (
     <div data-palette="mixed" className="space-y-8">
       <SectionNav sections={homeSections} />

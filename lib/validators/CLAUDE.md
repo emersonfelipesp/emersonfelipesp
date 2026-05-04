@@ -6,6 +6,7 @@ Zod 4 schemas for validating all user-supplied input before it reaches the datab
 ## Files
 
 - `contact.ts` — Exports `contactSchema`: validates `name` (non-empty string), `email` (valid email format via `z.string().email()`), and `message` (string with a minimum length). Used in `app/api/contact/route.ts`.
+- `views.ts` — Exports `viewPathSchema` and `viewBodySchema`: validates page-view paths for `app/api/views/route.ts`.
 
 ## Key Conventions
 

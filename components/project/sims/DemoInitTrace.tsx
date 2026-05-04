@@ -8,10 +8,19 @@ type Flow = { prompts: Prompt[]; ok: string };
 
 type Phase = { promptIdx: number; typed: number; done: boolean };
 
-export function DemoInitTrace() {
+type Props = {
+  onDone?: () => void;
+};
+
+export function DemoInitTrace({ onDone }: Props = {}) {
   const flow = useFixture<Flow>("demo-init-flow.json");
   const [phase, setPhase] = useState<Phase>({ promptIdx: 0, typed: 0, done: false });
   const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const onDoneRef = useRef(onDone);
+
+  useEffect(() => {
+    onDoneRef.current = onDone;
+  }, [onDone]);
 
   useEffect(() => {
     if (!flow) return;
@@ -25,7 +34,10 @@ export function DemoInitTrace() {
     };
 
     if (reduce) {
-      schedule(() => setPhase({ promptIdx: flow.prompts.length, typed: 0, done: true }), 0);
+      schedule(() => {
+        setPhase({ promptIdx: flow.prompts.length, typed: 0, done: true });
+        onDoneRef.current?.();
+      }, 0);
       return () => {
         timeoutsRef.current.forEach(clearTimeout);
         timeoutsRef.current = [];
@@ -36,7 +48,10 @@ export function DemoInitTrace() {
     let ti = 0;
     const tick = () => {
       if (pi >= flow.prompts.length) {
-        schedule(() => setPhase({ promptIdx: pi, typed: 0, done: true }), 200);
+        schedule(() => {
+          setPhase({ promptIdx: pi, typed: 0, done: true });
+          onDoneRef.current?.();
+        }, 200);
         return;
       }
       const p = flow.prompts[pi];

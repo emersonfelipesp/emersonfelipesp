@@ -5,6 +5,7 @@ import { FeatureList } from "@/components/project/FeatureList";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { InstallSimulator } from "@/components/project/InstallSimulator";
 import { DemoInitRunner } from "@/components/project/DemoInitRunner";
+import { DemoDevicesListRunner } from "@/components/project/DemoDevicesListRunner";
 import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
@@ -13,14 +14,20 @@ import { SideTOC } from "@/components/nav/SideTOC";
 import type { Metadata } from "next";
 import { netboxSdk as p } from "@/content/netbox-sdk";
 import { getNetboxSdkMeta } from "@/lib/netbox-sdk-meta";
+import { incrementView } from "@/lib/views";
 
 export const metadata: Metadata = {
   title: `${p.name} ~ NetBox SDK + CLI + TUI`,
   description: p.tagline,
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Page(): Promise<React.JSX.Element> {
-  const liveMeta = await getNetboxSdkMeta();
+  const [liveMeta] = await Promise.all([
+    getNetboxSdkMeta(),
+    incrementView(`/${p.slug}`),
+  ]);
   const meta = {
     netbox: liveMeta?.netbox ?? p.meta.netbox,
     python: liveMeta?.python ?? p.meta.python,
@@ -57,6 +64,9 @@ export default async function Page(): Promise<React.JSX.Element> {
         ) : null}
         <div className="mt-4">
           <DemoInitRunner />
+        </div>
+        <div className="mt-4">
+          <DemoDevicesListRunner />
         </div>
       </TerminalWindow>
 

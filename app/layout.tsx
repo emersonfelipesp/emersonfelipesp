@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { TopNav } from "@/components/nav/TopNav";
+import {
+  DARK_THEMES,
+  DEFAULT_THEME,
+  NAMED_THEMES,
+  VALID_THEMES,
+} from "@/components/theme/theme-definitions";
 
 export const metadata: Metadata = {
   title: "emersonfelipesp ~ NetDevOps & Network Automation",
@@ -27,38 +33,6 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-const VALID_THEMES = [
-  "default-light",
-  "default-dark",
-  "netbox-dark",
-  "netbox-light",
-  "dracula",
-  "tokyo-night",
-  "onedark-pro",
-  "proxmox-dark",
-  "proxmox-light",
-  "monokai",
-];
-const DARK_THEMES = [
-  "default-dark",
-  "netbox-dark",
-  "dracula",
-  "tokyo-night",
-  "onedark-pro",
-  "proxmox-dark",
-  "monokai",
-];
-const NAMED_THEMES = [
-  "netbox-dark",
-  "netbox-light",
-  "dracula",
-  "tokyo-night",
-  "onedark-pro",
-  "proxmox-dark",
-  "proxmox-light",
-  "monokai",
-];
-
 const themeBootScript = `
   (function() {
     try {
@@ -66,7 +40,7 @@ const themeBootScript = `
       var dark  = ${JSON.stringify(DARK_THEMES)};
       var named = ${JSON.stringify(NAMED_THEMES)};
       var stored = localStorage.getItem('theme');
-      var theme = valid.indexOf(stored) >= 0 ? stored : 'default-dark';
+      var theme = valid.indexOf(stored) >= 0 ? stored : ${JSON.stringify(DEFAULT_THEME)};
       var root = document.documentElement;
       if (named.indexOf(theme) >= 0) root.setAttribute('data-theme', theme);
       else root.removeAttribute('data-theme');

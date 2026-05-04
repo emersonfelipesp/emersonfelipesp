@@ -1,18 +1,29 @@
 "use client";
 
-import { useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 export function useCopySnippet(text: string) {
   const ref = useRef<HTMLDivElement>(null);
+  const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
+    };
+  }, []);
 
   function flash() {
     setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
+    resetTimerRef.current = setTimeout(() => {
+      setCopied(false);
+      resetTimerRef.current = null;
+    }, 1500);
   }
 
-  function runCopy() {
-    if (writeTextSync(text)) flash();
+  async function runCopy() {
+    if (await writeText(text)) flash();
   }
 
   function handleClick() {
@@ -22,23 +33,27 @@ export function useCopySnippet(text: string) {
     if (sel && sel.toString() && wrapper && node && wrapper.contains(node)) {
       return;
     }
-    runCopy();
+    void runCopy();
   }
 
   function handleButtonClick(e: MouseEvent<HTMLButtonElement>) {
     e.stopPropagation();
-    runCopy();
+    void runCopy();
   }
 
   return { ref, copied, handleClick, handleButtonClick };
 }
 
-function writeTextSync(text: string): boolean {
+async function writeText(text: string): Promise<boolean> {
   if (typeof window === "undefined") return false;
 
   if (window.isSecureContext && navigator.clipboard?.writeText) {
-    navigator.clipboard.writeText(text).catch(() => {});
-    return true;
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   const ta = document.createElement("textarea");

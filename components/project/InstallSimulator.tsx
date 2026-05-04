@@ -3,17 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Prompt } from "@/components/terminal/Prompt";
 import type { SimStep } from "@/content/types";
-import { DemoInitTrace } from "./sims/DemoInitTrace";
-import { DemoDevicesList } from "./sims/DemoDevicesList";
 import { DemoTuiModal } from "./sims/DemoTuiModal";
 
 const FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠣", "⠏"] as const;
 
-type RunId = "demo-init" | "demo-devices-list" | "demo-tui";
+type RunId = "demo-tui";
 
-const RUN_BY_CMD: Record<string, RunId> = {
-  "nbx demo init": "demo-init",
-  "nbx demo dcim devices list": "demo-devices-list",
+const RUN_BY_CMD: Partial<Record<string, RunId>> = {
   "nbx demo tui": "demo-tui",
 };
 
@@ -24,8 +20,7 @@ type Line =
   | { kind: "ok"; text: string }
   | { kind: "warn"; text: string }
   | { kind: "blank" }
-  | { kind: "tip"; cmd: string; comment?: string; runId?: RunId }
-  | { kind: "prompt"; cmd: string; cwd?: string };
+  | { kind: "tip"; cmd: string; comment?: string; runId?: RunId };
 
 type Status = "idle" | "running" | "done";
 
@@ -41,6 +36,7 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
   const [active, setActive] = useState<{ label: string } | null>(null);
   const [frame, setFrame] = useState(0);
   const [subRun, setSubRun] = useState<RunId | null>(null);
+  const [collapsed, setCollapsed] = useState(false);
 
   const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const intervalsRef = useRef<ReturnType<typeof setInterval>[]>([]);
@@ -60,6 +56,7 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
     setActive(null);
     setFrame(0);
     setSubRun(null);
+    setCollapsed(false);
     setStatus("running");
 
     const reduce =
@@ -127,6 +124,11 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
     else start();
   };
 
+  const toggleCollapsed = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setCollapsed((c) => !c);
+  };
+
   const showBody = lines.length > 0 || active !== null;
 
   return (
@@ -136,18 +138,32 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
           <Prompt cwd={cwd} />
           <span className="text-fg">{command}</span>
         </p>
-        <button
-          type="button"
-          onClick={handleClick}
-          className={`shrink-0 text-xs transition-colors hover:text-accent ${
-            status === "running" ? "text-warn" : "text-success"
-          }`}
-        >
-          {buttonLabel}
-        </button>
+        <div className="flex shrink-0 items-baseline gap-3">
+          <button
+            type="button"
+            onClick={handleClick}
+            className={`text-xs transition-colors hover:text-accent ${
+              status === "running" ? "text-warn" : "text-success"
+            }`}
+          >
+            {buttonLabel}
+          </button>
+          {showBody ? (
+            <button
+              type="button"
+              onClick={toggleCollapsed}
+              aria-label={collapsed ? "expand output" : "collapse output"}
+              aria-expanded={!collapsed}
+              className="text-xs text-muted transition-colors hover:text-accent"
+            >
+              {collapsed ? "▸" : "▾"}
+            </button>
+          ) : null}
+        </div>
       </div>
       {showBody ? (
         <pre
+          hidden={collapsed}
           aria-live="polite"
           className="mt-2 overflow-x-auto text-xs sm:text-sm leading-relaxed text-fg whitespace-pre"
         >
@@ -155,7 +171,6 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
             <LineView
               key={idx}
               line={line}
-              cwd={cwd}
               activeRun={subRun}
               onPick={(id) => setSubRun((cur) => (cur === id ? null : id))}
             />
@@ -168,8 +183,6 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
           ) : null}
         </pre>
       ) : null}
-      {subRun === "demo-init" ? <DemoInitTrace key="demo-init" /> : null}
-      {subRun === "demo-devices-list" ? <DemoDevicesList key="demo-devices-list" /> : null}
       {subRun === "demo-tui" ? (
         <DemoTuiModal onClose={() => setSubRun(null)} />
       ) : null}
@@ -195,12 +208,10 @@ function jitter(reduce: boolean) {
 
 function LineView({
   line,
-  cwd,
   activeRun,
   onPick,
 }: {
   line: Line;
-  cwd: string;
   activeRun: RunId | null;
   onPick: (id: RunId) => void;
 }) {
@@ -244,13 +255,6 @@ function LineView({
       );
     case "blank":
       return <div>{" "}</div>;
-    case "prompt":
-      return (
-        <div>
-          <Prompt cwd={line.cwd ?? cwd} />
-          <span className="text-fg">{line.cmd}</span>
-        </div>
-      );
     case "tip": {
       const runId = line.runId;
       const isActive = runId !== undefined && activeRun === runId;

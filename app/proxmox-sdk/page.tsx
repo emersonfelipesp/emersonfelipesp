@@ -10,13 +10,17 @@ import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
 import type { Metadata } from "next";
 import { proxmoxSdk as p } from "@/content/proxmox-sdk";
+import { incrementView } from "@/lib/views";
 
 export const metadata: Metadata = {
   title: `${p.name} ~ Schema-driven Proxmox SDK`,
   description: p.tagline,
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Page(): Promise<React.JSX.Element> {
+  await incrementView(`/${p.slug}`);
 
   return (
     <div data-palette={p.palette} className="space-y-8">

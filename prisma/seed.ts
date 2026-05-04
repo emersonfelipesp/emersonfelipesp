@@ -1,12 +1,9 @@
 import "dotenv/config";
-import path from "node:path";
 import { PrismaClient } from "@prisma/client";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { resolveSqliteFilename } from "../lib/database-url";
 
-const url = process.env.DATABASE_URL ?? "file:./dev.db";
-const filename = url.startsWith("file:")
-  ? path.resolve(process.cwd(), url.replace(/^file:/, ""))
-  : url;
+const filename = resolveSqliteFilename();
 
 const db = new PrismaClient({
   adapter: new PrismaBetterSqlite3({ url: filename }),

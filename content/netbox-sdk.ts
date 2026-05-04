@@ -83,8 +83,6 @@ export const netboxSdk: ProjectContent = {
         ],
       },
       { kind: "blank" },
-      { kind: "prompt", cmd: "nbx demo init" },
-      { kind: "blank" },
       {
         kind: "tip",
         cmd: "nbx demo init",
@@ -92,8 +90,8 @@ export const netboxSdk: ProjectContent = {
       },
       {
         kind: "tip",
-        cmd: "nbx demo dcim devices list",
-        comment: "# list devices",
+        cmd: "nbx dcim devices list --help",
+        comment: "# inspect device-list command",
       },
       {
         kind: "tip",

@@ -15,10 +15,14 @@ hand-author CLI/TUI output.
   Reads `demo-init-flow.json` (prompts + success line, both extracted from
   `netbox_cli/demo.py`). The character-by-character "typed" answers are the
   only synthesized strings; prompt labels and success line come from source.
-- `DemoDevicesList.tsx` — Renders the captured stdout of
-  `nbx dcim devices list` from `demo-devices-list-help.json` inside a
-  monospace `<pre>`. Currently a `--help` capture; will become a real
-  listing once netbox-sdk's docgen adds a live capture.
+  Accepts an optional `onDone` callback that fires when the trace lands on
+  the success line (used by `DemoInitRunner` to flip its status to `done`).
+- `DemoDevicesList.tsx` — Streams the captured stdout of
+  `nbx dcim devices list --help` from `demo-devices-list-help.json` line by line
+  inside a monospace `<pre>`. Currently a `--help` capture; will become a
+  real listing once netbox-sdk's docgen adds a live capture. Accepts an
+  optional `onDone` callback that fires when all lines are revealed (used
+  by `DemoDevicesListRunner`). Respects `prefers-reduced-motion`.
 - `DemoTuiModal.tsx` — Full-screen `role="dialog"` showing
   `tui-main-netbox-{dark|light}.svg`. Variant tracks
   `<html data-theme>` / `<html class="dark">` via `MutationObserver`. ESC
