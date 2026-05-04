@@ -88,10 +88,10 @@ export function ThemeToggle({ compact = false }: Props) {
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-label={`Theme: ${theme}`}
-          className={`border px-2 py-0.5 text-xs transition-colors ${
+          className={`block px-2 py-4 text-xs transition-all duration-150 ${
             open
-              ? "border-accent text-accent"
-              : "border-border text-muted hover:border-accent hover:text-accent"
+              ? "text-accent"
+              : "text-muted hover:bg-accent/15 hover:text-accent"
           }`}
         >
           [•••]
@@ -103,7 +103,9 @@ export function ThemeToggle({ compact = false }: Props) {
           onClick={toggleDropdown}
           aria-haspopup="listbox"
           aria-expanded={open}
-          className="border border-border px-2 py-1 text-xs hover:border-accent hover:text-accent transition-colors"
+          className={`block px-2 py-4 text-xs transition-all duration-150 ${
+            open ? "bg-accent/15" : "hover:bg-accent/15"
+          }`}
         >
           <span className="text-muted">--theme=</span>
           <span className="text-accent">{theme}</span>

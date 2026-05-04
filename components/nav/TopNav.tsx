@@ -45,67 +45,35 @@ export function TopNav() {
     return () => ro.disconnect();
   }, [compact]);
 
-  if (compact) {
-    return (
-      <nav
-        ref={navRef}
-        key="compact"
-        aria-label="Top navigation"
-        style={{ animation: "fade-in 120ms ease-out" }}
-        className="sticky top-0 z-40 border border-border bg-surface/90 px-3 py-2 backdrop-blur"
-      >
-        <ul className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-          {links.map((l) => {
-            const isActive = pathname === l.href;
-            return (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`border px-2 py-0.5 transition-colors ${
-                    isActive
-                      ? "border-accent text-accent"
-                      : "border-border text-muted hover:border-accent hover:text-accent"
-                  }`}
-                >
-                  [{l.label}]
-                </Link>
-              </li>
-            );
-          })}
-          <li>
-            <ThemeToggle compact />
-          </li>
-        </ul>
-      </nav>
-    );
-  }
-
   return (
     <nav
       ref={navRef}
-      key="full"
       aria-label="Top navigation"
-      style={{ animation: "fade-in 120ms ease-out" }}
-      className="sticky top-0 z-40 flex flex-col gap-3 border border-border bg-surface/90 px-4 py-3 backdrop-blur sm:flex-row sm:items-center sm:justify-between"
+      className="sticky top-0 z-40 border border-border bg-surface/90 px-3 backdrop-blur"
     >
-      <div className="flex items-center gap-2 text-xs sm:gap-3">
-        <span className="text-accent">emerson@netdevops</span>
-        <span className="text-muted">:~$</span>
-        <span className="text-fg">cd</span>
-      </div>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-        {links.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className="text-muted transition-colors hover:text-accent"
-          >
-            {l.label}
-          </Link>
-        ))}
-        <ThemeToggle />
-      </div>
+      <ul className="nav-magnetic flex flex-wrap gap-y-2 text-xs">
+        {links.map((l) => {
+          const isActive = pathname === l.href;
+          return (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`block px-2 py-4 transition-all duration-150 ${
+                  isActive
+                    ? "text-accent"
+                    : "text-muted hover:bg-accent/15 hover:text-accent"
+                }`}
+              >
+                [{l.label}]
+              </Link>
+            </li>
+          );
+        })}
+        <li className="ml-auto">
+          <ThemeToggle compact={compact} />
+        </li>
+      </ul>
     </nav>
   );
 }

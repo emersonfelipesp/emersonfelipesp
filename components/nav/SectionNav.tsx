@@ -43,9 +43,9 @@ export function SectionNav({ sections }: Props) {
   return (
     <nav
       aria-label="Section navigation"
-      className="sticky top-[var(--topnav-h,0px)] z-30 border border-t-0 border-border bg-surface/90 px-3 py-2 backdrop-blur"
+      className="sticky top-[var(--topnav-h,0px)] z-30 border border-t-0 border-border bg-surface/90 px-3 backdrop-blur"
     >
-      <ul className="flex flex-wrap gap-x-3 gap-y-2 text-xs">
+      <ul className="nav-magnetic flex flex-wrap gap-y-2 text-xs">
         {sections.map((s) => {
           const isActive = s.id === active;
           return (
@@ -54,10 +54,10 @@ export function SectionNav({ sections }: Props) {
                 href={`#${s.id}`}
                 onClick={(e) => handleClick(e, s.id)}
                 aria-current={isActive ? "true" : undefined}
-                className={`border px-2 py-2 transition-all duration-150 ${
+                className={`block px-2 py-4 transition-all duration-150 ${
                   isActive
-                    ? "border-accent text-accent"
-                    : "border-border text-muted hover:border-accent hover:text-accent"
+                    ? "text-accent"
+                    : "text-muted hover:bg-accent/15 hover:text-accent"
                 }`}
               >
                 [{s.label}]
