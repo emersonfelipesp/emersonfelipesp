@@ -31,7 +31,7 @@ test("language selection persists across reloads", async ({ page }) => {
 
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
   await expect(
-    page.getByRole("button", { name: /--idioma=/ }),
+    page.getByRole("button", { name: /(--idioma=|Idioma:)/ }),
   ).toContainText("pt-br");
 });
 

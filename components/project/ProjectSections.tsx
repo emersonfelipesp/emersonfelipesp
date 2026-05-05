@@ -265,7 +265,7 @@ export function LinksSection({
               href={v}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-2 hover:text-accent"
+              className="break-all text-accent-2 hover:text-accent"
             >
               {v}
             </a>

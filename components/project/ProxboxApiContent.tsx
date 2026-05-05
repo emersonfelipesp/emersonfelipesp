@@ -105,7 +105,7 @@ export function ProxboxApiContent({
               <p className="mt-3 text-xs">
                 <Link
                   href={it.href}
-                  className="text-accent-2 hover:text-accent"
+                  className="break-words text-accent-2 hover:text-accent"
                 >
                   → {labels.viewProject} [{it.id}]
                 </Link>

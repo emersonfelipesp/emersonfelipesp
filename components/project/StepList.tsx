@@ -57,7 +57,7 @@ export function StepList({ title, steps }: Props) {
                 <span className="text-fg">{step.title}</span>
               </p>
               {paragraphs.length > 0 ? (
-                <div className="mb-3 space-y-2 text-fg/90">
+                <div className="mb-3 space-y-2 break-words text-fg/90">
                   {paragraphs.map((p, j) => (
                     <p key={j}>{p}</p>
                   ))}

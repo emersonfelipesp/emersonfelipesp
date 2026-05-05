@@ -55,7 +55,7 @@ function Node({ name, description, href, highlight = false, meta }: NodeProps) {
       <span
         id={tipId}
         role="tooltip"
-        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-72 -translate-x-1/2 border border-accent/60 bg-surface-2 px-3 py-2 text-left text-xs leading-relaxed text-fg/90 opacity-0 shadow-[0_0_0_1px_var(--border)] transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+        className="pointer-events-none fixed top-4 right-4 left-4 z-50 border border-accent/60 bg-surface-2 px-3 py-2 text-left text-xs leading-relaxed text-fg/90 opacity-0 shadow-[0_0_0_1px_var(--border)] transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100 sm:absolute sm:top-auto sm:right-auto sm:bottom-full sm:left-1/2 sm:z-20 sm:mb-2 sm:w-72 sm:-translate-x-1/2"
       >
         <span className="block text-accent">{name}</span>
         <span className="mt-1 block whitespace-normal">{description}</span>
@@ -186,7 +186,7 @@ export function IntegrationsArchitecture() {
           rightBullets={a.edges.apiToProxmoxBullets}
         />
 
-        <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 sm:gap-x-6">
+        <div className="grid w-full max-w-2xl grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0">
           <div className="flex flex-col items-center gap-1">
             <Node
               name="netbox-sdk"

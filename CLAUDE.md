@@ -152,9 +152,12 @@ pnpm db:studio
 
 ## 9. E2E Tests
 
-Playwright uses Chromium only. `playwright.config.ts` runs
+Playwright uses Chromium only, split into `desktop-chromium` (`Desktop Chrome`)
+and `mobile-chromium` (`Pixel 5`) projects. `playwright.config.ts` runs
 `pnpm exec prisma migrate deploy` and launches `pnpm exec next start` on
-`127.0.0.1:3100`; it does not use the dev server.
+`127.0.0.1:3100`; it does not use the dev server. API-only specs run on the
+desktop project only; UI specs run on both desktop and mobile. CI runs the two
+projects as parallel matrix jobs on `push` and `pull_request` for `main`.
 
 Current suites under `e2e/`:
 
@@ -165,6 +168,7 @@ Current suites under `e2e/`:
 - `contact`: contact form behavior.
 - `api`: contact persistence and page-view API.
 - `releases`: local release index/detail pages and release dropdown.
+- `responsive`: desktop/mobile layout checks, nav controls, and overflow guards.
 - `netbox-sdk-tui`: fixture-backed TUI modal states and hotspots.
 
 ## 10. Deployment

@@ -141,9 +141,15 @@ export function ProjectDeveloperContent({
                       : "align-top"
                   }
                 >
-                  <td className="px-4 py-3 text-fg/90">{row.target}</td>
-                  <td className="px-4 py-3 text-fg/90">{row.protocol}</td>
-                  <td className="px-4 py-3 text-fg/90">{row.library}</td>
+                  <td className="break-words px-4 py-3 text-fg/90">
+                    {row.target}
+                  </td>
+                  <td className="break-words px-4 py-3 text-fg/90">
+                    {row.protocol}
+                  </td>
+                  <td className="break-words px-4 py-3 text-fg/90">
+                    {row.library}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -200,7 +206,7 @@ export function ProjectDeveloperContent({
               href={data.contributing.issuesUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-2 hover:text-accent"
+              className="break-all text-accent-2 hover:text-accent"
             >
               {data.contributing.issuesUrl}
             </a>
@@ -273,7 +279,7 @@ export function ProjectDeveloperContent({
                 href={v}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent-2 hover:text-accent"
+                className="break-all text-accent-2 hover:text-accent"
               >
                 {v}
               </a>
