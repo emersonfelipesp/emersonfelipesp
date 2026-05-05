@@ -25,6 +25,7 @@ const PROFILE_PT_BR: LocalizedProfile = {
     "Sou apaixonado por programação desde a infância. Quando descobri redes, encontrei a combinação perfeita: Automação de Redes.",
     "Foco em adquirir conhecimento profundo em redes de Provedores de Serviço (MPLS, BGP) enquanto automatizo tudo o que for possível.",
     "Adoro processos, fluxos de trabalho, construir APIs e ver sistemas se comunicando. Mas, no fim, é tudo sobre resolver problemas.",
+    "Atualmente gerenciando o ASN 265234 e o ASN 268881.",
   ],
   motto: "Automatizando redes, um commit por vez.",
 };

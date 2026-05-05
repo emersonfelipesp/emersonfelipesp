@@ -28,6 +28,7 @@ export const profile = {
     "I've been passionate about programming since childhood. When I discovered networking, I found the perfect combination: Network Automation.",
     "I'm focused on gaining deep knowledge of Service Provider networks (MPLS, BGP) while automating everything possible.",
     "I love processes, workflows, building APIs, and seeing systems communicate. But in the end, it's all about solving problems.",
+    "Currently managing ASN 265234 and ASN 268881.",
   ],
   motto: "Automating networks, one commit at a time.",
 } as const;

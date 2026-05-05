@@ -318,3 +318,24 @@ Concretely:
 
 If a fixture is missing in CI, the build hard-fails. This is intentional
 — the rule is enforced at build time, not by convention.
+
+---
+
+## 14. Bilingual content rule
+
+All user-facing copy must ship in **both English and Brazilian Portuguese
+(pt-br)**. The site has a language toggle backed by `lib/i18n/`, and any line
+the user can read on screen must have a parallel translation.
+
+- English source of truth: `content/profile.ts` (and the other `content/*.ts`
+  project files).
+- pt-br localized strings: `lib/i18n/profile.ts` (`PROFILE_PT_BR`,
+  `FEATURED_TAGLINES_PT_BR`) and `lib/i18n/projects.ts` /
+  `lib/i18n/dictionary.ts` for project pages and shared chrome.
+
+When you add or change a string in English, update the pt-br counterpart in
+the same change. A PR that adds an English-only sentence to `bio`, a project
+tagline, a feature description, a section heading, etc. is incomplete.
+
+Do not translate proper nouns, code identifiers, ASN numbers, brand names,
+CLI flags, or terminal command text — those stay verbatim across languages.

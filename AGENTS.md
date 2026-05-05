@@ -58,3 +58,4 @@ Read the nearest scoped guide for the code you are changing.
 4. Treat `CLAUDE.md` files as the source of truth for implementation context; keep this file as an index.
 5. Preserve the locked stack, terminal/CLI design language, theming rules, Zod validation rule, and Prisma/database constraints from [CLAUDE.md](CLAUDE.md).
 6. If a new `CLAUDE.md` is added, update this index in the same change.
+7. **Bilingual rule:** any user-facing copy added or changed under `content/` must ship with a matching Brazilian Portuguese translation in `lib/i18n/`. See [CLAUDE.md](CLAUDE.md) §14 and [content/CLAUDE.md](content/CLAUDE.md).

@@ -16,3 +16,4 @@ Single source of truth for all page copy and project metadata. Pages are purely 
 - ASCII banner strings use template literals — preserve exact whitespace; do not auto-format.
 - If copy changes are needed (taglines, features, install commands), edit here only — never in page or component files.
 - Adding a new project: create a new `<slug>.ts` file here, add the route to `app/<slug>/page.tsx`, and reference the project in `profile.featuredProjects`.
+- **Bilingual rule:** every user-facing string added here must have a matching pt-br translation in `lib/i18n/profile.ts` (or the appropriate sibling under `lib/i18n/`). See top-level [CLAUDE.md](../CLAUDE.md) §14.
