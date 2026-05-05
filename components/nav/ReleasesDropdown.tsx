@@ -114,7 +114,7 @@ export function ReleasesDropdown({ releases, ariaLabel }: Props) {
           role="listbox"
           aria-label={ariaLabel ?? "Releases"}
           style={{ animation: "slide-in-down 150ms ease-out" }}
-          className="absolute right-0 z-50 mt-1 max-h-80 min-w-[16rem] overflow-y-auto border border-border bg-surface py-1 text-xs shadow-lg"
+          className="term-scroll absolute right-0 z-50 mt-1 max-h-80 min-w-[16rem] overflow-y-auto border border-border bg-surface py-2 text-xs shadow-lg"
         >
           {releases.map((r, i) => {
             const isLatest = i === 0;
