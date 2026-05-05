@@ -11,18 +11,23 @@ hand-author CLI/TUI output.
 
 - `useFixture.ts` — Tiny `fetch("/netbox-sdk-fixtures/<name>")` hook with an
   in-module cache and an in-flight de-dupe map. Returns `null` while loading.
-- `DemoInitTrace.tsx` — Replays the interactive `nbx demo init` prompt flow.
-  Reads `demo-init-flow.json` (prompts + success line, both extracted from
+- `DemoInitTrace.tsx` — Replays the interactive prompt flow displayed on
+  the site as `nbx init` (the underlying netbox-sdk command is still
+  `nbx demo init`; the website hides the `demo` prefix). Reads
+  `demo-init-flow.json` (prompts + success line, both extracted from
   `netbox_cli/demo.py`). The character-by-character "typed" answers are the
   only synthesized strings; prompt labels and success line come from source.
   Accepts an optional `onDone` callback that fires when the trace lands on
   the success line (used by `DemoInitRunner` to flip its status to `done`).
 - `DemoDevicesList.tsx` — Streams the captured stdout of
-  `nbx dcim devices list --help` from `demo-devices-list-help.json` line by line
-  inside a monospace `<pre>`. Currently a `--help` capture; will become a
-  real listing once netbox-sdk's docgen adds a live capture. Accepts an
-  optional `onDone` callback that fires when all lines are revealed (used
-  by `DemoDevicesListRunner`). Respects `prefers-reduced-motion`.
+  `nbx dcim devices list` from `demo-devices-list.json` line by line
+  inside a monospace `<pre>`. The fixture is regenerated on every sync
+  by running `nbx demo dcim devices list` against the local netbox-sdk
+  checkout (see `scripts/sync-netbox-sdk-fixtures.ts`); `demo` is
+  stripped from the recorded `argv` so the trailer reads
+  `nbx dcim devices list`. Accepts an optional `onDone` callback that
+  fires when all lines are revealed (used by `DemoDevicesListRunner`).
+  Respects `prefers-reduced-motion`.
 - `DemoTuiModal.tsx` — Full-screen `role="dialog"` showing
   `tui-main-netbox-{dark|light}.svg`. Variant tracks
   `<html data-theme>` / `<html class="dark">` via `MutationObserver`. ESC
@@ -35,7 +40,7 @@ Files under `public/netbox-sdk-fixtures/`:
 | File | Source | Shape |
 |---|---|---|
 | `demo-init-help.json` | docgen capture `029-cli-demo-profile-nbx-demo-init-help.json` | `{ surface, section, title, argv, stdout_full, exit_code, ... }` |
-| `demo-devices-list-help.json` | docgen capture `016-cli-dynamic-commands-nbx-dcim-devices-list-help.json` | same as above |
+| `demo-devices-list.json` | live capture of `nbx demo dcim devices list` written by `scripts/sync-netbox-sdk-fixtures.ts` (`argv` rewritten to strip `demo`) | same as above |
 | `demo-tui-help.json` | docgen capture `037-tui-main-browser-nbx-demo-tui-help.json` | same as above |
 | `tui-main-netbox-dark.svg` | `docs/assets/screenshots/tui-main-netbox-dark.svg` | Rich-rendered TUI screenshot |
 | `tui-main-netbox-light.svg` | `docs/assets/screenshots/tui-main-netbox-light.svg` | Rich-rendered TUI screenshot |

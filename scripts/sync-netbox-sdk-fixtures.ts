@@ -9,16 +9,22 @@ const DEST_DIR = path.resolve(__dirname, "../public/netbox-sdk-fixtures");
 
 const COPIES: ReadonlyArray<readonly [string, string]> = [
   ["docs/generated/raw/029-cli-demo-profile-nbx-demo-init-help.json", "demo-init-help.json"],
-  ["docs/generated/raw/016-cli-dynamic-commands-nbx-dcim-devices-list-help.json", "demo-devices-list-help.json"],
   ["docs/generated/raw/037-tui-main-browser-nbx-demo-tui-help.json", "demo-tui-help.json"],
   ["docs/assets/screenshots/tui-main-netbox-dark.svg", "tui-main-netbox-dark.svg"],
   ["docs/assets/screenshots/tui-main-netbox-light.svg", "tui-main-netbox-light.svg"],
 ];
 
+const DEVICES_LIST_FIXTURE = "demo-devices-list.json";
+
 function fixturesAlreadyOnDisk(): boolean {
   if (!existsSync(DEST_DIR)) return false;
   const present = new Set(readdirSync(DEST_DIR));
-  return COPIES.every(([, dst]) => present.has(dst)) && present.has("demo-init-flow.json") && present.has("manifest.json");
+  return (
+    COPIES.every(([, dst]) => present.has(dst)) &&
+    present.has(DEVICES_LIST_FIXTURE) &&
+    present.has("demo-init-flow.json") &&
+    present.has("manifest.json")
+  );
 }
 
 if (!existsSync(SOURCE_REPO)) {
@@ -41,6 +47,44 @@ for (const [src, dst] of COPIES) {
   }
   copyFileSync(from, to);
 }
+
+const captureStarted = Date.now();
+let devicesStdout: string;
+try {
+  devicesStdout = execSync("uv run nbx demo dcim devices list", {
+    cwd: SOURCE_REPO,
+    encoding: "utf8",
+    timeout: 30_000,
+    maxBuffer: 4 * 1024 * 1024,
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+} catch (err) {
+  const e = err as { status?: number; stderr?: Buffer | string; message?: string };
+  const stderr = typeof e.stderr === "string" ? e.stderr : e.stderr?.toString() ?? "";
+  console.error(
+    `[sync-netbox-sdk-fixtures] FATAL: 'uv run nbx demo dcim devices list' failed (status=${e.status ?? "?"}): ${e.message ?? ""}\n${stderr}`,
+  );
+  process.exit(1);
+}
+const devicesElapsed = (Date.now() - captureStarted) / 1000;
+const devicesCapture = {
+  surface: "cli",
+  section: "Dynamic Commands",
+  title: "nbx dcim devices list",
+  argv: ["dcim", "devices", "list"],
+  argv_base: ["dcim", "devices", "list"],
+  exit_code: 0,
+  elapsed_seconds: Math.round(devicesElapsed * 1000) / 1000,
+  stdout_full: devicesStdout,
+  truncated: false,
+  stdout_json: null,
+  stdout_yaml: null,
+  stdout_markdown: null,
+};
+writeFileSync(
+  path.join(DEST_DIR, DEVICES_LIST_FIXTURE),
+  JSON.stringify(devicesCapture, null, 2) + "\n",
+);
 
 const demoPy = readFileSync(path.join(SOURCE_REPO, "netbox_cli/demo.py"), "utf8");
 
@@ -86,7 +130,7 @@ const manifest = {
   syncedAt: new Date().toISOString(),
   sourceCommit,
   sourceRepo: SOURCE_REPO,
-  files: [...COPIES.map(([, dst]) => dst), "demo-init-flow.json"],
+  files: [...COPIES.map(([, dst]) => dst), DEVICES_LIST_FIXTURE, "demo-init-flow.json"],
 };
 writeFileSync(path.join(DEST_DIR, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 

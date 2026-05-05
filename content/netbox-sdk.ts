@@ -64,7 +64,7 @@ export const netboxSdk: ProjectContent = {
       { kind: "step", text: "Installing Playwright Chromium" },
       {
         kind: "info",
-        text: "required for 'nbx demo init'  (browser-based token retrieval)",
+        text: "required for 'nbx init'  (browser-based token retrieval)",
       },
       {
         kind: "spinner",
@@ -85,13 +85,13 @@ export const netboxSdk: ProjectContent = {
       { kind: "blank" },
       {
         kind: "tip",
-        cmd: "nbx demo init",
+        cmd: "nbx init",
         comment: "# authenticate with demo.netbox.dev",
       },
       {
         kind: "tip",
-        cmd: "nbx dcim devices list --help",
-        comment: "# inspect device-list command",
+        cmd: "nbx dcim devices list",
+        comment: "# list devices",
       },
       {
         kind: "tip",

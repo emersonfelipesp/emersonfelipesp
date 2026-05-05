@@ -16,10 +16,16 @@ Build-time helpers run via `tsx`. Not part of the Next.js bundle.
 
 - **Source missing, fixtures present**: warn and exit 0 (Vercel build OK).
 - **Source missing, fixtures missing**: exit 1, hard-fail the build.
-- **Source present**: copy each entry in `COPIES`, regenerate
-  `demo-init-flow.json` from `netbox_cli/demo.py` regex, write a
-  `manifest.json` with the source repo HEAD SHA.
-- Idempotent — overwrites destination files every run.
+- **Source present**: copy each entry in `COPIES`, run
+  `uv run nbx demo dcim devices list` against `SOURCE_REPO` and write
+  the captured stdout to `demo-devices-list.json` (with `demo`
+  stripped from the recorded `argv` so the website trailer reads
+  `nbx dcim devices list`), regenerate `demo-init-flow.json` from
+  `netbox_cli/demo.py` regex, write a `manifest.json` with the source
+  repo HEAD SHA.
+- Idempotent — overwrites destination files every run. The live
+  `nbx demo dcim devices list` step hard-fails the build if the CLI
+  errors or returns a non-zero exit code.
 
 ## Extending
 

@@ -6,7 +6,7 @@ import { DemoInitTrace } from "./sims/DemoInitTrace";
 export function DemoInitRunner() {
   return (
     <DemoCommandRunner
-      command="nbx demo init"
+      command="nbx init"
       render={({ runKey, onDone }) => (
         <DemoInitTrace key={runKey} onDone={onDone} />
       )}

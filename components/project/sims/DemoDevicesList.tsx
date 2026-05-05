@@ -15,7 +15,7 @@ type Props = {
 };
 
 export function DemoDevicesList({ onDone }: Props = {}) {
-  const cap = useFixture<Capture>("demo-devices-list-help.json");
+  const cap = useFixture<Capture>("demo-devices-list.json");
   const [revealed, setRevealed] = useState(0);
   const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const onDoneRef = useRef(onDone);
