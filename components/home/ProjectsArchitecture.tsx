@@ -1,0 +1,152 @@
+"use client";
+
+import { useLanguage } from "@/components/i18n/LanguageProvider";
+
+type NodeProps = {
+  name: string;
+  description: string;
+  href?: string;
+  highlight?: boolean;
+};
+
+function Node({ name, description, href, highlight = false }: NodeProps) {
+  const baseClasses =
+    "border bg-surface px-3 py-1.5 text-sm transition-all duration-150 outline-none whitespace-nowrap";
+  const stateClasses = highlight
+    ? "border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
+    : "border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
+
+  const tipId = `tip-${name.replace(/\s+/g, "-").replace(/[^\w-]/g, "")}`;
+
+  const inner = (
+    <>
+      <span className="text-muted">[</span>
+      <span className="mx-1">{name}</span>
+      <span className="text-muted">]</span>
+    </>
+  );
+
+  return (
+    <span className="group relative inline-flex">
+      {href ? (
+        <a
+          href={href}
+          className={`${baseClasses} ${stateClasses} cursor-pointer`}
+          aria-describedby={tipId}
+        >
+          {inner}
+        </a>
+      ) : (
+        <button
+          type="button"
+          className={`${baseClasses} ${stateClasses} cursor-help`}
+          aria-describedby={tipId}
+        >
+          {inner}
+        </button>
+      )}
+
+      <span
+        id={tipId}
+        role="tooltip"
+        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-64 -translate-x-1/2 border border-accent/60 bg-surface-2 px-3 py-2 text-left text-xs leading-relaxed text-fg/90 opacity-0 shadow-[0_0_0_1px_var(--border)] transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+      >
+        <span className="block text-accent">{name}</span>
+        <span className="mt-1 block whitespace-normal">{description}</span>
+      </span>
+    </span>
+  );
+}
+
+function VerticalEdge({ label }: { label?: string }) {
+  return (
+    <span className="flex flex-col items-center text-muted leading-none">
+      <span aria-hidden>│</span>
+      {label ? (
+        <span className="my-0.5 text-[10px] uppercase tracking-wider text-muted/80">
+          {label}
+        </span>
+      ) : null}
+      <span aria-hidden>▼</span>
+    </span>
+  );
+}
+
+function ForkConnector({ label }: { label?: string }) {
+  return (
+    <div className="flex w-full max-w-md flex-col items-center">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="50" y1="0" x2="50" y2="9" />
+          <line x1="25" y1="9" x2="75" y2="9" />
+          <line x1="25" y1="9" x2="25" y2="20" />
+          <line x1="75" y1="9" x2="75" y2="20" />
+          <polyline points="23,18 25,22 27,18" />
+          <polyline points="73,18 75,22 77,18" />
+        </g>
+      </svg>
+      {label ? (
+        <span className="-mt-1 text-[10px] uppercase tracking-wider text-muted/80">
+          {label}
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
+export function ProjectsArchitecture() {
+  const { t } = useLanguage();
+  const a = t.home.architecture;
+
+  return (
+    <div className="border border-border bg-surface p-4 sm:p-6">
+      <p className="mb-4 text-xs text-muted">
+        {a.heading}{" "}
+        <span className="text-muted/70">— {a.caption}</span>
+      </p>
+
+      <div className="flex flex-col items-center gap-1">
+        <Node name="netbox" description={a.nodes.netbox} highlight />
+        <VerticalEdge label={a.edges.plugin} />
+        <Node
+          name="netbox-proxbox"
+          description={a.nodes.netboxProxbox}
+          href="/netbox-proxbox"
+          highlight
+        />
+        <VerticalEdge label={a.edges.httpSseWs} />
+        <Node name="proxbox-api" description={a.nodes.proxboxApi} highlight />
+
+        <ForkConnector />
+
+        <div className="grid w-full max-w-md grid-cols-2 gap-x-4 sm:gap-x-6">
+          <div className="flex flex-col items-center gap-1">
+            <Node
+              name="netbox-sdk"
+              description={a.nodes.netboxSdk}
+              href="/netbox-sdk"
+              highlight
+            />
+            <VerticalEdge label={a.edges.rest} />
+            <Node name="netbox · REST API" description={a.nodes.netboxRest} />
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <Node
+              name="proxmox-sdk"
+              description={a.nodes.proxmoxSdk}
+              href="/proxmox-sdk"
+              highlight
+            />
+            <VerticalEdge label={a.edges.rest} />
+            <Node name="proxmox · REST API" description={a.nodes.proxmoxRest} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

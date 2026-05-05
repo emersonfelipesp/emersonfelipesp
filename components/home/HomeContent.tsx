@@ -7,6 +7,7 @@ import { AsciiBanner } from "@/components/terminal/AsciiBanner";
 import { ProfileCard } from "@/components/home/ProfileCard";
 import { SkillsBlock } from "@/components/home/SkillsBlock";
 import { FeaturedProjectsGrid } from "@/components/home/FeaturedProjectsGrid";
+import { ProjectsArchitecture } from "@/components/home/ProjectsArchitecture";
 import { ContactForm } from "@/components/home/ContactForm";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
@@ -59,6 +60,8 @@ export function HomeContent() {
         <SectionHeading id="projects">{sections.projects}</SectionHeading>
         <TypedCommand command="./list-projects --featured" />
         <FeaturedProjectsGrid />
+        <TypedCommand command="./show --architecture" />
+        <ProjectsArchitecture />
       </section>
 
       <section className="space-y-3">

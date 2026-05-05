@@ -68,6 +68,24 @@ export type Dictionary = {
       title: string;
       viewProject: string;
     };
+    architecture: {
+      heading: string;
+      caption: string;
+      edges: {
+        plugin: string;
+        httpSseWs: string;
+        rest: string;
+      };
+      nodes: {
+        netbox: string;
+        netboxProxbox: string;
+        proxboxApi: string;
+        netboxSdk: string;
+        netboxRest: string;
+        proxmoxSdk: string;
+        proxmoxRest: string;
+      };
+    };
     contact: {
       title: string;
       name: string;
@@ -154,6 +172,24 @@ const en: Dictionary = {
     projects: {
       title: "featured projects",
       viewProject: "view project",
+    },
+    architecture: {
+      heading: "// how my projects fit together",
+      caption: "hover any node for details",
+      edges: {
+        plugin: "plugin",
+        httpSseWs: "HTTP / SSE / WS",
+        rest: "REST",
+      },
+      nodes: {
+        netbox: "Open-source source-of-truth platform for network infrastructure (DCIM / IPAM / virtualization).",
+        netboxProxbox: "NetBox plugin that surfaces Proxmox infra (clusters, nodes, VMs, backups) inside NetBox and triggers syncs.",
+        proxboxApi: "FastAPI backend that orchestrates the NetBox ↔ Proxmox sync workflow over HTTP, SSE, and WebSocket.",
+        netboxSdk: "Python async SDK + CLI (nbx) + Textual TUI for the NetBox REST API. Used by proxbox-api to read/write NetBox.",
+        netboxRest: "NetBox's REST API — the data target where Proxmox infrastructure ends up.",
+        proxmoxSdk: "Schema-driven FastAPI SDK for the Proxmox VE API: 646 generated endpoints, dual mock/real modes, CLI + TUI.",
+        proxmoxRest: "Proxmox VE's REST API — the data source for clusters, nodes, VMs, storage, and backups.",
+      },
     },
     contact: {
       title: "contact",
@@ -243,6 +279,24 @@ const ptBr: Dictionary = {
     projects: {
       title: "projetos em destaque",
       viewProject: "ver projeto",
+    },
+    architecture: {
+      heading: "// como meus projetos se conectam",
+      caption: "passe o mouse em qualquer nó para detalhes",
+      edges: {
+        plugin: "plugin",
+        httpSseWs: "HTTP / SSE / WS",
+        rest: "REST",
+      },
+      nodes: {
+        netbox: "Plataforma open-source de fonte da verdade para infraestrutura de rede (DCIM / IPAM / virtualização).",
+        netboxProxbox: "Plugin do NetBox que expõe a infraestrutura do Proxmox (clusters, nós, VMs, backups) dentro do NetBox e dispara sincronizações.",
+        proxboxApi: "Backend FastAPI que orquestra o fluxo de sincronização NetBox ↔ Proxmox via HTTP, SSE e WebSocket.",
+        netboxSdk: "SDK Python assíncrono + CLI (nbx) + TUI Textual para a API REST do NetBox. Usado pelo proxbox-api para ler e gravar no NetBox.",
+        netboxRest: "API REST do NetBox — o destino onde a infraestrutura do Proxmox é registrada.",
+        proxmoxSdk: "SDK FastAPI orientado a schema para a API do Proxmox VE: 646 endpoints gerados, modos mock/real, CLI + TUI.",
+        proxmoxRest: "API REST do Proxmox VE — a fonte de dados de clusters, nós, VMs, storage e backups.",
+      },
     },
     contact: {
       title: "contato",
