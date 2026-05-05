@@ -20,7 +20,10 @@ Build-time helpers run via `tsx`. Not part of the Next.js bundle.
   `uv run nbx demo dcim devices list` against `SOURCE_REPO` and write
   the captured stdout to `demo-devices-list.json` (with `demo`
   stripped from the recorded `argv` so the website trailer reads
-  `nbx dcim devices list`), regenerate `demo-init-flow.json` from
+  `nbx dcim devices list`), derive `netbox-sdk-metadata.json` from
+  `pyproject.toml` (release, python lower bound) plus the
+  `netbox_sdk/typed_versions/v*_*.py` listing (NetBox compatibility
+  array, sorted newest first), regenerate `demo-init-flow.json` from
   `netbox_cli/demo.py` regex, write a `manifest.json` with the source
   repo HEAD SHA.
 - Idempotent — overwrites destination files every run. The live

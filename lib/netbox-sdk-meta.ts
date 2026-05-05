@@ -1,7 +1,11 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { z } from "zod";
 
-const METADATA_URL =
-  "https://raw.githubusercontent.com/emersonfelipesp/netbox-sdk/main/metadata.json";
+const METADATA_PATH = path.join(
+  process.cwd(),
+  "public/netbox-sdk-fixtures/netbox-sdk-metadata.json",
+);
 
 const metadataSchema = z.object({
   release: z.string(),
@@ -17,16 +21,15 @@ export type NetboxSdkMeta = {
 
 export async function getNetboxSdkMeta(): Promise<NetboxSdkMeta | null> {
   try {
-    const res = await fetch(METADATA_URL, { next: { revalidate: 3600 } });
-    if (!res.ok) throw new Error(`metadata.json HTTP ${res.status}`);
-    const data = metadataSchema.parse(await res.json());
+    const raw = await readFile(METADATA_PATH, "utf8");
+    const data = metadataSchema.parse(JSON.parse(raw));
     return {
       netbox: data.netbox.join(" / "),
       python: data.python,
       latestRelease: `v${data.release}`,
     };
   } catch (err) {
-    console.error("[netbox-sdk-meta] fetch failed:", err);
+    console.error("[netbox-sdk-meta] read failed:", err);
     return null;
   }
 }

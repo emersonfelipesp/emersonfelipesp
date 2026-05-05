@@ -15,6 +15,7 @@ const COPIES: ReadonlyArray<readonly [string, string]> = [
 ];
 
 const DEVICES_LIST_FIXTURE = "demo-devices-list.json";
+const METADATA_FIXTURE = "netbox-sdk-metadata.json";
 
 function fixturesAlreadyOnDisk(): boolean {
   if (!existsSync(DEST_DIR)) return false;
@@ -22,6 +23,7 @@ function fixturesAlreadyOnDisk(): boolean {
   return (
     COPIES.every(([, dst]) => present.has(dst)) &&
     present.has(DEVICES_LIST_FIXTURE) &&
+    present.has(METADATA_FIXTURE) &&
     present.has("demo-init-flow.json") &&
     present.has("manifest.json")
   );
@@ -86,6 +88,49 @@ writeFileSync(
   JSON.stringify(devicesCapture, null, 2) + "\n",
 );
 
+const pyproject = readFileSync(path.join(SOURCE_REPO, "pyproject.toml"), "utf8");
+
+function matchPyproject(re: RegExp, label: string): string {
+  const m = pyproject.match(re);
+  if (!m) {
+    console.error(`[sync-netbox-sdk-fixtures] FATAL: could not extract ${label} from pyproject.toml`);
+    process.exit(1);
+  }
+  return m[1];
+}
+
+const sdkVersion = matchPyproject(/^version\s*=\s*"([^"]+)"/m, "version");
+const requiresPython = matchPyproject(/^requires-python\s*=\s*"([^"]+)"/m, "requires-python");
+const pythonLowerBound = (() => {
+  const m = requiresPython.match(/>=\s*(\d+\.\d+)/);
+  return m ? `${m[1]}+` : requiresPython;
+})();
+
+const typedVersionsDir = path.join(SOURCE_REPO, "netbox_sdk/typed_versions");
+const netboxVersions = readdirSync(typedVersionsDir)
+  .map((name) => name.match(/^v(\d+)_(\d+)\.py$/))
+  .filter((m): m is RegExpMatchArray => m !== null)
+  .map((m) => ({ key: Number(m[1]) * 1000 + Number(m[2]), label: `${m[1]}.${m[2]}` }))
+  .sort((a, b) => b.key - a.key)
+  .map((v) => v.label);
+if (netboxVersions.length === 0) {
+  console.error(`[sync-netbox-sdk-fixtures] FATAL: no v*_*.py files in ${typedVersionsDir}`);
+  process.exit(1);
+}
+
+writeFileSync(
+  path.join(DEST_DIR, METADATA_FIXTURE),
+  JSON.stringify(
+    {
+      release: sdkVersion,
+      python: pythonLowerBound,
+      netbox: netboxVersions,
+    },
+    null,
+    2,
+  ) + "\n",
+);
+
 const demoPy = readFileSync(path.join(SOURCE_REPO, "netbox_cli/demo.py"), "utf8");
 
 function findPromptLabel(re: RegExp): string {
@@ -130,7 +175,7 @@ const manifest = {
   syncedAt: new Date().toISOString(),
   sourceCommit,
   sourceRepo: SOURCE_REPO,
-  files: [...COPIES.map(([, dst]) => dst), DEVICES_LIST_FIXTURE, "demo-init-flow.json"],
+  files: [...COPIES.map(([, dst]) => dst), DEVICES_LIST_FIXTURE, METADATA_FIXTURE, "demo-init-flow.json"],
 };
 writeFileSync(path.join(DEST_DIR, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 

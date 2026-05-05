@@ -1,6 +1,6 @@
 {
-  "syncedAt": "2026-05-05T12:22:56.144Z",
-  "sourceCommit": "307440b8958e49a6804574645417c34d663e8216",
+  "syncedAt": "2026-05-05T12:31:46.669Z",
+  "sourceCommit": "747c0b002d92d2eeea601fea7860030d25d1b184",
   "sourceRepo": "/root/nms/netbox-sdk",
   "files": [
     "demo-init-help.json",
@@ -8,6 +8,7 @@
     "tui-main-netbox-dark.svg",
     "tui-main-netbox-light.svg",
     "demo-devices-list.json",
+    "netbox-sdk-metadata.json",
     "demo-init-flow.json"
   ]
 }
