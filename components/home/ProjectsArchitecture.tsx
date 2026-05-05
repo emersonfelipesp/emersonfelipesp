@@ -1,29 +1,56 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ProxmoxLogo } from "./ProxmoxLogo";
 
 type NodeProps = {
   name: string;
   description: string;
   href?: string;
   highlight?: boolean;
+  logo?: "netbox" | "proxmox";
+  trailing?: string;
 };
 
-function Node({ name, description, href, highlight = false }: NodeProps) {
+function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
+  if (kind === "netbox") {
+    return (
+      <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logos/netbox-dark-teal.svg"
+          alt="NetBox"
+          className="block h-6 w-auto dark:hidden"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logos/netbox-bright-teal.svg"
+          alt="NetBox"
+          className="hidden h-6 w-auto dark:block"
+        />
+      </>
+    );
+  }
+  return <ProxmoxLogo className="h-4 w-auto text-fg/90" />;
+}
+
+function Node({ name, description, href, highlight = false, logo, trailing }: NodeProps) {
   const baseClasses =
-    "border bg-surface px-3 py-1.5 text-sm transition-all duration-150 outline-none whitespace-nowrap";
+    "border bg-surface text-sm transition-all duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
+  const sizeClasses = logo ? "h-9 w-28 p-1.5" : "px-3 py-1.5";
   const stateClasses = highlight
     ? "border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
     : "border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
 
   const tipId = `tip-${name.replace(/\s+/g, "-").replace(/[^\w-]/g, "")}`;
 
-  const inner = (
-    <>
-      <span className="text-muted">[</span>
-      <span className="mx-1">{name}</span>
-      <span className="text-muted">]</span>
-    </>
+  const inner = logo ? (
+    <span className="inline-flex items-center gap-1 leading-none">
+      <BrandLogo kind={logo} />
+      {trailing ? <span>{trailing}</span> : null}
+    </span>
+  ) : (
+    <span>{name}</span>
   );
 
   return (
@@ -31,16 +58,18 @@ function Node({ name, description, href, highlight = false }: NodeProps) {
       {href ? (
         <a
           href={href}
-          className={`${baseClasses} ${stateClasses} cursor-pointer`}
+          className={`${baseClasses} ${sizeClasses} ${stateClasses} cursor-pointer`}
           aria-describedby={tipId}
+          aria-label={name}
         >
           {inner}
         </a>
       ) : (
         <button
           type="button"
-          className={`${baseClasses} ${stateClasses} cursor-help`}
+          className={`${baseClasses} ${sizeClasses} ${stateClasses} cursor-help`}
           aria-describedby={tipId}
+          aria-label={name}
         >
           {inner}
         </button>
@@ -111,7 +140,7 @@ export function ProjectsArchitecture() {
       </p>
 
       <div className="flex flex-col items-center gap-1">
-        <Node name="netbox" description={a.nodes.netbox} highlight />
+        <Node name="netbox" description={a.nodes.netbox} highlight logo="netbox" />
         <VerticalEdge label={a.edges.plugin} />
         <Node
           name="netbox-proxbox"
@@ -133,7 +162,11 @@ export function ProjectsArchitecture() {
               highlight
             />
             <VerticalEdge label={a.edges.rest} />
-            <Node name="netbox · REST API" description={a.nodes.netboxRest} />
+            <Node
+              name="netbox · REST API"
+              description={a.nodes.netboxRest}
+              logo="netbox"
+            />
           </div>
           <div className="flex flex-col items-center gap-1">
             <Node
@@ -143,7 +176,11 @@ export function ProjectsArchitecture() {
               highlight
             />
             <VerticalEdge label={a.edges.rest} />
-            <Node name="proxmox · REST API" description={a.nodes.proxmoxRest} />
+            <Node
+              name="proxmox · REST API"
+              description={a.nodes.proxmoxRest}
+              logo="proxmox"
+            />
           </div>
         </div>
       </div>
