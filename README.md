@@ -19,7 +19,7 @@ class EmersonFelipe:
         self.name = "Emerson Felipe"
         self.role = "Software Developer & Network Automation Engineer"
         self.location = "Cotia, São Paulo, Brazil 🇧🇷"
-        self.company = "@N-Multifibra"
+        self.company = "@N-MultiFibra"
         self.communities = ["@netbox-community", "@netdevopsbr"]
         self.passions = ["NetDevOps", "Open Source", "Network Automation"]
         
@@ -171,7 +171,7 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emersonfelipesp/)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/emersonfelipesp/)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:emersonfelipe.2003@gmail.com)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:emerson@netdevopsbr.com)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/emersonfelipesp)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emersonfelipesp)
 

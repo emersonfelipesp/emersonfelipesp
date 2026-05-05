@@ -21,9 +21,9 @@ export const profile = {
   handle: "emersonfelipesp",
   role: "Software Developer & Network Automation Engineer",
   location: "Cotia, São Paulo, Brazil",
-  company: "@N-Multifibra",
+  company: "@N-MultiFibra",
   communities: ["@netbox-community", "@netdevopsbr"],
-  email: "emersonfelipe.2003@gmail.com",
+  email: "emerson@netdevopsbr.com",
   bio: [
     "I've been passionate about programming since childhood. When I discovered networking, I found the perfect combination: Network Automation.",
     "I'm focused on gaining deep knowledge of Service Provider networks (MPLS, BGP) while automating everything possible.",
@@ -33,12 +33,15 @@ export const profile = {
   motto: "Automating networks, one commit at a time.",
 } as const;
 
+export const companyHref = "https://nmultifibra.com.br";
+
 export const socials: SocialLink[] = [
   { label: "github", href: "https://github.com/emersonfelipesp" },
   { label: "linkedin", href: "https://www.linkedin.com/in/emersonfelipesp/" },
-  { label: "email", href: "mailto:emersonfelipe.2003@gmail.com" },
+  { label: "email", href: "mailto:emerson@netdevopsbr.com" },
   { label: "telegram", href: "https://t.me/emersonfelipesp" },
   { label: "instagram", href: "https://www.instagram.com/emersonfelipesp/" },
+  { label: "n-multifibra", href: companyHref },
 ];
 
 export const skills: Skill[] = [

@@ -1,4 +1,4 @@
-import { profile, skills, featured, socials, profileBanner } from "@/content/profile";
+import { profile, skills, featured, socials, profileBanner, companyHref } from "@/content/profile";
 import type { Lang } from "./languages";
 
 type LocalizedProfile = {
@@ -64,4 +64,4 @@ export function getSkills() {
   return skills;
 }
 
-export { socials, profileBanner };
+export { socials, profileBanner, companyHref };
