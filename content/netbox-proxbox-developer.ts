@@ -81,7 +81,7 @@ export const netboxProxboxDeveloper: DeveloperContent = {
       "Plain Python requests + Docker Compose stack (NetBox + PostgreSQL + Redis + proxbox-api + a proxmox-sdk:dev-nginx mock).",
     intro: [
       "There is no pytest E2E target — the suite is a runnable Python script that brings the whole stack up, drives a Full Update, and asserts the resulting NetBox state.",
-      "The same suite is wired into a GitHub Actions matrix that re-runs the entire flow against three install sources and two dependency modes for every release candidate, plus once per night.",
+      "The same suite is wired into GitHub Actions for nightly coverage and for staged package releases: TestPyPI runs install the plugin and proxbox-api from TestPyPI, while PyPI candidate and final runs install both from PyPI.",
     ],
     commands: [
       { label: "run E2E locally", cmd: "python tests/e2e/e2e_stack_check.py" },
@@ -90,8 +90,8 @@ export const netboxProxboxDeveloper: DeveloperContent = {
       "Spec files: tests/e2e/e2e_stack_check.py, stack_setup.py, stack_sync.py, stack_common.py, mock_proxmox_api.py.",
       "Stack: NetBox image netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:dev-nginx.",
       "Mock data: tests/e2e/proxmox_openapi_mock_data.json mounted into the proxmox-sdk mock container.",
-      "Matrix axes: install_source ∈ {local, pypi, container} × dependency_mode ∈ {dev, published}.",
-      "Release gate: e2e-docker-local must be green before publishing to PyPI.",
+      "Matrix axes include install_source ∈ {local, pypi, container, testpypi} and dependency_mode ∈ {dev, published, testpypi-package, pypi-package}.",
+      "Release gate: publish-testpypi.yml publishes to TestPyPI first, validates exact package installs, then promotes PyPI rc/final versions only after E2E passes with the matching proxbox-api package index.",
       "Schedule: nightly cron 31 2 * * * exercises the full matrix unattended.",
     ],
     ciWorkflow: ".github/workflows/e2e-docker.yml",

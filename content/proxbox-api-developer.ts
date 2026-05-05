@@ -98,7 +98,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
       "pytest + pytest-asyncio + httpx.AsyncClient. Two marker modes — mock_backend (in-process, no HTTP) and mock_http (against a running proxmox-sdk container).",
     intro: [
       "The fast loop runs entirely in-process against MockBackend; no Docker, no network. The full loop spins up proxmox-sdk on 8006/8007 and a live NetBox container, and exercises every supported transport combination.",
-      "A pre-publish E2E gate (e2e-pre-publish in publish-testpypi.yml) blocks any PyPI release whose matrix doesn't fully turn green.",
+      "The release workflow is staged: normal and post tags publish to TestPyPI, PyPI release candidates use vX.Y.ZrcN, and the final PyPI package plus Docker images publish only after package reinstall validation and E2E gates pass.",
     ],
     commands: [
       { label: "all unit + integration", cmd: "uv run pytest tests" },
@@ -116,7 +116,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
       "Markers: @pytest.mark.mock_backend (in-process MockBackend) and @pytest.mark.mock_http (proxmox-sdk Docker container on ports 8006/8007).",
       "Auth helpers in proxbox_api/e2e/ are the only place Playwright is used in the backend.",
       "CI: ci.yml runs the core test job (pytest excluding tests/e2e) plus an E2E Docker matrix of 6 transport combos × netbox_proxbox_mode.",
-      "Release gate: e2e-pre-publish in publish-testpypi.yml — must pass before TestPyPI / PyPI publish.",
+      "Release gate: publish-testpypi.yml validates TestPyPI installs first, then PyPI rc/final installs, Docker image publish, and post-publish E2E.",
     ],
     ciWorkflow: ".github/workflows/ci.yml",
     ciWorkflowUrl:

@@ -61,14 +61,14 @@ const NETBOX_PROXBOX_PT_BR: LocalizedDeveloper = {
     "Script Python com requests + stack Docker Compose (NetBox + PostgreSQL + Redis + proxbox-api + um mock proxmox-sdk:dev-nginx).",
   e2eIntro: [
     "Não há alvo de E2E em pytest — a suíte é um script Python executável que sobe a stack inteira, dispara um Full Update e valida o estado resultante no NetBox.",
-    "A mesma suíte está conectada a uma matriz do GitHub Actions que reexecuta todo o fluxo contra três fontes de instalação e dois modos de dependência para cada release candidate, mais uma vez por noite.",
+    "A mesma suíte está conectada ao GitHub Actions para cobertura noturna e releases em etapas: execuções TestPyPI instalam o plugin e o proxbox-api do TestPyPI, enquanto candidatas e finais PyPI instalam ambos do PyPI.",
   ],
   e2eCoverage: [
     "Specs: tests/e2e/e2e_stack_check.py, stack_setup.py, stack_sync.py, stack_common.py, mock_proxmox_api.py.",
     "Stack: imagem netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:dev-nginx.",
     "Dados de mock: tests/e2e/proxmox_openapi_mock_data.json montado dentro do contêiner mock do proxmox-sdk.",
-    "Eixos da matriz: install_source ∈ {local, pypi, container} × dependency_mode ∈ {dev, published}.",
-    "Gate de release: e2e-docker-local precisa estar verde antes da publicação no PyPI.",
+    "Eixos da matriz incluem install_source ∈ {local, pypi, container, testpypi} e dependency_mode ∈ {dev, published, testpypi-package, pypi-package}.",
+    "Gate de release: publish-testpypi.yml publica no TestPyPI primeiro, valida instalacoes exatas de pacote, e so promove versoes rc/final no PyPI depois do E2E passar com o indice correspondente do proxbox-api.",
     "Agendamento: cron noturno 31 2 * * * exercita a matriz completa sem supervisão.",
   ],
 };
@@ -106,14 +106,14 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
     "pytest + pytest-asyncio + httpx.AsyncClient. Dois modos via marker — mock_backend (em processo, sem HTTP) e mock_http (contra um contêiner do proxmox-sdk em execução).",
   e2eIntro: [
     "O loop rápido roda inteiramente em processo contra MockBackend; sem Docker, sem rede. O loop completo sobe o proxmox-sdk em 8006/8007 e um contêiner de NetBox real, exercitando cada combinação de transporte suportada.",
-    "Um gate E2E pré-publicação (e2e-pre-publish em publish-testpypi.yml) bloqueia qualquer release no PyPI cuja matriz não fique completamente verde.",
+    "O workflow de release e em etapas: tags normais e post publicam no TestPyPI, release candidates do PyPI usam vX.Y.ZrcN, e o pacote final no PyPI mais as imagens Docker so saem depois da validacao de reinstalacao e dos gates E2E.",
   ],
   e2eCoverage: [
     "Specs: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py.",
     "Markers: @pytest.mark.mock_backend (MockBackend em processo) e @pytest.mark.mock_http (contêiner Docker do proxmox-sdk nas portas 8006/8007).",
     "Os helpers de auth em proxbox_api/e2e/ são o único lugar do backend onde Playwright é usado.",
     "CI: ci.yml roda o job core de testes (pytest excluindo tests/e2e) mais uma matriz E2E em Docker de 6 combos de transporte × netbox_proxbox_mode.",
-    "Gate de release: e2e-pre-publish em publish-testpypi.yml — precisa passar antes do publish no TestPyPI / PyPI.",
+    "Gate de release: publish-testpypi.yml valida instalacoes TestPyPI primeiro, depois instalacoes rc/final PyPI, publicacao de imagens Docker e E2E pos-publicacao.",
   ],
 };
 
