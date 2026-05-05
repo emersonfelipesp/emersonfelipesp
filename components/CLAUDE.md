@@ -1,18 +1,24 @@
 # components/
 
 ## Purpose
-All reusable React/TSX components, organized into five subdirectories by feature domain. No component file lives directly in this folder — every component belongs to a subdirectory. Components are server components by default; add `"use client"` only when browser APIs or React state/effects are needed.
+
+Reusable React/TSX components, organized by feature domain. Components are
+server components by default; add `"use client"` only when state, effects,
+browser APIs, routing hooks, or DOM interaction require it.
 
 ## Subdirectories
 
-- `terminal/` — Core UI primitives establishing the CLI aesthetic (see `terminal/CLAUDE.md`)
-- `theme/` — Theme provider and toggle dropdown (see `theme/CLAUDE.md`)
-- `nav/` — Top navigation and section navigation (see `nav/CLAUDE.md`)
-- `project/` — Project showcase page building blocks (see `project/CLAUDE.md`)
-- `home/` — Homepage-specific components (see `home/CLAUDE.md`)
+- `home/` - Homepage-specific profile, skills, architecture, featured projects, and contact components.
+- `i18n/` - Client-side language provider and language dropdown.
+- `nav/` - Top navigation, section navigation, project view switcher, release dropdowns, and shared action icons.
+- `project/` - Project showcase/developer/release page building blocks and fixture-backed demos.
+- `terminal/` - Terminal aesthetic primitives.
+- `theme/` - Theme provider, theme definitions, and theme dropdown.
 
 ## Key Conventions
 
-- Never write hex literals — use semantic Tailwind utilities only: `bg-bg`, `bg-surface`, `bg-surface-2`, `text-fg`, `text-muted`, `border-border`, `text-accent`, `text-accent-2`, `text-success`, `text-warn`, `text-danger`.
-- No emoji in component markup — text-first aesthetic.
-- Client components (`"use client"`) may not be imported directly from server components without the directive; Next.js will error.
+- Never write hex literals in normal components. Use semantic Tailwind utilities backed by `app/globals.css`.
+- No emoji in component markup.
+- User-facing copy should come from `content/` or `lib/i18n/`, not hardcoded strings, except stable command labels and non-visible accessibility glue.
+- Do not import Node-only `lib/` modules into client components unless the module is browser-safe. Registry and i18n helpers are safe; DB/filesystem helpers are not.
+- Project pages should use shared wrappers in `components/project/ProjectSections.tsx` where possible to keep navigation, badges, repo stats, and section chrome consistent.

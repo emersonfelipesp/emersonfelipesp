@@ -1,15 +1,19 @@
 # app/netbox-proxbox/
 
 ## Purpose
-Project showcase page for the `netbox-proxbox` plugin — a NetBox + Proxmox synchronisation tool. Uses the `netbox` palette. All copy and metadata come from `content/netbox-proxbox.ts`; the page is purely presentational.
+
+Showcase route for the `netbox-proxbox` NetBox plugin. Uses the `netbox`
+palette and renders localized content from `content/netbox-proxbox.ts` via
+`lib/i18n/projects.ts`.
 
 ## Files
 
-- `page.tsx` — Server shell. Exports `metadata` (English baseline for SEO) + `dynamic = "force-dynamic"`, awaits `incrementView()`, then renders `<NetboxProxboxContent />`. The page body, palette, and section assembly live in the client component (so they can react to the language toggle).
-- `components/project/NetboxProxboxContent.tsx` — Client (`"use client"`) component holding the JSX (`ProjectHero`, overview, `FeatureList`, installation `StepList` × 3, configuration `StepList` × 2, `ScreenshotGallery`, `RepoStatsCard`, links). Section headings, StepList titles, the configure intro, and the `// screenshots` / `// repo` dividers come from `t.project.sections.*` / `t.project.proxbox.*`. All translatable copy comes from `getNetboxProxbox(lang)`.
+- `page.tsx` - Server shell. Exports metadata and `dynamic = "force-dynamic"`, increments `/${p.slug}`, loads static release/repo data with `loadProjectShellData("netbox-proxbox")`, and renders `<NetboxProxboxContent releases={...} repo={...} />`.
+- `developer/` - Developer-facing companion route. See `developer/CLAUDE.md`.
 
 ## Key Conventions
 
-- Screenshots are sourced from `public/netbox-proxbox/screenshots/` — filenames must match the array in `content/netbox-proxbox.ts`.
-- `export const dynamic = "force-dynamic"` is required for the page-view counter.
-- Palette is `netbox` — verify both light and dark modes after any style changes.
+- The client page body lives in `components/project/NetboxProxboxContent.tsx`.
+- Screenshots are sourced from `public/netbox-proxbox/screenshots/`; filenames and groups come from content/i18n data.
+- Project navigation, actions, stars, and releases are shared through `ProjectNavigation` / `SectionNav`.
+- View switching to `/netbox-proxbox/developer` is handled by the global `<ProjectViewToggle>` in `TopNav`.

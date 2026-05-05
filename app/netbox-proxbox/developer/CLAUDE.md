@@ -1,23 +1,17 @@
 # app/netbox-proxbox/developer/
 
 ## Purpose
-Developer-facing companion page for `/netbox-proxbox`. Documents the
-plugin's architecture, integrations with `proxbox-api`, contribution
-workflow, and the Docker E2E matrix. Palette inherits from the content
-file (`netbox`).
+
+Developer-facing companion page for `/netbox-proxbox`. Documents plugin
+architecture, proxbox-api integration, contribution workflow, and the Docker E2E
+matrix. Uses the `netbox` palette from the content file.
 
 ## Files
 
-- `page.tsx` — Server shell. Imports `netboxProxboxDeveloper` from
-  `content/netbox-proxbox-developer.ts`, awaits
-  `incrementView('/netbox-proxbox/developer')`, then renders
-  `<ProjectDeveloperContent base={...} githubUrl={...} />`.
+- `page.tsx` - Server shell. Imports `netboxProxboxDeveloper`, exports metadata and `dynamic = "force-dynamic"`, increments `/netbox-proxbox/developer`, loads `loadProjectShellData("netbox-proxbox")`, and renders `<ProjectDeveloperContent base={...} githubUrl={...} releases={...} repo={...} />`.
 
 ## Key Conventions
 
-- Source of truth for prose lives in `content/netbox-proxbox-developer.ts`
-  (English). pt-br localization comes from `lib/i18n/developer.ts`.
-- `export const dynamic = "force-dynamic"` is required for the page-view
-  counter.
-- View switching to `/netbox-proxbox` (showcase) is handled by the global
-  `<ProjectViewToggle>` dropdown in `TopNav`, not a per-page tab strip.
+- English prose lives in `content/netbox-proxbox-developer.ts`; pt-br localization lives in `lib/i18n/developer.ts`.
+- View switching back to `/netbox-proxbox` is handled by `<ProjectViewToggle>` in `TopNav`.
+- Release dropdowns and star counts come from committed GitHub snapshots through the project shell data loader.

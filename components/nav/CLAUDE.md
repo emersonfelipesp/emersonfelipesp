@@ -1,14 +1,28 @@
 # components/nav/
 
 ## Purpose
-Navigation components. `TopNav` is the primary site navigation rendered by the root layout on every page.
+
+Navigation and project-shell controls. These components connect the global top
+nav, in-page section nav, release dropdowns, GitHub/PyPI/Docker actions, and
+showcase/developer view switching.
 
 ## Files
 
-- `TopNav.tsx` — Sticky top navigation bar. Shows the site title and links to all four routes (`/`, `/netbox-proxbox`, `/netbox-sdk`, `/proxmox-sdk`). Collapses to a compact mode when the user scrolls down (uses `IntersectionObserver` or scroll listener — client component).
-- `SectionNav.tsx` — In-page jump navigation for long pages. Renders anchor links to named sections (whoami, projects, skills, contact) used on the homepage.
+- `TopNav.tsx` - Sticky global navigation. Builds project links from `PROJECT_LIST`, reads localized labels from `useLanguage()`, shows `<ProjectViewToggle>` on showcase/developer routes, and updates `--topnav-h` for lower sticky bars.
+- `SectionNav.tsx` - Sticky in-page section navigation with active-section tracking. Delegates action/star/release controls to `<NavActions>`.
+- `SideTOC.tsx` - Desktop-only side table of contents for nested groups/steps within the active section.
+- `ProjectShellBar.tsx` - Compact sticky action bar used by release pages; wraps `<NavActions>`.
+- `NavActions.tsx` - Shared GitHub/PyPI/Docker icons, star count display, and `<ReleasesDropdown>` composition used by `SectionNav` and `ProjectShellBar`.
+- `ProjectViewToggle.tsx` - Client listbox that switches between `/<slug>` and `/<slug>/developer`.
+- `ReleasesDropdown.tsx` - Keyboard-accessible release selector. Navigates locally when `basePath` is provided; otherwise opens GitHub release URLs.
+- `project-shell-labels.ts` - Maps registry action metadata to localized `SectionAction` labels.
+- `use-scroll-compact.ts` - Shared scroll threshold hook for compact nav controls.
+- `Footer.tsx` - Site footer rendered by the root layout.
 
 ## Key Conventions
 
-- `TopNav` is a client component (`"use client"`) due to scroll-detection state.
-- Active route highlighting uses Next.js `usePathname()`.
+- `TopNav`, `SectionNav`, `ProjectShellBar`, `ProjectViewToggle`, `ReleasesDropdown`, and `NavActions` are client components.
+- Project route membership and action URLs must come from `lib/project-registry.ts`.
+- Do not duplicate icon SVGs between action surfaces; add a new icon to `NavActions.tsx` and the `ProjectActionIcon` type if a new action kind is required.
+- Keep release navigation local for allowlisted projects by passing `releasesBasePath`.
+- Use `--topnav-h` for sticky offsets so wrapped/compact nav height changes do not overlap page content.

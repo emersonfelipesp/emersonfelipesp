@@ -1,341 +1,227 @@
-# CLAUDE.md — emersonfelipesp.com (v2)
+# CLAUDE.md - emersonfelipesp.com
 
-This file is the source of truth for any AI/dev work on this repo. The site is a Next.js portfolio + project pages for Emerson Felipe with a deliberate **terminal / CLI / NetDevOps** aesthetic. Stick to the rules below.
+This file is the source of truth for AI/dev work on this repo. The site is a
+Next.js portfolio and project documentation surface for Emerson Felipe with a
+deliberate terminal / CLI / NetDevOps aesthetic.
 
----
+## 1. Stack
 
-## 1. Stack (locked versions)
-
-| Area     | Tool                | Version  |
-| -------- | ------------------- | -------- |
-| Runtime  | Node.js             | 22.x     |
-| Framework| Next.js             | 16.2.4   |
-| UI       | React               | 19.2     |
-| Lang     | TypeScript          | 6.0      |
-| Styling  | Tailwind CSS        | 4.2      |
-| Validation | Zod                | 4.x      |
-| ORM      | Prisma              | 7.x      |
-| Database | SQLite (dev) / Turso libSQL (prod) | — |
+| Area | Tool | Version |
+|---|---|---|
+| Runtime | Node.js | 22.x |
+| Package manager | pnpm | 10.33.2 |
+| Framework | Next.js | 16.2.4 |
+| UI | React | 19.2 |
+| Language | TypeScript | 6.0 |
+| Styling | Tailwind CSS | 4.2 |
+| Validation | Zod | 4.x |
+| ORM | Prisma | 7.x |
+| Database | SQLite dev / Turso libSQL prod | - |
 
 Do not silently bump these. If a bump is required, raise it with the user first.
 
----
+## 2. Routes And Project Registry
 
-## 2. Routes & palettes
+Project metadata is centralized in `lib/project-registry.ts`. Use `PROJECTS`,
+`PROJECT_LIST`, `getProject()`, `getProjectFromPath()`, `releaseListPath()`,
+and `releaseDetailPath()` instead of duplicating slugs, GitHub repo names, or
+project action URLs.
 
-| Route              | Purpose                                  | Palette  |
-| ------------------ | ---------------------------------------- | -------- |
-| `/`                | Profile, bio, featured projects, contact | `mixed`  |
-| `/netbox-proxbox`  | NetBox-Proxmox integration plugin info   | `netbox` |
-| `/netbox-sdk`      | NetBox SDK + CLI + TUI info              | `netbox` |
-| `/proxmox-sdk`     | FastAPI schema-driven Proxmox SDK info   | `proxmox`|
+| Route | Purpose | Palette |
+|---|---|---|
+| `/` | Profile, bio, architecture diagram, featured projects, contact | `mixed` |
+| `/netbox-proxbox` | NetBox plugin showcase | `netbox` |
+| `/proxbox-api` | FastAPI backend showcase | `mixed` |
+| `/netbox-sdk` | NetBox SDK / CLI / TUI showcase | `netbox` |
+| `/proxmox-sdk` | Proxmox SDK showcase | `proxmox` |
+| `/<project>/developer` | Developer guide for each allowlisted project | project palette |
+| `/<project>/releases` | Local release index from committed GitHub snapshots | project palette |
+| `/<project>/releases/[...tag]` | Local release detail, including slash-containing tags | project palette |
 
-The palette is set on each page's root `<div data-palette="...">`. Every page **must** support both light and dark modes — use the toggle in the top nav to verify.
+The palette is set on each page's root `<div data-palette="...">`. Every page
+must support light and dark modes.
 
----
+## 3. Design Language
 
-## 3. Design language — terminal / CLI
+- Monospace only. `--font-mono` is the only font family used site-wide.
+- Use `<TypedCommand command="..." />` to introduce major terminal-style sections.
+- Use `<TerminalWindow title="~/path">` for tty-framed hero/banner surfaces.
+- Use `<AsciiBanner art={...} />` through project/profile content rather than hero images.
+- Prefer box-drawing characters and bracketed labels over generic iconography.
+- Keep UI text-first. Do not add emoji in code or scaffolded UI.
+- Do not hardcode project copy in pages or components; import content from `content/` or localized wrappers in `lib/i18n/`.
 
-Everything looks and reads like a terminal session. Specifically:
+## 4. Theming And Language
 
-- **Monospace only.** `--font-mono` is the only font family used site-wide.
-- **Prompts** open every interactive section (`<TypedCommand command="..." />` from `components/terminal/`). Format: `user@host:cwd$ command`.
-- **Window chrome** (`<TerminalWindow title="~/path">`) wraps marketing/banner content with a tty title bar and stoplight dots.
-- **ASCII banners** (`<AsciiBanner art={...} />`) replace traditional hero images. Each project ships its own banner in its `content/*.ts` file.
-- **Box-drawing characters** (`├─`, `└─`, `│`, `›`) and `[bracketed]` chips are preferred over generic icons.
-- **Blinking cursor** (`<BlinkingCursor />`) for the hero only — don't over-use.
-- **No emoji** in scaffolded UI or code. Emoji is acceptable only in user-authored text passed through `content/*.ts`.
+Three axes drive color:
 
----
+1. Light/dark toggles `class="dark"` on `<html>`.
+2. Per-route palette uses `data-palette` on the page root.
+3. Named theme override uses `data-theme="<name>"` on `<html>`.
 
-## 4. Theming rules
+Theme source of truth:
 
-Three axes drive every color:
+- `components/theme/theme-definitions.ts` holds all 10 theme ids: `default-light`, `default-dark`, `netbox-dark`, `netbox-light`, `dracula`, `tokyo-night`, `onedark-pro`, `proxmox-dark`, `proxmox-light`, `monokai`.
+- `app/layout.tsx` injects the pre-paint theme script and imports theme constants from `theme-definitions.ts`.
+- `components/theme/ThemeProvider.tsx` owns React state and `localStorage["theme"]`.
+- All semantic CSS variables and all hex literals live in `app/globals.css`.
 
-1. **Light vs dark** — toggled via a `class="dark"` on `<html>` by `components/theme/ThemeProvider.tsx`. Persisted in `localStorage`. A pre-paint inline script in `app/layout.tsx` prevents FOUC.
-2. **Palette per route** — a `data-palette` attribute on the page's root element (`netbox` | `proxmox` | `mixed`). The CSS variables in `app/globals.css` are scoped to `[data-palette="..."]` and `.dark [data-palette="..."]`.
-3. **Named theme override** — a `data-theme="<name>"` attribute on `<html>` selects one of 8 named themes ported from the source projects (netbox-sdk's TUI + proxmox-sdk's CLI): `netbox-dark`, `netbox-light`, `dracula`, `tokyo-night`, `onedark-pro`, `proxmox-dark`, `proxmox-light`, `monokai`. When `data-theme` is set, the per-route `[data-palette]` overrides do **not** apply (CSS guard `html:not([data-theme]) [data-palette="..."]`). When `data-theme` is unset, behavior is exactly the existing light/dark + per-route palette.
+Language source of truth:
 
-The `localStorage["theme"]` key holds one of 10 string values: `default-light`, `default-dark`, or any of the 8 named themes. The two `default-*` entries map to the original light/dark + palette behavior.
+- `lib/i18n/languages.ts` currently supports `en` and `pt-br`.
+- `app/layout.tsx` injects a pre-paint language script that sets `<html lang>`.
+- `components/i18n/LanguageProvider.tsx` owns React state and `localStorage["lang"]`.
+- Shared labels live in `lib/i18n/dictionary.ts`; profile/project/developer translations live in sibling files under `lib/i18n/`.
 
-**Hard rules:**
+Hard rules:
 
-- **Never write hex literals in components.** Use semantic Tailwind utilities only: `bg-bg`, `bg-surface`, `bg-surface-2`, `text-fg`, `text-muted`, `border-border`, `text-accent`, `text-accent-2`, `text-success`, `text-warn`, `text-danger`. These resolve via the `--color-*` mappings in `app/globals.css` (backed by `--bg`, `--accent`, etc. CSS vars).
-- To add a new palette: extend `app/globals.css` with a new `html:not([data-theme]) [data-palette="X"]` and matching `html:not([data-theme]).dark [data-palette="X"]` block. Don't touch component code.
-- To add a new named theme: append a single `[data-theme="X"]` block in `app/globals.css` (defining all 11 semantic vars), then add it to the `THEMES` table in `components/theme/ThemeProvider.tsx` and the `VALID_THEMES`/`DARK_THEMES`/`NAMED_THEMES` arrays in `app/layout.tsx`.
-- **Tailwind v4 is CSS-first.** Do not create a `tailwind.config.ts`. All theming lives in `@theme { ... }` and the `:root`/`[data-palette]`/`[data-theme]` blocks in `globals.css`.
-- The PostCSS plugin is `@tailwindcss/postcss` — wired in `postcss.config.mjs`. Don't add a different one.
+- Never write hex literals in components. Use semantic Tailwind utilities such as `bg-bg`, `bg-surface`, `text-fg`, `text-muted`, `border-border`, `text-accent`, `text-accent-2`, `text-success`, `text-warn`, and `text-danger`.
+- Tailwind v4 is CSS-first. Do not create `tailwind.config.ts`.
+- To add a named theme, update `app/globals.css` and `components/theme/theme-definitions.ts`.
+- To add a language, update `lib/i18n/languages.ts`, `lib/i18n/dictionary.ts`, and the relevant localized content files.
 
----
+## 5. Data, Prisma, And Validation
 
-## 5. Brand color reference
+- Local dev uses `DATABASE_URL="file:./dev.db"`.
+- Production uses Turso/libSQL when `TURSO_URL` is set. `lib/db.ts` switches to `@prisma/adapter-libsql`; otherwise it uses `@prisma/adapter-better-sqlite3`.
+- `lib/database-url.ts` resolves Prisma-style SQLite `file:` URLs to the same file used by migrations and seed scripts.
+- Current models in `prisma/schema.prisma`: `ContactMessage` and `PageView`.
+- Historical migrations include the initial tables and `20260505120000_drop_unused_cache_and_sample`, which removes the old `GitHubStatsCache` and `Sample` tables.
+- Never commit `*.db` files.
+- Every API route, server action, or server entry point accepting user input must validate with Zod 4 `safeParse` before touching the database. Schemas live in `lib/validators/`.
 
-These are the source-of-truth hex values. They live in `app/globals.css` only — components never reference them directly.
+## 6. Static External Data
 
-### NetBox (used on `/netbox-proxbox`, `/netbox-sdk`)
+GitHub repo and release data is static at runtime:
 
-| Token       | Light       | Dark        |
-| ----------- | ----------- | ----------- |
-| `--bg`      | `#f7f5f0`   | `#001423`   |
-| `--fg`      | `#001423`   | `#e6f7f4`   |
-| `--accent`  | `#00857d`   | `#00f2d4`   |
-| `--accent-2`| `#1f4788`   | `#58a6ff`   |
+- `scripts/sync-github-data.ts` fetches release snapshots and repo stars/forks for every `PROJECT_LIST` entry.
+- Snapshots are committed under `public/github-data/<slug>.json`; `manifest.json` records sync status.
+- `lib/github.ts` reads and validates those files with Zod and returns release summaries, full snapshots, and static repo summaries.
+- `.github/workflows/sync-github-data.yml` refreshes the snapshots every 6 hours, manually, or through `repository_dispatch: refresh-github-data`.
 
-### Proxmox (used on `/proxmox-sdk`)
+No component should fetch GitHub directly in the browser. Project pages receive `releases` and `repo` from `loadProjectShellData()`.
 
-| Token       | Light       | Dark        |
-| ----------- | ----------- | ----------- |
-| `--bg`      | `#f7f5f0`   | `#0d0d0d`   |
-| `--fg`      | `#1a1a1a`   | `#f5f5f5`   |
-| `--accent`  | `#e57000`   | `#ff8a1f`   |
-| `--accent-2`| `#ad4f00`   | `#e57000`   |
+## 7. Real-Mock Rule For CLI/TUI Output
 
-### Mixed (used on `/`)
+Any string rendered as CLI or TUI output must originate from netbox-sdk's real capture pipeline.
 
-A creative blend — NetBox teal (`#00f2d4`) + Proxmox orange (`#e57000`) as `--accent` and `--accent-2`. Dark bg `#07101a`. Use both accents intentionally to reinforce the "I work with both worlds" message.
+- Website fixtures live in `public/netbox-sdk-fixtures/`.
+- `scripts/sync-netbox-sdk-fixtures.ts` imports artifacts from the local `/root/nms/netbox-sdk` checkout and writes the committed fixture set.
+- Run it explicitly with `pnpm fixtures:sync`; it is not a `predev` or `prebuild` hook.
+- Simulators load fixture files through `components/project/sims/useFixture.ts`.
+- Simulated user input may be typed by the website, but prompt labels, output, echo lines, screenshots, and TUI states must be fixture-backed.
 
-### 5b. Named themes (`data-theme`)
+If the source checkout is missing but committed fixtures are complete, the sync script warns and exits 0. If both are missing, it hard-fails.
 
-These 8 themes are global overrides ported from the source projects' theme catalogs. When any is active, the per-route `[data-palette]` overrides above are bypassed — `dracula` looks like dracula on every route. Defined as `[data-theme="..."]` blocks in `app/globals.css`.
-
-| Theme            | Origin                                                   | Dark  | `--bg`    | `--fg`    | `--accent` | `--accent-2` |
-| ---------------- | -------------------------------------------------------- | ----- | --------- | --------- | ---------- | ------------ |
-| `netbox-dark`    | netbox-sdk TUI (`netbox_tui/themes/netbox-dark.json`)    | yes   | `#001423` | `#E2E8F0` | `#00F2D4`  | `#00857D`    |
-| `netbox-light`   | netbox-sdk TUI (`netbox-light.json`)                     | no    | `#F9FAFB` | `#111827` | `#00857D`  | `#00F2D4`    |
-| `dracula`        | netbox-sdk TUI (`dracula.json`)                          | yes   | `#282A36` | `#F8F8F2` | `#BD93F9`  | `#6272A4`    |
-| `tokyo-night`    | netbox-sdk TUI (`tokyo-night.json`)                      | yes   | `#1A1B26` | `#A9B1D6` | `#7AA2F7`  | `#BB9AF7`    |
-| `onedark-pro`    | netbox-sdk TUI (`onedark-pro.json`)                      | yes   | `#282C34` | `#ABB2BF` | `#61AFEF`  | `#C678DD`    |
-| `proxmox-dark`   | proxmox-sdk CLI (`proxmox_cli/themes/themes.py` `DARK`)  | yes   | `#0d0d0d` | `#F5F5F5` | `#00DD00`  | `#00DDFF`    |
-| `proxmox-light`  | proxmox-sdk CLI (`themes.py` `LIGHT`)                    | no    | `#f7f5f0` | `#1A1A1A` | `#008800`  | `#0088FF`    |
-| `monokai`        | proxmox-sdk CLI (`themes.py` `MONOKAI`)                  | yes   | `#272822` | `#F8F8F2` | `#A1EFE4`  | `#F92672`    |
-
-Note: the proxmox-sdk Python `ColorTheme` only defines accent-family colors. For `proxmox-dark`/`proxmox-light` the `--bg`/`--surface`/`--border` were synthesized to mirror the existing `[data-palette="proxmox"]` chrome (so those two themes look like the existing brand-aligned proxmox routes, just with the CLI's bright-green primary instead of brand orange). For `monokai`, canonical Monokai chrome.
-
----
-
-## 6. Prisma + database
-
-- Local dev: `DATABASE_URL="file:./dev.db"` (already in `.env`). Migrate with `npm run db:migrate`. Seed with `npm run db:seed`.
-- Models live in `prisma/schema.prisma`: `ContactMessage`, `PageView`, `GitHubStatsCache`, `Sample`.
-- Production on Vercel: Vercel's filesystem is ephemeral, so **swap to libSQL/Turso** before deploying:
-  1. Provision a Turso DB.
-  2. Install `@libsql/client` and `@prisma/adapter-libsql`.
-  3. In `lib/db.ts`, instantiate `PrismaClient` with `{ adapter: new PrismaLibSQL({ url: process.env.TURSO_URL!, authToken: process.env.TURSO_TOKEN! }) }`.
-  4. Set `TURSO_URL` and `TURSO_TOKEN` as Vercel env vars; remove `DATABASE_URL` for prod.
-- **Never commit `*.db` files.** They are in `.gitignore`. Use Prisma Studio (`npm run db:studio`) to inspect.
-- The Prisma client is a singleton in `lib/db.ts` to avoid exhausting connections in dev (Next.js HMR).
-
----
-
-## 7. Validation rule
-
-Every API route, server action, and any other server entry point that accepts user input **must** validate with Zod 4 (`safeParse`) before touching the database. See `lib/validators/contact.ts` and `app/api/contact/route.ts` for the pattern.
-
-If you add a new mutating endpoint, add a matching schema under `lib/validators/`.
-
----
-
-## 8. Running locally
-
-There are two supported run modes — both boot on <http://localhost:3000>.
-
-**Dev (hot reload):**
+## 8. Running Locally
 
 ```bash
-./install.sh dev          # interactive installer, picks dev mode
-# or by hand:
-pnpm install
-cp .env.example .env      # only the first time
-pnpm exec prisma migrate deploy
-pnpm exec prisma generate
-pnpm db:seed
-pnpm dev                  # next dev (Turbopack)
+./install.sh           # menu: dev / prod / setup
+./install.sh dev       # install + migrate + seed + next dev
+./install.sh prod      # install + migrate + seed + build + next start
+./install.sh setup     # install + migrate + seed only
 ```
 
-**Prod (optimized build):**
+Manual setup:
 
 ```bash
-./install.sh prod         # interactive installer, picks prod mode
-# or by hand:
 pnpm install
 cp .env.example .env
 pnpm exec prisma migrate deploy
 pnpm exec prisma generate
-pnpm build                # = prisma generate && next build
-pnpm start                # serves the .next build on :3000
+pnpm db:seed
+pnpm dev
 ```
 
-`./install.sh` (no arg) shows an interactive menu; `./install.sh setup` runs install + migrate + seed without booting a server. The script checks Node ≥ 20, creates `.env` if missing, and pretty-prints each step.
-
----
-
-## 8b. Quality checks
+Useful scripts:
 
 ```bash
-pnpm lint          # ESLint via eslint.config.js (flat-config, extends eslint-config-next)
-pnpm typecheck     # tsc --noEmit — must run pnpm exec prisma generate first or types are missing
-```
-
-**E2E tests (Playwright, Chromium only):**
-
-```bash
-# Install browsers once
-pnpm exec playwright install --with-deps chromium
-
-# Full suite — Playwright starts the production server on :3100
+pnpm lint
+pnpm typecheck
 pnpm build
 pnpm test:e2e
-
-# Single spec file
-pnpm exec playwright test e2e/smoke.spec.ts
-
-# Filter by test name
-pnpm exec playwright test --grep "theme toggle"
+pnpm fixtures:sync
+pnpm github:sync
+pnpm db:migrate
+pnpm db:seed
+pnpm db:studio
 ```
 
-`playwright.config.ts` runs `pnpm exec prisma migrate deploy` and launches `pnpm exec next start` on `127.0.0.1:3100` — not the dev server.
-`reuseExistingServer` is disabled so tests never attach to another app that happens to be using the same port.
-`e2e/` contains five suites: `smoke` (all four routes load), `navigation` (nav links), `theme` (toggle + localStorage persistence), `contact` (form submit → success message), and `api` (contact persistence + page-view counter).
+`pnpm typecheck` requires a generated Prisma client first. `pnpm build` runs
+`prisma generate && next build`.
 
----
+## 9. E2E Tests
 
-## 9. Deployment
+Playwright uses Chromium only. `playwright.config.ts` runs
+`pnpm exec prisma migrate deploy` and launches `pnpm exec next start` on
+`127.0.0.1:3100`; it does not use the dev server.
 
-- Target: **Vercel**. The `CNAME` file (`emersonfelipesp.com`) is preserved so the domain DNS can be repointed from GitHub Pages to Vercel without losing the apex.
-- DNS cutover is the user's call — don't touch it.
-- Build command on Vercel: `pnpm build` (runs `prisma generate && next build`).
-- Set env vars on Vercel: `TURSO_URL`, `TURSO_TOKEN`, optionally `GITHUB_TOKEN` (raises GitHub API rate limit for `lib/github.ts`).
+Current suites under `e2e/`:
 
----
+- `smoke`: homepage, showcases, and developer pages load.
+- `navigation`: top navigation routes.
+- `theme`: dark/light persistence.
+- `language`: English / pt-br language toggle and persistence.
+- `contact`: contact form behavior.
+- `api`: contact persistence and page-view API.
+- `releases`: local release index/detail pages and release dropdown.
+- `netbox-sdk-tui`: fixture-backed TUI modal states and hotspots.
 
-## 10. Conventions & don'ts
+## 10. Deployment
 
-**Do**
-- Use `<TypedCommand>` to introduce every section so the page reads like a terminal session.
-- Cache GitHub responses (already done via `GitHubStatsCache` table + 6h staleness in `lib/github.ts`).
-- Keep `content/*.ts` as the single source of truth for project copy. Pages are pure presentation.
-- Use `data-palette` on the page's outermost `<div>`, not on `<html>`.
-- Run `pnpm typecheck` after any structural change — `pnpm exec prisma generate` must have run first or tsc will error on the missing Prisma client types.
+- Target runtime: Vercel-style Next.js build/runtime.
+- The `CNAME` file is preserved for `emersonfelipesp.com`.
+- DNS cutover is the user's call.
+- Build command: `pnpm build`.
+- Env vars: `TURSO_URL`, `TURSO_TOKEN`, optionally `GITHUB_TOKEN` for sync jobs.
 
-**Don't**
-- Don't add a `tailwind.config.ts` — Tailwind v4 is CSS-first.
-- Don't reference hex literals or named colors in components. Hex literals belong in `app/globals.css` only — inside `:root`, `.dark`, the `[data-palette]` blocks, or the `[data-theme]` blocks. Each `[data-theme]` block must define all 11 semantic vars (`--bg`, `--surface`, `--surface-2`, `--fg`, `--muted`, `--border`, `--accent`, `--accent-2`, `--success`, `--warn`, `--danger`).
-- Don't add emoji in code/UI; the look is intentionally text-first.
-- Don't import client components from server components without a `"use client"` directive at the top of the client file.
-- Don't bypass Zod validation, even for "obviously safe" payloads.
-- Don't reintroduce the old static `index.html` / `marked` setup; the README is now in `content/profile.ts`.
+The GitHub Pages workflow still exists to deploy the profile root plus
+netbox-sdk docs artifacts when used, but the app itself is authored as a
+Next.js site.
 
----
+## 11. File Map
 
-## 11. File map (quick reference)
-
-```
+```text
 app/
-  layout.tsx               # root layout, theme bootstrap, nav, footer
-  page.tsx                 # homepage (palette: mixed)
-  netbox-proxbox/page.tsx  # palette: netbox
-  netbox-sdk/page.tsx      # palette: netbox
-  proxmox-sdk/page.tsx     # palette: proxmox
-  api/contact/route.ts     # POST contact form (Zod-validated → DB)
-  api/views/route.ts       # GET / POST page-view counter
-  globals.css              # Tailwind v4 + all palette CSS vars
+  layout.tsx                         # root layout, theme/lang bootstrap, nav, footer
+  page.tsx                           # homepage (mixed)
+  <project>/page.tsx                 # showcase server shells
+  <project>/developer/page.tsx       # developer guide server shells
+  [project]/releases/page.tsx        # allowlisted release index
+  [project]/releases/[...tag]/page.tsx
+  api/contact/route.ts               # POST contact form
+  api/views/route.ts                 # GET/POST page views
+  globals.css                        # Tailwind v4 and all semantic vars
 components/
-  terminal/                # TerminalWindow, Prompt, TypedCommand, etc.
-  theme/                   # ThemeProvider, ThemeToggle
-  nav/TopNav.tsx
-  project/                 # ProjectHero, FeatureList, InstallSnippet, RepoStatsCard, BadgeRow
-  home/                    # ProfileCard, SkillsBlock, FeaturedProjectsGrid, ContactForm
+  home/                              # homepage components
+  i18n/                              # LanguageProvider and LanguageToggle
+  nav/                               # TopNav, SectionNav, project shell actions
+  project/                           # project page sections, simulators, release pages
+  terminal/                          # terminal primitives
+  theme/                             # ThemeProvider and ThemeToggle
 content/
-  profile.ts               # bio, skills, socials, banner ASCII
-  netbox-proxbox.ts        # project copy + meta
-  netbox-sdk.ts
-  proxmox-sdk.ts
+  profile.ts                         # English profile source
+  <project>.ts                       # English showcase content
+  <project>-developer.ts             # English developer guide content
 lib/
-  db.ts                    # Prisma singleton
-  github.ts                # cached repo-stats fetcher
-  views.ts                 # page-view helpers
-  validators/contact.ts    # Zod schema
+  project-registry.ts                # shared project metadata source
+  project-shell.ts                   # release/repo data loader for project pages
+  github.ts                          # static GitHub snapshot readers
+  i18n/                              # dictionaries and translations
+  validators/                        # Zod schemas
 prisma/
-  schema.prisma            # ContactMessage, PageView, GitHubStatsCache, Sample
-  seed.ts                  # creates initial PageView rows + Sample row
+  schema.prisma                      # ContactMessage, PageView
+  seed.ts                            # initial PageView rows
+public/
+  github-data/                       # committed GitHub release/repo snapshots
+  netbox-sdk-fixtures/               # committed CLI/TUI fixtures
+  netbox-proxbox/screenshots/        # plugin screenshots
+scripts/
+  sync-github-data.ts
+  sync-netbox-sdk-fixtures.ts
 ```
 
----
+## 12. Folder Documentation
 
-## 12. Folder documentation
-
-Each folder and subfolder has a `CLAUDE.md` with a purpose summary, file-by-file descriptions, and folder-specific conventions.
-
-| Folder | CLAUDE.md | One-line summary |
-|--------|-----------|------------------|
-| `app/` | [app/CLAUDE.md](app/CLAUDE.md) | Next.js App Router root — pages, layouts, global CSS |
-| `app/api/` | [app/api/CLAUDE.md](app/api/CLAUDE.md) | API route handlers; nodejs runtime, Zod-validated |
-| `app/api/contact/` | [app/api/contact/CLAUDE.md](app/api/contact/CLAUDE.md) | `POST /api/contact` — persists contact form submissions |
-| `app/api/views/` | [app/api/views/CLAUDE.md](app/api/views/CLAUDE.md) | `GET/POST /api/views` — page-view counter |
-| `app/netbox-proxbox/` | [app/netbox-proxbox/CLAUDE.md](app/netbox-proxbox/CLAUDE.md) | NetBox-Proxmox plugin showcase page (palette: netbox) |
-| `app/netbox-sdk/` | [app/netbox-sdk/CLAUDE.md](app/netbox-sdk/CLAUDE.md) | NetBox SDK showcase page (palette: netbox) |
-| `app/proxmox-sdk/` | [app/proxmox-sdk/CLAUDE.md](app/proxmox-sdk/CLAUDE.md) | Proxmox SDK showcase page (palette: proxmox) |
-| `components/` | [components/CLAUDE.md](components/CLAUDE.md) | All reusable React/TSX components, grouped by domain |
-| `components/home/` | [components/home/CLAUDE.md](components/home/CLAUDE.md) | Homepage-specific components (ProfileCard, ContactForm, etc.) |
-| `components/nav/` | [components/nav/CLAUDE.md](components/nav/CLAUDE.md) | TopNav and SectionNav |
-| `components/project/` | [components/project/CLAUDE.md](components/project/CLAUDE.md) | Project page building blocks (hero, features, gallery, stats) |
-| `components/project/sims/` | [components/project/sims/CLAUDE.md](components/project/sims/CLAUDE.md) | Demo-command simulators driven by netbox-sdk docgen fixtures |
-| `components/terminal/` | [components/terminal/CLAUDE.md](components/terminal/CLAUDE.md) | CLI aesthetic primitives (TerminalWindow, TypedCommand, etc.) |
-| `components/theme/` | [components/theme/CLAUDE.md](components/theme/CLAUDE.md) | ThemeProvider and ThemeToggle — three-axis theme system |
-| `lib/` | [lib/CLAUDE.md](lib/CLAUDE.md) | Server-side utilities: DB singleton, GitHub cache, view helpers |
-| `lib/validators/` | [lib/validators/CLAUDE.md](lib/validators/CLAUDE.md) | Zod schemas for all user input validation |
-| `prisma/` | [prisma/CLAUDE.md](prisma/CLAUDE.md) | Schema, seed script, SQLite dev / Turso prod |
-| `prisma/migrations/` | [prisma/migrations/CLAUDE.md](prisma/migrations/CLAUDE.md) | Auto-generated SQL migration history — do not edit manually |
-| `content/` | [content/CLAUDE.md](content/CLAUDE.md) | Single source of truth for all page copy and project metadata |
-| `public/` | [public/CLAUDE.md](public/CLAUDE.md) | Static assets served at root URL |
-| `public/netbox-proxbox/` | [public/netbox-proxbox/CLAUDE.md](public/netbox-proxbox/CLAUDE.md) | Assets for the netbox-proxbox project page |
-| `public/netbox-proxbox/screenshots/` | [public/netbox-proxbox/screenshots/CLAUDE.md](public/netbox-proxbox/screenshots/CLAUDE.md) | 25 PNG screenshots of the plugin UI |
-| `scripts/` | [scripts/CLAUDE.md](scripts/CLAUDE.md) | Build-time helpers (e.g. netbox-sdk fixture sync) |
-
----
-
-## 13. Real-mock rule for CLI/TUI documentation
-
-Any string rendered on a project page that purports to be CLI or TUI
-output **must** originate from netbox-sdk's docgen capture pipeline.
-Concretely:
-
-- The website ships a fixture set at `public/netbox-sdk-fixtures/`,
-  written by `scripts/sync-netbox-sdk-fixtures.ts` from the local
-  `/root/nms/netbox-sdk` checkout. The script runs as a `predev` and
-  `prebuild` hook.
-- All rendered CLI/TUI output strings must be loaded from those
-  fixtures at runtime (via `components/project/sims/useFixture.ts`)
-  — never hardcoded.
-- The only exception is **simulated user input** (the characters typed
-  at a prompt). Even there, the prompt label and the success/echo
-  lines must come from a fixture.
-- Adding a new simulator: see `components/project/sims/CLAUDE.md`.
-- Adding a new netbox-sdk capture: extend
-  `/root/nms/netbox-sdk/netbox_cli/docgen_specs.py` and regenerate
-  `docs/generated/raw/`. The sync script picks it up automatically
-  once added to its `COPIES` table.
-
-If a fixture is missing in CI, the build hard-fails. This is intentional
-— the rule is enforced at build time, not by convention.
-
----
-
-## 14. Bilingual content rule
-
-All user-facing copy must ship in **both English and Brazilian Portuguese
-(pt-br)**. The site has a language toggle backed by `lib/i18n/`, and any line
-the user can read on screen must have a parallel translation.
-
-- English source of truth: `content/profile.ts` (and the other `content/*.ts`
-  project files).
-- pt-br localized strings: `lib/i18n/profile.ts` (`PROFILE_PT_BR`,
-  `FEATURED_TAGLINES_PT_BR`) and `lib/i18n/projects.ts` /
-  `lib/i18n/dictionary.ts` for project pages and shared chrome.
-
-When you add or change a string in English, update the pt-br counterpart in
-the same change. A PR that adds an English-only sentence to `bio`, a project
-tagline, a feature description, a section heading, etc. is incomplete.
-
-Do not translate proper nouns, code identifiers, ASN numbers, brand names,
-CLI flags, or terminal command text — those stay verbatim across languages.
+Each major folder has a scoped `CLAUDE.md`. Keep [AGENTS.md](AGENTS.md) in
+sync whenever a guide is added or removed.

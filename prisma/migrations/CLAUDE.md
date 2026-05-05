@@ -1,15 +1,19 @@
 # prisma/migrations/
 
 ## Purpose
-Auto-generated SQL migration history managed by `prisma migrate`. Records every schema change as a timestamped, versioned SQL file. Never edit these files manually — always use `prisma migrate dev` or `prisma migrate deploy`.
+
+Prisma-managed SQL migration history. These files describe how existing
+databases reach the current schema; they are not hand-authored documentation.
 
 ## Files
 
-- `migration_lock.toml` — Locks the Prisma migration engine to the `sqlite` provider. Do not change this manually.
-- `20260501231043_init/migration.sql` — Initial migration. Creates all four tables: `ContactMessage`, `PageView`, `GitHubStatsCache`, `Sample` with their columns and constraints.
+- `20260501231043_init/migration.sql` - Initial schema. Created `ContactMessage`, `PageView`, `GitHubStatsCache`, and `Sample`.
+- `20260505120000_drop_unused_cache_and_sample/migration.sql` - Drops the old `GitHubStatsCache` and `Sample` tables after GitHub data moved to committed snapshots and the scaffold sample row was removed.
+- `migration_lock.toml` - Prisma migration provider lock.
 
 ## Key Conventions
 
-- New migrations are generated automatically by `prisma migrate dev` when `schema.prisma` changes.
-- Manually editing SQL in migration files will cause Prisma's checksum validation to fail.
-- Deploy migrations in production with `prisma migrate deploy` (not `dev`).
+- Do not edit existing migration SQL manually.
+- Generate new migrations with Prisma when `schema.prisma` changes.
+- Deploy migrations with `pnpm exec prisma migrate deploy`.
+- The current application schema is documented in `prisma/CLAUDE.md`; older migration files may mention tables that no longer exist.

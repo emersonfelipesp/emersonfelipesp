@@ -1,15 +1,18 @@
 # app/proxmox-sdk/
 
 ## Purpose
-Project showcase page for the Proxmox SDK — a schema-driven FastAPI-based Python library for the Proxmox API. Uses the `proxmox` palette (orange accent). All copy comes from `content/proxmox-sdk.ts`.
+
+Showcase route for `proxmox-sdk`, the schema-driven FastAPI/SDK surface for the
+Proxmox VE API. Uses the `proxmox` palette.
 
 ## Files
 
-- `page.tsx` — Server shell. Exports `metadata` + `dynamic = "force-dynamic"`, awaits `incrementView()`, then renders `<ProxmoxSdkContent />`. The page body, palette, and section assembly live in the client component (so they can react to the language toggle).
-- `components/project/ProxmoxSdkContent.tsx` — Client (`"use client"`) component holding the JSX (`ProjectHero`, overview, `FeatureList`, stack, `InstallSnippet`, `RepoStatsCard`, links). Sources content from `getProxmoxSdk(lang)`.
+- `page.tsx` - Server shell. Exports metadata and `dynamic = "force-dynamic"`, increments `/${p.slug}`, loads static release/repo data with `loadProjectShellData("proxmox-sdk")`, and renders `<ProxmoxSdkContent releases={...} repo={...} />`.
+- `developer/` - Developer-facing companion route. See `developer/CLAUDE.md`.
 
 ## Key Conventions
 
-- This is the only page using `data-palette="proxmox"` (orange brand colors).
-- `export const dynamic = "force-dynamic"` required.
-- Verify both light and dark proxmox palette variants after style changes.
+- The client page body lives in `components/project/ProxmoxSdkContent.tsx`.
+- Keep Proxmox branding on the `proxmox` palette and verify both light and dark variants after visual changes.
+- Project navigation, actions, stars, and releases are shared through `ProjectNavigation` / `SectionNav`.
+- View switching to `/proxmox-sdk/developer` is handled by the global `<ProjectViewToggle>` in `TopNav`.

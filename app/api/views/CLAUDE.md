@@ -1,14 +1,17 @@
 # app/api/views/
 
 ## Purpose
-Page-view counter API. `GET /api/views?path=<p>` returns the current count for a path; `POST /api/views` with `{ path }` increments it. Used internally by every page's `incrementView()` call at render time.
+
+Page-view counter API. `GET /api/views?path=<p>` reads the current count and
+`POST /api/views` with `{ path }` increments it.
 
 ## Files
 
-- `route.ts` — GET: reads `path` query param, validates with Zod regex `^/[a-z0-9/_-]*$` (max 200 chars), calls `readView(path)`, returns `{ path, count }`. POST: reads `path` from JSON body, same validation, calls `incrementView(path)`, returns updated `{ path, count }`.
+- `route.ts` - Validates path input with `viewPathSchema` / `viewBodySchema`, delegates reads and writes to `lib/views.ts`, and returns `{ path, count }`.
 
 ## Key Conventions
 
-- Path validation regex is intentionally strict — only lowercase slugs, no query strings or fragments.
-- Delegates all DB logic to `lib/views.ts` helpers (`readView`, `incrementView`).
 - Runtime is `nodejs`.
+- Valid paths must match `^/[a-z0-9/_-]*$` and be 200 characters or shorter.
+- Query strings and fragments are not valid path values.
+- Keep DB logic in `lib/views.ts`.

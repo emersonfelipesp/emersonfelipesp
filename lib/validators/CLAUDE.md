@@ -1,15 +1,17 @@
 # lib/validators/
 
 ## Purpose
-Zod 4 schemas for validating all user-supplied input before it reaches the database. Every API route and server action must use `safeParse` from a schema here — never bypass validation, even for seemingly safe payloads.
+
+Zod 4 schemas for validating user input before it reaches the database.
 
 ## Files
 
-- `contact.ts` — Exports `contactSchema`: validates `name` (non-empty string), `email` (valid email format via `z.string().email()`), and `message` (string with a minimum length). Used in `app/api/contact/route.ts`.
-- `views.ts` — Exports `viewPathSchema` and `viewBodySchema`: validates page-view paths for `app/api/views/route.ts`.
+- `contact.ts` - `contactSchema` validates `name`, lowercases/validates `email`, and validates `message` length for `/api/contact`.
+- `views.ts` - `viewPathSchema` and `viewBodySchema` validate page-view paths for `/api/views`.
 
 ## Key Conventions
 
-- Use `safeParse`, not `parse` — routes must return structured error responses, not throw.
-- When adding a new mutating API endpoint, add a matching schema file here first.
-- Schema field names must match the JSON body keys sent by the client exactly.
+- Use `safeParse`, not `parse`, in route handlers.
+- Return structured validation errors instead of throwing on user input.
+- Add a schema here before adding a new mutating endpoint.
+- Schema field names must match client JSON body keys exactly.

@@ -1,16 +1,20 @@
 # components/theme/
 
 ## Purpose
-Full theme system for the site. Manages three axes: light/dark (`class="dark"` on `<html>`), per-route palette (`data-palette` on the page div — handled by pages, not here), and named theme overrides (`data-theme` on `<html>`). Persists the user's choice in `localStorage["theme"]`.
+
+Client-side theme system. It manages light/dark, named theme overrides, and
+`localStorage["theme"]`; route palettes are handled by page roots through
+`data-palette`.
 
 ## Files
 
-- `theme-definitions.ts` — Pure shared source of truth for the 10 valid theme IDs, default theme, and derived valid/dark/named theme arrays used by both the server bootstrap script and client UI.
-- `ThemeProvider.tsx` — React context provider (`"use client"`). Reads `localStorage["theme"]` on mount, sets `class="dark"` and/or `data-theme` on `document.documentElement`, and exposes `{ theme, setTheme }` to descendants.
-- `ThemeToggle.tsx` — Accessible dropdown (`"use client"`) that lists all theme options and calls `setTheme()` from context. Uses keyboard-navigable `<select>` or custom listbox.
+- `theme-definitions.ts` - Shared source for the 10 valid theme ids, default theme, and derived valid/dark/named arrays used by both `app/layout.tsx` and the client UI.
+- `ThemeProvider.tsx` - React context provider. Reads stored theme, updates `document.documentElement.classList` / `data-theme`, persists changes, and exposes `{ theme, setTheme }`.
+- `ThemeToggle.tsx` - Custom keyboard-accessible listbox dropdown. Full mode shows `--theme=<id>`; compact mode uses the condensed button rendered by the component.
 
 ## Key Conventions
 
-- `ThemeProvider` wraps the entire app in `app/layout.tsx` — it must remain high in the tree.
-- FOUC is prevented by a separate inline `<script>` in `app/layout.tsx` that runs synchronously before paint — `ThemeProvider` handles the React state layer only.
-- Adding a new theme: add the CSS block to `app/globals.css`, then add one entry to `THEMES` in `theme-definitions.ts`.
+- `ThemeProvider` wraps the app in `app/layout.tsx`.
+- FOUC is prevented by the inline pre-paint script in `app/layout.tsx`; `ThemeProvider` handles the React state layer.
+- Adding a theme requires both a full CSS variable block in `app/globals.css` and an entry in `theme-definitions.ts`.
+- Components should use semantic Tailwind tokens only; hex values belong in `globals.css`.

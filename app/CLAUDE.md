@@ -1,26 +1,32 @@
 # app/
 
 ## Purpose
-Next.js App Router root. Contains every page route, the root layout, global CSS, and all API route segments. This is the entry point for every URL the site serves — pages live as `page.tsx` files inside named subdirectories, API handlers as `route.ts` files under `api/`.
+
+Next.js App Router root. Contains every page route, API route segment, the root
+layout, global CSS, sitemap, error boundaries, generated icon, and Open Graph
+image.
 
 ## Files
 
-- `layout.tsx` — Root layout applied to all routes. Sets site metadata (title, OpenGraph), injects a pre-paint inline script to prevent FOUC by reading `localStorage["theme"]` before first render, wraps all children with `ThemeProvider`, and renders `TopNav` + the terminal-style footer.
-- `page.tsx` — Homepage (`/`). Sets `data-palette="mixed"`, force-dynamic renders (to track page views), and composes `AsciiBanner`, `ProfileCard`, `FeaturedProjectsGrid`, `SkillsBlock`, and `ContactForm` using data from `content/profile.ts`.
-- `[project]/releases/` — Allowlisted dynamic release index/detail routes
-  backed by committed `public/github-data` snapshots, not live browser fetches.
-- `globals.css` — The only place hex literals may live. Defines Tailwind v4 `@theme` block, all 11 semantic CSS variables (`--bg`, `--surface`, `--surface-2`, `--fg`, `--muted`, `--border`, `--accent`, `--accent-2`, `--success`, `--warn`, `--danger`) for every palette (`netbox`, `proxmox`, `mixed`) in both light and dark, plus all 8 named `[data-theme]` blocks.
+- `layout.tsx` - Root layout. Sets metadata, theme and language pre-paint scripts, structured data, `ThemeProvider`, `LanguageProvider`, `TopNav`, and `Footer`.
+- `page.tsx` - Homepage (`/`). Uses the `mixed` palette, increments page views, and renders localized profile/home content.
+- `sitemap.ts` - Static route sitemap plus release URLs derived from committed GitHub snapshots.
+- `opengraph-image.tsx` - Dynamic OG image generated with `next/og`. It intentionally uses inline styles because this runs outside the normal app CSS pipeline.
+- `globals.css` - Tailwind v4 `@theme`, semantic color variables, palette blocks, named theme blocks, animations, and release-markdown styles.
+- `error.tsx` / `global-error.tsx` - App Router error boundaries.
+- `icon.tsx` - Generated favicon/icon.
 
-## Subdirectories
+## Routes
 
-- `api/` — Next.js API route handlers (see `api/CLAUDE.md`)
-- `netbox-proxbox/` — Project showcase page for the NetBox-Proxmox plugin (see its `CLAUDE.md`)
-- `netbox-sdk/` — Project showcase page for the NetBox SDK (see its `CLAUDE.md`)
-- `proxmox-sdk/` — Project showcase page for the Proxmox SDK (see its `CLAUDE.md`)
+- `/netbox-proxbox`, `/proxbox-api`, `/netbox-sdk`, `/proxmox-sdk` - Showcase page server shells. Each increments its own view row, loads static release/repo data with `loadProjectShellData()`, and passes that data into the matching client content component.
+- `/<project>/developer` - Developer-guide server shells for every allowlisted project. They load `content/*-developer.ts`, increment views, and pass static release/repo data to `<ProjectDeveloperContent />`.
+- `/[project]/releases` and `/[project]/releases/[...tag]` - Allowlisted release index/detail pages backed by `public/github-data` snapshots. See `[project]/releases/CLAUDE.md`.
+- `/api/contact` and `/api/views` - Node.js API routes. See `api/CLAUDE.md`.
 
 ## Key Conventions
 
-- All pages set `export const dynamic = "force-dynamic"` to enable per-request page-view tracking via `incrementView()`.
-- `data-palette` is set on each page's outermost `<div>`, never on `<html>`.
-- Never write hex literals in components — only in `globals.css`.
-- To add a new route: create `app/<slug>/page.tsx`, add a `content/<slug>.ts` data file, and register the route in `lib/views.ts` seed list.
+- Showcase and developer pages export `dynamic = "force-dynamic"` so page views increment per request.
+- Pages set `data-palette` on the outermost page div through their client content component, not on `<html>`.
+- Project routes and release routes must use `lib/project-registry.ts` / `lib/project-shell.ts`; do not duplicate project slug lists.
+- Metadata may use English baseline strings for SEO, but visible user-facing copy must flow through `content/` and `lib/i18n/`.
+- Hex literals belong in `globals.css` or generated image files only, not normal components.
