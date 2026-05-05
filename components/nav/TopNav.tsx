@@ -16,6 +16,7 @@ export function TopNav() {
   const links = [
     { href: "/", label: t.nav.home },
     { href: "/netbox-proxbox", label: t.nav.netboxProxbox },
+    { href: "/proxbox-api", label: t.nav.proxboxApi },
     { href: "/netbox-sdk", label: t.nav.netboxSdk },
     { href: "/proxmox-sdk", label: t.nav.proxmoxSdk },
   ];

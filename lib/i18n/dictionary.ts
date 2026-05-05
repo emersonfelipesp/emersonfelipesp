@@ -4,6 +4,7 @@ export type Dictionary = {
   nav: {
     home: string;
     netboxProxbox: string;
+    proxboxApi: string;
     netboxSdk: string;
     proxmoxSdk: string;
     languageLabel: string;
@@ -19,9 +20,43 @@ export type Dictionary = {
       stack: string;
       install: string;
       configure: string;
+      integrations: string;
       screenshots: string;
       repo: string;
       links: string;
+    };
+    proxboxApi: {
+      intro: string;
+      transport: string;
+      direction: string;
+      viewProject: string;
+      actions: {
+        github: string;
+        pypi: string;
+        docker: string;
+        releases: string;
+      };
+      architecture: {
+        heading: string;
+        caption: string;
+        nodes: {
+          netboxProxbox: string;
+          proxboxApi: string;
+          netboxSdk: string;
+          proxmoxSdk: string;
+          netboxRest: string;
+          proxmoxRest: string;
+        };
+        edges: {
+          pluginToApiTransport: string;
+          pluginToApiAuth: string;
+          apiToNetboxLabel: string;
+          apiToNetboxBullets: readonly string[];
+          apiToProxmoxLabel: string;
+          apiToProxmoxBullets: readonly string[];
+          sdkToRest: string;
+        };
+      };
     };
     proxbox: {
       quickInstallNote: string;
@@ -107,6 +142,7 @@ const en: Dictionary = {
   nav: {
     home: "~/home",
     netboxProxbox: "~/netbox-proxbox",
+    proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--lang=",
@@ -123,9 +159,56 @@ const en: Dictionary = {
       stack: "stack",
       install: "install",
       configure: "configure",
+      integrations: "integrations",
       screenshots: "screenshots",
       repo: "repo",
       links: "links",
+    },
+    proxboxApi: {
+      intro:
+        "proxbox-api is the only place where the netbox-proxbox NetBox plugin, the netbox-sdk REST client and the proxmox-sdk Proxmox VE SDK meet.",
+      transport: "transport",
+      direction: "direction",
+      viewProject: "view project",
+      actions: {
+        github: "View source on GitHub",
+        pypi: "View package on PyPI",
+        docker: "View image on Docker Hub",
+        releases: "Releases of proxbox-api",
+      },
+      architecture: {
+        heading: "// integration map — transports, auth & concurrency",
+        caption: "hover any node for details",
+        nodes: {
+          netboxProxbox:
+            "Django plugin inside NetBox. Stores three endpoint objects (Proxmox, NetBox, FastAPI) and dispatches every Full Update / per-VM sync to proxbox-api.",
+          proxboxApi:
+            "FastAPI orchestrator on :8000. Bcrypt-hashed X-Proxbox-API-Key auth, brute-force lockout, Fernet-encrypted credentials at rest. Owns the SSE + WebSocket sync streams.",
+          netboxSdk:
+            "Async Python SDK for NetBox REST. Used by proxbox-api as the write target — DCIM, IPAM and Virtualization writes go through here. Cached GET layer (60s TTL) shared across the workflow.",
+          proxmoxSdk:
+            "Schema-driven async SDK mirroring the Proxmox VE 8.1 API as 646 typed endpoints. Read-only client used inside the SSE-driven sync workflow; mock mode enables offline integration tests.",
+          netboxRest:
+            "NetBox REST API (4.5.x / 4.6.x) — the data target where Proxmox infrastructure ends up.",
+          proxmoxRest:
+            "Proxmox VE 7.x / 8.x REST API — read-only data source for clusters, nodes, storage, VMs, containers, snapshots and backups.",
+        },
+        edges: {
+          pluginToApiTransport: "HTTP REST · SSE · WebSocket",
+          pluginToApiAuth: "auth: X-Proxbox-API-Key",
+          apiToNetboxLabel: "write target",
+          apiToNetboxBullets: [
+            "async · cached GET 60s TTL",
+            "PROXBOX_NETBOX_MAX_CONCURRENT",
+          ],
+          apiToProxmoxLabel: "read source",
+          apiToProxmoxBullets: [
+            "async · mock | real · read-only",
+            "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
+          ],
+          sdkToRest: "REST",
+        },
+      },
     },
     proxbox: {
       quickInstallNote: "quick install (PyPI):",
@@ -212,6 +295,7 @@ const ptBr: Dictionary = {
   nav: {
     home: "~/inicio",
     netboxProxbox: "~/netbox-proxbox",
+    proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--idioma=",
@@ -228,9 +312,56 @@ const ptBr: Dictionary = {
       stack: "tecnologias",
       install: "instalação",
       configure: "configuração",
+      integrations: "integrações",
       screenshots: "capturas de tela",
       repo: "repositório",
       links: "links",
+    },
+    proxboxApi: {
+      intro:
+        "O proxbox-api é o único lugar onde o plugin netbox-proxbox (NetBox), o cliente REST netbox-sdk e o SDK proxmox-sdk para Proxmox VE se encontram.",
+      transport: "transporte",
+      direction: "direção",
+      viewProject: "ver projeto",
+      actions: {
+        github: "Ver código-fonte no GitHub",
+        pypi: "Ver pacote no PyPI",
+        docker: "Ver imagem no Docker Hub",
+        releases: "Versões do proxbox-api",
+      },
+      architecture: {
+        heading: "// mapa de integrações — transportes, auth e concorrência",
+        caption: "passe o cursor sobre qualquer nó para ver detalhes",
+        nodes: {
+          netboxProxbox:
+            "Plugin Django dentro do NetBox. Armazena três objetos de endpoint (Proxmox, NetBox, FastAPI) e despacha cada Full Update / sincronização por VM para o proxbox-api.",
+          proxboxApi:
+            "Orquestrador FastAPI na :8000. Auth via X-Proxbox-API-Key com hash bcrypt, lockout contra força bruta e credenciais cifradas em repouso (Fernet). É dono dos streams SSE + WebSocket.",
+          netboxSdk:
+            "SDK Python assíncrono para a REST do NetBox. Usado pelo proxbox-api como destino de escrita — gravações em DCIM, IPAM e Virtualization passam por aqui. Camada de cache em GET (60s) compartilhada pelo workflow.",
+          proxmoxSdk:
+            "SDK assíncrono orientado a schema espelhando a API do Proxmox VE 8.1 como 646 endpoints tipados. Cliente somente leitura usado no workflow de sincronização via SSE; modo mock habilita testes de integração offline.",
+          netboxRest:
+            "API REST do NetBox (4.5.x / 4.6.x) — o destino onde a infraestrutura do Proxmox é registrada.",
+          proxmoxRest:
+            "API REST do Proxmox VE 7.x / 8.x — fonte somente leitura de clusters, nós, storage, VMs, contêineres, snapshots e backups.",
+        },
+        edges: {
+          pluginToApiTransport: "HTTP REST · SSE · WebSocket",
+          pluginToApiAuth: "auth: X-Proxbox-API-Key",
+          apiToNetboxLabel: "destino de escrita",
+          apiToNetboxBullets: [
+            "async · GET cacheado por 60s",
+            "PROXBOX_NETBOX_MAX_CONCURRENT",
+          ],
+          apiToProxmoxLabel: "fonte de leitura",
+          apiToProxmoxBullets: [
+            "async · mock | real · somente leitura",
+            "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
+          ],
+          sdkToRest: "REST",
+        },
+      },
     },
     proxbox: {
       quickInstallNote: "instalação rápida (PyPI):",

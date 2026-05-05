@@ -1,5 +1,5 @@
 {
-  "release": "0.0.8",
+  "release": "0.0.8.post1",
   "python": "3.11+",
   "netbox": [
     "4.6",

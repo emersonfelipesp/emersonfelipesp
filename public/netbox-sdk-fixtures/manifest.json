@@ -1,6 +1,6 @@
 {
-  "syncedAt": "2026-05-05T12:31:46.669Z",
-  "sourceCommit": "747c0b002d92d2eeea601fea7860030d25d1b184",
+  "syncedAt": "2026-05-05T18:13:18.383Z",
+  "sourceCommit": "974fce85d352564d9391e24b861179bc19bc1fb6",
   "sourceRepo": "/root/nms/netbox-sdk",
   "files": [
     "demo-init-help.json",

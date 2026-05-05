@@ -69,6 +69,66 @@ export async function getRepoStats(fullName: string): Promise<RepoStats> {
   }
 }
 
+const githubReleaseListItemSchema = z.object({
+  tag_name: z.string(),
+  name: z.string().nullable().optional(),
+  html_url: z.string(),
+  published_at: z.string().nullable().optional(),
+  prerelease: z.boolean().optional(),
+  draft: z.boolean().optional(),
+});
+
+export type GitHubRelease = {
+  tag: string;
+  name: string;
+  url: string;
+  publishedAt: string | null;
+  prerelease: boolean;
+};
+
+export async function getRepoReleases(
+  fullName: string,
+  limit = 20,
+): Promise<GitHubRelease[]> {
+  if (!fullName) return [];
+
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github+json",
+    "User-Agent": "emersonfelipesp-site",
+  };
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${fullName}/releases?per_page=${limit}`,
+      { headers, next: { revalidate: 21600 } },
+    );
+    if (!res.ok) return [];
+    const raw = await res.json();
+    if (!Array.isArray(raw)) return [];
+    const parsed: GitHubRelease[] = [];
+    for (const item of raw) {
+      const p = githubReleaseListItemSchema.safeParse(item);
+      if (!p.success) continue;
+      const r = p.data;
+      if (r.draft) continue;
+      parsed.push({
+        tag: r.tag_name,
+        name: r.name?.trim() || r.tag_name,
+        url: r.html_url,
+        publishedAt: r.published_at ?? null,
+        prerelease: Boolean(r.prerelease),
+      });
+    }
+    return parsed;
+  } catch (err) {
+    console.error("[github] releases fetch failed for", fullName, err);
+    return [];
+  }
+}
+
 async function fetchFromGitHub(
   fullName: string,
 ): Promise<Omit<RepoStats, "fullName" | "fetchedAt" | "cached">> {

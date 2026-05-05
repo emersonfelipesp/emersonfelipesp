@@ -16,7 +16,13 @@ async function main() {
     create: { id: "scaffold", label: "scaffold" },
   });
 
-  for (const route of ["/", "/netbox-proxbox", "/netbox-sdk", "/proxmox-sdk"]) {
+  for (const route of [
+    "/",
+    "/netbox-proxbox",
+    "/proxbox-api",
+    "/netbox-sdk",
+    "/proxmox-sdk",
+  ]) {
     await db.pageView.upsert({
       where: { path: route },
       update: {},
