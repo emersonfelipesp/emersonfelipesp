@@ -105,6 +105,7 @@ export type Dictionary = {
         architecture: string;
         integrations: string;
         contributing: string;
+        ci: string;
         e2e: string;
         links: string;
       };
@@ -122,6 +123,13 @@ export type Dictionary = {
         checks: string;
         codeStyle: string;
         issues: string;
+      };
+      ci: {
+        workflows: string;
+        name: string;
+        trigger: string;
+        purpose: string;
+        notes: string;
       };
       e2e: {
         framework: string;
@@ -318,6 +326,7 @@ const en: Dictionary = {
         architecture: "architecture",
         integrations: "integrations",
         contributing: "contributing",
+        ci: "ci",
         e2e: "e2e",
         links: "links",
       },
@@ -335,6 +344,13 @@ const en: Dictionary = {
         checks: "pre-PR checks",
         codeStyle: "code style",
         issues: "issue tracker",
+      },
+      ci: {
+        workflows: "workflows",
+        name: "workflow",
+        trigger: "trigger",
+        purpose: "purpose",
+        notes: "notes",
       },
       e2e: {
         framework: "framework",
@@ -533,6 +549,7 @@ const ptBr: Dictionary = {
         architecture: "arquitetura",
         integrations: "integrações",
         contributing: "contribuição",
+        ci: "ci",
         e2e: "testes e2e",
         links: "links",
       },
@@ -550,6 +567,13 @@ const ptBr: Dictionary = {
         checks: "checagens antes do PR",
         codeStyle: "estilo de código",
         issues: "rastreador de issues",
+      },
+      ci: {
+        workflows: "workflows",
+        name: "workflow",
+        trigger: "gatilho",
+        purpose: "finalidade",
+        notes: "notas",
       },
       e2e: {
         framework: "framework",

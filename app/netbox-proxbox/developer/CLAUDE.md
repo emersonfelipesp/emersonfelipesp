@@ -3,8 +3,8 @@
 ## Purpose
 
 Developer-facing companion page for `/netbox-proxbox`. Documents plugin
-architecture, proxbox-api integration, contribution workflow, and the Docker E2E
-matrix. Uses the `netbox` palette from the content file.
+architecture, proxbox-api integration, contribution workflow, GitHub Actions CI,
+and the Docker E2E matrix. Uses the `netbox` palette from the content file.
 
 ## Files
 
@@ -13,5 +13,6 @@ matrix. Uses the `netbox` palette from the content file.
 ## Key Conventions
 
 - English prose lives in `content/netbox-proxbox-developer.ts`; pt-br localization lives in `lib/i18n/developer.ts`.
+- The CI section is rendered from the optional `DeveloperContent.ci` object; keep it aligned with the MkDocs page `netbox-proxbox/docs/developer/ci-e2e-workflows.md`.
 - View switching back to `/netbox-proxbox` is handled by `<ProjectViewToggle>` in `TopNav`.
 - Release dropdowns and star counts come from committed GitHub snapshots through the project shell data loader.

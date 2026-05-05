@@ -56,6 +56,12 @@ export type DeveloperCheck = {
   cmd: string;
 };
 
+export type DeveloperWorkflow = {
+  name: string;
+  trigger: string;
+  purpose: string;
+};
+
 export type DeveloperContent = {
   slug: string;
   name: string;
@@ -74,6 +80,11 @@ export type DeveloperContent = {
     checks: readonly DeveloperCheck[];
     codeStyle: readonly string[];
     issuesUrl: string;
+  };
+  ci?: {
+    intro: readonly string[];
+    workflows: readonly DeveloperWorkflow[];
+    notes?: readonly string[];
   };
   e2e: {
     framework: string;

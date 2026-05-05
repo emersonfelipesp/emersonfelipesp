@@ -2,7 +2,11 @@ import { netboxProxboxDeveloper } from "@/content/netbox-proxbox-developer";
 import { proxboxApiDeveloper } from "@/content/proxbox-api-developer";
 import { netboxSdkDeveloper } from "@/content/netbox-sdk-developer";
 import { proxmoxSdkDeveloper } from "@/content/proxmox-sdk-developer";
-import type { DeveloperContent, SectionLink } from "@/content/types";
+import type {
+  DeveloperContent,
+  DeveloperWorkflow,
+  SectionLink,
+} from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
 
@@ -23,6 +27,9 @@ type LocalizedDeveloper = {
   architectureBullets: readonly string[];
   integrationNotes: readonly (string | undefined)[];
   contributingCodeStyle: readonly string[];
+  ciIntro?: readonly string[];
+  ciWorkflows?: readonly DeveloperWorkflow[];
+  ciNotes?: readonly string[];
   e2eFramework: string;
   e2eIntro: readonly string[];
   e2eCoverage: readonly string[];
@@ -56,6 +63,46 @@ const NETBOX_PROXBOX_PT_BR: LocalizedDeveloper = {
     "Type checker: ty (>=0.0.1a19).",
     "Hooks de pre-commit: .pre-commit-config.yaml (rode antes de abrir o PR).",
     "PRs referenciam a issue de fechamento com `Closes #<id>`. Guia de contribuição: CONTRIBUTING.md.",
+  ],
+  ciIntro: [
+    "A superfície de CI é dividida entre checagens rápidas de pacote, uma stack Docker E2E reutilizável, automação de documentação, contratos noturnos e publicação em etapas.",
+    "A validação de release mantém plugin e backend no mesmo índice de pacotes: validação TestPyPI do plugin usa proxbox-api do TestPyPI, enquanto candidatos e finais PyPI usam proxbox-api do PyPI.",
+  ],
+  ciWorkflows: [
+    {
+      name: "ci.yml",
+      trigger: "push + pull_request",
+      purpose:
+        "Roda lint, ty, compile, cobertura pytest e testes de contrato de metadados do pacote.",
+    },
+    {
+      name: "e2e-docker.yml",
+      trigger: "workflow_call + manual + noturno",
+      purpose:
+        "Roda NetBox, rqworker, proxbox-api, PostgreSQL, Redis e um mock Proxmox em Docker.",
+    },
+    {
+      name: "publish-testpypi.yml",
+      trigger: "tags de versão + GitHub releases + manual",
+      purpose:
+        "Publica versões imutáveis TestPyPI/PyPI e exige instalação exata mais validação E2E.",
+    },
+    {
+      name: "docs.yml",
+      trigger: "mudanças de docs",
+      purpose: "Constrói e publica o site MkDocs.",
+    },
+    {
+      name: "nightly-contracts.yml",
+      trigger: "agendamento + manual",
+      purpose:
+        "Verifica contratos entre repositórios que precisam ficar alinhados com o proxbox-api.",
+    },
+  ],
+  ciNotes: [
+    "Nunca republique uma versão consumida com --skip-existing; publique o próximo .postN ou rcN.",
+    "O workflow E2E aceita install_source, dependency_mode, proxbox_api_version e netbox_image para validação focada.",
+    "A fonte pública no MkDocs é docs/developer/ci-e2e-workflows.md.",
   ],
   e2eFramework:
     "Script Python com requests + stack Docker Compose (NetBox + PostgreSQL + Redis + proxbox-api + um mock proxmox-sdk:dev-nginx).",
@@ -101,6 +148,48 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
     "Formatador: ruff format.",
     "Type checker: ty.",
     "PRs precisam incluir uma execução verde de todas as checagens acima; o job core do CI roda pytest tests/ -v --ignore=tests/e2e em cada push e PR.",
+  ],
+  ciIntro: [
+    "O CI do backend é dividido em camadas: checagens Python rápidas, smoke tests de startup das imagens Docker, geração da matriz E2E, fallback de imagem NetBox e validação de sincronização com uma stack NetBox real.",
+    "O workflow de publicação valida TestPyPI primeiro, promove release candidates PyPI só depois dos checks de candidata, publica imagens Docker e roda E2E pós-publicação contra os artefatos publicados.",
+  ],
+  ciWorkflows: [
+    {
+      name: "ci.yml",
+      trigger: "push + pull_request + release + manual",
+      purpose:
+        "Roda pytest core, piso Python 3.11, smoke free-threaded, Docker bind smoke e matriz E2E com NetBox.",
+    },
+    {
+      name: "publish-testpypi.yml",
+      trigger: "tags de versão + GitHub releases + manual",
+      purpose:
+        "Publica TestPyPI, PyPI rc/final, imagens Docker, e valida instalações exatas mais E2E pre/pos-publicação.",
+    },
+    {
+      name: "docker-hub-publish.yml",
+      trigger: "workflow_call + manual",
+      purpose:
+        "Constrói e publica as variantes raw, nginx e granian da imagem Docker.",
+    },
+    {
+      name: "release-docker-verify.yml",
+      trigger: "release + manual",
+      purpose:
+        "Baixa tags Docker publicadas e verifica startup de cada variante de contêiner.",
+    },
+    {
+      name: "nightly-schema-refresh.yml",
+      trigger: "agendamento + manual",
+      purpose:
+        "Atualiza schemas Proxmox gerados e abre PR quando os artefatos mudam.",
+    },
+  ],
+  ciNotes: [
+    "Jobs E2E aguardam até 20 minutos por migrações/indexação do NetBox e exigem /api/status/ antes de configurar tokens.",
+    "O job E2E tenta puxar imagens públicas do NetBox primeiro e só baixa o artefato construído quando o pull do registro falha.",
+    "E2E Docker com mock Proxmox usa mock_http; a passagem MockBackend em processo usa mock_backend.",
+    "A fonte pública no MkDocs é docs/development/ci-e2e-workflows.md.",
   ],
   e2eFramework:
     "pytest + pytest-asyncio + httpx.AsyncClient. Dois modos via marker — mock_backend (em processo, sem HTTP) e mock_http (contra um contêiner do proxmox-sdk em execução).",
@@ -234,6 +323,13 @@ export function getDeveloperContent(
       ...base.contributing,
       codeStyle: ptBr.contributingCodeStyle,
     },
+    ci: base.ci
+      ? {
+          intro: ptBr.ciIntro ?? base.ci.intro,
+          workflows: ptBr.ciWorkflows ?? base.ci.workflows,
+          notes: ptBr.ciNotes ?? base.ci.notes,
+        }
+      : undefined,
     e2e: {
       ...base.e2e,
       framework: ptBr.e2eFramework,

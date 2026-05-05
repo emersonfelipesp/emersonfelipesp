@@ -17,6 +17,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
     { id: "architecture", label: "architecture" },
     { id: "integrations", label: "integrations" },
     { id: "contributing", label: "contributing" },
+    { id: "ci", label: "ci" },
     { id: "e2e", label: "e2e" },
     { id: "links", label: "links" },
   ],
@@ -92,6 +93,50 @@ export const proxboxApiDeveloper: DeveloperContent = {
       "PRs must include a passing run of all the checks above; the CI core job runs pytest tests/ -v --ignore=tests/e2e on every push and PR.",
     ],
     issuesUrl: "https://github.com/emersonfelipesp/proxbox-api/issues",
+  },
+  ci: {
+    intro: [
+      "The backend CI is layered: fast Python checks, Docker image startup checks, generated E2E matrix setup, NetBox image fallback handling, and full NetBox-backed sync validation.",
+      "The publish workflow validates TestPyPI first, promotes PyPI release candidates only after candidate checks, then publishes Docker images and runs post-publish E2E against the released artifacts.",
+    ],
+    workflows: [
+      {
+        name: "ci.yml",
+        trigger: "push + pull_request + release + manual",
+        purpose:
+          "Runs core pytest checks, Python 3.11 floor checks, free-threaded smoke, Docker bind smoke, and the NetBox E2E matrix.",
+      },
+      {
+        name: "publish-testpypi.yml",
+        trigger: "version tags + GitHub releases + manual",
+        purpose:
+          "Publishes TestPyPI, PyPI rc/final, Docker images, and validates exact installs plus pre/post-publish E2E.",
+      },
+      {
+        name: "docker-hub-publish.yml",
+        trigger: "workflow_call + manual",
+        purpose:
+          "Builds and publishes raw, nginx, and granian Docker image variants.",
+      },
+      {
+        name: "release-docker-verify.yml",
+        trigger: "release + manual",
+        purpose:
+          "Pulls published Docker tags and verifies each container variant starts.",
+      },
+      {
+        name: "nightly-schema-refresh.yml",
+        trigger: "schedule + manual",
+        purpose:
+          "Refreshes generated Proxmox schemas and opens a PR when artifacts change.",
+      },
+    ],
+    notes: [
+      "E2E jobs wait up to 20 minutes for NetBox migrations/search indexing and require /api/status/ before token setup.",
+      "The E2E job pulls public NetBox images first and downloads the source-built artifact only when registry pull fails.",
+      "Docker-backed Proxmox E2E uses mock_http; the in-process MockBackend pass uses mock_backend.",
+      "The public MkDocs source of truth is docs/development/ci-e2e-workflows.md.",
+    ],
   },
   e2e: {
     framework:

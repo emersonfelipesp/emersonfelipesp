@@ -17,6 +17,7 @@ export const netboxProxboxDeveloper: DeveloperContent = {
     { id: "architecture", label: "architecture" },
     { id: "integrations", label: "integrations" },
     { id: "contributing", label: "contributing" },
+    { id: "ci", label: "ci" },
     { id: "e2e", label: "e2e" },
     { id: "links", label: "links" },
   ],
@@ -75,6 +76,48 @@ export const netboxProxboxDeveloper: DeveloperContent = {
       "PRs reference the closing issue with `Closes #<id>`. Contribution guide: CONTRIBUTING.md.",
     ],
     issuesUrl: "https://github.com/N-Multifibra/netbox-proxbox/issues",
+  },
+  ci: {
+    intro: [
+      "The CI surface is split between fast package checks, a reusable Docker E2E stack, documentation automation, nightly contract checks, and staged package publishing.",
+      "Release validation keeps the plugin and backend on matching package indexes: TestPyPI plugin validation uses TestPyPI proxbox-api, while PyPI candidate and final validation use PyPI proxbox-api.",
+    ],
+    workflows: [
+      {
+        name: "ci.yml",
+        trigger: "push + pull_request",
+        purpose:
+          "Runs lint, ty, compile checks, pytest coverage, and package metadata contract tests.",
+      },
+      {
+        name: "e2e-docker.yml",
+        trigger: "workflow_call + manual + nightly",
+        purpose:
+          "Runs NetBox, rqworker, proxbox-api, PostgreSQL, Redis, and a Proxmox mock in Docker.",
+      },
+      {
+        name: "publish-testpypi.yml",
+        trigger: "version tags + GitHub releases + manual",
+        purpose:
+          "Publishes immutable TestPyPI/PyPI package versions and gates them with exact install and E2E validation.",
+      },
+      {
+        name: "docs.yml",
+        trigger: "docs changes",
+        purpose: "Builds and publishes the MkDocs site.",
+      },
+      {
+        name: "nightly-contracts.yml",
+        trigger: "schedule + manual",
+        purpose:
+          "Checks cross-repo contracts that must stay aligned with proxbox-api.",
+      },
+    ],
+    notes: [
+      "Never retry a consumed package version with --skip-existing; publish the next .postN or rcN instead.",
+      "The E2E workflow accepts install_source, dependency_mode, proxbox_api_version, and netbox_image for focused validation.",
+      "The public MkDocs source of truth is docs/developer/ci-e2e-workflows.md.",
+    ],
   },
   e2e: {
     framework:

@@ -34,6 +34,9 @@ test("/netbox-proxbox/developer loads", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "ci" })).toBeVisible();
+  await expect(page.getByText("e2e-docker.yml").first()).toBeVisible();
+  await expect(page.getByText("TestPyPI proxbox-api").first()).toBeVisible();
 });
 
 test("/proxbox-api/developer loads", async ({ page }) => {
@@ -42,6 +45,9 @@ test("/proxbox-api/developer loads", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "ci" })).toBeVisible();
+  await expect(page.getByText("docker-hub-publish.yml").first()).toBeVisible();
+  await expect(page.getByText("/api/status/").first()).toBeVisible();
 });
 
 test("/netbox-sdk/developer loads", async ({ page }) => {

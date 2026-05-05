@@ -214,6 +214,74 @@ export function ProjectDeveloperContent({
         </div>
       </section>
 
+      {data.ci ? (
+        <section className="space-y-3">
+          <SectionHeading id="ci">{dev.sections.ci}</SectionHeading>
+          <TypedCommand command="gh workflow list" cwd={cwd} />
+          <div className="space-y-3">
+            <div className="border border-border bg-surface p-5 text-sm">
+              <div className="space-y-3 text-fg/90">
+                {data.ci.intro.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
+            <p className="text-xs text-muted">
+              <span className="text-accent">#</span> {dev.ci.workflows}
+            </p>
+            <div className="overflow-x-auto border border-border bg-surface text-sm">
+              <table className="w-full min-w-[680px] table-fixed border-collapse">
+                <thead>
+                  <tr className="border-b border-border text-left text-xs text-muted">
+                    <th className="w-1/4 px-4 py-2 font-normal">
+                      <span className="text-accent">›</span> {dev.ci.name}
+                    </th>
+                    <th className="w-1/4 px-4 py-2 font-normal">
+                      <span className="text-accent">›</span> {dev.ci.trigger}
+                    </th>
+                    <th className="px-4 py-2 font-normal">
+                      <span className="text-accent">›</span> {dev.ci.purpose}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.ci.workflows.map((row, i) => (
+                    <tr
+                      key={`${row.name}-${i}`}
+                      className={
+                        i < (data.ci?.workflows.length ?? 0) - 1
+                          ? "border-b border-border align-top"
+                          : "align-top"
+                      }
+                    >
+                      <td className="break-words px-4 py-3 font-mono text-xs text-accent-2">
+                        {row.name}
+                      </td>
+                      <td className="break-words px-4 py-3 text-fg/90">
+                        {row.trigger}
+                      </td>
+                      <td className="break-words px-4 py-3 text-fg/90">
+                        {row.purpose}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {data.ci.notes?.length ? (
+              <>
+                <p className="text-xs text-muted">
+                  <span className="text-accent">#</span> {dev.ci.notes}
+                </p>
+                <div className="border border-border bg-surface p-5">
+                  <FeatureList items={data.ci.notes} />
+                </div>
+              </>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       <section className="space-y-3">
         <SectionHeading id="e2e">{dev.sections.e2e}</SectionHeading>
         <TypedCommand command="./run-e2e --report" cwd={cwd} />
