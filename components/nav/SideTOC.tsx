@@ -138,7 +138,7 @@ export function SideTOC({ sections }: Props) {
     <nav
       aria-label="Section sub-table of contents"
       aria-hidden={!reveal}
-      className={`fixed left-3 top-[calc(var(--topnav-h,3.125rem)+5rem)] z-30 hidden max-h-[calc(100vh-var(--topnav-h,3.125rem)-6rem)] w-[calc((100vw-72rem)/2-1.5rem)] overflow-y-auto pr-2 xl:block transition-[opacity,transform] duration-300 ease-out ${
+      className={`fixed left-3 top-[calc(var(--topnav-h,3.125rem)+5rem)] z-30 hidden w-[calc((100vw-72rem)/2-1.5rem)] pr-2 xl:block transition-[opacity,transform] duration-300 ease-out ${
         reveal
           ? "opacity-100 translate-x-0"
           : "pointer-events-none -translate-x-2 opacity-0"
