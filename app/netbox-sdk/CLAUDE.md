@@ -5,7 +5,8 @@ Project showcase page for the NetBox SDK — a Python async library with a CLI a
 
 ## Files
 
-- `page.tsx` — Sets `data-palette="netbox"`, exports `metadata`, force-dynamic. Assembles: `ProjectHero`, overview section, `FeatureList`, tech stack list, `InstallSnippet`, `RepoStatsCard`, and links.
+- `page.tsx` — Server shell. Exports `metadata` + `dynamic = "force-dynamic"`, awaits `getNetboxSdkMeta()` and `incrementView()`, then renders `<NetboxSdkContent liveMeta={liveMeta} />`. The page body, palette, and section assembly live in the client component (so they can react to the language toggle).
+- `components/project/NetboxSdkContent.tsx` — Client (`"use client"`) component holding the JSX (`ProjectHero`, overview, `FeatureList`, stack, `InstallSnippet`, `RepoStatsCard`, links). Sources content from `getNetboxSdk(lang)` and section headings from `t.project.sections.*`.
 
 ## Key Conventions
 

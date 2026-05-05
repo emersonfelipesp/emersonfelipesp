@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
-import { featured } from "@/content/profile";
+import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { getFeatured } from "@/lib/i18n/profile";
 
 export function FeaturedProjectsGrid() {
+  const { lang } = useLanguage();
+  const featured = getFeatured(lang);
   return (
     <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       {featured.map((p) => (

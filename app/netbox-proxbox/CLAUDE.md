@@ -5,7 +5,8 @@ Project showcase page for the `netbox-proxbox` plugin — a NetBox + Proxmox syn
 
 ## Files
 
-- `page.tsx` — Sets `data-palette="netbox"`, exports Next.js `metadata` from `content/netbox-proxbox.ts`, force-dynamic renders to track views. Assembles: `ProjectHero` (ASCII banner + badges), overview section, `FeatureList`, installation `StepList` (3 install paths), configuration `CodeSnippet`, `ScreenshotGallery` (25 PNGs from `public/netbox-proxbox/screenshots/`), `RepoStatsCard`, and links.
+- `page.tsx` — Server shell. Exports `metadata` (English baseline for SEO) + `dynamic = "force-dynamic"`, awaits `incrementView()`, then renders `<NetboxProxboxContent />`. The page body, palette, and section assembly live in the client component (so they can react to the language toggle).
+- `components/project/NetboxProxboxContent.tsx` — Client (`"use client"`) component holding the JSX (`ProjectHero`, overview, `FeatureList`, installation `StepList` × 3, configuration `StepList` × 2, `ScreenshotGallery`, `RepoStatsCard`, links). Section headings, StepList titles, the configure intro, and the `// screenshots` / `// repo` dividers come from `t.project.sections.*` / `t.project.proxbox.*`. All translatable copy comes from `getNetboxProxbox(lang)`.
 
 ## Key Conventions
 

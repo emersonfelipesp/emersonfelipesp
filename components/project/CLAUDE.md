@@ -21,6 +21,9 @@ Reusable building blocks for composing project showcase pages. Each page under `
 - `Lightbox.tsx` — Full-screen image modal overlay. Client component with keyboard (Escape) dismiss support.
 - `StepList.tsx` — Numbered installation or configuration steps rendered as terminal output blocks.
 - `SectionHeading.tsx` — Section title with a `#` or `$` terminal-prompt prefix decoration.
+- `NetboxSdkContent.tsx` — Client wrapper (`"use client"`) for the `/netbox-sdk` page body. Reads `lang` via `useLanguage()`, calls `getNetboxSdk(lang)` from `lib/i18n/projects.ts`, and accepts a server-fetched `liveMeta` prop (from `getNetboxSdkMeta()`).
+- `NetboxProxboxContent.tsx` — Client wrapper (`"use client"`) for the `/netbox-proxbox` page body. Sources content from `getNetboxProxbox(lang)` and pulls localized section headings, StepList titles, configure intro, and section dividers from `t.project.sections.*` / `t.project.proxbox.*`.
+- `ProxmoxSdkContent.tsx` — Client wrapper (`"use client"`) for the `/proxmox-sdk` page body. Sources content from `getProxmoxSdk(lang)`.
 
 ## Key Conventions
 

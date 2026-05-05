@@ -4,18 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-
-const links = [
-  { href: "/", label: "~/home" },
-  { href: "/netbox-proxbox", label: "~/netbox-proxbox" },
-  { href: "/netbox-sdk", label: "~/netbox-sdk" },
-  { href: "/proxmox-sdk", label: "~/proxmox-sdk" },
-];
+import { LanguageToggle } from "@/components/i18n/LanguageToggle";
+import { useLanguage } from "@/components/i18n/LanguageProvider";
 
 export function TopNav() {
   const pathname = usePathname();
+  const { t } = useLanguage();
   const [compact, setCompact] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+
+  const links = [
+    { href: "/", label: t.nav.home },
+    { href: "/netbox-proxbox", label: t.nav.netboxProxbox },
+    { href: "/netbox-sdk", label: t.nav.netboxSdk },
+    { href: "/proxmox-sdk", label: t.nav.proxmoxSdk },
+  ];
 
   useEffect(() => {
     let raf = 0;
@@ -71,6 +74,9 @@ export function TopNav() {
           );
         })}
         <li className="ml-auto">
+          <LanguageToggle compact={compact} />
+        </li>
+        <li>
           <ThemeToggle compact={compact} />
         </li>
       </ul>

@@ -5,7 +5,8 @@ Project showcase page for the Proxmox SDK — a schema-driven FastAPI-based Pyth
 
 ## Files
 
-- `page.tsx` — Sets `data-palette="proxmox"`, exports `metadata`, force-dynamic. Assembles: `ProjectHero`, overview section, `FeatureList`, tech stack list, `InstallSnippet`, `RepoStatsCard`, and links.
+- `page.tsx` — Server shell. Exports `metadata` + `dynamic = "force-dynamic"`, awaits `incrementView()`, then renders `<ProxmoxSdkContent />`. The page body, palette, and section assembly live in the client component (so they can react to the language toggle).
+- `components/project/ProxmoxSdkContent.tsx` — Client (`"use client"`) component holding the JSX (`ProjectHero`, overview, `FeatureList`, stack, `InstallSnippet`, `RepoStatsCard`, links). Sources content from `getProxmoxSdk(lang)`.
 
 ## Key Conventions
 

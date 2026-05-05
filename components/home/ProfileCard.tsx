@@ -1,20 +1,26 @@
-import { profile, socials } from "@/content/profile";
+"use client";
+
+import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { getProfile, socials } from "@/lib/i18n/profile";
 
 export function ProfileCard() {
+  const { lang, t } = useLanguage();
+  const profile = getProfile(lang);
+  const labels = t.home.profile;
   return (
     <div className="border border-border bg-surface p-5">
       <dl className="grid gap-y-1 text-sm sm:grid-cols-[8rem_1fr]">
-        <Row k="name" v={profile.name} accent />
-        <Row k="handle" v={`@${profile.handle}`} />
-        <Row k="role" v={profile.role} />
-        <Row k="location" v={profile.location} />
-        <Row k="company" v={profile.company} />
-        <Row k="communities" v={profile.communities.join(", ")} />
-        <Row k="email" v={profile.email} />
+        <Row k={labels.name} v={profile.name} accent />
+        <Row k={labels.handle} v={`@${profile.handle}`} />
+        <Row k={labels.role} v={profile.role} />
+        <Row k={labels.location} v={profile.location} />
+        <Row k={labels.company} v={profile.company} />
+        <Row k={labels.communities} v={profile.communities.join(", ")} />
+        <Row k={labels.email} v={profile.email} />
       </dl>
 
       <div className="mt-4 border-t border-border pt-3">
-        <p className="mb-2 text-xs text-muted">$ ls ~/.social/</p>
+        <p className="mb-2 text-xs text-muted">{labels.socialHeader}</p>
         <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
           {socials.map((s) => (
             <li key={s.label}>
