@@ -71,6 +71,7 @@ export function SectionNav({
   releasesLabel,
 }: Props) {
   const [active, setActive] = useState<string>(sections[0]?.id ?? "");
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -91,6 +92,26 @@ export function SectionNav({
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, [sections]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !releases) return;
+
+    let raf = 0;
+    function onScroll() {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setCompact((prev) => (prev ? y > 4 : y > 8));
+      });
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [releases]);
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
     e.preventDefault();
@@ -132,6 +153,7 @@ export function SectionNav({
               <ReleasesDropdown
                 releases={releases}
                 ariaLabel={releasesLabel}
+                compact={compact}
               />
             ) : null}
             {actions?.map((a) => {
@@ -144,7 +166,7 @@ export function SectionNav({
                   rel="noopener noreferrer"
                   aria-label={a.label}
                   title={a.label}
-                  className="block p-2 text-muted transition-all duration-150 hover:bg-accent/15 hover:text-accent focus-visible:bg-accent/15 focus-visible:text-accent"
+                  className="flex items-center justify-center p-2 text-muted transition-all duration-150 hover:bg-accent/15 hover:text-accent focus-visible:bg-accent/15 focus-visible:text-accent"
                 >
                   <Icon className="h-4 w-4" />
                 </a>

@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FiChevronDown, FiTag } from "react-icons/fi";
 import type { GitHubRelease } from "@/lib/github";
 
 type Props = {
   releases: readonly GitHubRelease[];
   ariaLabel?: string;
+  compact?: boolean;
 };
 
 function formatDate(iso: string | null): string {
@@ -15,7 +17,11 @@ function formatDate(iso: string | null): string {
   return d.toISOString().slice(0, 10);
 }
 
-export function ReleasesDropdown({ releases, ariaLabel }: Props) {
+export function ReleasesDropdown({
+  releases,
+  ariaLabel,
+  compact = false,
+}: Props) {
   const [open, setOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -91,24 +97,44 @@ export function ReleasesDropdown({ releases, ariaLabel }: Props) {
       className="relative inline-block"
       onKeyDown={onKeyDown}
     >
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={toggleDropdown}
-        disabled={empty}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label={ariaLabel ?? "Releases"}
-        className={`block px-2 py-4 text-xs transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50 ${
-          open ? "bg-accent/15" : "hover:bg-accent/15"
-        }`}
-      >
-        <span className="text-muted">--releases=</span>
-        <span className="text-accent">
-          {latest ? latest.tag : "n/a"}
-        </span>
-        <span className="text-muted"> ▾</span>
-      </button>
+      {compact ? (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={toggleDropdown}
+          disabled={empty}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-label={ariaLabel ?? "Releases"}
+          className={`flex items-center justify-center gap-0.5 p-2 transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50 ${
+            open
+              ? "text-accent"
+              : "text-muted hover:bg-accent/15 hover:text-accent"
+          }`}
+        >
+          <FiTag className="h-4 w-4" aria-hidden="true" />
+          <FiChevronDown className="h-3 w-3" aria-hidden="true" />
+        </button>
+      ) : (
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={toggleDropdown}
+          disabled={empty}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-label={ariaLabel ?? "Releases"}
+          className={`block px-2 py-4 text-xs transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50 ${
+            open ? "bg-accent/15" : "hover:bg-accent/15"
+          }`}
+        >
+          <span className="text-muted">--releases=</span>
+          <span className="text-accent">
+            {latest ? latest.tag : "n/a"}
+          </span>
+          <span className="text-muted"> ▾</span>
+        </button>
+      )}
       {open && !empty && (
         <ul
           role="listbox"
