@@ -1,76 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { z } from "zod";
-import { db } from "./db";
-import { RELEASE_PROJECTS, getReleaseProject } from "./release-projects";
-
-const CACHE_TTL_MS = 1000 * 60 * 60 * 6; // 6 hours
-
-const githubRepoSchema = z.object({
-  stargazers_count: z.number(),
-  forks_count: z.number(),
-  language: z.string().nullable(),
-  description: z.string().nullable(),
-});
-
-const githubLatestReleaseSchema = z.object({
-  tag_name: z.string(),
-});
-
-export type RepoStats = {
-  fullName: string;
-  stars: number;
-  forks: number;
-  language: string | null;
-  description: string | null;
-  latestRelease: string | null;
-  fetchedAt: Date;
-  cached: boolean;
-};
-
-export async function getRepoStats(fullName: string): Promise<RepoStats> {
-  if (!fullName) throw new Error("fullName is required");
-
-  let cached: Awaited<
-    ReturnType<typeof db.gitHubStatsCache.findUnique>
-  > = null;
-  try {
-    cached = await db.gitHubStatsCache.findUnique({ where: { fullName } });
-  } catch {
-    // DB unavailable — skip cache lookup
-  }
-
-  if (cached && Date.now() - cached.fetchedAt.getTime() < CACHE_TTL_MS) {
-    return { ...cached, cached: true };
-  }
-
-  try {
-    const fresh = await fetchFromGitHub(fullName);
-    try {
-      const saved = await db.gitHubStatsCache.upsert({
-        where: { fullName },
-        update: fresh,
-        create: { fullName, ...fresh },
-      });
-      return { ...saved, cached: false };
-    } catch {
-      return { fullName, ...fresh, fetchedAt: new Date(), cached: false };
-    }
-  } catch (err) {
-    console.error("[github] fetch failed for", fullName, err);
-    if (cached) return { ...cached, cached: true };
-    return {
-      fullName,
-      stars: 0,
-      forks: 0,
-      language: null,
-      description: null,
-      latestRelease: null,
-      fetchedAt: new Date(0),
-      cached: false,
-    };
-  }
-}
+import { getProject, PROJECT_LIST } from "./project-registry";
 
 const staticReleaseAuthorSchema = z.object({
   login: z.string(),
@@ -131,8 +62,24 @@ export type GitHubReleaseSummary = Pick<
   "tag" | "name" | "url" | "publishedAt" | "prerelease" | "latest"
 >;
 
+export type StaticRepoSummary = {
+  fullName: string;
+  stars: number | null;
+  forks: number | null;
+  latestRelease: string | null;
+  syncedAt: string;
+};
+
+function snapshotLatestRelease(snapshot: GitHubSnapshot): string | null {
+  return (
+    snapshot.releases.find((release) => release.latest)?.tag ??
+    snapshot.releases[0]?.tag ??
+    null
+  );
+}
+
 async function readStaticSnapshot(slug: string): Promise<GitHubSnapshot | null> {
-  const project = getReleaseProject(slug);
+  const project = getProject(slug);
   if (!project) return null;
 
   try {
@@ -160,7 +107,7 @@ export async function getGitHubSnapshot(
 
 export async function getAllGitHubSnapshots(): Promise<GitHubSnapshot[]> {
   const snapshots = await Promise.all(
-    RELEASE_PROJECTS.map((project) => readStaticSnapshot(project.slug)),
+    PROJECT_LIST.map((project) => readStaticSnapshot(project.slug)),
   );
   return snapshots.filter((snapshot): snapshot is GitHubSnapshot => Boolean(snapshot));
 }
@@ -190,49 +137,17 @@ export async function getStaticReleases(
   }));
 }
 
-export async function getStaticStars(
+export async function getStaticRepoSummary(
   slug: string,
   fullName: string,
-): Promise<number | null> {
+): Promise<StaticRepoSummary | null> {
   const snapshot = await readStaticSnapshot(slug);
   if (!snapshot || snapshot.fullName !== fullName) return null;
-  if (snapshot && typeof snapshot.stars === "number") return snapshot.stars;
-  return null;
-}
-
-async function fetchFromGitHub(
-  fullName: string,
-): Promise<Omit<RepoStats, "fullName" | "fetchedAt" | "cached">> {
-  const headers: Record<string, string> = {
-    Accept: "application/vnd.github+json",
-    "User-Agent": "emersonfelipesp-site",
-  };
-  if (process.env.GITHUB_TOKEN) {
-    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  }
-
-  const repoRes = await fetch(`https://api.github.com/repos/${fullName}`, {
-    headers,
-    next: { revalidate: 3600 },
-  });
-  if (!repoRes.ok) throw new Error(`github repo ${fullName} ${repoRes.status}`);
-  const repo = githubRepoSchema.parse(await repoRes.json());
-
-  let latestRelease: string | null = null;
-  const relRes = await fetch(
-    `https://api.github.com/repos/${fullName}/releases/latest`,
-    { headers, next: { revalidate: 3600 } },
-  );
-  if (relRes.ok) {
-    const rel = githubLatestReleaseSchema.safeParse(await relRes.json());
-    latestRelease = rel.success ? rel.data.tag_name : null;
-  }
-
   return {
-    stars: repo.stargazers_count,
-    forks: repo.forks_count,
-    language: repo.language,
-    description: repo.description,
-    latestRelease,
+    fullName: snapshot.fullName,
+    stars: typeof snapshot.stars === "number" ? snapshot.stars : null,
+    forks: typeof snapshot.forks === "number" ? snapshot.forks : null,
+    latestRelease: snapshotLatestRelease(snapshot),
+    syncedAt: snapshot.syncedAt,
   };
 }

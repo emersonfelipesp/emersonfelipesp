@@ -10,12 +10,6 @@ const db = new PrismaClient({
 });
 
 async function main() {
-  await db.sample.upsert({
-    where: { id: "scaffold" },
-    update: { label: "scaffold" },
-    create: { id: "scaffold", label: "scaffold" },
-  });
-
   for (const route of [
     "/",
     "/netbox-proxbox",

@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { ProjectViewToggle } from "@/components/nav/ProjectViewToggle";
-import { getProjectFromPath } from "@/lib/project-shell-meta";
+import { useScrollCompact } from "@/components/nav/use-scroll-compact";
+import { getProjectFromPath, PROJECT_LIST } from "@/lib/project-registry";
+import type { ProjectSlug } from "@/lib/project-registry";
 
 export function TopNav() {
   const pathname = usePathname();
@@ -16,33 +18,23 @@ export function TopNav() {
   const showViewToggle =
     projectRoute !== null &&
     (projectRoute.view === "showcase" || projectRoute.view === "developer");
-  const [compact, setCompact] = useState(false);
+  const compact = useScrollCompact();
   const navRef = useRef<HTMLElement>(null);
+
+  const projectLabels: Record<ProjectSlug, string> = {
+    "netbox-proxbox": t.nav.netboxProxbox,
+    "proxbox-api": t.nav.proxboxApi,
+    "netbox-sdk": t.nav.netboxSdk,
+    "proxmox-sdk": t.nav.proxmoxSdk,
+  };
 
   const links = [
     { href: "/", label: t.nav.home },
-    { href: "/netbox-proxbox", label: t.nav.netboxProxbox },
-    { href: "/proxbox-api", label: t.nav.proxboxApi },
-    { href: "/netbox-sdk", label: t.nav.netboxSdk },
-    { href: "/proxmox-sdk", label: t.nav.proxmoxSdk },
+    ...PROJECT_LIST.map((project) => ({
+      href: project.projectPath,
+      label: projectLabels[project.slug],
+    })),
   ];
-
-  useEffect(() => {
-    let raf = 0;
-    function onScroll() {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const y = window.scrollY;
-        setCompact((prev) => (prev ? y > 4 : y > 8));
-      });
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
 
   useEffect(() => {
     const el = navRef.current;

@@ -21,7 +21,7 @@ export default async function Page(): Promise<React.JSX.Element> {
       base={p}
       githubUrl={`https://github.com/${p.fullName}`}
       releases={shell.releases}
-      stars={shell.stars}
+      repo={shell.repo}
     />
   );
 }

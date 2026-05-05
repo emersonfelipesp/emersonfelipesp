@@ -49,22 +49,24 @@ run_step() {
 
 # --- package manager detection ------------------------------------------------
 detect_pkg_mgr() {
-  if command -v pnpm >/dev/null 2>&1; then
-    PKG_MGR="pnpm"
-    PKG_X="pnpm exec"
-  else
-    PKG_MGR="npm"
-    PKG_X="npx"
-    warn "pnpm not found — falling back to npm"
-    echo
+  if ! command -v pnpm >/dev/null 2>&1; then
+    if command -v corepack >/dev/null 2>&1; then
+      warn "pnpm not found — enabling package-manager shims through Corepack"
+      corepack enable
+    fi
   fi
+  if ! command -v pnpm >/dev/null 2>&1; then
+    fail "pnpm not found — run: corepack enable && corepack prepare pnpm@10.33.2 --activate"
+    exit 1
+  fi
+  PKG_MGR="pnpm"
+  PKG_X="pnpm exec"
 }
 
 # --- checks -------------------------------------------------------------------
 check_prereqs() {
   info "checking prerequisites"
   command -v node >/dev/null || { fail "node not found — install Node.js 20+"; exit 1; }
-  command -v npm  >/dev/null || { fail "npm not found"; exit 1; }
   local nv major
   nv=$(node -v); major=${nv#v}; major=${major%%.*}
   if (( major < 20 )); then

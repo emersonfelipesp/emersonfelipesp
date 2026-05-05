@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { proxmoxSdk as p } from "@/content/proxmox-sdk";
 import { incrementView } from "@/lib/views";
-import { getStaticReleases, getStaticStars } from "@/lib/github";
+import { loadProjectShellData } from "@/lib/project-shell";
 import { ProxmoxSdkContent } from "@/components/project/ProxmoxSdkContent";
 
 export const metadata: Metadata = {
@@ -12,10 +12,9 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page(): Promise<React.JSX.Element> {
-  const [, releases, stars] = await Promise.all([
+  const [, shell] = await Promise.all([
     incrementView(`/${p.slug}`),
-    getStaticReleases(p.slug, p.fullName, 30),
-    getStaticStars(p.slug, p.fullName),
+    loadProjectShellData("proxmox-sdk"),
   ]);
-  return <ProxmoxSdkContent releases={releases} stars={stars} />;
+  return <ProxmoxSdkContent releases={shell.releases} repo={shell.repo} />;
 }

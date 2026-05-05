@@ -1,8 +1,12 @@
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["netbox-proxbox"];
+
 export const netboxProxbox = {
-  slug: "netbox-proxbox",
-  name: "netbox-proxbox",
-  fullName: "emersonfelipesp/netbox-proxbox",
-  palette: "netbox" as const,
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "NetBox plugin that synchronizes Proxmox infrastructure into NetBox via a FastAPI backend.",
   description: [
@@ -38,7 +42,7 @@ export const netboxProxbox = {
     forks: 62,
   },
   links: {
-    repo: "https://github.com/emersonfelipesp/netbox-proxbox",
+    repo: project.repoUrl,
     docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
   },

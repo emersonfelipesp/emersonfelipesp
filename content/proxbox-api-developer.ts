@@ -1,11 +1,14 @@
 import type { DeveloperContent } from "./types";
 import { proxboxApi } from "./proxbox-api";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["proxbox-api"];
 
 export const proxboxApiDeveloper: DeveloperContent = {
-  slug: "proxbox-api",
-  name: "proxbox-api",
-  fullName: "emersonfelipesp/proxbox-api",
-  palette: "mixed",
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Developer guide — FastAPI orchestration, SDK boundaries, contribution workflow and the Docker E2E matrix.",
   banner: proxboxApi.banner,

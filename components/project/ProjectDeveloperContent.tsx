@@ -14,20 +14,23 @@ import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getDeveloperContent } from "@/lib/i18n/developer";
 import type { DeveloperContent } from "@/content/types";
 import { isProjectSlug } from "@/lib/project-shell-meta";
-import type { GitHubReleaseSummary } from "@/lib/github";
+import type {
+  GitHubReleaseSummary,
+  StaticRepoSummary,
+} from "@/lib/github";
 
 type Props = {
   base: DeveloperContent;
   githubUrl?: string;
   releases?: readonly GitHubReleaseSummary[];
-  stars?: number | null;
+  repo?: StaticRepoSummary | null;
 };
 
 export function ProjectDeveloperContent({
   base,
   githubUrl,
   releases,
-  stars,
+  repo,
 }: Props): React.JSX.Element {
   const { lang, t } = useLanguage();
   const data = getDeveloperContent(base, lang);
@@ -50,9 +53,9 @@ export function ProjectDeveloperContent({
         releasesBasePath={`/${slug}/releases`}
         releasesAllLabel={t.project.releases.all}
         stars={
-          useShared && stars !== undefined
+          useShared && repo
             ? {
-                count: stars,
+                count: repo.stars,
                 href: `https://github.com/${data.fullName}/stargazers`,
                 label: actions.stars(data.name),
               }

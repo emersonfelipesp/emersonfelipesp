@@ -1,11 +1,14 @@
 import type { DeveloperContent } from "./types";
 import { netboxProxbox } from "./netbox-proxbox";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["netbox-proxbox"];
 
 export const netboxProxboxDeveloper: DeveloperContent = {
-  slug: "netbox-proxbox",
-  name: "netbox-proxbox",
-  fullName: "N-Multifibra/netbox-proxbox",
-  palette: "netbox",
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Developer guide — architecture, integrations, contribution workflow and end-to-end testing.",
   banner: netboxProxbox.banner,

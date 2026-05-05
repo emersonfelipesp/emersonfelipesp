@@ -1,11 +1,14 @@
 import type { DeveloperContent } from "./types";
 import { netboxSdk } from "./netbox-sdk";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["netbox-sdk"];
 
 export const netboxSdkDeveloper: DeveloperContent = {
-  slug: "netbox-sdk",
-  name: "netbox-sdk",
-  fullName: "emersonfelipesp/netbox-sdk",
-  palette: "netbox",
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Developer guide — three packages, one async runtime, OpenAPI-driven CLI, and a Textual TUI test harness.",
   banner: netboxSdk.banner,

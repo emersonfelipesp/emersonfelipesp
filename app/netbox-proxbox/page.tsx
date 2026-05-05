@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { netboxProxbox as p } from "@/content/netbox-proxbox";
 import { incrementView } from "@/lib/views";
-import { getStaticReleases, getStaticStars } from "@/lib/github";
+import { loadProjectShellData } from "@/lib/project-shell";
 import { NetboxProxboxContent } from "@/components/project/NetboxProxboxContent";
 
 export const metadata: Metadata = {
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page(): Promise<React.JSX.Element> {
-  const [, releases, stars] = await Promise.all([
+  const [, shell] = await Promise.all([
     incrementView(`/${p.slug}`),
-    getStaticReleases(p.slug, p.fullName, 30),
-    getStaticStars(p.slug, p.fullName),
+    loadProjectShellData("netbox-proxbox"),
   ]);
-  return <NetboxProxboxContent releases={releases} stars={stars} />;
+  return (
+    <NetboxProxboxContent releases={shell.releases} repo={shell.repo} />
+  );
 }

@@ -9,9 +9,10 @@ import {
   type ProjectViewKind,
 } from "./project-shell-meta";
 import {
+  getStaticRepoSummary,
   getStaticReleases,
-  getStaticStars,
   type GitHubReleaseSummary,
+  type StaticRepoSummary,
 } from "./github";
 
 export {
@@ -27,19 +28,18 @@ export {
 
 export type ProjectShellData = {
   releases: readonly GitHubReleaseSummary[];
-  stars: number | null;
+  repo: StaticRepoSummary | null;
 };
 
 export async function loadProjectShellData(
   slug: ProjectShellSlug,
 ): Promise<ProjectShellData> {
   const meta = getProjectShellMeta(slug);
-  if (!meta) return { releases: [], stars: null };
+  if (!meta) return { releases: [], repo: null };
 
-  const [releases, stars] = await Promise.all([
+  const [releases, repo] = await Promise.all([
     getStaticReleases(meta.slug, meta.fullName, 30),
-    getStaticStars(meta.slug, meta.fullName),
+    getStaticRepoSummary(meta.slug, meta.fullName),
   ]);
-  return { releases, stars };
+  return { releases, repo };
 }
-

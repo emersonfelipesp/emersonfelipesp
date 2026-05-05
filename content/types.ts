@@ -1,3 +1,5 @@
+import type { Palette } from "@/lib/project-registry";
+
 export type SectionLink = {
   id: string;
   label: string;
@@ -26,7 +28,7 @@ export type ProjectContent = {
   slug: string;
   name: string;
   fullName: string;
-  palette: "netbox" | "proxmox";
+  palette: Palette;
   tagline: string;
   banner: string;
   sections: readonly SectionLink[];
@@ -58,7 +60,7 @@ export type DeveloperContent = {
   slug: string;
   name: string;
   fullName: string;
-  palette: "netbox" | "proxmox" | "mixed";
+  palette: Palette;
   tagline: string;
   banner: string;
   sections: readonly SectionLink[];

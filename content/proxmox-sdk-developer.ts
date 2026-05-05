@@ -1,11 +1,14 @@
 import type { DeveloperContent } from "./types";
 import { proxmoxSdk } from "./proxmox-sdk";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["proxmox-sdk"];
 
 export const proxmoxSdkDeveloper: DeveloperContent = {
-  slug: "proxmox-sdk",
-  name: "proxmox-sdk",
-  fullName: "emersonfelipesp/proxmox-sdk",
-  palette: "proxmox",
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Developer guide — the codegen pipeline, dual mock/real backends, and the integration boundary that downstream stacks depend on.",
   banner: proxmoxSdk.banner,

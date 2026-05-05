@@ -3,14 +3,14 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import type { ProjectShellSlug } from "@/lib/project-shell-meta";
+import type { ProjectSlug } from "@/lib/project-registry";
 
 type View = "showcase" | "developer";
 
 const VIEWS: readonly View[] = ["showcase", "developer"] as const;
 
 type Props = {
-  slug: ProjectShellSlug;
+  slug: ProjectSlug;
   current: View;
   compact?: boolean;
 };

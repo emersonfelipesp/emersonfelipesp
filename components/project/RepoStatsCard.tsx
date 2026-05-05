@@ -17,7 +17,7 @@ export function RepoStatsCard({ fullName, stars, forks, language, latestRelease 
         <Cell label="release" value={latestRelease ?? "—"} accent />
       </dl>
       <p className="mt-2 text-xs text-muted">
-        static · from content/*.ts
+        static · from public/github-data
       </p>
     </div>
   );

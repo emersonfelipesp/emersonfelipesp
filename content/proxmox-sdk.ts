@@ -1,10 +1,13 @@
 import type { ProjectContent } from "./types";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["proxmox-sdk"];
 
 export const proxmoxSdk: ProjectContent = {
-  slug: "proxmox-sdk",
-  name: "proxmox-sdk",
-  fullName: "emersonfelipesp/proxmox-sdk",
-  palette: "proxmox" as const,
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Schema-driven FastAPI SDK for the Proxmox API — generated, dual-mode, OpenAPI-first.",
   description: [
@@ -39,7 +42,7 @@ export const proxmoxSdk: ProjectContent = {
     forks: 0,
   },
   links: {
-    repo: "https://github.com/emersonfelipesp/proxmox-sdk",
+    repo: project.repoUrl,
     docs: "https://emersonfelipesp.github.io/proxmox-sdk/",
   },
   banner: String.raw`

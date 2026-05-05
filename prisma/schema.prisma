@@ -19,18 +19,3 @@ model PageView {
   count     Int      @default(0)
   updatedAt DateTime @updatedAt
 }
-
-model GitHubStatsCache {
-  fullName      String   @id
-  stars         Int
-  forks         Int
-  language      String?
-  description   String?
-  latestRelease String?
-  fetchedAt     DateTime @updatedAt
-}
-
-model Sample {
-  id    String @id @default(cuid())
-  label String
-}

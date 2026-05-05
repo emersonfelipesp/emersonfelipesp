@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { proxboxApi as p } from "@/content/proxbox-api";
 import { incrementView } from "@/lib/views";
-import { getStaticReleases, getStaticStars } from "@/lib/github";
+import { loadProjectShellData } from "@/lib/project-shell";
 import { ProxboxApiContent } from "@/components/project/ProxboxApiContent";
 
 export const metadata: Metadata = {
@@ -12,10 +12,9 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page(): Promise<React.JSX.Element> {
-  const [, releases, stars] = await Promise.all([
+  const [, shell] = await Promise.all([
     incrementView(`/${p.slug}`),
-    getStaticReleases(p.slug, p.fullName, 30),
-    getStaticStars(p.slug, p.fullName),
+    loadProjectShellData("proxbox-api"),
   ]);
-  return <ProxboxApiContent releases={releases} stars={stars} />;
+  return <ProxboxApiContent releases={shell.releases} repo={shell.repo} />;
 }

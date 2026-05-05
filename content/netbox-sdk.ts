@@ -1,10 +1,13 @@
 import type { ProjectContent } from "./types";
+import { PROJECTS } from "@/lib/project-registry";
+
+const project = PROJECTS["netbox-sdk"];
 
 export const netboxSdk: ProjectContent = {
-  slug: "netbox-sdk",
-  name: "netbox-sdk",
-  fullName: "emersonfelipesp/netbox-sdk",
-  palette: "netbox" as const,
+  slug: project.slug,
+  name: project.name,
+  fullName: project.fullName,
+  palette: project.palette,
   tagline:
     "Modern NetBox toolkit: an async SDK plus a CLI and a TUI for faster automation.",
   description: [
@@ -108,7 +111,7 @@ export const netboxSdk: ProjectContent = {
     forks: 0,
   },
   links: {
-    repo: "https://github.com/emersonfelipesp/netbox-sdk",
+    repo: project.repoUrl,
     docs: "https://emersonfelipesp.com/netbox-sdk",
   },
   banner: String.raw`
