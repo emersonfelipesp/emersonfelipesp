@@ -16,17 +16,60 @@ const COPIES: ReadonlyArray<readonly [string, string]> = [
 
 const DEVICES_LIST_FIXTURE = "demo-devices-list.json";
 const METADATA_FIXTURE = "netbox-sdk-metadata.json";
+const TUI_SIM_SOURCE_MANIFEST = "docs/generated/tui-simulation/main-browser.json";
+const TUI_SIM_DEST_DIR = "tui-simulation";
+const TUI_SIM_DEST_MANIFEST = `${TUI_SIM_DEST_DIR}/main-browser.json`;
+
+type TuiSimulationManifest = {
+  states?: Array<{
+    captures?: Record<string, { svg?: unknown }>;
+  }>;
+};
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function readTuiSimulationManifest(filePath: string): TuiSimulationManifest {
+  const parsed: unknown = JSON.parse(readFileSync(filePath, "utf8"));
+  if (!isRecord(parsed)) {
+    throw new Error(`invalid TUI simulation manifest ${filePath}`);
+  }
+  return parsed as TuiSimulationManifest;
+}
+
+function collectTuiSimulationSvgs(manifest: TuiSimulationManifest): string[] {
+  const svgs = new Set<string>();
+  for (const state of manifest.states ?? []) {
+    for (const capture of Object.values(state.captures ?? {})) {
+      if (typeof capture.svg === "string" && capture.svg.endsWith(".svg")) {
+        svgs.add(capture.svg);
+      }
+    }
+  }
+  return [...svgs].sort();
+}
 
 function fixturesAlreadyOnDisk(): boolean {
   if (!existsSync(DEST_DIR)) return false;
   const present = new Set(readdirSync(DEST_DIR));
-  return (
+  const basePresent =
     COPIES.every(([, dst]) => present.has(dst)) &&
     present.has(DEVICES_LIST_FIXTURE) &&
     present.has(METADATA_FIXTURE) &&
     present.has("demo-init-flow.json") &&
-    present.has("manifest.json")
-  );
+    present.has("manifest.json");
+  if (!basePresent) return false;
+
+  const simManifestPath = path.join(DEST_DIR, TUI_SIM_DEST_MANIFEST);
+  if (!existsSync(simManifestPath)) return false;
+  try {
+    const manifest = readTuiSimulationManifest(simManifestPath);
+    const simDir = path.join(DEST_DIR, TUI_SIM_DEST_DIR);
+    return collectTuiSimulationSvgs(manifest).every((svg) => existsSync(path.join(simDir, svg)));
+  } catch {
+    return false;
+  }
 }
 
 if (!existsSync(SOURCE_REPO)) {
@@ -48,6 +91,30 @@ for (const [src, dst] of COPIES) {
     process.exit(1);
   }
   copyFileSync(from, to);
+}
+
+const tuiSimulationSource = path.join(SOURCE_REPO, TUI_SIM_SOURCE_MANIFEST);
+if (!existsSync(tuiSimulationSource)) {
+  console.error(`[sync-netbox-sdk-fixtures] FATAL: missing source ${tuiSimulationSource}`);
+  process.exit(1);
+}
+
+const tuiSimulationManifest = readTuiSimulationManifest(tuiSimulationSource);
+const tuiSimulationSourceDir = path.dirname(tuiSimulationSource);
+const tuiSimulationDestDir = path.join(DEST_DIR, TUI_SIM_DEST_DIR);
+mkdirSync(tuiSimulationDestDir, { recursive: true });
+copyFileSync(tuiSimulationSource, path.join(DEST_DIR, TUI_SIM_DEST_MANIFEST));
+
+const tuiSimulationFiles = [TUI_SIM_DEST_MANIFEST];
+for (const svg of collectTuiSimulationSvgs(tuiSimulationManifest)) {
+  const from = path.join(tuiSimulationSourceDir, svg);
+  const to = path.join(tuiSimulationDestDir, svg);
+  if (!existsSync(from)) {
+    console.error(`[sync-netbox-sdk-fixtures] FATAL: missing TUI simulation SVG ${from}`);
+    process.exit(1);
+  }
+  copyFileSync(from, to);
+  tuiSimulationFiles.push(`${TUI_SIM_DEST_DIR}/${svg}`);
 }
 
 const captureStarted = Date.now();
@@ -175,7 +242,13 @@ const manifest = {
   syncedAt: new Date().toISOString(),
   sourceCommit,
   sourceRepo: SOURCE_REPO,
-  files: [...COPIES.map(([, dst]) => dst), DEVICES_LIST_FIXTURE, METADATA_FIXTURE, "demo-init-flow.json"],
+  files: [
+    ...COPIES.map(([, dst]) => dst),
+    ...tuiSimulationFiles,
+    DEVICES_LIST_FIXTURE,
+    METADATA_FIXTURE,
+    "demo-init-flow.json",
+  ],
 };
 writeFileSync(path.join(DEST_DIR, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
 

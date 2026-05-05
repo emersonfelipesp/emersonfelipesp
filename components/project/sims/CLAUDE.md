@@ -28,10 +28,11 @@ hand-author CLI/TUI output.
   `nbx dcim devices list`. Accepts an optional `onDone` callback that
   fires when all lines are revealed (used by `DemoDevicesListRunner`).
   Respects `prefers-reduced-motion`.
-- `DemoTuiModal.tsx` — Full-screen `role="dialog"` showing
-  `tui-main-netbox-{dark|light}.svg`. Variant tracks
-  `<html data-theme>` / `<html class="dark">` via `MutationObserver`. ESC
-  closes; focus returns to the trigger.
+- `DemoTuiModal.tsx` — Full-screen `role="dialog"` showing the generated
+  `tui-simulation/main-browser.json` state captures. Theme selection tracks
+  `<html data-theme>` / `<html class="dark">` via `MutationObserver`;
+  fixture-defined hotspots switch states or close the dialog. ESC closes;
+  focus returns to the trigger.
 
 ## Fixture contract
 
@@ -44,6 +45,7 @@ Files under `public/netbox-sdk-fixtures/`:
 | `demo-tui-help.json` | docgen capture `037-tui-main-browser-nbx-demo-tui-help.json` | same as above |
 | `tui-main-netbox-dark.svg` | `docs/assets/screenshots/tui-main-netbox-dark.svg` | Rich-rendered TUI screenshot |
 | `tui-main-netbox-light.svg` | `docs/assets/screenshots/tui-main-netbox-light.svg` | Rich-rendered TUI screenshot |
+| `tui-simulation/main-browser.json` + SVG files | `docs/generated/tui-simulation/` from `nbx docs generate-tui-simulation` | `{ command, source_commit, terminal_size, themes, state_ids, states: [{ id, captures: { [theme]: { svg, hotspots } } }] }` |
 | `demo-init-flow.json` | regex-extracted from `netbox_cli/demo.py` | `{ prompts: [{label, hidden, answer}], ok }` |
 | `manifest.json` | `git rev-parse HEAD` of netbox-sdk + ISO timestamp | freshness proof |
 

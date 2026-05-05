@@ -9,45 +9,70 @@ import { CodeSnippet } from "@/components/project/CodeSnippet";
 import { FeatureList } from "@/components/project/FeatureList";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
-import { ProjectViewTabs } from "@/components/project/ProjectViewTabs";
+import { useProjectShellActions } from "@/components/nav/project-shell-labels";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getDeveloperContent } from "@/lib/i18n/developer";
 import type { DeveloperContent } from "@/content/types";
+import { isProjectSlug } from "@/lib/project-shell-meta";
+import type { GitHubReleaseSummary } from "@/lib/github";
 
 type Props = {
   base: DeveloperContent;
   githubUrl?: string;
+  releases?: readonly GitHubReleaseSummary[];
+  stars?: number | null;
 };
 
 export function ProjectDeveloperContent({
   base,
   githubUrl,
+  releases,
+  stars,
 }: Props): React.JSX.Element {
   const { lang, t } = useLanguage();
   const data = getDeveloperContent(base, lang);
   const dev = t.project.developer;
   const cwd = `~/${data.slug}/developer`;
   const showSideToc = data.palette !== "mixed";
+  const actions = t.project.actions;
+  const slug = data.slug;
+  const shellActions = useProjectShellActions(
+    isProjectSlug(slug) ? slug : "netbox-sdk",
+  );
+  const useShared = isProjectSlug(slug);
 
   return (
     <div data-palette={data.palette} className="space-y-8">
       <SectionNav
         sections={data.sections}
-        actions={
-          githubUrl
-            ? [
-                {
-                  icon: "github",
-                  href: githubUrl,
-                  label: t.project.actions.github,
-                },
-              ]
+        releases={useShared ? releases : undefined}
+        releasesLabel={actions.releases(data.name)}
+        releasesBasePath={`/${slug}/releases`}
+        releasesAllLabel={t.project.releases.all}
+        stars={
+          useShared && stars !== undefined
+            ? {
+                count: stars,
+                href: `https://github.com/${data.fullName}/stargazers`,
+                label: actions.stars(data.name),
+              }
             : undefined
+        }
+        actions={
+          useShared
+            ? shellActions
+            : githubUrl
+              ? [
+                  {
+                    icon: "github",
+                    href: githubUrl,
+                    label: t.project.actions.github,
+                  },
+                ]
+              : undefined
         }
       />
       {showSideToc ? <SideTOC sections={data.sections} /> : null}
-
-      <ProjectViewTabs slug={data.slug} />
 
       <TerminalWindow title={cwd}>
         <ProjectHero

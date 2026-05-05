@@ -10,7 +10,7 @@ import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
-import { ProjectViewTabs } from "@/components/project/ProjectViewTabs";
+import { useProjectShellActions } from "@/components/nav/project-shell-labels";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getProxmoxSdk } from "@/lib/i18n/projects";
 import type { GitHubReleaseSummary } from "@/lib/github";
@@ -28,6 +28,7 @@ export function ProxmoxSdkContent({
   const p = getProxmoxSdk(lang);
   const sections = t.project.sections;
   const actions = t.project.actions;
+  const shellActions = useProjectShellActions("proxmox-sdk");
 
   return (
     <div data-palette={p.palette} className="space-y-8">
@@ -46,27 +47,9 @@ export function ProxmoxSdkContent({
               }
             : undefined
         }
-        actions={[
-          {
-            icon: "github",
-            href: "https://github.com/emersonfelipesp/proxmox-sdk",
-            label: actions.github,
-          },
-          {
-            icon: "pypi",
-            href: "https://pypi.org/project/proxmox-sdk/",
-            label: actions.pypi,
-          },
-          {
-            icon: "docker",
-            href: "https://hub.docker.com/r/emersonfelipesp/proxmox-sdk",
-            label: actions.docker,
-          },
-        ]}
+        actions={shellActions}
       />
       <SideTOC sections={p.sections} />
-
-      <ProjectViewTabs slug={p.slug} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero

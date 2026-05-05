@@ -33,7 +33,7 @@ test("/netbox-proxbox/developer loads", async ({ page }) => {
   await expect(page).toHaveURL("/netbox-proxbox/developer");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
-  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
 
 test("/proxbox-api/developer loads", async ({ page }) => {
@@ -41,7 +41,7 @@ test("/proxbox-api/developer loads", async ({ page }) => {
   await expect(page).toHaveURL("/proxbox-api/developer");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
-  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
 
 test("/netbox-sdk/developer loads", async ({ page }) => {
@@ -49,7 +49,7 @@ test("/netbox-sdk/developer loads", async ({ page }) => {
   await expect(page).toHaveURL("/netbox-sdk/developer");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
-  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
 
 test("/proxmox-sdk/developer loads", async ({ page }) => {
@@ -57,5 +57,5 @@ test("/proxmox-sdk/developer loads", async ({ page }) => {
   await expect(page).toHaveURL("/proxmox-sdk/developer");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
-  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });

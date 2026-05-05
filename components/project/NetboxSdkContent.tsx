@@ -8,12 +8,13 @@ import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { InstallSimulator } from "@/components/project/InstallSimulator";
 import { DemoInitRunner } from "@/components/project/DemoInitRunner";
 import { DemoDevicesListRunner } from "@/components/project/DemoDevicesListRunner";
+import { DemoTuiRunner } from "@/components/project/DemoTuiRunner";
 import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
-import { ProjectViewTabs } from "@/components/project/ProjectViewTabs";
+import { useProjectShellActions } from "@/components/nav/project-shell-labels";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getNetboxSdk } from "@/lib/i18n/projects";
 import type { NetboxSdkMeta } from "@/lib/netbox-sdk-meta";
@@ -34,6 +35,7 @@ export function NetboxSdkContent({
   const p = getNetboxSdk(lang);
   const sections = t.project.sections;
   const actions = t.project.actions;
+  const shellActions = useProjectShellActions("netbox-sdk");
 
   const meta = {
     netbox: liveMeta?.netbox ?? p.meta.netbox,
@@ -58,22 +60,9 @@ export function NetboxSdkContent({
               }
             : undefined
         }
-        actions={[
-          {
-            icon: "github",
-            href: "https://github.com/emersonfelipesp/netbox-sdk",
-            label: actions.github,
-          },
-          {
-            icon: "pypi",
-            href: "https://pypi.org/project/netbox-sdk/",
-            label: actions.pypi,
-          },
-        ]}
+        actions={shellActions}
       />
       <SideTOC sections={p.sections} />
-
-      <ProjectViewTabs slug={p.slug} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero
@@ -103,6 +92,9 @@ export function NetboxSdkContent({
         </div>
         <div className="mt-4">
           <DemoDevicesListRunner />
+        </div>
+        <div className="mt-4">
+          <DemoTuiRunner />
         </div>
       </TerminalWindow>
 

@@ -20,5 +20,5 @@ Palette inherits from the content file (`proxmox`).
   (English). pt-br localization comes from `lib/i18n/developer.ts`.
 - `export const dynamic = "force-dynamic"` is required for the page-view
   counter.
-- Tabs to `/proxmox-sdk` (showcase) are rendered by
-  `ProjectDeveloperContent` via `<ProjectViewTabs slug="proxmox-sdk" />`.
+- View switching to `/proxmox-sdk` (showcase) is handled by the global
+  `<ProjectViewToggle>` dropdown in `TopNav`, not a per-page tab strip.

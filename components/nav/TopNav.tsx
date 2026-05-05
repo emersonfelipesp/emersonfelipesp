@@ -6,10 +6,16 @@ import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ProjectViewToggle } from "@/components/nav/ProjectViewToggle";
+import { getProjectFromPath } from "@/lib/project-shell-meta";
 
 export function TopNav() {
   const pathname = usePathname();
   const { t } = useLanguage();
+  const projectRoute = getProjectFromPath(pathname);
+  const showViewToggle =
+    projectRoute !== null &&
+    (projectRoute.view === "showcase" || projectRoute.view === "developer");
   const [compact, setCompact] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
@@ -74,7 +80,16 @@ export function TopNav() {
             </li>
           );
         })}
-        <li className="ml-auto">
+        {showViewToggle ? (
+          <li className="ml-auto">
+            <ProjectViewToggle
+              slug={projectRoute.slug}
+              current={projectRoute.view as "showcase" | "developer"}
+              compact={compact}
+            />
+          </li>
+        ) : null}
+        <li className={showViewToggle ? "" : "ml-auto"}>
           <LanguageToggle compact={compact} />
         </li>
         <li>

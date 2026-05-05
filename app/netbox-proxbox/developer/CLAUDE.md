@@ -19,5 +19,5 @@ file (`netbox`).
   (English). pt-br localization comes from `lib/i18n/developer.ts`.
 - `export const dynamic = "force-dynamic"` is required for the page-view
   counter.
-- Tabs to `/netbox-proxbox` (showcase) are rendered by
-  `ProjectDeveloperContent` via `<ProjectViewTabs slug="netbox-proxbox" />`.
+- View switching to `/netbox-proxbox` (showcase) is handled by the global
+  `<ProjectViewToggle>` dropdown in `TopNav`, not a per-page tab strip.

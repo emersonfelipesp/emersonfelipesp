@@ -10,8 +10,8 @@ import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { IntegrationsArchitecture } from "@/components/project/IntegrationsArchitecture";
-import { ProjectViewTabs } from "@/components/project/ProjectViewTabs";
 import { SectionNav } from "@/components/nav/SectionNav";
+import { useProjectShellActions } from "@/components/nav/project-shell-labels";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getProxboxApi } from "@/lib/i18n/projects";
 import type { GitHubReleaseSummary } from "@/lib/github";
@@ -30,6 +30,7 @@ export function ProxboxApiContent({
   const sections = t.project.sections;
   const actions = t.project.actions;
   const labels = t.project.proxboxApi;
+  const shellActions = useProjectShellActions("proxbox-api");
 
   return (
     <div data-palette={p.palette} className="space-y-8">
@@ -48,26 +49,8 @@ export function ProxboxApiContent({
               }
             : undefined
         }
-        actions={[
-          {
-            icon: "github",
-            href: "https://github.com/emersonfelipesp/proxbox-api",
-            label: actions.github,
-          },
-          {
-            icon: "pypi",
-            href: "https://pypi.org/project/proxbox-api/",
-            label: actions.pypi,
-          },
-          {
-            icon: "docker",
-            href: "https://hub.docker.com/r/emersonfelipesp/proxbox-api",
-            label: actions.docker,
-          },
-        ]}
+        actions={shellActions}
       />
-
-      <ProjectViewTabs slug={p.slug} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero

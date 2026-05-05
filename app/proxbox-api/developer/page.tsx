@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { proxboxApiDeveloper as p } from "@/content/proxbox-api-developer";
 import { incrementView } from "@/lib/views";
 import { ProjectDeveloperContent } from "@/components/project/ProjectDeveloperContent";
+import { loadProjectShellData } from "@/lib/project-shell";
 
 export const metadata: Metadata = {
   title: `${p.name} ~ developer guide`,
@@ -11,11 +12,16 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page(): Promise<React.JSX.Element> {
-  await incrementView(`/${p.slug}/developer`);
+  const [, shell] = await Promise.all([
+    incrementView(`/${p.slug}/developer`),
+    loadProjectShellData("proxbox-api"),
+  ]);
   return (
     <ProjectDeveloperContent
       base={p}
       githubUrl={`https://github.com/${p.fullName}`}
+      releases={shell.releases}
+      stars={shell.stars}
     />
   );
 }

@@ -9,6 +9,8 @@ export type Dictionary = {
     proxmoxSdk: string;
     languageLabel: string;
     languageAria: (lang: string) => string;
+    viewLabel: string;
+    viewAria: (view: string) => string;
   };
   footer: {
     tagline: string;
@@ -205,6 +207,8 @@ const en: Dictionary = {
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--lang=",
     languageAria: (lang) => `Language: ${lang}`,
+    viewLabel: "--view=",
+    viewAria: (view) => `Project view: ${view}`,
   },
   footer: {
     tagline:
@@ -416,6 +420,8 @@ const ptBr: Dictionary = {
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--idioma=",
     languageAria: (lang) => `Idioma: ${lang}`,
+    viewLabel: "--visao=",
+    viewAria: (view) => `Visão do projeto: ${view}`,
   },
   footer: {
     tagline:

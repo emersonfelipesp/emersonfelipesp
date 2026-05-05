@@ -21,5 +21,5 @@ page.
   (English). pt-br localization comes from `lib/i18n/developer.ts`.
 - `export const dynamic = "force-dynamic"` is required for the page-view
   counter.
-- Tabs to `/proxbox-api` (showcase) are rendered by
-  `ProjectDeveloperContent` via `<ProjectViewTabs slug="proxbox-api" />`.
+- View switching to `/proxbox-api` (showcase) is handled by the global
+  `<ProjectViewToggle>` dropdown in `TopNav`, not a per-page tab strip.

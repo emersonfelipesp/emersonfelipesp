@@ -5,6 +5,8 @@ import { TerminalWindow } from "@/components/terminal/TerminalWindow";
 import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ProjectShellBar } from "@/components/nav/ProjectShellBar";
+import { useProjectShellActions } from "@/components/nav/project-shell-labels";
 import {
   releaseDetailPath,
   releaseListPath,
@@ -72,9 +74,26 @@ export function ReleaseListContent({
 }: ListProps): React.JSX.Element {
   const { t } = useLanguage();
   const labels = t.project.releases;
+  const shellActions = useProjectShellActions(project.slug);
 
   return (
     <div data-palette={project.palette} className="space-y-8">
+      <ProjectShellBar
+        actions={shellActions}
+        releases={snapshot.releases}
+        releasesLabel={t.project.actions.releases(project.name)}
+        releasesBasePath={releaseListPath(project.slug)}
+        releasesAllLabel={labels.all}
+        stars={
+          typeof snapshot.stars === "number"
+            ? {
+                count: snapshot.stars,
+                href: `https://github.com/${project.fullName}/stargazers`,
+                label: t.project.actions.stars(project.name),
+              }
+            : undefined
+        }
+      />
       <TerminalWindow title={`~/${project.slug}/releases`}>
         <div className="space-y-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
@@ -187,9 +206,26 @@ export function ReleaseDetailContent({
 }: DetailProps): React.JSX.Element {
   const { t } = useLanguage();
   const labels = t.project.releases;
+  const shellActions = useProjectShellActions(project.slug);
 
   return (
     <div data-palette={project.palette} className="space-y-8">
+      <ProjectShellBar
+        actions={shellActions}
+        releases={snapshot.releases}
+        releasesLabel={t.project.actions.releases(project.name)}
+        releasesBasePath={releaseListPath(project.slug)}
+        releasesAllLabel={labels.all}
+        stars={
+          typeof snapshot.stars === "number"
+            ? {
+                count: snapshot.stars,
+                href: `https://github.com/${project.fullName}/stargazers`,
+                label: t.project.actions.stars(project.name),
+              }
+            : undefined
+        }
+      />
       <TerminalWindow title={`~/${project.slug}/releases/${release.tag}`}>
         <div className="space-y-5">
           <div className="flex flex-wrap items-start justify-between gap-4">

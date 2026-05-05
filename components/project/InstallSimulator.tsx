@@ -184,7 +184,7 @@ export function InstallSimulator({ command, cwd, steps }: Props) {
         </pre>
       ) : null}
       {subRun === "demo-tui" ? (
-        <DemoTuiModal onClose={() => setSubRun(null)} />
+        <DemoTuiModal command="nbx demo tui" onClose={() => setSubRun(null)} />
       ) : null}
     </div>
   );
