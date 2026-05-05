@@ -1,0 +1,139 @@
+{
+  "syncedAt": "2026-05-05T18:55:58.896Z",
+  "fullName": "emersonfelipesp/proxbox-api",
+  "releases": [
+    {
+      "tag": "v0.0.10.post2",
+      "name": "v0.0.10.post2",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10.post2",
+      "publishedAt": "2026-05-05T15:28:37Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.10.post1",
+      "name": "v0.0.10.post1",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10.post1",
+      "publishedAt": "2026-05-05T14:18:24Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.10",
+      "name": "v0.0.10",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10",
+      "publishedAt": "2026-05-04T23:22:14Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post2",
+      "name": "v0.0.9.post2 — fix create_storages import in full-update",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9.post2",
+      "publishedAt": "2026-05-01T03:09:00Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post1",
+      "name": "v0.0.9.post1 — Docs, tests & CI sync",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9.post1",
+      "publishedAt": "2026-05-01T01:59:42Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9",
+      "name": "v0.0.9",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9",
+      "publishedAt": "2026-04-28T22:37:22Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.8.post1",
+      "name": "proxbox-api v0.0.8.post1",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.8.post1",
+      "publishedAt": "2026-04-23T18:02:49Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.8",
+      "name": "proxbox-api v0.0.8",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.8",
+      "publishedAt": "2026-04-23T12:31:10Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post1",
+      "name": "v0.0.7.post1 — Settings auth fix & sync correctness",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.7.post1",
+      "publishedAt": "2026-04-17T18:17:02Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7",
+      "name": "v0.0.7",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.7",
+      "publishedAt": "2026-04-13T20:16:13Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6.post4",
+      "name": "v0.0.6.post4",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post4",
+      "publishedAt": "2026-04-04T16:35:51Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6.post3",
+      "name": "v0.0.6.post3",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post3",
+      "publishedAt": "2026-04-04T15:41:14Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6.post2",
+      "name": "v0.0.6.post2",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post2",
+      "publishedAt": "2026-04-04T15:02:10Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6.post1",
+      "name": "proxbox-api v0.0.6.post1",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post1",
+      "publishedAt": "2026-04-03T15:32:56Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6",
+      "name": "proxbox-api v0.0.6",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6",
+      "publishedAt": "2026-04-03T03:50:43Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.5",
+      "name": "proxbox-api v0.0.5 - C901 Complexity Fixes",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.5",
+      "publishedAt": "2026-04-01T03:53:39Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.4",
+      "name": "v0.0.4",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.4",
+      "publishedAt": "2026-03-31T00:42:45Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.3",
+      "name": "v0.0.3",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.3",
+      "publishedAt": "2026-03-29T03:47:06Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2",
+      "name": "v0.0.2- 2025-04-12",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.2",
+      "publishedAt": "2025-04-12T19:14:38Z",
+      "prerelease": false
+    }
+  ]
+}

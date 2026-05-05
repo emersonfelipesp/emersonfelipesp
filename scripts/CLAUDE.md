@@ -12,6 +12,18 @@ Build-time helpers run via `tsx`. Not part of the Next.js bundle.
   so CLI/TUI output strings shown on `/netbox-sdk` always trace back to
   netbox-sdk's docgen pipeline.
 
+- `sync-github-data.ts` — Fetches GitHub release lists for the repos in
+  its `REPOS` table and writes one `public/github-data/<slug>.json` per
+  repo (plus a sibling `manifest.json`). Honors `GITHUB_TOKEN` for the
+  authenticated rate limit. **Not** a `predev` / `prebuild` hook — release
+  data is a once-per-deploy artifact updated by
+  `.github/workflows/sync-github-data.yml` on a 6-hour cron + manual +
+  `repository_dispatch:[refresh-github-data]` triggers, which commits
+  any diff back to `main`. The committed JSON is the source of truth
+  for `/proxbox-api`'s releases dropdown — `lib/github.ts`
+  `getStaticReleases()` reads it at request time with a live fetch
+  fallback only when the file is missing or invalid.
+
 ## Behavior
 
 - **Source missing, fixtures present**: warn and exit 0 (Vercel build OK).
@@ -29,6 +41,15 @@ Build-time helpers run via `tsx`. Not part of the Next.js bundle.
 - Idempotent — overwrites destination files every run. The live
   `nbx demo dcim devices list` step hard-fails the build if the CLI
   errors or returns a non-zero exit code.
+
+`sync-github-data.ts` failure modes:
+
+- **Network OK**: writes a fresh `public/github-data/<slug>.json` per
+  repo and updates `manifest.json`.
+- **Network fails / non-2xx, file already exists**: warns and keeps the
+  existing snapshot (don't clobber known-good data with empty).
+- **Network fails / non-2xx, file missing**: exits 1 — the initial seed
+  has to succeed.
 
 ## Extending
 

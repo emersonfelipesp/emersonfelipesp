@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { z } from "zod";
 import { db } from "./db";
 
@@ -127,6 +129,42 @@ export async function getRepoReleases(
     console.error("[github] releases fetch failed for", fullName, err);
     return [];
   }
+}
+
+const staticReleasesSchema = z.object({
+  syncedAt: z.string(),
+  fullName: z.string(),
+  releases: z.array(
+    z.object({
+      tag: z.string(),
+      name: z.string(),
+      url: z.string(),
+      publishedAt: z.string().nullable(),
+      prerelease: z.boolean(),
+    }),
+  ),
+});
+
+export async function getStaticReleases(
+  slug: string,
+  fullName: string,
+  fallbackLimit = 20,
+): Promise<GitHubRelease[]> {
+  try {
+    const file = path.join(
+      process.cwd(),
+      "public/github-data",
+      `${slug}.json`,
+    );
+    const raw = await readFile(file, "utf8");
+    const parsed = staticReleasesSchema.safeParse(JSON.parse(raw));
+    if (parsed.success && parsed.data.fullName === fullName) {
+      return parsed.data.releases;
+    }
+  } catch {
+    // fall through to live fetch when the static file is missing or invalid
+  }
+  return getRepoReleases(fullName, fallbackLimit);
 }
 
 async function fetchFromGitHub(
