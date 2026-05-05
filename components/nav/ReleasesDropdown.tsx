@@ -1,8 +1,33 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FiChevronDown, FiTag } from "react-icons/fi";
 import type { GitHubRelease } from "@/lib/github";
+
+function TagIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M2 2v9.172a2 2 0 0 0 .586 1.414l8.828 8.828a2 2 0 0 0 2.828 0l7.172-7.172a2 2 0 0 0 0-2.828L12.586 2.586A2 2 0 0 0 11.172 2H2zm5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M3.22 8.47a.75.75 0 0 1 1.06 0L12 16.19l7.72-7.72a.75.75 0 1 1 1.06 1.06l-8.25 8.25a.75.75 0 0 1-1.06 0L3.22 9.53a.75.75 0 0 1 0-1.06z" />
+    </svg>
+  );
+}
 
 type Props = {
   releases: readonly GitHubRelease[];
@@ -112,8 +137,8 @@ export function ReleasesDropdown({
               : "text-muted hover:bg-accent/15 hover:text-accent"
           }`}
         >
-          <FiTag className="h-4 w-4" aria-hidden="true" />
-          <FiChevronDown className="h-3 w-3" aria-hidden="true" />
+          <TagIcon className="h-4 w-4" />
+          <ChevronDownIcon className="h-3 w-3" />
         </button>
       ) : (
         <button

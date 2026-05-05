@@ -1,0 +1,57 @@
+{
+  "syncedAt": "2026-05-05T19:40:45.573Z",
+  "fullName": "emersonfelipesp/proxmox-sdk",
+  "stars": 1,
+  "forks": 0,
+  "releases": [
+    {
+      "tag": "v0.0.3.post1",
+      "name": "v0.0.3.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.3.post1",
+      "publishedAt": "2026-04-22T22:45:38Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.3",
+      "name": "proxmox-sdk v0.0.3",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.3",
+      "publishedAt": "2026-04-22T21:09:55Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2.post3",
+      "name": "v0.0.2.post3",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post3",
+      "publishedAt": "2026-04-14T01:31:56Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2.post2",
+      "name": "proxmox-sdk v0.0.2.post2",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post2",
+      "publishedAt": "2026-04-13T19:20:37Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2.post1",
+      "name": "proxmox-sdk v0.0.2.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post1",
+      "publishedAt": "2026-04-11T00:45:09Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2",
+      "name": "v0.0.2",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2",
+      "publishedAt": "2026-04-11T00:03:42Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.1",
+      "name": "v0.0.1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.1",
+      "publishedAt": "2026-04-04T21:52:27Z",
+      "prerelease": false
+    }
+  ]
+}

@@ -12,15 +12,55 @@ import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getProxmoxSdk } from "@/lib/i18n/projects";
+import type { GitHubRelease } from "@/lib/github";
 
-export function ProxmoxSdkContent(): React.JSX.Element {
+type Props = {
+  releases?: readonly GitHubRelease[];
+  stars?: number | null;
+};
+
+export function ProxmoxSdkContent({
+  releases,
+  stars,
+}: Props = {}): React.JSX.Element {
   const { lang, t } = useLanguage();
   const p = getProxmoxSdk(lang);
   const sections = t.project.sections;
+  const actions = t.project.actions;
 
   return (
     <div data-palette={p.palette} className="space-y-8">
-      <SectionNav sections={p.sections} />
+      <SectionNav
+        sections={p.sections}
+        releases={releases}
+        releasesLabel={actions.releases(p.name)}
+        stars={
+          stars !== undefined
+            ? {
+                count: stars,
+                href: `https://github.com/${p.fullName}/stargazers`,
+                label: actions.stars(p.name),
+              }
+            : undefined
+        }
+        actions={[
+          {
+            icon: "github",
+            href: "https://github.com/emersonfelipesp/proxmox-sdk",
+            label: actions.github,
+          },
+          {
+            icon: "pypi",
+            href: "https://pypi.org/project/proxmox-sdk/",
+            label: actions.pypi,
+          },
+          {
+            icon: "docker",
+            href: "https://hub.docker.com/r/emersonfelipesp/proxmox-sdk",
+            label: actions.docker,
+          },
+        ]}
+      />
       <SideTOC sections={p.sections} />
 
       <TerminalWindow title={`~/${p.slug}`}>

@@ -1,9 +1,27 @@
 {
-  "syncedAt": "2026-05-05T18:55:58.897Z",
+  "syncedAt": "2026-05-05T19:40:45.573Z",
   "repos": [
     {
       "slug": "proxbox-api",
       "fullName": "emersonfelipesp/proxbox-api",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-proxbox",
+      "fullName": "N-Multifibra/netbox-proxbox",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-sdk",
+      "fullName": "emersonfelipesp/netbox-sdk",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "proxmox-sdk",
+      "fullName": "emersonfelipesp/proxmox-sdk",
       "ok": true,
       "skipped": false
     }

@@ -25,17 +25,18 @@ export type Dictionary = {
       repo: string;
       links: string;
     };
+    actions: {
+      github: string;
+      pypi: string;
+      docker: string;
+      stars: (project: string) => string;
+      releases: (project: string) => string;
+    };
     proxboxApi: {
       intro: string;
       transport: string;
       direction: string;
       viewProject: string;
-      actions: {
-        github: string;
-        pypi: string;
-        docker: string;
-        releases: string;
-      };
       architecture: {
         heading: string;
         caption: string;
@@ -164,18 +165,19 @@ const en: Dictionary = {
       repo: "repo",
       links: "links",
     },
+    actions: {
+      github: "View source on GitHub",
+      pypi: "View package on PyPI",
+      docker: "View image on Docker Hub",
+      stars: (project) => `Star ${project} on GitHub`,
+      releases: (project) => `Releases of ${project}`,
+    },
     proxboxApi: {
       intro:
         "proxbox-api is the only place where the netbox-proxbox NetBox plugin, the netbox-sdk REST client and the proxmox-sdk Proxmox VE SDK meet.",
       transport: "transport",
       direction: "direction",
       viewProject: "view project",
-      actions: {
-        github: "View source on GitHub",
-        pypi: "View package on PyPI",
-        docker: "View image on Docker Hub",
-        releases: "Releases of proxbox-api",
-      },
       architecture: {
         heading: "// integration map — transports, auth & concurrency",
         caption: "hover any node for details",
@@ -317,18 +319,19 @@ const ptBr: Dictionary = {
       repo: "repositório",
       links: "links",
     },
+    actions: {
+      github: "Ver código-fonte no GitHub",
+      pypi: "Ver pacote no PyPI",
+      docker: "Ver imagem no Docker Hub",
+      stars: (project) => `Dar estrela em ${project} no GitHub`,
+      releases: (project) => `Versões de ${project}`,
+    },
     proxboxApi: {
       intro:
         "O proxbox-api é o único lugar onde o plugin netbox-proxbox (NetBox), o cliente REST netbox-sdk e o SDK proxmox-sdk para Proxmox VE se encontram.",
       transport: "transporte",
       direction: "direção",
       viewProject: "ver projeto",
-      actions: {
-        github: "Ver código-fonte no GitHub",
-        pypi: "Ver pacote no PyPI",
-        docker: "Ver imagem no Docker Hub",
-        releases: "Versões do proxbox-api",
-      },
       architecture: {
         heading: "// mapa de integrações — transportes, auth e concorrência",
         caption: "passe o cursor sobre qualquer nó para ver detalhes",

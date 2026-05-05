@@ -13,6 +13,9 @@ type Repo = {
 
 const REPOS: ReadonlyArray<Repo> = [
   { slug: "proxbox-api", fullName: "emersonfelipesp/proxbox-api", limit: 30 },
+  { slug: "netbox-proxbox", fullName: "N-Multifibra/netbox-proxbox", limit: 30 },
+  { slug: "netbox-sdk", fullName: "emersonfelipesp/netbox-sdk", limit: 30 },
+  { slug: "proxmox-sdk", fullName: "emersonfelipesp/proxmox-sdk", limit: 30 },
 ];
 
 type GitHubRelease = {
@@ -49,10 +52,7 @@ function normalize(item: RawRelease): GitHubRelease | null {
   };
 }
 
-async function fetchReleases(
-  fullName: string,
-  limit: number,
-): Promise<GitHubRelease[]> {
+function ghHeaders(): Record<string, string> {
   const headers: Record<string, string> = {
     Accept: "application/vnd.github+json",
     "User-Agent": "emersonfelipesp-site",
@@ -61,9 +61,16 @@ async function fetchReleases(
   if (process.env.GITHUB_TOKEN) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
+  return headers;
+}
+
+async function fetchReleases(
+  fullName: string,
+  limit: number,
+): Promise<GitHubRelease[]> {
   const res = await fetch(
     `https://api.github.com/repos/${fullName}/releases?per_page=${limit}`,
-    { headers },
+    { headers: ghHeaders() },
   );
   if (!res.ok) {
     throw new Error(`github releases ${fullName} → HTTP ${res.status}`);
@@ -80,18 +87,43 @@ async function fetchReleases(
   return out;
 }
 
+async function fetchRepoStats(
+  fullName: string,
+): Promise<{ stars: number | null; forks: number | null }> {
+  const res = await fetch(`https://api.github.com/repos/${fullName}`, {
+    headers: ghHeaders(),
+  });
+  if (!res.ok) {
+    throw new Error(`github repo ${fullName} → HTTP ${res.status}`);
+  }
+  const raw = (await res.json()) as {
+    stargazers_count?: unknown;
+    forks_count?: unknown;
+  };
+  return {
+    stars:
+      typeof raw.stargazers_count === "number" ? raw.stargazers_count : null,
+    forks: typeof raw.forks_count === "number" ? raw.forks_count : null,
+  };
+}
+
 async function syncRepo(repo: Repo): Promise<{ ok: boolean; skipped: boolean }> {
   const dst = path.join(DEST_DIR, `${repo.slug}.json`);
   try {
-    const releases = await fetchReleases(repo.fullName, repo.limit);
+    const [releases, stats] = await Promise.all([
+      fetchReleases(repo.fullName, repo.limit),
+      fetchRepoStats(repo.fullName),
+    ]);
     const payload = {
       syncedAt: new Date().toISOString(),
       fullName: repo.fullName,
+      stars: stats.stars,
+      forks: stats.forks,
       releases,
     };
     writeFileSync(dst, JSON.stringify(payload, null, 2) + "\n");
     console.log(
-      `[sync-github-data] ${repo.slug}: wrote ${releases.length} release(s).`,
+      `[sync-github-data] ${repo.slug}: wrote ${releases.length} release(s), ★${stats.stars ?? "?"}.`,
     );
     return { ok: true, skipped: false };
   } catch (err) {

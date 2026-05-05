@@ -131,9 +131,11 @@ export async function getRepoReleases(
   }
 }
 
-const staticReleasesSchema = z.object({
+const staticSnapshotSchema = z.object({
   syncedAt: z.string(),
   fullName: z.string(),
+  stars: z.number().nullable().optional(),
+  forks: z.number().nullable().optional(),
   releases: z.array(
     z.object({
       tag: z.string(),
@@ -145,11 +147,10 @@ const staticReleasesSchema = z.object({
   ),
 });
 
-export async function getStaticReleases(
+async function readStaticSnapshot(
   slug: string,
   fullName: string,
-  fallbackLimit = 20,
-): Promise<GitHubRelease[]> {
+): Promise<z.infer<typeof staticSnapshotSchema> | null> {
   try {
     const file = path.join(
       process.cwd(),
@@ -157,14 +158,34 @@ export async function getStaticReleases(
       `${slug}.json`,
     );
     const raw = await readFile(file, "utf8");
-    const parsed = staticReleasesSchema.safeParse(JSON.parse(raw));
+    const parsed = staticSnapshotSchema.safeParse(JSON.parse(raw));
     if (parsed.success && parsed.data.fullName === fullName) {
-      return parsed.data.releases;
+      return parsed.data;
     }
   } catch {
-    // fall through to live fetch when the static file is missing or invalid
+    // fall through
   }
+  return null;
+}
+
+export async function getStaticReleases(
+  slug: string,
+  fullName: string,
+  fallbackLimit = 20,
+): Promise<GitHubRelease[]> {
+  const snapshot = await readStaticSnapshot(slug, fullName);
+  if (snapshot) return snapshot.releases;
   return getRepoReleases(fullName, fallbackLimit);
+}
+
+export async function getStaticStars(
+  slug: string,
+  fullName: string,
+): Promise<number | null> {
+  const snapshot = await readStaticSnapshot(slug, fullName);
+  if (snapshot && typeof snapshot.stars === "number") return snapshot.stars;
+  const stats = await getRepoStats(fullName);
+  return stats.stars ?? null;
 }
 
 async function fetchFromGitHub(

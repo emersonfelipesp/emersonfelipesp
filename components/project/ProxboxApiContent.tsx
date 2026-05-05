@@ -17,12 +17,17 @@ import type { GitHubRelease } from "@/lib/github";
 
 type Props = {
   releases?: readonly GitHubRelease[];
+  stars?: number | null;
 };
 
-export function ProxboxApiContent({ releases }: Props = {}): React.JSX.Element {
+export function ProxboxApiContent({
+  releases,
+  stars,
+}: Props = {}): React.JSX.Element {
   const { lang, t } = useLanguage();
   const p = getProxboxApi(lang);
   const sections = t.project.sections;
+  const actions = t.project.actions;
   const labels = t.project.proxboxApi;
 
   return (
@@ -30,22 +35,31 @@ export function ProxboxApiContent({ releases }: Props = {}): React.JSX.Element {
       <SectionNav
         sections={p.sections}
         releases={releases}
-        releasesLabel={labels.actions.releases}
+        releasesLabel={actions.releases(p.name)}
+        stars={
+          stars !== undefined
+            ? {
+                count: stars,
+                href: `https://github.com/${p.fullName}/stargazers`,
+                label: actions.stars(p.name),
+              }
+            : undefined
+        }
         actions={[
           {
             icon: "github",
             href: "https://github.com/emersonfelipesp/proxbox-api",
-            label: labels.actions.github,
+            label: actions.github,
           },
           {
             icon: "pypi",
             href: "https://pypi.org/project/proxbox-api/",
-            label: labels.actions.pypi,
+            label: actions.pypi,
           },
           {
             icon: "docker",
             href: "https://hub.docker.com/r/emersonfelipesp/proxbox-api",
-            label: labels.actions.docker,
+            label: actions.docker,
           },
         ]}
       />

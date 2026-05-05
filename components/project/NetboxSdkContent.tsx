@@ -16,15 +16,23 @@ import { SideTOC } from "@/components/nav/SideTOC";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getNetboxSdk } from "@/lib/i18n/projects";
 import type { NetboxSdkMeta } from "@/lib/netbox-sdk-meta";
+import type { GitHubRelease } from "@/lib/github";
 
 type Props = {
   liveMeta: NetboxSdkMeta | null;
+  releases?: readonly GitHubRelease[];
+  stars?: number | null;
 };
 
-export function NetboxSdkContent({ liveMeta }: Props): React.JSX.Element {
+export function NetboxSdkContent({
+  liveMeta,
+  releases,
+  stars,
+}: Props): React.JSX.Element {
   const { lang, t } = useLanguage();
   const p = getNetboxSdk(lang);
   const sections = t.project.sections;
+  const actions = t.project.actions;
 
   const meta = {
     netbox: liveMeta?.netbox ?? p.meta.netbox,
@@ -34,7 +42,32 @@ export function NetboxSdkContent({ liveMeta }: Props): React.JSX.Element {
 
   return (
     <div data-palette={p.palette} className="space-y-8">
-      <SectionNav sections={p.sections} />
+      <SectionNav
+        sections={p.sections}
+        releases={releases}
+        releasesLabel={actions.releases(p.name)}
+        stars={
+          stars !== undefined
+            ? {
+                count: stars,
+                href: `https://github.com/${p.fullName}/stargazers`,
+                label: actions.stars(p.name),
+              }
+            : undefined
+        }
+        actions={[
+          {
+            icon: "github",
+            href: "https://github.com/emersonfelipesp/netbox-sdk",
+            label: actions.github,
+          },
+          {
+            icon: "pypi",
+            href: "https://pypi.org/project/netbox-sdk/",
+            label: actions.pypi,
+          },
+        ]}
+      />
       <SideTOC sections={p.sections} />
 
       <TerminalWindow title={`~/${p.slug}`}>

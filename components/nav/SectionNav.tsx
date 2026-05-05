@@ -12,12 +12,38 @@ export type SectionAction = {
   label: string;
 };
 
+export type SectionStars = {
+  count: number | null;
+  href: string;
+  label: string;
+};
+
 type Props = {
   sections: readonly Section[];
   actions?: readonly SectionAction[];
+  stars?: SectionStars;
   releases?: readonly GitHubRelease[];
   releasesLabel?: string;
 };
+
+function formatStars(count: number): string {
+  if (count >= 10000) return `${Math.round(count / 1000)}k`;
+  if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
+  return String(count);
+}
+
+function StarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M12 2.25l2.92 6.32 6.83.74-5.13 4.78 1.45 6.71L12 17.5l-6.07 3.3 1.45-6.71L2.25 9.31l6.83-.74L12 2.25z" />
+    </svg>
+  );
+}
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -67,6 +93,7 @@ const ICONS = {
 export function SectionNav({
   sections,
   actions,
+  stars,
   releases,
   releasesLabel,
 }: Props) {
@@ -147,8 +174,23 @@ export function SectionNav({
             </li>
           );
         })}
-        {(actions && actions.length > 0) || releases ? (
+        {(actions && actions.length > 0) || releases || stars ? (
           <li className="ml-auto flex items-center gap-1">
+            {stars && stars.count !== null ? (
+              <a
+                href={stars.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${stars.label} (${stars.count})`}
+                title={`${stars.label} (${stars.count})`}
+                className="flex items-center justify-center gap-1 p-2 text-muted transition-all duration-150 hover:bg-accent/15 hover:text-accent focus-visible:bg-accent/15 focus-visible:text-accent"
+              >
+                <StarIcon className="h-4 w-4" />
+                <span className="font-mono text-xs tabular-nums">
+                  {formatStars(stars.count)}
+                </span>
+              </a>
+            ) : null}
             {releases ? (
               <ReleasesDropdown
                 releases={releases}

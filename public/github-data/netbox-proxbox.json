@@ -1,0 +1,183 @@
+{
+  "syncedAt": "2026-05-05T19:40:44.809Z",
+  "fullName": "N-Multifibra/netbox-proxbox",
+  "stars": 540,
+  "forks": 62,
+  "releases": [
+    {
+      "tag": "v0.0.14",
+      "name": "netbox-proxbox v0.0.14",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.14",
+      "publishedAt": "2026-05-05T18:35:34Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.13.post4",
+      "name": "v0.0.13.post4",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.13.post4",
+      "publishedAt": "2026-05-01T03:54:14Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.13.post2",
+      "name": "netbox-proxbox v0.0.13.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.13.post2",
+      "publishedAt": "2026-05-01T02:13:10Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.13.post1",
+      "name": "netbox-proxbox v0.0.13.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.13.post1",
+      "publishedAt": "2026-04-28T23:31:55Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.13",
+      "name": "netbox-proxbox v0.0.13",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.13",
+      "publishedAt": "2026-04-28T23:15:36Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.12",
+      "name": "netbox-proxbox v0.0.12",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.12",
+      "publishedAt": "2026-04-23T18:03:27Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.11.post1",
+      "name": "v0.0.11.post1 — Settings permission fix & sync improvements",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.11.post1",
+      "publishedAt": "2026-04-17T18:43:58Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.11",
+      "name": "v0.0.11",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.11",
+      "publishedAt": "2026-04-13T20:43:11Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.10",
+      "name": "v0.0.10",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.10",
+      "publishedAt": "2026-04-03T15:17:23Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post4",
+      "name": "v0.0.9.post4",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.9.post4",
+      "publishedAt": "2026-04-01T13:36:31Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post3",
+      "name": "v0.0.9.post3",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.9.post3",
+      "publishedAt": "2026-04-01T13:18:16Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post2",
+      "name": "v0.0.9.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.9.post2",
+      "publishedAt": "2026-04-01T13:11:07Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9.post1",
+      "name": "v0.0.9.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.9.post1",
+      "publishedAt": "2026-04-01T12:58:20Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.9",
+      "name": "netbox-proxbox v0.0.9",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.9",
+      "publishedAt": "2026-04-01T03:04:36Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.8",
+      "name": "NetBox Proxbox v0.0.8",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.8",
+      "publishedAt": "2026-03-30T22:28:28Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7",
+      "name": "v0.0.7",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.7",
+      "publishedAt": "2026-03-29T03:38:28Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6b2.post1",
+      "name": "v0.0.6b2.post1 - 2025-04-16",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.6b2.post1",
+      "publishedAt": "2025-04-16T21:15:39Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.b2",
+      "name": "v0.0.6b2 - 2025-04-08",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.b2",
+      "publishedAt": "2025-04-08T19:40:26Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6b1",
+      "name": "v0.0.6b1 - 2025-03-01",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.6b1",
+      "publishedAt": "2025-03-01T22:46:09Z",
+      "prerelease": true
+    },
+    {
+      "tag": "v0.0.5",
+      "name": "v0.0.5 - 2023-03-17",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.5",
+      "publishedAt": "2023-03-17T12:28:54Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.5-beta1",
+      "name": "v0.0.5-beta1 - 2022-05-21",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.5-beta1",
+      "publishedAt": "2022-05-21T21:23:51Z",
+      "prerelease": true
+    },
+    {
+      "tag": "v0.0.4",
+      "name": "v0.0.4 - 2022-05-07",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.4",
+      "publishedAt": "2022-05-07T20:57:42Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.3",
+      "name": "v0.0.3 - 2022-03-04",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.3",
+      "publishedAt": "2022-03-05T02:53:50Z",
+      "prerelease": true
+    },
+    {
+      "tag": "v0.0.2",
+      "name": "v0.0.2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.2",
+      "publishedAt": "2021-04-24T01:17:15Z",
+      "prerelease": true
+    },
+    {
+      "tag": "v0.0.1",
+      "name": "v0.0.1 - 2021-04-23",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.1",
+      "publishedAt": "2021-04-24T00:53:23Z",
+      "prerelease": true
+    }
+  ]
+}

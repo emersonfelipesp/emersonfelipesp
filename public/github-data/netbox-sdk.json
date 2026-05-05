@@ -1,0 +1,113 @@
+{
+  "syncedAt": "2026-05-05T19:40:45.109Z",
+  "fullName": "emersonfelipesp/netbox-sdk",
+  "stars": 14,
+  "forks": 0,
+  "releases": [
+    {
+      "tag": "v0.0.8.post1",
+      "name": "netbox-sdk v0.0.8.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.8.post1",
+      "publishedAt": "2026-05-05T14:39:45Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.8",
+      "name": "netbox-sdk v0.0.8",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.8",
+      "publishedAt": "2026-05-04T20:29:26Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post6",
+      "name": "netbox-sdk v0.0.7.post6",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post6",
+      "publishedAt": "2026-04-22T21:22:50Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post5",
+      "name": "netbox-sdk v0.0.7.post5",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post5",
+      "publishedAt": "2026-04-22T21:10:31Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post4",
+      "name": "netbox-sdk v0.0.7.post4",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post4",
+      "publishedAt": "2026-04-13T19:20:41Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post3",
+      "name": "netbox-sdk v0.0.7.post3",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post3",
+      "publishedAt": "2026-04-07T18:12:26Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post2",
+      "name": "netbox-sdk v0.0.7.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post2",
+      "publishedAt": "2026-04-06T18:19:28Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7.post1",
+      "name": "netbox-sdk v0.0.7.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7.post1",
+      "publishedAt": "2026-03-30T18:00:59Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.7",
+      "name": "netbox-sdk v0.0.7",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.7",
+      "publishedAt": "2026-03-30T15:49:12Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.6",
+      "name": "netbox-cli v0.0.6",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.6",
+      "publishedAt": "2026-03-28T02:05:39Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.5",
+      "name": "netbox-sdk v0.0.5",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.5",
+      "publishedAt": "2026-03-28T00:13:25Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.4",
+      "name": "netbox-sdk v0.0.4",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.4",
+      "publishedAt": "2026-03-27T14:06:55Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.3",
+      "name": "netbox-sdk v0.0.3",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.3",
+      "publishedAt": "2026-03-24T18:45:13Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.2",
+      "name": "netbox-sdk v0.0.2",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.2",
+      "publishedAt": "2026-03-23T02:21:44Z",
+      "prerelease": false
+    },
+    {
+      "tag": "v0.0.1",
+      "name": "netbox-sdk v0.0.1",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.1",
+      "publishedAt": "2026-03-21T15:45:42Z",
+      "prerelease": false
+    }
+  ]
+}

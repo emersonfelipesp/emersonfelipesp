@@ -14,16 +14,51 @@ import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getNetboxProxbox } from "@/lib/i18n/projects";
+import type { GitHubRelease } from "@/lib/github";
 
-export function NetboxProxboxContent(): React.JSX.Element {
+type Props = {
+  releases?: readonly GitHubRelease[];
+  stars?: number | null;
+};
+
+export function NetboxProxboxContent({
+  releases,
+  stars,
+}: Props = {}): React.JSX.Element {
   const { lang, t } = useLanguage();
   const p = getNetboxProxbox(lang);
   const sections = t.project.sections;
+  const actions = t.project.actions;
   const proxbox = t.project.proxbox;
 
   return (
     <div data-palette={p.palette} className="space-y-8">
-      <SectionNav sections={p.sections} />
+      <SectionNav
+        sections={p.sections}
+        releases={releases}
+        releasesLabel={actions.releases(p.name)}
+        stars={
+          stars !== undefined
+            ? {
+                count: stars,
+                href: `https://github.com/${p.fullName}/stargazers`,
+                label: actions.stars(p.name),
+              }
+            : undefined
+        }
+        actions={[
+          {
+            icon: "github",
+            href: "https://github.com/N-Multifibra/netbox-proxbox",
+            label: actions.github,
+          },
+          {
+            icon: "pypi",
+            href: "https://pypi.org/project/netbox-proxbox/",
+            label: actions.pypi,
+          },
+        ]}
+      />
       <SideTOC sections={p.sections} />
 
       <TerminalWindow title={`~/${p.slug}`}>
