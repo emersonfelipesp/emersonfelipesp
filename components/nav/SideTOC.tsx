@@ -23,38 +23,38 @@ export function SideTOC({ sections }: Props) {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const elements = sections
+    const headings = sections
       .map((s) => document.getElementById(s.id))
       .filter((el): el is HTMLElement => el !== null);
-    if (elements.length === 0) return;
+    if (headings.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const inView = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (inView[0]) setActive(inView[0].target.id);
-      },
-      { rootMargin: "-20% 0px -70% 0px", threshold: 0 },
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [sections]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const first = document.getElementById(sections[0]?.id ?? "");
-    if (!first) return;
-
-    const trigger = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry) return;
-        setVisible(entry.boundingClientRect.top < 0);
-      },
-      { threshold: 0 },
-    );
-    trigger.observe(first);
-    return () => trigger.disconnect();
+    let frame = 0;
+    function update() {
+      frame = 0;
+      const line = window.innerHeight * 0.25;
+      let current = headings[0].id;
+      for (const el of headings) {
+        if (el.getBoundingClientRect().top <= line) {
+          current = el.id;
+        } else {
+          break;
+        }
+      }
+      setActive(current);
+      setVisible(headings[0].getBoundingClientRect().top < 0);
+    }
+    function onScroll() {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [sections]);
 
   useEffect(() => {
@@ -108,17 +108,32 @@ export function SideTOC({ sections }: Props) {
       .filter((el): el is HTMLElement => el !== null);
     if (els.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const inView = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (inView[0]) setActiveSub(inView[0].target.id);
-      },
-      { rootMargin: "-25% 0px -65% 0px", threshold: 0 },
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    let frame = 0;
+    function update() {
+      frame = 0;
+      const line = window.innerHeight * 0.3;
+      let current = els[0].id;
+      for (const el of els) {
+        if (el.getBoundingClientRect().top <= line) {
+          current = el.id;
+        } else {
+          break;
+        }
+      }
+      setActiveSub(current);
+    }
+    function onScroll() {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [items]);
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
