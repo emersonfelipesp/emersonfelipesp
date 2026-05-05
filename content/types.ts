@@ -41,3 +41,45 @@ export type ProjectContent = {
   };
   links: Record<string, string>;
 };
+
+export type DeveloperIntegration = {
+  target: string;
+  protocol: string;
+  library: string;
+  notes?: string;
+};
+
+export type DeveloperCheck = {
+  label: string;
+  cmd: string;
+};
+
+export type DeveloperContent = {
+  slug: string;
+  name: string;
+  fullName: string;
+  palette: "netbox" | "proxmox" | "mixed";
+  tagline: string;
+  banner: string;
+  sections: readonly SectionLink[];
+  intro: readonly string[];
+  architecture: {
+    bullets: readonly string[];
+  };
+  integrations: readonly DeveloperIntegration[];
+  contributing: {
+    devInstall: string;
+    checks: readonly DeveloperCheck[];
+    codeStyle: readonly string[];
+    issuesUrl: string;
+  };
+  e2e: {
+    framework: string;
+    intro: readonly string[];
+    commands: readonly DeveloperCheck[];
+    coverage: readonly string[];
+    ciWorkflow?: string;
+    ciWorkflowUrl?: string;
+  };
+  links: Record<string, string>;
+};

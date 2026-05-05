@@ -24,6 +24,10 @@ Reusable building blocks for composing project showcase pages. Each page under `
 - `NetboxSdkContent.tsx` — Client wrapper (`"use client"`) for the `/netbox-sdk` page body. Reads `lang` via `useLanguage()`, calls `getNetboxSdk(lang)` from `lib/i18n/projects.ts`, and accepts a server-fetched `liveMeta` prop (from `getNetboxSdkMeta()`).
 - `NetboxProxboxContent.tsx` — Client wrapper (`"use client"`) for the `/netbox-proxbox` page body. Sources content from `getNetboxProxbox(lang)` and pulls localized section headings, StepList titles, configure intro, and section dividers from `t.project.sections.*` / `t.project.proxbox.*`.
 - `ProxmoxSdkContent.tsx` — Client wrapper (`"use client"`) for the `/proxmox-sdk` page body. Sources content from `getProxmoxSdk(lang)`.
+- `ReleasePages.tsx` — Client wrappers for `/[project]/releases` and
+  `/[project]/releases/[tag]`. They receive server-read GitHub snapshot data
+  and use `useLanguage()` only for local UI labels; release note content
+  remains GitHub-authored.
 
 ## Key Conventions
 

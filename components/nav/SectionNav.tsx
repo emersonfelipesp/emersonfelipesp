@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ReleasesDropdown } from "./ReleasesDropdown";
-import type { GitHubRelease } from "@/lib/github";
+import type { GitHubReleaseSummary } from "@/lib/github";
 
 export type Section = { id: string; label: string };
 
@@ -22,8 +22,10 @@ type Props = {
   sections: readonly Section[];
   actions?: readonly SectionAction[];
   stars?: SectionStars;
-  releases?: readonly GitHubRelease[];
+  releases?: readonly GitHubReleaseSummary[];
   releasesLabel?: string;
+  releasesBasePath?: string;
+  releasesAllLabel?: string;
 };
 
 function formatStars(count: number): string {
@@ -96,6 +98,8 @@ export function SectionNav({
   stars,
   releases,
   releasesLabel,
+  releasesBasePath,
+  releasesAllLabel,
 }: Props) {
   const [active, setActive] = useState<string>(sections[0]?.id ?? "");
   const [compact, setCompact] = useState(false);
@@ -195,6 +199,8 @@ export function SectionNav({
               <ReleasesDropdown
                 releases={releases}
                 ariaLabel={releasesLabel}
+                basePath={releasesBasePath}
+                allLabel={releasesAllLabel}
                 compact={compact}
               />
             ) : null}

@@ -32,6 +32,31 @@ export type Dictionary = {
       stars: (project: string) => string;
       releases: (project: string) => string;
     };
+    releases: {
+      heading: string;
+      all: string;
+      latest: string;
+      prerelease: string;
+      stable: string;
+      published: string;
+      created: string;
+      target: string;
+      author: string;
+      assets: string;
+      downloads: string;
+      sourceCode: string;
+      zip: string;
+      tar: string;
+      synced: string;
+      openOnGitHub: string;
+      backToProject: string;
+      backToReleases: string;
+      viewRelease: string;
+      noReleases: string;
+      noNotes: string;
+      noAssets: string;
+      releaseCount: (count: number) => string;
+    };
     proxboxApi: {
       intro: string;
       transport: string;
@@ -70,6 +95,38 @@ export type Dictionary = {
       configureSettings: string;
       screenshotsDivider: string;
       repoDivider: string;
+    };
+    developer: {
+      heading: string;
+      sections: {
+        intro: string;
+        architecture: string;
+        integrations: string;
+        contributing: string;
+        e2e: string;
+        links: string;
+      };
+      tabs: {
+        showcase: string;
+        developer: string;
+      };
+      integrations: {
+        target: string;
+        protocol: string;
+        library: string;
+      };
+      contributing: {
+        devInstall: string;
+        checks: string;
+        codeStyle: string;
+        issues: string;
+      };
+      e2e: {
+        framework: string;
+        commands: string;
+        coverage: string;
+        ci: string;
+      };
     };
   };
   home: {
@@ -172,6 +229,31 @@ const en: Dictionary = {
       stars: (project) => `Star ${project} on GitHub`,
       releases: (project) => `Releases of ${project}`,
     },
+    releases: {
+      heading: "releases",
+      all: "all releases",
+      latest: "latest",
+      prerelease: "pre-release",
+      stable: "stable",
+      published: "published",
+      created: "created",
+      target: "target",
+      author: "author",
+      assets: "assets",
+      downloads: "downloads",
+      sourceCode: "source code",
+      zip: "zip",
+      tar: "tar.gz",
+      synced: "synced",
+      openOnGitHub: "open on GitHub",
+      backToProject: "back to project",
+      backToReleases: "back to releases",
+      viewRelease: "view release",
+      noReleases: "no releases in the current snapshot",
+      noNotes: "this release has no notes",
+      noAssets: "no binary assets attached",
+      releaseCount: (count) => `${count} release${count === 1 ? "" : "s"}`,
+    },
     proxboxApi: {
       intro:
         "proxbox-api is the only place where the netbox-proxbox NetBox plugin, the netbox-sdk REST client and the proxmox-sdk Proxmox VE SDK meet.",
@@ -224,6 +306,38 @@ const en: Dictionary = {
       configureSettings: "plugin settings & sync overwrite flags",
       screenshotsDivider: "// screenshots",
       repoDivider: "// repo",
+    },
+    developer: {
+      heading: "developer guide",
+      sections: {
+        intro: "intro",
+        architecture: "architecture",
+        integrations: "integrations",
+        contributing: "contributing",
+        e2e: "e2e",
+        links: "links",
+      },
+      tabs: {
+        showcase: "showcase",
+        developer: "developer",
+      },
+      integrations: {
+        target: "target",
+        protocol: "protocol",
+        library: "library",
+      },
+      contributing: {
+        devInstall: "dev install",
+        checks: "pre-PR checks",
+        codeStyle: "code style",
+        issues: "issue tracker",
+      },
+      e2e: {
+        framework: "framework",
+        commands: "commands",
+        coverage: "coverage",
+        ci: "ci workflow",
+      },
     },
   },
   home: {
@@ -326,6 +440,31 @@ const ptBr: Dictionary = {
       stars: (project) => `Dar estrela em ${project} no GitHub`,
       releases: (project) => `Versões de ${project}`,
     },
+    releases: {
+      heading: "versões",
+      all: "todas as versões",
+      latest: "mais recente",
+      prerelease: "pré-release",
+      stable: "estável",
+      published: "publicado",
+      created: "criado",
+      target: "alvo",
+      author: "autor",
+      assets: "artefatos",
+      downloads: "downloads",
+      sourceCode: "código-fonte",
+      zip: "zip",
+      tar: "tar.gz",
+      synced: "sincronizado",
+      openOnGitHub: "abrir no GitHub",
+      backToProject: "voltar ao projeto",
+      backToReleases: "voltar às versões",
+      viewRelease: "ver versão",
+      noReleases: "nenhuma versão no snapshot atual",
+      noNotes: "esta versão não tem notas",
+      noAssets: "nenhum artefato binário anexado",
+      releaseCount: (count) => `${count} vers${count === 1 ? "ão" : "ões"}`,
+    },
     proxboxApi: {
       intro:
         "O proxbox-api é o único lugar onde o plugin netbox-proxbox (NetBox), o cliente REST netbox-sdk e o SDK proxmox-sdk para Proxmox VE se encontram.",
@@ -380,6 +519,38 @@ const ptBr: Dictionary = {
         "configurações do plugin e flags de sobrescrita de sincronização",
       screenshotsDivider: "// capturas",
       repoDivider: "// repositório",
+    },
+    developer: {
+      heading: "guia do desenvolvedor",
+      sections: {
+        intro: "introdução",
+        architecture: "arquitetura",
+        integrations: "integrações",
+        contributing: "contribuição",
+        e2e: "testes e2e",
+        links: "links",
+      },
+      tabs: {
+        showcase: "vitrine",
+        developer: "desenvolvedor",
+      },
+      integrations: {
+        target: "alvo",
+        protocol: "protocolo",
+        library: "biblioteca",
+      },
+      contributing: {
+        devInstall: "instalação de dev",
+        checks: "checagens antes do PR",
+        codeStyle: "estilo de código",
+        issues: "rastreador de issues",
+      },
+      e2e: {
+        framework: "framework",
+        commands: "comandos",
+        coverage: "cobertura",
+        ci: "workflow de CI",
+      },
     },
   },
   home: {

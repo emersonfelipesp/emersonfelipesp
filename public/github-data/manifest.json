@@ -1,15 +1,15 @@
 {
-  "syncedAt": "2026-05-05T19:40:45.573Z",
+  "syncedAt": "2026-05-05T20:12:16.829Z",
   "repos": [
     {
-      "slug": "proxbox-api",
-      "fullName": "emersonfelipesp/proxbox-api",
+      "slug": "netbox-proxbox",
+      "fullName": "emersonfelipesp/netbox-proxbox",
       "ok": true,
       "skipped": false
     },
     {
-      "slug": "netbox-proxbox",
-      "fullName": "N-Multifibra/netbox-proxbox",
+      "slug": "proxbox-api",
+      "fullName": "emersonfelipesp/proxbox-api",
       "ok": true,
       "skipped": false
     },

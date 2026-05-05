@@ -10,13 +10,14 @@ import { RepoStatsCard } from "@/components/project/RepoStatsCard";
 import { BadgeRow } from "@/components/project/BadgeRow";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { IntegrationsArchitecture } from "@/components/project/IntegrationsArchitecture";
+import { ProjectViewTabs } from "@/components/project/ProjectViewTabs";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { getProxboxApi } from "@/lib/i18n/projects";
-import type { GitHubRelease } from "@/lib/github";
+import type { GitHubReleaseSummary } from "@/lib/github";
 
 type Props = {
-  releases?: readonly GitHubRelease[];
+  releases?: readonly GitHubReleaseSummary[];
   stars?: number | null;
 };
 
@@ -36,6 +37,8 @@ export function ProxboxApiContent({
         sections={p.sections}
         releases={releases}
         releasesLabel={actions.releases(p.name)}
+        releasesBasePath={`/${p.slug}/releases`}
+        releasesAllLabel={t.project.releases.all}
         stars={
           stars !== undefined
             ? {
@@ -63,6 +66,8 @@ export function ProxboxApiContent({
           },
         ]}
       />
+
+      <ProjectViewTabs slug={p.slug} />
 
       <TerminalWindow title={`~/${p.slug}`}>
         <ProjectHero

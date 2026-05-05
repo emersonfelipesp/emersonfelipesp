@@ -7,6 +7,8 @@ Next.js App Router root. Contains every page route, the root layout, global CSS,
 
 - `layout.tsx` — Root layout applied to all routes. Sets site metadata (title, OpenGraph), injects a pre-paint inline script to prevent FOUC by reading `localStorage["theme"]` before first render, wraps all children with `ThemeProvider`, and renders `TopNav` + the terminal-style footer.
 - `page.tsx` — Homepage (`/`). Sets `data-palette="mixed"`, force-dynamic renders (to track page views), and composes `AsciiBanner`, `ProfileCard`, `FeaturedProjectsGrid`, `SkillsBlock`, and `ContactForm` using data from `content/profile.ts`.
+- `[project]/releases/` — Allowlisted dynamic release index/detail routes
+  backed by committed `public/github-data` snapshots, not live browser fetches.
 - `globals.css` — The only place hex literals may live. Defines Tailwind v4 `@theme` block, all 11 semantic CSS variables (`--bg`, `--surface`, `--surface-2`, `--fg`, `--muted`, `--border`, `--accent`, `--accent-2`, `--success`, `--warn`, `--danger`) for every palette (`netbox`, `proxmox`, `mixed`) in both light and dark, plus all 8 named `[data-theme]` blocks.
 
 ## Subdirectories

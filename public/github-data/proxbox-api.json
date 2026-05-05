@@ -1,141 +1,483 @@
 {
-  "syncedAt": "2026-05-05T19:40:44.257Z",
+  "syncedAt": "2026-05-05T20:12:10.032Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 3,
   "forks": 4,
   "releases": [
     {
+      "id": 317894529,
+      "nodeId": "RE_kwDOOUepXM4S8q-B",
       "tag": "v0.0.10.post2",
       "name": "v0.0.10.post2",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/317894529",
+      "targetCommitish": "350b5d7fd43b3942d497c066d685376fccc4a5fb",
+      "body": "Release v0.0.10.post2.\\n\\n- Pin netbox-sdk to 0.0.8.post1.\\n- Bump proxbox-api package version to 0.0.10.post2.\\n- Let explicit PROXBOX_NETBOX_* environment overrides take precedence for REST retry settings.",
+      "bodyHtml": "<p dir=\"auto\">Release v0.0.10.post2.\\n\\n- Pin netbox-sdk to 0.0.8.post1.\\n- Bump proxbox-api package version to 0.0.10.post2.\\n- Let explicit PROXBOX_NETBOX_* environment overrides take precedence for REST retry settings.</p>",
+      "createdAt": "2026-05-05T15:27:59Z",
       "publishedAt": "2026-05-05T15:28:37Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.10.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.10.post2"
+      }
     },
     {
+      "id": 317852206,
+      "nodeId": "RE_kwDOOUepXM4S8gou",
       "tag": "v0.0.10.post1",
       "name": "v0.0.10.post1",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/317852206",
+      "targetCommitish": "main",
+      "body": "## Summary\n- Bump proxbox-api to 0.0.10.post1.\n- Certify the NetBox matrix against v4.5.8, v4.5.9, and stable v4.6.0.\n- Gate NetBox VirtualMachineType sync on live NetBox 4.6+ detection so 4.5.x keeps the existing VM role fallback.\n- Include the Docker release-smoke encryption-key fix already merged on main.\n\n## Validation\n- `git diff --check`\n- `ruff check .`\n- `ruff format --check .`\n- `pytest -q -o addopts=\"\" tests/test_netbox_version.py tests/test_vm_sync.py tests/test_patchable_fields.py tests/test_custom_field_object_types_union_netbox_versions.py`\n- `python -m compileall proxbox_api tests`\n- `python -c \"import proxbox_api.main\"`\n- `python -c \"from proxbox_api.proxmox_to_netbox.proxmox_schema import load_proxmox_generated_openapi; assert load_proxmox_generated_openapi().get('paths')\"`\n- `ty check proxbox_api/types proxbox_api/utils/retry.py proxbox_api/schemas/sync.py`",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<ul dir=\"auto\">\n<li>Bump proxbox-api to 0.0.10.post1.</li>\n<li>Certify the NetBox matrix against v4.5.8, v4.5.9, and stable v4.6.0.</li>\n<li>Gate NetBox VirtualMachineType sync on live NetBox 4.6+ detection so 4.5.x keeps the existing VM role fallback.</li>\n<li>Include the Docker release-smoke encryption-key fix already merged on main.</li>\n</ul>\n<h2 dir=\"auto\">Validation</h2>\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">git diff --check</code></li>\n<li><code class=\"notranslate\">ruff check .</code></li>\n<li><code class=\"notranslate\">ruff format --check .</code></li>\n<li><code class=\"notranslate\">pytest -q -o addopts=\"\" tests/test_netbox_version.py tests/test_vm_sync.py tests/test_patchable_fields.py tests/test_custom_field_object_types_union_netbox_versions.py</code></li>\n<li><code class=\"notranslate\">python -m compileall proxbox_api tests</code></li>\n<li><code class=\"notranslate\">python -c \"import proxbox_api.main\"</code></li>\n<li><code class=\"notranslate\">python -c \"from proxbox_api.proxmox_to_netbox.proxmox_schema import load_proxmox_generated_openapi; assert load_proxmox_generated_openapi().get('paths')\"</code></li>\n<li><code class=\"notranslate\">ty check proxbox_api/types proxbox_api/utils/retry.py proxbox_api/schemas/sync.py</code></li>\n</ul>",
+      "createdAt": "2026-05-05T14:17:58Z",
       "publishedAt": "2026-05-05T14:18:24Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.10.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.10.post1"
+      }
     },
     {
+      "id": 317517710,
+      "nodeId": "RE_kwDOOUepXM4S7O-O",
       "tag": "v0.0.10",
       "name": "v0.0.10",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.10",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/317517710",
+      "targetCommitish": "60bc92f738b3929e7883166ad1deeee5179c259d",
+      "body": "## Summary\n- Bump proxbox-api to 0.0.10 and pin netbox-sdk to 0.0.8.\n- Certify Docker E2E CI across NetBox v4.5.8, v4.5.9, and v4.6.0-beta2.\n- Centralize the supported NetBox version list in .github/netbox-versions.json and reuse it from CI and release workflows.\n- Align FastAPI/OpenAPI info.version with the packaged proxbox_api __version__ value.\n\n## Validation\n- PR #58 CI completed successfully with 29/29 jobs green.\n- Post-merge main CI completed successfully with 29/29 jobs green.",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<ul dir=\"auto\">\n<li>Bump proxbox-api to 0.0.10 and pin netbox-sdk to 0.0.8.</li>\n<li>Certify Docker E2E CI across NetBox v4.5.8, v4.5.9, and v4.6.0-beta2.</li>\n<li>Centralize the supported NetBox version list in .github/netbox-versions.json and reuse it from CI and release workflows.</li>\n<li>Align FastAPI/OpenAPI info.version with the packaged proxbox_api <strong>version</strong> value.</li>\n</ul>\n<h2 dir=\"auto\">Validation</h2>\n<ul dir=\"auto\">\n<li>PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4380054666\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/58\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/58/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/58\">#58</a> CI completed successfully with 29/29 jobs green.</li>\n<li>Post-merge main CI completed successfully with 29/29 jobs green.</li>\n</ul>",
+      "createdAt": "2026-05-04T23:21:51Z",
       "publishedAt": "2026-05-04T23:22:14Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.10",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.10"
+      }
     },
     {
+      "id": 316253978,
+      "nodeId": "RE_kwDOOUepXM4S2aca",
       "tag": "v0.0.9.post2",
       "name": "v0.0.9.post2 — fix create_storages import in full-update",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/316253978",
+      "targetCommitish": "main",
+      "body": "## Summary\n\nShips a one-line import fix that unblocks every full-update sync run.\n\n`proxbox_api/app/full_update.py` was importing `create_storages` from `proxbox_api.routes.virtualization.virtual_machines.storages_vm` — a thin HTTP route wrapper whose signature only accepts `fetch_max_concurrency` and does not accept `overwrite_flags`. The caller passes both `fetch_concurrency=...` and `overwrite_flags=...`, so every non-trivial sync raised:\n\n```\nTypeError: create_storages() got an unexpected keyword argument 'fetch_concurrency'.\nDid you mean 'fetch_max_concurrency'?\n```\n\nSwitched the import to `proxbox_api.services.sync.storages.create_storages` — the real reconcile service that already accepts both kwargs.\n\nCaught by netbox-proxbox `v0.0.13.post2` post-publish E2E. Was a regression from 4f33e70 (`feat(sync): honor expanded overwrite_* flags via SyncOverwriteFlags schema`), shipped silently in `0.0.9.post1`.\n\n## Compatibility\n\n| Component | Version |\n|-----------|---------|\n| proxbox-api | `0.0.9.post2` |\n| netbox-proxbox | `>=0.0.13.post2` |\n| netbox-sdk | `0.0.7.post6` |\n| proxmox-sdk | `0.0.3.post1` |\n\n## Upgrade\n\n```\npip install --upgrade proxbox-api==0.0.9.post2\n# or\ndocker pull emersonfelipesp/proxbox-api:0.0.9.post2\n```\n\n## Changes\n\n- fd395a1 fix(full-update): import create_storages from services, not routes\n- 8ec7d52 chore: bump version to 0.0.9.post2",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">Ships a one-line import fix that unblocks every full-update sync run.</p>\n<p dir=\"auto\"><code class=\"notranslate\">proxbox_api/app/full_update.py</code> was importing <code class=\"notranslate\">create_storages</code> from <code class=\"notranslate\">proxbox_api.routes.virtualization.virtual_machines.storages_vm</code> — a thin HTTP route wrapper whose signature only accepts <code class=\"notranslate\">fetch_max_concurrency</code> and does not accept <code class=\"notranslate\">overwrite_flags</code>. The caller passes both <code class=\"notranslate\">fetch_concurrency=...</code> and <code class=\"notranslate\">overwrite_flags=...</code>, so every non-trivial sync raised:</p>\n<pre class=\"notranslate\"><code class=\"notranslate\">TypeError: create_storages() got an unexpected keyword argument 'fetch_concurrency'.\nDid you mean 'fetch_max_concurrency'?\n</code></pre>\n<p dir=\"auto\">Switched the import to <code class=\"notranslate\">proxbox_api.services.sync.storages.create_storages</code> — the real reconcile service that already accepts both kwargs.</p>\n<p dir=\"auto\">Caught by netbox-proxbox <code class=\"notranslate\">v0.0.13.post2</code> post-publish E2E. Was a regression from <a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/emersonfelipesp/proxbox-api/commit/4f33e70163d80fc36d7b74be1e7942c52460413f/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/commit/4f33e70163d80fc36d7b74be1e7942c52460413f\"><tt>4f33e70</tt></a> (<code class=\"notranslate\">feat(sync): honor expanded overwrite_* flags via SyncOverwriteFlags schema</code>), shipped silently in <code class=\"notranslate\">0.0.9.post1</code>.</p>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>Component</th>\n<th>Version</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>proxbox-api</td>\n<td><code class=\"notranslate\">0.0.9.post2</code></td>\n</tr>\n<tr>\n<td>netbox-proxbox</td>\n<td><code class=\"notranslate\">&gt;=0.0.13.post2</code></td>\n</tr>\n<tr>\n<td>netbox-sdk</td>\n<td><code class=\"notranslate\">0.0.7.post6</code></td>\n</tr>\n<tr>\n<td>proxmox-sdk</td>\n<td><code class=\"notranslate\">0.0.3.post1</code></td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<h2 dir=\"auto\">Upgrade</h2>\n<pre class=\"notranslate\"><code class=\"notranslate\">pip install --upgrade proxbox-api==0.0.9.post2\n# or\ndocker pull emersonfelipesp/proxbox-api:0.0.9.post2\n</code></pre>\n<h2 dir=\"auto\">Changes</h2>\n<ul dir=\"auto\">\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/emersonfelipesp/proxbox-api/commit/fd395a1d0b9c42ab06fb3e412fb15c19a319f76e/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/commit/fd395a1d0b9c42ab06fb3e412fb15c19a319f76e\"><tt>fd395a1</tt></a> fix(full-update): import create_storages from services, not routes</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/emersonfelipesp/proxbox-api/commit/8ec7d52941f9f78f1e44fe54f7d96658f4b61c61/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/commit/8ec7d52941f9f78f1e44fe54f7d96658f4b61c61\"><tt>8ec7d52</tt></a> chore: bump version to 0.0.9.post2</li>\n</ul>",
+      "createdAt": "2026-05-01T03:08:31Z",
       "publishedAt": "2026-05-01T03:09:00Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.9.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.9.post2"
+      }
     },
     {
+      "id": 316243646,
+      "nodeId": "RE_kwDOOUepXM4S2X6-",
       "tag": "v0.0.9.post1",
       "name": "v0.0.9.post1 — Docs, tests & CI sync",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/316243646",
+      "targetCommitish": "main",
+      "body": "## Summary\n\nMaintenance release that aligns the documentation, test suite, and GitHub Actions pipelines with the current state of the v0.0.9 codebase. No runtime/API behavior changes versus v0.0.9.\n\n## What's Changed\n\n### Documentation\n- Root `CLAUDE.md` and `tests/CLAUDE.md` brought back in sync with the actual subpackage layout, env vars, and CLI entry points (`proxbox-proxmox-codegen`, `proxbox-schema`).\n- New env var documentation: `PROXBOX_BULK_BATCH_SIZE`, `PROXBOX_BULK_BATCH_DELAY_MS`, `PROXBOX_GENERATED_DIR`.\n- MkDocs reference updated:\n  - `GET /cache/metrics` and `GET /cache/metrics/prometheus` added to the HTTP reference.\n  - `overwrite_*` and `sync_vm_network` query params documented on VM stream endpoints.\n  - Tag-preservation behavior added to the VM sync workflow.\n  - Phantom benchmark block in the caching architecture page replaced with the real cache-metrics endpoints.\n- pt-BR mirror pages added as stubs (with a \"Tradução pendente\" admonition + EN body) so `mkdocs build --strict` is green: `sync/overwrite-flags.md`, `development/refactoring-summary.md`, `development/sync-fix-summary.md`.\n\n### Tests\n- New focused suites:\n  - `tests/test_auth_lockout.py` — 9 tests covering the full `proxbox_api/auth.py` lockout state machine (valid key, missing key, no keys configured, attempt counting, lockout-on-cap, success-clears-attempts, lockout expiry, persistence across sessions, async path).\n  - `tests/test_schema_cli.py` — 8 tests for the argparse-based `proxbox-schema` CLI (list/status/generate, `--force`, pipeline failure exit code).\n- Removed the dead `image_http` pytest marker (plus its CI filter and shell-script reference); the test it referenced no longer exists.\n- `tests/CLAUDE.md` test inventory replaced with the current 47-file layout; e2e description corrected (httpx, not Playwright).\n\n### GitHub Actions / CI\n- Fixed non-existent action pins (`upload-artifact@v7`, `download-artifact@v8` → `@v4`) in `nightly-schema-refresh.yml` and `publish-testpypi.yml`.\n- Aligned `ty check` scope across `ci.yml`, `nightly-schema-refresh.yml`, `docker-hub-publish.yml`, `publish-testpypi.yml`, and `.pre-commit-config.yaml` to include `proxbox_api/schemas/sync.py`.\n- `nightly-schema-refresh.yml` now installs the `playwright` extra it actually needs.\n- New `test-py311-floor` job in `ci.yml` exercises the declared `requires-python = \">=3.11\"` floor (heavy E2E matrix stays on 3.12).\n- Removed dead `PROXBOX_E2E_NETBOX_TOKEN_VERSION` env var.\n\n### Style\n- `proxbox_api/app/full_update.py` and `proxbox_api/session/netbox.py` reformatted with `ruff format` to clear pre-existing format drift that was blocking CI.\n\n## Compatibility\n\n- Python ≥ 3.11 (3.11 floor is now actually exercised in CI)\n- NetBox v4.6.0-beta2 schema certification carried over from v0.0.9\n- `proxmox-sdk == 0.0.3.post1`, `netbox-sdk == 0.0.7.post6` (unchanged)\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.9...v0.0.9.post1",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">Maintenance release that aligns the documentation, test suite, and GitHub Actions pipelines with the current state of the v0.0.9 codebase. No runtime/API behavior changes versus v0.0.9.</p>\n<h2 dir=\"auto\">What's Changed</h2>\n<h3 dir=\"auto\">Documentation</h3>\n<ul dir=\"auto\">\n<li>Root <code class=\"notranslate\">CLAUDE.md</code> and <code class=\"notranslate\">tests/CLAUDE.md</code> brought back in sync with the actual subpackage layout, env vars, and CLI entry points (<code class=\"notranslate\">proxbox-proxmox-codegen</code>, <code class=\"notranslate\">proxbox-schema</code>).</li>\n<li>New env var documentation: <code class=\"notranslate\">PROXBOX_BULK_BATCH_SIZE</code>, <code class=\"notranslate\">PROXBOX_BULK_BATCH_DELAY_MS</code>, <code class=\"notranslate\">PROXBOX_GENERATED_DIR</code>.</li>\n<li>MkDocs reference updated:\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">GET /cache/metrics</code> and <code class=\"notranslate\">GET /cache/metrics/prometheus</code> added to the HTTP reference.</li>\n<li><code class=\"notranslate\">overwrite_*</code> and <code class=\"notranslate\">sync_vm_network</code> query params documented on VM stream endpoints.</li>\n<li>Tag-preservation behavior added to the VM sync workflow.</li>\n<li>Phantom benchmark block in the caching architecture page replaced with the real cache-metrics endpoints.</li>\n</ul>\n</li>\n<li>pt-BR mirror pages added as stubs (with a \"Tradução pendente\" admonition + EN body) so <code class=\"notranslate\">mkdocs build --strict</code> is green: <code class=\"notranslate\">sync/overwrite-flags.md</code>, <code class=\"notranslate\">development/refactoring-summary.md</code>, <code class=\"notranslate\">development/sync-fix-summary.md</code>.</li>\n</ul>\n<h3 dir=\"auto\">Tests</h3>\n<ul dir=\"auto\">\n<li>New focused suites:\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">tests/test_auth_lockout.py</code> — 9 tests covering the full <code class=\"notranslate\">proxbox_api/auth.py</code> lockout state machine (valid key, missing key, no keys configured, attempt counting, lockout-on-cap, success-clears-attempts, lockout expiry, persistence across sessions, async path).</li>\n<li><code class=\"notranslate\">tests/test_schema_cli.py</code> — 8 tests for the argparse-based <code class=\"notranslate\">proxbox-schema</code> CLI (list/status/generate, <code class=\"notranslate\">--force</code>, pipeline failure exit code).</li>\n</ul>\n</li>\n<li>Removed the dead <code class=\"notranslate\">image_http</code> pytest marker (plus its CI filter and shell-script reference); the test it referenced no longer exists.</li>\n<li><code class=\"notranslate\">tests/CLAUDE.md</code> test inventory replaced with the current 47-file layout; e2e description corrected (httpx, not Playwright).</li>\n</ul>\n<h3 dir=\"auto\">GitHub Actions / CI</h3>\n<ul dir=\"auto\">\n<li>Fixed non-existent action pins (<code class=\"notranslate\">upload-artifact@v7</code>, <code class=\"notranslate\">download-artifact@v8</code> → <code class=\"notranslate\">@v4</code>) in <code class=\"notranslate\">nightly-schema-refresh.yml</code> and <code class=\"notranslate\">publish-testpypi.yml</code>.</li>\n<li>Aligned <code class=\"notranslate\">ty check</code> scope across <code class=\"notranslate\">ci.yml</code>, <code class=\"notranslate\">nightly-schema-refresh.yml</code>, <code class=\"notranslate\">docker-hub-publish.yml</code>, <code class=\"notranslate\">publish-testpypi.yml</code>, and <code class=\"notranslate\">.pre-commit-config.yaml</code> to include <code class=\"notranslate\">proxbox_api/schemas/sync.py</code>.</li>\n<li><code class=\"notranslate\">nightly-schema-refresh.yml</code> now installs the <code class=\"notranslate\">playwright</code> extra it actually needs.</li>\n<li>New <code class=\"notranslate\">test-py311-floor</code> job in <code class=\"notranslate\">ci.yml</code> exercises the declared <code class=\"notranslate\">requires-python = \"&gt;=3.11\"</code> floor (heavy E2E matrix stays on 3.12).</li>\n<li>Removed dead <code class=\"notranslate\">PROXBOX_E2E_NETBOX_TOKEN_VERSION</code> env var.</li>\n</ul>\n<h3 dir=\"auto\">Style</h3>\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">proxbox_api/app/full_update.py</code> and <code class=\"notranslate\">proxbox_api/session/netbox.py</code> reformatted with <code class=\"notranslate\">ruff format</code> to clear pre-existing format drift that was blocking CI.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<ul dir=\"auto\">\n<li>Python ≥ 3.11 (3.11 floor is now actually exercised in CI)</li>\n<li>NetBox v4.6.0-beta2 schema certification carried over from v0.0.9</li>\n<li><code class=\"notranslate\">proxmox-sdk == 0.0.3.post1</code>, <code class=\"notranslate\">netbox-sdk == 0.0.7.post6</code> (unchanged)</li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.9...v0.0.9.post1\"><tt>v0.0.9...v0.0.9.post1</tt></a></p>",
+      "createdAt": "2026-05-01T01:59:15Z",
       "publishedAt": "2026-05-01T01:59:42Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.9.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.9.post1"
+      }
     },
     {
+      "id": 314887277,
+      "nodeId": "RE_kwDOOUepXM4SxMxt",
       "tag": "v0.0.9",
       "name": "v0.0.9",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.9",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/314887277",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n\n### New Features\n\n#### Controlled field sync with `overwrite_*` parameters (closes #335)\nAdded `overwrite_vm_name`, `overwrite_vm_status`, `overwrite_vm_cluster`, `overwrite_vm_role`, `overwrite_vm_vcpus`, `overwrite_vm_memory`, `overwrite_vm_disk`, `overwrite_vm_platform` and corresponding device variants. When set to `false`, proxbox-api skips updating that field if a value already exists in NetBox, giving operators full control over which fields Proxmox is allowed to overwrite.\n\nThe parameters are forwarded through all VM stream endpoints (`/virtualization/virtual-machines/full-update/stream`, individual sync, and bulk sync paths) — closes the gap where previously only the top-level endpoint honoured them.\n\n#### VM role left free when `VirtualMachineType` is available (closes #241)\nWhen Proxmox provides a VM type (e.g. `qemu`, `lxc`) that maps to a NetBox `VirtualMachineType`, the `role` field on the VM is now intentionally left unset. Previously a generic fallback role was always written, which polluted NetBox with low-value data. NetBox 4.6 native VM-type support makes the role field redundant for type classification.\n\n#### Python 3.14t (free-threaded) CI job\nA dedicated `test-free-threaded` job (Python 3.14t, GIL disabled) now runs in CI alongside the standard 3.12 job. It runs `continue-on-error: true` so it is non-blocking today, but serves as an early-warning signal for compatibility issues as the free-threaded CPython ecosystem matures.\n\n### Bug Fixes\n\n#### VM tags preserved during sync (closes #337)\nProxmox sync no longer overwrites existing NetBox VM tags. Previously, each sync cycle reset the `tags` list to only what Proxmox reported, silently removing any tags that operators had manually added in NetBox. Tags written by proxbox-api (e.g. `Proxmox`, node/cluster labels) are now merged with the existing tag set rather than replacing it.\n\n#### `sync_vm_network` and `overwrite_vm_*` forwarded to all stream endpoints\nThe `sync_vm_network` flag and all `overwrite_vm_*` params were previously only respected at the top-level sync entry point. They are now forwarded correctly through the internal dispatch chain to the individual VM sync service, ensuring consistent behaviour across direct calls, SSE streams, and WebSocket paths.\n\n#### XSS vulnerability fixed in admin UI dependency (postcss)\n`postcss` in `nextjs-ui/` bumped to 8.5.10 via npm overrides to address a high-severity XSS vulnerability in the prior version.\n\n#### NetBox image pull-or-build fallback in E2E publish gates\n`netboxcommunity/netbox:v4.6.0-beta2` is not yet published on Docker Hub. Both `e2e-pre-publish` and `e2e-post-publish` CI jobs now fall back to building the NetBox image from source (same logic already present in `ci.yml`) so the publish E2E gates do not fail with docker exit code 125.\n\n### Dependency Updates\n\n| Package | Old | New | Notes |\n|---|---|---|---|\n| `fastapi[standard]` | unpinned | `==0.136.1` | Pinned for reproducible builds |\n| `bcrypt` | `~=4.x` | `>=5.0.0,<6.0.0` | Major version bump, API-compatible |\n| `sqlmodel` | `0.0.22` | `0.0.38` | Latest upstream release |\n| `postcss` (nextjs-ui) | `<8.5.10` | `8.5.10` | Security fix via npm override |\n\n### NetBox Compatibility\n\n- **Certified compatible with NetBox 4.6.0-beta1 and 4.6.0-beta2.** Full API audit confirmed no breaking changes between the two beta releases.\n- NetBox OpenAPI schema snapshots in `proxbox_api/generated/netbox/` refreshed for both beta releases. These snapshots drive runtime contract validation and the Pydantic model generator.\n\n### CI/CD Improvements\n\n- **Pre- and post-publish E2E gates** added to the release workflow (`publish-testpypi.yml`). Before uploading to PyPI the pipeline spins up the full Docker stack (NetBox + Proxmox mock + proxbox-api) and verifies end-to-end connectivity. After publishing to Docker Hub, a second gate pulls the published images and smoke-tests them.\n- **Docker Hub publish wired to release workflow.** `docker-hub-publish.yml` is now called as a `workflow_call` from the release pipeline, ensuring images are always built from the exact release commit and pushed atomically with the PyPI package.\n- E2E matrix upgraded to test against NetBox 4.6.0-beta1 (and beta2 built from source when not yet on Docker Hub).\n- CI reliability fixes: ubuntu:24.04 base for NetBox image build (26.04 missing `libxmlsec1-openssl`), PEP 508 name prefix stripping in `DEV_OVERRIDES` to fix `uv` parse errors, fallback source-build path for NetBox images not yet published to Docker Hub.\n\n### Full Changelog\n\n[v0.0.8.post1...v0.0.9](https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.8.post1...v0.0.9)",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<h3 dir=\"auto\">New Features</h3>\n<h4 dir=\"auto\">Controlled field sync with <code class=\"notranslate\">overwrite_*</code> parameters (closes #335)</h4>\n<p dir=\"auto\">Added <code class=\"notranslate\">overwrite_vm_name</code>, <code class=\"notranslate\">overwrite_vm_status</code>, <code class=\"notranslate\">overwrite_vm_cluster</code>, <code class=\"notranslate\">overwrite_vm_role</code>, <code class=\"notranslate\">overwrite_vm_vcpus</code>, <code class=\"notranslate\">overwrite_vm_memory</code>, <code class=\"notranslate\">overwrite_vm_disk</code>, <code class=\"notranslate\">overwrite_vm_platform</code> and corresponding device variants. When set to <code class=\"notranslate\">false</code>, proxbox-api skips updating that field if a value already exists in NetBox, giving operators full control over which fields Proxmox is allowed to overwrite.</p>\n<p dir=\"auto\">The parameters are forwarded through all VM stream endpoints (<code class=\"notranslate\">/virtualization/virtual-machines/full-update/stream</code>, individual sync, and bulk sync paths) — closes the gap where previously only the top-level endpoint honoured them.</p>\n<h4 dir=\"auto\">VM role left free when <code class=\"notranslate\">VirtualMachineType</code> is available (closes #241)</h4>\n<p dir=\"auto\">When Proxmox provides a VM type (e.g. <code class=\"notranslate\">qemu</code>, <code class=\"notranslate\">lxc</code>) that maps to a NetBox <code class=\"notranslate\">VirtualMachineType</code>, the <code class=\"notranslate\">role</code> field on the VM is now intentionally left unset. Previously a generic fallback role was always written, which polluted NetBox with low-value data. NetBox 4.6 native VM-type support makes the role field redundant for type classification.</p>\n<h4 dir=\"auto\">Python 3.14t (free-threaded) CI job</h4>\n<p dir=\"auto\">A dedicated <code class=\"notranslate\">test-free-threaded</code> job (Python 3.14t, GIL disabled) now runs in CI alongside the standard 3.12 job. It runs <code class=\"notranslate\">continue-on-error: true</code> so it is non-blocking today, but serves as an early-warning signal for compatibility issues as the free-threaded CPython ecosystem matures.</p>\n<h3 dir=\"auto\">Bug Fixes</h3>\n<h4 dir=\"auto\">VM tags preserved during sync (closes #337)</h4>\n<p dir=\"auto\">Proxmox sync no longer overwrites existing NetBox VM tags. Previously, each sync cycle reset the <code class=\"notranslate\">tags</code> list to only what Proxmox reported, silently removing any tags that operators had manually added in NetBox. Tags written by proxbox-api (e.g. <code class=\"notranslate\">Proxmox</code>, node/cluster labels) are now merged with the existing tag set rather than replacing it.</p>\n<h4 dir=\"auto\"><code class=\"notranslate\">sync_vm_network</code> and <code class=\"notranslate\">overwrite_vm_*</code> forwarded to all stream endpoints</h4>\n<p dir=\"auto\">The <code class=\"notranslate\">sync_vm_network</code> flag and all <code class=\"notranslate\">overwrite_vm_*</code> params were previously only respected at the top-level sync entry point. They are now forwarded correctly through the internal dispatch chain to the individual VM sync service, ensuring consistent behaviour across direct calls, SSE streams, and WebSocket paths.</p>\n<h4 dir=\"auto\">XSS vulnerability fixed in admin UI dependency (postcss)</h4>\n<p dir=\"auto\"><code class=\"notranslate\">postcss</code> in <code class=\"notranslate\">nextjs-ui/</code> bumped to 8.5.10 via npm overrides to address a high-severity XSS vulnerability in the prior version.</p>\n<h4 dir=\"auto\">NetBox image pull-or-build fallback in E2E publish gates</h4>\n<p dir=\"auto\"><code class=\"notranslate\">netboxcommunity/netbox:v4.6.0-beta2</code> is not yet published on Docker Hub. Both <code class=\"notranslate\">e2e-pre-publish</code> and <code class=\"notranslate\">e2e-post-publish</code> CI jobs now fall back to building the NetBox image from source (same logic already present in <code class=\"notranslate\">ci.yml</code>) so the publish E2E gates do not fail with docker exit code 125.</p>\n<h3 dir=\"auto\">Dependency Updates</h3>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>Package</th>\n<th>Old</th>\n<th>New</th>\n<th>Notes</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code class=\"notranslate\">fastapi[standard]</code></td>\n<td>unpinned</td>\n<td><code class=\"notranslate\">==0.136.1</code></td>\n<td>Pinned for reproducible builds</td>\n</tr>\n<tr>\n<td><code class=\"notranslate\">bcrypt</code></td>\n<td><code class=\"notranslate\">~=4.x</code></td>\n<td><code class=\"notranslate\">&gt;=5.0.0,&lt;6.0.0</code></td>\n<td>Major version bump, API-compatible</td>\n</tr>\n<tr>\n<td><code class=\"notranslate\">sqlmodel</code></td>\n<td><code class=\"notranslate\">0.0.22</code></td>\n<td><code class=\"notranslate\">0.0.38</code></td>\n<td>Latest upstream release</td>\n</tr>\n<tr>\n<td><code class=\"notranslate\">postcss</code> (nextjs-ui)</td>\n<td><code class=\"notranslate\">&lt;8.5.10</code></td>\n<td><code class=\"notranslate\">8.5.10</code></td>\n<td>Security fix via npm override</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<h3 dir=\"auto\">NetBox Compatibility</h3>\n<ul dir=\"auto\">\n<li><strong>Certified compatible with NetBox 4.6.0-beta1 and 4.6.0-beta2.</strong> Full API audit confirmed no breaking changes between the two beta releases.</li>\n<li>NetBox OpenAPI schema snapshots in <code class=\"notranslate\">proxbox_api/generated/netbox/</code> refreshed for both beta releases. These snapshots drive runtime contract validation and the Pydantic model generator.</li>\n</ul>\n<h3 dir=\"auto\">CI/CD Improvements</h3>\n<ul dir=\"auto\">\n<li><strong>Pre- and post-publish E2E gates</strong> added to the release workflow (<code class=\"notranslate\">publish-testpypi.yml</code>). Before uploading to PyPI the pipeline spins up the full Docker stack (NetBox + Proxmox mock + proxbox-api) and verifies end-to-end connectivity. After publishing to Docker Hub, a second gate pulls the published images and smoke-tests them.</li>\n<li><strong>Docker Hub publish wired to release workflow.</strong> <code class=\"notranslate\">docker-hub-publish.yml</code> is now called as a <code class=\"notranslate\">workflow_call</code> from the release pipeline, ensuring images are always built from the exact release commit and pushed atomically with the PyPI package.</li>\n<li>E2E matrix upgraded to test against NetBox 4.6.0-beta1 (and beta2 built from source when not yet on Docker Hub).</li>\n<li>CI reliability fixes: ubuntu:24.04 base for NetBox image build (26.04 missing <code class=\"notranslate\">libxmlsec1-openssl</code>), PEP 508 name prefix stripping in <code class=\"notranslate\">DEV_OVERRIDES</code> to fix <code class=\"notranslate\">uv</code> parse errors, fallback source-build path for NetBox images not yet published to Docker Hub.</li>\n</ul>\n<h3 dir=\"auto\">Full Changelog</h3>\n<p dir=\"auto\"><a href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.8.post1...v0.0.9\">v0.0.8.post1...v0.0.9</a></p>",
+      "createdAt": "2026-04-28T22:21:58Z",
       "publishedAt": "2026-04-28T22:37:22Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.9",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.9"
+      }
     },
     {
+      "id": 312869823,
+      "nodeId": "RE_kwDOOUepXM4SpgO_",
       "tag": "v0.0.8.post1",
       "name": "proxbox-api v0.0.8.post1",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.8.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/312869823",
+      "targetCommitish": "main",
+      "body": "## proxbox-api v0.0.8.post1\n\nPatch release on top of v0.0.8 fixing the API documentation UI.\n\n### What's fixed\n\n- **Self-hosted Swagger UI and ReDoc assets** — `swagger-ui-bundle.js`, `swagger-ui.css`, and `redoc.standalone.js` are now served from `/static/swagger-ui/` instead of loading from external CDNs (`cdn.jsdelivr.net`, `fonts.googleapis.com`). This fixes blank documentation pages in network-isolated environments and resolves CSP violations caused by `SecurityHeadersMiddleware`.\n\n- **Docs-specific Content Security Policy** — `/docs` and `/redoc` now receive a targeted CSP (`script-src 'unsafe-inline'`, `style-src 'unsafe-inline'`, `img-src data:`) that allows Swagger UI's inline initialisation script and ReDoc's React inline styles to execute. All other endpoints retain the strict `default-src 'self'` policy.\n\n- **ReDoc Google Fonts removed** — `with_google_fonts=False` is set on the custom `/redoc` route, eliminating the `fonts.googleapis.com` and `fonts.gstatic.com` requests that were blocked by the CSP.\n\n### Upgrade notes\n\nNo database migrations or configuration changes required. Restart the server after upgrading.",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api v0.0.8.post1</h2>\n<p dir=\"auto\">Patch release on top of v0.0.8 fixing the API documentation UI.</p>\n<h3 dir=\"auto\">What's fixed</h3>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><strong>Self-hosted Swagger UI and ReDoc assets</strong> — <code class=\"notranslate\">swagger-ui-bundle.js</code>, <code class=\"notranslate\">swagger-ui.css</code>, and <code class=\"notranslate\">redoc.standalone.js</code> are now served from <code class=\"notranslate\">/static/swagger-ui/</code> instead of loading from external CDNs (<code class=\"notranslate\">cdn.jsdelivr.net</code>, <code class=\"notranslate\">fonts.googleapis.com</code>). This fixes blank documentation pages in network-isolated environments and resolves CSP violations caused by <code class=\"notranslate\">SecurityHeadersMiddleware</code>.</p>\n</li>\n<li>\n<p dir=\"auto\"><strong>Docs-specific Content Security Policy</strong> — <code class=\"notranslate\">/docs</code> and <code class=\"notranslate\">/redoc</code> now receive a targeted CSP (<code class=\"notranslate\">script-src 'unsafe-inline'</code>, <code class=\"notranslate\">style-src 'unsafe-inline'</code>, <code class=\"notranslate\">img-src data:</code>) that allows Swagger UI's inline initialisation script and ReDoc's React inline styles to execute. All other endpoints retain the strict <code class=\"notranslate\">default-src 'self'</code> policy.</p>\n</li>\n<li>\n<p dir=\"auto\"><strong>ReDoc Google Fonts removed</strong> — <code class=\"notranslate\">with_google_fonts=False</code> is set on the custom <code class=\"notranslate\">/redoc</code> route, eliminating the <code class=\"notranslate\">fonts.googleapis.com</code> and <code class=\"notranslate\">fonts.gstatic.com</code> requests that were blocked by the CSP.</p>\n</li>\n</ul>\n<h3 dir=\"auto\">Upgrade notes</h3>\n<p dir=\"auto\">No database migrations or configuration changes required. Restart the server after upgrading.</p>",
+      "createdAt": "2026-04-23T18:02:33Z",
       "publishedAt": "2026-04-23T18:02:49Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.8.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.8.post1"
+      }
     },
     {
+      "id": 312713114,
+      "nodeId": "RE_kwDOOUepXM4So5-a",
       "tag": "v0.0.8",
       "name": "proxbox-api v0.0.8",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.8",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/312713114",
+      "targetCommitish": "main",
+      "body": "## proxbox-api v0.0.8\n\nCompatible with **netbox-proxbox v0.0.12**.\n\n### What's new\n- proxmox-sdk 0.0.3 integration and sync bug fixes\n- New SSE routes for VM interfaces (netbox-proxbox v0.0.12 compatibility)\n- `proxmox_endpoint_ids` query parameter alias for plugin scoping\n- `fetch_max_concurrency` wiring for storage and task-history streams\n- Harden sync reliability and async test mocks",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api v0.0.8</h2>\n<p dir=\"auto\">Compatible with <strong>netbox-proxbox v0.0.12</strong>.</p>\n<h3 dir=\"auto\">What's new</h3>\n<ul dir=\"auto\">\n<li>proxmox-sdk 0.0.3 integration and sync bug fixes</li>\n<li>New SSE routes for VM interfaces (netbox-proxbox v0.0.12 compatibility)</li>\n<li><code class=\"notranslate\">proxmox_endpoint_ids</code> query parameter alias for plugin scoping</li>\n<li><code class=\"notranslate\">fetch_max_concurrency</code> wiring for storage and task-history streams</li>\n<li>Harden sync reliability and async test mocks</li>\n</ul>",
+      "createdAt": "2026-04-23T12:14:42Z",
       "publishedAt": "2026-04-23T12:31:10Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.8",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.8"
+      }
     },
     {
+      "id": 310495148,
+      "nodeId": "RE_kwDOOUepXM4Sgces",
       "tag": "v0.0.7.post1",
       "name": "v0.0.7.post1 — Settings auth fix & sync correctness",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.7.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/310495148",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n\n### Bug Fixes\n\n- **fix(settings_client):** Replace hand-rolled `Authorization` header with `authorization_header_value()` from `netbox_sdk.config`. The old code produced `nbt <key>:<secret>` for v2 tokens instead of the correct `Bearer nbt_<key>.<secret>`, causing every v2-token request to be treated as anonymous and rejected with 403 by NetBox. ([#45](https://github.com/emersonfelipesp/proxbox-api/issues/45))\n- **fix(replications):** Use `base_query=` keyword argument in `rest_list_paginated_async` call — previously the wrong keyword `query=` was silently ignored, so active-replication filtering never applied.\n- **fix(backups):** Allow `compute_backup_payload` to look up Proxmox storage without a `cluster_name` — prevents KeyError when cluster name is absent.\n- **fix(vm_network):** Use `primary_ip4_id` filter in `_clear_primary_ip_on_parent` to correctly target the VM's primary IP assignment.\n- **fix(tests):** Fix `test_mark_stale_replications` fake to capture `base_query=` instead of `query=`, matching the real `rest_list_paginated_async` signature (the test was always asserting `None`).\n\n### Chores\n\n- Pin `proxmox-sdk` to `0.0.2.post3`.\n- Commit pending schema updates, tag normalization fix, and Proxmox 9.1 generated artifacts.\n\n### Root Cause (issue [#45](https://github.com/emersonfelipesp/proxbox-api/issues/45))\n\nTwo independent bugs caused HTTP 403 on `GET /api/plugins/proxbox/settings/`:\n\n1. **This repo** — `settings_client.py` built the v2 auth header incorrectly (`nbt <key>:<secret>` instead of `Bearer nbt_<key>.<secret>`). NetBox parsed it as anonymous and returned 403.\n2. **netbox-proxbox** — `ProxboxPluginSettingsViewSet` required an explicit `view_proxboxpluginsettings` object permission that standard API tokens don't carry. Fixed in [netbox-proxbox v0.0.11.post1](https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.11.post1).\n\nBoth fixes together restore automatic token exchange between the plugin and the backend.",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<h3 dir=\"auto\">Bug Fixes</h3>\n<ul dir=\"auto\">\n<li><strong>fix(settings_client):</strong> Replace hand-rolled <code class=\"notranslate\">Authorization</code> header with <code class=\"notranslate\">authorization_header_value()</code> from <code class=\"notranslate\">netbox_sdk.config</code>. The old code produced <code class=\"notranslate\">nbt &lt;key&gt;:&lt;secret&gt;</code> for v2 tokens instead of the correct <code class=\"notranslate\">Bearer nbt_&lt;key&gt;.&lt;secret&gt;</code>, causing every v2-token request to be treated as anonymous and rejected with 403 by NetBox. (<a href=\"https://github.com/emersonfelipesp/proxbox-api/issues/45\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/issues/45/hovercard\">#45</a>)</li>\n<li><strong>fix(replications):</strong> Use <code class=\"notranslate\">base_query=</code> keyword argument in <code class=\"notranslate\">rest_list_paginated_async</code> call — previously the wrong keyword <code class=\"notranslate\">query=</code> was silently ignored, so active-replication filtering never applied.</li>\n<li><strong>fix(backups):</strong> Allow <code class=\"notranslate\">compute_backup_payload</code> to look up Proxmox storage without a <code class=\"notranslate\">cluster_name</code> — prevents KeyError when cluster name is absent.</li>\n<li><strong>fix(vm_network):</strong> Use <code class=\"notranslate\">primary_ip4_id</code> filter in <code class=\"notranslate\">_clear_primary_ip_on_parent</code> to correctly target the VM's primary IP assignment.</li>\n<li><strong>fix(tests):</strong> Fix <code class=\"notranslate\">test_mark_stale_replications</code> fake to capture <code class=\"notranslate\">base_query=</code> instead of <code class=\"notranslate\">query=</code>, matching the real <code class=\"notranslate\">rest_list_paginated_async</code> signature (the test was always asserting <code class=\"notranslate\">None</code>).</li>\n</ul>\n<h3 dir=\"auto\">Chores</h3>\n<ul dir=\"auto\">\n<li>Pin <code class=\"notranslate\">proxmox-sdk</code> to <code class=\"notranslate\">0.0.2.post3</code>.</li>\n<li>Commit pending schema updates, tag normalization fix, and Proxmox 9.1 generated artifacts.</li>\n</ul>\n<h3 dir=\"auto\">Root Cause (issue <a href=\"https://github.com/emersonfelipesp/proxbox-api/issues/45\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/issues/45/hovercard\">#45</a>)</h3>\n<p dir=\"auto\">Two independent bugs caused HTTP 403 on <code class=\"notranslate\">GET /api/plugins/proxbox/settings/</code>:</p>\n<ol dir=\"auto\">\n<li><strong>This repo</strong> — <code class=\"notranslate\">settings_client.py</code> built the v2 auth header incorrectly (<code class=\"notranslate\">nbt &lt;key&gt;:&lt;secret&gt;</code> instead of <code class=\"notranslate\">Bearer nbt_&lt;key&gt;.&lt;secret&gt;</code>). NetBox parsed it as anonymous and returned 403.</li>\n<li><strong>netbox-proxbox</strong> — <code class=\"notranslate\">ProxboxPluginSettingsViewSet</code> required an explicit <code class=\"notranslate\">view_proxboxpluginsettings</code> object permission that standard API tokens don't carry. Fixed in <a href=\"https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.11.post1\">netbox-proxbox v0.0.11.post1</a>.</li>\n</ol>\n<p dir=\"auto\">Both fixes together restore automatic token exchange between the plugin and the backend.</p>",
+      "createdAt": "2026-04-17T18:15:05Z",
       "publishedAt": "2026-04-17T18:17:02Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.7.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.7.post1"
+      }
     },
     {
+      "id": 308535851,
+      "nodeId": "RE_kwDOOUepXM4SY-Ir",
       "tag": "v0.0.7",
       "name": "v0.0.7",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.7",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/308535851",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n\n### Features\n- Bundle Proxmox OpenAPI schemas for PVE 8.1/8.2/8.3 with auto-generation support\n- Auto-allow endpoint IPs in SSRF during create/update\n- Add duration_seconds to SSE step-completed events in full-update stream\n\n### Bug Fixes\n- Handle primary IP reassignment block in `ensure_ip_assigned_to_vm`\n- Fix VM primary IP assignment for IPv4/IPv6 and disk retry\n- Fix VM disk aggregate handling and primary IP patch fallback\n- Fix interface lookup collision and backup duplicate-create errors\n- Deduplicate cluster resources when multiple Proxmox sessions share a cluster\n- Prevent cross-VM interface theft during concurrent sync\n- Prevent SSE stream 502 with keepalive and consistent error handling\n- Fix task-history vmid, bridge cache, and route ordering sync errors\n- Reduce /openapi.json size to fix Swagger UI blank page\n- Prevent full VM result-list log from crashing stream\n- Send bulk DELETE as JSON body instead of query params\n- Pass ProxmoxSession wrapper to get_vm_snapshots correctly\n- Fix backup fields, backup routine fields, and task-history stream integration\n- Downgrade HTTP 501 snapshot errors to debug level\n- Apply ruff formatting to 12 files missed by CI background-job check\n\n### CI/CD\n- Fix ci.yml ruff step: run format check sequentially with `uv run` to catch formatting failures reliably\n\n### Dependencies\n- Pin `netbox-sdk==0.0.7.post4` and `proxmox-sdk==0.0.2.post2`\n- Patch Dependabot vulnerabilities (pytest, next.js)\n\n### Documentation\n- Resolve MkDocs build failure in schema-management.md\n- Add encryption settings test coverage and documentation\n\n### Refactoring\n- Rename proxmox-openapi dependency to proxmox-sdk\n- Consolidate duplicate sync utilities and simplify IP sync\n- Improve type hints across proxbox_api — eliminate Any, add return types",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<h3 dir=\"auto\">Features</h3>\n<ul dir=\"auto\">\n<li>Bundle Proxmox OpenAPI schemas for PVE 8.1/8.2/8.3 with auto-generation support</li>\n<li>Auto-allow endpoint IPs in SSRF during create/update</li>\n<li>Add duration_seconds to SSE step-completed events in full-update stream</li>\n</ul>\n<h3 dir=\"auto\">Bug Fixes</h3>\n<ul dir=\"auto\">\n<li>Handle primary IP reassignment block in <code class=\"notranslate\">ensure_ip_assigned_to_vm</code></li>\n<li>Fix VM primary IP assignment for IPv4/IPv6 and disk retry</li>\n<li>Fix VM disk aggregate handling and primary IP patch fallback</li>\n<li>Fix interface lookup collision and backup duplicate-create errors</li>\n<li>Deduplicate cluster resources when multiple Proxmox sessions share a cluster</li>\n<li>Prevent cross-VM interface theft during concurrent sync</li>\n<li>Prevent SSE stream 502 with keepalive and consistent error handling</li>\n<li>Fix task-history vmid, bridge cache, and route ordering sync errors</li>\n<li>Reduce /openapi.json size to fix Swagger UI blank page</li>\n<li>Prevent full VM result-list log from crashing stream</li>\n<li>Send bulk DELETE as JSON body instead of query params</li>\n<li>Pass ProxmoxSession wrapper to get_vm_snapshots correctly</li>\n<li>Fix backup fields, backup routine fields, and task-history stream integration</li>\n<li>Downgrade HTTP 501 snapshot errors to debug level</li>\n<li>Apply ruff formatting to 12 files missed by CI background-job check</li>\n</ul>\n<h3 dir=\"auto\">CI/CD</h3>\n<ul dir=\"auto\">\n<li>Fix ci.yml ruff step: run format check sequentially with <code class=\"notranslate\">uv run</code> to catch formatting failures reliably</li>\n</ul>\n<h3 dir=\"auto\">Dependencies</h3>\n<ul dir=\"auto\">\n<li>Pin <code class=\"notranslate\">netbox-sdk==0.0.7.post4</code> and <code class=\"notranslate\">proxmox-sdk==0.0.2.post2</code></li>\n<li>Patch Dependabot vulnerabilities (pytest, next.js)</li>\n</ul>\n<h3 dir=\"auto\">Documentation</h3>\n<ul dir=\"auto\">\n<li>Resolve MkDocs build failure in schema-management.md</li>\n<li>Add encryption settings test coverage and documentation</li>\n</ul>\n<h3 dir=\"auto\">Refactoring</h3>\n<ul dir=\"auto\">\n<li>Rename proxmox-openapi dependency to proxmox-sdk</li>\n<li>Consolidate duplicate sync utilities and simplify IP sync</li>\n<li>Improve type hints across proxbox_api — eliminate Any, add return types</li>\n</ul>",
+      "createdAt": "2026-04-13T20:15:25Z",
       "publishedAt": "2026-04-13T20:16:13Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.7",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.7"
+      }
     },
     {
+      "id": 305303507,
+      "nodeId": "RE_kwDOOUepXM4SMo_T",
       "tag": "v0.0.6.post4",
       "name": "v0.0.6.post4",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/305303507",
+      "targetCommitish": "main",
+      "body": "- fix stale cached NetBox tag lookups by reconciling Proxbox tag creation through the REST reconcile helper\\n- add regression coverage for duplicate tag create after stale empty lookups",
+      "bodyHtml": "<ul dir=\"auto\">\n<li>fix stale cached NetBox tag lookups by reconciling Proxbox tag creation through the REST reconcile helper\\n- add regression coverage for duplicate tag create after stale empty lookups</li>\n</ul>",
+      "createdAt": "2026-04-04T16:35:34Z",
       "publishedAt": "2026-04-04T16:35:51Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.6.post4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.6.post4"
+      }
     },
     {
+      "id": 305297013,
+      "nodeId": "RE_kwDOOUepXM4SMnZ1",
       "tag": "v0.0.6.post3",
       "name": "v0.0.6.post3",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/305297013",
+      "targetCommitish": "main",
+      "body": "Fix Proxmox cluster status parsing for sparse cluster/status payloads so NetBox E2E device sync reaches the stream instead of failing dependency validation.",
+      "bodyHtml": "<p dir=\"auto\">Fix Proxmox cluster status parsing for sparse cluster/status payloads so NetBox E2E device sync reaches the stream instead of failing dependency validation.</p>",
+      "createdAt": "2026-04-04T15:40:52Z",
       "publishedAt": "2026-04-04T15:41:14Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.6.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.6.post3"
+      }
     },
     {
+      "id": 305292228,
+      "nodeId": "RE_kwDOOUepXM4SMmPE",
       "tag": "v0.0.6.post2",
       "name": "v0.0.6.post2",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/305292228",
+      "targetCommitish": "main",
+      "body": "## What changed\n- fix /health to report live bootstrap readiness instead of a stale imported value\n- add a regression test covering readiness state changes\n\n## Why\n- unblocks the NetBox plugin E2E job flow, which polls /health before starting sync streams",
+      "bodyHtml": "<h2 dir=\"auto\">What changed</h2>\n<ul dir=\"auto\">\n<li>fix /health to report live bootstrap readiness instead of a stale imported value</li>\n<li>add a regression test covering readiness state changes</li>\n</ul>\n<h2 dir=\"auto\">Why</h2>\n<ul dir=\"auto\">\n<li>unblocks the NetBox plugin E2E job flow, which polls /health before starting sync streams</li>\n</ul>",
+      "createdAt": "2026-04-04T15:01:39Z",
       "publishedAt": "2026-04-04T15:02:10Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.6.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.6.post2"
+      }
     },
     {
+      "id": 305081892,
+      "nodeId": "RE_kwDOOUepXM4SLy4k",
       "tag": "v0.0.6.post1",
       "name": "proxbox-api v0.0.6.post1",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/305081892",
+      "targetCommitish": "main",
+      "body": "See changelog",
+      "bodyHtml": "<p dir=\"auto\">See changelog</p>",
+      "createdAt": "2026-04-03T15:32:42Z",
       "publishedAt": "2026-04-03T15:32:56Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.6.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.6.post1"
+      }
     },
     {
+      "id": 304935562,
+      "nodeId": "RE_kwDOOUepXM4SLPKK",
       "tag": "v0.0.6",
       "name": "proxbox-api v0.0.6",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.6",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/304935562",
+      "targetCommitish": "main",
+      "body": "## What\\'s Changed\n* Ignore generated Proxmox runtime cache by @emersonfelipesp\n* Fix VM interface bridge lookup and guest IP handling by @emersonfelipesp\n* fix: add retry backoff with jitter and connection refused detection by @emersonfelipesp\n* feat: add /health endpoint for backend readiness checks by @emersonfelipesp\n* Fix backend logs cursor pagination by @emersonfelipesp\n* fix: add missing error handling wrapper to rest_patch_async by @emersonfelipesp\n* fix: add retry with backoff and concurrency limit for NetBox requests by @emersonfelipesp\n* fix: handle Pydantic models in _record_to_dict for storage index by @emersonfelipesp\n* fix: use unique lookup for bridge to allow same name across VMs by @emersonfelipesp\n* fix: handle bridge reuse across VMs with renamed interface by @emersonfelipesp\n* fix: allow bridge interface reuse across VMs by @emersonfelipesp\n* ci: add failing test deselect to workflow by @emersonfelipesp\n\n## Bug Fixes\n- **Retry backoff**: Sleep now happens outside the semaphore to avoid holding concurrency slots while waiting. Adds jitter and minimum 5s delay for connection refused (NetBox completely down).\n- **Bridge lookup**: Fixed edge case where a bridge name could match an interface on a different VM.\n- **Guest IP sync**: Fixed IP address handling during VM interface reconciliation.\n- **REST pagination**: Fixed cursor pagination in backend logs endpoint.\n\n## New Features\n- **/health endpoint**: Backend readiness check endpoint for orchestrators.\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.5...v0.0.6",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>Ignore generated Proxmox runtime cache by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>Fix VM interface bridge lookup and guest IP handling by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: add retry backoff with jitter and connection refused detection by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>feat: add /health endpoint for backend readiness checks by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>Fix backend logs cursor pagination by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: add missing error handling wrapper to rest_patch_async by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: add retry with backoff and concurrency limit for NetBox requests by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: handle Pydantic models in _record_to_dict for storage index by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: use unique lookup for bridge to allow same name across VMs by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: handle bridge reuse across VMs with renamed interface by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>fix: allow bridge interface reuse across VMs by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li>ci: add failing test deselect to workflow by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n</ul>\n<h2 dir=\"auto\">Bug Fixes</h2>\n<ul dir=\"auto\">\n<li><strong>Retry backoff</strong>: Sleep now happens outside the semaphore to avoid holding concurrency slots while waiting. Adds jitter and minimum 5s delay for connection refused (NetBox completely down).</li>\n<li><strong>Bridge lookup</strong>: Fixed edge case where a bridge name could match an interface on a different VM.</li>\n<li><strong>Guest IP sync</strong>: Fixed IP address handling during VM interface reconciliation.</li>\n<li><strong>REST pagination</strong>: Fixed cursor pagination in backend logs endpoint.</li>\n</ul>\n<h2 dir=\"auto\">New Features</h2>\n<ul dir=\"auto\">\n<li><strong>/health endpoint</strong>: Backend readiness check endpoint for orchestrators.</li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.5...v0.0.6\"><tt>v0.0.5...v0.0.6</tt></a></p>",
+      "createdAt": "2026-04-03T14:40:35Z",
       "publishedAt": "2026-04-03T03:50:43Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.6",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.6"
+      }
     },
     {
+      "id": 304000967,
+      "nodeId": "RE_kwDOOUepXM4SHq_H",
       "tag": "v0.0.5",
       "name": "proxbox-api v0.0.5 - C901 Complexity Fixes",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.5",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/304000967",
+      "targetCommitish": "main",
+      "body": "## Release v0.0.5 - C901 Complexity Fixes\n\n**Key Changes:**\n- Added noqa: C901 comments for 30 legitimate complex functions\n- Resolved all C901 (McCabe complexity) linting violations\n- All CI validation checks passing\n- Ready for PyPI and Docker Hub publishing\n\n**Build Status:**\n- ✅ CI checks passing\n- ✅ All tests passing  \n- ✅ Ruff linting validated\n- ✅ Ready for production release",
+      "bodyHtml": "<h2 dir=\"auto\">Release v0.0.5 - C901 Complexity Fixes</h2>\n<p dir=\"auto\"><strong>Key Changes:</strong></p>\n<ul dir=\"auto\">\n<li>Added noqa: C901 comments for 30 legitimate complex functions</li>\n<li>Resolved all C901 (McCabe complexity) linting violations</li>\n<li>All CI validation checks passing</li>\n<li>Ready for PyPI and Docker Hub publishing</li>\n</ul>\n<p dir=\"auto\"><strong>Build Status:</strong></p>\n<ul dir=\"auto\">\n<li>✅ CI checks passing</li>\n<li>✅ All tests passing</li>\n<li>✅ Ruff linting validated</li>\n<li>✅ Ready for production release</li>\n</ul>",
+      "createdAt": "2026-04-01T03:43:13Z",
       "publishedAt": "2026-04-01T03:53:39Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.5",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.5"
+      }
     },
     {
+      "id": 303467458,
+      "nodeId": "RE_kwDOOUepXM4SFovC",
       "tag": "v0.0.4",
       "name": "v0.0.4",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/303467458",
+      "targetCommitish": "main",
+      "body": "Release proxbox-api **0.0.4** (sync endpoints, snapshots/disks/backups, CI, release workflow).\n\nPublished artifacts: PyPI `proxbox-api`, Docker Hub `emersonfelipesp/proxbox-api`.",
+      "bodyHtml": "<p dir=\"auto\">Release proxbox-api <strong>0.0.4</strong> (sync endpoints, snapshots/disks/backups, CI, release workflow).</p>\n<p dir=\"auto\">Published artifacts: PyPI <code class=\"notranslate\">proxbox-api</code>, Docker Hub <code class=\"notranslate\">emersonfelipesp/proxbox-api</code>.</p>",
+      "createdAt": "2026-03-31T00:35:11Z",
       "publishedAt": "2026-03-31T00:42:45Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.4"
+      }
     },
     {
+      "id": 302787466,
+      "nodeId": "RE_kwDOOUepXM4SDCuK",
       "tag": "v0.0.3",
       "name": "v0.0.3",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/302787466",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n* Closes #4 - Proxmox Backup Integration  by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/5\n* Refactor by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/6\n* make changes by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/7\n* refactor: replace pynetbox-api with netbox-sdk v0.0.5 and preserve API behavior by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/8\n* feat: add async Proxmox API viewer codegen with retries/checkpoints by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/9\n* feat: add integration refactor for Proxmox->NetBox schema-driven mapping by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/10\n* feat: add endpoint CRUD backend and Next.js management UI by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/11\n* docs: add MkDocs Material docs with pt-BR option by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/12\n* test: add schema-driven coverage and CI by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/13\n* feat: support versioned Proxmox OpenAPI artifacts by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/14\n* [codex] Fix Proxmox typed schemas and sync helpers by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/15\n* [codex] Fix Ruff import ordering after PR #15 by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/16\n* Release v0.0.3 by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/17\n\n## New Contributors\n* @emersonfelipesp made their first contribution in https://github.com/emersonfelipesp/proxbox-api/pull/5\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.2...v0.0.3",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>Closes <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2988548707\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/4\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/issues/4/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/issues/4\">#4</a> - Proxmox Backup Integration  by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3049956591\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/5\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/5/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/5\">#5</a></li>\n<li>Refactor by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3403458410\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/6\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/6/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/6\">#6</a></li>\n<li>make changes by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3403475236\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/7\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/7/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/7\">#7</a></li>\n<li>refactor: replace pynetbox-api with netbox-sdk v0.0.5 and preserve API behavior by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4156928142\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/8\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/8/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/8\">#8</a></li>\n<li>feat: add async Proxmox API viewer codegen with retries/checkpoints by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157070867\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/9\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/9/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/9\">#9</a></li>\n<li>feat: add integration refactor for Proxmox-&gt;NetBox schema-driven mapping by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157106106\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/10\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/10/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/10\">#10</a></li>\n<li>feat: add endpoint CRUD backend and Next.js management UI by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157200031\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/11\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/11/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/11\">#11</a></li>\n<li>docs: add MkDocs Material docs with pt-BR option by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157256808\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/12\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/12/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/12\">#12</a></li>\n<li>test: add schema-driven coverage and CI by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157350030\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/13\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/13/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/13\">#13</a></li>\n<li>feat: support versioned Proxmox OpenAPI artifacts by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4157383681\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/14\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/14/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/14\">#14</a></li>\n<li>[codex] Fix Proxmox typed schemas and sync helpers by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4161947138\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/15\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/15/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/15\">#15</a></li>\n<li>[codex] Fix Ruff import ordering after PR <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4161947138\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/15\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/15/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/15\">#15</a> by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4161958827\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/16\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/16/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/16\">#16</a></li>\n<li>Release v0.0.3 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4162374570\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/17\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/17/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/17\">#17</a></li>\n</ul>\n<h2 dir=\"auto\">New Contributors</h2>\n<ul dir=\"auto\">\n<li><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> made their first contribution in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3049956591\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/5\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/5/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/5\">#5</a></li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.2...v0.0.3\"><tt>v0.0.2...v0.0.3</tt></a></p>",
+      "createdAt": "2026-03-29T03:46:56Z",
       "publishedAt": "2026-03-29T03:47:06Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.3"
+      }
     },
     {
+      "id": 212027921,
+      "nodeId": "RE_kwDOOUepXM4Mo0oR",
       "tag": "v0.0.2",
       "name": "v0.0.2- 2025-04-12",
       "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/212027921",
+      "targetCommitish": "main",
+      "body": "",
+      "bodyHtml": "",
+      "createdAt": "2025-04-08T19:25:34Z",
       "publishedAt": "2025-04-12T19:14:38Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.2"
+      }
     }
   ]
 }

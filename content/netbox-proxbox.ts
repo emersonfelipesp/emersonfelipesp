@@ -1,7 +1,7 @@
 export const netboxProxbox = {
   slug: "netbox-proxbox",
   name: "netbox-proxbox",
-  fullName: "N-Multifibra/netbox-proxbox",
+  fullName: "emersonfelipesp/netbox-proxbox",
   palette: "netbox" as const,
   tagline:
     "NetBox plugin that synchronizes Proxmox infrastructure into NetBox via a FastAPI backend.",
@@ -38,7 +38,7 @@ export const netboxProxbox = {
     forks: 62,
   },
   links: {
-    repo: "https://github.com/N-Multifibra/netbox-proxbox",
+    repo: "https://github.com/emersonfelipesp/netbox-proxbox",
     docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
   },
@@ -63,7 +63,7 @@ export const netboxProxbox = {
       {
         title: "Clone the repository into NetBox's plugins directory",
         body: "On the NetBox host, drop the plugin source next to NetBox itself.",
-        code: "cd /opt/netbox/netbox/\nsudo git clone https://github.com/N-Multifibra/netbox-proxbox.git",
+        code: "cd /opt/netbox/netbox/\nsudo git clone https://github.com/emersonfelipesp/netbox-proxbox.git",
       },
       {
         title: "Activate the NetBox virtualenv",

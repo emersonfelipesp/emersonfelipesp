@@ -1,57 +1,183 @@
 {
-  "syncedAt": "2026-05-05T19:40:45.573Z",
+  "syncedAt": "2026-05-05T20:12:16.829Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 1,
   "forks": 0,
   "releases": [
     {
+      "id": 312476610,
+      "nodeId": "RE_kwDORz_GBs4SoAPC",
       "tag": "v0.0.3.post1",
       "name": "v0.0.3.post1",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.3.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/312476610",
+      "targetCommitish": "main",
+      "body": "## What's changed\n\nMerges all v0.0.3 branch changes into main:\n\n- **Proxy support fix** — authentication requests now correctly go through the configured proxy (`fe7b2cb`)\n- **Explicit error types** — new structured exception classes for cleaner error handling (`fe7b2cb`)\n- **Timeout/retry parameters** — `PROXMOX_API_TIMEOUT`, `PROXMOX_API_CONNECT_TIMEOUT`, `PROXMOX_API_RETRIES`, `PROXMOX_API_RETRY_BACKOFF` env vars + constructor params (`fe7b2cb`)\n- **Security dependency bumps** — pytest and python-multipart updated to patched versions (`2fa5987`)\n- **Documentation** — CLAUDE.md and MkDocs updated to document v0.0.3 changes (`13fc9c0`)",
+      "bodyHtml": "<h2 dir=\"auto\">What's changed</h2>\n<p dir=\"auto\">Merges all v0.0.3 branch changes into main:</p>\n<ul dir=\"auto\">\n<li><strong>Proxy support fix</strong> — authentication requests now correctly go through the configured proxy (<code class=\"notranslate\">fe7b2cb</code>)</li>\n<li><strong>Explicit error types</strong> — new structured exception classes for cleaner error handling (<code class=\"notranslate\">fe7b2cb</code>)</li>\n<li><strong>Timeout/retry parameters</strong> — <code class=\"notranslate\">PROXMOX_API_TIMEOUT</code>, <code class=\"notranslate\">PROXMOX_API_CONNECT_TIMEOUT</code>, <code class=\"notranslate\">PROXMOX_API_RETRIES</code>, <code class=\"notranslate\">PROXMOX_API_RETRY_BACKOFF</code> env vars + constructor params (<code class=\"notranslate\">fe7b2cb</code>)</li>\n<li><strong>Security dependency bumps</strong> — pytest and python-multipart updated to patched versions (<code class=\"notranslate\">2fa5987</code>)</li>\n<li><strong>Documentation</strong> — CLAUDE.md and MkDocs updated to document v0.0.3 changes (<code class=\"notranslate\">13fc9c0</code>)</li>\n</ul>",
+      "createdAt": "2026-04-22T22:45:26Z",
       "publishedAt": "2026-04-22T22:45:38Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.3.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.3.post1"
+      }
     },
     {
+      "id": 312450077,
+      "nodeId": "RE_kwDORz_GBs4Sn5wd",
       "tag": "v0.0.3",
       "name": "proxmox-sdk v0.0.3",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/312450077",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n\n### Features\n- **Proxy support fix**: Correct proxy handling for HTTPS — method is normalized once and double-proxy construction is avoided\n- **Explicit error types**: New error classes for clearer failure handling\n- **Timeout/retry params**: Configurable timeout and retry backoff on client\n\n### Fixes\n- SSL errors now fail fast and CLI config round-trips respect `retry_backoff`\n- Dependency bumps: `pytest` and `python-multipart` patched versions\n- Mock server: use `replace_collection` for array endpoints in custom mock data init\n\n### Docs\n- v0.0.3 proxy fix, error types, timeout/retry documented in CLAUDE.md and MkDocs\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxmox-sdk/compare/v0.0.2.post3...v0.0.3",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<h3 dir=\"auto\">Features</h3>\n<ul dir=\"auto\">\n<li><strong>Proxy support fix</strong>: Correct proxy handling for HTTPS — method is normalized once and double-proxy construction is avoided</li>\n<li><strong>Explicit error types</strong>: New error classes for clearer failure handling</li>\n<li><strong>Timeout/retry params</strong>: Configurable timeout and retry backoff on client</li>\n</ul>\n<h3 dir=\"auto\">Fixes</h3>\n<ul dir=\"auto\">\n<li>SSL errors now fail fast and CLI config round-trips respect <code class=\"notranslate\">retry_backoff</code></li>\n<li>Dependency bumps: <code class=\"notranslate\">pytest</code> and <code class=\"notranslate\">python-multipart</code> patched versions</li>\n<li>Mock server: use <code class=\"notranslate\">replace_collection</code> for array endpoints in custom mock data init</li>\n</ul>\n<h3 dir=\"auto\">Docs</h3>\n<ul dir=\"auto\">\n<li>v0.0.3 proxy fix, error types, timeout/retry documented in CLAUDE.md and MkDocs</li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/compare/v0.0.2.post3...v0.0.3\"><tt>v0.0.2.post3...v0.0.3</tt></a></p>",
+      "createdAt": "2026-04-22T20:26:25Z",
       "publishedAt": "2026-04-22T21:09:55Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.3"
+      }
     },
     {
+      "id": 308613336,
+      "nodeId": "RE_kwDORz_GBs4SZRDY",
       "tag": "v0.0.2.post3",
       "name": "v0.0.2.post3",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/308613336",
+      "targetCommitish": "main",
+      "body": "## Changes\n\n- CI: add nginx image to release Docker publish workflow (`latest-nginx`, `latest-granian`)\n- Fix Docker target stage name from `runtime` to `raw` in release workflow\n- Bump version to 0.0.2.post3\n\n## Docker Images\n\n| Image | Tag |\n|-------|-----|\n| Raw (uvicorn) | `emersonfelipesp/proxmox-sdk:0.0.2.post3` / `latest` |\n| Nginx (HTTPS) | `emersonfelipesp/proxmox-sdk:0.0.2.post3-nginx` / `latest-nginx` |\n| Granian (HTTPS) | `emersonfelipesp/proxmox-sdk:0.0.2.post3-granian` / `latest-granian` |",
+      "bodyHtml": "<h2 dir=\"auto\">Changes</h2>\n<ul dir=\"auto\">\n<li>CI: add nginx image to release Docker publish workflow (<code class=\"notranslate\">latest-nginx</code>, <code class=\"notranslate\">latest-granian</code>)</li>\n<li>Fix Docker target stage name from <code class=\"notranslate\">runtime</code> to <code class=\"notranslate\">raw</code> in release workflow</li>\n<li>Bump version to 0.0.2.post3</li>\n</ul>\n<h2 dir=\"auto\">Docker Images</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>Image</th>\n<th>Tag</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Raw (uvicorn)</td>\n<td><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.2.post3</code> / <code class=\"notranslate\">latest</code></td>\n</tr>\n<tr>\n<td>Nginx (HTTPS)</td>\n<td><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.2.post3-nginx</code> / <code class=\"notranslate\">latest-nginx</code></td>\n</tr>\n<tr>\n<td>Granian (HTTPS)</td>\n<td><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.2.post3-granian</code> / <code class=\"notranslate\">latest-granian</code></td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>",
+      "createdAt": "2026-04-14T01:18:57Z",
       "publishedAt": "2026-04-14T01:31:56Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.2.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.2.post3"
+      }
     },
     {
+      "id": 308514794,
+      "nodeId": "RE_kwDORz_GBs4SY4_q",
       "tag": "v0.0.2.post2",
       "name": "proxmox-sdk v0.0.2.post2",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/308514794",
+      "targetCommitish": "main",
+      "body": "## v0.0.2.post2\n\n### Fixes\n- Fix nginx Docker image build failure caused by missing `docker/nginx/proxmox-sdk-map.conf` after module rename refactor in v0.0.2.post1",
+      "bodyHtml": "<h2 dir=\"auto\">v0.0.2.post2</h2>\n<h3 dir=\"auto\">Fixes</h3>\n<ul dir=\"auto\">\n<li>Fix nginx Docker image build failure caused by missing <code class=\"notranslate\">docker/nginx/proxmox-sdk-map.conf</code> after module rename refactor in v0.0.2.post1</li>\n</ul>",
+      "createdAt": "2026-04-13T19:20:24Z",
       "publishedAt": "2026-04-13T19:20:37Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.2.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.2.post2"
+      }
     },
     {
+      "id": 307773599,
+      "nodeId": "RE_kwDORz_GBs4SWECf",
       "tag": "v0.0.2.post1",
       "name": "proxmox-sdk v0.0.2.post1",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/307773599",
+      "targetCommitish": "main",
+      "body": "## Fix: Rename Python module from proxmox_openapi to proxmox_sdk\n\nThis post-release fixes the installed Python module name to match the PyPI distribution name.\n\n**Breaking change (import name):** After installing `proxmox-sdk`, use:\n\n```python\nfrom proxmox_sdk import ProxmoxSDK\nfrom proxmox_sdk.sdk.exceptions import ResourceException\n```\n\ninstead of the old `proxmox_openapi` import path.\n\n### Changes\n- Renamed Python package directory `proxmox_openapi/` → `proxmox_sdk/`\n- Updated all internal imports and references\n- Updated Docker config filenames and entrypoints\n- Bumped version to `0.0.2.post1`",
+      "bodyHtml": "<h2 dir=\"auto\">Fix: Rename Python module from proxmox_openapi to proxmox_sdk</h2>\n<p dir=\"auto\">This post-release fixes the installed Python module name to match the PyPI distribution name.</p>\n<p dir=\"auto\"><strong>Breaking change (import name):</strong> After installing <code class=\"notranslate\">proxmox-sdk</code>, use:</p>\n<div class=\"highlight highlight-source-python\" dir=\"auto\"><pre class=\"notranslate\"><span class=\"pl-k\">from</span> <span class=\"pl-s1\">proxmox_sdk</span> <span class=\"pl-k\">import</span> <span class=\"pl-v\">ProxmoxSDK</span>\n<span class=\"pl-k\">from</span> <span class=\"pl-s1\">proxmox_sdk</span>.<span class=\"pl-s1\">sdk</span>.<span class=\"pl-s1\">exceptions</span> <span class=\"pl-k\">import</span> <span class=\"pl-v\">ResourceException</span></pre></div>\n<p dir=\"auto\">instead of the old <code class=\"notranslate\">proxmox_openapi</code> import path.</p>\n<h3 dir=\"auto\">Changes</h3>\n<ul dir=\"auto\">\n<li>Renamed Python package directory <code class=\"notranslate\">proxmox_openapi/</code> → <code class=\"notranslate\">proxmox_sdk/</code></li>\n<li>Updated all internal imports and references</li>\n<li>Updated Docker config filenames and entrypoints</li>\n<li>Bumped version to <code class=\"notranslate\">0.0.2.post1</code></li>\n</ul>",
+      "createdAt": "2026-04-11T00:44:52Z",
       "publishedAt": "2026-04-11T00:45:09Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.2.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.2.post1"
+      }
     },
     {
+      "id": 307767716,
+      "nodeId": "RE_kwDORz_GBs4SWCmk",
       "tag": "v0.0.2",
       "name": "v0.0.2",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/307767716",
+      "targetCommitish": "main",
+      "body": "**Full Changelog**: https://github.com/emersonfelipesp/proxmox-sdk/compare/v0.0.1...v0.0.2",
+      "bodyHtml": "<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/compare/v0.0.1...v0.0.2\"><tt>v0.0.1...v0.0.2</tt></a></p>",
+      "createdAt": "2026-04-10T19:50:36Z",
       "publishedAt": "2026-04-11T00:03:42Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.2"
+      }
     },
     {
+      "id": 305338119,
+      "nodeId": "RE_kwDORz_GBs4SMxcH",
       "tag": "v0.0.1",
       "name": "v0.0.1",
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/305338119",
+      "targetCommitish": "main",
+      "body": "v0.0.1 release: adds release-gated test validation before PyPI publish and publishes the initial package release.",
+      "bodyHtml": "<p dir=\"auto\">v0.0.1 release: adds release-gated test validation before PyPI publish and publishes the initial package release.</p>",
+      "createdAt": "2026-04-04T21:52:19Z",
       "publishedAt": "2026-04-04T21:52:27Z",
-      "prerelease": false
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.1"
+      }
     }
   ]
 }

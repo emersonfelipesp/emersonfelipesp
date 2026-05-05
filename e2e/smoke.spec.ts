@@ -27,3 +27,35 @@ test("/proxmox-sdk loads", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
 });
+
+test("/netbox-proxbox/developer loads", async ({ page }) => {
+  await page.goto("/netbox-proxbox/developer");
+  await expect(page).toHaveURL("/netbox-proxbox/developer");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+});
+
+test("/proxbox-api/developer loads", async ({ page }) => {
+  await page.goto("/proxbox-api/developer");
+  await expect(page).toHaveURL("/proxbox-api/developer");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+});
+
+test("/netbox-sdk/developer loads", async ({ page }) => {
+  await page.goto("/netbox-sdk/developer");
+  await expect(page).toHaveURL("/netbox-sdk/developer");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+});
+
+test("/proxmox-sdk/developer loads", async ({ page }) => {
+  await page.goto("/proxmox-sdk/developer");
+  await expect(page).toHaveURL("/proxmox-sdk/developer");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Project view" })).toBeVisible();
+});
