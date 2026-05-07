@@ -63,6 +63,10 @@ export function RoadmapTimeline({ data }: { data: Roadmap }) {
             : issues;
         const hidden = issues.length - visible.length;
 
+        const done = issues.filter((n) => n.state === "closed").length;
+        const total = issues.length;
+        const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+
         const heading = isShipped
           ? `[${t.roadmap.phase.shipped}] ${issues.length} issues`
           : `${t.roadmap.phase.label.replace("{n}", String(phase.phase))}${
@@ -71,7 +75,14 @@ export function RoadmapTimeline({ data }: { data: Roadmap }) {
 
         return (
           <li key={`${phase.kind}-${phase.phase}`} className="border-l-2 border-border pl-4">
-            <h3 className="font-mono text-sm text-accent">{heading}</h3>
+            <h3 className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 font-mono text-sm text-accent">
+              <span>{heading}</span>
+              {!isShipped ? (
+                <span className="font-mono text-xs text-muted">
+                  <span className="text-fg">{done} / {total}</span> ({percent}%)
+                </span>
+              ) : null}
+            </h3>
             <ul className="mt-2">
               {visible.map((n) => (
                 <IssueRow key={n.number} node={n} />
