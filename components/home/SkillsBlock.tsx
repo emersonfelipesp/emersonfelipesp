@@ -1,9 +1,6 @@
 "use client";
 
 import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
   useState,
   type ComponentType,
   type ReactNode,
@@ -36,8 +33,7 @@ import {
 import { skills, type Skill } from "@/content/profile";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 
-const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+const MOBILE_VISIBLE = 2;
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { title?: string }>;
 
@@ -135,47 +131,24 @@ function SkillItemLink({
 function SkillRow({ skill, label }: { skill: Skill; label: string }) {
   const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(2);
-  const inlineRef = useRef<HTMLSpanElement>(null);
 
-  useIsomorphicLayoutEffect(() => {
-    if (expanded) return;
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(min-width: 640px)").matches) return;
-    const el = inlineRef.current;
-    if (!el) return;
-    const measure = () => {
-      const lh = parseFloat(getComputedStyle(el).lineHeight);
-      if (!Number.isFinite(lh) || lh <= 0) return;
-      const lines = Math.round(el.offsetHeight / lh);
-      if (lines > 1) {
-        setVisibleCount((c) => Math.max(0, c - 1));
-      }
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [expanded]);
-
-  const hidden = Math.max(skill.items.length - visibleCount, 0);
+  const hidden = expanded
+    ? 0
+    : Math.max(skill.items.length - MOBILE_VISIBLE, 0);
   const subListId = `skills-${skill.group}-more`;
 
   return (
     <li className="flex flex-wrap items-center gap-x-2 gap-y-1">
       <span className="text-accent-2">[{label}]</span>
       <span className="text-muted">=</span>
-      <span
-        ref={inlineRef}
-        className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-fg/90"
-      >
+      <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-fg/90">
         {skill.items.map((item, idx) => {
-          const hideOnMobile = idx >= visibleCount || expanded;
+          const hideOnMobile = idx >= MOBILE_VISIBLE || expanded;
           const wrapperClass = hideOnMobile
             ? "hidden sm:inline-flex items-center"
             : "inline-flex items-center";
           const hasComma = idx < skill.items.length - 1;
-          const commaHide = idx >= visibleCount - 1 || expanded;
+          const commaHide = idx >= MOBILE_VISIBLE - 1 || expanded;
           const commaClass = commaHide
             ? "ml-1 text-muted hidden sm:inline"
             : "ml-1 text-muted";

@@ -9,6 +9,7 @@ import { SkillsBlock } from "@/components/home/SkillsBlock";
 import { FeaturedProjectsGrid } from "@/components/home/FeaturedProjectsGrid";
 import { ProjectsArchitecture } from "@/components/home/ProjectsArchitecture";
 import { ContactForm } from "@/components/home/ContactForm";
+import { ViewBeacon } from "@/components/home/ViewBeacon";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { SectionNav } from "@/components/nav/SectionNav";
 import { SideTOC } from "@/components/nav/SideTOC";
@@ -23,6 +24,7 @@ export function HomeContent() {
 
   return (
     <div data-palette="mixed" className="space-y-8">
+      <ViewBeacon path="/" />
       <SectionNav sections={homeSections} />
       <SideTOC sections={homeSections} />
 

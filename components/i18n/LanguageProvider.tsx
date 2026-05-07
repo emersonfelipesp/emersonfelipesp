@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import {
-  DEFAULT_LANG,
   LANGUAGES,
   htmlLangFor,
   isLang,
@@ -13,6 +12,9 @@ import { DICTIONARIES, type Dictionary } from "@/lib/i18n/dictionary";
 
 export { LANGUAGES };
 export type { Lang, LanguageEntry };
+
+const LANG_COOKIE = "lang";
+const LANG_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 type LanguageContextValue = {
   lang: Lang;
@@ -26,21 +28,45 @@ function applyLang(next: Lang) {
   document.documentElement.lang = htmlLangFor(next);
 }
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
-    const stored =
-      (typeof window !== "undefined" && localStorage.getItem("lang")) || null;
-    return isLang(stored) ? stored : DEFAULT_LANG;
-  });
+function writeLangCookie(next: Lang) {
+  document.cookie = `${LANG_COOKIE}=${next}; path=/; max-age=${LANG_COOKIE_MAX_AGE}; samesite=lax`;
+}
+
+function readLangCookie(): string | null {
+  const match = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${LANG_COOKIE}=`));
+  return match ? decodeURIComponent(match.split("=")[1] ?? "") : null;
+}
+
+export function LanguageProvider({
+  initialLang,
+  children,
+}: {
+  initialLang: Lang;
+  children: React.ReactNode;
+}) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
   useEffect(() => {
-    applyLang(lang);
+    if (readLangCookie()) return;
+    const stored =
+      (typeof window !== "undefined" && localStorage.getItem("lang")) || null;
+    if (isLang(stored)) {
+      writeLangCookie(stored);
+      if (stored !== lang) {
+        applyLang(stored);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setLangState(stored);
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function setLang(next: Lang) {
     applyLang(next);
     localStorage.setItem("lang", next);
+    writeLangCookie(next);
     setLangState(next);
   }
 

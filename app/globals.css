@@ -37,6 +37,14 @@
   --success: #16a34a;
   --warn: #ca8a04;
   --danger: #dc2626;
+
+  --topnav-h: 6.25rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --topnav-h: 3.125rem;
+  }
 }
 
 .dark {
@@ -505,7 +513,7 @@ textarea:focus-visible {
 
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    [data-palette] > section {
+    [data-palette] > section:nth-of-type(n + 3) {
       animation: slide-up linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 15%;

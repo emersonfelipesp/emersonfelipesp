@@ -16,7 +16,9 @@ import {
   DEFAULT_LANG,
   LANGUAGES,
   VALID_LANGS,
+  htmlLangFor,
 } from "@/lib/i18n/languages";
+import { readLangFromCookies } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "emersonfelipesp ~ NetDevOps & Network Automation",
@@ -72,13 +74,14 @@ const langBootScript = `
   })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}): React.JSX.Element {
+}): Promise<React.JSX.Element> {
+  const lang = await readLangFromCookies();
   return (
-    <html lang="en" suppressHydrationWarning className="dark" data-scroll-behavior="smooth">
+    <html lang={htmlLangFor(lang)} suppressHydrationWarning className="dark" data-scroll-behavior="smooth">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <script dangerouslySetInnerHTML={{ __html: langBootScript }} />
@@ -107,7 +110,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-bg text-fg antialiased">
         <ThemeProvider>
-          <LanguageProvider>
+          <LanguageProvider initialLang={lang}>
             <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6 sm:px-6 xl:max-w-6xl xl:px-8">
               <TopNav />
               <main className="flex-1">{children}</main>

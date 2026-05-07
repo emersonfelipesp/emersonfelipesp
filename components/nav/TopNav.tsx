@@ -46,7 +46,7 @@ export function TopNav() {
     <nav
       ref={navRef}
       aria-label="Top navigation"
-      className="sticky top-0 z-40 border border-border bg-surface/90 px-3 backdrop-blur"
+      className="sticky top-0 z-40 min-h-[6.25rem] border border-border bg-surface/90 px-3 backdrop-blur sm:min-h-[3.125rem]"
     >
       <ul className="nav-magnetic flex flex-wrap items-center gap-y-2 text-xs sm:hidden">
         <li>

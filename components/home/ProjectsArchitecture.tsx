@@ -20,12 +20,16 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
         <img
           src="/logos/netbox-dark-teal.svg"
           alt="NetBox"
+          width={86}
+          height={24}
           className="block h-6 w-auto dark:hidden"
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logos/netbox-bright-teal.svg"
           alt="NetBox"
+          width={86}
+          height={24}
           className="hidden h-6 w-auto dark:block"
         />
       </>
