@@ -19,7 +19,7 @@ function fmtDateTime(iso: string): string {
 
 export function RoadmapView({ data }: { data: Roadmap }) {
   const { t } = useLanguage();
-  const [view, setView] = useState<View>("diagram");
+  const [view, setView] = useState<View>("timeline");
 
   return (
     <div data-palette="netbox" className="bg-bg text-fg">
@@ -56,7 +56,7 @@ export function RoadmapView({ data }: { data: Roadmap }) {
         aria-label={t.roadmap.viewToggle.aria}
         className="flex border border-t-0 border-border bg-surface-2 px-2 text-xs"
       >
-        {(["diagram", "timeline"] as const).map((v) => {
+        {(["timeline", "diagram"] as const).map((v) => {
           const active = view === v;
           return (
             <button

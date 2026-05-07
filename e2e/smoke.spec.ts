@@ -84,14 +84,14 @@ test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   await expect(diagramTab).toBeVisible();
   await expect(timelineTab).toBeVisible();
 
+  await expect(timelineTab).toHaveAttribute("data-active", "true");
+  await expect(page.getByText(/phase 1/i).first()).toBeVisible();
+
+  await diagramTab.click();
   await expect(diagramTab).toHaveAttribute("data-active", "true");
   await expect(
     page.getByRole("img", {
       name: /netbox-proxbox issue dependency graph/,
     }),
   ).toBeVisible();
-
-  await timelineTab.click();
-  await expect(timelineTab).toHaveAttribute("data-active", "true");
-  await expect(page.getByText(/phase 1/i).first()).toBeVisible();
 });

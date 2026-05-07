@@ -206,7 +206,7 @@ function layoutGraph(
   viewBox: string;
 } {
   const g = new dagre.graphlib.Graph();
-  g.setGraph({ rankdir: "TB", nodesep: 24, ranksep: 56, marginx: 16, marginy: 16 });
+  g.setGraph({ rankdir: "LR", nodesep: 24, ranksep: 56, marginx: 16, marginy: 16 });
   g.setDefaultEdgeLabel(() => ({}));
   const layoutIssues = issues.filter((i) => i.state === "open");
   for (const issue of layoutIssues) {

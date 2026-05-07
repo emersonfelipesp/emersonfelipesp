@@ -76,20 +76,16 @@ function NodeCard({ node }: { node: RoadmapNode }) {
 
 export function RoadmapDiagram({ data }: { data: Roadmap }) {
   const openNodes = data.nodes.filter((n) => n.state === "open");
-  const naturalWidth = parseFloat(data.viewBox.split(/\s+/)[2] ?? "0");
-  const naturalHeight = parseFloat(data.viewBox.split(/\s+/)[3] ?? "0");
 
   return (
     <figure className="border border-border bg-surface">
-      <div className="overflow-x-auto term-scroll">
+      <div className="overflow-y-auto term-scroll">
         <svg
           viewBox={data.viewBox}
-          width={naturalWidth}
-          height={naturalHeight}
           role="img"
           aria-label="netbox-proxbox issue dependency graph"
-          className="block"
-          style={{ minWidth: `${naturalWidth}px` }}
+          className="block w-full h-auto"
+          preserveAspectRatio="xMidYMin meet"
         >
           <defs>
             <marker
