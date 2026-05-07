@@ -19,6 +19,7 @@ demos.
 - `NetboxProxboxContent.tsx`, `ProxboxApiContent.tsx`, `NetboxSdkContent.tsx`, `ProxmoxSdkContent.tsx` - Client wrappers for each showcase page. They read the active language, get localized project content, and receive static `releases` / `repo` props from server shells.
 - `IntegrationsArchitecture.tsx` - Proxbox integration map used by the proxbox-api showcase.
 - `ScreenshotGallery.tsx`, `Screenshot.tsx`, `Lightbox.tsx` - Screenshot grid and modal viewer.
+- `RoadmapDiagramOverlay.tsx` - Fullscreen overlay around the roadmap SVG with mouse-wheel + button zoom and drag-to-pan.
 - `InstallSimulator.tsx`, `DemoCommandRunner.tsx`, `DemoInitRunner.tsx`, `DemoDevicesListRunner.tsx`, `DemoTuiRunner.tsx` - Interactive netbox-sdk demo runners.
 - `sims/` - Fixture-backed CLI/TUI simulation internals.
 

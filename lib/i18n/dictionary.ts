@@ -165,6 +165,12 @@ export type Dictionary = {
       edgesLabel: string;
       arrowsHint: string;
       closedNote: string;
+      expand: string;
+      close: string;
+      zoomIn: string;
+      zoomOut: string;
+      reset: string;
+      overlayAria: string;
     };
     phase: {
       shipped: string;
@@ -435,6 +441,12 @@ const en: Dictionary = {
       arrowsHint: "arrows point from blocker to blocked task",
       closedNote:
         "closed issues appear in the timeline view as the shipped prelude",
+      expand: "expand",
+      close: "close",
+      zoomIn: "zoom in",
+      zoomOut: "zoom out",
+      reset: "reset zoom",
+      overlayAria: "Roadmap diagram fullscreen viewer",
     },
     phase: {
       shipped: "shipped",
@@ -707,6 +719,12 @@ const ptBr: Dictionary = {
       arrowsHint: "as setas apontam do bloqueador para a tarefa bloqueada",
       closedNote:
         "as issues fechadas aparecem na linha do tempo como prelúdio entregue",
+      expand: "expandir",
+      close: "fechar",
+      zoomIn: "aproximar",
+      zoomOut: "afastar",
+      reset: "redefinir zoom",
+      overlayAria: "Visualizador em tela cheia do diagrama do roteiro",
     },
     phase: {
       shipped: "entregue",

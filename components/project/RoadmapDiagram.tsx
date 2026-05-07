@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import type { Roadmap, RoadmapNode } from "@/lib/roadmap";
+import { RoadmapDiagramOverlay } from "./RoadmapDiagramOverlay";
 
 function truncate(value: string, max: number): string {
   if (value.length <= max) return value;
@@ -75,57 +77,89 @@ function NodeCard({ node }: { node: RoadmapNode }) {
   );
 }
 
+export function RoadmapSvg({
+  data,
+  className,
+}: {
+  data: Roadmap;
+  className?: string;
+}) {
+  const openNodes = data.nodes.filter((n) => n.state === "open");
+  return (
+    <svg
+      viewBox={data.viewBox}
+      role="img"
+      aria-label="netbox-proxbox issue dependency graph"
+      className={className ?? "block w-full h-auto"}
+      preserveAspectRatio="xMidYMin meet"
+    >
+      <defs>
+        <marker
+          id="rm-arrow"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path d="M 0 0 L 10 5 L 0 10 z" className="fill-border" />
+        </marker>
+      </defs>
+      <g aria-hidden="true">
+        {data.edges.map((e) => (
+          <path
+            key={`${e.from}->${e.to}`}
+            d={e.d}
+            fill="none"
+            className="stroke-border"
+            strokeWidth={1.25}
+            markerEnd="url(#rm-arrow)"
+          />
+        ))}
+      </g>
+      {openNodes.map((n) => (
+        <NodeCard key={n.number} node={n} />
+      ))}
+    </svg>
+  );
+}
+
 export function RoadmapDiagram({ data }: { data: Roadmap }) {
   const { t } = useLanguage();
+  const [expanded, setExpanded] = useState(false);
   const openNodes = data.nodes.filter((n) => n.state === "open");
 
   return (
-    <figure className="border border-border bg-surface">
-      <div className="overflow-y-auto term-scroll">
-        <svg
-          viewBox={data.viewBox}
-          role="img"
-          aria-label="netbox-proxbox issue dependency graph"
-          className="block w-full h-auto"
-          preserveAspectRatio="xMidYMin meet"
-        >
-          <defs>
-            <marker
-              id="rm-arrow"
-              viewBox="0 0 10 10"
-              refX="9"
-              refY="5"
-              markerWidth="6"
-              markerHeight="6"
-              orient="auto-start-reverse"
-            >
-              <path d="M 0 0 L 10 5 L 0 10 z" className="fill-border" />
-            </marker>
-          </defs>
-          <g aria-hidden="true">
-            {data.edges.map((e) => (
-              <path
-                key={`${e.from}->${e.to}`}
-                d={e.d}
-                fill="none"
-                className="stroke-border"
-                strokeWidth={1.25}
-                markerEnd="url(#rm-arrow)"
-              />
-            ))}
-          </g>
-          {openNodes.map((n) => (
-            <NodeCard key={n.number} node={n} />
-          ))}
-        </svg>
-      </div>
-      <figcaption className="border-t border-border bg-surface-2 px-3 py-2 text-[11px] text-muted">
-        <span className="text-accent">{openNodes.length}</span>{" "}
-        {t.roadmap.diagram.openIssuesLabel} ·{" "}
-        <span className="text-accent">{data.edges.length}</span>{" "}
-        {t.roadmap.diagram.edgesLabel} · {t.roadmap.diagram.arrowsHint}.{" "}
-        {t.roadmap.diagram.closedNote}.
-      </figcaption>
-    </figure>
+    <>
+      <figure className="border border-border bg-surface">
+        <div className="overflow-y-auto term-scroll">
+          <RoadmapSvg data={data} />
+        </div>
+        <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-border bg-surface-2 px-3 py-2 text-[11px] text-muted">
+          <span>
+            <span className="text-accent">{openNodes.length}</span>{" "}
+            {t.roadmap.diagram.openIssuesLabel} ·{" "}
+            <span className="text-accent">{data.edges.length}</span>{" "}
+            {t.roadmap.diagram.edgesLabel} · {t.roadmap.diagram.arrowsHint}.{" "}
+            {t.roadmap.diagram.closedNote}.
+          </span>
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            aria-label={t.roadmap.diagram.expand}
+            className="border border-border bg-surface/80 px-2 py-1 text-[11px] text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            [ {t.roadmap.diagram.expand} ]
+          </button>
+        </figcaption>
+      </figure>
+      {expanded ? (
+        <RoadmapDiagramOverlay
+          data={data}
+          onClose={() => setExpanded(false)}
+        />
+      ) : null}
+    </>
   );
 }
