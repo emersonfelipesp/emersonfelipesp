@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { languageTrigger, languageTriggerPt, themeTrigger } from "./_nav";
 
 test("page loads in english by default", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.getByRole("button", { name: /--lang=/ })).toContainText("en");
+  await expect(languageTrigger(page)).toContainText("en");
 });
 
 test("language toggle switches to pt-br and renders accents", async ({
@@ -11,8 +12,7 @@ test("language toggle switches to pt-br and renders accents", async ({
 }) => {
   await page.goto("/");
 
-  const toggleBtn = page.getByRole("button", { name: /--lang=/ });
-  await toggleBtn.click();
+  await languageTrigger(page).click();
 
   await page.getByRole("option", { name: "pt-br" }).click();
 
@@ -23,23 +23,21 @@ test("language toggle switches to pt-br and renders accents", async ({
 
 test("language selection persists across reloads", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /--lang=/ }).click();
+  await languageTrigger(page).click();
   await page.getByRole("option", { name: "pt-br" }).click();
 
   await page.reload();
   await page.evaluate(() => window.scrollTo(0, 0));
 
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
-  await expect(
-    page.getByRole("button", { name: /(--idioma=|Idioma:)/ }),
-  ).toContainText("pt-br");
+  await expect(languageTriggerPt(page)).toContainText("pt-br");
 });
 
 test("project pages render in pt-br when language is pt-br", async ({
   page,
 }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /--lang=/ }).click();
+  await languageTrigger(page).click();
   await page.getByRole("option", { name: "pt-br" }).click();
 
   await page.goto("/netbox-proxbox");
@@ -58,10 +56,10 @@ test("project pages render in pt-br when language is pt-br", async ({
 
 test("theme and language are independent", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /--lang=/ }).click();
+  await languageTrigger(page).click();
   await page.getByRole("option", { name: "pt-br" }).click();
 
-  await page.getByRole("button", { name: /--theme=/ }).click();
+  await themeTrigger(page).click();
   await page.getByRole("option", { name: "default-light" }).click();
 
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { isMobile, languageTrigger, themeTrigger } from "./_nav";
 
 const RESPONSIVE_ROUTES = [
   "/",
@@ -41,12 +42,12 @@ test.describe("responsive layout", () => {
     await page.goto("/");
 
     const html = page.locator("html");
-    await page.getByRole("button", { name: /--lang=/ }).click();
+    await languageTrigger(page).click();
     await expect(page.getByRole("listbox", { name: "Language" })).toBeVisible();
     await page.getByRole("option", { name: "pt-br" }).click();
     await expect(html).toHaveAttribute("lang", "pt-BR");
 
-    await page.getByRole("button", { name: /--theme=/ }).click();
+    await themeTrigger(page).click();
     await expect(page.getByRole("listbox", { name: "Theme" })).toBeVisible();
     await page.getByRole("option", { name: "default-light" }).click();
     await expect(html).not.toHaveClass(/dark/);
@@ -72,6 +73,36 @@ test.describe("responsive layout", () => {
     ).toBeVisible();
     await page.getByRole("option", { name: /all releases/i }).click();
     await expect(page).toHaveURL("/netbox-proxbox/releases");
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("mobile path picker switches routes", async ({ page }) => {
+    test.skip(!isMobile(), "mobile-only layout");
+    await page.goto("/");
+
+    const pathTrigger = page.getByRole("button", { name: /^Route:/ });
+    await expect(pathTrigger).toBeVisible();
+    await pathTrigger.click();
+    await expect(page.getByRole("listbox", { name: "Route" })).toBeVisible();
+    await page
+      .getByRole("option", { name: /netbox-proxbox/ })
+      .first()
+      .click();
+    await expect(page).toHaveURL("/netbox-proxbox");
+    await expect(
+      page.getByRole("button", { name: /^Route: ~\/netbox-proxbox/ }),
+    ).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("mobile section picker scrolls to sections", async ({ page }) => {
+    test.skip(!isMobile(), "mobile-only layout");
+    await page.goto("/netbox-proxbox");
+
+    const sectionTrigger = page.getByRole("button", { name: /^Section:/ });
+    await expect(sectionTrigger).toBeVisible();
+    await sectionTrigger.click();
+    await expect(page.getByRole("listbox", { name: "Section" })).toBeVisible();
     await expectNoHorizontalOverflow(page);
   });
 });

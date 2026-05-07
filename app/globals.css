@@ -266,6 +266,18 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 .term-scroll {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;

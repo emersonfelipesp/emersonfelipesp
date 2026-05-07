@@ -6,6 +6,7 @@ import {
   type SectionAction,
   type SectionStars,
 } from "./NavActions";
+import { SectionPicker } from "./SectionPicker";
 import { useScrollCompact } from "./use-scroll-compact";
 import type { GitHubReleaseSummary } from "@/lib/github";
 
@@ -55,13 +56,17 @@ export function SectionNav({
     return () => observer.disconnect();
   }, [sections]);
 
-  function handleClick(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
-    e.preventDefault();
+  function scrollToSection(id: string) {
     const el = document.getElementById(id);
     if (!el) return;
     setActive(id);
     history.replaceState(null, "", `#${id}`);
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+    e.preventDefault();
+    scrollToSection(id);
   }
 
   const hasActions = Boolean((actions && actions.length > 0) || releases || stars);
@@ -71,7 +76,29 @@ export function SectionNav({
       aria-label="Section navigation"
       className="sticky top-[var(--topnav-h,3.125rem)] z-30 border border-t-0 border-border bg-surface/90 px-3 backdrop-blur"
     >
-      <ul className="nav-magnetic flex flex-wrap items-center gap-y-2 text-xs">
+      <ul className="nav-magnetic flex flex-wrap items-center gap-y-2 text-xs sm:hidden">
+        <li>
+          <SectionPicker
+            sections={sections}
+            activeId={active}
+            onPick={scrollToSection}
+          />
+        </li>
+        {hasActions ? (
+          <li className="ml-auto flex items-center gap-1">
+            <NavActions
+              actions={actions}
+              stars={stars}
+              releases={releases}
+              releasesLabel={releasesLabel}
+              releasesBasePath={releasesBasePath}
+              releasesAllLabel={releasesAllLabel}
+              compact
+            />
+          </li>
+        ) : null}
+      </ul>
+      <ul className="nav-magnetic hidden flex-wrap items-center gap-y-2 text-xs sm:flex">
         {sections.map((s) => {
           const isActive = s.id === active;
           return (

@@ -7,26 +7,21 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { ProjectViewToggle } from "@/components/nav/ProjectViewToggle";
+import { PathPicker } from "@/components/nav/PathPicker";
+import { useProjectLabels } from "@/components/nav/use-project-labels";
 import { useScrollCompact } from "@/components/nav/use-scroll-compact";
 import { getProjectFromPath, PROJECT_LIST } from "@/lib/project-registry";
-import type { ProjectSlug } from "@/lib/project-registry";
 
 export function TopNav() {
   const pathname = usePathname();
   const { t } = useLanguage();
+  const projectLabels = useProjectLabels();
   const projectRoute = getProjectFromPath(pathname);
   const showViewToggle =
     projectRoute !== null &&
     (projectRoute.view === "showcase" || projectRoute.view === "developer");
   const compact = useScrollCompact();
   const navRef = useRef<HTMLElement>(null);
-
-  const projectLabels: Record<ProjectSlug, string> = {
-    "netbox-proxbox": t.nav.netboxProxbox,
-    "proxbox-api": t.nav.proxboxApi,
-    "netbox-sdk": t.nav.netboxSdk,
-    "proxmox-sdk": t.nav.proxmoxSdk,
-  };
 
   const links = [
     { href: "/", label: t.nav.home },
@@ -53,7 +48,27 @@ export function TopNav() {
       aria-label="Top navigation"
       className="sticky top-0 z-40 border border-border bg-surface/90 px-3 backdrop-blur"
     >
-      <ul className="nav-magnetic flex flex-wrap gap-y-2 text-xs">
+      <ul className="nav-magnetic flex flex-wrap items-center gap-y-2 text-xs sm:hidden">
+        <li>
+          <PathPicker pathname={pathname} />
+        </li>
+        {showViewToggle ? (
+          <li className="ml-auto">
+            <ProjectViewToggle
+              slug={projectRoute.slug}
+              current={projectRoute.view as "showcase" | "developer"}
+              compact
+            />
+          </li>
+        ) : null}
+        <li className={showViewToggle ? "" : "ml-auto"}>
+          <LanguageToggle compact />
+        </li>
+        <li>
+          <ThemeToggle compact />
+        </li>
+      </ul>
+      <ul className="nav-magnetic hidden flex-wrap gap-y-2 text-xs sm:flex">
         {links.map((l) => {
           const isActive = pathname === l.href;
           return (

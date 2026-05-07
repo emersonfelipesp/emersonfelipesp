@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { themeTrigger } from "./_nav";
 
 test("page loads with dark theme by default", async ({ page }) => {
   await page.goto("/");
@@ -11,11 +12,8 @@ test("theme toggle switches between light and dark", async ({ page }) => {
   const html = page.locator("html");
   await expect(html).toHaveClass(/dark/);
 
-  // Open the theme dropdown (full nav, not compact — page starts at top)
-  const toggleBtn = page.getByRole("button", { name: /--theme=/ });
-  await toggleBtn.click();
+  await themeTrigger(page).click();
 
-  // Select default-light from the listbox
   const lightOption = page.getByRole("option", { name: "default-light" });
   await lightOption.click();
 
@@ -25,8 +23,7 @@ test("theme toggle switches between light and dark", async ({ page }) => {
 test("theme selection persists across page reloads", async ({ page }) => {
   await page.goto("/");
 
-  const toggleBtn = page.getByRole("button", { name: /--theme=/ });
-  await toggleBtn.click();
+  await themeTrigger(page).click();
   await page.getByRole("option", { name: "default-light" }).click();
 
   await page.reload();

@@ -11,6 +11,10 @@ export type Dictionary = {
     languageAria: (lang: string) => string;
     viewLabel: string;
     viewAria: (view: string) => string;
+    routePickerLabel: string;
+    routePickerAria: (current: string) => string;
+    sectionPickerLabel: string;
+    sectionPickerAria: (current: string) => string;
   };
   footer: {
     tagline: string;
@@ -166,6 +170,10 @@ export type Dictionary = {
         vendors: string;
         domains: string;
       };
+      moreShort: string;
+      lessShort: string;
+      expandAria: (label: string, count: number) => string;
+      collapseAria: (label: string, count: number) => string;
     };
     projects: {
       title: string;
@@ -217,6 +225,10 @@ const en: Dictionary = {
     languageAria: (lang) => `Language: ${lang}`,
     viewLabel: "--view=",
     viewAria: (view) => `Project view: ${view}`,
+    routePickerLabel: "Route",
+    routePickerAria: (current) => `Route: ${current}`,
+    sectionPickerLabel: "Section",
+    sectionPickerAria: (current) => `Section: ${current}`,
   },
   footer: {
     tagline:
@@ -387,6 +399,10 @@ const en: Dictionary = {
         vendors: "vendors",
         domains: "domains",
       },
+      moreShort: "more",
+      lessShort: "less",
+      expandAria: (label, count) => `Show ${count} more in ${label}`,
+      collapseAria: (label, count) => `Hide ${count} more in ${label}`,
     },
     projects: {
       title: "featured projects",
@@ -438,6 +454,10 @@ const ptBr: Dictionary = {
     languageAria: (lang) => `Idioma: ${lang}`,
     viewLabel: "--visao=",
     viewAria: (view) => `Visão do projeto: ${view}`,
+    routePickerLabel: "Rota",
+    routePickerAria: (current) => `Rota: ${current}`,
+    sectionPickerLabel: "Seção",
+    sectionPickerAria: (current) => `Seção: ${current}`,
   },
   footer: {
     tagline:
@@ -610,6 +630,10 @@ const ptBr: Dictionary = {
         vendors: "fabricantes",
         domains: "domínios",
       },
+      moreShort: "mais",
+      lessShort: "menos",
+      expandAria: (label, count) => `Mostrar mais ${count} em ${label}`,
+      collapseAria: (label, count) => `Ocultar mais ${count} em ${label}`,
     },
     projects: {
       title: "projetos em destaque",

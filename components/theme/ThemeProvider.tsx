@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import {
   DEFAULT_THEME,
   THEME_INDEX,
@@ -42,9 +43,36 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []); // Sync DOM on mount; subsequent changes go through setTheme
 
   function setTheme(next: Theme) {
-    applyTheme(next);
     localStorage.setItem("theme", next);
-    setThemeState(next);
+
+    const apply = () => {
+      applyTheme(next);
+      flushSync(() => setThemeState(next));
+    };
+
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const startViewTransition = document.startViewTransition?.bind(document);
+
+    if (reduceMotion || !startViewTransition) {
+      apply();
+      return;
+    }
+
+    const transition = startViewTransition(apply);
+    transition.ready
+      .then(() => {
+        document.documentElement.animate(
+          { clipPath: ["inset(0 0 100% 0)", "inset(0)"] },
+          {
+            pseudoElement: "::view-transition-new(root)",
+            duration: 600,
+            easing: "ease-in-out",
+          },
+        );
+      })
+      .catch(() => {});
   }
 
   return (

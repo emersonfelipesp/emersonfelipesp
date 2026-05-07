@@ -1,6 +1,14 @@
 "use client";
 
-import type { ComponentType, SVGProps } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ComponentType,
+  type ReactNode,
+  type SVGProps,
+} from "react";
 import {
   SiBootstrap,
   SiCisco,
@@ -25,8 +33,11 @@ import {
   SiSqlite,
   SiTypescript,
 } from "react-icons/si";
-import { skills } from "@/content/profile";
+import { skills, type Skill } from "@/content/profile";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { title?: string }>;
 
@@ -83,8 +94,143 @@ const SKILL_LINKS: Record<string, string> = {
   "A10 Networks": "https://www.a10networks.com",
 };
 
-export function SkillsBlock() {
+function SkillItemBody({ item }: { item: string }): ReactNode {
+  const Icon = SKILL_ICONS[item];
+  return (
+    <>
+      {Icon && <Icon className="h-4 w-4 shrink-0" aria-hidden />}
+      <span>{item}</span>
+    </>
+  );
+}
+
+function SkillItemLink({
+  item,
+  className,
+}: {
+  item: string;
+  className: string;
+}) {
+  const href = SKILL_LINKS[item];
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={item}
+        className={className}
+      >
+        <SkillItemBody item={item} />
+      </a>
+    );
+  }
+  return (
+    <span className={className}>
+      <SkillItemBody item={item} />
+    </span>
+  );
+}
+
+function SkillRow({ skill, label }: { skill: Skill; label: string }) {
   const { t } = useLanguage();
+  const [expanded, setExpanded] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(2);
+  const inlineRef = useRef<HTMLSpanElement>(null);
+
+  useIsomorphicLayoutEffect(() => {
+    if (expanded) return;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(min-width: 640px)").matches) return;
+    const el = inlineRef.current;
+    if (!el) return;
+    const measure = () => {
+      const lh = parseFloat(getComputedStyle(el).lineHeight);
+      if (!Number.isFinite(lh) || lh <= 0) return;
+      const lines = Math.round(el.offsetHeight / lh);
+      if (lines > 1) {
+        setVisibleCount((c) => Math.max(0, c - 1));
+      }
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [expanded]);
+
+  const hidden = Math.max(skill.items.length - visibleCount, 0);
+  const subListId = `skills-${skill.group}-more`;
+
+  return (
+    <li className="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <span className="text-accent-2">[{label}]</span>
+      <span className="text-muted">=</span>
+      <span
+        ref={inlineRef}
+        className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-fg/90"
+      >
+        {skill.items.map((item, idx) => {
+          const hideOnMobile = idx >= visibleCount || expanded;
+          const wrapperClass = hideOnMobile
+            ? "hidden sm:inline-flex items-center"
+            : "inline-flex items-center";
+          const hasComma = idx < skill.items.length - 1;
+          const commaHide = idx >= visibleCount - 1 || expanded;
+          const commaClass = commaHide
+            ? "ml-1 text-muted hidden sm:inline"
+            : "ml-1 text-muted";
+          return (
+            <span key={item} className={wrapperClass}>
+              <SkillItemLink
+                item={item}
+                className="inline-flex items-center gap-1.5 hover:text-accent"
+              />
+              {hasComma && <span className={commaClass}>,</span>}
+            </span>
+          );
+        })}
+        {hidden > 0 && (
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            aria-controls={subListId}
+            aria-label={
+              expanded
+                ? t.home.skills.collapseAria(label, hidden)
+                : t.home.skills.expandAria(label, hidden)
+            }
+            className="inline-flex items-center text-muted hover:text-accent sm:hidden"
+          >
+            {expanded
+              ? `[− ${t.home.skills.lessShort} ▴]`
+              : `[+${hidden} ${t.home.skills.moreShort} ▾]`}
+          </button>
+        )}
+      </span>
+      {expanded && (
+        <ul
+          id={subListId}
+          className="mt-1 w-full space-y-1 pl-4 text-fg/90 sm:hidden"
+          style={{ animation: "slide-in-down 150ms ease-out" }}
+        >
+          {skill.items.map((item) => (
+            <li key={item} className="flex items-center gap-2">
+              <span className="text-muted">→</span>
+              <SkillItemLink
+                item={item}
+                className="inline-flex items-center gap-1.5 hover:text-accent"
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+}
+
+export function SkillsBlock() {
+  const { lang, t } = useLanguage();
   return (
     <div className="border border-border bg-surface p-5">
       <p className="mb-3 text-xs text-muted">$ cat ~/.config/skills.toml</p>
@@ -93,46 +239,7 @@ export function SkillsBlock() {
           const label =
             t.home.skills.groups[s.group as keyof typeof t.home.skills.groups] ??
             s.group;
-          return (
-            <li key={s.group} className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="text-accent-2">[{label}]</span>
-              <span className="text-muted">=</span>
-              <span className="text-muted">[</span>
-              <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-fg/90">
-                {s.items.map((item, idx) => {
-                  const Icon = SKILL_ICONS[item];
-                  const href = SKILL_LINKS[item];
-                  const inner = (
-                    <>
-                      {Icon && <Icon className="h-4 w-4 shrink-0" aria-hidden />}
-                      <span>{item}</span>
-                    </>
-                  );
-                  return (
-                    <span key={item} className="inline-flex items-center">
-                      {href ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={item}
-                          className="inline-flex items-center gap-1.5 hover:text-accent"
-                        >
-                          {inner}
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-1.5">{inner}</span>
-                      )}
-                      {idx < s.items.length - 1 && (
-                        <span className="ml-1 text-muted">,</span>
-                      )}
-                    </span>
-                  );
-                })}
-              </span>
-              <span className="text-muted">]</span>
-            </li>
-          );
+          return <SkillRow key={`${s.group}-${lang}`} skill={s} label={label} />;
         })}
       </ul>
     </div>
