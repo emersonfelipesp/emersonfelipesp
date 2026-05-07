@@ -37,6 +37,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm exec tsx scripts/sync-github-data.ts
 
+      - name: Run roadmap sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm exec tsx scripts/sync-netbox-proxbox-roadmap.ts
+
       - name: Commit if changed
         run: |
           if [[ -n "$(git status --porcelain public/github-data)" ]]; then

@@ -19,7 +19,9 @@ export function TopNav() {
   const projectRoute = getProjectFromPath(pathname);
   const showViewToggle =
     projectRoute !== null &&
-    (projectRoute.view === "showcase" || projectRoute.view === "developer");
+    (projectRoute.view === "showcase" ||
+      projectRoute.view === "developer" ||
+      projectRoute.view === "roadmap");
   const compact = useScrollCompact();
   const navRef = useRef<HTMLElement>(null);
 
@@ -56,7 +58,9 @@ export function TopNav() {
           <li className="ml-auto">
             <ProjectViewToggle
               slug={projectRoute.slug}
-              current={projectRoute.view as "showcase" | "developer"}
+              current={
+                projectRoute.view as "showcase" | "developer" | "roadmap"
+              }
               compact
             />
           </li>
@@ -91,7 +95,9 @@ export function TopNav() {
           <li className="ml-auto">
             <ProjectViewToggle
               slug={projectRoute.slug}
-              current={projectRoute.view as "showcase" | "developer"}
+              current={
+                projectRoute.view as "showcase" | "developer" | "roadmap"
+              }
               compact={compact}
             />
           </li>

@@ -12,6 +12,7 @@
     "test:e2e": "playwright test",
     "fixtures:sync": "tsx scripts/sync-netbox-sdk-fixtures.ts",
     "github:sync": "tsx scripts/sync-github-data.ts",
+    "github:roadmap": "tsx scripts/sync-netbox-proxbox-roadmap.ts",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio"
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@dagrejs/dagre": "^1.1.5",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^22.0.0",

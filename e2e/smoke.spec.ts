@@ -65,3 +65,33 @@ test("/proxmox-sdk/developer loads", async ({ page }) => {
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
+
+test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
+  page,
+}) => {
+  await page.goto("/netbox-proxbox/roadmap");
+  await expect(page).toHaveURL("/netbox-proxbox/roadmap");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Top navigation" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: /Project view:/ }),
+  ).toBeVisible();
+
+  const diagramTab = page.locator('[role="tab"][data-view="diagram"]');
+  const timelineTab = page.locator('[role="tab"][data-view="timeline"]');
+  await expect(diagramTab).toBeVisible();
+  await expect(timelineTab).toBeVisible();
+
+  await expect(diagramTab).toHaveAttribute("data-active", "true");
+  await expect(
+    page.getByRole("img", {
+      name: /netbox-proxbox issue dependency graph/,
+    }),
+  ).toBeVisible();
+
+  await timelineTab.click();
+  await expect(timelineTab).toHaveAttribute("data-active", "true");
+  await expect(page.getByText(/phase 1/i).first()).toBeVisible();
+});

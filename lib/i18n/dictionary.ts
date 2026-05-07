@@ -116,6 +116,7 @@ export type Dictionary = {
       tabs: {
         showcase: string;
         developer: string;
+        roadmap: string;
       };
       integrations: {
         target: string;
@@ -142,6 +143,33 @@ export type Dictionary = {
         ci: string;
       };
     };
+  };
+  roadmap: {
+    intro: string;
+    empty: string;
+    synced: string;
+    legend: {
+      open: string;
+      closed: string;
+      edges: string;
+    };
+    view: {
+      diagram: string;
+      timeline: string;
+    };
+    viewToggle: {
+      aria: string;
+    };
+    phase: {
+      shipped: string;
+      label: string;
+      roots: string;
+    };
+    timeline: {
+      expandShipped: string;
+      collapseShipped: string;
+    };
+    milestoneDue: string;
   };
   home: {
     sections: {
@@ -345,6 +373,7 @@ const en: Dictionary = {
       tabs: {
         showcase: "showcase",
         developer: "developer",
+        roadmap: "roadmap",
       },
       integrations: {
         target: "target",
@@ -371,6 +400,35 @@ const en: Dictionary = {
         ci: "ci workflow",
       },
     },
+  },
+  roadmap: {
+    intro:
+      "Top-down dependency graph and phased timeline of every netbox-proxbox issue, derived from GitHub Issue Dependencies. Pre-built by CI; click any node to open the issue on GitHub.",
+    empty:
+      "no roadmap snapshot committed yet — run `pnpm github:roadmap` or wait for the next sync.",
+    synced: "synced {when}",
+    legend: {
+      open: "open",
+      closed: "closed",
+      edges: "dependency edges",
+    },
+    view: {
+      diagram: "diagram",
+      timeline: "timeline",
+    },
+    viewToggle: {
+      aria: "Roadmap view",
+    },
+    phase: {
+      shipped: "shipped",
+      label: "phase {n}",
+      roots: "start anywhere — no blockers",
+    },
+    timeline: {
+      expandShipped: "{n} more shipped",
+      collapseShipped: "collapse shipped",
+    },
+    milestoneDue: "due {date}",
   },
   home: {
     sections: {
@@ -576,6 +634,7 @@ const ptBr: Dictionary = {
       tabs: {
         showcase: "vitrine",
         developer: "desenvolvedor",
+        roadmap: "roteiro",
       },
       integrations: {
         target: "alvo",
@@ -602,6 +661,35 @@ const ptBr: Dictionary = {
         ci: "workflow de CI",
       },
     },
+  },
+  roadmap: {
+    intro:
+      "Grafo de dependências top-down e linha do tempo em fases de cada issue do netbox-proxbox, gerado a partir do GitHub Issue Dependencies. Pré-construído via CI; clique em qualquer nó para abrir a issue no GitHub.",
+    empty:
+      "nenhum snapshot de roteiro ainda — rode `pnpm github:roadmap` ou aguarde a próxima sincronização.",
+    synced: "sincronizado em {when}",
+    legend: {
+      open: "abertas",
+      closed: "fechadas",
+      edges: "dependências",
+    },
+    view: {
+      diagram: "diagrama",
+      timeline: "linha do tempo",
+    },
+    viewToggle: {
+      aria: "Visualização do roteiro",
+    },
+    phase: {
+      shipped: "entregue",
+      label: "fase {n}",
+      roots: "comece por qualquer um — sem bloqueios",
+    },
+    timeline: {
+      expandShipped: "+{n} já entregues",
+      collapseShipped: "recolher entregues",
+    },
+    milestoneDue: "previsto para {date}",
   },
   home: {
     sections: {

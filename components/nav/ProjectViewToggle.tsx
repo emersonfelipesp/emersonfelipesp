@@ -3,11 +3,17 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import type { ProjectSlug } from "@/lib/project-registry";
+import { roadmapPath, type ProjectSlug } from "@/lib/project-registry";
 
-type View = "showcase" | "developer";
+type View = "showcase" | "developer" | "roadmap";
 
-const VIEWS: readonly View[] = ["showcase", "developer"] as const;
+const BASE_VIEWS: readonly View[] = ["showcase", "developer"] as const;
+
+function viewsForSlug(slug: ProjectSlug): readonly View[] {
+  return roadmapPath(slug)
+    ? ([...BASE_VIEWS, "roadmap"] as const)
+    : BASE_VIEWS;
+}
 
 type Props = {
   slug: ProjectSlug;
@@ -23,9 +29,15 @@ export function ProjectViewToggle({ slug, current, compact = false }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
+  const views = viewsForSlug(slug);
   const labels = t.project.developer.tabs;
-  const optionLabel = (v: View) => (v === "showcase" ? labels.showcase : labels.developer);
-  const currentIndex = VIEWS.indexOf(current);
+  const optionLabel = (v: View) =>
+    v === "showcase"
+      ? labels.showcase
+      : v === "developer"
+        ? labels.developer
+        : labels.roadmap;
+  const currentIndex = views.indexOf(current);
 
   useEffect(() => {
     if (!open) return;
@@ -50,7 +62,12 @@ export function ProjectViewToggle({ slug, current, compact = false }: Props) {
     setOpen(false);
     triggerRef.current?.focus();
     if (next === current) return;
-    const href = next === "developer" ? `/${slug}/developer` : `/${slug}`;
+    const href =
+      next === "developer"
+        ? `/${slug}/developer`
+        : next === "roadmap"
+          ? `/${slug}/roadmap`
+          : `/${slug}`;
     router.push(href);
   }
 
@@ -68,19 +85,19 @@ export function ProjectViewToggle({ slug, current, compact = false }: Props) {
       triggerRef.current?.focus();
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      setHighlight((i) => (i + 1) % VIEWS.length);
+      setHighlight((i) => (i + 1) % views.length);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setHighlight((i) => (i - 1 + VIEWS.length) % VIEWS.length);
+      setHighlight((i) => (i - 1 + views.length) % views.length);
     } else if (e.key === "Home") {
       e.preventDefault();
       setHighlight(0);
     } else if (e.key === "End") {
       e.preventDefault();
-      setHighlight(VIEWS.length - 1);
+      setHighlight(views.length - 1);
     } else if (e.key === "Enter") {
       e.preventDefault();
-      pick(VIEWS[highlight]);
+      pick(views[highlight]);
     }
   }
 
@@ -130,7 +147,7 @@ export function ProjectViewToggle({ slug, current, compact = false }: Props) {
           style={{ animation: "slide-in-down 150ms ease-out" }}
           className="absolute right-0 z-50 mt-1 min-w-[10rem] border border-border bg-surface py-1 text-xs shadow-lg"
         >
-          {VIEWS.map((view, i) => {
+          {views.map((view, i) => {
             const isActive = view === current;
             const isHighlighted = i === highlight;
             return (

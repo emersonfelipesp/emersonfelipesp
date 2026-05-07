@@ -7,7 +7,11 @@ export type ProjectSlug =
   | "netbox-sdk"
   | "proxmox-sdk";
 
-export type ProjectViewKind = "showcase" | "developer" | "releases";
+export type ProjectViewKind =
+  | "showcase"
+  | "developer"
+  | "releases"
+  | "roadmap";
 
 export type ProjectRegistryEntry = {
   slug: ProjectSlug;
@@ -132,11 +136,16 @@ export function getProjectFromPath(pathname: string): ProjectRouteInfo | null {
   let view: ProjectViewKind = "showcase";
   if (second === "developer") view = "developer";
   else if (second === "releases") view = "releases";
+  else if (second === "roadmap") view = "roadmap";
   return { slug, view };
 }
 
 export function releaseListPath(slug: ProjectSlug | string): string {
   return `/${slug}/releases`;
+}
+
+export function roadmapPath(slug: ProjectSlug | string): string | null {
+  return slug === "netbox-proxbox" ? `/${slug}/roadmap` : null;
 }
 
 export function releaseDetailPath(
