@@ -170,6 +170,10 @@ export type Dictionary = {
       collapseShipped: string;
     };
     milestoneDue: string;
+    milestoneToggle: {
+      showPast: string;
+      hidePast: string;
+    };
   };
   home: {
     sections: {
@@ -429,6 +433,10 @@ const en: Dictionary = {
       collapseShipped: "collapse shipped",
     },
     milestoneDue: "due {date}",
+    milestoneToggle: {
+      showPast: "+ {n} past",
+      hidePast: "hide past",
+    },
   },
   home: {
     sections: {
@@ -690,6 +698,10 @@ const ptBr: Dictionary = {
       collapseShipped: "recolher entregues",
     },
     milestoneDue: "previsto para {date}",
+    milestoneToggle: {
+      showPast: "+{n} entregues",
+      hidePast: "ocultar entregues",
+    },
   },
   home: {
     sections: {
