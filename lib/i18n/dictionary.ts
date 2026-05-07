@@ -160,6 +160,12 @@ export type Dictionary = {
     viewToggle: {
       aria: string;
     };
+    diagram: {
+      openIssuesLabel: string;
+      edgesLabel: string;
+      arrowsHint: string;
+      closedNote: string;
+    };
     phase: {
       shipped: string;
       label: string;
@@ -422,6 +428,13 @@ const en: Dictionary = {
     },
     viewToggle: {
       aria: "Roadmap view",
+    },
+    diagram: {
+      openIssuesLabel: "open issues",
+      edgesLabel: "dependency edges",
+      arrowsHint: "arrows point from blocker to blocked task",
+      closedNote:
+        "closed issues appear in the timeline view as the shipped prelude",
     },
     phase: {
       shipped: "shipped",
@@ -687,6 +700,13 @@ const ptBr: Dictionary = {
     },
     viewToggle: {
       aria: "Visualização do roteiro",
+    },
+    diagram: {
+      openIssuesLabel: "issues abertas",
+      edgesLabel: "dependências",
+      arrowsHint: "as setas apontam do bloqueador para a tarefa bloqueada",
+      closedNote:
+        "as issues fechadas aparecem na linha do tempo como prelúdio entregue",
     },
     phase: {
       shipped: "entregue",

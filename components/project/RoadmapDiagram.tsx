@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/components/i18n/LanguageProvider";
 import type { Roadmap, RoadmapNode } from "@/lib/roadmap";
 
 function truncate(value: string, max: number): string {
@@ -75,6 +76,7 @@ function NodeCard({ node }: { node: RoadmapNode }) {
 }
 
 export function RoadmapDiagram({ data }: { data: Roadmap }) {
+  const { t } = useLanguage();
   const openNodes = data.nodes.filter((n) => n.state === "open");
 
   return (
@@ -118,10 +120,11 @@ export function RoadmapDiagram({ data }: { data: Roadmap }) {
         </svg>
       </div>
       <figcaption className="border-t border-border bg-surface-2 px-3 py-2 text-[11px] text-muted">
-        <span className="text-accent">{openNodes.length}</span> open issues ·{" "}
-        <span className="text-accent">{data.edges.length}</span> dependency
-        edges · arrows point from blocker to blocked task. Closed issues
-        appear in the timeline view as the shipped prelude.
+        <span className="text-accent">{openNodes.length}</span>{" "}
+        {t.roadmap.diagram.openIssuesLabel} ·{" "}
+        <span className="text-accent">{data.edges.length}</span>{" "}
+        {t.roadmap.diagram.edgesLabel} · {t.roadmap.diagram.arrowsHint}.{" "}
+        {t.roadmap.diagram.closedNote}.
       </figcaption>
     </figure>
   );

@@ -85,7 +85,9 @@ test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   await expect(timelineTab).toBeVisible();
 
   await expect(timelineTab).toHaveAttribute("data-active", "true");
-  await expect(page.getByText(/phase 1/i).first()).toBeVisible();
+  await expect(
+    page.locator("h3").filter({ hasText: /\bphase 1\b/i }).first(),
+  ).toBeVisible();
 
   await diagramTab.click();
   await expect(diagramTab).toHaveAttribute("data-active", "true");
