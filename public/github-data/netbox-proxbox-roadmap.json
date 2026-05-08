@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-08T00:42:01.408Z",
+  "generated_at": "2026-05-08T06:40:31.642Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 39,
+    "open": 40,
     "closed": 191,
     "edges": 85
   },
   "viewBox": "0 0 3232 2440",
   "nodes": [
+    {
+      "number": 391,
+      "title": "Proxbox -> Virtual Machines & LXC Containers are not able to open in netbox 4.5.9",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/391",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1531,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 390,
       "title": "Netbox/Proxbox does not respect Tenant/Site definition",
@@ -6339,7 +6353,8 @@
         375,
         376,
         378,
-        390
+        390,
+        391
       ]
     },
     {
