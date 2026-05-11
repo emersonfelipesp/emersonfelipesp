@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-11T07:17:59.619Z",
+  "generated_at": "2026-05-11T13:04:19.476Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 40,
@@ -34,7 +34,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/390",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 1411,
@@ -6472,12 +6481,12 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 54
+      "count": 55
     },
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 24
+      "count": 25
     },
     {
       "name": "python",
