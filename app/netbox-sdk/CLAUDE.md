@@ -1,5 +1,14 @@
 # app/netbox-sdk/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/app/netbox-sdk/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Showcase route for `netbox-sdk`, the Python async SDK with CLI and Textual TUI.

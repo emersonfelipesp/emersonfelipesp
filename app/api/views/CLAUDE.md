@@ -1,5 +1,14 @@
 # app/api/views/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/app/api/views/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Page-view counter API. `GET /api/views?path=<p>` reads the current count and

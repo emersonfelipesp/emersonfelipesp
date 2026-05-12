@@ -1,5 +1,14 @@
 # app/proxbox-api/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/app/proxbox-api/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Showcase route for `proxbox-api`, the FastAPI backend that connects

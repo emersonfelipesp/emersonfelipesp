@@ -1,5 +1,14 @@
 # scripts/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/scripts/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Build/support helpers run with `tsx`. These scripts are not part of the Next.js

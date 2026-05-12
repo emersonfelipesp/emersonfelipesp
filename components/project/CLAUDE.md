@@ -1,5 +1,14 @@
 # components/project/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/components/project/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Reusable building blocks for showcase pages, developer guide pages, local

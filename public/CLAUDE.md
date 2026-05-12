@@ -1,5 +1,14 @@
 # public/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/public/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Static assets served directly by Next.js at the root URL path. Files here are

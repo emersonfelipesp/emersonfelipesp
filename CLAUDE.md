@@ -1,5 +1,14 @@
 # CLAUDE.md - emersonfelipesp.com
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 This file is the source of truth for AI/dev work on this repo. The site is a
 Next.js portfolio and project documentation surface for Emerson Felipe with a
 deliberate terminal / CLI / NetDevOps aesthetic.

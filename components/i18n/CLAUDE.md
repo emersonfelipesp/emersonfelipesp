@@ -1,5 +1,14 @@
 # components/i18n/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/components/i18n/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Client-side language selector. Mirrors the theme-provider pattern: a context

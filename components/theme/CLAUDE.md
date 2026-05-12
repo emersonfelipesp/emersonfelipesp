@@ -1,5 +1,14 @@
 # components/theme/
 
+## Workspace Context
+
+This file lives at `/root/personal-context/emersonfelipesp/components/theme/CLAUDE.md` inside the `personal-context` workspace.
+Workspace guidance: `/root/personal-context/CLAUDE.md`.
+Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
+Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
+
+---
+
 ## Purpose
 
 Client-side theme system. It manages light/dark, named theme overrides, and
