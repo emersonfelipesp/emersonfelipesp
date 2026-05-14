@@ -33,14 +33,14 @@ export function HomeContent() {
         <div className="mt-4 space-y-2">
           <TypedCommand command="whoami" cwd="~" />
           <OutputBlock>
-            <p className="text-accent">{profile.name}</p>
+            <h1 className="font-normal text-accent">{profile.name}</h1>
             <p className="text-fg/90">{profile.role}</p>
           </OutputBlock>
 
           <TypedCommand command="cat ~/about.txt" cwd="~" />
           <OutputBlock>
-            {profile.bio.map((p, i) => (
-              <p key={i} className="mb-2 last:mb-0">
+            {profile.bio.map((p) => (
+              <p key={p} className="mb-2 last:mb-0">
                 {p}
               </p>
             ))}

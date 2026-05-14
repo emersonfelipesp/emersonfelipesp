@@ -97,19 +97,25 @@ export function ProjectHeroWindow({
   badges: readonly Badge[];
   children?: React.ReactNode;
 }) {
+  const normalizedBadges = badges.reduce<{ label: string; value: string }[]>(
+    (items, badge) => {
+      if (badge.value === undefined || badge.value === null) return items;
+      items.push({ label: badge.label, value: String(badge.value) });
+      return items;
+    },
+    [],
+  );
+
   return (
     <TerminalWindow title={`~/${project.slug}`}>
       <ProjectHero
         banner={project.banner}
+        name={project.name}
         slug={project.slug}
         tagline={project.tagline}
         description={project.description}
       />
-      <BadgeRow
-        badges={badges
-          .filter((badge) => badge.value !== undefined && badge.value !== null)
-          .map((badge) => ({ label: badge.label, value: String(badge.value) }))}
-      />
+      <BadgeRow badges={normalizedBadges} />
       {children}
     </TerminalWindow>
   );
@@ -130,8 +136,8 @@ export function OverviewSection({
       <TypedCommand command="cat OVERVIEW.md" cwd={`~/${project.slug}`} />
       <div className="border border-border bg-surface p-5 text-sm">
         <div className="space-y-3 text-fg/90">
-          {project.description.map((para, i) => (
-            <p key={i}>{para}</p>
+          {project.description.map((para) => (
+            <p key={para}>{para}</p>
           ))}
         </div>
         {inlineStack ? (

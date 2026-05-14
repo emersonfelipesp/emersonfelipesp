@@ -7,11 +7,10 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createDeveloperMetadata, developerJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `${p.name} ~ developer guide`,
-  description: p.tagline,
-};
+export const metadata: Metadata = createDeveloperMetadata(p);
 
 export const dynamic = "force-dynamic";
 
@@ -33,11 +32,14 @@ export default async function Page({
     loadProjectShellData("netbox-proxbox"),
   ]);
   return (
-    <ProjectDeveloperContent
-      base={p}
-      githubUrl={`https://github.com/${p.fullName}`}
-      releases={shell.releases}
-      repo={shell.repo}
-    />
+    <>
+      <JsonLd data={developerJsonLd(p)} />
+      <ProjectDeveloperContent
+        base={p}
+        githubUrl={`https://github.com/${p.fullName}`}
+        releases={shell.releases}
+        repo={shell.repo}
+      />
+    </>
   );
 }

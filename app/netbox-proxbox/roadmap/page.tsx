@@ -6,12 +6,13 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { PROJECTS } from "@/lib/project-registry";
+import { createRoadmapMetadata, roadmapJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "netbox-proxbox ~ roadmap",
-  description:
-    "Top-down dependency graph and phased timeline of every netbox-proxbox issue, derived from GitHub Issue Dependencies.",
-};
+const project = PROJECTS["netbox-proxbox"];
+
+export const metadata: Metadata = createRoadmapMetadata(project);
 
 export const dynamic = "force-dynamic";
 
@@ -32,5 +33,10 @@ export default async function Page({
   const data = await loadRoadmap("netbox-proxbox");
   if (!data) return <RoadmapEmpty project="netbox-proxbox" />;
   await incrementView(path);
-  return <RoadmapView data={data} />;
+  return (
+    <>
+      <JsonLd data={roadmapJsonLd(project, data.generated_at)} />
+      <RoadmapView data={data} />
+    </>
+  );
 }

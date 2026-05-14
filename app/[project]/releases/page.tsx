@@ -8,6 +8,8 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createReleaseListMetadata, releaseListJsonLd } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ project: string }>;
@@ -23,13 +25,7 @@ export async function generateMetadata({
   const project = getReleaseProject(slug);
   if (!project) return {};
 
-  return {
-    title: `${project.name} releases`,
-    description: `Release notes, assets, and source archives for ${project.name}.`,
-    alternates: {
-      canonical: releaseListPath(project.slug),
-    },
-  };
+  return createReleaseListMetadata(project);
 }
 
 export default async function Page({
@@ -53,5 +49,10 @@ export default async function Page({
 
   if (!snapshot) notFound();
 
-  return <ReleaseListContent project={project} snapshot={snapshot} />;
+  return (
+    <>
+      <JsonLd data={releaseListJsonLd(project, snapshot)} />
+      <ReleaseListContent project={project} snapshot={snapshot} />
+    </>
+  );
 }

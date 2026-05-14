@@ -1,4 +1,5 @@
 import { getMarkdownForPath } from "@/lib/markdown";
+import { discoveryLinkHeader, ROBOTS_INDEX_HEADER } from "@/lib/seo";
 
 type RouteContext = {
   params: Promise<{ path?: string[] }>;
@@ -28,6 +29,8 @@ export async function GET(
   return new Response(markdown, {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
+      Link: discoveryLinkHeader(pagePath),
+      "X-Robots-Tag": ROBOTS_INDEX_HEADER,
       Vary: "Accept",
     },
   });

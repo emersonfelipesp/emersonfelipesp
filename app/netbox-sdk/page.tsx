@@ -8,11 +8,10 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createProjectMetadata, projectJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `${p.name} ~ NetBox SDK + CLI + TUI`,
-  description: p.tagline,
-};
+export const metadata: Metadata = createProjectMetadata(p);
 
 export const dynamic = "force-dynamic";
 
@@ -36,10 +35,13 @@ export default async function Page({
   ]);
 
   return (
-    <NetboxSdkContent
-      liveMeta={liveMeta}
-      releases={shell.releases}
-      repo={shell.repo}
-    />
+    <>
+      <JsonLd data={projectJsonLd(p)} />
+      <NetboxSdkContent
+        liveMeta={liveMeta}
+        releases={shell.releases}
+        repo={shell.repo}
+      />
+    </>
   );
 }

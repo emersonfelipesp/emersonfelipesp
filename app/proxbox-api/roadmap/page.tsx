@@ -6,12 +6,13 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { PROJECTS } from "@/lib/project-registry";
+import { createRoadmapMetadata, roadmapJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "proxbox-api ~ roadmap",
-  description:
-    "Top-down dependency graph and phased timeline of every proxbox-api issue, derived from GitHub Issue Dependencies.",
-};
+const project = PROJECTS["proxbox-api"];
+
+export const metadata: Metadata = createRoadmapMetadata(project);
 
 export const dynamic = "force-dynamic";
 
@@ -32,5 +33,10 @@ export default async function Page({
   const data = await loadRoadmap("proxbox-api");
   if (!data) return <RoadmapEmpty project="proxbox-api" />;
   await incrementView(path);
-  return <RoadmapView data={data} />;
+  return (
+    <>
+      <JsonLd data={roadmapJsonLd(project, data.generated_at)} />
+      <RoadmapView data={data} />
+    </>
+  );
 }

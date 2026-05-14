@@ -7,11 +7,10 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createProjectMetadata, projectJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `${p.name} ~ FastAPI orchestrator for Proxbox`,
-  description: p.tagline,
-};
+export const metadata: Metadata = createProjectMetadata(p);
 
 export const dynamic = "force-dynamic";
 
@@ -32,5 +31,10 @@ export default async function Page({
     incrementView(`/${p.slug}`),
     loadProjectShellData("proxbox-api"),
   ]);
-  return <ProxboxApiContent releases={shell.releases} repo={shell.repo} />;
+  return (
+    <>
+      <JsonLd data={projectJsonLd(p)} />
+      <ProxboxApiContent releases={shell.releases} repo={shell.repo} />
+    </>
+  );
 }

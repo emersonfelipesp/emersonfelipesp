@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -6,73 +7,18 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
 import { TopNav } from "@/components/nav/TopNav";
 import { Footer } from "@/components/nav/Footer";
-import {
-  DARK_THEMES,
-  DEFAULT_THEME,
-  NAMED_THEMES,
-  VALID_THEMES,
-} from "@/components/theme/theme-definitions";
-import {
-  DEFAULT_LANG,
-  LANGUAGES,
-  VALID_LANGS,
-  htmlLangFor,
-} from "@/lib/i18n/languages";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { htmlLangFor } from "@/lib/i18n/languages";
 import { readLangFromCookies } from "@/lib/i18n/server";
+import { createHomeMetadata, siteGraphJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "emersonfelipesp ~ NetDevOps & Network Automation",
-  description:
-    "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
-  metadataBase: new URL("https://emersonfelipesp.com"),
-  openGraph: {
-    title: "emersonfelipesp ~ NetDevOps",
-    description:
-      "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
-    url: "https://emersonfelipesp.com",
-    type: "website",
-    siteName: "emersonfelipesp.com",
+  ...createHomeMetadata(),
+  title: {
+    default: "Emerson Felipe (emersonfelipesp) - NetDevOps & Network Automation",
+    template: "%s | emersonfelipesp",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "emersonfelipesp ~ NetDevOps & Network Automation",
-    description:
-      "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
-    creator: "@emersonfelipesp",
-  },
-  authors: [{ name: "Emerson Felipe", url: "https://emersonfelipesp.com" }],
-  category: "technology",
 };
-
-const themeBootScript = `
-  (function() {
-    try {
-      var valid = ${JSON.stringify(VALID_THEMES)};
-      var dark  = ${JSON.stringify(DARK_THEMES)};
-      var named = ${JSON.stringify(NAMED_THEMES)};
-      var stored = localStorage.getItem('theme');
-      var theme = valid.indexOf(stored) >= 0 ? stored : ${JSON.stringify(DEFAULT_THEME)};
-      var root = document.documentElement;
-      if (named.indexOf(theme) >= 0) root.setAttribute('data-theme', theme);
-      else root.removeAttribute('data-theme');
-      root.classList.toggle('dark', dark.indexOf(theme) >= 0);
-    } catch (e) {}
-  })();
-`;
-
-const langBootScript = `
-  (function() {
-    try {
-      var valid = ${JSON.stringify(VALID_LANGS)};
-      var htmlLangs = ${JSON.stringify(
-        Object.fromEntries(LANGUAGES.map((l) => [l.code, l.htmlLang])),
-      )};
-      var stored = localStorage.getItem('lang');
-      var lang = valid.indexOf(stored) >= 0 ? stored : ${JSON.stringify(DEFAULT_LANG)};
-      document.documentElement.lang = htmlLangs[lang];
-    } catch (e) {}
-  })();
-`;
 
 export default async function RootLayout({
   children,
@@ -83,31 +29,22 @@ export default async function RootLayout({
   return (
     <html lang={htmlLangFor(lang)} suppressHydrationWarning className="dark" data-scroll-behavior="smooth">
       <head>
-        <link rel="alternate" type="text/markdown" href="/llms.txt" />
-        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-        <script dangerouslySetInnerHTML={{ __html: langBootScript }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Emerson Felipe",
-              url: "https://emersonfelipesp.com",
-              jobTitle: "Software Developer & Network Automation Engineer",
-              worksFor: { "@type": "Organization", name: "N-Multifibra" },
-              address: { "@type": "PostalAddress", addressLocality: "Cotia", addressRegion: "São Paulo", addressCountry: "BR" },
-              sameAs: [
-                "https://github.com/emersonfelipesp",
-                "https://www.linkedin.com/in/emersonfelipesp/",
-              ],
-              knowsAbout: [
-                "Network Automation", "Python", "NetBox", "Proxmox",
-                "BGP", "MPLS", "FastAPI", "Next.js", "TypeScript",
-              ],
-            }),
-          }}
+        <link
+          rel="alternate"
+          type="text/markdown"
+          title="LLMs index"
+          href="/llms.txt"
         />
+        <link
+          rel="alternate"
+          type="text/markdown"
+          title="Markdown sitemap"
+          href="/sitemap.md"
+        />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <Script src="/theme-boot.js" strategy="beforeInteractive" />
+        <Script src="/lang-boot.js" strategy="beforeInteractive" />
+        <JsonLd data={siteGraphJsonLd()} />
       </head>
       <body className="min-h-screen bg-bg text-fg antialiased">
         <ThemeProvider>

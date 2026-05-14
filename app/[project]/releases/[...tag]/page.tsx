@@ -6,12 +6,16 @@ import { incrementView } from "@/lib/views";
 import {
   getReleaseProject,
   releaseDetailPath,
-  releaseListPath,
 } from "@/lib/release-projects";
 import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  createReleaseDetailMetadata,
+  releaseDetailJsonLd,
+} from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ project: string; tag: string[] }>;
@@ -30,17 +34,8 @@ export async function generateMetadata({
   const tag = tagParts.join("/");
   const snapshot = await getGitHubSnapshot(project.slug);
   const release = snapshot?.releases.find((item) => item.tag === tag);
-  const title = release ? `${project.name} ${release.tag}` : project.name;
 
-  return {
-    title,
-    description: release
-      ? `${release.name} release notes, assets, and source archives.`
-      : `Release notes for ${project.name}.`,
-    alternates: {
-      canonical: release ? releaseDetailPath(project.slug, release.tag) : releaseListPath(project.slug),
-    },
-  };
+  return createReleaseDetailMetadata(project, release ?? null);
 }
 
 export default async function Page({
@@ -67,10 +62,13 @@ export default async function Page({
   if (!snapshot || !release) notFound();
 
   return (
-    <ReleaseDetailContent
-      project={project}
-      snapshot={snapshot}
-      release={release}
-    />
+    <>
+      <JsonLd data={releaseDetailJsonLd(project, release)} />
+      <ReleaseDetailContent
+        project={project}
+        snapshot={snapshot}
+        release={release}
+      />
+    </>
   );
 }

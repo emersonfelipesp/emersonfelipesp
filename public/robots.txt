@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://emersonfelipesp.com/sitemap.xml
+
+# LLM-readable index: https://emersonfelipesp.com/llms.txt
+# Full Markdown corpus: https://emersonfelipesp.com/llms-full.txt
+# Markdown sitemap: https://emersonfelipesp.com/sitemap.md

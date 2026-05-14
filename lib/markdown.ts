@@ -114,6 +114,14 @@ function absolute(path: string): string {
   return `${SITE_URL}${path}`;
 }
 
+function rawMarkdownAbsolute(path: string): string {
+  return absolute(path === "/" ? "/md" : `/md${path}`);
+}
+
+function themedMarkdownAbsolute(path: string): string {
+  return absolute(path === "/" ? "/?content=markdown" : `${path}?content=markdown`);
+}
+
 function normalizePath(pathname: string): string {
   const withoutQuery = pathname.split(/[?#]/, 1)[0] ?? "/";
   const withSlash = withoutQuery.startsWith("/")
@@ -819,7 +827,7 @@ function renderRouteIndex(
     .filter((route) => route.kind === kind)
     .map(
       (route) =>
-        `- [${route.title}](${absolute(route.path)}) - ${route.description}`,
+        `- [${route.title}](${absolute(route.path)}) - ${route.description}. Markdown: [raw](${rawMarkdownAbsolute(route.path)}), [themed](${themedMarkdownAbsolute(route.path)}).`,
     )
     .join("\n");
 }
@@ -863,18 +871,28 @@ export async function getLlmsTxt(): Promise<string> {
     section(
       "Markdown access",
       [
-        "All public HTML pages support content negotiation.",
+        "All public HTML pages support content negotiation and explicit Markdown alternates.",
         "",
         fenced(
           `curl -H "Accept: text/markdown" ${SITE_URL}/netbox-sdk`,
           "shell",
         ),
         "",
+        `Raw Markdown routes use the /md prefix, for example ${rawMarkdownAbsolute("/netbox-sdk")}.`,
+        `Themed Markdown views use the canonical page plus ?content=markdown, for example ${themedMarkdownAbsolute("/netbox-sdk")}.`,
         `A Markdown sitemap is available at ${absolute("/sitemap.md")}.`,
         `A plain sitemap alias is available at ${absolute("/sitemap.txt")}.`,
         `Full concatenated site content is available at ${absolute(
           "/llms-full.txt",
         )}.`,
+      ].join("\n"),
+    ),
+    section(
+      "Crawler directives",
+      [
+        "Canonical HTML pages are indexable and include canonical links, Open Graph metadata, Twitter card metadata, and JSON-LD.",
+        "Markdown routes are equivalent machine-readable content for LLM crawlers and include Link headers back to their canonical HTML page.",
+        "Use canonical HTML URLs for citation and ranking signals; use raw Markdown URLs when a plain text corpus is preferred.",
       ].join("\n"),
     ),
     section(

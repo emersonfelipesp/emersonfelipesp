@@ -7,7 +7,10 @@ type Props = {
 export function AsciiBanner({ art, caption, className = "" }: Props) {
   return (
     <div className={`overflow-x-auto ${className}`}>
-      <pre className="whitespace-pre text-[10px] leading-tight text-accent sm:text-xs md:text-sm">
+      <pre
+        aria-hidden="true"
+        className="whitespace-pre text-[10px] leading-tight text-accent sm:text-xs md:text-sm"
+      >
         {art}
       </pre>
       {caption ? (

@@ -4,12 +4,10 @@ import {
   renderThemedMarkdownIfRequested,
   type PageSearchParams,
 } from "@/components/markdown/ThemedMarkdownView";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { createHomeMetadata, homeJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "emersonfelipesp ~ NetDevOps & Network Automation",
-  description:
-    "Software developer & network automation engineer. NetBox + Proxmox open source maintainer.",
-};
+export const metadata: Metadata = createHomeMetadata();
 
 type PageProps = {
   searchParams: PageSearchParams;
@@ -23,5 +21,10 @@ export default async function HomePage({
     "/",
   );
   if (markdownView) return markdownView;
-  return <HomeContent />;
+  return (
+    <>
+      <JsonLd data={homeJsonLd()} />
+      <HomeContent />
+    </>
+  );
 }
