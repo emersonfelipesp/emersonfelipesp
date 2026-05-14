@@ -2,20 +2,15 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import dagre from "@dagrejs/dagre";
+import { PROJECT_LIST, type ProjectSlug } from "../lib/project-registry";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DEST_FILE = path.resolve(
-  __dirname,
-  "../public/github-data/netbox-proxbox-roadmap.json",
-);
-
-const REPO_OWNER = "emersonfelipesp";
-const REPO_NAME = "netbox-proxbox";
-const FULL_NAME = `${REPO_OWNER}/${REPO_NAME}`;
+const OUTPUT_DIR = path.resolve(__dirname, "../public/github-data");
 
 const PER_PAGE = 100;
 const NODE_WIDTH = 240;
 const NODE_HEIGHT = 96;
+const SECONDARY_RATE_LIMIT_BACKOFF_MS = 60_000;
 
 type RawLabel =
   | string
@@ -93,8 +88,35 @@ function ghHeaders(extra?: Record<string, string>): Record<string, string> {
   return headers;
 }
 
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function ghFetch(
+  url: string,
+  extraHeaders?: Record<string, string>,
+): Promise<Response> {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const res = await fetch(url, { headers: ghHeaders(extraHeaders) });
+    if (res.status === 429 || res.status === 403) {
+      const retryAfterHeader = res.headers.get("retry-after");
+      const retryAfter = retryAfterHeader ? Number(retryAfterHeader) * 1000 : NaN;
+      const wait = Number.isFinite(retryAfter) && retryAfter > 0
+        ? retryAfter
+        : SECONDARY_RATE_LIMIT_BACKOFF_MS;
+      console.warn(
+        `[roadmap-sync] ${url} -> HTTP ${res.status}; backing off ${Math.round(wait / 1000)}s (attempt ${attempt + 1}/3)`,
+      );
+      await sleep(wait);
+      continue;
+    }
+    return res;
+  }
+  return fetch(url, { headers: ghHeaders(extraHeaders) });
+}
+
 async function fetchJson(url: string, extraHeaders?: Record<string, string>): Promise<unknown> {
-  const res = await fetch(url, { headers: ghHeaders(extraHeaders) });
+  const res = await ghFetch(url, extraHeaders);
   if (!res.ok) {
     throw new Error(`${url} -> HTTP ${res.status}`);
   }
@@ -151,13 +173,21 @@ function normalizeIssue(raw: RawIssue): Issue | null {
   };
 }
 
-async function fetchAllIssues(): Promise<Issue[]> {
+async function fetchAllIssues(fullName: string): Promise<Issue[] | null> {
   const issues: Issue[] = [];
   for (let page = 1; ; page += 1) {
-    const url = `https://api.github.com/repos/${FULL_NAME}/issues?state=all&per_page=${PER_PAGE}&page=${page}`;
-    const raw = await fetchJson(url);
+    const url = `https://api.github.com/repos/${fullName}/issues?state=all&per_page=${PER_PAGE}&page=${page}`;
+    const res = await ghFetch(url);
+    if (res.status === 404) {
+      console.warn(`[roadmap-sync] ${fullName} -> 404, skipping repo`);
+      return null;
+    }
+    if (!res.ok) {
+      throw new Error(`${url} -> HTTP ${res.status}`);
+    }
+    const raw = (await res.json()) as unknown;
     if (!Array.isArray(raw)) {
-      throw new Error(`github issues ${FULL_NAME} -> expected array`);
+      throw new Error(`github issues ${fullName} -> expected array`);
     }
     for (const item of raw) {
       const issue = normalizeIssue(item as RawIssue);
@@ -168,12 +198,13 @@ async function fetchAllIssues(): Promise<Issue[]> {
   return issues;
 }
 
-async function fetchBlockedBy(issueNumber: number): Promise<number[]> {
-  const url = `https://api.github.com/repos/${FULL_NAME}/issues/${issueNumber}/dependencies/blocked_by?per_page=${PER_PAGE}`;
+async function fetchBlockedBy(
+  fullName: string,
+  issueNumber: number,
+): Promise<number[]> {
+  const url = `https://api.github.com/repos/${fullName}/issues/${issueNumber}/dependencies/blocked_by?per_page=${PER_PAGE}`;
   try {
-    const res = await fetch(url, {
-      headers: ghHeaders({ "X-GitHub-Api-Version": "2022-11-28" }),
-    });
+    const res = await ghFetch(url);
     if (res.status === 404 || res.status === 410) return [];
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
@@ -191,7 +222,7 @@ async function fetchBlockedBy(issueNumber: number): Promise<number[]> {
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     console.warn(
-      `[roadmap-sync] #${issueNumber}: blocked_by fetch failed (${msg}); treating as no edges.`,
+      `[roadmap-sync] ${fullName}#${issueNumber}: blocked_by fetch failed (${msg}); treating as no edges.`,
     );
     return [];
   }
@@ -361,24 +392,25 @@ function aggregateMilestones(issues: Issue[]): MilestoneCatalogueEntry[] {
   });
 }
 
-async function main(): Promise<void> {
-  console.log(`[roadmap-sync] fetching issues for ${FULL_NAME}...`);
-  const issues = await fetchAllIssues();
+async function syncRoadmap(slug: ProjectSlug, fullName: string): Promise<boolean> {
+  console.log(`[roadmap-sync] ${slug}: fetching issues for ${fullName}...`);
+  const issues = await fetchAllIssues(fullName);
+  if (issues === null) return false;
   console.log(
-    `[roadmap-sync] ${issues.length} issue(s) (${issues.filter((i) => i.state === "open").length} open, ${issues.filter((i) => i.state === "closed").length} closed)`,
+    `[roadmap-sync] ${slug}: ${issues.length} issue(s) (${issues.filter((i) => i.state === "open").length} open, ${issues.filter((i) => i.state === "closed").length} closed)`,
   );
 
-  console.log(`[roadmap-sync] fetching blocked_by edges...`);
+  console.log(`[roadmap-sync] ${slug}: fetching blocked_by edges...`);
   const blockedByByNumber = new Map<number, number[]>();
   let edgeTotal = 0;
   for (const issue of issues) {
-    const blockers = await fetchBlockedBy(issue.number);
+    const blockers = await fetchBlockedBy(fullName, issue.number);
     blockedByByNumber.set(issue.number, blockers);
     edgeTotal += blockers.length;
   }
-  console.log(`[roadmap-sync] ${edgeTotal} blocked_by edge(s)`);
+  console.log(`[roadmap-sync] ${slug}: ${edgeTotal} blocked_by edge(s)`);
 
-  console.log(`[roadmap-sync] running dagre layout...`);
+  console.log(`[roadmap-sync] ${slug}: running dagre layout...`);
   const { positions, edges, viewBox } = layoutGraph(issues, blockedByByNumber);
 
   const nodes: RoadmapNode[] = issues.map((issue) => {
@@ -400,7 +432,7 @@ async function main(): Promise<void> {
   const payload = {
     schema_version: 1 as const,
     generated_at: new Date().toISOString(),
-    repo: FULL_NAME,
+    repo: fullName,
     counts: {
       open: issues.filter((i) => i.state === "open").length,
       closed: issues.filter((i) => i.state === "closed").length,
@@ -414,9 +446,31 @@ async function main(): Promise<void> {
     milestones,
   };
 
-  mkdirSync(path.dirname(DEST_FILE), { recursive: true });
-  writeFileSync(DEST_FILE, JSON.stringify(payload, null, 2) + "\n");
-  console.log(`[roadmap-sync] wrote ${DEST_FILE}`);
+  mkdirSync(OUTPUT_DIR, { recursive: true });
+  const dest = path.join(OUTPUT_DIR, `${slug}-roadmap.json`);
+  writeFileSync(dest, JSON.stringify(payload, null, 2) + "\n");
+  console.log(`[roadmap-sync] ${slug}: wrote ${dest}`);
+  return true;
+}
+
+async function main(): Promise<void> {
+  const failures: string[] = [];
+  for (const project of PROJECT_LIST) {
+    try {
+      const ok = await syncRoadmap(project.slug, project.fullName);
+      if (!ok) {
+        console.warn(`[roadmap-sync] ${project.slug}: skipped (repo unavailable)`);
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error(`[roadmap-sync] ${project.slug}: FAILED — ${msg}`);
+      failures.push(project.slug);
+    }
+  }
+  if (failures.length > 0) {
+    console.error(`[roadmap-sync] failed for: ${failures.join(", ")}`);
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {

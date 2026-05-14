@@ -179,7 +179,7 @@ export function RoadmapDiagramOverlay({ data, onClose }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <span className="truncate">
-          <span className="text-accent">›</span> ~/netbox-proxbox/roadmap{" "}
+          <span className="text-accent">›</span> ~/{data.repo.split("/").pop() ?? data.repo}/roadmap{" "}
           <span className="text-muted">— {dialogTitle}</span>
         </span>
         <span className="flex items-center gap-1">

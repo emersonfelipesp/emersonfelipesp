@@ -145,7 +145,7 @@ export function releaseListPath(slug: ProjectSlug | string): string {
 }
 
 export function roadmapPath(slug: ProjectSlug | string): string | null {
-  return slug === "netbox-proxbox" ? `/${slug}/roadmap` : null;
+  return isProjectSlug(slug) ? `/${slug}/roadmap` : null;
 }
 
 export function releaseDetailPath(

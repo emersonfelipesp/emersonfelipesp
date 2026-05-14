@@ -6,6 +6,7 @@ import { RoadmapDiagram } from "./RoadmapDiagram";
 import { RoadmapTimeline } from "./RoadmapTimeline";
 import { RoadmapMilestoneStrip } from "./RoadmapMilestoneStrip";
 import type { Roadmap } from "@/lib/roadmap";
+import { getProject } from "@/lib/project-registry";
 
 type View = "diagram" | "timeline";
 
@@ -17,15 +18,26 @@ function fmtDateTime(iso: string): string {
   }
 }
 
+function projectFromRepo(repo: string): string {
+  const parts = repo.split("/");
+  return parts[parts.length - 1] || repo;
+}
+
+function paletteFor(slug: string): "netbox" | "proxmox" | "mixed" {
+  return getProject(slug)?.palette ?? "netbox";
+}
+
 export function RoadmapView({ data }: { data: Roadmap }) {
   const { t } = useLanguage();
   const [view, setView] = useState<View>("timeline");
+  const project = projectFromRepo(data.repo);
+  const palette = paletteFor(project);
 
   return (
-    <div data-palette="netbox" className="bg-bg text-fg">
+    <div data-palette={palette} className="bg-bg text-fg">
       <header className="border border-border bg-surface px-3 py-3">
         <h1 className="font-mono text-base text-accent">
-          ~/netbox-proxbox/roadmap
+          ~/{project}/roadmap
         </h1>
         <p className="mt-1 max-w-3xl text-xs text-muted">
           {t.roadmap.intro}
@@ -90,13 +102,14 @@ export function RoadmapView({ data }: { data: Roadmap }) {
   );
 }
 
-export function RoadmapEmpty() {
+export function RoadmapEmpty({ project }: { project: string }) {
   const { t } = useLanguage();
+  const palette = paletteFor(project);
   return (
-    <div data-palette="netbox" className="bg-bg text-fg">
+    <div data-palette={palette} className="bg-bg text-fg">
       <header className="border border-border bg-surface px-3 py-3">
         <h1 className="font-mono text-base text-accent">
-          ~/netbox-proxbox/roadmap
+          ~/{project}/roadmap
         </h1>
         <p className="mt-1 text-xs text-muted">{t.roadmap.empty}</p>
       </header>

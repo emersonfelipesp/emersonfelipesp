@@ -12,7 +12,7 @@
     "test:e2e": "playwright test",
     "fixtures:sync": "tsx scripts/sync-netbox-sdk-fixtures.ts",
     "github:sync": "tsx scripts/sync-github-data.ts",
-    "github:roadmap": "tsx scripts/sync-netbox-proxbox-roadmap.ts",
+    "github:roadmap": "tsx scripts/sync-roadmaps.ts",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio"

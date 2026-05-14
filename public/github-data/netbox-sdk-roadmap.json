@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-13T13:19:03.043Z",
+  "repo": "emersonfelipesp/netbox-sdk",
+  "counts": {
+    "open": 0,
+    "closed": 4,
+    "edges": 0
+  },
+  "viewBox": "0 0 1 1",
+  "nodes": [
+    {
+      "number": 18,
+      "title": "Support Cursor-based pagination on REST API and GraphQL",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/18",
+      "closedAt": "2026-05-05T12:54:01Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/2"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 15,
+      "title": "How do you handle plugins/custom objects ?",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/15",
+      "closedAt": "2026-05-04T16:51:21Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/1"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 14,
+      "title": "Fetch user NetBox OpenAPI schema /api/schema/swagger-ui/ or /api/schema/ if version is different than the default ones.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/14",
+      "closedAt": "2026-04-24T13:01:13Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 12,
+      "title": "Create a Login Modal on TUI to allow user to login into TUI with NetBox user credentials",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/12",
+      "closedAt": "2026-04-24T13:22:57Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/1"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    }
+  ],
+  "edges": [],
+  "timeline": [
+    {
+      "phase": 0,
+      "kind": "shipped",
+      "note": "shipped",
+      "issues": [
+        18,
+        15,
+        12,
+        14
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "count": 4
+    },
+    {
+      "name": "accepted",
+      "color": "0e8a16",
+      "count": 2
+    }
+  ],
+  "milestones": [
+    {
+      "title": "v0.0.8",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/1",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.9",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/2",
+      "open": 0,
+      "closed": 1
+    }
+  ]
+}

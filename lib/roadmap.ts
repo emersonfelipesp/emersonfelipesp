@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { z } from "zod";
+import { isProjectSlug, type ProjectSlug } from "./project-registry";
 
 const labelSchema = z.object({
   name: z.string(),
@@ -68,20 +69,28 @@ export type RoadmapPhase = z.infer<typeof phaseSchema>;
 export type RoadmapLabel = z.infer<typeof labelSchema>;
 export type RoadmapMilestone = z.infer<typeof milestoneSchema>;
 
-export async function loadRoadmap(): Promise<Roadmap | null> {
-  try {
-    const file = path.join(
-      process.cwd(),
-      "public/github-data",
-      "netbox-proxbox-roadmap.json",
-    );
-    const raw = JSON.parse(await readFile(file, "utf8"));
-    const parsed = RoadmapSchema.safeParse(raw);
-    if (parsed.success) return parsed.data;
-    console.warn("[roadmap] schema validation failed:", parsed.error.issues);
-    return null;
-  } catch (err) {
-    console.warn("[roadmap] could not load snapshot:", err);
+export async function loadRoadmap(slug: ProjectSlug | string): Promise<Roadmap | null> {
+  if (!isProjectSlug(slug)) {
+    console.warn(`[roadmap] unknown project slug: ${slug}`);
     return null;
   }
+  const file = path.join(
+    process.cwd(),
+    "public/github-data",
+    `${slug}-roadmap.json`,
+  );
+  let raw: unknown;
+  try {
+    raw = JSON.parse(await readFile(file, "utf8"));
+  } catch (err) {
+    console.warn(`[roadmap] could not read ${file}:`, err);
+    return null;
+  }
+  const parsed = RoadmapSchema.safeParse(raw);
+  if (parsed.success) return parsed.data;
+  console.warn(
+    `[roadmap] schema validation failed for ${slug}:`,
+    parsed.error.issues,
+  );
+  return null;
 }
