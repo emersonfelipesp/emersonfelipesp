@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-05-13T18:41:56.648Z",
+  "syncedAt": "2026-05-14T00:46:55.573Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
-  "stars": 1,
+  "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 322139132,
+      "nodeId": "RE_kwDORz_GBs4TM3P8",
+      "tag": "v0.0.4.post1",
+      "name": "proxmox-sdk v0.0.4.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.4.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/322139132",
+      "targetCommitish": "1d0ca96720c73512e033013e6174102d12fbb3c2",
+      "body": "Post-release rebuild of v0.0.4 from latest main. Includes the PBS client facade plus the RemoteSSHClient primitive and node hardware discovery commit that landed after the original v0.0.4 artifact was built.",
+      "bodyHtml": "<p dir=\"auto\">Post-release rebuild of v0.0.4 from latest main. Includes the PBS client facade plus the RemoteSSHClient primitive and node hardware discovery commit that landed after the original v0.0.4 artifact was built.</p>",
+      "createdAt": "2026-05-13T21:21:22Z",
+      "publishedAt": "2026-05-13T21:21:45Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.4.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.4.post1"
+      }
+    },
+    {
+      "id": 322133659,
+      "nodeId": "RE_kwDORz_GBs4TM16b",
+      "tag": "v0.0.4",
+      "name": "proxmox-sdk v0.0.4",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/322133659",
+      "targetCommitish": "ac92ad1fa0d7c4e4426168c16c5ba5710c7966c8",
+      "body": "Release the read-only PBSClient facade for issue #325 phase A. Includes the proxmox_sdk.pbs namespace, the pbs package extra, generated model formatting fixes, and deterministic codegen auth tests.",
+      "bodyHtml": "<p dir=\"auto\">Release the read-only PBSClient facade for issue #325 phase A. Includes the proxmox_sdk.pbs namespace, the pbs package extra, generated model formatting fixes, and deterministic codegen auth tests.</p>",
+      "createdAt": "2026-05-13T21:07:34Z",
+      "publishedAt": "2026-05-13T21:06:51Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.4"
+      }
+    },
     {
       "id": 312476610,
       "nodeId": "RE_kwDORz_GBs4SoAPC",
@@ -17,7 +67,7 @@
       "createdAt": "2026-04-22T22:45:26Z",
       "publishedAt": "2026-04-22T22:45:38Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
