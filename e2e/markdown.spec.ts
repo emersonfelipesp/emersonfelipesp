@@ -103,23 +103,69 @@ test("llms.txt and sitemap index release detail pages", async ({ request }) => {
   }
 });
 
-test("footer toggles the current page into LLM Markdown view", async ({
+test("footer toggles between human, themed Markdown, and raw Markdown views", async ({
   page,
 }) => {
-  await page.goto("/netbox-sdk");
+  await page.goto("/netbox-sdk?utm=docs");
 
-  const topNav = page.getByRole("navigation", { name: "Top navigation" });
-  await expect(
-    topNav.getByRole("link", { name: "Switch to LLM view" }),
-  ).toHaveCount(0);
-
-  const llmView = page.getByRole("contentinfo").getByRole("link", {
-    name: "Switch to LLM view",
+  const footer = page.getByRole("contentinfo");
+  const markdownView = footer.getByRole("link", {
+    name: "Switch to markdown view",
   });
-  await expect(llmView).toHaveAttribute("href", "/md/netbox-sdk");
+  const rawView = footer.getByRole("link", {
+    name: "Switch to raw view",
+  });
 
-  await llmView.click();
+  await expect(markdownView).toHaveAttribute(
+    "href",
+    "/netbox-sdk?utm=docs&content=markdown",
+  );
+  await expect(rawView).toHaveAttribute("href", "/md/netbox-sdk");
+
+  await markdownView.click();
+  await expect(page).toHaveURL(/\/netbox-sdk\?utm=docs&content=markdown$/);
+  await expect(
+    page.getByRole("navigation", { name: "Top navigation" }),
+  ).toBeVisible();
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "# netbox-sdk",
+  );
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "## Features",
+  );
+
+  const humanView = footer.getByRole("link", {
+    name: "Switch to human view",
+  });
+  await expect(humanView).toHaveAttribute("href", "/netbox-sdk?utm=docs");
+
+  await humanView.click();
+  await expect(page).toHaveURL(/\/netbox-sdk\?utm=docs$/);
+  await expect(page.getByTestId("themed-markdown")).toHaveCount(0);
+
+  await footer.getByRole("link", { name: "Switch to raw view" }).click();
   await expect(page).toHaveURL(/\/md\/netbox-sdk$/);
   await expect(page.locator("body")).toContainText("# netbox-sdk");
   await expect(page.locator("body")).toContainText("## Features");
+});
+
+test("release detail pages support themed Markdown query mode", async ({
+  page,
+}) => {
+  await page.goto("/netbox-proxbox/releases/v0.0.14?content=markdown");
+
+  await expect(
+    page.getByRole("navigation", { name: "Top navigation" }),
+  ).toBeVisible();
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "# netbox-proxbox v0.0.14",
+  );
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "## Release notes",
+  );
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", {
+      name: "Switch to raw view",
+    }),
+  ).toHaveAttribute("href", "/md/netbox-proxbox/releases/v0.0.14");
 });

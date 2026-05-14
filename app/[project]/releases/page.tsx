@@ -4,9 +4,14 @@ import { ReleaseListContent } from "@/components/project/ReleasePages";
 import { getGitHubSnapshot } from "@/lib/github";
 import { incrementView } from "@/lib/views";
 import { getReleaseProject, releaseListPath } from "@/lib/release-projects";
+import {
+  renderThemedMarkdownIfRequested,
+  type PageSearchParams,
+} from "@/components/markdown/ThemedMarkdownView";
 
 type PageProps = {
   params: Promise<{ project: string }>;
+  searchParams: PageSearchParams;
 };
 
 export const dynamic = "force-dynamic";
@@ -29,8 +34,15 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: PageProps): Promise<React.JSX.Element> {
   const { project: slug } = await params;
+  const markdownView = await renderThemedMarkdownIfRequested(
+    searchParams,
+    `/${slug}/releases`,
+  );
+  if (markdownView) return markdownView;
+
   const project = getReleaseProject(slug);
   if (!project) notFound();
 

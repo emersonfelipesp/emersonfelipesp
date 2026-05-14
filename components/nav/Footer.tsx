@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { ContentViewToggle } from "@/components/nav/ContentViewToggle";
 
@@ -11,7 +12,11 @@ export function Footer() {
         <p>
           <span className="text-accent">$</span> {t.footer.tagline}
         </p>
-        <ContentViewToggle className="w-full sm:w-auto" />
+        <Suspense
+          fallback={<span className="min-h-10 w-full sm:w-[18rem]" />}
+        >
+          <ContentViewToggle className="w-full sm:w-auto" />
+        </Suspense>
       </div>
     </footer>
   );

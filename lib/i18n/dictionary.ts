@@ -11,7 +11,8 @@ export type Dictionary = {
     languageAria: (lang: string) => string;
     contentLabel: string;
     contentHuman: string;
-    contentLlm: string;
+    contentMarkdown: string;
+    contentRaw: string;
     contentAria: string;
     contentSwitchAria: (view: string) => string;
     viewLabel: string;
@@ -274,7 +275,8 @@ const en: Dictionary = {
     languageAria: (lang) => `Language: ${lang}`,
     contentLabel: "--content=",
     contentHuman: "human",
-    contentLlm: "LLM",
+    contentMarkdown: "markdown",
+    contentRaw: "raw",
     contentAria: "Content view",
     contentSwitchAria: (view) => `Switch to ${view} view`,
     viewLabel: "--view=",
@@ -555,7 +557,8 @@ const ptBr: Dictionary = {
     languageAria: (lang) => `Idioma: ${lang}`,
     contentLabel: "--conteudo=",
     contentHuman: "humano",
-    contentLlm: "LLM",
+    contentMarkdown: "markdown",
+    contentRaw: "raw",
     contentAria: "Visualização do conteúdo",
     contentSwitchAria: (view) => `Alternar para visualização ${view}`,
     viewLabel: "--visao=",
