@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const host = "127.0.0.1";
+const port = Number(process.env.PLAYWRIGHT_PORT ?? 3100);
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -8,7 +11,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
-    baseURL: "http://127.0.0.1:3100",
+    baseURL: `http://${host}:${port}`,
     trace: "on-first-retry",
   },
   projects: [
@@ -23,8 +26,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "pnpm exec prisma migrate deploy && pnpm exec next start -H 127.0.0.1 -p 3100",
-    port: 3100,
+    command: `pnpm exec prisma migrate deploy && pnpm exec next start -H ${host} -p ${port}`,
+    port,
     reuseExistingServer: false,
     timeout: 120_000,
   },

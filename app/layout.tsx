@@ -83,6 +83,7 @@ export default async function RootLayout({
   return (
     <html lang={htmlLangFor(lang)} suppressHydrationWarning className="dark" data-scroll-behavior="smooth">
       <head>
+        <link rel="alternate" type="text/markdown" href="/llms.txt" />
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <script dangerouslySetInnerHTML={{ __html: langBootScript }} />
         <script
