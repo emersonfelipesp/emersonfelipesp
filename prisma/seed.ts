@@ -9,20 +9,24 @@ const db = new PrismaClient({
   adapter: new PrismaBetterSqlite3({ url: filename }),
 });
 
+const PAGE_VIEW_ROUTES = [
+  "/",
+  "/netbox-proxbox",
+  "/proxbox-api",
+  "/netbox-sdk",
+  "/proxmox-sdk",
+] as const;
+
 async function main() {
-  for (const route of [
-    "/",
-    "/netbox-proxbox",
-    "/proxbox-api",
-    "/netbox-sdk",
-    "/proxmox-sdk",
-  ]) {
-    await db.pageView.upsert({
-      where: { path: route },
-      update: {},
-      create: { path: route, count: 0 },
-    });
-  }
+  await Promise.all(
+    PAGE_VIEW_ROUTES.map((route) =>
+      db.pageView.upsert({
+        where: { path: route },
+        update: {},
+        create: { path: route, count: 0 },
+      }),
+    ),
+  );
 
   console.log("seed: ok");
 }

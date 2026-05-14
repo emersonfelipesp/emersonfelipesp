@@ -182,11 +182,13 @@ async function normalizeRelease(
   const tag = item.tag_name;
   const rawName = typeof item.name === "string" ? item.name.trim() : "";
   const body = typeof item.body === "string" ? item.body : "";
-  const assets = Array.isArray(item.assets)
-    ? item.assets
-        .map((asset) => normalizeAsset(asset as RawAsset))
-        .filter((asset): asset is GitHubReleaseAsset => Boolean(asset))
-    : [];
+  const assets: GitHubReleaseAsset[] = [];
+  if (Array.isArray(item.assets)) {
+    for (const asset of item.assets) {
+      const normalized = normalizeAsset(asset as RawAsset);
+      if (normalized) assets.push(normalized);
+    }
+  }
 
   return {
     id: item.id,
@@ -266,13 +268,13 @@ async function syncRepo(
       fetchLatestTag(repo.fullName),
     ]);
 
+    const normalizedReleases = await Promise.all(
+      rawReleases.map((rawRelease) =>
+        normalizeRelease(repo.fullName, rawRelease, latestTag),
+      ),
+    );
     const releases: GitHubRelease[] = [];
-    for (const rawRelease of rawReleases) {
-      const release = await normalizeRelease(
-        repo.fullName,
-        rawRelease,
-        latestTag,
-      );
+    for (const release of normalizedReleases) {
       if (release) releases.push(release);
     }
 
@@ -306,18 +308,11 @@ async function syncRepo(
 async function main(): Promise<void> {
   mkdirSync(DEST_DIR, { recursive: true });
 
-  const summary: Array<{
-    slug: string;
-    fullName: string;
-    ok: boolean;
-    skipped: boolean;
-  }> = [];
-  let hadFatal = false;
-  for (const repo of RELEASE_PROJECTS) {
+  const summary = await Promise.all(RELEASE_PROJECTS.map(async (repo) => {
     const result = await syncRepo(repo);
-    summary.push({ slug: repo.slug, fullName: repo.fullName, ...result });
-    if (!result.ok) hadFatal = true;
-  }
+    return { slug: repo.slug, fullName: repo.fullName, ...result };
+  }));
+  const hadFatal = summary.some((result) => !result.ok);
 
   const manifest = {
     syncedAt: new Date().toISOString(),

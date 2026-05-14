@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { useFixture } from "./useFixture";
+import { useTimeoutScheduler } from "./useTimeoutScheduler";
 
 type Prompt = { label: string; hidden: boolean; answer: string };
 type Flow = { prompts: Prompt[]; ok: string };
@@ -12,11 +13,17 @@ type Props = {
   onDone?: () => void;
 };
 
+const initialPhase: Phase = { promptIdx: 0, typed: 0, done: false };
+
+function phaseReducer(_phase: Phase, nextPhase: Phase): Phase {
+  return nextPhase;
+}
+
 export function DemoInitTrace({ onDone }: Props = {}) {
   const flow = useFixture<Flow>("demo-init-flow.json");
-  const [phase, setPhase] = useState<Phase>({ promptIdx: 0, typed: 0, done: false });
-  const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const [phase, dispatchPhase] = useReducer(phaseReducer, initialPhase);
   const onDoneRef = useRef(onDone);
+  const { clearScheduledTimeouts, scheduleTimeout } = useTimeoutScheduler();
 
   useEffect(() => {
     onDoneRef.current = onDone;
@@ -28,28 +35,26 @@ export function DemoInitTrace({ onDone }: Props = {}) {
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-    const schedule = (fn: () => void, ms: number) => {
-      const t = setTimeout(fn, ms);
-      timeoutsRef.current.push(t);
-    };
+    clearScheduledTimeouts();
 
     if (reduce) {
-      schedule(() => {
-        setPhase({ promptIdx: flow.prompts.length, typed: 0, done: true });
+      scheduleTimeout(() => {
+        dispatchPhase({
+          promptIdx: flow.prompts.length,
+          typed: 0,
+          done: true,
+        });
         onDoneRef.current?.();
       }, 0);
-      return () => {
-        timeoutsRef.current.forEach(clearTimeout);
-        timeoutsRef.current = [];
-      };
+      return clearScheduledTimeouts;
     }
 
     let pi = 0;
     let ti = 0;
     const tick = () => {
       if (pi >= flow.prompts.length) {
-        schedule(() => {
-          setPhase({ promptIdx: pi, typed: 0, done: true });
+        scheduleTimeout(() => {
+          dispatchPhase({ promptIdx: pi, typed: 0, done: true });
           onDoneRef.current?.();
         }, 200);
         return;
@@ -57,25 +62,22 @@ export function DemoInitTrace({ onDone }: Props = {}) {
       const p = flow.prompts[pi];
       if (ti < p.answer.length) {
         ti += 1;
-        setPhase({ promptIdx: pi, typed: ti, done: false });
-        schedule(tick, 60 + Math.floor(Math.random() * 80));
+        dispatchPhase({ promptIdx: pi, typed: ti, done: false });
+        scheduleTimeout(tick, 60 + Math.floor(Math.random() * 80));
         return;
       }
-      schedule(() => {
+      scheduleTimeout(() => {
         pi += 1;
         ti = 0;
-        setPhase({ promptIdx: pi, typed: 0, done: false });
+        dispatchPhase({ promptIdx: pi, typed: 0, done: false });
         tick();
       }, 280);
     };
 
-    schedule(tick, 200);
+    scheduleTimeout(tick, 200);
 
-    return () => {
-      timeoutsRef.current.forEach(clearTimeout);
-      timeoutsRef.current = [];
-    };
-  }, [flow]);
+    return clearScheduledTimeouts;
+  }, [clearScheduledTimeouts, flow, scheduleTimeout]);
 
   if (!flow) {
     return <div className="mt-2 text-xs text-muted">loading fixture…</div>;
@@ -93,7 +95,7 @@ export function DemoInitTrace({ onDone }: Props = {}) {
         const visibleCount = fullyAnswered ? p.answer.length : phase.typed;
         const visible = (p.hidden ? "*".repeat(visibleCount) : p.answer.slice(0, visibleCount));
         return (
-          <div key={idx}>
+          <div key={p.label}>
             <span className="text-accent-2">{p.label}</span>
             <span className="text-muted">: </span>
             <span className="text-fg">{visible}</span>

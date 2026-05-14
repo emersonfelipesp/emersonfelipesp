@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import Image from "next/image";
+import { useEffect, useEffectEvent } from "react";
 
 export type LightboxItem = {
   src: string;
@@ -19,12 +20,14 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
   const item = items[index];
   const hasPrev = index > 0;
   const hasNext = index < items.length - 1;
+  const closeLightbox = useEffectEvent(onClose);
+  const changeIndex = useEffectEvent(onIndexChange);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
-      else if (e.key === "ArrowLeft" && hasPrev) onIndexChange(index - 1);
-      else if (e.key === "ArrowRight" && hasNext) onIndexChange(index + 1);
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft" && hasPrev) changeIndex(index - 1);
+      else if (e.key === "ArrowRight" && hasNext) changeIndex(index + 1);
     }
     document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
@@ -33,7 +36,7 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
     };
-  }, [index, hasPrev, hasNext, onClose, onIndexChange]);
+  }, [index, hasPrev, hasNext]);
 
   useEffect(() => {
     [items[index + 1], items[index - 1]].forEach((sibling) => {
@@ -50,13 +53,17 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
       role="dialog"
       aria-modal="true"
       aria-label={item.caption}
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex cursor-zoom-out flex-col items-center justify-center bg-bg/95 p-4 backdrop-blur"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-bg/95 p-4 backdrop-blur"
       style={{ animation: "fade-in 150ms ease-out" }}
     >
+      <button
+        type="button"
+        aria-label="Close screenshot lightbox"
+        onClick={onClose}
+        className="absolute inset-0 cursor-zoom-out"
+      />
       <div
-        className="mb-2 flex w-full max-w-6xl items-center justify-between gap-4 text-xs text-muted"
-        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 mb-2 flex w-full max-w-6xl items-center justify-between gap-4 text-xs text-muted"
       >
         <span className="truncate">
           <span className="text-accent">›</span> {item.caption}
@@ -67,8 +74,7 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
       </div>
 
       <div
-        className="relative flex w-full max-w-6xl flex-1 items-center justify-center"
-        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 flex w-full max-w-6xl flex-1 items-center justify-center"
       >
         {hasPrev && (
           <button
@@ -91,17 +97,18 @@ export function Lightbox({ items, index, onClose, onIndexChange }: Props) {
           </button>
         )}
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           key={item.src}
           src={item.src}
           alt={item.alt}
+          width={1600}
+          height={1000}
+          unoptimized
           className="max-h-[85vh] max-w-full border border-border object-contain"
           style={{
             touchAction: "pinch-zoom",
             animation: "overlay-in 180ms ease-out",
           }}
-          onClick={(e) => e.stopPropagation()}
         />
       </div>
     </div>

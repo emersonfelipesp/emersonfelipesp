@@ -3,7 +3,6 @@ import { getGitHubSnapshot } from "@/lib/github";
 import { loadRoadmap } from "@/lib/roadmap";
 import {
   PROJECT_LIST,
-  type ProjectSlug,
   releaseDetailPath,
   releaseListPath,
   roadmapPath,
@@ -22,28 +21,24 @@ function dateOrNull(value: string | null | undefined): Date | null {
 }
 
 function newestDate(dates: readonly (Date | null | undefined)[]): Date {
-  const timestamps = dates
-    .filter((date): date is Date => Boolean(date))
-    .map((date) => date.getTime());
+  const timestamps: number[] = [];
+  for (const date of dates) {
+    if (date) timestamps.push(date.getTime());
+  }
   return new Date(timestamps.length ? Math.max(...timestamps) : Date.now());
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const releaseRoutes: MetadataRoute.Sitemap = [];
-  const projectRoutes: MetadataRoute.Sitemap = [];
-  const modifiedDates: Date[] = [];
-
-  for (const project of PROJECT_LIST) {
+  const routeGroups = await Promise.all(PROJECT_LIST.map(async (project) => {
     const [snapshot, roadmap] = await Promise.all([
       getGitHubSnapshot(project.slug),
-      loadRoadmap(project.slug as ProjectSlug),
+      loadRoadmap(project.slug),
     ]);
     const projectModified = dateOrNull(snapshot?.syncedAt);
     const roadmapModified = dateOrNull(roadmap?.generated_at);
-    if (projectModified) modifiedDates.push(projectModified);
-    if (roadmapModified) modifiedDates.push(roadmapModified);
+    const modifiedDates = [projectModified, roadmapModified];
 
-    projectRoutes.push(
+    const projectRoutes: MetadataRoute.Sitemap = [
       {
         url: absolute(project.projectPath),
         lastModified: projectModified ?? undefined,
@@ -62,7 +57,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "daily",
         priority: 0.65,
       },
-    );
+    ];
+
+    const releaseRoutes: MetadataRoute.Sitemap = [];
 
     if (snapshot) {
       releaseRoutes.push({
@@ -83,7 +80,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
     }
-  }
+
+    return {
+      modifiedDates,
+      routes: [...projectRoutes, ...releaseRoutes],
+    };
+  }));
+
+  const modifiedDates = routeGroups.flatMap((group) => group.modifiedDates);
+  const routes = routeGroups.flatMap((group) => group.routes);
 
   return [
     {
@@ -92,7 +97,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...projectRoutes,
-    ...releaseRoutes,
+    ...routes,
   ];
 }

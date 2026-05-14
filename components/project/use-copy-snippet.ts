@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import {
+  useEffect,
+  useState,
+  useRef,
+  type MouseEvent,
+} from "react";
 
 export function useCopySnippet(text: string) {
-  const ref = useRef<HTMLDivElement>(null);
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -26,22 +30,11 @@ export function useCopySnippet(text: string) {
     if (await writeText(text)) flash();
   }
 
-  function handleClick() {
-    const sel = window.getSelection();
-    const node = sel?.anchorNode;
-    const wrapper = ref.current;
-    if (sel && sel.toString() && wrapper && node && wrapper.contains(node)) {
-      return;
-    }
-    void runCopy();
-  }
-
   function handleButtonClick(e: MouseEvent<HTMLButtonElement>) {
-    e.stopPropagation();
     void runCopy();
   }
 
-  return { ref, copied, handleClick, handleButtonClick };
+  return { copied, handleButtonClick };
 }
 
 async function writeText(text: string): Promise<boolean> {
@@ -59,9 +52,7 @@ async function writeText(text: string): Promise<boolean> {
   const ta = document.createElement("textarea");
   ta.value = text;
   ta.setAttribute("readonly", "");
-  ta.style.position = "fixed";
-  ta.style.top = "0";
-  ta.style.left = "-9999px";
+  ta.style.cssText = "position:fixed;top:0;left:-9999px";
   document.body.appendChild(ta);
   ta.select();
   ta.setSelectionRange(0, text.length);

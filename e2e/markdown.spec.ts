@@ -44,7 +44,7 @@ test("project, developer, roadmap, and release pages serve Markdown", async ({
     },
   ];
 
-  for (const item of cases) {
+  await Promise.all(cases.map(async (item) => {
     const res = await request.get(item.path, { headers: markdownHeaders });
     expect(res.status(), item.path).toBe(200);
     expect(res.headers()["content-type"], item.path).toContain(
@@ -54,7 +54,7 @@ test("project, developer, roadmap, and release pages serve Markdown", async ({
     for (const expected of item.expected) {
       expect(body, item.path).toContain(expected);
     }
-  }
+  }));
 });
 
 test("HTML and API requests are not rewritten to Markdown", async ({
@@ -79,28 +79,30 @@ test("HTML and API requests are not rewritten to Markdown", async ({
 });
 
 test("LLM discovery routes serve Markdown", async ({ request }) => {
-  for (const path of [
+  const paths = [
     "/llms.txt",
     "/llms-full.txt",
     "/sitemap.md",
     "/sitemap.txt",
-  ]) {
+  ];
+
+  await Promise.all(paths.map(async (path) => {
     const res = await request.get(path);
     expect(res.status(), path).toBe(200);
     expect(res.headers()["content-type"], path).toContain("text/markdown");
     const body = await res.text();
     expect(body, path).toContain("emersonfelipesp.com");
-  }
+  }));
 });
 
 test("llms.txt and sitemap index release detail pages", async ({ request }) => {
-  for (const path of ["/llms.txt", "/sitemap.md"]) {
+  await Promise.all(["/llms.txt", "/sitemap.md"].map(async (path) => {
     const res = await request.get(path);
     expect(res.status(), path).toBe(200);
     const body = await res.text();
     expect(body, path).toContain("## Release detail pages");
     expect(body, path).toContain("/netbox-proxbox/releases/v0.0.14");
-  }
+  }));
 });
 
 test("footer toggles between human, themed Markdown, and raw Markdown views", async ({

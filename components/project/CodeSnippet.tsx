@@ -8,18 +8,15 @@ type Props = {
 };
 
 export function CodeSnippet({ code, label = "shell" }: Props) {
-  const { ref, copied, handleClick, handleButtonClick } = useCopySnippet(code);
+  const { copied, handleButtonClick } = useCopySnippet(code);
 
   return (
-    <div
-      ref={ref}
-      className="group cursor-pointer border border-border bg-surface-2"
-      onClick={handleClick}
-    >
+    <div className="group border border-border bg-surface-2">
       <div className="flex items-center justify-between px-3 pt-1 text-xs text-muted">
         <span>{label}</span>
         <button
           type="button"
+          aria-label={`Copy ${label} snippet`}
           onClick={handleButtonClick}
           className={`transition-opacity hover:text-accent focus-visible:opacity-100 group-hover:opacity-100 ${
             copied ? "text-accent opacity-100" : "opacity-0"
