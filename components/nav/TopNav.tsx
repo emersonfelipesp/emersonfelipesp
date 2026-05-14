@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import { ContentViewToggle } from "@/components/nav/ContentViewToggle";
 import { ProjectViewToggle } from "@/components/nav/ProjectViewToggle";
 import { PathPicker } from "@/components/nav/PathPicker";
 import { useProjectLabels } from "@/components/nav/use-project-labels";
@@ -55,9 +54,6 @@ export function TopNav() {
         <li>
           <PathPicker pathname={pathname} />
         </li>
-        <li className="order-last basis-full">
-          <ContentViewToggle compact className="w-full" />
-        </li>
         {showViewToggle ? (
           <li className="ml-auto">
             <ProjectViewToggle
@@ -95,11 +91,8 @@ export function TopNav() {
             </li>
           );
         })}
-        <li className="ml-auto flex items-center py-1">
-          <ContentViewToggle compact={compact} />
-        </li>
         {showViewToggle ? (
-          <li>
+          <li className="ml-auto">
             <ProjectViewToggle
               slug={projectRoute.slug}
               current={
@@ -109,7 +102,7 @@ export function TopNav() {
             />
           </li>
         ) : null}
-        <li>
+        <li className={showViewToggle ? "" : "ml-auto"}>
           <LanguageToggle compact={compact} />
         </li>
         <li>

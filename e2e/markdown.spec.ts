@@ -103,12 +103,17 @@ test("llms.txt and sitemap index release detail pages", async ({ request }) => {
   }
 });
 
-test("top navigation toggles the current page into LLM Markdown view", async ({
+test("footer toggles the current page into LLM Markdown view", async ({
   page,
 }) => {
   await page.goto("/netbox-sdk");
 
-  const llmView = page.getByRole("link", {
+  const topNav = page.getByRole("navigation", { name: "Top navigation" });
+  await expect(
+    topNav.getByRole("link", { name: "Switch to LLM view" }),
+  ).toHaveCount(0);
+
+  const llmView = page.getByRole("contentinfo").getByRole("link", {
     name: "Switch to LLM view",
   });
   await expect(llmView).toHaveAttribute("href", "/md/netbox-sdk");
