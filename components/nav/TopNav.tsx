@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageToggle } from "@/components/i18n/LanguageToggle";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { ContentViewToggle } from "@/components/nav/ContentViewToggle";
 import { ProjectViewToggle } from "@/components/nav/ProjectViewToggle";
 import { PathPicker } from "@/components/nav/PathPicker";
 import { useProjectLabels } from "@/components/nav/use-project-labels";
@@ -54,6 +55,9 @@ export function TopNav() {
         <li>
           <PathPicker pathname={pathname} />
         </li>
+        <li className="order-last basis-full">
+          <ContentViewToggle compact className="w-full" />
+        </li>
         {showViewToggle ? (
           <li className="ml-auto">
             <ProjectViewToggle
@@ -72,7 +76,7 @@ export function TopNav() {
           <ThemeToggle compact />
         </li>
       </ul>
-      <ul className="nav-magnetic hidden flex-wrap gap-y-2 text-xs sm:flex">
+      <ul className="nav-magnetic hidden flex-wrap items-center gap-y-2 text-xs sm:flex">
         {links.map((l) => {
           const isActive = pathname === l.href;
           return (
@@ -80,7 +84,7 @@ export function TopNav() {
               <Link
                 href={l.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`block px-2 py-4 transition-all duration-150 ${
+                className={`block px-2 py-4 transition-colors duration-150 ${
                   isActive
                     ? "text-accent"
                     : "text-muted hover:bg-accent/15 hover:text-accent"
@@ -91,8 +95,11 @@ export function TopNav() {
             </li>
           );
         })}
+        <li className="ml-auto flex items-center py-1">
+          <ContentViewToggle compact={compact} />
+        </li>
         {showViewToggle ? (
-          <li className="ml-auto">
+          <li>
             <ProjectViewToggle
               slug={projectRoute.slug}
               current={
@@ -102,7 +109,7 @@ export function TopNav() {
             />
           </li>
         ) : null}
-        <li className={showViewToggle ? "" : "ml-auto"}>
+        <li>
           <LanguageToggle compact={compact} />
         </li>
         <li>

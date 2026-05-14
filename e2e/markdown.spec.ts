@@ -102,3 +102,19 @@ test("llms.txt and sitemap index release detail pages", async ({ request }) => {
     expect(body, path).toContain("/netbox-proxbox/releases/v0.0.14");
   }
 });
+
+test("top navigation toggles the current page into LLM Markdown view", async ({
+  page,
+}) => {
+  await page.goto("/netbox-sdk");
+
+  const llmView = page.getByRole("link", {
+    name: "Switch to LLM view",
+  });
+  await expect(llmView).toHaveAttribute("href", "/md/netbox-sdk");
+
+  await llmView.click();
+  await expect(page).toHaveURL(/\/md\/netbox-sdk$/);
+  await expect(page.locator("body")).toContainText("# netbox-sdk");
+  await expect(page.locator("body")).toContainText("## Features");
+});

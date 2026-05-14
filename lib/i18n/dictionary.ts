@@ -9,6 +9,11 @@ export type Dictionary = {
     proxmoxSdk: string;
     languageLabel: string;
     languageAria: (lang: string) => string;
+    contentLabel: string;
+    contentHuman: string;
+    contentLlm: string;
+    contentAria: string;
+    contentSwitchAria: (view: string) => string;
     viewLabel: string;
     viewAria: (view: string) => string;
     routePickerLabel: string;
@@ -267,6 +272,11 @@ const en: Dictionary = {
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--lang=",
     languageAria: (lang) => `Language: ${lang}`,
+    contentLabel: "--content=",
+    contentHuman: "human",
+    contentLlm: "LLM",
+    contentAria: "Content view",
+    contentSwitchAria: (view) => `Switch to ${view} view`,
     viewLabel: "--view=",
     viewAria: (view) => `Project view: ${view}`,
     routePickerLabel: "Route",
@@ -543,6 +553,11 @@ const ptBr: Dictionary = {
     proxmoxSdk: "~/proxmox-sdk",
     languageLabel: "--idioma=",
     languageAria: (lang) => `Idioma: ${lang}`,
+    contentLabel: "--conteudo=",
+    contentHuman: "humano",
+    contentLlm: "LLM",
+    contentAria: "Visualização do conteúdo",
+    contentSwitchAria: (view) => `Alternar para visualização ${view}`,
     viewLabel: "--visao=",
     viewAria: (view) => `Visão do projeto: ${view}`,
     routePickerLabel: "Rota",
