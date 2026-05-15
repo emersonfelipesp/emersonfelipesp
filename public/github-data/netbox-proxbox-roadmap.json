@@ -1,20 +1,181 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-14T18:41:03.184Z",
+  "generated_at": "2026-05-15T00:48:56.624Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 21,
-    "closed": 215,
+    "open": 10,
+    "closed": 235,
     "edges": 86
   },
-  "viewBox": "0 0 2936 1883",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 438,
+      "title": "Extend ProxmoxEndpoint model to allow user to inform if Proxmox VE instance is `production`, `development`, `homolog` and other useful status.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/438",
+      "closedAt": "2026-05-15T00:20:34Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 436,
+      "title": "Ceph v2: RBD image inventory and NetBox-driven image management",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/436",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 435,
+      "title": "Ceph v2: RGW/S3 inventory and NetBox-driven bucket management",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/435",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 433,
+      "title": "Ceph v2: v0.1.0 release hardening, docs, and smoke validation",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/433",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 432,
+      "title": "Ceph v2: NetBox desired-state models, UI, and API",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/432",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 431,
+      "title": "Ceph v2: NetBox-only Ceph control plane",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/431",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 430,
+      "title": "Ceph support: branch-aware sync job and UI integration",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/430",
+      "closedAt": "2026-05-14T22:59:03Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 429,
+      "title": "Ceph support: release, docs, container, and smoke validation",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/429",
+      "closedAt": "2026-05-14T22:59:27Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 428,
+      "title": "Ceph support: netbox_ceph package and domain models",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/428",
+      "closedAt": "2026-05-14T22:58:39Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 424,
       "title": "Ceph support",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/424",
-      "closedAt": null,
+      "closedAt": "2026-05-14T23:01:50Z",
       "labels": [
         {
           "name": "feature",
@@ -31,8 +192,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18"
       },
-      "x": 16,
-      "y": 1016,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -59,7 +220,7 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
       },
-      "x": 312,
+      "x": 16,
       "y": 496,
       "w": 240,
       "h": 96,
@@ -70,9 +231,9 @@
     {
       "number": 421,
       "title": "Sync Proxmox Tags to NetBox Tags",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/421",
-      "closedAt": null,
+      "closedAt": "2026-05-15T00:04:49Z",
       "labels": [
         {
           "name": "feature",
@@ -89,8 +250,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
       },
-      "x": 16,
-      "y": 896,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -98,9 +259,9 @@
     {
       "number": 417,
       "title": "Issues connecting to Proxmox VE9",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/417",
-      "closedAt": null,
+      "closedAt": "2026-05-14T20:08:04Z",
       "labels": [
         {
           "name": "bug",
@@ -112,8 +273,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 776,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -187,9 +348,9 @@
     {
       "number": 389,
       "title": "Sub-PR L — UI / docs / polish",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/389",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:23Z",
       "labels": [
         {
           "name": "feature",
@@ -197,8 +358,8 @@
         }
       ],
       "milestone": null,
-      "x": 2680,
-      "y": 951,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -218,9 +379,9 @@
     {
       "number": 388,
       "title": "Sub-PR K — Cloud-Init",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/388",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:21Z",
       "labels": [
         {
           "name": "feature",
@@ -228,8 +389,8 @@
         }
       ],
       "milestone": null,
-      "x": 1792,
-      "y": 1211,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -241,9 +402,9 @@
     {
       "number": 387,
       "title": "Sub-PR J — Audit + four-eyes enforcement tests",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/387",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:19Z",
       "labels": [
         {
           "name": "feature",
@@ -251,8 +412,8 @@
         }
       ],
       "milestone": null,
-      "x": 2384,
-      "y": 1061,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -270,9 +431,9 @@
     {
       "number": 386,
       "title": "Sub-PR I — Deletion Requests UI + executor (the second-eye gate)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/386",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:17Z",
       "labels": [
         {
           "name": "feature",
@@ -280,8 +441,8 @@
         }
       ],
       "milestone": null,
-      "x": 2088,
-      "y": 1141,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -298,9 +459,9 @@
     {
       "number": 385,
       "title": "Sub-PR H — DELETE → safe-delete (DeletionRequest creation)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/385",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:15Z",
       "labels": [
         {
           "name": "feature",
@@ -308,8 +469,8 @@
         }
       ],
       "milestone": null,
-      "x": 1792,
-      "y": 1351,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -325,9 +486,9 @@
     {
       "number": 384,
       "title": "Sub-PR G — UPDATE path",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/384",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:13Z",
       "labels": [
         {
           "name": "feature",
@@ -335,8 +496,8 @@
         }
       ],
       "milestone": null,
-      "x": 1496,
-      "y": 1421,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -351,9 +512,9 @@
     {
       "number": 383,
       "title": "Sub-PR F — CREATE path",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/383",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:12Z",
       "labels": [
         {
           "name": "feature",
@@ -361,8 +522,8 @@
         }
       ],
       "milestone": null,
-      "x": 1200,
-      "y": 1166,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -378,9 +539,9 @@
     {
       "number": 382,
       "title": "Sub-PR E — post_merge hook (no-op execution)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/382",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:10Z",
       "labels": [
         {
           "name": "feature",
@@ -388,8 +549,8 @@
         }
       ],
       "milestone": null,
-      "x": 904,
-      "y": 1141,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -402,9 +563,9 @@
     {
       "number": 381,
       "title": "Sub-PR D — Plan validator (no apply path)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/381",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:08Z",
       "labels": [
         {
           "name": "feature",
@@ -412,8 +573,8 @@
         }
       ],
       "milestone": null,
-      "x": 608,
-      "y": 1446,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -426,9 +587,9 @@
     {
       "number": 380,
       "title": "Sub-PR C — Bootstrap fields",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/380",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:06Z",
       "labels": [
         {
           "name": "feature",
@@ -436,8 +597,8 @@
         }
       ],
       "milestone": null,
-      "x": 312,
-      "y": 821,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -448,9 +609,9 @@
     {
       "number": 379,
       "title": "Sub-PR B — Gate (master flag + typed confirmation)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/379",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:04Z",
       "labels": [
         {
           "name": "feature",
@@ -458,8 +619,8 @@
         }
       ],
       "milestone": null,
-      "x": 312,
-      "y": 1771,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -469,9 +630,9 @@
     {
       "number": 378,
       "title": "Sub-PR A — Design doc",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/378",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:46:02Z",
       "labels": [
         {
           "name": "feature",
@@ -479,8 +640,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 656,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -488,9 +649,9 @@
     {
       "number": 377,
       "title": "NetBox > Proxmox Integration using netbox-branching #1",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/377",
-      "closedAt": null,
+      "closedAt": "2026-05-14T19:48:04Z",
       "labels": [
         {
           "name": "feature",
@@ -502,13 +663,13 @@
         }
       ],
       "milestone": {
-        "title": "v0.0.17",
+        "title": "v0.0.16",
         "state": "open",
         "due_on": null,
-        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18"
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
       },
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": [
@@ -5866,304 +6027,33 @@
       "blocked_by": []
     }
   ],
-  "edges": [
-    {
-      "from": 377,
-      "to": 423,
-      "d": "M 256.00 544.00 L 284.00 544.00 L 312.00 544.00"
-    },
-    {
-      "from": 378,
-      "to": 389,
-      "d": "M 214.93 656.00 L 284.00 614.00 L 432.00 614.00 L 580.00 614.00 L 728.00 614.00 L 876.00 614.00 L 1024.00 614.00 L 1172.00 614.00 L 1320.00 614.00 L 1468.00 614.00 L 1616.00 614.00 L 1764.00 614.00 L 1912.00 614.00 L 2060.00 614.00 L 2208.00 614.00 L 2356.00 614.00 L 2504.00 614.00 L 2652.00 614.00 L 2781.55 951.00"
-    },
-    {
-      "from": 379,
-      "to": 389,
-      "d": "M 533.49 1771.00 L 580.00 1749.00 L 728.00 1749.00 L 876.00 1749.00 L 1024.00 1749.00 L 1172.00 1749.00 L 1320.00 1749.00 L 1468.00 1749.00 L 1616.00 1749.00 L 1764.00 1749.00 L 1912.00 1749.00 L 2060.00 1749.00 L 2208.00 1749.00 L 2356.00 1749.00 L 2504.00 1749.00 L 2652.00 1749.00 L 2790.53 1047.00"
-    },
-    {
-      "from": 380,
-      "to": 389,
-      "d": "M 506.78 821.00 L 580.00 774.00 L 728.00 774.00 L 876.00 774.00 L 1024.00 774.00 L 1172.00 774.00 L 1320.00 774.00 L 1468.00 774.00 L 1616.00 774.00 L 1764.00 774.00 L 1912.00 774.00 L 2060.00 774.00 L 2208.00 774.00 L 2356.00 774.00 L 2504.00 774.00 L 2652.00 774.00 L 2768.43 951.00"
-    },
-    {
-      "from": 381,
-      "to": 389,
-      "d": "M 740.25 1446.00 L 876.00 914.00 L 1024.00 914.00 L 1172.00 914.00 L 1320.00 914.00 L 1468.00 914.00 L 1616.00 914.00 L 1764.00 914.00 L 1912.00 914.00 L 2060.00 914.00 L 2208.00 914.00 L 2356.00 914.00 L 2504.00 914.00 L 2652.00 914.00 L 2716.42 951.00"
-    },
-    {
-      "from": 382,
-      "to": 389,
-      "d": "M 1057.83 1141.00 L 1172.00 979.00 L 1320.00 979.00 L 1468.00 979.00 L 1616.00 979.00 L 1764.00 979.00 L 1912.00 979.00 L 2060.00 979.00 L 2208.00 979.00 L 2356.00 979.00 L 2504.00 979.00 L 2652.00 979.00 L 2680.00 982.78"
-    },
-    {
-      "from": 383,
-      "to": 389,
-      "d": "M 1360.59 1166.00 L 1468.00 1039.00 L 1616.00 1039.00 L 1764.00 1039.00 L 1912.00 1039.00 L 2060.00 1039.00 L 2208.00 1039.00 L 2356.00 1039.00 L 2504.00 1039.00 L 2652.00 1039.00 L 2680.00 1031.43"
-    },
-    {
-      "from": 384,
-      "to": 389,
-      "d": "M 1666.74 1421.00 L 1764.00 1329.00 L 1912.00 1329.00 L 2060.00 1329.00 L 2208.00 1329.00 L 2356.00 1329.00 L 2504.00 1329.00 L 2652.00 1329.00 L 2778.47 1047.00"
-    },
-    {
-      "from": 385,
-      "to": 389,
-      "d": "M 2032.00 1370.62 L 2060.00 1364.00 L 2208.00 1364.00 L 2356.00 1364.00 L 2504.00 1364.00 L 2652.00 1364.00 L 2780.54 1047.00"
-    },
-    {
-      "from": 386,
-      "to": 389,
-      "d": "M 2328.00 1180.89 L 2356.00 1179.00 L 2504.00 1179.00 L 2652.00 1179.00 L 2760.53 1047.00"
-    },
-    {
-      "from": 387,
-      "to": 389,
-      "d": "M 2624.00 1109.00 L 2652.00 1109.00 L 2735.42 1047.00"
-    },
-    {
-      "from": 388,
-      "to": 389,
-      "d": "M 2032.00 1259.00 L 2060.00 1259.00 L 2208.00 1259.00 L 2356.00 1259.00 L 2504.00 1259.00 L 2652.00 1259.00 L 2772.68 1047.00"
-    },
-    {
-      "from": 383,
-      "to": 388,
-      "d": "M 1370.74 1166.00 L 1468.00 1074.00 L 1616.00 1074.00 L 1764.00 1074.00 L 1873.60 1211.00"
-    },
-    {
-      "from": 384,
-      "to": 388,
-      "d": "M 1717.49 1421.00 L 1764.00 1399.00 L 1861.26 1307.00"
-    },
-    {
-      "from": 378,
-      "to": 387,
-      "d": "M 237.49 656.00 L 284.00 634.00 L 432.00 634.00 L 580.00 634.00 L 728.00 634.00 L 876.00 634.00 L 1024.00 634.00 L 1172.00 634.00 L 1320.00 634.00 L 1468.00 634.00 L 1616.00 634.00 L 1764.00 634.00 L 1912.00 634.00 L 2060.00 634.00 L 2208.00 634.00 L 2356.00 634.00 L 2489.04 1061.00"
-    },
-    {
-      "from": 379,
-      "to": 387,
-      "d": "M 552.00 1778.46 L 580.00 1769.00 L 728.00 1769.00 L 876.00 1769.00 L 1024.00 1769.00 L 1172.00 1769.00 L 1320.00 1769.00 L 1468.00 1769.00 L 1616.00 1769.00 L 1764.00 1769.00 L 1912.00 1769.00 L 2060.00 1769.00 L 2208.00 1769.00 L 2356.00 1769.00 L 2493.24 1157.00"
-    },
-    {
-      "from": 380,
-      "to": 387,
-      "d": "M 526.72 821.00 L 580.00 794.00 L 728.00 794.00 L 876.00 794.00 L 1024.00 794.00 L 1172.00 794.00 L 1320.00 794.00 L 1468.00 794.00 L 1616.00 794.00 L 1764.00 794.00 L 1912.00 794.00 L 2060.00 794.00 L 2208.00 794.00 L 2356.00 794.00 L 2481.45 1061.00"
-    },
-    {
-      "from": 381,
-      "to": 387,
-      "d": "M 740.69 1446.00 L 876.00 934.00 L 1024.00 934.00 L 1172.00 934.00 L 1320.00 934.00 L 1468.00 934.00 L 1616.00 934.00 L 1764.00 934.00 L 1912.00 934.00 L 2060.00 934.00 L 2208.00 934.00 L 2356.00 934.00 L 2463.41 1061.00"
-    },
-    {
-      "from": 382,
-      "to": 387,
-      "d": "M 1061.39 1141.00 L 1172.00 999.00 L 1320.00 999.00 L 1468.00 999.00 L 1616.00 999.00 L 1764.00 999.00 L 1912.00 999.00 L 2060.00 999.00 L 2208.00 999.00 L 2356.00 999.00 L 2439.42 1061.00"
-    },
-    {
-      "from": 383,
-      "to": 387,
-      "d": "M 1387.66 1166.00 L 1468.00 1109.00 L 1616.00 1109.00 L 1764.00 1109.00 L 1912.00 1109.00 L 2060.00 1109.00 L 2208.00 1109.00 L 2356.00 1109.00 L 2384.00 1109.00"
-    },
-    {
-      "from": 384,
-      "to": 387,
-      "d": "M 1736.00 1469.00 L 1764.00 1469.00 L 1912.00 1469.00 L 2060.00 1469.00 L 2208.00 1469.00 L 2356.00 1469.00 L 2484.27 1157.00"
-    },
-    {
-      "from": 385,
-      "to": 387,
-      "d": "M 2032.00 1399.00 L 2060.00 1399.00 L 2208.00 1399.00 L 2356.00 1399.00 L 2479.50 1157.00"
-    },
-    {
-      "from": 386,
-      "to": 387,
-      "d": "M 2328.00 1209.27 L 2356.00 1214.00 L 2436.34 1157.00"
-    },
-    {
-      "from": 378,
-      "to": 386,
-      "d": "M 256.00 663.46 L 284.00 654.00 L 432.00 654.00 L 580.00 654.00 L 728.00 654.00 L 876.00 654.00 L 1024.00 654.00 L 1172.00 654.00 L 1320.00 654.00 L 1468.00 654.00 L 1616.00 654.00 L 1764.00 654.00 L 1912.00 654.00 L 2060.00 654.00 L 2194.72 1141.00"
-    },
-    {
-      "from": 379,
-      "to": 386,
-      "d": "M 552.00 1794.68 L 580.00 1789.00 L 728.00 1789.00 L 876.00 1789.00 L 1024.00 1789.00 L 1172.00 1789.00 L 1320.00 1789.00 L 1468.00 1789.00 L 1616.00 1789.00 L 1764.00 1789.00 L 1912.00 1789.00 L 2060.00 1789.00 L 2196.16 1237.00"
-    },
-    {
-      "from": 380,
-      "to": 386,
-      "d": "M 552.00 824.41 L 580.00 814.00 L 728.00 814.00 L 876.00 814.00 L 1024.00 814.00 L 1172.00 814.00 L 1320.00 814.00 L 1468.00 814.00 L 1616.00 814.00 L 1764.00 814.00 L 1912.00 814.00 L 2060.00 814.00 L 2189.06 1141.00"
-    },
-    {
-      "from": 381,
-      "to": 386,
-      "d": "M 741.16 1446.00 L 876.00 954.00 L 1024.00 954.00 L 1172.00 954.00 L 1320.00 954.00 L 1468.00 954.00 L 1616.00 954.00 L 1764.00 954.00 L 1912.00 954.00 L 2060.00 954.00 L 2177.77 1141.00"
-    },
-    {
-      "from": 382,
-      "to": 386,
-      "d": "M 1065.79 1141.00 L 1172.00 1019.00 L 1320.00 1019.00 L 1468.00 1019.00 L 1616.00 1019.00 L 1764.00 1019.00 L 1912.00 1019.00 L 2060.00 1019.00 L 2166.21 1141.00"
-    },
-    {
-      "from": 383,
-      "to": 386,
-      "d": "M 1341.86 1262.00 L 1468.00 1539.00 L 1616.00 1539.00 L 1764.00 1539.00 L 1912.00 1539.00 L 2060.00 1539.00 L 2187.70 1237.00"
-    },
-    {
-      "from": 384,
-      "to": 386,
-      "d": "M 1736.00 1489.27 L 1764.00 1494.00 L 1912.00 1494.00 L 2060.00 1494.00 L 2184.71 1237.00"
-    },
-    {
-      "from": 385,
-      "to": 386,
-      "d": "M 2032.00 1427.38 L 2060.00 1434.00 L 2179.00 1237.00"
-    },
-    {
-      "from": 378,
-      "to": 385,
-      "d": "M 256.00 679.68 L 284.00 674.00 L 432.00 674.00 L 580.00 674.00 L 728.00 674.00 L 876.00 674.00 L 1024.00 674.00 L 1172.00 674.00 L 1320.00 674.00 L 1468.00 674.00 L 1616.00 674.00 L 1764.00 674.00 L 1902.20 1351.00"
-    },
-    {
-      "from": 379,
-      "to": 385,
-      "d": "M 552.00 1810.89 L 580.00 1809.00 L 728.00 1809.00 L 876.00 1809.00 L 1024.00 1809.00 L 1172.00 1809.00 L 1320.00 1809.00 L 1468.00 1809.00 L 1616.00 1809.00 L 1764.00 1809.00 L 1894.67 1447.00"
-    },
-    {
-      "from": 380,
-      "to": 385,
-      "d": "M 552.00 840.62 L 580.00 834.00 L 728.00 834.00 L 876.00 834.00 L 1024.00 834.00 L 1172.00 834.00 L 1320.00 834.00 L 1468.00 834.00 L 1616.00 834.00 L 1764.00 834.00 L 1899.43 1351.00"
-    },
-    {
-      "from": 381,
-      "to": 385,
-      "d": "M 768.59 1542.00 L 876.00 1669.00 L 1024.00 1669.00 L 1172.00 1669.00 L 1320.00 1669.00 L 1468.00 1669.00 L 1616.00 1669.00 L 1764.00 1669.00 L 1885.69 1447.00"
-    },
-    {
-      "from": 382,
-      "to": 385,
-      "d": "M 1041.12 1237.00 L 1172.00 1604.00 L 1320.00 1604.00 L 1468.00 1604.00 L 1616.00 1604.00 L 1764.00 1604.00 L 1877.35 1447.00"
-    },
-    {
-      "from": 383,
-      "to": 385,
-      "d": "M 1340.59 1262.00 L 1468.00 1559.00 L 1616.00 1559.00 L 1764.00 1559.00 L 1867.60 1447.00"
-    },
-    {
-      "from": 384,
-      "to": 385,
-      "d": "M 1736.00 1505.49 L 1764.00 1514.00 L 1850.23 1447.00"
-    },
-    {
-      "from": 378,
-      "to": 384,
-      "d": "M 256.00 695.89 L 284.00 694.00 L 432.00 694.00 L 580.00 694.00 L 728.00 694.00 L 876.00 694.00 L 1024.00 694.00 L 1172.00 694.00 L 1320.00 694.00 L 1468.00 694.00 L 1606.83 1421.00"
-    },
-    {
-      "from": 379,
-      "to": 384,
-      "d": "M 552.00 1827.11 L 580.00 1829.00 L 728.00 1829.00 L 876.00 1829.00 L 1024.00 1829.00 L 1172.00 1829.00 L 1320.00 1829.00 L 1468.00 1829.00 L 1596.27 1517.00"
-    },
-    {
-      "from": 380,
-      "to": 384,
-      "d": "M 552.00 856.84 L 580.00 854.00 L 728.00 854.00 L 876.00 854.00 L 1024.00 854.00 L 1172.00 854.00 L 1320.00 854.00 L 1468.00 854.00 L 1604.45 1421.00"
-    },
-    {
-      "from": 381,
-      "to": 384,
-      "d": "M 764.43 1542.00 L 876.00 1689.00 L 1024.00 1689.00 L 1172.00 1689.00 L 1320.00 1689.00 L 1468.00 1689.00 L 1583.71 1517.00"
-    },
-    {
-      "from": 382,
-      "to": 384,
-      "d": "M 1040.33 1237.00 L 1172.00 1624.00 L 1320.00 1624.00 L 1468.00 1624.00 L 1570.17 1517.00"
-    },
-    {
-      "from": 383,
-      "to": 384,
-      "d": "M 1339.46 1262.00 L 1468.00 1579.00 L 1551.42 1517.00"
-    },
-    {
-      "from": 378,
-      "to": 383,
-      "d": "M 256.00 712.11 L 284.00 714.00 L 432.00 714.00 L 580.00 714.00 L 728.00 714.00 L 876.00 714.00 L 1024.00 714.00 L 1172.00 714.00 L 1305.79 1166.00"
-    },
-    {
-      "from": 379,
-      "to": 383,
-      "d": "M 552.00 1843.32 L 580.00 1849.00 L 728.00 1849.00 L 876.00 1849.00 L 1024.00 1849.00 L 1172.00 1849.00 L 1308.81 1262.00"
-    },
-    {
-      "from": 380,
-      "to": 383,
-      "d": "M 552.00 873.05 L 580.00 874.00 L 728.00 874.00 L 876.00 874.00 L 1024.00 874.00 L 1172.00 874.00 L 1299.11 1166.00"
-    },
-    {
-      "from": 381,
-      "to": 383,
-      "d": "M 761.04 1542.00 L 876.00 1709.00 L 1024.00 1709.00 L 1172.00 1709.00 L 1305.65 1262.00"
-    },
-    {
-      "from": 382,
-      "to": 383,
-      "d": "M 1039.61 1237.00 L 1172.00 1644.00 L 1303.48 1262.00"
-    },
-    {
-      "from": 378,
-      "to": 382,
-      "d": "M 256.00 728.32 L 284.00 734.00 L 432.00 734.00 L 580.00 734.00 L 728.00 734.00 L 876.00 734.00 L 1008.39 1141.00"
-    },
-    {
-      "from": 379,
-      "to": 382,
-      "d": "M 552.00 1859.54 L 580.00 1869.00 L 728.00 1869.00 L 876.00 1869.00 L 1013.55 1237.00"
-    },
-    {
-      "from": 380,
-      "to": 382,
-      "d": "M 552.00 889.27 L 580.00 894.00 L 728.00 894.00 L 876.00 894.00 L 999.92 1141.00"
-    },
-    {
-      "from": 381,
-      "to": 382,
-      "d": "M 758.23 1542.00 L 876.00 1729.00 L 1010.84 1237.00"
-    },
-    {
-      "from": 378,
-      "to": 381,
-      "d": "M 256.00 744.54 L 284.00 754.00 L 432.00 754.00 L 580.00 754.00 L 718.40 1446.00"
-    },
-    {
-      "from": 379,
-      "to": 381,
-      "d": "M 533.49 1867.00 L 580.00 1889.00 L 710.02 1542.00"
-    },
-    {
-      "from": 380,
-      "to": 381,
-      "d": "M 443.37 917.00 L 580.00 1494.00 L 608.00 1494.00"
-    },
-    {
-      "from": 378,
-      "to": 380,
-      "d": "M 179.05 752.00 L 284.00 869.00 L 312.00 869.00"
-    },
-    {
-      "from": 378,
-      "to": 379,
-      "d": "M 142.37 752.00 L 284.00 1819.00 L 312.00 1819.00"
-    }
-  ],
+  "edges": [],
   "timeline": [
     {
       "phase": 0,
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        438,
+        421,
+        424,
+        429,
+        430,
+        428,
+        417,
+        377,
+        389,
+        388,
+        387,
+        386,
+        385,
+        384,
+        383,
+        382,
+        381,
+        380,
+        379,
+        378,
         369,
         367,
         374,
@@ -6390,86 +6280,12 @@
         207,
         325,
         326,
-        377,
-        378,
-        417,
-        421,
-        424
-      ]
-    },
-    {
-      "phase": 2,
-      "kind": "open",
-      "note": "phase 2",
-      "issues": [
-        379,
-        380,
-        423
-      ]
-    },
-    {
-      "phase": 3,
-      "kind": "open",
-      "note": "phase 3",
-      "issues": [
-        381
-      ]
-    },
-    {
-      "phase": 4,
-      "kind": "open",
-      "note": "phase 4",
-      "issues": [
-        382
-      ]
-    },
-    {
-      "phase": 5,
-      "kind": "open",
-      "note": "phase 5",
-      "issues": [
-        383
-      ]
-    },
-    {
-      "phase": 6,
-      "kind": "open",
-      "note": "phase 6",
-      "issues": [
-        384
-      ]
-    },
-    {
-      "phase": 7,
-      "kind": "open",
-      "note": "phase 7",
-      "issues": [
-        385,
-        388
-      ]
-    },
-    {
-      "phase": 8,
-      "kind": "open",
-      "note": "phase 8",
-      "issues": [
-        386
-      ]
-    },
-    {
-      "phase": 9,
-      "kind": "open",
-      "note": "phase 9",
-      "issues": [
-        387
-      ]
-    },
-    {
-      "phase": 10,
-      "kind": "open",
-      "note": "phase 10",
-      "issues": [
-        389
+        423,
+        431,
+        432,
+        433,
+        435,
+        436
       ]
     }
   ],
@@ -6477,7 +6293,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 134
+      "count": 135
     },
     {
       "name": "feature",
@@ -6632,16 +6448,16 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17",
-      "open": 3,
-      "closed": 0
+      "open": 2,
+      "closed": 3
     },
     {
       "title": "v0.0.17",
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18",
-      "open": 2,
-      "closed": 0
+      "open": 0,
+      "closed": 1
     },
     {
       "title": "v0.0.4",
@@ -6672,7 +6488,7 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 2,
+      "open": 7,
       "closed": 6
     }
   ]

@@ -1,14 +1,104 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-13T13:19:01.743Z",
+  "generated_at": "2026-05-15T00:48:58.868Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 0,
-    "closed": 11,
+    "open": 4,
+    "closed": 12,
     "edges": 0
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 98,
+      "title": "Ceph v2: direct Ceph Dashboard API integration",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/98",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
+      },
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 97,
+      "title": "Ceph v2: external non-Proxmox Ceph cluster support",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/97",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
+      },
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 95,
+      "title": "Ceph v2: orchestration API, plan/apply engine, and operation runs",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/95",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
+      },
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 94,
+      "title": "Ceph v2: Prometheus metric ingestion and health snapshots",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/94",
+      "closedAt": null,
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
+      },
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 92,
+      "title": "Ceph support: backend API module",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/92",
+      "closedAt": "2026-05-14T22:58:00Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 71,
       "title": "Add /sync/active endpoint and join-or-fast-fail mode for concurrent syncs",
@@ -233,6 +323,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        92,
         71,
         61,
         60,
@@ -244,6 +335,17 @@
         1,
         3,
         4
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        94,
+        95,
+        97,
+        98
       ]
     }
   ],
@@ -285,6 +387,14 @@
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/2",
       "open": 0,
       "closed": 1
+    },
+    {
+      "title": "v0.1.0",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7",
+      "open": 4,
+      "closed": 0
     }
   ]
 }

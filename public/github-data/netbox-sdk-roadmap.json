@@ -1,14 +1,42 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-13T13:19:03.043Z",
+  "generated_at": "2026-05-15T00:48:59.765Z",
   "repo": "emersonfelipesp/netbox-sdk",
   "counts": {
     "open": 0,
-    "closed": 4,
+    "closed": 5,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
   "nodes": [
+    {
+      "number": 23,
+      "title": "netbox-branching v1.0.3 support",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/23",
+      "closedAt": "2026-05-13T20:02:55Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/2"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 18,
       "title": "Support Cursor-based pagination on REST API and GraphQL",
@@ -116,6 +144,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        23,
         18,
         15,
         12,
@@ -127,12 +156,12 @@
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 4
+      "count": 5
     },
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 2
+      "count": 3
     }
   ],
   "milestones": [
@@ -150,7 +179,7 @@
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-sdk/milestone/2",
       "open": 0,
-      "closed": 1
+      "closed": 2
     }
   ]
 }
