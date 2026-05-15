@@ -193,6 +193,25 @@ export type Dictionary = {
       hidePast: string;
     };
   };
+  notFound: {
+    title: string;
+    statusLine: string;
+    description: string;
+    pathLabel: string;
+    suggestionsHeading: string;
+    suggestions: {
+      home: string;
+      netboxProxbox: string;
+      proxboxApi: string;
+      netboxSdk: string;
+      proxmoxSdk: string;
+      llms: string;
+    };
+    actions: {
+      home: string;
+      contact: string;
+    };
+  };
   home: {
     sections: {
       whoami: string;
@@ -473,6 +492,26 @@ const en: Dictionary = {
     milestoneToggle: {
       showPast: "+ {n} past",
       hidePast: "hide past",
+    },
+  },
+  notFound: {
+    title: "page not found",
+    statusLine: "404 — segment unresolved",
+    description:
+      "the requested path did not match any showcase, developer guide, roadmap, release page, or markdown route on this site.",
+    pathLabel: "path",
+    suggestionsHeading: "ls /",
+    suggestions: {
+      home: "/ — homepage, profile, featured projects",
+      netboxProxbox: "/netbox-proxbox — netbox plugin for proxmox sync",
+      proxboxApi: "/proxbox-api — fastapi backend behind netbox-proxbox",
+      netboxSdk: "/netbox-sdk — python sdk + nbx cli + textual tui for netbox",
+      proxmoxSdk: "/proxmox-sdk — schema-driven sdk + cli + tui for proxmox",
+      llms: "/llms.txt — machine-readable index of every public page",
+    },
+    actions: {
+      home: "cd ~",
+      contact: "mail emerson",
     },
   },
   home: {
@@ -757,6 +796,26 @@ const ptBr: Dictionary = {
     milestoneToggle: {
       showPast: "+{n} entregues",
       hidePast: "ocultar entregues",
+    },
+  },
+  notFound: {
+    title: "página não encontrada",
+    statusLine: "404 — segmento não resolvido",
+    description:
+      "o caminho solicitado não corresponde a nenhuma página de showcase, guia de desenvolvedor, roadmap, release ou rota markdown deste site.",
+    pathLabel: "caminho",
+    suggestionsHeading: "ls /",
+    suggestions: {
+      home: "/ — página inicial, perfil, projetos em destaque",
+      netboxProxbox: "/netbox-proxbox — plugin do netbox para sincronizar o proxmox",
+      proxboxApi: "/proxbox-api — backend fastapi por trás do netbox-proxbox",
+      netboxSdk: "/netbox-sdk — sdk python + cli nbx + tui textual para o netbox",
+      proxmoxSdk: "/proxmox-sdk — sdk + cli + tui orientado a schema para o proxmox",
+      llms: "/llms.txt — índice legível por máquina de todas as páginas públicas",
+    },
+    actions: {
+      home: "cd ~",
+      contact: "mail emerson",
     },
   },
   home: {
