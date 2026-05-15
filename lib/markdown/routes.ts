@@ -1,13 +1,19 @@
 import { profile, skills } from "@/content/profile";
 import { getGitHubSnapshot } from "@/lib/github";
 import {
+  getProject,
   isProjectSlug,
   PROJECT_LIST,
+  type ProjectSlug,
   releaseDetailPath,
   releaseListPath,
   roadmapPath,
 } from "@/lib/project-registry";
 import {
+  DEVELOPER_CONTENT,
+  PROJECT_CONTENT,
+  type CodeStep,
+  type ConfigStep,
   type MarkdownRoute,
   type MarkdownRouteKind,
 } from "./data";
@@ -17,6 +23,8 @@ import {
   decodeSegment,
   fenced,
   finalize,
+  formatDate,
+  list,
   normalizePath,
   paragraphs,
   rawMarkdownAbsolute,
@@ -214,6 +222,46 @@ export async function getLlmsTxt(): Promise<string> {
         )}) - concatenated Markdown content for all indexed pages.`,
       ].join("\n"),
     ),
+    section(
+      "Per-project llms.txt",
+      [
+        "Each project ships its own focused llms.txt covering metadata, overview, features, stack, install, architecture, integrations, configuration, screenshots, contributing, CI workflows, end-to-end testing, recent releases, related projects, and external links.",
+        "",
+        renderTable(
+          ["Project", "Tagline", "llms.txt", "Showcase", "Developer guide", "GitHub"],
+          PROJECT_LIST.map((project) => [
+            project.name,
+            project.tagline,
+            absolute(`${project.projectPath}/llms.txt`),
+            absolute(project.projectPath),
+            absolute(`${project.projectPath}/developer`),
+            project.repoUrl,
+          ]),
+        ),
+      ].join("\n"),
+    ),
+    section(
+      "Per-project quick links",
+      PROJECT_LIST.map((project) => {
+        const actionLines = project.actions
+          .map((action) => {
+            const label =
+              action.icon === "github"
+                ? "GitHub"
+                : action.icon === "pypi"
+                  ? "PyPI"
+                  : "Docker Hub";
+            return `  - ${label}: ${action.href}`;
+          })
+          .join("\n");
+        return [
+          `- **${project.name}** — ${project.tagline}`,
+          actionLines,
+        ]
+          .filter(Boolean)
+          .join("\n");
+      }).join("\n"),
+    ),
     section("Primary pages", renderRouteIndex(routes, "home")),
     section("Project showcases", renderRouteIndex(routes, "project")),
     section("Developer guides", renderRouteIndex(routes, "developer")),
@@ -234,6 +282,326 @@ export async function getLlmsTxt(): Promise<string> {
         .join("\n"),
     ),
   ]);
+}
+
+export async function getProjectLlmsTxt(
+  slug: ProjectSlug,
+): Promise<string | null> {
+  const project = getProject(slug);
+  const content = PROJECT_CONTENT[slug];
+  const developer = DEVELOPER_CONTENT[slug];
+  if (!project || !content) return null;
+
+  const snapshot = await getGitHubSnapshot(slug);
+  const latestRelease =
+    snapshot?.releases.find((release) => release.latest)?.tag ??
+    snapshot?.releases[0]?.tag ??
+    content.meta.latestRelease ??
+    null;
+
+  const showcasePath = `/${slug}`;
+  const developerPath = `/${slug}/developer`;
+  const roadmapHref = roadmapPath(slug) ?? `/${slug}/roadmap`;
+  const releasesIndexPath = releaseListPath(slug);
+
+  const projectActionsMap = new Map<string, string>(
+    project.actions.map((action) => [action.icon, action.href]),
+  );
+
+  const metaRows: ReadonlyArray<readonly [string, string | number | null]> = [
+    ["Canonical URL", absolute(showcasePath)],
+    ["Project llms.txt", absolute(`${showcasePath}/llms.txt`)],
+    ["GitHub", project.repoUrl],
+    ["GitHub releases", project.releasesUrl],
+    ["Developer guide", absolute(developerPath)],
+    ["Roadmap", absolute(roadmapHref)],
+    ["Release index", absolute(releasesIndexPath)],
+    ["PyPI", projectActionsMap.get("pypi") ?? null],
+    ["Docker Hub", projectActionsMap.get("docker") ?? null],
+    ["License", content.meta.license ?? null],
+    ["Python", content.meta.python ?? null],
+    ["NetBox", content.meta.netbox ?? null],
+    ["Proxmox", content.meta.proxmox ?? null],
+    ["Latest release", latestRelease],
+    ["Stars", snapshot?.stars ?? content.meta.stars ?? null],
+    ["Forks", snapshot?.forks ?? content.meta.forks ?? null],
+  ];
+
+  const sitePages: ReadonlyArray<{
+    title: string;
+    path: string;
+    description: string;
+  }> = [
+    {
+      title: `${content.name} showcase`,
+      path: showcasePath,
+      description: content.tagline,
+    },
+    {
+      title: `${content.name} developer guide`,
+      path: developerPath,
+      description: `Architecture, integrations, contribution workflow, and end-to-end testing for ${content.name}.`,
+    },
+    {
+      title: `${content.name} roadmap`,
+      path: roadmapHref,
+      description: `Roadmap for ${content.name}.`,
+    },
+    {
+      title: `${content.name} release index`,
+      path: releasesIndexPath,
+      description: `Release index for ${content.name}.`,
+    },
+  ];
+
+  const sitePagesIndex = sitePages
+    .map(
+      (page) =>
+        `- [${page.title}](${absolute(page.path)}) - ${page.description}. Markdown: [raw](${rawMarkdownAbsolute(page.path)}), [themed](${themedMarkdownAbsolute(page.path)}).`,
+    )
+    .join("\n");
+
+  const releaseLines = (snapshot?.releases ?? [])
+    .slice(0, 10)
+    .map((release) => {
+      const state = release.latest
+        ? "latest"
+        : release.prerelease
+          ? "pre-release"
+          : "stable";
+      return `- [${release.name || release.tag}](${absolute(
+        releaseDetailPath(slug, release.tag),
+      )}) - ${release.tag} - ${formatDate(release.publishedAt)} - ${state}`;
+    })
+    .join("\n");
+
+  const externalLinkRows = Object.entries(content.links).map(
+    ([label, href]) => [label, href],
+  );
+
+  const developerLinkRows = developer
+    ? Object.entries(developer.links).map(([label, href]) => [label, href])
+    : [];
+
+  const allLinkRows = [
+    ...externalLinkRows,
+    ...developerLinkRows.filter(
+      ([label]) =>
+        !externalLinkRows.some(([existing]) => existing === label),
+    ),
+  ];
+
+  const architectureSection = developer
+    ? [
+        paragraphs(developer.intro),
+        "",
+        list(developer.architecture.bullets),
+      ]
+        .filter((part) => part.trim())
+        .join("\n")
+    : "";
+
+  const integrationsSection =
+    developer && developer.integrations.length
+      ? renderTable(
+          ["Target", "Protocol", "Library", "Notes"],
+          developer.integrations.map((row) => [
+            row.target,
+            row.protocol,
+            row.library,
+            row.notes ?? "",
+          ]),
+        )
+      : "";
+
+  const installationSection = (() => {
+    if (!content.installation) return "";
+    const blocks: string[] = [];
+    const groups: ReadonlyArray<readonly [string, readonly CodeStep[] | undefined]> = [
+      ["Install (git source)", content.installation.git],
+      ["Install (Docker)", content.installation.docker],
+      ["Backend (proxbox-api)", content.installation.backend],
+    ];
+    for (const [heading, steps] of groups) {
+      if (!steps?.length) continue;
+      const lines: string[] = [`### ${heading}`, ""];
+      steps.forEach((step, index) => {
+        lines.push(`${index + 1}. **${step.title}**`);
+        const body = typeof step.body === "string" ? [step.body] : step.body;
+        for (const para of body) lines.push(`   - ${para}`);
+        if (step.code) {
+          lines.push("");
+          lines.push(fenced(step.code, step.codeLabel ?? "shell"));
+        }
+        lines.push("");
+      });
+      blocks.push(lines.join("\n").trim());
+    }
+    return blocks.join("\n\n");
+  })();
+
+  const configurationSection = (() => {
+    if (!content.configuration) return "";
+    const blocks: string[] = [];
+    const groups: ReadonlyArray<readonly [string, readonly ConfigStep[] | undefined]> = [
+      ["Endpoints", content.configuration.endpoints],
+      ["Plugin settings", content.configuration.settings],
+    ];
+    for (const [heading, steps] of groups) {
+      if (!steps?.length) continue;
+      const lines: string[] = [`### ${heading}`, ""];
+      for (const step of steps) {
+        lines.push(`- **${step.title}**`);
+        const body = typeof step.body === "string" ? [step.body] : step.body;
+        for (const para of body) lines.push(`  - ${para}`);
+      }
+      blocks.push(lines.join("\n").trim());
+    }
+    return blocks.join("\n\n");
+  })();
+
+  const screenshotsSection = content.screenshots?.length
+    ? content.screenshots
+        .map((group) => {
+          const items = group.items
+            .map(
+              (item) =>
+                `- [${item.alt}](${absolute(item.src)}) - ${item.caption}`,
+            )
+            .join("\n");
+          return [`### ${group.title}`, "", items].join("\n").trim();
+        })
+        .join("\n\n")
+    : "";
+
+  const contributingSection = developer
+    ? [
+        `Dev install: \`${developer.contributing.devInstall}\``,
+        "",
+        "Local checks:",
+        "",
+        renderTable(
+          ["Check", "Command"],
+          developer.contributing.checks.map((check) => [check.label, `\`${check.cmd}\``]),
+        ),
+        "",
+        "Code style:",
+        "",
+        list(developer.contributing.codeStyle),
+        "",
+        `Issues: ${developer.contributing.issuesUrl}`,
+      ].join("\n")
+    : "";
+
+  const ciSection = developer?.ci
+    ? [
+        paragraphs(developer.ci.intro),
+        "",
+        renderTable(
+          ["Workflow", "Trigger", "Purpose"],
+          developer.ci.workflows.map((wf) => [wf.name, wf.trigger, wf.purpose]),
+        ),
+        developer.ci.notes?.length ? `\n**Notes**\n\n${list(developer.ci.notes)}` : "",
+      ].join("\n")
+    : "";
+
+  const e2eSection = developer
+    ? [
+        `Framework: ${developer.e2e.framework}`,
+        "",
+        paragraphs(developer.e2e.intro),
+        "",
+        "Commands:",
+        "",
+        renderTable(
+          ["Suite", "Command"],
+          developer.e2e.commands.map((cmd) => [cmd.label, `\`${cmd.cmd}\``]),
+        ),
+        "",
+        "Coverage:",
+        "",
+        list(developer.e2e.coverage),
+        developer.e2e.ciWorkflow
+          ? `\nCI workflow: \`${developer.e2e.ciWorkflow}\`${
+              developer.e2e.ciWorkflowUrl ? ` (${developer.e2e.ciWorkflowUrl})` : ""
+            }`
+          : "",
+      ].join("\n")
+    : "";
+
+  const relatedProjects = PROJECT_LIST.filter((p) => p.slug !== slug);
+  const relatedSection = relatedProjects.length
+    ? renderTable(
+        ["Project", "Tagline", "Showcase", "llms.txt", "GitHub"],
+        relatedProjects.map((p) => [
+          p.name,
+          p.tagline,
+          absolute(p.projectPath),
+          absolute(`${p.projectPath}/llms.txt`),
+          p.repoUrl,
+        ]),
+      )
+    : "";
+
+  const parts: (string | null | undefined)[] = [
+    `# ${content.name}`,
+    `> ${content.tagline}`,
+    section("Project metadata", renderTable(["Field", "Value"], metaRows)),
+    section("Overview", paragraphs(content.description)),
+    section("Features", list(content.features)),
+    section("Stack", list(content.stack)),
+    section(
+      "Install",
+      [
+        fenced(content.install.primary, "shell"),
+        content.install.note ? `\n${content.install.note}` : "",
+      ].join("\n"),
+    ),
+    section("Architecture", architectureSection),
+    section("Integrations", integrationsSection),
+    section("Installation walkthrough", installationSection),
+    section("Configuration", configurationSection),
+    section("Screenshots", screenshotsSection),
+    section("Contributing", contributingSection),
+    section("CI workflows", ciSection),
+    section("End-to-end testing", e2eSection),
+    section("Pages on emersonfelipesp.com", sitePagesIndex),
+    releaseLines
+      ? section(
+          "Recent releases",
+          [
+            releaseLines,
+            "",
+            `Full release index: ${absolute(releasesIndexPath)}`,
+            `GitHub releases: ${project.releasesUrl}`,
+          ].join("\n"),
+        )
+      : "",
+    section("Related projects", relatedSection),
+    allLinkRows.length
+      ? section("External links", renderTable(["Label", "URL"], allLinkRows))
+      : "",
+    section(
+      "Markdown access",
+      [
+        `This llms.txt is available at ${absolute(`${showcasePath}/llms.txt`)}.`,
+        "",
+        "Every showcase, developer, roadmap, and release page on this site also serves Markdown directly when requested with `Accept: text/markdown`, via a /md prefix, or via `?content=markdown`.",
+        "",
+        fenced(
+          `curl -H "Accept: text/markdown" ${absolute(showcasePath)}`,
+          "shell",
+        ),
+        "",
+        `Raw Markdown: ${rawMarkdownAbsolute(showcasePath)}`,
+        `Themed Markdown: ${themedMarkdownAbsolute(showcasePath)}`,
+        `Site-wide llms.txt index: ${absolute("/llms.txt")}`,
+        `Full Markdown corpus: ${absolute("/llms-full.txt")}`,
+      ].join("\n"),
+    ),
+  ];
+
+  return finalize(parts);
 }
 
 export async function getLlmsFullTxt(): Promise<string> {

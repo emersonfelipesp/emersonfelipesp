@@ -5,5 +5,6 @@ export {
   getLlmsTxt,
   getMarkdownForPath,
   getMarkdownSitemap,
+  getProjectLlmsTxt,
   getPublicMarkdownRoutes,
 } from "./markdown/routes";
