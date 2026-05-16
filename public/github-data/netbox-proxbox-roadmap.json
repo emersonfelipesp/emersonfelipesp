@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T20:36:52.269Z",
+  "generated_at": "2026-05-16T21:01:27.559Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 11,
-    "closed": 237,
+    "open": 10,
+    "closed": 238,
     "edges": 86
   },
-  "viewBox": "0 0 272 1328",
+  "viewBox": "0 0 272 1208",
   "nodes": [
     {
       "number": 451,
       "title": "Add 'Build PVE Template' UI action on ProxmoxEndpoint backed by a new proxbox-api endpoint",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/451",
-      "closedAt": null,
+      "closedAt": "2026-05-16T20:51:48Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 1216,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6100,6 +6100,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        451,
         445,
         423,
         438,
@@ -6353,8 +6354,7 @@
         433,
         435,
         436,
-        449,
-        451
+        449
       ]
     }
   ],
