@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T16:56:37.474Z",
+  "generated_at": "2026-05-16T17:08:51.105Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 12,
+    "open": 5,
+    "closed": 13,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 112,
       "title": "Can`t delete Proxmox Endpoints",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/112",
-      "closedAt": null,
+      "closedAt": "2026-05-16T17:07:33Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -369,6 +369,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        112,
         92,
         71,
         61,
@@ -392,8 +393,7 @@
         95,
         97,
         98,
-        111,
-        112
+        111
       ]
     }
   ],
