@@ -1,33 +1,62 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T17:14:31.036Z",
+  "generated_at": "2026-05-16T18:22:20.596Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 10,
-    "closed": 236,
+    "closed": 237,
     "edges": 86
   },
   "viewBox": "0 0 272 1208",
   "nodes": [
     {
+      "number": 449,
+      "title": "Proxmox Datacenter Manager Support (PDM)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/449",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.18",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19"
+      },
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
       "number": 445,
       "title": "Proxmox VE 9 - Fullsync not possible - Too many requests / database is locked",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/445",
-      "closedAt": null,
+      "closedAt": "2026-05-16T17:18:05Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
-      "milestone": null,
-      "x": 16,
-      "y": 1096,
+      "milestone": {
+        "title": "v0.0.15.post1",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/22"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6057,6 +6086,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        445,
         423,
         438,
         421,
@@ -6309,7 +6339,7 @@
         433,
         435,
         436,
-        445
+        449
       ]
     }
   ],
@@ -6317,7 +6347,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 135
+      "count": 137
     },
     {
       "name": "feature",
@@ -6332,7 +6362,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 25
+      "count": 24
     },
     {
       "name": "python",
@@ -6468,6 +6498,14 @@
       "closed": 26
     },
     {
+      "title": "v0.0.15.post1",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/22",
+      "open": 0,
+      "closed": 1
+    },
+    {
       "title": "v0.0.16",
       "state": "open",
       "due_on": null,
@@ -6482,6 +6520,14 @@
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18",
       "open": 0,
       "closed": 1
+    },
+    {
+      "title": "v0.0.18",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19",
+      "open": 1,
+      "closed": 0
     },
     {
       "title": "v0.0.4",
