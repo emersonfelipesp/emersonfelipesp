@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T12:24:50.346Z",
+  "generated_at": "2026-05-16T15:11:05.910Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 12,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 111,
+      "title": "proxmox_sdk.sdk.exceptions.ResourceException: HTTP 500 cannot index groups: ha groups have been migrated to rules",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/111",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 98,
       "title": "Ceph v2: direct Ceph Dashboard API integration",
@@ -345,7 +359,8 @@
         94,
         95,
         97,
-        98
+        98,
+        111
       ]
     }
   ],
