@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T06:50:46.133Z",
+  "generated_at": "2026-05-16T12:24:48.027Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 10,
     "closed": 236,
     "edges": 86
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 445,
+      "title": "Proxmox VE 9 - Fullsync not possible - Too many requests / database is locked",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/445",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 438,
       "title": "Extend ProxmoxEndpoint model to allow user to inform if Proxmox VE instance is `production`, `development`, `homolog` and other useful status.",
@@ -6285,7 +6299,8 @@
         432,
         433,
         435,
-        436
+        436,
+        445
       ]
     }
   ],
