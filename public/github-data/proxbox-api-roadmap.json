@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T17:08:51.105Z",
+  "generated_at": "2026-05-16T17:12:31.475Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 13,
+    "open": 4,
+    "closed": 14,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 112,
@@ -21,11 +21,16 @@
           "color": "d73a4a"
         },
         {
-          "name": "under review",
-          "color": "fbca04"
+          "name": "accepted",
+          "color": "0e8a16"
         }
       ],
-      "milestone": null,
+      "milestone": {
+        "title": "v0.0.11.post1",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/8"
+      },
       "x": 0,
       "y": 0,
       "w": 240,
@@ -35,9 +40,9 @@
     {
       "number": 111,
       "title": "proxmox_sdk.sdk.exceptions.ResourceException: HTTP 500 cannot index groups: ha groups have been migrated to rules",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/111",
-      "closedAt": null,
+      "closedAt": "2026-05-16T17:11:43Z",
       "labels": [
         {
           "name": "bug",
@@ -48,9 +53,14 @@
           "color": "fbca04"
         }
       ],
-      "milestone": null,
-      "x": 16,
-      "y": 496,
+      "milestone": {
+        "title": "v0.0.11.post1",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -369,6 +379,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        111,
         112,
         92,
         71,
@@ -392,8 +403,7 @@
         94,
         95,
         97,
-        98,
-        111
+        98
       ]
     }
   ],
@@ -401,7 +411,7 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 5
+      "count": 6
     },
     {
       "name": "bug",
@@ -409,13 +419,13 @@
       "count": 5
     },
     {
-      "name": "under review",
-      "color": "fbca04",
-      "count": 3
-    },
-    {
       "name": "enhancement",
       "color": "a2eeef",
+      "count": 2
+    },
+    {
+      "name": "under review",
+      "color": "fbca04",
       "count": 2
     }
   ],
@@ -427,6 +437,14 @@
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/1",
       "open": 0,
       "closed": 1
+    },
+    {
+      "title": "v0.0.11.post1",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/8",
+      "open": 0,
+      "closed": 2
     },
     {
       "title": "v0.0.7.post1",
