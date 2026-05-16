@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T20:17:21.170Z",
+  "generated_at": "2026-05-16T20:36:52.269Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
+    "open": 11,
     "closed": 237,
     "edges": 86
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1328",
   "nodes": [
+    {
+      "number": 451,
+      "title": "Add 'Build PVE Template' UI action on ProxmoxEndpoint backed by a new proxbox-api endpoint",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/451",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1216,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 449,
       "title": "Proxmox Datacenter Manager Support (PDM)",
@@ -6339,7 +6353,8 @@
         433,
         435,
         436,
-        449
+        449,
+        451
       ]
     }
   ],

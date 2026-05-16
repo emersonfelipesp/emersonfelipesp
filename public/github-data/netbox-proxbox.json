@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-16T20:16:52.991Z",
+  "syncedAt": "2026-05-16T20:36:24.645Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 544,
   "forks": 63,
   "releases": [
+    {
+      "id": 323766232,
+      "nodeId": "RE_kwDOFTMlzs4TTEfY",
+      "tag": "v0.0.15.post1",
+      "name": "netbox-proxbox v0.0.15.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.15.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/323766232",
+      "targetCommitish": "develop",
+      "body": "Post-release patch on stable `v0.0.15`. Pairs with backend `proxbox-api v0.0.11.post1`.\n\n## Fixes\n\n- **VM/LXC resource API pagination** — `/api/plugins/proxbox/resources/virtual-machines/` and `/api/plugins/proxbox/resources/lxc-containers/` now filter the full proxbox-tagged VM set before applying optional `limit` / `offset` pagination (fixes the 100-object truncation regression). Both endpoints order by VM name and preserve fully-unpaginated responses when no pagination parameters are supplied. (#444)\n- **PVE 9.x HA rules** — Cluster HA dashboard renders the new `rules` field exposed by `proxbox-api`'s `/proxmox/cluster/ha/summary`. PVE 9.x clusters (where `cluster/ha/groups` was replaced by `cluster/ha/rules`) now show populated HA info instead of an empty view. Backward compatible — the card is hidden on pre-9.x clusters. (Fixes #111)\n- **Cloud image template updates** — REST API accepts PUT/PATCH on cloud image templates via `CloudImageTemplateSerializer` delegation through `NetBoxModelSerializer`. (#444)\n- **Bulk-delete fix** — `ProxmoxEndpointBulkDeleteView` wired in `urls.py` so the bulk-delete action no longer 404s. (#446)\n- **Serializer MRO** — `fix(api): delegate create/update through NetBoxModelSerializer MRO` ensures create/update payloads flow through the documented pipeline.\n- **Full-update resilience** — backups, snapshots, and task history can now fail individually without aborting the whole sync; required stages still raise errors. (#448)\n\n## Compatibility\n\nNo NetBox compatibility rotation. NetBox compatibility range `4.5.8` – `4.6.99` unchanged.\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|--------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.15.post1 | v0.0.11.post1 | v0.0.8.post1 | v0.0.3.post1 |\n| >=4.5.8 | v0.0.15 | v0.0.11 | v0.0.8.post1 | v0.0.3.post1 |\n\nFull release notes: https://emersonfelipesp.github.io/netbox-proxbox/release-notes/version-0.0.15.post1/",
+      "bodyHtml": "<p dir=\"auto\">Post-release patch on stable <code class=\"notranslate\">v0.0.15</code>. Pairs with backend <code class=\"notranslate\">proxbox-api v0.0.11.post1</code>.</p>\n<h2 dir=\"auto\">Fixes</h2>\n<ul dir=\"auto\">\n<li><strong>VM/LXC resource API pagination</strong> — <code class=\"notranslate\">/api/plugins/proxbox/resources/virtual-machines/</code> and <code class=\"notranslate\">/api/plugins/proxbox/resources/lxc-containers/</code> now filter the full proxbox-tagged VM set before applying optional <code class=\"notranslate\">limit</code> / <code class=\"notranslate\">offset</code> pagination (fixes the 100-object truncation regression). Both endpoints order by VM name and preserve fully-unpaginated responses when no pagination parameters are supplied. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4456708237\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/444\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/444/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/444\">#444</a>)</li>\n<li><strong>PVE 9.x HA rules</strong> — Cluster HA dashboard renders the new <code class=\"notranslate\">rules</code> field exposed by <code class=\"notranslate\">proxbox-api</code>'s <code class=\"notranslate\">/proxmox/cluster/ha/summary</code>. PVE 9.x clusters (where <code class=\"notranslate\">cluster/ha/groups</code> was replaced by <code class=\"notranslate\">cluster/ha/rules</code>) now show populated HA info instead of an empty view. Backward compatible — the card is hidden on pre-9.x clusters. (Fixes <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"1714566350\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/issues/111/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/111\">#111</a>)</li>\n<li><strong>Cloud image template updates</strong> — REST API accepts PUT/PATCH on cloud image templates via <code class=\"notranslate\">CloudImageTemplateSerializer</code> delegation through <code class=\"notranslate\">NetBoxModelSerializer</code>. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4456708237\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/444\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/444/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/444\">#444</a>)</li>\n<li><strong>Bulk-delete fix</strong> — <code class=\"notranslate\">ProxmoxEndpointBulkDeleteView</code> wired in <code class=\"notranslate\">urls.py</code> so the bulk-delete action no longer 404s. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4460682350\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/446\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/446/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/446\">#446</a>)</li>\n<li><strong>Serializer MRO</strong> — <code class=\"notranslate\">fix(api): delegate create/update through NetBoxModelSerializer MRO</code> ensures create/update payloads flow through the documented pipeline.</li>\n<li><strong>Full-update resilience</strong> — backups, snapshots, and task history can now fail individually without aborting the whole sync; required stages still raise errors. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4460706578\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/448\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/448/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/448\">#448</a>)</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<p dir=\"auto\">No NetBox compatibility rotation. NetBox compatibility range <code class=\"notranslate\">4.5.8</code> – <code class=\"notranslate\">4.6.99</code> unchanged.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.15.post1</td>\n<td>v0.0.11.post1</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.3.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.15</td>\n<td>v0.0.11</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.3.post1</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\">Full release notes: <a href=\"https://emersonfelipesp.github.io/netbox-proxbox/release-notes/version-0.0.15.post1/\" rel=\"nofollow\">https://emersonfelipesp.github.io/netbox-proxbox/release-notes/version-0.0.15.post1/</a></p>",
+      "createdAt": "2026-05-16T20:31:15Z",
+      "publishedAt": "2026-05-16T20:31:34Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.15.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.15.post1"
+      }
+    },
     {
       "id": 323190219,
       "nodeId": "RE_kwDOFTMlzs4TQ33L",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-15T10:43:54Z",
       "publishedAt": "2026-05-15T10:50:48Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-16T20:16:52.758Z",
+  "syncedAt": "2026-05-16T20:36:24.420Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 4,
   "forks": 4,
   "releases": [
+    {
+      "id": 323766943,
+      "nodeId": "RE_kwDOOUepXM4TTEqf",
+      "tag": "v0.0.11.post1",
+      "name": "proxbox-api v0.0.11.post1",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.11.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/323766943",
+      "targetCommitish": "main",
+      "body": "Post-release patch on stable `v0.0.11`. Pairs with `netbox-proxbox v0.0.15.post1`.\n\nThis release restores the package metadata that was inadvertently downgraded from `0.0.11` to `0.0.9.post1` in commit c07c864 (the PVE 9.x HA-groups graceful-degradation fix), and ships the post-release fixes that have accumulated on `main` since `v0.0.11`.\n\n## Features\n\n- **Cloud template image builder** — `feat(cloud): build Proxmox template images (#109)`. Adds the endpoint that downloads cloud images and prepares them as Proxmox templates.\n\n## Fixes\n\n- **PVE 9.x HA rules support** — `cluster/ha/groups` was removed in PVE 9.x in favour of `cluster/ha/rules`. `get_ha_groups()` now catches HTTP 500 + \"migrated to rules\" and degrades to `[]` at DEBUG level instead of an ERROR-level traceback on every HA poll cycle. Adds:\n  - `get_ha_rules()` helper for PVE 9.x.\n  - `HaRuleSchema` (rule, type, affinity, nodes, resources, strict, disable, comment).\n  - `GET /proxmox/cluster/ha/rules`.\n  - `HaSummarySchema.rules` (optional, defaults to `[]` for backward compatibility).\n  - Parallel gathering of rules in `ha_summary`.\n  - 4 new tests. (Fixes #111)\n- **HA handler refactor** — `refactor(ha): deduplicate group/rule handlers and add _str helper (#115)`.\n- **SQLite locking + rate-limit + vm-backups regressions** — `fix: resolve SQLite locking, rate-limit 429, and vm-backups 503 (issue #445) (#114)`. SQLite WAL/busy-timeout active in `proxbox_api/database.py`; `Retry-After` returned on 429 in `proxbox_api/app/factory.py`; empty backups complete cleanly in `backups_vm.py`.\n- **SSRF guards** — `fix(codegen): block SSRF via source_url and require explicit SSL bypass`. `fix(cloud): validate image_url against SSRF protection before download`.\n\n## Compatibility\n\nNetBox: `4.5.x` and official `4.6.0` (unchanged).\n\n| component | version |\n|-----------|---------|\n| proxbox-api | v0.0.11.post1 |\n| netbox-proxbox (consumer floor) | v0.0.15.post1 |\n| proxmox-sdk | 0.0.4.post3 |\n| netbox-sdk | 0.0.8.post1 |\n\n## Workflow\n\nThis release triggers the standard `TestPyPI → PyPI → Docker Hub` publishing chain.",
+      "bodyHtml": "<p dir=\"auto\">Post-release patch on stable <code class=\"notranslate\">v0.0.11</code>. Pairs with <code class=\"notranslate\">netbox-proxbox v0.0.15.post1</code>.</p>\n<p dir=\"auto\">This release restores the package metadata that was inadvertently downgraded from <code class=\"notranslate\">0.0.11</code> to <code class=\"notranslate\">0.0.9.post1</code> in commit <a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/emersonfelipesp/proxbox-api/commit/c07c864a74fd4de70ab73896545f12bd427e70c3/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/commit/c07c864a74fd4de70ab73896545f12bd427e70c3\"><tt>c07c864</tt></a> (the PVE 9.x HA-groups graceful-degradation fix), and ships the post-release fixes that have accumulated on <code class=\"notranslate\">main</code> since <code class=\"notranslate\">v0.0.11</code>.</p>\n<h2 dir=\"auto\">Features</h2>\n<ul dir=\"auto\">\n<li><strong>Cloud template image builder</strong> — <code class=\"notranslate\">feat(cloud): build Proxmox template images (#109)</code>. Adds the endpoint that downloads cloud images and prepares them as Proxmox templates.</li>\n</ul>\n<h2 dir=\"auto\">Fixes</h2>\n<ul dir=\"auto\">\n<li><strong>PVE 9.x HA rules support</strong> — <code class=\"notranslate\">cluster/ha/groups</code> was removed in PVE 9.x in favour of <code class=\"notranslate\">cluster/ha/rules</code>. <code class=\"notranslate\">get_ha_groups()</code> now catches HTTP 500 + \"migrated to rules\" and degrades to <code class=\"notranslate\">[]</code> at DEBUG level instead of an ERROR-level traceback on every HA poll cycle. Adds:\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">get_ha_rules()</code> helper for PVE 9.x.</li>\n<li><code class=\"notranslate\">HaRuleSchema</code> (rule, type, affinity, nodes, resources, strict, disable, comment).</li>\n<li><code class=\"notranslate\">GET /proxmox/cluster/ha/rules</code>.</li>\n<li><code class=\"notranslate\">HaSummarySchema.rules</code> (optional, defaults to <code class=\"notranslate\">[]</code> for backward compatibility).</li>\n<li>Parallel gathering of rules in <code class=\"notranslate\">ha_summary</code>.</li>\n<li>4 new tests. (Fixes <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4460295205\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/111\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/issues/111/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/issues/111\">#111</a>)</li>\n</ul>\n</li>\n<li><strong>HA handler refactor</strong> — <code class=\"notranslate\">refactor(ha): deduplicate group/rule handlers and add _str helper (#115)</code>.</li>\n<li><strong>SQLite locking + rate-limit + vm-backups regressions</strong> — <code class=\"notranslate\">fix: resolve SQLite locking, rate-limit 429, and vm-backups 503 (issue #445) (#114)</code>. SQLite WAL/busy-timeout active in <code class=\"notranslate\">proxbox_api/database.py</code>; <code class=\"notranslate\">Retry-After</code> returned on 429 in <code class=\"notranslate\">proxbox_api/app/factory.py</code>; empty backups complete cleanly in <code class=\"notranslate\">backups_vm.py</code>.</li>\n<li><strong>SSRF guards</strong> — <code class=\"notranslate\">fix(codegen): block SSRF via source_url and require explicit SSL bypass</code>. <code class=\"notranslate\">fix(cloud): validate image_url against SSRF protection before download</code>.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<p dir=\"auto\">NetBox: <code class=\"notranslate\">4.5.x</code> and official <code class=\"notranslate\">4.6.0</code> (unchanged).</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>component</th>\n<th>version</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>proxbox-api</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>netbox-proxbox (consumer floor)</td>\n<td>v0.0.15.post1</td>\n</tr>\n<tr>\n<td>proxmox-sdk</td>\n<td>0.0.4.post3</td>\n</tr>\n<tr>\n<td>netbox-sdk</td>\n<td>0.0.8.post1</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<h2 dir=\"auto\">Workflow</h2>\n<p dir=\"auto\">This release triggers the standard <code class=\"notranslate\">TestPyPI → PyPI → Docker Hub</code> publishing chain.</p>",
+      "createdAt": "2026-05-16T20:35:40Z",
+      "publishedAt": "2026-05-16T20:36:00Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.11.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.11.post1"
+      }
+    },
     {
       "id": 323381347,
       "nodeId": "RE_kwDOOUepXM4TRmhj",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-15T14:08:25Z",
       "publishedAt": "2026-05-15T17:17:08Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
