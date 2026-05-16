@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T15:11:05.910Z",
+  "generated_at": "2026-05-16T15:13:47.324Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 12,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 112,
+      "title": "Can`t delete Proxmox Endpoints",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/112",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 111,
       "title": "proxmox_sdk.sdk.exceptions.ResourceException: HTTP 500 cannot index groups: ha groups have been migrated to rules",
@@ -360,7 +374,8 @@
         95,
         97,
         98,
-        111
+        111,
+        112
       ]
     }
   ],
