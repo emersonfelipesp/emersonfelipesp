@@ -25,16 +25,21 @@ export function SponsorContent() {
 
         <div className="mt-4 space-y-2">
           <p className="text-xs text-muted">{s.cardCaption}</p>
-          <div className="flex justify-center">
-            <iframe
-              src="https://github.com/sponsors/emersonfelipesp/card"
-              title={s.cardTitle}
-              height={225}
-              width={600}
-              className="w-full max-w-[600px] border-0"
-              loading="lazy"
-            />
-          </div>
+          <a
+            href="https://github.com/sponsors/emersonfelipesp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.cardTitle}
+            className="block w-full max-w-[600px] border border-accent bg-surface-2 px-4 py-3 text-sm text-fg transition-colors hover:border-accent-2 hover:bg-surface"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="space-y-1">
+                <p className="text-accent">[{s.cardTitle}]</p>
+                <p className="text-xs text-muted">github.com/sponsors/emersonfelipesp</p>
+              </div>
+              <span className="text-lg text-accent-2">-&gt;</span>
+            </div>
+          </a>
         </div>
 
         <div className="mt-6 space-y-2">
