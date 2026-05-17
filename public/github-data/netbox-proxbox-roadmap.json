@@ -1,24 +1,159 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-17T12:24:23.132Z",
+  "generated_at": "2026-05-17T18:25:24.688Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 11,
-    "closed": 239,
-    "edges": 86
+    "open": 8,
+    "closed": 250,
+    "edges": 93
   },
-  "viewBox": "0 0 272 1328",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 463,
+      "title": "Add Packer support",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/463",
+      "closedAt": "2026-05-17T17:23:13Z",
+      "labels": [],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": [
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462
+      ]
+    },
+    {
+      "number": 462,
+      "title": "Packer / PHASE7: proxmox-iso builder support (post-MVP)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/462",
+      "closedAt": "2026-05-17T17:22:51Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 461,
+      "title": "Packer / PHASE6: plugin settings, security gating, and operational controls",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/461",
+      "closedAt": "2026-05-17T17:22:25Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 460,
+      "title": "Packer / PHASE5: publish successful builds to CloudImageTemplate and tenant catalog",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/460",
+      "closedAt": "2026-05-17T17:22:11Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 459,
+      "title": "Packer / PHASE4: netbox_packer build job and proxbox-api SSE proxy (PackerImageBuildJob)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/459",
+      "closedAt": "2026-05-17T17:21:53Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 458,
+      "title": "Packer / PHASE3: netbox_packer UI surface (forms, tables, filtersets, navigation, templates)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/458",
+      "closedAt": "2026-05-17T15:42:48Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 457,
+      "title": "Packer / PHASE2: netbox_packer plugin scaffold (PluginConfig, models, migrations, choices, API)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/457",
+      "closedAt": "2026-05-17T15:15:22Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 456,
+      "title": "Packer / PHASE1: proxbox-api Image Factory backend foundation (schemas, routes, runner, HCL templates)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/456",
+      "closedAt": "2026-05-17T15:23:24Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 455,
       "title": "Incorrect information on Dashboard Panel in clustering system",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/455",
-      "closedAt": null,
-      "labels": [],
-      "milestone": null,
-      "x": 16,
-      "y": 1216,
+      "closedAt": "2026-05-17T13:58:22Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +161,27 @@
     {
       "number": 454,
       "title": "Failed to upgrade to newst version",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/454",
-      "closedAt": null,
-      "labels": [],
-      "milestone": null,
-      "x": 16,
-      "y": 1096,
+      "closedAt": "2026-05-17T14:08:16Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -54,9 +203,9 @@
     {
       "number": 449,
       "title": "Proxmox Datacenter Manager Support (PDM)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/449",
-      "closedAt": null,
+      "closedAt": "2026-05-17T17:42:28Z",
       "labels": [
         {
           "name": "accepted",
@@ -69,8 +218,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19"
       },
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6128,6 +6277,17 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        449,
+        463,
+        462,
+        461,
+        460,
+        459,
+        458,
+        456,
+        457,
+        454,
+        455,
         325,
         451,
         445,
@@ -6381,10 +6541,7 @@
         432,
         433,
         435,
-        436,
-        449,
-        454,
-        455
+        436
       ]
     }
   ],
@@ -6392,7 +6549,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 137
+      "count": 139
     },
     {
       "name": "feature",
@@ -6402,7 +6559,7 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 57
+      "count": 58
     },
     {
       "name": "under review",
@@ -6556,7 +6713,7 @@
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17",
       "open": 0,
-      "closed": 2
+      "closed": 5
     },
     {
       "title": "v0.0.17",
@@ -6571,8 +6728,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19",
-      "open": 1,
-      "closed": 0
+      "open": 0,
+      "closed": 1
     },
     {
       "title": "v0.0.4",
