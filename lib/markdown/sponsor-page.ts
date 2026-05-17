@@ -1,3 +1,4 @@
+import { SPONSOR_LINKS } from "@/content/sponsor";
 import { DICTIONARIES } from "@/lib/i18n/dictionary";
 import { absolute, finalize, section } from "./format";
 
@@ -12,9 +13,9 @@ export function renderSponsorPage(): string {
     section(
       "Ways to support",
       [
-        `- [GitHub Sponsors](https://github.com/sponsors/emersonfelipesp) — ${s.cardTitle}`,
-        `- [Buy Me a Coffee](https://buymeacoffee.com/emersonfelipesp) — ${s.buyMeACoffeeLabel}`,
-        `- [Patreon](https://patreon.com/emersonfelipesp) — ${s.patreonLabel}`,
+        `- [GitHub Sponsors](${SPONSOR_LINKS.github}) — ${s.cardTitle}`,
+        `- [Buy Me a Coffee](${SPONSOR_LINKS.buyMeACoffee}) — ${s.buyMeACoffeeLabel}`,
+        `- [Patreon](${SPONSOR_LINKS.patreon}) — ${s.patreonLabel}`,
       ].join("\n"),
     ),
     s.thanks,

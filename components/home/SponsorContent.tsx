@@ -5,6 +5,7 @@ import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { OutputBlock } from "@/components/terminal/OutputBlock";
 import { ViewBeacon } from "@/components/home/ViewBeacon";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import { SPONSOR_LINKS } from "@/content/sponsor";
 
 export function SponsorContent() {
   const { t } = useLanguage();
@@ -26,7 +27,7 @@ export function SponsorContent() {
         <div className="mt-4 space-y-2">
           <p className="text-xs text-muted">{s.cardCaption}</p>
           <SponsorCard
-            href="https://github.com/sponsors/emersonfelipesp"
+            href={SPONSOR_LINKS.github}
             label={s.cardTitle}
             url="github.com/sponsors/emersonfelipesp"
             ariaLabel={s.cardTitle}
@@ -38,13 +39,13 @@ export function SponsorContent() {
           <p className="text-xs text-muted">{s.alternativesCaption}</p>
           <div className="grid gap-2 sm:grid-cols-2">
             <SponsorCard
-              href="https://buymeacoffee.com/emersonfelipesp"
+              href={SPONSOR_LINKS.buyMeACoffee}
               label={s.buyMeACoffeeLabel}
               url="buymeacoffee.com/emersonfelipesp"
               ariaLabel={s.buyMeACoffeeAria}
             />
             <SponsorCard
-              href="https://patreon.com/emersonfelipesp"
+              href={SPONSOR_LINKS.patreon}
               label={s.patreonLabel}
               url="patreon.com/emersonfelipesp"
               ariaLabel={s.patreonAria}
