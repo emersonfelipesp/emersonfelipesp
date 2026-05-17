@@ -1,14 +1,42 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-17T07:01:55.880Z",
+  "generated_at": "2026-05-17T12:24:23.132Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 11,
     "closed": 239,
     "edges": 86
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1328",
   "nodes": [
+    {
+      "number": 455,
+      "title": "Incorrect information on Dashboard Panel in clustering system",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/455",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1216,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 454,
+      "title": "Failed to upgrade to newst version",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/454",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 451,
       "title": "Add 'Build PVE Template' UI action on ProxmoxEndpoint backed by a new proxbox-api endpoint",
@@ -6354,7 +6382,9 @@
         433,
         435,
         436,
-        449
+        449,
+        454,
+        455
       ]
     }
   ],
