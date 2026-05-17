@@ -8,6 +8,7 @@ export type Dictionary = {
     netboxSdk: string;
     proxmoxSdk: string;
     sponsor: string;
+    sponsorButtonLabel: string;
     sponsorButtonAria: string;
     languageLabel: string;
     languageAria: (lang: string) => string;
@@ -308,6 +309,7 @@ const en: Dictionary = {
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
     sponsor: "~/sponsor",
+    sponsorButtonLabel: "♥ sponsor",
     sponsorButtonAria: "Sponsor emersonfelipesp on GitHub",
     languageLabel: "--lang=",
     languageAria: (lang) => `Language: ${lang}`,
@@ -629,6 +631,7 @@ const ptBr: Dictionary = {
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
     sponsor: "~/sponsor",
+    sponsorButtonLabel: "♥ apoiar",
     sponsorButtonAria: "Apoiar emersonfelipesp no GitHub",
     languageLabel: "--idioma=",
     languageAria: (lang) => `Idioma: ${lang}`,

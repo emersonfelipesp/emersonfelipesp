@@ -25,47 +25,68 @@ export function SponsorContent() {
 
         <div className="mt-4 space-y-2">
           <p className="text-xs text-muted">{s.cardCaption}</p>
-          <a
+          <SponsorCard
             href="https://github.com/sponsors/emersonfelipesp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={s.cardTitle}
-            className="block w-full max-w-[600px] border border-accent bg-surface-2 px-4 py-3 text-sm text-fg transition-colors hover:border-accent-2 hover:bg-surface"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <div className="space-y-1">
-                <p className="text-accent">[{s.cardTitle}]</p>
-                <p className="text-xs text-muted">github.com/sponsors/emersonfelipesp</p>
-              </div>
-              <span className="text-lg text-accent-2">-&gt;</span>
-            </div>
-          </a>
+            label={s.cardTitle}
+            url="github.com/sponsors/emersonfelipesp"
+            ariaLabel={s.cardTitle}
+            primary
+          />
         </div>
 
         <div className="mt-6 space-y-2">
           <p className="text-xs text-muted">{s.alternativesCaption}</p>
-          <TypedCommand command="open https://buymeacoffee.com/emersonfelipesp" cwd="~" />
-          <a
-            href="https://buymeacoffee.com/emersonfelipesp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={s.buyMeACoffeeAria}
-            className="inline-block border border-border bg-surface-2 px-3 py-2 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
-          >
-            [{s.buyMeACoffeeLabel}] -&gt; buymeacoffee.com/emersonfelipesp
-          </a>
-          <TypedCommand command="open https://patreon.com/emersonfelipesp" cwd="~" />
-          <a
-            href="https://patreon.com/emersonfelipesp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={s.patreonAria}
-            className="inline-block border border-border bg-surface-2 px-3 py-2 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
-          >
-            [{s.patreonLabel}] -&gt; patreon.com/emersonfelipesp
-          </a>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <SponsorCard
+              href="https://buymeacoffee.com/emersonfelipesp"
+              label={s.buyMeACoffeeLabel}
+              url="buymeacoffee.com/emersonfelipesp"
+              ariaLabel={s.buyMeACoffeeAria}
+            />
+            <SponsorCard
+              href="https://patreon.com/emersonfelipesp"
+              label={s.patreonLabel}
+              url="patreon.com/emersonfelipesp"
+              ariaLabel={s.patreonAria}
+            />
+          </div>
         </div>
       </TerminalWindow>
     </div>
+  );
+}
+
+type SponsorCardProps = {
+  href: string;
+  label: string;
+  url: string;
+  ariaLabel: string;
+  primary?: boolean;
+};
+
+function SponsorCard({ href, label, url, ariaLabel, primary }: SponsorCardProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ariaLabel}
+      className={`flex h-full items-center justify-between gap-3 border px-3 py-3 text-sm text-fg transition-colors sm:px-4 ${
+        primary
+          ? "border-accent bg-surface-2 hover:border-accent-2 hover:bg-surface"
+          : "border-border bg-surface-2 hover:border-accent hover:bg-surface"
+      }`}
+    >
+      <div className="min-w-0 space-y-1">
+        <p className={primary ? "text-accent" : "text-fg"}>[{label}]</p>
+        <p className="truncate text-xs text-muted">{url}</p>
+      </div>
+      <span
+        aria-hidden="true"
+        className={`shrink-0 text-lg ${primary ? "text-accent-2" : "text-muted"}`}
+      >
+        -&gt;
+      </span>
+    </a>
   );
 }

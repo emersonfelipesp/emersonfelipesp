@@ -73,14 +73,15 @@ export function TopNav() {
           <ThemeToggle compact />
         </li>
         <li className="flex items-center">
-          <iframe
-            src="https://github.com/sponsors/emersonfelipesp/button"
-            title={t.nav.sponsorButtonAria}
-            height={32}
-            width={114}
-            className="rounded-md border-0"
-            loading="lazy"
-          />
+          <a
+            href="https://github.com/sponsors/emersonfelipesp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.nav.sponsorButtonAria}
+            className="inline-flex items-center border border-border bg-surface-2 px-2 py-1 text-xs text-muted transition-colors duration-150 hover:border-accent hover:bg-accent/15 hover:text-accent"
+          >
+            [{t.nav.sponsorButtonLabel}]
+          </a>
         </li>
       </ul>
       <ul className="nav-magnetic hidden flex-wrap items-center gap-y-2 text-xs sm:flex">
@@ -120,14 +121,15 @@ export function TopNav() {
           <ThemeToggle compact={compact} />
         </li>
         <li className="flex items-center">
-          <iframe
-            src="https://github.com/sponsors/emersonfelipesp/button"
-            title={t.nav.sponsorButtonAria}
-            height={32}
-            width={114}
-            className="rounded-md border-0"
-            loading="lazy"
-          />
+          <a
+            href="https://github.com/sponsors/emersonfelipesp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.nav.sponsorButtonAria}
+            className="inline-flex items-center border border-border bg-surface-2 px-2 py-1 text-xs text-muted transition-colors duration-150 hover:border-accent hover:bg-accent/15 hover:text-accent"
+          >
+            [{t.nav.sponsorButtonLabel}]
+          </a>
         </li>
       </ul>
     </nav>
