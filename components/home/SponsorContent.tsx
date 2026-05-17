@@ -36,6 +36,20 @@ export function SponsorContent() {
             />
           </div>
         </div>
+
+        <div className="mt-6 space-y-2">
+          <p className="text-xs text-muted">{s.alternativesCaption}</p>
+          <TypedCommand command="open https://buymeacoffee.com/emersonfelipesp" cwd="~" />
+          <a
+            href="https://buymeacoffee.com/emersonfelipesp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.buyMeACoffeeAria}
+            className="inline-block border border-border bg-surface-2 px-3 py-2 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
+          >
+            [{s.buyMeACoffeeLabel}] -&gt; buymeacoffee.com/emersonfelipesp
+          </a>
+        </div>
       </TerminalWindow>
     </div>
   );

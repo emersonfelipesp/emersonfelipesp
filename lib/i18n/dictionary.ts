@@ -223,6 +223,9 @@ export type Dictionary = {
     thanks: string;
     cardCaption: string;
     cardTitle: string;
+    alternativesCaption: string;
+    buyMeACoffeeLabel: string;
+    buyMeACoffeeAria: string;
   };
   home: {
     sections: {
@@ -539,6 +542,9 @@ const en: Dictionary = {
     thanks: "Either way — sponsor or not — thanks for stopping by.",
     cardCaption: "// pick any tier on GitHub Sponsors",
     cardTitle: "Sponsor emersonfelipesp",
+    alternativesCaption: "// prefer a one-off tip?",
+    buyMeACoffeeLabel: "buy me a coffee",
+    buyMeACoffeeAria: "Buy emersonfelipesp a coffee on Buy Me a Coffee",
   },
   home: {
     sections: {
@@ -857,6 +863,9 @@ const ptBr: Dictionary = {
     thanks: "De qualquer forma — apoiando ou não — obrigado por passar por aqui.",
     cardCaption: "// escolha qualquer faixa no GitHub Sponsors",
     cardTitle: "Apoiar emersonfelipesp",
+    alternativesCaption: "// prefere uma contribuição única?",
+    buyMeACoffeeLabel: "me pague um café",
+    buyMeACoffeeAria: "Pague um café para emersonfelipesp no Buy Me a Coffee",
   },
   home: {
     sections: {
