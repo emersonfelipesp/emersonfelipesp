@@ -54,6 +54,16 @@ export function SponsorContent() {
           >
             [{s.buyMeACoffeeLabel}] -&gt; buymeacoffee.com/emersonfelipesp
           </a>
+          <TypedCommand command="open https://patreon.com/emersonfelipesp" cwd="~" />
+          <a
+            href="https://patreon.com/emersonfelipesp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.patreonAria}
+            className="inline-block border border-border bg-surface-2 px-3 py-2 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
+          >
+            [{s.patreonLabel}] -&gt; patreon.com/emersonfelipesp
+          </a>
         </div>
       </TerminalWindow>
     </div>
