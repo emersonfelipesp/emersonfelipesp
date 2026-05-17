@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-05-16T21:00:45.427Z",
+  "syncedAt": "2026-05-17T00:45:20.080Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 323777178,
+      "nodeId": "RE_kwDORz_GBs4TTHKa",
+      "tag": "v0.0.5.post1",
+      "name": "v0.0.5.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.5.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/323777178",
+      "targetCommitish": "main",
+      "body": "## v0.0.5.post1\n\nPost-release fix for service-specific mock container images introduced in v0.0.5.\n\nThe v0.0.5 PyPI package was published before the `PROXMOX_MOCK_SERVICE` feature merged, so the service-specific images (`-pve`, `-pbs`, `-pdm`, `-all`) could not be built from that immutable package. This post release ships the feature-complete code on PyPI and publishes all four service images.\n\n### Changes\n\n- **feat**: `PROXMOX_MOCK_SERVICE` env var in `proxmox_sdk/mock/app.py` — selects PVE (full mock) vs PBS/PDM (healthy stub pending schema generation)\n- **feat**: `pypi-raw` Dockerfile stage — installs `proxmox-sdk` from PyPI for service-specific containers\n- **feat**: `publish-service-images` CI job — builds and pushes `{version}-{all,pve,pbs,pdm}` and `latest-{all,pve,pbs,pdm}` images after every PyPI release\n- **fix**: Replace experimental `pip index versions` PyPI poll with stable `curl -fs https://pypi.org/pypi/proxmox-sdk/$VERSION/json`\n\n### Docker images published\n\n- `emersonfelipesp/proxmox-sdk:0.0.5.post1-all` — PVE + PBS + PDM combined (full PVE mock + stubs)\n- `emersonfelipesp/proxmox-sdk:0.0.5.post1-pve` — PVE-only (full mock, 646 endpoints)\n- `emersonfelipesp/proxmox-sdk:0.0.5.post1-pbs` — PBS stub (healthy, schema pending)\n- `emersonfelipesp/proxmox-sdk:0.0.5.post1-pdm` — PDM stub (healthy, schema pending)\n\nCloses #55",
+      "bodyHtml": "<h2 dir=\"auto\">v0.0.5.post1</h2>\n<p dir=\"auto\">Post-release fix for service-specific mock container images introduced in v0.0.5.</p>\n<p dir=\"auto\">The v0.0.5 PyPI package was published before the <code class=\"notranslate\">PROXMOX_MOCK_SERVICE</code> feature merged, so the service-specific images (<code class=\"notranslate\">-pve</code>, <code class=\"notranslate\">-pbs</code>, <code class=\"notranslate\">-pdm</code>, <code class=\"notranslate\">-all</code>) could not be built from that immutable package. This post release ships the feature-complete code on PyPI and publishes all four service images.</p>\n<h3 dir=\"auto\">Changes</h3>\n<ul dir=\"auto\">\n<li><strong>feat</strong>: <code class=\"notranslate\">PROXMOX_MOCK_SERVICE</code> env var in <code class=\"notranslate\">proxmox_sdk/mock/app.py</code> — selects PVE (full mock) vs PBS/PDM (healthy stub pending schema generation)</li>\n<li><strong>feat</strong>: <code class=\"notranslate\">pypi-raw</code> Dockerfile stage — installs <code class=\"notranslate\">proxmox-sdk</code> from PyPI for service-specific containers</li>\n<li><strong>feat</strong>: <code class=\"notranslate\">publish-service-images</code> CI job — builds and pushes <code class=\"notranslate\">{version}-{all,pve,pbs,pdm}</code> and <code class=\"notranslate\">latest-{all,pve,pbs,pdm}</code> images after every PyPI release</li>\n<li><strong>fix</strong>: Replace experimental <code class=\"notranslate\">pip index versions</code> PyPI poll with stable <code class=\"notranslate\">curl -fs https://pypi.org/pypi/proxmox-sdk/$VERSION/json</code></li>\n</ul>\n<h3 dir=\"auto\">Docker images published</h3>\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.5.post1-all</code> — PVE + PBS + PDM combined (full PVE mock + stubs)</li>\n<li><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.5.post1-pve</code> — PVE-only (full mock, 646 endpoints)</li>\n<li><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.5.post1-pbs</code> — PBS stub (healthy, schema pending)</li>\n<li><code class=\"notranslate\">emersonfelipesp/proxmox-sdk:0.0.5.post1-pdm</code> — PDM stub (healthy, schema pending)</li>\n</ul>\n<p dir=\"auto\">Closes <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461379588\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/55\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/issues/55/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/55\">#55</a></p>",
+      "createdAt": "2026-05-16T21:57:08Z",
+      "publishedAt": "2026-05-16T21:57:46Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.5.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.5.post1"
+      }
+    },
+    {
+      "id": 323775612,
+      "nodeId": "RE_kwDORz_GBs4TTGx8",
+      "tag": "v0.0.5",
+      "name": "v0.0.5 — Proxmox Datacenter Manager (PDM) support",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.5",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/323775612",
+      "targetCommitish": "main",
+      "body": "## Highlights\n\nFull Proxmox Datacenter Manager (PDM) support delivered across four merged PRs (#51, #52, #53, #54). PDM joins PVE, PMG, and PBS as a first-class service in the SDK.\n\n### SDK — `proxmox_sdk/pdm/`\n- `PDMClient` (async) and `SyncPDMClient` composing the existing `ProxmoxSDK` transport on `service=\"PDM\"`, port `8443`, with the `PDMAuthCookie` / `PDMAPIToken` auth flow.\n- Eight typed domain helpers: `remotes`, `pve` (qemu/lxc lifecycle, migrate, remote-migrate, nodes, RRD, tasks, resources), `pbs` (datastores, snapshots with namespace filter, tasks, RRD), `resources` (global), `subscriptions`, `metrics`, `access` (users/ACL/TFA/tokens), `views`.\n- Hand-coded Pydantic v2 models for every PDM API entity (`extra=\"allow\"` so forward-compatible PDM additions don't break parsing).\n\n### CLI — `proxmox pdm …`\nTyper subcommand tree mirroring every SDK operation: `remote`, `pve.qemu/lxc/node`, `pbs.datastore/snapshot/node/tasks`, `resources`, `subscriptions`, `metrics`, `access.user/acl/tfa`, `views`, `tui`. The bridge defaults to port 8443 when `--service PDM` is used.\n\n### TUI — `proxmox pdm tui`\nThree-pane Textual app (remote tree • resource table + JSON detail • action panel) with `ConfirmModal` gating on destructive actions. Key bindings: `r` refresh, `d` dashboard, `q` quit.\n\n### Mock — `proxmox-sdk-pdm-mock`\nHand-coded FastAPI mock server mirroring every PDM SDK code path, plus `/mock/{seed,export,import,reset}` management endpoints for tests. Bundled realistic seed: 3 remotes (2 PVE + 1 PBS), 16 VMs, 5 CTs, 2 datastores, 3 snapshots, 3 users, 5 ACLs, 2 views. Configurable via `PROXMOX_PDM_MOCK_HOST`/`PORT`/`SEED_FILE` env vars.\n\n### Install\n\\`\\`\\`bash\npip install proxmox-sdk==0.0.5\n# or with PDM extras (currently empty but reserved):\npip install 'proxmox-sdk[pdm]==0.0.5'\n\\`\\`\\`\n\nSee issue #17 for the full implementation summary and per-phase breakdown.",
+      "bodyHtml": "<h2 dir=\"auto\">Highlights</h2>\n<p dir=\"auto\">Full Proxmox Datacenter Manager (PDM) support delivered across four merged PRs (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461195306\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/51\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/51/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/51\">#51</a>, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461216649\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/52\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/52/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/52\">#52</a>, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461296806\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/53\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/53/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/53\">#53</a>, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461349330\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/54\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/54/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/54\">#54</a>). PDM joins PVE, PMG, and PBS as a first-class service in the SDK.</p>\n<h3 dir=\"auto\">SDK — <code class=\"notranslate\">proxmox_sdk/pdm/</code></h3>\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">PDMClient</code> (async) and <code class=\"notranslate\">SyncPDMClient</code> composing the existing <code class=\"notranslate\">ProxmoxSDK</code> transport on <code class=\"notranslate\">service=\"PDM\"</code>, port <code class=\"notranslate\">8443</code>, with the <code class=\"notranslate\">PDMAuthCookie</code> / <code class=\"notranslate\">PDMAPIToken</code> auth flow.</li>\n<li>Eight typed domain helpers: <code class=\"notranslate\">remotes</code>, <code class=\"notranslate\">pve</code> (qemu/lxc lifecycle, migrate, remote-migrate, nodes, RRD, tasks, resources), <code class=\"notranslate\">pbs</code> (datastores, snapshots with namespace filter, tasks, RRD), <code class=\"notranslate\">resources</code> (global), <code class=\"notranslate\">subscriptions</code>, <code class=\"notranslate\">metrics</code>, <code class=\"notranslate\">access</code> (users/ACL/TFA/tokens), <code class=\"notranslate\">views</code>.</li>\n<li>Hand-coded Pydantic v2 models for every PDM API entity (<code class=\"notranslate\">extra=\"allow\"</code> so forward-compatible PDM additions don't break parsing).</li>\n</ul>\n<h3 dir=\"auto\">CLI — <code class=\"notranslate\">proxmox pdm …</code></h3>\n<p dir=\"auto\">Typer subcommand tree mirroring every SDK operation: <code class=\"notranslate\">remote</code>, <code class=\"notranslate\">pve.qemu/lxc/node</code>, <code class=\"notranslate\">pbs.datastore/snapshot/node/tasks</code>, <code class=\"notranslate\">resources</code>, <code class=\"notranslate\">subscriptions</code>, <code class=\"notranslate\">metrics</code>, <code class=\"notranslate\">access.user/acl/tfa</code>, <code class=\"notranslate\">views</code>, <code class=\"notranslate\">tui</code>. The bridge defaults to port 8443 when <code class=\"notranslate\">--service PDM</code> is used.</p>\n<h3 dir=\"auto\">TUI — <code class=\"notranslate\">proxmox pdm tui</code></h3>\n<p dir=\"auto\">Three-pane Textual app (remote tree • resource table + JSON detail • action panel) with <code class=\"notranslate\">ConfirmModal</code> gating on destructive actions. Key bindings: <code class=\"notranslate\">r</code> refresh, <code class=\"notranslate\">d</code> dashboard, <code class=\"notranslate\">q</code> quit.</p>\n<h3 dir=\"auto\">Mock — <code class=\"notranslate\">proxmox-sdk-pdm-mock</code></h3>\n<p dir=\"auto\">Hand-coded FastAPI mock server mirroring every PDM SDK code path, plus <code class=\"notranslate\">/mock/{seed,export,import,reset}</code> management endpoints for tests. Bundled realistic seed: 3 remotes (2 PVE + 1 PBS), 16 VMs, 5 CTs, 2 datastores, 3 snapshots, 3 users, 5 ACLs, 2 views. Configurable via <code class=\"notranslate\">PROXMOX_PDM_MOCK_HOST</code>/<code class=\"notranslate\">PORT</code>/<code class=\"notranslate\">SEED_FILE</code> env vars.</p>\n<h3 dir=\"auto\">Install</h3>\n<p dir=\"auto\">```bash<br>\npip install proxmox-sdk==0.0.5</p>\n<h1 dir=\"auto\">or with PDM extras (currently empty but reserved):</h1>\n<p dir=\"auto\">pip install 'proxmox-sdk[pdm]==0.0.5'<br>\n```</p>\n<p dir=\"auto\">See issue <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4460967203\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/17\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/issues/17/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/17\">#17</a> for the full implementation summary and per-phase breakdown.</p>",
+      "createdAt": "2026-05-16T21:43:20Z",
+      "publishedAt": "2026-05-16T21:43:45Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.5",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.5"
+      }
+    },
     {
       "id": 322960406,
       "nodeId": "RE_kwDORz_GBs4TP_wW",
@@ -17,7 +67,7 @@
       "createdAt": "2026-05-15T02:47:49Z",
       "publishedAt": "2026-05-15T02:48:09Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

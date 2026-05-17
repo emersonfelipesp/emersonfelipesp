@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-16T21:01:27.559Z",
+  "generated_at": "2026-05-17T00:46:00.415Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 238,
+    "open": 9,
+    "closed": 239,
     "edges": 86
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1088",
   "nodes": [
     {
       "number": 451,
@@ -42,7 +42,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19"
       },
       "x": 16,
-      "y": 1096,
+      "y": 976,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -113,7 +113,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 976,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -132,7 +132,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -151,7 +151,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -170,7 +170,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 616,
+      "y": 496,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -189,7 +189,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 496,
+      "y": 376,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1815,7 +1815,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/15"
       },
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1823,9 +1823,9 @@
     {
       "number": 325,
       "title": "Proxmox Backup Server (PBS) support.",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/325",
-      "closedAt": null,
+      "closedAt": "2026-05-16T23:03:42Z",
       "labels": [
         {
           "name": "feature",
@@ -1842,8 +1842,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
       },
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6100,6 +6100,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        325,
         451,
         445,
         423,
@@ -6347,7 +6348,6 @@
       "issues": [
         176,
         207,
-        325,
         326,
         431,
         432,
@@ -6525,8 +6525,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17",
-      "open": 1,
-      "closed": 1
+      "open": 0,
+      "closed": 2
     },
     {
       "title": "v0.0.17",
