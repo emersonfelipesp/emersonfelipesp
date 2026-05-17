@@ -151,6 +151,48 @@ test("footer toggles between human, themed Markdown, and raw Markdown views", as
   await expect(page.locator("body")).toContainText("## Features");
 });
 
+test("sponsor page serves Markdown through content negotiation", async ({
+  request,
+}) => {
+  const res = await request.get("/sponsor", { headers: markdownHeaders });
+  expect(res.status()).toBe(200);
+  expect(res.headers()["content-type"]).toContain("text/markdown");
+  const body = await res.text();
+  expect(body).toContain("# Sponsor emersonfelipesp");
+  expect(body).toContain("## Why sponsor");
+  expect(body).toContain("github.com/sponsors/emersonfelipesp");
+});
+
+test("sponsor page raw Markdown route serves correct content", async ({
+  request,
+}) => {
+  const res = await request.get("/md/sponsor");
+  expect(res.status()).toBe(200);
+  expect(res.headers()["content-type"]).toContain("text/markdown");
+  const body = await res.text();
+  expect(body).toContain("# Sponsor emersonfelipesp");
+  expect(body).toContain("## Ways to support");
+});
+
+test("sponsor page supports themed Markdown query mode", async ({ page }) => {
+  await page.goto("/sponsor?content=markdown");
+
+  await expect(
+    page.getByRole("navigation", { name: "Top navigation" }),
+  ).toBeVisible();
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "# Sponsor emersonfelipesp",
+  );
+  await expect(page.getByTestId("themed-markdown")).toContainText(
+    "## Why sponsor",
+  );
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", {
+      name: "Switch to raw view",
+    }),
+  ).toHaveAttribute("href", "/md/sponsor");
+});
+
 test("release detail pages support themed Markdown query mode", async ({
   page,
 }) => {

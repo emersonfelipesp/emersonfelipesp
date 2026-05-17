@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
           destination: "/md",
         },
         {
+          source: "/sponsor",
+          has: markdownAcceptHeader,
+          destination: "/md/sponsor",
+        },
+        {
           source: `/${project}`,
           has: markdownAcceptHeader,
           destination: "/md/:project",

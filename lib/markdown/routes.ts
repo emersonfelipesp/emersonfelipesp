@@ -35,6 +35,7 @@ import {
 } from "./format";
 import { renderHomePage } from "./home-page";
 import { renderProjectPage } from "./project-pages";
+import { renderSponsorPage } from "./sponsor-page";
 import {
   renderReleaseDetailPage,
   renderReleaseListPage,
@@ -46,6 +47,7 @@ export async function getMarkdownForPath(
 ): Promise<string | null> {
   const normalized = normalizePath(pathname);
   if (normalized === "/") return renderHomePage();
+  if (normalized === "/sponsor") return renderSponsorPage();
 
   const segments: string[] = [];
   for (const segment of normalized.slice(1).split("/")) {
@@ -125,6 +127,12 @@ export async function getPublicMarkdownRoutes(): Promise<MarkdownRoute[]> {
       kind: "home",
     },
     ...projectRoutes.flat(),
+    {
+      path: "/sponsor",
+      title: "Sponsor emersonfelipesp",
+      description: "Support open-source NetBox, Proxmox, and NetDevOps tooling.",
+      kind: "sponsor",
+    },
   ];
 }
 
@@ -155,6 +163,7 @@ export async function getMarkdownSitemap(): Promise<string> {
     section("Roadmaps", renderRouteIndex(routes, "roadmap")),
     section("Release indexes", renderRouteIndex(routes, "release-index")),
     section("Release detail pages", renderRouteIndex(routes, "release-detail")),
+    section("Support pages", renderRouteIndex(routes, "sponsor")),
   ]);
 }
 
@@ -268,6 +277,7 @@ export async function getLlmsTxt(): Promise<string> {
     section("Roadmaps", renderRouteIndex(routes, "roadmap")),
     section("Release indexes", renderRouteIndex(routes, "release-index")),
     section("Release detail pages", renderRouteIndex(routes, "release-detail")),
+    section("Support pages", renderRouteIndex(routes, "sponsor")),
     section(
       "Open-source projects",
       PROJECT_LIST.map(
