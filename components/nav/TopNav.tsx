@@ -31,6 +31,7 @@ export function TopNav() {
       href: project.projectPath,
       label: projectLabels[project.slug],
     })),
+    { href: "/sponsor", label: t.nav.sponsor },
   ];
 
   useEffect(() => {
@@ -71,6 +72,16 @@ export function TopNav() {
         <li>
           <ThemeToggle compact />
         </li>
+        <li className="flex items-center">
+          <iframe
+            src="https://github.com/sponsors/emersonfelipesp/button"
+            title={t.nav.sponsorButtonAria}
+            height={32}
+            width={114}
+            className="rounded-md border-0"
+            loading="lazy"
+          />
+        </li>
       </ul>
       <ul className="nav-magnetic hidden flex-wrap items-center gap-y-2 text-xs sm:flex">
         {links.map((l) => {
@@ -107,6 +118,16 @@ export function TopNav() {
         </li>
         <li>
           <ThemeToggle compact={compact} />
+        </li>
+        <li className="flex items-center">
+          <iframe
+            src="https://github.com/sponsors/emersonfelipesp/button"
+            title={t.nav.sponsorButtonAria}
+            height={32}
+            width={114}
+            className="rounded-md border-0"
+            loading="lazy"
+          />
         </li>
       </ul>
     </nav>

@@ -7,6 +7,8 @@ export type Dictionary = {
     proxboxApi: string;
     netboxSdk: string;
     proxmoxSdk: string;
+    sponsor: string;
+    sponsorButtonAria: string;
     languageLabel: string;
     languageAria: (lang: string) => string;
     contentLabel: string;
@@ -212,6 +214,16 @@ export type Dictionary = {
       contact: string;
     };
   };
+  sponsor: {
+    title: string;
+    command: string;
+    intro: string;
+    why: string;
+    impact: string;
+    thanks: string;
+    cardCaption: string;
+    cardTitle: string;
+  };
   home: {
     sections: {
       whoami: string;
@@ -290,6 +302,8 @@ const en: Dictionary = {
     proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
+    sponsor: "~/sponsor",
+    sponsorButtonAria: "Sponsor emersonfelipesp on GitHub",
     languageLabel: "--lang=",
     languageAria: (lang) => `Language: ${lang}`,
     contentLabel: "--content=",
@@ -514,6 +528,18 @@ const en: Dictionary = {
       contact: "mail emerson",
     },
   },
+  sponsor: {
+    title: "sponsor",
+    command: "cat ~/sponsor.md",
+    intro:
+      "I build NetBox, Proxmox and NetDevOps tooling in the open — netbox-proxbox, proxbox-api, netbox-sdk, proxmox-sdk and friends. Sponsorships keep that work flowing.",
+    why: "If a project here saved you a weekend, a sponsorship is the quickest way to say thanks and keep new features, releases and docs landing.",
+    impact:
+      "Funds go straight into shipping releases, answering issues, and growing the open-source surface around NetBox + Proxmox.",
+    thanks: "Either way — sponsor or not — thanks for stopping by.",
+    cardCaption: "// pick any tier on GitHub Sponsors",
+    cardTitle: "Sponsor emersonfelipesp",
+  },
   home: {
     sections: {
       whoami: "whoami",
@@ -592,6 +618,8 @@ const ptBr: Dictionary = {
     proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
+    sponsor: "~/sponsor",
+    sponsorButtonAria: "Apoiar emersonfelipesp no GitHub",
     languageLabel: "--idioma=",
     languageAria: (lang) => `Idioma: ${lang}`,
     contentLabel: "--conteudo=",
@@ -817,6 +845,18 @@ const ptBr: Dictionary = {
       home: "cd ~",
       contact: "mail emerson",
     },
+  },
+  sponsor: {
+    title: "apoiar",
+    command: "cat ~/apoiar.md",
+    intro:
+      "Construo ferramentas para NetBox, Proxmox e NetDevOps em código aberto — netbox-proxbox, proxbox-api, netbox-sdk, proxmox-sdk e companhia. Apoios mantêm esse trabalho fluindo.",
+    why: "Se algum desses projetos te poupou um fim de semana, apoiar é o jeito mais rápido de dizer obrigado e manter novas funcionalidades, releases e docs saindo.",
+    impact:
+      "O apoio vai direto para entregar releases, responder issues e expandir o ecossistema open source ao redor de NetBox + Proxmox.",
+    thanks: "De qualquer forma — apoiando ou não — obrigado por passar por aqui.",
+    cardCaption: "// escolha qualquer faixa no GitHub Sponsors",
+    cardTitle: "Apoiar emersonfelipesp",
   },
   home: {
     sections: {
