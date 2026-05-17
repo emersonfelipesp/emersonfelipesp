@@ -61,7 +61,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
       protocol: "imported",
       library: "downstream consumer",
       notes:
-        "proxbox-api pins proxmox-sdk==0.0.3.post1; netbox-proxbox's E2E stack pulls the dev-nginx image of this repo as its proxmox-e2e-mock container.",
+        "proxbox-api pins proxmox-sdk==0.0.3.post1; netbox-proxbox's E2E stack pulls one of the per-service image tags (latest-pve, latest-pbs, latest-pdm) of this repo as its proxmox-e2e-mock container, one per matrix cell.",
     },
   ],
   contributing: {
@@ -92,8 +92,9 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
     framework:
       "pytest + pytest-xdist + pytest-cov. Integration boundary covered via tests/cli/integration/test_backend_integration.py exercising the CLI-to-SDK bridge against the mock server.",
     intro: [
-      "proxmox-sdk has no dedicated tests/e2e/ directory — the CLI integration suite plus the published dev-nginx Docker image act as the E2E boundary. Downstream stacks (netbox-proxbox, proxbox-api) consume that image and run the cross-stack E2E.",
-      "The CI pipeline lints, type-checks, runs tests with coverage, and rebuilds three Docker variants (raw / nginx / granian) on every main and testing push.",
+      "proxmox-sdk has no dedicated tests/e2e/ directory — the CLI integration suite plus the published service-tagged Docker images (latest-pve, latest-pbs, latest-pdm) act as the E2E boundary. Downstream stacks (netbox-proxbox, proxbox-api) consume those tags and run the cross-stack E2E in parallel.",
+      "v0.0.5 added Proxmox Datacenter Manager (PDM) support alongside the existing Proxmox VE and Proxmox Backup Server surfaces, so each Docker tag serves a different OpenAPI schema while sharing the same mock plumbing.",
+      "The CI pipeline lints, type-checks, runs tests with coverage, and rebuilds the service-tagged Docker variants (raw / nginx / granian × pve / pbs / pdm) on every main and testing push.",
     ],
     commands: [
       {
@@ -107,8 +108,8 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
     ],
     coverage: [
       "Spec files: tests/cli/integration/test_backend_integration.py (CLI ↔ SDK bridge against mock server).",
-      "CI jobs: lint, syntax, test, docker-images (raw / nginx / granian variants pushed on every main / testing commit).",
-      "Cross-stack E2E: the dev-nginx tag is pulled by netbox-proxbox's e2e-docker.yml and proxbox-api's ci.yml as the proxmox-e2e-mock container — proves the published image is consumable end-to-end.",
+      "CI jobs: lint, syntax, test, docker-images (raw / nginx / granian variants × pve / pbs / pdm service tags pushed on every main / testing commit).",
+      "Cross-stack E2E: the latest-{pve,pbs,pdm} tags are pulled by netbox-proxbox's e2e-docker.yml and proxbox-api's ci.yml as the proxmox-e2e-mock container — one tag per matrix cell, proving the published images are consumable end-to-end.",
     ],
     ciWorkflow: ".github/workflows/ci.yml",
     ciWorkflowUrl:

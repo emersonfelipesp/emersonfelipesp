@@ -101,20 +101,22 @@ const NETBOX_PROXBOX_PT_BR: LocalizedDeveloper = {
   ],
   ciNotes: [
     "Nunca republique uma versão consumida com --skip-existing; publique o próximo .postN ou rcN.",
-    "O workflow E2E aceita install_source, dependency_mode, proxbox_api_version e netbox_image para validação focada.",
-    "A fonte pública no MkDocs é docs/developer/ci-e2e-workflows.md.",
+    "O workflow E2E aceita install_source, dependency_mode, proxbox_api_version, netbox_image e proxmox_service para validação focada.",
+    "Cada célula da matriz baixa uma tag dedicada de imagem do proxmox-sdk — emersonfelipesp/proxmox-sdk:latest-pve, :latest-pbs, :latest-pdm — para que as três superfícies do Proxmox rodem em paralelo com fail-fast desabilitado.",
+    "A fonte pública no MkDocs é docs/developer/ci-e2e-workflows.md (matriz paralela detalhada em docs/features/e2e-docker-testing.md).",
   ],
   e2eFramework:
-    "Script Python com requests + stack Docker Compose (NetBox + PostgreSQL + Redis + proxbox-api + um mock proxmox-sdk:dev-nginx).",
+    "Script Python com requests + stack Docker Compose (NetBox + PostgreSQL + Redis + proxbox-api + um mock por célula do proxmox-sdk escolhido entre latest-pve / latest-pbs / latest-pdm).",
   e2eIntro: [
     "Não há alvo de E2E em pytest — a suíte é um script Python executável que sobe a stack inteira, dispara um Full Update e valida o estado resultante no NetBox.",
+    "A matriz Docker se expande em versões do NetBox × proxmox_service para que PVE, Proxmox Backup Server e Proxmox Datacenter Manager sejam exercitados em paralelo. As asserções específicas de PVE têm gate em um helper de stack e são puladas automaticamente nas células pbs/pdm; o smoke do /health do proxbox-api roda em cada célula.",
     "A mesma suíte está conectada ao GitHub Actions para cobertura noturna e releases em etapas: execuções TestPyPI instalam o plugin e o proxbox-api do TestPyPI, enquanto candidatas e finais PyPI instalam ambos do PyPI.",
   ],
   e2eCoverage: [
     "Specs: tests/e2e/e2e_stack_check.py, stack_setup.py, stack_sync.py, stack_common.py, mock_proxmox_api.py.",
-    "Stack: imagem netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:dev-nginx.",
-    "Dados de mock: tests/e2e/proxmox_openapi_mock_data.json montado dentro do contêiner mock do proxmox-sdk.",
-    "Eixos da matriz incluem install_source ∈ {local, pypi, container, testpypi} e dependency_mode ∈ {dev, published, testpypi-package, pypi-package}.",
+    "Stack: imagem netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:latest-{pve,pbs,pdm} escolhido por célula.",
+    "Dados de mock: tests/e2e/proxmox_openapi_mock_data.json montado dentro do contêiner mock do proxmox-sdk; a tag de serviço solicitada determina qual superfície OpenAPI (PVE / PBS / PDM) é servida.",
+    "Eixos da matriz: netbox_image (3) × install_source ∈ {local, pypi, container, testpypi} × dependency_mode ∈ {dev, published, testpypi-package, pypi-package} × proxmox_service ∈ {pve, pbs, pdm}, com fail-fast desabilitado.",
     "Gate de release: publish-testpypi.yml publica no TestPyPI primeiro, valida instalacoes exatas de pacote, e so promove versoes rc/final no PyPI depois do E2E passar com o indice correspondente do proxbox-api.",
     "Agendamento: cron noturno 31 2 * * * exercita a matriz completa sem supervisão.",
   ],
@@ -188,21 +190,23 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
   ciNotes: [
     "Jobs E2E aguardam até 20 minutos por migrações/indexação do NetBox e exigem /api/status/ antes de configurar tokens.",
     "O job E2E tenta puxar imagens públicas do NetBox primeiro e só baixa o artefato construído quando o pull do registro falha.",
-    "E2E Docker com mock Proxmox usa mock_http; a passagem MockBackend em processo usa mock_backend.",
-    "A fonte pública no MkDocs é docs/development/ci-e2e-workflows.md.",
+    "E2E Docker com mock Proxmox usa mock_http e rotaciona as tags de serviço do proxmox-sdk (pve, pbs, pdm) por célula da matriz; a passagem MockBackend em processo usa mock_backend e roda apenas na célula main × pve.",
+    "A fonte pública no MkDocs é docs/development/e2e-proxmox-service-matrix.md (espelho pt-BR em docs/pt-BR/).",
   ],
   e2eFramework:
     "pytest + pytest-asyncio + httpx.AsyncClient. Dois modos via marker — mock_backend (em processo, sem HTTP) e mock_http (contra um contêiner do proxmox-sdk em execução).",
   e2eIntro: [
-    "O loop rápido roda inteiramente em processo contra MockBackend; sem Docker, sem rede. O loop completo sobe o proxmox-sdk em 8006/8007 e um contêiner de NetBox real, exercitando cada combinação de transporte suportada.",
+    "O loop rápido roda inteiramente em processo contra MockBackend; sem Docker, sem rede. O loop completo se expande em uma matriz de três eixos no GitHub Actions — transport × NetBox × proxmox_service — baixando um mock dedicado do proxmox-sdk por célula.",
+    "Cada valor de proxmox_service (pve, pbs, pdm) baixa a tag correspondente — emersonfelipesp/proxmox-sdk:latest-pve, :latest-pbs, :latest-pdm — para que clusters PVE, Proxmox Backup Server e Proxmox Datacenter Manager sejam exercitados em paralelo.",
+    "Specs exclusivas do PVE (sync de VMs, devices, backups) têm gate na fixture de sessão requires_pve_schema e são puladas automaticamente nas células pbs/pdm; o smoke tests/e2e/test_proxmox_mock_health.py roda contra /health em cada célula para falhar rápido se uma imagem mock estiver quebrada.",
     "O workflow de release e em etapas: tags normais e post publicam no TestPyPI, release candidates do PyPI usam vX.Y.ZrcN, e o pacote final no PyPI mais as imagens Docker so saem depois da validacao de reinstalacao e dos gates E2E.",
   ],
   e2eCoverage: [
-    "Specs: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py.",
-    "Markers: @pytest.mark.mock_backend (MockBackend em processo) e @pytest.mark.mock_http (contêiner Docker do proxmox-sdk nas portas 8006/8007).",
-    "Os helpers de auth em proxbox_api/e2e/ são o único lugar do backend onde Playwright é usado.",
-    "CI: ci.yml roda o job core de testes (pytest excluindo tests/e2e) mais uma matriz E2E em Docker de 6 combos de transporte × netbox_proxbox_mode.",
-    "Gate de release: publish-testpypi.yml valida instalacoes TestPyPI primeiro, depois instalacoes rc/final PyPI, publicacao de imagens Docker e E2E pos-publicacao.",
+    "Specs: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py, test_proxmox_mock_health.py.",
+    "Markers: @pytest.mark.mock_backend (MockBackend em processo) e @pytest.mark.mock_http (contêiner Docker do proxmox-sdk nas portas 8006/8007). A fixture de sessão requires_pve_schema pula automaticamente specs exclusivas de PVE nas células pbs/pdm.",
+    "Os helpers de auth em proxbox_api/e2e/ são o único lugar do backend onde Playwright é usado; a fixture proxmox_sdk_mock troca as tags do contêiner conforme a variável PROXMOX_SERVICE.",
+    "CI: ci.yml roda o job core de testes (pytest excluindo tests/e2e) mais uma matriz E2E em Docker de 7 × 3 × 3 (transport × NetBox × service) com fail-fast desabilitado. A passagem mock_backend tem gate em main + pve para rodar exatamente uma vez.",
+    "Gate de release: publish-testpypi.yml valida instalacoes TestPyPI primeiro, depois instalacoes rc/final PyPI, publicacao de imagens Docker e E2E pos-publicacao na mesma matriz de serviços.",
   ],
 };
 
@@ -270,7 +274,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "Auth: API token (auth/token.py) ou senha/ticket+TOTP (auth/ticket.py). Usado em modo proxy real.",
     "Invocação direta de CLI quando rodando em um nó Proxmox.",
     "Dois transportes SSH intercambiáveis.",
-    "O proxbox-api fixa proxmox-sdk==0.0.3.post1; a stack E2E do netbox-proxbox baixa a imagem dev-nginx deste repo como o contêiner proxmox-e2e-mock.",
+    "O proxbox-api fixa proxmox-sdk==0.0.3.post1; a stack E2E do netbox-proxbox baixa uma das tags por serviço (latest-pve, latest-pbs, latest-pdm) deste repo como o contêiner proxmox-e2e-mock, uma por célula da matriz.",
   ],
   contributingCodeStyle: [
     "Linter: ruff (select E4/E7/E9/F/I/ANN201/D103/W).",
@@ -281,13 +285,14 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
   e2eFramework:
     "pytest + pytest-xdist + pytest-cov. A fronteira de integração é coberta por tests/cli/integration/test_backend_integration.py exercitando a ponte CLI ↔ SDK contra o servidor mock.",
   e2eIntro: [
-    "O proxmox-sdk não tem um diretório tests/e2e/ dedicado — a suíte de integração da CLI mais a imagem Docker dev-nginx publicada atuam como a fronteira de E2E. Stacks downstream (netbox-proxbox, proxbox-api) consomem essa imagem e rodam o E2E cross-stack.",
-    "O pipeline de CI faz lint, type check, roda testes com cobertura e reconstrói três variantes de imagem Docker (raw / nginx / granian) em cada push para main e testing.",
+    "O proxmox-sdk não tem um diretório tests/e2e/ dedicado — a suíte de integração da CLI mais as imagens Docker por serviço publicadas (latest-pve, latest-pbs, latest-pdm) atuam como a fronteira de E2E. Stacks downstream (netbox-proxbox, proxbox-api) consomem essas tags e rodam o E2E cross-stack em paralelo.",
+    "O v0.0.5 adicionou suporte ao Proxmox Datacenter Manager (PDM) ao lado das superfícies Proxmox VE e Proxmox Backup Server já existentes, de modo que cada tag Docker serve um schema OpenAPI diferente compartilhando o mesmo encanamento de mock.",
+    "O pipeline de CI faz lint, type check, roda testes com cobertura e reconstrói as variantes Docker por serviço (raw / nginx / granian × pve / pbs / pdm) em cada push para main e testing.",
   ],
   e2eCoverage: [
     "Specs: tests/cli/integration/test_backend_integration.py (ponte CLI ↔ SDK contra o servidor mock).",
-    "Jobs do CI: lint, syntax, test, docker-images (variantes raw / nginx / granian publicadas em cada commit em main / testing).",
-    "E2E cross-stack: a tag dev-nginx é puxada pelo e2e-docker.yml do netbox-proxbox e pelo ci.yml do proxbox-api como contêiner proxmox-e2e-mock — provando que a imagem publicada é consumível ponta a ponta.",
+    "Jobs do CI: lint, syntax, test, docker-images (variantes raw / nginx / granian × tags pve / pbs / pdm publicadas em cada commit em main / testing).",
+    "E2E cross-stack: as tags latest-{pve,pbs,pdm} são puxadas pelo e2e-docker.yml do netbox-proxbox e pelo ci.yml do proxbox-api como contêiner proxmox-e2e-mock — uma tag por célula da matriz, provando que as imagens publicadas são consumíveis ponta a ponta.",
   ],
 };
 

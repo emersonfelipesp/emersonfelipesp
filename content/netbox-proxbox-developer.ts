@@ -75,7 +75,7 @@ export const netboxProxboxDeveloper: DeveloperContent = {
       "Pre-commit hooks: .pre-commit-config.yaml (run before opening a PR).",
       "PRs reference the closing issue with `Closes #<id>`. Contribution guide: CONTRIBUTING.md.",
     ],
-    issuesUrl: "https://github.com/N-Multifibra/netbox-proxbox/issues",
+    issuesUrl: "https://github.com/emersonfelipesp/netbox-proxbox/issues",
   },
   ci: {
     intro: [
@@ -115,38 +115,48 @@ export const netboxProxboxDeveloper: DeveloperContent = {
     ],
     notes: [
       "Never retry a consumed package version with --skip-existing; publish the next .postN or rcN instead.",
-      "The E2E workflow accepts install_source, dependency_mode, proxbox_api_version, and netbox_image for focused validation.",
-      "The public MkDocs source of truth is docs/developer/ci-e2e-workflows.md.",
+      "The E2E workflow accepts install_source, dependency_mode, proxbox_api_version, netbox_image, and proxmox_service for focused validation.",
+      "Each matrix cell pulls a dedicated proxmox-sdk image tag — emersonfelipesp/proxmox-sdk:latest-pve, :latest-pbs, :latest-pdm — so the three Proxmox surfaces run in parallel with fail-fast disabled.",
+      "The public MkDocs source of truth is docs/developer/ci-e2e-workflows.md (parallel mock matrix detailed in docs/features/e2e-docker-testing.md).",
     ],
   },
   e2e: {
     framework:
-      "Plain Python requests + Docker Compose stack (NetBox + PostgreSQL + Redis + proxbox-api + a proxmox-sdk:dev-nginx mock).",
+      "Plain Python requests + Docker Compose stack (NetBox + PostgreSQL + Redis + proxbox-api + a per-cell proxmox-sdk mock chosen from latest-pve / latest-pbs / latest-pdm).",
     intro: [
       "There is no pytest E2E target — the suite is a runnable Python script that brings the whole stack up, drives a Full Update, and asserts the resulting NetBox state.",
+      "The Docker matrix fans out across NetBox versions × proxmox_service so PVE, Proxmox Backup Server, and Proxmox Datacenter Manager surfaces are exercised in parallel. PVE-only assertions are gated by a stack helper and auto-skip on pbs/pdm cells; the proxbox-api /health smoke runs on every cell.",
       "The same suite is wired into GitHub Actions for nightly coverage and for staged package releases: TestPyPI runs install the plugin and proxbox-api from TestPyPI, while PyPI candidate and final runs install both from PyPI.",
     ],
     commands: [
-      { label: "run E2E locally", cmd: "python tests/e2e/e2e_stack_check.py" },
+      { label: "run E2E locally (default pve)", cmd: "python tests/e2e/e2e_stack_check.py" },
+      {
+        label: "run E2E against PBS mock",
+        cmd: "PROXMOX_SERVICE=pbs python tests/e2e/e2e_stack_check.py",
+      },
+      {
+        label: "run E2E against PDM mock",
+        cmd: "PROXMOX_SERVICE=pdm python tests/e2e/e2e_stack_check.py",
+      },
     ],
     coverage: [
       "Spec files: tests/e2e/e2e_stack_check.py, stack_setup.py, stack_sync.py, stack_common.py, mock_proxmox_api.py.",
-      "Stack: NetBox image netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:dev-nginx.",
-      "Mock data: tests/e2e/proxmox_openapi_mock_data.json mounted into the proxmox-sdk mock container.",
-      "Matrix axes include install_source ∈ {local, pypi, container, testpypi} and dependency_mode ∈ {dev, published, testpypi-package, pypi-package}.",
+      "Stack: NetBox image netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:latest-{pve,pbs,pdm} chosen per matrix cell.",
+      "Mock data: tests/e2e/proxmox_openapi_mock_data.json mounted into the proxmox-sdk mock container; the requested service tag drives which OpenAPI surface (PVE / PBS / PDM) is served.",
+      "Matrix axes: netbox_image (3) × install_source ∈ {local, pypi, container, testpypi} × dependency_mode ∈ {dev, published, testpypi-package, pypi-package} × proxmox_service ∈ {pve, pbs, pdm}, with fail-fast disabled.",
       "Release gate: publish-testpypi.yml publishes to TestPyPI first, validates exact package installs, then promotes PyPI rc/final versions only after E2E passes with the matching proxbox-api package index.",
       "Schedule: nightly cron 31 2 * * * exercises the full matrix unattended.",
     ],
     ciWorkflow: ".github/workflows/e2e-docker.yml",
     ciWorkflowUrl:
-      "https://github.com/N-Multifibra/netbox-proxbox/blob/main/.github/workflows/e2e-docker.yml",
+      "https://github.com/emersonfelipesp/netbox-proxbox/blob/main/.github/workflows/e2e-docker.yml",
   },
   links: {
-    repo: "https://github.com/N-Multifibra/netbox-proxbox",
+    repo: "https://github.com/emersonfelipesp/netbox-proxbox",
     docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
-    issues: "https://github.com/N-Multifibra/netbox-proxbox/issues",
+    issues: "https://github.com/emersonfelipesp/netbox-proxbox/issues",
     contributing:
-      "https://github.com/N-Multifibra/netbox-proxbox/blob/main/CONTRIBUTING.md",
+      "https://github.com/emersonfelipesp/netbox-proxbox/blob/main/CONTRIBUTING.md",
   },
 };

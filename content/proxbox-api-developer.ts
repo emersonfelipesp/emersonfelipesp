@@ -134,15 +134,17 @@ export const proxboxApiDeveloper: DeveloperContent = {
     notes: [
       "E2E jobs wait up to 20 minutes for NetBox migrations/search indexing and require /api/status/ before token setup.",
       "The E2E job pulls public NetBox images first and downloads the source-built artifact only when registry pull fails.",
-      "Docker-backed Proxmox E2E uses mock_http; the in-process MockBackend pass uses mock_backend.",
-      "The public MkDocs source of truth is docs/development/ci-e2e-workflows.md.",
+      "Docker-backed Proxmox E2E uses mock_http and rotates proxmox-sdk service tags (pve, pbs, pdm) per matrix cell; the in-process MockBackend pass uses mock_backend and runs once on the main × pve cell.",
+      "The public MkDocs source of truth is docs/development/e2e-proxmox-service-matrix.md (pt-BR mirror under docs/pt-BR/).",
     ],
   },
   e2e: {
     framework:
       "pytest + pytest-asyncio + httpx.AsyncClient. Two marker modes — mock_backend (in-process, no HTTP) and mock_http (against a running proxmox-sdk container).",
     intro: [
-      "The fast loop runs entirely in-process against MockBackend; no Docker, no network. The full loop spins up proxmox-sdk on 8006/8007 and a live NetBox container, and exercises every supported transport combination.",
+      "The fast loop runs entirely in-process against MockBackend; no Docker, no network. The full loop fans out across a three-axis GitHub Actions matrix — transport × NetBox version × proxmox_service — pulling a dedicated proxmox-sdk mock per cell.",
+      "Each proxmox_service value (pve, pbs, pdm) pulls the matching tag — emersonfelipesp/proxmox-sdk:latest-pve, :latest-pbs, :latest-pdm — so PVE clusters, Proxmox Backup Server, and Proxmox Datacenter Manager surfaces are exercised in parallel.",
+      "PVE-only specs (VM sync, device sync, backup sync) are gated behind the requires_pve_schema session fixture and auto-skip on pbs/pdm cells; the test_proxmox_mock_health.py smoke runs against /health on every cell so a broken mock image fails fast.",
       "The release workflow is staged: normal and post tags publish to TestPyPI, PyPI release candidates use vX.Y.ZrcN, and the final PyPI package plus Docker images publish only after package reinstall validation and E2E gates pass.",
     ],
     commands: [
@@ -152,16 +154,24 @@ export const proxboxApiDeveloper: DeveloperContent = {
         cmd: "uv run pytest tests/e2e -m mock_backend",
       },
       {
-        label: "E2E (mock HTTP, requires Docker)",
-        cmd: "docker compose up -d && uv run pytest tests/e2e -m mock_http",
+        label: "E2E (mock HTTP, PVE service)",
+        cmd: "PROXMOX_SERVICE=pve docker compose up -d && uv run pytest tests/e2e -m mock_http",
+      },
+      {
+        label: "E2E (PBS service, schema-gated tests skipped)",
+        cmd: "PROXMOX_SERVICE=pbs docker compose up -d && uv run pytest tests/e2e -m mock_http",
+      },
+      {
+        label: "E2E (PDM service, schema-gated tests skipped)",
+        cmd: "PROXMOX_SERVICE=pdm docker compose up -d && uv run pytest tests/e2e -m mock_http",
       },
     ],
     coverage: [
-      "Spec files: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py.",
-      "Markers: @pytest.mark.mock_backend (in-process MockBackend) and @pytest.mark.mock_http (proxmox-sdk Docker container on ports 8006/8007).",
-      "Auth helpers in proxbox_api/e2e/ are the only place Playwright is used in the backend.",
-      "CI: ci.yml runs the core test job (pytest excluding tests/e2e) plus an E2E Docker matrix of 6 transport combos × netbox_proxbox_mode.",
-      "Release gate: publish-testpypi.yml validates TestPyPI installs first, then PyPI rc/final installs, Docker image publish, and post-publish E2E.",
+      "Spec files: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py, test_proxmox_mock_health.py.",
+      "Markers: @pytest.mark.mock_backend (in-process MockBackend) and @pytest.mark.mock_http (proxmox-sdk Docker container on ports 8006/8007). The requires_pve_schema session fixture auto-skips PVE-only tests on pbs/pdm cells.",
+      "Auth helpers in proxbox_api/e2e/ are the only place Playwright is used in the backend; the proxmox_sdk_mock fixture switches container tags based on the PROXMOX_SERVICE env var.",
+      "CI: ci.yml runs the core test job (pytest excluding tests/e2e) plus a 7 × 3 × 3 (transport × NetBox × service) E2E Docker matrix with fail-fast disabled. The mock_backend pass is gated to main + pve so it runs exactly once.",
+      "Release gate: publish-testpypi.yml validates TestPyPI installs first, then PyPI rc/final installs, Docker image publish, and post-publish E2E across the same service matrix.",
     ],
     ciWorkflow: ".github/workflows/ci.yml",
     ciWorkflowUrl:
@@ -170,7 +180,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
   links: {
     repo: "https://github.com/emersonfelipesp/proxbox-api",
     docs: "https://emersonfelipesp.github.io/proxbox-api/",
-    plugin: "https://github.com/N-Multifibra/netbox-proxbox",
+    plugin: "https://github.com/emersonfelipesp/netbox-proxbox",
     "netbox-sdk": "https://github.com/emersonfelipesp/netbox-sdk",
     "proxmox-sdk": "https://github.com/emersonfelipesp/proxmox-sdk",
     issues: "https://github.com/emersonfelipesp/proxbox-api/issues",

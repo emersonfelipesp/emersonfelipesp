@@ -23,7 +23,7 @@ export const PROXBOX_API_PT_BR = {
     "SQLModel 0.0.38 + aiosqlite",
     "Pydantic 2.13",
     "bcrypt + cryptography (Fernet)",
-    "netbox-sdk 0.0.7.post6 (cliente REST do NetBox)",
+    "netbox-sdk 0.0.8.post1 (cliente REST do NetBox)",
     "proxmox-sdk 0.0.3.post1 (SDK do Proxmox VE)",
     "UI administrativa em Next.js (nextjs-ui/)",
   ],
@@ -61,7 +61,7 @@ export const PROXBOX_API_PT_BR = {
         "Reusar o netbox-sdk significa que o proxbox-api herda pooling de sessão, respostas tipadas, política de retry e knobs de concorrência (PROXBOX_NETBOX_MAX_CONCURRENT, PROXBOX_NETBOX_GET_CACHE_TTL) sem reinventar a camada HTTP.",
       ],
       bullets: [
-        "Dependência fixada: netbox-sdk 0.0.7.post6",
+        "Dependência fixada: netbox-sdk 0.0.8.post1",
         "Origem única das sessões NetBox em proxbox_api/session/",
         "Conduz cada escrita em DCIM, IPAM e Virtualization solicitada pelo plugin",
         "Camada de cache em GET (60s por padrão) compartilhada pelo workflow de sincronização",

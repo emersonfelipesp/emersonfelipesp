@@ -32,7 +32,7 @@ export const netboxSdk: ProjectContent = {
   ],
   install: {
     primary: "pip install 'netbox-sdk[all]'",
-    note: "Pin a specific version: pip install 'netbox-sdk[all]==0.0.7.post6'",
+    note: "Pin a specific version: pip install 'netbox-sdk[all]==0.0.8.post1'",
     runScript: [
       {
         kind: "banner",
@@ -105,8 +105,8 @@ export const netboxSdk: ProjectContent = {
   },
   meta: {
     netbox: "4.3 / 4.4 / 4.5",
-    python: "3.10+",
-    latestRelease: "v0.0.7.post6",
+    python: "3.11+",
+    latestRelease: "v0.0.8.post1",
     stars: 14,
     forks: 0,
   },

@@ -19,7 +19,7 @@ export const NETBOX_SDK_PT_BR = {
   stack: netboxSdk.stack,
   install: {
     primary: netboxSdk.install.primary,
-    note: "Fixe uma versão específica: pip install 'netbox-sdk[all]==0.0.7.post6'",
+    note: "Fixe uma versão específica: pip install 'netbox-sdk[all]==0.0.8.post1'",
     runScript: netboxSdk.install.runScript,
   },
 };
