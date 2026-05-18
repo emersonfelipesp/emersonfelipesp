@@ -41,7 +41,11 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
 function Node({ name, description, href, highlight = false, logo, trailing }: NodeProps) {
   const baseClasses =
     "border bg-surface text-sm transition-all duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
-  const sizeClasses = logo ? "h-9 w-28 p-1.5" : "px-3 py-1.5";
+  const sizeClasses = logo
+    ? trailing
+      ? "h-9 px-2 py-1.5"
+      : "h-9 w-28 p-1.5"
+    : "px-3 py-1.5";
   const stateClasses = highlight
     ? "border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
     : "border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
@@ -220,11 +224,8 @@ function ForkConnector2() {
   );
 }
 
-/**
- * Fork from proxmox-sdk (right column of a 2-col grid, source at x=75)
- * to 3 full-width targets at 17/50/83.
- */
-function ForkConnector3OffCenter() {
+/** Single line from proxmox-sdk (right col, x=75) bending to center (x=50). */
+function OffCenterToCenter() {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
       <svg
@@ -234,7 +235,28 @@ function ForkConnector3OffCenter() {
         className="h-7 w-full text-muted"
       >
         <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="75" y1="0" x2="75" y2="9" />
+          <line x1="75" y1="0" x2="75" y2="12" />
+          <line x1="75" y1="12" x2="50" y2="12" />
+          <line x1="50" y1="12" x2="50" y2="20" />
+          <polyline points="48,18 50,22 52,18" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/** Centered 3-way fork from x=50 to targets at 17/50/83. */
+function ForkConnector3() {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="50" y1="0" x2="50" y2="9" />
           <line x1="17" y1="9" x2="83" y2="9" />
           <line x1="17" y1="9" x2="17" y2="20" />
           <line x1="50" y1="9" x2="50" y2="20" />
@@ -318,14 +340,20 @@ export function ProjectsArchitecture() {
           </div>
         </div>
 
-        {/* Off-center fork from proxmox-sdk (x=75) to 3 proxmox services (17/50/83) */}
-        <ForkConnector3OffCenter />
+        {/* Bend from proxmox-sdk (x=75) to Proxmox VE center (x=50) */}
+        <OffCenterToCenter />
 
-        {/* Row 5: 3 proxmox services */}
+        {/* Row 5: Proxmox VE platform node */}
+        <Node name="Proxmox VE" description={a.nodes.proxmoxVe} logo="proxmox" />
+
+        {/* Centered 3-way fork from Proxmox VE to the three service APIs */}
+        <ForkConnector3 />
+
+        {/* Row 6: 3 proxmox service APIs */}
         <div className="grid w-full max-w-2xl grid-cols-3 gap-2 justify-items-center">
-          <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} />
-          <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs} />
-          <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm} />
+          <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
+          <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
+          <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
         </div>
       </div>
     </div>

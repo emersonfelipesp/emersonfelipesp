@@ -286,6 +286,7 @@ export type Dictionary = {
         netboxSdk: string;
         netboxRest: string;
         proxmoxSdk: string;
+        proxmoxVe: string;
         proxmoxRest: string;
         proxmoxCeph: string;
         proxmoxPbs: string;
@@ -630,6 +631,7 @@ const en: Dictionary = {
         netboxSdk: "Python async SDK + CLI (nbx) + Textual TUI for the NetBox REST API. Used by proxbox-api to read/write NetBox.",
         netboxRest: "NetBox's REST API — the data target where Proxmox infrastructure ends up.",
         proxmoxSdk: "Schema-driven FastAPI SDK for the Proxmox VE API: 646 generated endpoints, dual mock/real modes, CLI + TUI.",
+        proxmoxVe: "Proxmox Virtual Environment — the hypervisor platform exposing the REST API consumed by proxmox-sdk.",
         proxmoxRest: "Proxmox VE's REST API — the data source for clusters, nodes, VMs, storage, and backups.",
         proxmoxCeph: "Proxmox Ceph REST API — distributed storage cluster integrated directly with Proxmox VE nodes.",
         proxmoxPbs: "Proxmox Backup Server REST API — deduplicating backup service for VMs, containers, and hosts.",
@@ -976,6 +978,7 @@ const ptBr: Dictionary = {
         netboxSdk: "SDK Python assíncrono + CLI (nbx) + TUI Textual para a API REST do NetBox. Usado pelo proxbox-api para ler e gravar no NetBox.",
         netboxRest: "API REST do NetBox — o destino onde a infraestrutura do Proxmox é registrada.",
         proxmoxSdk: "SDK FastAPI orientado a schema para a API do Proxmox VE: 646 endpoints gerados, modos mock/real, CLI + TUI.",
+        proxmoxVe: "Proxmox Virtual Environment — a plataforma hypervisor que expõe a API REST consumida pelo proxmox-sdk.",
         proxmoxRest: "API REST do Proxmox VE — a fonte de dados de clusters, nós, VMs, storage e backups.",
         proxmoxCeph: "API REST do Proxmox Ceph — cluster de armazenamento distribuído integrado diretamente aos nós do Proxmox VE.",
         proxmoxPbs: "API REST do Proxmox Backup Server — serviço de backup com deduplicação para VMs, contêineres e hosts.",
