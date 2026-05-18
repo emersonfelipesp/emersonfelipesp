@@ -253,7 +253,10 @@ function ForkConnector3() {
   );
 }
 
-/** 3-way fork with stem from right column (x≈75) to targets at 17/50/83. */
+/**
+ * Connector from right column (Proxmox VE at x≈75) bridging left to center (x=50),
+ * then forking symmetrically down to targets at 17/50/83.
+ */
 function ForkConnector3FromRight() {
   return (
     <div className="mt-2 flex w-full max-w-2xl flex-col items-center">
@@ -264,11 +267,19 @@ function ForkConnector3FromRight() {
         className="h-7 w-full text-muted"
       >
         <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="75" y1="0" x2="75" y2="9" />
+          {/* stem from Proxmox VE (right column x=75) down to bridge level */}
+          <line x1="75" y1="0" x2="75" y2="5" />
+          {/* bridge left to fork center */}
+          <line x1="50" y1="5" x2="75" y2="5" />
+          {/* short stem from bridge to horizontal bar */}
+          <line x1="50" y1="5" x2="50" y2="9" />
+          {/* symmetric horizontal bar centered at x=50 */}
           <line x1="17" y1="9" x2="83" y2="9" />
+          {/* drops */}
           <line x1="17" y1="9" x2="17" y2="20" />
           <line x1="50" y1="9" x2="50" y2="20" />
           <line x1="83" y1="9" x2="83" y2="20" />
+          {/* arrowheads */}
           <polyline points="15,18 17,22 19,18" />
           <polyline points="48,18 50,22 52,18" />
           <polyline points="81,18 83,22 85,18" />
