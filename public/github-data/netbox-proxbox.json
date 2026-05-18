@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-18T10:23:37.859Z",
+  "syncedAt": "2026-05-18T13:18:09.217Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
-  "stars": 545,
+  "stars": 546,
   "forks": 63,
   "releases": [
+    {
+      "id": 324271142,
+      "nodeId": "RE_kwDOFTMlzs4TU_wm",
+      "tag": "v0.0.16.post4",
+      "name": "v0.0.16.post4",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.16.post4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/324271142",
+      "targetCommitish": "develop",
+      "body": "## What's Changed\n* docs(claude): document release procedure and duplicate-run cancellation by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/469\n* test(migrations): retarget v0.0.16 squash assertions by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/470\n\n\n**Full Changelog**: https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.16.post3...v0.0.16.post4",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>docs(claude): document release procedure and duplicate-run cancellation by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4468328835\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/469\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/469/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/469\">#469</a></li>\n<li>test(migrations): retarget v0.0.16 squash assertions by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4468530537\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/470\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/470/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/470\">#470</a></li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.16.post3...v0.0.16.post4\"><tt>v0.0.16.post3...v0.0.16.post4</tt></a></p>",
+      "createdAt": "2026-05-18T11:51:13Z",
+      "publishedAt": "2026-05-18T12:20:23Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.16.post4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.16.post4"
+      }
+    },
     {
       "id": 324203567,
       "nodeId": "RE_kwDOFTMlzs4TUvQv",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-18T06:04:14Z",
       "publishedAt": "2026-05-18T10:23:11Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

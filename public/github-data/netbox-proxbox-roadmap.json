@@ -1,24 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T10:24:31.597Z",
+  "generated_at": "2026-05-18T13:18:50.955Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 250,
+    "open": 8,
+    "closed": 251,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 468,
       "title": "When a server have dual homed ipv4/ipv6",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/468",
-      "closedAt": null,
-      "labels": [],
-      "milestone": null,
-      "x": 16,
-      "y": 976,
+      "closedAt": "2026-05-18T12:47:44Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16.post5",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/24"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6291,6 +6305,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        468,
         449,
         463,
         462,
@@ -6555,8 +6570,7 @@
         432,
         433,
         435,
-        436,
-        468
+        436
       ]
     }
   ],
@@ -6574,12 +6588,12 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 58
+      "count": 59
     },
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 24
+      "count": 25
     },
     {
       "name": "python",
@@ -6729,6 +6743,14 @@
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17",
       "open": 0,
       "closed": 5
+    },
+    {
+      "title": "v0.0.16.post5",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/24",
+      "open": 0,
+      "closed": 1
     },
     {
       "title": "v0.0.17",
