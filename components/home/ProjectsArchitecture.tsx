@@ -8,6 +8,7 @@ type NodeProps = {
   description: string;
   href?: string;
   highlight?: boolean;
+  featured?: boolean;
   logo?: "netbox" | "proxmox";
   trailing?: string;
 };
@@ -38,17 +39,19 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
   return <ProxmoxLogo className="h-4 w-auto text-fg/90" />;
 }
 
-function Node({ name, description, href, highlight = false, logo, trailing }: NodeProps) {
+function Node({ name, description, href, highlight = false, featured = false, logo, trailing }: NodeProps) {
   const baseClasses =
-    "border bg-surface text-sm transition-all duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
+    "border text-sm transition-all duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
   const sizeClasses = logo
     ? trailing
       ? "h-9 px-2 py-1.5"
       : "h-9 w-28 p-1.5"
     : "px-3 py-1.5";
-  const stateClasses = highlight
-    ? "border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
-    : "border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
+  const stateClasses = featured
+    ? "bg-accent/10 border-accent text-accent hover:bg-accent/20 hover:border-accent focus-visible:bg-accent/20 focus-visible:border-accent"
+    : highlight
+    ? "bg-surface border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
+    : "bg-surface border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
 
   const tipId = `tip-${name.replace(/\s+/g, "-").replace(/[^\w-]/g, "")}`;
 
@@ -144,8 +147,8 @@ function ForkConnector5({ label }: { label?: string }) {
 }
 
 /**
- * Dashed horizontal connector showing the 4 right plugins (30/50/70/90)
- * depend on netbox-proxbox (10) as their base.  Arrow points left to x=10.
+ * Dashed horizontal connector showing the 4 outer plugins (10/30/70/90)
+ * depend on netbox-proxbox (50, center) as their base. Arrowheads converge inward at x=50.
  */
 function ExtendsConnector({ label }: { label: string }) {
   return (
@@ -157,13 +160,14 @@ function ExtendsConnector({ label }: { label: string }) {
         className="h-4 w-full text-muted/50"
       >
         <g stroke="currentColor" strokeWidth="0.5" fill="none" strokeDasharray="2 1.5">
+          <line x1="10" y1="0" x2="10" y2="7" />
           <line x1="30" y1="0" x2="30" y2="7" />
-          <line x1="50" y1="0" x2="50" y2="7" />
           <line x1="70" y1="0" x2="70" y2="7" />
           <line x1="90" y1="0" x2="90" y2="7" />
           <line x1="10" y1="7" x2="90" y2="7" />
-          {/* arrowhead pointing left toward netbox-proxbox at x=10 */}
-          <polyline points="13,5 10,7 13,9" />
+          {/* arrowheads converging inward toward netbox-proxbox at x=50 */}
+          <polyline points="47,5 50,7 47,9" />
+          <polyline points="53,5 50,7 53,9" />
         </g>
       </svg>
       <span className="text-[10px] uppercase tracking-wider text-muted/40">{label}</span>
@@ -267,18 +271,13 @@ export function ProjectsArchitecture() {
         {/* Fan-out from netbox to all 5 plugins */}
         <ForkConnector5 label={a.edges.plugin} />
 
-        {/* Row 2: 5 NetBox plugins */}
+        {/* Row 2: 5 NetBox plugins — netbox-proxbox centered as the primary base */}
         <div className="grid w-full max-w-2xl grid-cols-5 gap-2 justify-items-center">
-          <Node
-            name="netbox-proxbox"
-            description={a.nodes.netboxProxbox}
-            href="/netbox-proxbox"
-            highlight
-          />
-          <Node name="netbox-ceph"   description={a.nodes.netboxCeph}   highlight />
-          <Node name="netbox-pbs"    description={a.nodes.netboxPbs}    highlight />
-          <Node name="netbox-pdm"    description={a.nodes.netboxPdm}    highlight />
-          <Node name="netbox-packer" description={a.nodes.netboxPacker} highlight />
+          <Node name="netbox-ceph"    description={a.nodes.netboxCeph}    highlight />
+          <Node name="netbox-pbs"     description={a.nodes.netboxPbs}     highlight />
+          <Node name="netbox-proxbox" description={a.nodes.netboxProxbox} href="/netbox-proxbox" featured />
+          <Node name="netbox-pdm"     description={a.nodes.netboxPdm}     highlight />
+          <Node name="netbox-packer"  description={a.nodes.netboxPacker}  highlight />
         </div>
 
         {/* Dashed connector showing netbox-ceph/pbs/pdm/packer extend netbox-proxbox */}
