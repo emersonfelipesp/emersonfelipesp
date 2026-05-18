@@ -253,6 +253,31 @@ function ForkConnector3() {
   );
 }
 
+/** 3-way fork with stem from right column (x≈75) to targets at 17/50/83. */
+function ForkConnector3FromRight() {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="75" y1="0" x2="75" y2="9" />
+          <line x1="17" y1="9" x2="83" y2="9" />
+          <line x1="17" y1="9" x2="17" y2="20" />
+          <line x1="50" y1="9" x2="50" y2="20" />
+          <line x1="83" y1="9" x2="83" y2="20" />
+          <polyline points="15,18 17,22 19,18" />
+          <polyline points="48,18 50,22 52,18" />
+          <polyline points="81,18 83,22 85,18" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export function ProjectsArchitecture() {
   const { t } = useLanguage();
   const a = t.home.architecture;
@@ -317,13 +342,14 @@ export function ProjectsArchitecture() {
             />
             <VerticalEdge />
             <Node name="Proxmox VE" description={a.nodes.proxmoxVe} logo="proxmox" />
-            <ForkConnector3 />
-            <div className="grid w-full grid-cols-3 gap-8 justify-items-center">
-              <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
-              <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
-              <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
-            </div>
           </div>
+        </div>
+
+        <ForkConnector3FromRight />
+        <div className="grid w-full max-w-2xl grid-cols-3 gap-4 justify-items-center">
+          <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
+          <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
+          <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
         </div>
       </div>
     </div>
