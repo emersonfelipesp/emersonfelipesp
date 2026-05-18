@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T13:18:55.006Z",
+  "generated_at": "2026-05-18T14:35:54.920Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 15,
+    "open": 5,
+    "closed": 16,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 121,
       "title": "netbox-exception: tag with this name already exists.",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/121",
-      "closedAt": null,
+      "closedAt": "2026-05-18T14:34:38Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -439,6 +439,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        121,
         116,
         111,
         112,
@@ -465,8 +466,7 @@
         95,
         97,
         98,
-        120,
-        121
+        120
       ]
     }
   ],
