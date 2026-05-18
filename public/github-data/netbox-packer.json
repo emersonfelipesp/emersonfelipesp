@@ -1,7 +1,83 @@
 {
-  "syncedAt": "2026-01-01T00:00:00Z",
+  "syncedAt": "2026-05-18T17:24:07.878Z",
   "fullName": "emersonfelipesp/netbox-packer",
   "stars": 0,
   "forks": 0,
-  "releases": []
+  "releases": [
+    {
+      "id": 324398465,
+      "nodeId": "RE_kwDOSgKy7c4TVe2B",
+      "tag": "v0.0.2.post1",
+      "name": "v0.0.2.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/releases/tag/v0.0.2.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/releases/324398465",
+      "targetCommitish": "main",
+      "body": "## v0.0.2.post1\n\nPost-release fixes:\n\n- Add `license = \"Apache-2.0\"` to `pyproject.toml` (required by PyPI Warehouse)\n- Add `[project.optional-dependencies] test` group so `pip install \".[test]\"` works in the release validation CI job\n- Fix PyPI publish workflow: switch to `pypa/gh-action-pypi-publish` for reliable API token authentication",
+      "bodyHtml": "<h2 dir=\"auto\">v0.0.2.post1</h2>\n<p dir=\"auto\">Post-release fixes:</p>\n<ul dir=\"auto\">\n<li>Add <code class=\"notranslate\">license = \"Apache-2.0\"</code> to <code class=\"notranslate\">pyproject.toml</code> (required by PyPI Warehouse)</li>\n<li>Add <code class=\"notranslate\">[project.optional-dependencies] test</code> group so <code class=\"notranslate\">pip install \".[test]\"</code> works in the release validation CI job</li>\n<li>Fix PyPI publish workflow: switch to <code class=\"notranslate\">pypa/gh-action-pypi-publish</code> for reliable API token authentication</li>\n</ul>",
+      "createdAt": "2026-05-18T15:46:25Z",
+      "publishedAt": "2026-05-18T15:52:59Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/zipball/v0.0.2.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/tarball/v0.0.2.post1"
+      }
+    },
+    {
+      "id": 324382359,
+      "nodeId": "RE_kwDOSgKy7c4TVa6X",
+      "tag": "v0.0.2",
+      "name": "v0.0.2 — NetBox Packer Plugin",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/releases/tag/v0.0.2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/releases/324382359",
+      "targetCommitish": "main",
+      "body": "## v0.0.2 — Full plugin implementation\n\nThis release delivers the complete `netbox-packer` plugin for managing HashiCorp Packer VM template builds and catalog inside NetBox.\n\n### Models\n- **PackerTemplate** — catalog entry for a Packer-managed VM template with HCP Packer Registry sync, staleness tracking, and installer config linkage\n- **PackerBuild** — individual build run record with incremental log streaming and status lifecycle\n- **PackerInstallerConfig** — versioned OS installer configs (autoinstall/kickstart/preseed) with auto-SHA256 checksum\n- **PackerBuildTarget** — multi-cluster node dispatch targets with priority ordering and capacity limits\n\n### Features\n- REST API with `/build/`, `/cancel/`, `/validate-node/` actions\n- GraphQL schema for all four models\n- RQ background jobs: `PackerBuildJob` and `PackerStalenessCheckJob`\n- `NodeAffinityValidator` — checks node existence, CPU type, and storage pool against Proxmox before building\n- HCP Packer Registry sync (`PackerHCPSyncJob`) — idempotent iteration-based sync\n- VM-to-template lineage via `source_packer_template` custom field on VirtualMachine\n- Management commands: `check_packer_staleness`, `import_installer_config`\n- Navigation, search, and template extension (Derived VMs tab)\n\n### CI\n- Lint (ruff check + ruff format), static tests (pytest, no Django needed), and NetBox v4.6.0 source integration tests",
+      "bodyHtml": "<h2 dir=\"auto\">v0.0.2 — Full plugin implementation</h2>\n<p dir=\"auto\">This release delivers the complete <code class=\"notranslate\">netbox-packer</code> plugin for managing HashiCorp Packer VM template builds and catalog inside NetBox.</p>\n<h3 dir=\"auto\">Models</h3>\n<ul dir=\"auto\">\n<li><strong>PackerTemplate</strong> — catalog entry for a Packer-managed VM template with HCP Packer Registry sync, staleness tracking, and installer config linkage</li>\n<li><strong>PackerBuild</strong> — individual build run record with incremental log streaming and status lifecycle</li>\n<li><strong>PackerInstallerConfig</strong> — versioned OS installer configs (autoinstall/kickstart/preseed) with auto-SHA256 checksum</li>\n<li><strong>PackerBuildTarget</strong> — multi-cluster node dispatch targets with priority ordering and capacity limits</li>\n</ul>\n<h3 dir=\"auto\">Features</h3>\n<ul dir=\"auto\">\n<li>REST API with <code class=\"notranslate\">/build/</code>, <code class=\"notranslate\">/cancel/</code>, <code class=\"notranslate\">/validate-node/</code> actions</li>\n<li>GraphQL schema for all four models</li>\n<li>RQ background jobs: <code class=\"notranslate\">PackerBuildJob</code> and <code class=\"notranslate\">PackerStalenessCheckJob</code></li>\n<li><code class=\"notranslate\">NodeAffinityValidator</code> — checks node existence, CPU type, and storage pool against Proxmox before building</li>\n<li>HCP Packer Registry sync (<code class=\"notranslate\">PackerHCPSyncJob</code>) — idempotent iteration-based sync</li>\n<li>VM-to-template lineage via <code class=\"notranslate\">source_packer_template</code> custom field on VirtualMachine</li>\n<li>Management commands: <code class=\"notranslate\">check_packer_staleness</code>, <code class=\"notranslate\">import_installer_config</code></li>\n<li>Navigation, search, and template extension (Derived VMs tab)</li>\n</ul>\n<h3 dir=\"auto\">CI</h3>\n<ul dir=\"auto\">\n<li>Lint (ruff check + ruff format), static tests (pytest, no Django needed), and NetBox v4.6.0 source integration tests</li>\n</ul>",
+      "createdAt": "2026-05-18T15:16:25Z",
+      "publishedAt": "2026-05-18T15:27:39Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/zipball/v0.0.2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/tarball/v0.0.2"
+      }
+    },
+    {
+      "id": 324203630,
+      "nodeId": "RE_kwDOSgKy7c4TUvRu",
+      "tag": "v0.0.1",
+      "name": "v0.0.1",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/releases/tag/v0.0.1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/releases/324203630",
+      "targetCommitish": "main",
+      "body": "**Full Changelog**: https://github.com/emersonfelipesp/netbox-packer/commits/v0.0.1",
+      "bodyHtml": "<p dir=\"auto\"><strong>Full Changelog</strong>: <a href=\"https://github.com/emersonfelipesp/netbox-packer/commits/v0.0.1\">https://github.com/emersonfelipesp/netbox-packer/commits/v0.0.1</a></p>",
+      "createdAt": "2026-05-18T06:39:37Z",
+      "publishedAt": "2026-05-18T10:23:21Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/zipball/v0.0.1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-packer/tarball/v0.0.1"
+      }
+    }
+  ]
 }

@@ -1,7 +1,33 @@
 {
-  "syncedAt": "2026-01-01T00:00:00Z",
+  "syncedAt": "2026-05-18T17:24:07.886Z",
   "fullName": "emersonfelipesp/netbox-ceph",
   "stars": 0,
   "forks": 0,
-  "releases": []
+  "releases": [
+    {
+      "id": 324203623,
+      "nodeId": "RE_kwDOSgKrqM4TUvRn",
+      "tag": "v0.0.1",
+      "name": "v0.0.1",
+      "url": "https://github.com/emersonfelipesp/netbox-ceph/releases/tag/v0.0.1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-ceph/releases/324203623",
+      "targetCommitish": "main",
+      "body": "**Full Changelog**: https://github.com/emersonfelipesp/netbox-ceph/commits/v0.0.1",
+      "bodyHtml": "<p dir=\"auto\"><strong>Full Changelog</strong>: <a href=\"https://github.com/emersonfelipesp/netbox-ceph/commits/v0.0.1\">https://github.com/emersonfelipesp/netbox-ceph/commits/v0.0.1</a></p>",
+      "createdAt": "2026-05-18T06:39:34Z",
+      "publishedAt": "2026-05-18T10:23:20Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-ceph/zipball/v0.0.1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-ceph/tarball/v0.0.1"
+      }
+    }
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-05-18T15:04:16.988Z",
+  "syncedAt": "2026-05-18T17:24:08.456Z",
   "repos": [
     {
       "slug": "netbox-proxbox",
@@ -22,6 +22,30 @@
     {
       "slug": "proxmox-sdk",
       "fullName": "emersonfelipesp/proxmox-sdk",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-pbs",
+      "fullName": "emersonfelipesp/netbox-pbs",
+      "ok": true,
+      "skipped": true
+    },
+    {
+      "slug": "netbox-pdm",
+      "fullName": "emersonfelipesp/netbox-pdm",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-ceph",
+      "fullName": "emersonfelipesp/netbox-ceph",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-packer",
+      "fullName": "emersonfelipesp/netbox-packer",
       "ok": true,
       "skipped": false
     }

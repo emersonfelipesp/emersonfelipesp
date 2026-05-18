@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T15:05:07.656Z",
+  "generated_at": "2026-05-18T17:24:53.620Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 17,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 126,
+      "title": "docker using customer certs for: *-nginx images",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/126",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 121,
       "title": "netbox-exception: tag with this name already exists.",
@@ -476,7 +490,8 @@
         94,
         95,
         97,
-        98
+        98,
+        126
       ]
     }
   ],

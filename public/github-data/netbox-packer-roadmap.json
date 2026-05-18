@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-18T17:25:03.971Z",
+  "repo": "emersonfelipesp/netbox-packer",
+  "counts": {
+    "open": 0,
+    "closed": 9,
+    "edges": 0
+  },
+  "viewBox": "0 0 1 1",
+  "nodes": [
+    {
+      "number": 10,
+      "title": "feat: multi-cluster build dispatch with node selection",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/10",
+      "closedAt": "2026-05-18T14:33:04Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 9,
+      "title": "feat: PackerInstallerConfig — versioned installer configuration storage",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/9",
+      "closedAt": "2026-05-18T14:31:53Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 8,
+      "title": "feat: HCP Packer Registry sync — import artifact metadata into NetBox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/8",
+      "closedAt": "2026-05-18T14:30:54Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 7,
+      "title": "feat: template age policy — stale detection and scheduled rebuild",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/7",
+      "closedAt": "2026-05-18T14:29:29Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 6,
+      "title": "feat: pre-build node affinity validation (CPU arch + storage pool)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/6",
+      "closedAt": "2026-05-18T14:28:20Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 5,
+      "title": "feat: VM-to-template lineage via VirtualMachine custom field",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/5",
+      "closedAt": "2026-05-18T14:26:48Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 4,
+      "title": "feat: RQ background job for async packer build execution",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/4",
+      "closedAt": "2026-05-18T14:25:04Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 3,
+      "title": "feat: PackerBuild model + POST /build/ action endpoint",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/3",
+      "closedAt": "2026-05-18T14:23:19Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 2,
+      "title": "feat: PackerTemplate model — VM template catalog with full NetBox surface",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/2",
+      "closedAt": "2026-05-18T14:20:00Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    }
+  ],
+  "edges": [],
+  "timeline": [
+    {
+      "phase": 0,
+      "kind": "shipped",
+      "note": "shipped",
+      "issues": [
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "count": 9
+    }
+  ],
+  "milestones": []
+}
