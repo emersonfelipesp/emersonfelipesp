@@ -277,11 +277,19 @@ export type Dictionary = {
       nodes: {
         netbox: string;
         netboxProxbox: string;
+        netboxCeph: string;
+        netboxPbs: string;
+        netboxPdm: string;
+        netboxPacker: string;
         proxboxApi: string;
         netboxSdk: string;
         netboxRest: string;
         proxmoxSdk: string;
         proxmoxRest: string;
+        proxmoxCeph: string;
+        proxmoxPbs: string;
+        proxmoxPdm: string;
+        hashicorpPacker: string;
       };
     };
     contact: {
@@ -599,11 +607,19 @@ const en: Dictionary = {
       nodes: {
         netbox: "Open-source source-of-truth platform for network infrastructure (DCIM / IPAM / virtualization).",
         netboxProxbox: "NetBox plugin that surfaces Proxmox infra (clusters, nodes, VMs, backups) inside NetBox and triggers syncs.",
+        netboxCeph: "NetBox plugin that syncs Proxmox Ceph storage pool and health data into NetBox.",
+        netboxPbs: "NetBox plugin that surfaces Proxmox Backup Server job history and datastore status in NetBox.",
+        netboxPdm: "NetBox plugin that integrates Proxmox Datacenter Manager inventory and cross-cluster views into NetBox.",
+        netboxPacker: "NetBox plugin that tracks HashiCorp Packer build metadata and provisioned image records in NetBox.",
         proxboxApi: "FastAPI backend that orchestrates the NetBox ↔ Proxmox sync workflow over HTTP, SSE, and WebSocket.",
         netboxSdk: "Python async SDK + CLI (nbx) + Textual TUI for the NetBox REST API. Used by proxbox-api to read/write NetBox.",
         netboxRest: "NetBox's REST API — the data target where Proxmox infrastructure ends up.",
         proxmoxSdk: "Schema-driven FastAPI SDK for the Proxmox VE API: 646 generated endpoints, dual mock/real modes, CLI + TUI.",
         proxmoxRest: "Proxmox VE's REST API — the data source for clusters, nodes, VMs, storage, and backups.",
+        proxmoxCeph: "Proxmox Ceph REST API — distributed storage cluster integrated directly with Proxmox VE nodes.",
+        proxmoxPbs: "Proxmox Backup Server REST API — deduplicating backup service for VMs, containers, and hosts.",
+        proxmoxPdm: "Proxmox Datacenter Manager REST API — centralized multi-cluster inventory and task orchestration.",
+        hashicorpPacker: "HashiCorp Packer API — image-build pipeline producing Proxmox VM templates and cloud images.",
       },
     },
     contact: {
@@ -923,11 +939,19 @@ const ptBr: Dictionary = {
       nodes: {
         netbox: "Plataforma open-source de fonte da verdade para infraestrutura de rede (DCIM / IPAM / virtualização).",
         netboxProxbox: "Plugin do NetBox que expõe a infraestrutura do Proxmox (clusters, nós, VMs, backups) dentro do NetBox e dispara sincronizações.",
+        netboxCeph: "Plugin do NetBox que sincroniza pools de armazenamento e dados de saúde do Proxmox Ceph no NetBox.",
+        netboxPbs: "Plugin do NetBox que exibe o histórico de jobs e o status dos datastores do Proxmox Backup Server no NetBox.",
+        netboxPdm: "Plugin do NetBox que integra o inventário do Proxmox Datacenter Manager e visões cross-cluster no NetBox.",
+        netboxPacker: "Plugin do NetBox que registra metadados de builds do HashiCorp Packer e imagens provisionadas no NetBox.",
         proxboxApi: "Backend FastAPI que orquestra o fluxo de sincronização NetBox ↔ Proxmox via HTTP, SSE e WebSocket.",
         netboxSdk: "SDK Python assíncrono + CLI (nbx) + TUI Textual para a API REST do NetBox. Usado pelo proxbox-api para ler e gravar no NetBox.",
         netboxRest: "API REST do NetBox — o destino onde a infraestrutura do Proxmox é registrada.",
         proxmoxSdk: "SDK FastAPI orientado a schema para a API do Proxmox VE: 646 endpoints gerados, modos mock/real, CLI + TUI.",
         proxmoxRest: "API REST do Proxmox VE — a fonte de dados de clusters, nós, VMs, storage e backups.",
+        proxmoxCeph: "API REST do Proxmox Ceph — cluster de armazenamento distribuído integrado diretamente aos nós do Proxmox VE.",
+        proxmoxPbs: "API REST do Proxmox Backup Server — serviço de backup com deduplicação para VMs, contêineres e hosts.",
+        proxmoxPdm: "API REST do Proxmox Datacenter Manager — inventário centralizado de múltiplos clusters e orquestração de tarefas.",
+        hashicorpPacker: "API do HashiCorp Packer — pipeline de build de imagens que gera templates de VM para Proxmox e imagens cloud.",
       },
     },
     contact: {

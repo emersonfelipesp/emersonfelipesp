@@ -105,9 +105,9 @@ function VerticalEdge({ label }: { label?: string }) {
   );
 }
 
-function ForkConnector({ label }: { label?: string }) {
+function ForkConnector3() {
   return (
-    <div className="flex w-full max-w-md flex-col items-center">
+    <div className="flex w-full max-w-2xl flex-col items-center">
       <svg
         aria-hidden="true"
         viewBox="0 0 100 24"
@@ -116,18 +116,15 @@ function ForkConnector({ label }: { label?: string }) {
       >
         <g stroke="currentColor" strokeWidth="0.6" fill="none">
           <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="25" y1="9" x2="75" y2="9" />
-          <line x1="25" y1="9" x2="25" y2="20" />
-          <line x1="75" y1="9" x2="75" y2="20" />
-          <polyline points="23,18 25,22 27,18" />
-          <polyline points="73,18 75,22 77,18" />
+          <line x1="17" y1="9" x2="83" y2="9" />
+          <line x1="17" y1="9" x2="17" y2="20" />
+          <line x1="50" y1="9" x2="50" y2="20" />
+          <line x1="83" y1="9" x2="83" y2="20" />
+          <polyline points="15,18 17,22 19,18" />
+          <polyline points="48,18 50,22 52,18" />
+          <polyline points="81,18 83,22 85,18" />
         </g>
       </svg>
-      {label ? (
-        <span className="-mt-1 text-[10px] uppercase tracking-wider text-muted/80">
-          {label}
-        </span>
-      ) : null}
     </div>
   );
 }
@@ -146,18 +143,26 @@ export function ProjectsArchitecture() {
       <div className="flex flex-col items-center gap-1">
         <Node name="netbox" description={a.nodes.netbox} highlight logo="netbox" />
         <VerticalEdge label={a.edges.plugin} />
-        <Node
-          name="netbox-proxbox"
-          description={a.nodes.netboxProxbox}
-          href="/netbox-proxbox"
-          highlight
-        />
+
+        <div className="flex flex-wrap justify-center gap-2 w-full max-w-2xl">
+          <Node
+            name="netbox-proxbox"
+            description={a.nodes.netboxProxbox}
+            href="/netbox-proxbox"
+            highlight
+          />
+          <Node name="netbox-ceph"   description={a.nodes.netboxCeph}   highlight />
+          <Node name="netbox-pbs"    description={a.nodes.netboxPbs}    highlight />
+          <Node name="netbox-pdm"    description={a.nodes.netboxPdm}    highlight />
+          <Node name="netbox-packer" description={a.nodes.netboxPacker} highlight />
+        </div>
+
         <VerticalEdge label={a.edges.httpSseWs} />
         <Node name="proxbox-api" description={a.nodes.proxboxApi} highlight />
 
-        <ForkConnector />
+        <ForkConnector3 />
 
-        <div className="grid w-full max-w-md grid-cols-2 gap-x-4 sm:gap-x-6">
+        <div className="grid w-full max-w-2xl grid-cols-3 gap-x-4 items-start sm:gap-x-6">
           <div className="flex flex-col items-center gap-1">
             <Node
               name="netbox-sdk"
@@ -185,6 +190,15 @@ export function ProjectsArchitecture() {
               description={a.nodes.proxmoxRest}
               logo="proxmox"
             />
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} />
+            <VerticalEdge />
+            <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs} />
+            <VerticalEdge />
+            <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm} />
+            <VerticalEdge />
+            <Node name="packer"         description={a.nodes.hashicorpPacker} />
           </div>
         </div>
       </div>
