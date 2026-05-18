@@ -256,7 +256,7 @@ function ForkConnector3() {
 /** 3-way fork with stem from right column (x≈75) to targets at 17/50/83. */
 function ForkConnector3FromRight() {
   return (
-    <div className="mt-4 flex w-full max-w-2xl flex-col items-center">
+    <div className="mt-8 flex w-full max-w-2xl flex-col items-center">
       <svg
         aria-hidden="true"
         viewBox="0 0 100 24"
