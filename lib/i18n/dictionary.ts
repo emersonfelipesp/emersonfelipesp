@@ -307,6 +307,19 @@ export type Dictionary = {
       errorValidation: string;
     };
   };
+  community: {
+    heading: string;
+    intro: string;
+    proxmoxForum: string;
+    redditProxmox: string;
+    redditNetbox: string;
+    upvotes: string;
+    replies: string;
+    comments: string;
+    postedBy: string;
+    readOriginal: string;
+    fetchError: string;
+  };
 };
 
 const en: Dictionary = {
@@ -636,6 +649,19 @@ const en: Dictionary = {
       errorGeneric: "could not send message. please try again.",
       errorValidation: "please check the fields and try again.",
     },
+  },
+  community: {
+    heading: "community",
+    intro: "Live community threads fetched from the Proxmox Forum and Reddit.",
+    proxmoxForum: "Proxmox Forum",
+    redditProxmox: "r/Proxmox",
+    redditNetbox: "r/Netbox",
+    upvotes: "upvotes",
+    replies: "replies",
+    comments: "comments",
+    postedBy: "posted by",
+    readOriginal: "read original post",
+    fetchError: "could not fetch post content",
   },
 };
 
@@ -968,6 +994,19 @@ const ptBr: Dictionary = {
       errorGeneric: "não foi possível enviar a mensagem. tente novamente.",
       errorValidation: "verifique os campos e tente novamente.",
     },
+  },
+  community: {
+    heading: "comunidade",
+    intro: "Threads da comunidade carregadas do Fórum Proxmox e do Reddit.",
+    proxmoxForum: "Fórum Proxmox",
+    redditProxmox: "r/Proxmox",
+    redditNetbox: "r/Netbox",
+    upvotes: "votos positivos",
+    replies: "respostas",
+    comments: "comentários",
+    postedBy: "por",
+    readOriginal: "ver post original",
+    fetchError: "não foi possível carregar o conteúdo do post",
   },
 };
 

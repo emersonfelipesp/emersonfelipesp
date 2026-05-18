@@ -57,6 +57,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "daily",
         priority: 0.65,
       },
+      ...(project.slug === "netbox-proxbox"
+        ? [
+            {
+              url: absolute("/netbox-proxbox/community"),
+              lastModified: new Date(),
+              changeFrequency: "daily" as const,
+              priority: 0.7,
+            },
+          ]
+        : []),
     ];
 
     const releaseRoutes: MetadataRoute.Sitemap = [];

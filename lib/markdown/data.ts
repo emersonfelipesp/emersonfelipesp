@@ -68,7 +68,8 @@ export type MarkdownRouteKind =
   | "roadmap"
   | "release-index"
   | "release-detail"
-  | "sponsor";
+  | "sponsor"
+  | "community";
 
 export type MarkdownRoute = {
   path: string;

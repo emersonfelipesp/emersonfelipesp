@@ -186,6 +186,26 @@ export function createRoadmapMetadata(project: ProjectRegistryEntry): Metadata {
   });
 }
 
+export function createCommunityMetadata(): Metadata {
+  return createPageMetadata({
+    title: "netbox-proxbox community threads",
+    description:
+      "Community discussion threads for netbox-proxbox on the Proxmox Forum and Reddit.",
+    path: "/netbox-proxbox/community",
+    keywords: [
+      "netbox-proxbox",
+      "community",
+      "Proxmox Forum",
+      "Reddit",
+      "discussion",
+      "netbox proxmox plugin",
+    ],
+    article: {
+      tags: ["netbox-proxbox", "community", "Proxmox", "NetBox"],
+    },
+  });
+}
+
 export function createReleaseListMetadata(
   project: ProjectRegistryEntry,
 ): Metadata {

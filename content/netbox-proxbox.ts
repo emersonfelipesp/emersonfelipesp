@@ -45,6 +45,12 @@ export const netboxProxbox = {
     repo: project.repoUrl,
     docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
+    "Proxmox Forum":
+      "https://forum.proxmox.com/threads/proxbox-netbox-plugin-for-syncing-proxmox-ve-inventory-into-netbox.183646/",
+    "Reddit r/Proxmox":
+      "https://www.reddit.com/r/Proxmox/comments/1tglo8y/proxbox_netbox_plugin_for_syncing_proxmox_ve/",
+    "Reddit r/Netbox":
+      "https://www.reddit.com/r/Netbox/comments/1tglnow/proxbox_netbox_plugin_for_syncing_proxmox_ve/",
   },
   banner: String.raw`
    ___              _

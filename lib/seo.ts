@@ -4,6 +4,7 @@ export {
   llmResourceLinkHeader,
 } from "./seo/links";
 export {
+  createCommunityMetadata,
   createDeveloperMetadata,
   createHomeMetadata,
   createProjectMetadata,

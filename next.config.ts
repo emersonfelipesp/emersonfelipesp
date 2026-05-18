@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
           destination: "/md/:project",
         },
         {
-          source: `/${project}/:view(developer|roadmap|releases)`,
+          source: `/${project}/:view(developer|roadmap|releases|community)`,
           has: markdownAcceptHeader,
           destination: "/md/:project/:view",
         },

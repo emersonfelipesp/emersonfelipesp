@@ -17,6 +17,7 @@ import {
   type MarkdownRoute,
   type MarkdownRouteKind,
 } from "./data";
+import { renderCommunityPage } from "./community-pages";
 import { renderDeveloperPage } from "./developer-pages";
 import {
   absolute,
@@ -63,6 +64,9 @@ export async function getMarkdownForPath(
   if (view === "roadmap" && rest.length === 0) {
     return renderRoadmapPage(slug);
   }
+  if (view === "community" && rest.length === 0) {
+    return renderCommunityPage(slug);
+  }
   if (view === "releases") {
     if (rest.length === 0) return renderReleaseListPage(slug);
     return renderReleaseDetailPage(slug, rest.join("/"));
@@ -103,6 +107,17 @@ export async function getPublicMarkdownRoutes(): Promise<MarkdownRoute[]> {
           project: project.slug,
         },
       ];
+
+      if (project.slug === "netbox-proxbox") {
+        routes.push({
+          path: "/netbox-proxbox/community",
+          title: "netbox-proxbox community threads",
+          description:
+            "Community discussion threads for netbox-proxbox on the Proxmox Forum and Reddit.",
+          kind: "community",
+          project: "netbox-proxbox",
+        });
+      }
 
       const snapshot = await getGitHubSnapshot(project.slug);
       for (const release of snapshot?.releases ?? []) {
@@ -163,6 +178,7 @@ export async function getMarkdownSitemap(): Promise<string> {
     section("Roadmaps", renderRouteIndex(routes, "roadmap")),
     section("Release indexes", renderRouteIndex(routes, "release-index")),
     section("Release detail pages", renderRouteIndex(routes, "release-detail")),
+    section("Community threads", renderRouteIndex(routes, "community")),
     section("Support pages", renderRouteIndex(routes, "sponsor")),
   ]);
 }
@@ -277,6 +293,7 @@ export async function getLlmsTxt(): Promise<string> {
     section("Roadmaps", renderRouteIndex(routes, "roadmap")),
     section("Release indexes", renderRouteIndex(routes, "release-index")),
     section("Release detail pages", renderRouteIndex(routes, "release-detail")),
+    section("Community threads", renderRouteIndex(routes, "community")),
     section("Support pages", renderRouteIndex(routes, "sponsor")),
     section(
       "Open-source projects",
@@ -362,6 +379,16 @@ export async function getProjectLlmsTxt(
       path: releasesIndexPath,
       description: `Release index for ${content.name}.`,
     },
+    ...(slug === "netbox-proxbox"
+      ? [
+          {
+            title: `${content.name} community threads`,
+            path: "/netbox-proxbox/community",
+            description:
+              "Community discussion threads for netbox-proxbox on the Proxmox Forum and Reddit.",
+          },
+        ]
+      : []),
   ];
 
   const sitePagesIndex = sitePages
