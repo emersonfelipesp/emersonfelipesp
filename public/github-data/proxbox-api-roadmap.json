@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T14:35:54.920Z",
+  "generated_at": "2026-05-18T14:40:02.245Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 5,
@@ -17,15 +17,20 @@
       "closedAt": "2026-05-18T14:34:38Z",
       "labels": [
         {
-          "name": "bug",
-          "color": "d73a4a"
+          "name": "accepted",
+          "color": "0e8a16"
         },
         {
           "name": "under review",
           "color": "fbca04"
         }
       ],
-      "milestone": null,
+      "milestone": {
+        "title": "v0.0.12.post1",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10"
+      },
       "x": 0,
       "y": 0,
       "w": 240,
@@ -40,15 +45,20 @@
       "closedAt": null,
       "labels": [
         {
-          "name": "bug",
-          "color": "d73a4a"
+          "name": "accepted",
+          "color": "0e8a16"
         },
         {
           "name": "under review",
           "color": "fbca04"
         }
       ],
-      "milestone": null,
+      "milestone": {
+        "title": "v0.0.12.post1",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10"
+      },
       "x": 16,
       "y": 496,
       "w": 240,
@@ -474,12 +484,12 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 7
+      "count": 9
     },
     {
       "name": "bug",
       "color": "d73a4a",
-      "count": 7
+      "count": 5
     },
     {
       "name": "under review",
@@ -508,6 +518,14 @@
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/8",
       "open": 0,
       "closed": 2
+    },
+    {
+      "title": "v0.0.12.post1",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10",
+      "open": 1,
+      "closed": 1
     },
     {
       "title": "v0.0.7.post1",
