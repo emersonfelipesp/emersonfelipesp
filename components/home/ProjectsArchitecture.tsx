@@ -258,7 +258,7 @@ export function ProjectsArchitecture() {
   const a = t.home.architecture;
 
   return (
-    <div className="border border-border bg-surface p-4 sm:p-6">
+    <div className="overflow-x-clip border border-border bg-surface p-4 sm:p-6">
       <p className="mb-4 text-xs text-muted">
         {a.heading}{" "}
         <span className="text-muted/70">— {a.caption}</span>
