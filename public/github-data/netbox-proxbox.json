@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-18T07:28:19.639Z",
+  "syncedAt": "2026-05-18T10:23:37.859Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 545,
   "forks": 63,
   "releases": [
+    {
+      "id": 324203567,
+      "nodeId": "RE_kwDOFTMlzs4TUvQv",
+      "tag": "v0.0.16.post3",
+      "name": "v0.0.16.post3",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.16.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/324203567",
+      "targetCommitish": "develop",
+      "body": "## What's Changed\n* feat(ceph): introduce netbox-ceph 0.0.1 read-only plugin (v0.0.17 line) by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/443\n* release: v0.0.15.post2 by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/453\n* fix(dashboard): preserve API node totals when cluster panel rows are partial (#455) by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/465\n* fix(migrations): make 0037-0046 idempotent and add replaces (#454) by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/464\n* feat(packer): scaffold netbox_packer sibling plugin (PHASE2) by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/466\n* feat(packer): netbox_packer UI surface (#458) by @emersonfelipesp in https://github.com/emersonfelipesp/netbox-proxbox/pull/467\n\n\n**Full Changelog**: https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.15.post2...v0.0.16.post3",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>feat(ceph): introduce netbox-ceph 0.0.1 read-only plugin (v0.0.17 line) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4453749709\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/443\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/443/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/443\">#443</a></li>\n<li>release: v0.0.15.post2 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461524572\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/453\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/453/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/453\">#453</a></li>\n<li>fix(dashboard): preserve API node totals when cluster panel rows are partial (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463311990\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/455\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/issues/455/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/455\">#455</a>) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463695592\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/465\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/465/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/465\">#465</a></li>\n<li>fix(migrations): make 0037-0046 idempotent and add replaces (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463217201\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/454\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/issues/454/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/454\">#454</a>) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463675945\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/464\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/464/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/464\">#464</a></li>\n<li>feat(packer): scaffold netbox_packer sibling plugin (PHASE2) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463876031\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/466\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/466/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/466\">#466</a></li>\n<li>feat(packer): netbox_packer UI surface (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463659489\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/458\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/issues/458/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/458\">#458</a>) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463983292\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/netbox-proxbox/issues/467\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/netbox-proxbox/pull/467/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/pull/467\">#467</a></li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.15.post2...v0.0.16.post3\"><tt>v0.0.15.post2...v0.0.16.post3</tt></a></p>",
+      "createdAt": "2026-05-18T06:04:14Z",
+      "publishedAt": "2026-05-18T10:23:11Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.16.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.16.post3"
+      }
+    },
     {
       "id": 323789760,
       "nodeId": "RE_kwDOFTMlzs4TTKPA",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-16T22:43:11Z",
       "publishedAt": "2026-05-16T23:45:16Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
