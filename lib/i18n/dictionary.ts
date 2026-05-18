@@ -85,7 +85,11 @@ export type Dictionary = {
         heading: string;
         caption: string;
         nodes: {
+          netboxCeph: string;
+          netboxPbs: string;
           netboxProxbox: string;
+          netboxPdm: string;
+          netboxPacker: string;
           proxboxApi: string;
           netboxSdk: string;
           proxmoxSdk: string;
@@ -415,8 +419,16 @@ const en: Dictionary = {
         heading: "// integration map — transports, auth & concurrency",
         caption: "hover any node for details",
         nodes: {
+          netboxCeph:
+            "NetBox plugin for Ceph. Maps clusters, OSDs, storage pools, monitors, and CRUSH topology into NetBox DCIM, with optional Proxmox-hosted Ceph discovery.",
+          netboxPbs:
+            "NetBox plugin for Proxmox Backup Server. Tracks datastores, backup jobs, verification schedules, retention policies, and VM backup context.",
           netboxProxbox:
             "Django plugin inside NetBox. Stores three endpoint objects (Proxmox, NetBox, FastAPI) and dispatches every Full Update / per-VM sync to proxbox-api.",
+          netboxPdm:
+            "NetBox plugin for Proxmox Datacenter Manager. Models PDM nodes, remote clusters, subscriber views, scheduled tasks, and SDN topology.",
+          netboxPacker:
+            "NetBox plugin for HashiCorp Packer. Links image builds, template versions, artifact metadata, and provisioned image records to NetBox VM context.",
           proxboxApi:
             "FastAPI orchestrator on :8000. Bcrypt-hashed X-Proxbox-API-Key auth, brute-force lockout, Fernet-encrypted credentials at rest. Owns the SSE + WebSocket sync streams.",
           netboxSdk:
@@ -764,8 +776,16 @@ const ptBr: Dictionary = {
         heading: "// mapa de integrações — transportes, auth e concorrência",
         caption: "passe o cursor sobre qualquer nó para ver detalhes",
         nodes: {
+          netboxCeph:
+            "Plugin do NetBox para Ceph. Mapeia clusters, OSDs, pools de storage, monitores e topologia CRUSH no DCIM do NetBox, com descoberta opcional de Ceph hospedado no Proxmox.",
+          netboxPbs:
+            "Plugin do NetBox para Proxmox Backup Server. Registra datastores, jobs de backup, agendas de verificação, políticas de retenção e contexto de backup das VMs.",
           netboxProxbox:
             "Plugin Django dentro do NetBox. Armazena três objetos de endpoint (Proxmox, NetBox, FastAPI) e despacha cada Full Update / sincronização por VM para o proxbox-api.",
+          netboxPdm:
+            "Plugin do NetBox para Proxmox Datacenter Manager. Modela nós PDM, clusters remotos, subscriber views, tarefas agendadas e topologia SDN.",
+          netboxPacker:
+            "Plugin do NetBox para HashiCorp Packer. Liga builds de imagem, versões de template, metadados de artefatos e imagens provisionadas ao contexto de VMs no NetBox.",
           proxboxApi:
             "Orquestrador FastAPI na :8000. Auth via X-Proxbox-API-Key com hash bcrypt, lockout contra força bruta e credenciais cifradas em repouso (Fernet). É dono dos streams SSE + WebSocket.",
           netboxSdk:

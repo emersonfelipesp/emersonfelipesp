@@ -27,6 +27,16 @@ function polyline(points: DiagramPath["points"]): DiagramPath {
   return { points };
 }
 
+const PLUGIN_TO_API_CONNECTOR_PATHS: readonly DiagramPath[] = [
+  line(10, 0, 10, 9),
+  line(30, 0, 30, 9),
+  line(50, 0, 50, 9),
+  line(70, 0, 70, 9),
+  line(90, 0, 90, 9),
+  line(10, 9, 90, 9),
+  line(50, 9, 50, 20),
+];
+
 const FORK_CONNECTOR_PATHS: readonly DiagramPath[] = [
   line(50, 0, 50, 9),
   line(25, 9, 75, 9),
@@ -34,6 +44,15 @@ const FORK_CONNECTOR_PATHS: readonly DiagramPath[] = [
   line(75, 9, 75, 20),
   polyline([[23, 18], [25, 22], [27, 18]]),
   polyline([[73, 18], [75, 22], [77, 18]]),
+];
+
+const VERTICAL_LINE_PATHS: readonly DiagramPath[] = [
+  line(4, 0, 4, 8),
+];
+
+const VERTICAL_ARROW_PATHS: readonly DiagramPath[] = [
+  line(4, 0, 4, 6),
+  polyline([[2, 5], [4, 8], [6, 5]]),
 ];
 
 function Node({ name, description, href, highlight = false, meta }: NodeProps) {
@@ -99,7 +118,12 @@ function VerticalEdge({
 }) {
   return (
     <span className="flex flex-col items-center text-muted leading-none">
-      <span aria-hidden>│</span>
+      <ThreeLineCanvas
+        viewBox={[8, 8]}
+        paths={VERTICAL_LINE_PATHS}
+        className="h-2 w-3 text-muted"
+        preserveDrawingBuffer
+      />
       {primary ? (
         <span className="my-0.5 text-[10px] uppercase tracking-wider text-muted/90">
           {primary}
@@ -110,8 +134,47 @@ function VerticalEdge({
           {secondary}
         </span>
       ) : null}
-      <span aria-hidden>▼</span>
+      <ThreeLineCanvas
+        viewBox={[8, 8]}
+        paths={VERTICAL_ARROW_PATHS}
+        className="h-3 w-3 text-muted"
+        preserveDrawingBuffer
+      />
     </span>
+  );
+}
+
+function PluginToApiConnector({
+  primary,
+  secondary,
+}: {
+  primary: string;
+  secondary: string;
+}) {
+  return (
+    <div
+      className="flex w-full max-w-4xl flex-col items-center"
+      data-testid="proxbox-api-connector-plugin-funnel"
+    >
+      <ThreeLineCanvas
+        viewBox={[100, 20]}
+        paths={PLUGIN_TO_API_CONNECTOR_PATHS}
+        className="h-6 w-full text-muted"
+        preserveDrawingBuffer
+      />
+      <span className="my-0.5 text-[10px] uppercase tracking-wider text-muted/90">
+        {primary}
+      </span>
+      <span className="-mt-0.5 mb-0.5 text-[10px] tracking-wider text-muted/70">
+        {secondary}
+      </span>
+      <ThreeLineCanvas
+        viewBox={[8, 8]}
+        paths={VERTICAL_ARROW_PATHS}
+        className="h-3 w-3 text-muted"
+        preserveDrawingBuffer
+      />
+    </div>
   );
 }
 
@@ -127,11 +190,15 @@ function ForkConnector({
   rightBullets: readonly string[];
 }) {
   return (
-    <div className="flex w-full max-w-2xl flex-col items-center">
+    <div
+      className="flex w-full max-w-2xl flex-col items-center"
+      data-testid="proxbox-api-connector-sdk-fork"
+    >
       <ThreeLineCanvas
         viewBox={[100, 24]}
         paths={FORK_CONNECTOR_PATHS}
         className="h-7 w-full text-muted"
+        preserveDrawingBuffer
       />
       <div className="grid w-full grid-cols-2 gap-x-4 sm:gap-x-6">
         <div className="flex flex-col items-center text-center">
@@ -170,21 +237,53 @@ export function IntegrationsArchitecture() {
   const a = t.project.proxboxApi.architecture;
 
   return (
-    <div className="border border-border bg-surface p-4 sm:p-6">
+    <div
+      className="overflow-x-auto border border-border bg-surface p-4 sm:p-6"
+      data-testid="proxbox-api-integrations-architecture"
+    >
       <p className="mb-4 text-xs text-muted">
         {a.heading}{" "}
         <span className="text-muted/70">— {a.caption}</span>
       </p>
 
-      <div className="flex flex-col items-center gap-1">
-        <Node
-          name="netbox-proxbox"
-          meta="NetBox plugin"
-          description={a.nodes.netboxProxbox}
-          href="/netbox-proxbox"
-          highlight
-        />
-        <VerticalEdge
+      <div className="flex min-w-[52rem] flex-col items-center gap-1">
+        <div
+          className="grid w-full max-w-4xl grid-cols-5 gap-2 justify-items-center"
+          data-testid="proxbox-api-plugin-row"
+        >
+          <Node
+            name="netbox-ceph"
+            description={a.nodes.netboxCeph}
+            href="/netbox-ceph"
+            highlight
+          />
+          <Node
+            name="netbox-pbs"
+            description={a.nodes.netboxPbs}
+            href="/netbox-pbs"
+            highlight
+          />
+          <Node
+            name="netbox-proxbox"
+            meta="NetBox plugin"
+            description={a.nodes.netboxProxbox}
+            href="/netbox-proxbox"
+            highlight
+          />
+          <Node
+            name="netbox-pdm"
+            description={a.nodes.netboxPdm}
+            href="/netbox-pdm"
+            highlight
+          />
+          <Node
+            name="netbox-packer"
+            description={a.nodes.netboxPacker}
+            href="/netbox-packer"
+            highlight
+          />
+        </div>
+        <PluginToApiConnector
           primary={a.edges.pluginToApiTransport}
           secondary={a.edges.pluginToApiAuth}
         />
