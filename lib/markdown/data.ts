@@ -6,11 +6,43 @@ import { proxboxApi } from "@/content/proxbox-api";
 import { proxboxApiDeveloper } from "@/content/proxbox-api-developer";
 import { proxmoxSdk } from "@/content/proxmox-sdk";
 import { proxmoxSdkDeveloper } from "@/content/proxmox-sdk-developer";
+import { netboxPbs } from "@/content/netbox-pbs";
+import { netboxPdm } from "@/content/netbox-pdm";
+import { netboxCeph } from "@/content/netbox-ceph";
+import { netboxPacker } from "@/content/netbox-packer";
 import type {
   DeveloperContent,
   ProjectContent,
 } from "@/content/types";
 import type { ProjectSlug } from "@/lib/project-registry";
+
+function stubDeveloper(p: ProjectContent): DeveloperContent {
+  return {
+    slug: p.slug,
+    name: p.name,
+    fullName: p.fullName,
+    palette: p.palette,
+    tagline: p.tagline,
+    banner: p.banner,
+    sections: [{ id: "overview", label: "overview" }],
+    intro: p.description as string[],
+    architecture: { bullets: p.stack as string[] },
+    integrations: [],
+    contributing: {
+      devInstall: `pip install -e ".[dev]"`,
+      checks: [],
+      codeStyle: ["ruff", "black"],
+      issuesUrl: `https://github.com/${p.fullName}/issues`,
+    },
+    e2e: {
+      framework: "pytest",
+      intro: ["Run the test suite against a live NetBox instance."],
+      commands: [{ label: "unit", cmd: "pytest tests/" }],
+      coverage: ["plugin models", "REST API endpoints"],
+    },
+    links: p.links,
+  };
+}
 
 export type CodeStep = {
   title: string;
@@ -84,6 +116,10 @@ export const PROJECT_CONTENT: Record<ProjectSlug, MarkdownProject> = {
   "proxbox-api": proxboxApi,
   "netbox-sdk": netboxSdk,
   "proxmox-sdk": proxmoxSdk,
+  "netbox-pbs": netboxPbs,
+  "netbox-pdm": netboxPdm,
+  "netbox-ceph": netboxCeph,
+  "netbox-packer": netboxPacker,
 };
 
 export const DEVELOPER_CONTENT = {
@@ -91,4 +127,8 @@ export const DEVELOPER_CONTENT = {
   "proxbox-api": proxboxApiDeveloper,
   "netbox-sdk": netboxSdkDeveloper,
   "proxmox-sdk": proxmoxSdkDeveloper,
+  "netbox-pbs": stubDeveloper(netboxPbs),
+  "netbox-pdm": stubDeveloper(netboxPdm),
+  "netbox-ceph": stubDeveloper(netboxCeph),
+  "netbox-packer": stubDeveloper(netboxPacker),
 } satisfies Record<ProjectSlug, DeveloperContent>;

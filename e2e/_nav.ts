@@ -22,6 +22,12 @@ export function themeTrigger(page: Page) {
     : page.getByRole("button", { name: /--theme=/ });
 }
 
+export async function openProxboxDropdown(page: Page) {
+  if (isMobile()) return;
+  const nav = page.getByRole("navigation", { name: "Top navigation" });
+  await nav.getByRole("button", { name: /netbox-proxbox/ }).click();
+}
+
 export async function gotoTopNavRoute(
   page: Page,
   href: string,

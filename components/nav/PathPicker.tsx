@@ -5,9 +5,12 @@ import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { ListboxPicker } from "@/components/nav/ListboxPicker";
 import { useProjectLabels } from "@/components/nav/use-project-labels";
 import {
-  PROJECT_LIST,
+  TOP_LEVEL_PROJECT_LIST,
+  getChildProjects,
   getProjectFromPath,
 } from "@/lib/project-registry";
+
+const PROXBOX_CHILDREN = getChildProjects("netbox-proxbox");
 
 type Props = {
   pathname: string;
@@ -20,10 +23,19 @@ export function PathPicker({ pathname }: Props) {
 
   const items = [
     { id: "/", label: t.nav.home },
-    ...PROJECT_LIST.map((project) => ({
-      id: project.projectPath,
-      label: projectLabels[project.slug],
-    })),
+    ...TOP_LEVEL_PROJECT_LIST.flatMap((project) => {
+      const main = { id: project.projectPath, label: projectLabels[project.slug] };
+      if (project.slug === "netbox-proxbox") {
+        return [
+          main,
+          ...PROXBOX_CHILDREN.map((child) => ({
+            id: child.projectPath,
+            label: `↳ ${projectLabels[child.slug]}`,
+          })),
+        ];
+      }
+      return [main];
+    }),
   ];
 
   const route = getProjectFromPath(pathname);

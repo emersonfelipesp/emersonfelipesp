@@ -10,5 +10,9 @@ export function useProjectLabels(): Record<ProjectSlug, string> {
     "proxbox-api": t.nav.proxboxApi,
     "netbox-sdk": t.nav.netboxSdk,
     "proxmox-sdk": t.nav.proxmoxSdk,
+    "netbox-pbs": t.nav.netboxPbs,
+    "netbox-pdm": t.nav.netboxPdm,
+    "netbox-ceph": t.nav.netboxCeph,
+    "netbox-packer": t.nav.netboxPacker,
   };
 }

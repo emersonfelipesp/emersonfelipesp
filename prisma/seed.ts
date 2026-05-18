@@ -15,6 +15,10 @@ const PAGE_VIEW_ROUTES = [
   "/proxbox-api",
   "/netbox-sdk",
   "/proxmox-sdk",
+  "/netbox-pbs",
+  "/netbox-pdm",
+  "/netbox-ceph",
+  "/netbox-packer",
 ] as const;
 
 async function main() {

@@ -7,6 +7,10 @@ export type Dictionary = {
     proxboxApi: string;
     netboxSdk: string;
     proxmoxSdk: string;
+    netboxPbs: string;
+    netboxPdm: string;
+    netboxCeph: string;
+    netboxPacker: string;
     sponsor: string;
     sponsorButtonLabel: string;
     sponsorButtonAria: string;
@@ -331,6 +335,10 @@ const en: Dictionary = {
     proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
+    netboxPbs: "~/netbox-pbs",
+    netboxPdm: "~/netbox-pdm",
+    netboxCeph: "~/netbox-ceph",
+    netboxPacker: "~/netbox-packer",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ sponsor",
     sponsorButtonAria: "Sponsor emersonfelipesp on GitHub",
@@ -676,6 +684,10 @@ const ptBr: Dictionary = {
     proxboxApi: "~/proxbox-api",
     netboxSdk: "~/netbox-sdk",
     proxmoxSdk: "~/proxmox-sdk",
+    netboxPbs: "~/netbox-pbs",
+    netboxPdm: "~/netbox-pdm",
+    netboxCeph: "~/netbox-ceph",
+    netboxPacker: "~/netbox-packer",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ apoiar",
     sponsorButtonAria: "Apoiar emersonfelipesp no GitHub",

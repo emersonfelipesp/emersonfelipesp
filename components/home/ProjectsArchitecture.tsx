@@ -224,27 +224,6 @@ function ForkConnector2() {
   );
 }
 
-/** Single line from proxmox-sdk (right col, x=75) bending to center (x=50). */
-function OffCenterToCenter() {
-  return (
-    <div className="flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
-        className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="75" y1="0" x2="75" y2="12" />
-          <line x1="75" y1="12" x2="50" y2="12" />
-          <line x1="50" y1="12" x2="50" y2="20" />
-          <polyline points="48,18 50,22 52,18" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 /** Centered 3-way fork from x=50 to targets at 17/50/83. */
 function ForkConnector3() {
   return (
@@ -314,7 +293,7 @@ export function ProjectsArchitecture() {
         {/* Fork to netbox-sdk (left) and proxmox-sdk (right) */}
         <ForkConnector2 />
 
-        {/* Row 4: netbox-sdk | proxmox-sdk */}
+        {/* Row 4: netbox-sdk (left) | proxmox-sdk → Proxmox VE → service APIs (right) */}
         <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 items-start sm:gap-x-6">
           <div className="flex flex-col items-center gap-1">
             <Node
@@ -337,23 +316,15 @@ export function ProjectsArchitecture() {
               href="/proxmox-sdk"
               highlight
             />
+            <VerticalEdge />
+            <Node name="Proxmox VE" description={a.nodes.proxmoxVe} logo="proxmox" />
+            <ForkConnector3 />
+            <div className="grid w-full grid-cols-3 gap-1 justify-items-center">
+              <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
+              <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
+              <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
+            </div>
           </div>
-        </div>
-
-        {/* Bend from proxmox-sdk (x=75) to Proxmox VE center (x=50) */}
-        <OffCenterToCenter />
-
-        {/* Row 5: Proxmox VE platform node */}
-        <Node name="Proxmox VE" description={a.nodes.proxmoxVe} logo="proxmox" />
-
-        {/* Centered 3-way fork from Proxmox VE to the three service APIs */}
-        <ForkConnector3 />
-
-        {/* Row 6: 3 proxmox service APIs */}
-        <div className="grid w-full max-w-2xl grid-cols-3 gap-2 justify-items-center">
-          <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
-          <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
-          <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
         </div>
       </div>
     </div>

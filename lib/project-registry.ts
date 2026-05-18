@@ -5,7 +5,11 @@ export type ProjectSlug =
   | "netbox-proxbox"
   | "proxbox-api"
   | "netbox-sdk"
-  | "proxmox-sdk";
+  | "proxmox-sdk"
+  | "netbox-pbs"
+  | "netbox-pdm"
+  | "netbox-ceph"
+  | "netbox-packer";
 
 export type ProjectViewKind =
   | "showcase"
@@ -25,6 +29,7 @@ export type ProjectRegistryEntry = {
   repoUrl: string;
   starsHref: string;
   actions: readonly { icon: ProjectActionIcon; href: string }[];
+  parentSlug?: ProjectSlug;
 };
 
 export const PROJECTS = {
@@ -107,11 +112,90 @@ export const PROJECTS = {
       },
     ],
   },
+  "netbox-pbs": {
+    slug: "netbox-pbs",
+    name: "netbox-pbs",
+    fullName: "emersonfelipesp/netbox-pbs",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin for Proxmox Backup Server — tracks datastores, backup jobs, verification schedules, and retention policies.",
+    projectPath: "/netbox-pbs",
+    developerPath: "/netbox-pbs/developer",
+    repoUrl: "https://github.com/emersonfelipesp/netbox-pbs",
+    releasesUrl: "https://github.com/emersonfelipesp/netbox-pbs/releases",
+    starsHref: "https://github.com/emersonfelipesp/netbox-pbs/stargazers",
+    parentSlug: "netbox-proxbox",
+    actions: [
+      { icon: "github", href: "https://github.com/emersonfelipesp/netbox-pbs" },
+    ],
+  },
+  "netbox-pdm": {
+    slug: "netbox-pdm",
+    name: "netbox-pdm",
+    fullName: "emersonfelipesp/netbox-pdm",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin for Proxmox Datacenter Manager — models PDM nodes, remote clusters, subscriber views, and SDN topology.",
+    projectPath: "/netbox-pdm",
+    developerPath: "/netbox-pdm/developer",
+    repoUrl: "https://github.com/emersonfelipesp/netbox-pdm",
+    releasesUrl: "https://github.com/emersonfelipesp/netbox-pdm/releases",
+    starsHref: "https://github.com/emersonfelipesp/netbox-pdm/stargazers",
+    parentSlug: "netbox-proxbox",
+    actions: [
+      { icon: "github", href: "https://github.com/emersonfelipesp/netbox-pdm" },
+    ],
+  },
+  "netbox-ceph": {
+    slug: "netbox-ceph",
+    name: "netbox-ceph",
+    fullName: "emersonfelipesp/netbox-ceph",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin for Ceph — maps clusters, OSDs, storage pools, monitors, and CRUSH topology into NetBox DCIM.",
+    projectPath: "/netbox-ceph",
+    developerPath: "/netbox-ceph/developer",
+    repoUrl: "https://github.com/emersonfelipesp/netbox-ceph",
+    releasesUrl: "https://github.com/emersonfelipesp/netbox-ceph/releases",
+    starsHref: "https://github.com/emersonfelipesp/netbox-ceph/stargazers",
+    parentSlug: "netbox-proxbox",
+    actions: [
+      { icon: "github", href: "https://github.com/emersonfelipesp/netbox-ceph" },
+    ],
+  },
+  "netbox-packer": {
+    slug: "netbox-packer",
+    name: "netbox-packer",
+    fullName: "emersonfelipesp/netbox-packer",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin for HashiCorp Packer — links image builds, template versions, and artifact metadata to NetBox virtual machine records.",
+    projectPath: "/netbox-packer",
+    developerPath: "/netbox-packer/developer",
+    repoUrl: "https://github.com/emersonfelipesp/netbox-packer",
+    releasesUrl: "https://github.com/emersonfelipesp/netbox-packer/releases",
+    starsHref: "https://github.com/emersonfelipesp/netbox-packer/stargazers",
+    parentSlug: "netbox-proxbox",
+    actions: [
+      { icon: "github", href: "https://github.com/emersonfelipesp/netbox-packer" },
+    ],
+  },
 } as const satisfies Record<ProjectSlug, ProjectRegistryEntry>;
 
 export const PROJECT_SLUGS = Object.keys(PROJECTS) as ProjectSlug[];
 
-export const PROJECT_LIST = PROJECT_SLUGS.map((slug) => PROJECTS[slug]);
+export const PROJECT_LIST: readonly ProjectRegistryEntry[] = PROJECT_SLUGS.map(
+  (slug) => PROJECTS[slug],
+);
+
+export const TOP_LEVEL_PROJECT_LIST: readonly ProjectRegistryEntry[] =
+  PROJECT_LIST.filter((p) => !p.parentSlug);
+
+export function getChildProjects(
+  parentSlug: ProjectSlug,
+): readonly ProjectRegistryEntry[] {
+  return PROJECT_LIST.filter((p) => p.parentSlug === parentSlug);
+}
 
 export type ProjectRouteInfo = {
   slug: ProjectSlug;

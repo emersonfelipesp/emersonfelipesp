@@ -2,6 +2,10 @@ import { netboxSdk } from "@/content/netbox-sdk";
 import { proxmoxSdk } from "@/content/proxmox-sdk";
 import { netboxProxbox } from "@/content/netbox-proxbox";
 import { proxboxApi } from "@/content/proxbox-api";
+import { netboxPbs } from "@/content/netbox-pbs";
+import { netboxPdm } from "@/content/netbox-pdm";
+import { netboxCeph } from "@/content/netbox-ceph";
+import { netboxPacker } from "@/content/netbox-packer";
 import type { ProjectContent, SectionLink } from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
@@ -446,4 +450,32 @@ export function getNetboxProxbox(lang: Lang): NetboxProxboxContent {
     configuration: NETBOX_PROXBOX_PT_BR.configuration,
     screenshots: NETBOX_PROXBOX_PT_BR.screenshots,
   };
+}
+
+export type NetboxPbsContent = typeof netboxPbs;
+
+export function getNetboxPbs(lang: Lang) {
+  if (lang === "en") return netboxPbs;
+  return { ...netboxPbs, sections: localizeSections(netboxPbs.sections, lang) };
+}
+
+export type NetboxPdmContent = typeof netboxPdm;
+
+export function getNetboxPdm(lang: Lang) {
+  if (lang === "en") return netboxPdm;
+  return { ...netboxPdm, sections: localizeSections(netboxPdm.sections, lang) };
+}
+
+export type NetboxCephContent = typeof netboxCeph;
+
+export function getNetboxCeph(lang: Lang) {
+  if (lang === "en") return netboxCeph;
+  return { ...netboxCeph, sections: localizeSections(netboxCeph.sections, lang) };
+}
+
+export type NetboxPackerContent = typeof netboxPacker;
+
+export function getNetboxPacker(lang: Lang) {
+  if (lang === "en") return netboxPacker;
+  return { ...netboxPacker, sections: localizeSections(netboxPacker.sections, lang) };
 }

@@ -45,18 +45,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "weekly",
         priority: project.slug === "netbox-proxbox" ? 0.95 : 0.9,
       },
-      {
-        url: absolute(project.developerPath),
-        lastModified: projectModified ?? undefined,
-        changeFrequency: "monthly",
-        priority: 0.75,
-      },
-      {
-        url: absolute(roadmapPath(project.slug) ?? `/${project.slug}/roadmap`),
-        lastModified: roadmapModified ?? projectModified ?? undefined,
-        changeFrequency: "daily",
-        priority: 0.65,
-      },
+      ...(!project.parentSlug
+        ? [
+            {
+              url: absolute(project.developerPath),
+              lastModified: projectModified ?? undefined,
+              changeFrequency: "monthly" as const,
+              priority: 0.75,
+            },
+            {
+              url: absolute(
+                roadmapPath(project.slug) ?? `/${project.slug}/roadmap`,
+              ),
+              lastModified: roadmapModified ?? projectModified ?? undefined,
+              changeFrequency: "daily" as const,
+              priority: 0.65,
+            },
+          ]
+        : []),
       ...(project.slug === "netbox-proxbox"
         ? [
             {
