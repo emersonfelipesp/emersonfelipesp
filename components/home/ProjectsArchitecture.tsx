@@ -1,6 +1,12 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import {
+  ThreeLineCanvas,
+  type DiagramPath,
+  type DiagramPoint,
+} from "@/components/diagram/ThreeLineCanvas";
+import { useLayoutEffect, useRef } from "react";
 import { ProxmoxLogo } from "./ProxmoxLogo";
 
 type NodeProps = {
@@ -12,6 +18,90 @@ type NodeProps = {
   logo?: "netbox" | "proxmox";
   trailing?: string;
 };
+
+function line(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  options?: Omit<DiagramPath, "points">,
+): DiagramPath {
+  return { points: [[x1, y1], [x2, y2]], ...options };
+}
+
+function polyline(
+  points: readonly DiagramPoint[],
+  options?: Omit<DiagramPath, "points">,
+): DiagramPath {
+  return { points, ...options };
+}
+
+const FORK_CONNECTOR_5_PATHS: readonly DiagramPath[] = [
+  line(50, 0, 50, 9),
+  line(10, 9, 90, 9),
+  line(10, 9, 10, 20),
+  line(30, 9, 30, 20),
+  line(50, 9, 50, 20),
+  line(70, 9, 70, 20),
+  line(90, 9, 90, 20),
+  polyline([[8, 18], [10, 22], [12, 18]]),
+  polyline([[28, 18], [30, 22], [32, 18]]),
+  polyline([[48, 18], [50, 22], [52, 18]]),
+  polyline([[68, 18], [70, 22], [72, 18]]),
+  polyline([[88, 18], [90, 22], [92, 18]]),
+];
+
+const EXTENDS_CONNECTOR_PATHS: readonly DiagramPath[] = [
+  line(10, 0, 10, 7, { dashed: true, opacity: 0.5 }),
+  line(30, 0, 30, 7, { dashed: true, opacity: 0.5 }),
+  line(70, 0, 70, 7, { dashed: true, opacity: 0.5 }),
+  line(90, 0, 90, 7, { dashed: true, opacity: 0.5 }),
+  line(10, 7, 90, 7, { dashed: true, opacity: 0.5 }),
+  polyline([[47, 5], [50, 7], [47, 9]], { dashed: true, opacity: 0.5 }),
+  polyline([[53, 5], [50, 7], [53, 9]], { dashed: true, opacity: 0.5 }),
+];
+
+const FUNNEL_CONNECTOR_5_PATHS: readonly DiagramPath[] = [
+  line(10, 0, 10, 9),
+  line(30, 0, 30, 9),
+  line(50, 0, 50, 9),
+  line(70, 0, 70, 9),
+  line(90, 0, 90, 9),
+  line(10, 9, 90, 9),
+  line(50, 9, 50, 20),
+  polyline([[48, 18], [50, 22], [52, 18]]),
+];
+
+const FORK_CONNECTOR_2_PATHS: readonly DiagramPath[] = [
+  line(50, 0, 50, 9),
+  line(24, 9, 76, 9),
+  line(24, 9, 24, 20),
+  line(76, 9, 76, 20),
+  polyline([[22, 18], [24, 22], [26, 18]]),
+  polyline([[74, 18], [76, 22], [78, 18]]),
+];
+
+const FORK_CONNECTOR_3_PATHS: readonly DiagramPath[] = [
+  line(50, 0, 50, 9),
+  line(17, 9, 83, 9),
+  line(17, 9, 17, 20),
+  line(50, 9, 50, 20),
+  line(83, 9, 83, 20),
+  polyline([[15, 18], [17, 22], [19, 18]]),
+  polyline([[48, 18], [50, 22], [52, 18]]),
+  polyline([[81, 18], [83, 22], [85, 18]]),
+];
+
+const FORK_CONNECTOR_3_FROM_RIGHT_PATHS: readonly DiagramPath[] = [
+  line(76, 0, 76, 9),
+  line(16, 9, 84, 9),
+  line(16, 9, 16, 20),
+  line(50, 9, 50, 20),
+  line(84, 9, 84, 20),
+  polyline([[14, 18], [16, 22], [18, 18]]),
+  polyline([[48, 18], [50, 22], [52, 18]]),
+  polyline([[82, 18], [84, 22], [86, 18]]),
+];
 
 function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
   if (kind === "netbox") {
@@ -41,7 +131,7 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
 
 function Node({ name, description, href, highlight = false, featured = false, logo, trailing }: NodeProps) {
   const baseClasses =
-    "border text-sm transition-all duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
+    "border text-sm transition-colors duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
   const sizeClasses = logo
     ? trailing
       ? "h-9 px-2 py-1.5"
@@ -121,27 +211,11 @@ function ForkConnector5({ label }: { label?: string }) {
           {label}
         </span>
       )}
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FORK_CONNECTOR_5_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="10" y1="9" x2="90" y2="9" />
-          <line x1="10" y1="9" x2="10" y2="20" />
-          <line x1="30" y1="9" x2="30" y2="20" />
-          <line x1="50" y1="9" x2="50" y2="20" />
-          <line x1="70" y1="9" x2="70" y2="20" />
-          <line x1="90" y1="9" x2="90" y2="20" />
-          <polyline points="8,18 10,22 12,18" />
-          <polyline points="28,18 30,22 32,18" />
-          <polyline points="48,18 50,22 52,18" />
-          <polyline points="68,18 70,22 72,18" />
-          <polyline points="88,18 90,22 92,18" />
-        </g>
-      </svg>
+      />
     </div>
   );
 }
@@ -153,23 +227,11 @@ function ForkConnector5({ label }: { label?: string }) {
 function ExtendsConnector({ label }: { label: string }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center gap-0.5">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 14"
-        preserveAspectRatio="none"
-        className="h-4 w-full text-muted/50"
-      >
-        <g stroke="currentColor" strokeWidth="0.5" fill="none" strokeDasharray="2 1.5">
-          <line x1="10" y1="0" x2="10" y2="7" />
-          <line x1="30" y1="0" x2="30" y2="7" />
-          <line x1="70" y1="0" x2="70" y2="7" />
-          <line x1="90" y1="0" x2="90" y2="7" />
-          <line x1="10" y1="7" x2="90" y2="7" />
-          {/* arrowheads converging inward toward netbox-proxbox at x=50 */}
-          <polyline points="47,5 50,7 47,9" />
-          <polyline points="53,5 50,7 53,9" />
-        </g>
-      </svg>
+      <ThreeLineCanvas
+        viewBox={[100, 14]}
+        paths={EXTENDS_CONNECTOR_PATHS}
+        className="h-4 w-full text-muted"
+      />
       <span className="text-[10px] uppercase tracking-wider text-muted/40">{label}</span>
     </div>
   );
@@ -179,23 +241,11 @@ function ExtendsConnector({ label }: { label: string }) {
 function FunnelConnector5({ label }: { label?: string }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FUNNEL_CONNECTOR_5_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="10" y1="0" x2="10" y2="9" />
-          <line x1="30" y1="0" x2="30" y2="9" />
-          <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="70" y1="0" x2="70" y2="9" />
-          <line x1="90" y1="0" x2="90" y2="9" />
-          <line x1="10" y1="9" x2="90" y2="9" />
-          <line x1="50" y1="9" x2="50" y2="20" />
-          <polyline points="48,18 50,22 52,18" />
-        </g>
-      </svg>
+      />
       {label && (
         <span className="mt-0.5 text-[10px] uppercase tracking-wider text-muted/80">
           {label}
@@ -205,25 +255,15 @@ function FunnelConnector5({ label }: { label?: string }) {
   );
 }
 
-/** Fork from one source (center) to 2 targets at 25/75 */
+/** Fork from one source (center) to the real centers of a 2-column row with gap-x-4/sm:gap-x-6. */
 function ForkConnector2() {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FORK_CONNECTOR_2_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="25" y1="9" x2="75" y2="9" />
-          <line x1="25" y1="9" x2="25" y2="20" />
-          <line x1="75" y1="9" x2="75" y2="20" />
-          <polyline points="23,18 25,22 27,18" />
-          <polyline points="73,18 75,22 77,18" />
-        </g>
-      </svg>
+      />
     </div>
   );
 }
@@ -232,59 +272,28 @@ function ForkConnector2() {
 function ForkConnector3() {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FORK_CONNECTOR_3_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="17" y1="9" x2="83" y2="9" />
-          <line x1="17" y1="9" x2="17" y2="20" />
-          <line x1="50" y1="9" x2="50" y2="20" />
-          <line x1="83" y1="9" x2="83" y2="20" />
-          <polyline points="15,18 17,22 19,18" />
-          <polyline points="48,18 50,22 52,18" />
-          <polyline points="81,18 83,22 85,18" />
-        </g>
-      </svg>
+      />
     </div>
   );
 }
 
 /**
- * Connector from right column (Proxmox VE at x≈75) bridging left to center (x=50),
- * then forking symmetrically down to targets at 17/50/83.
+ * Connector from the Proxmox VE column into the real centers of the 3-column
+ * service API row. The join stays on the source column instead of stepping
+ * through the diagram center, so the lower branch reads as one continuous fork.
  */
 function ForkConnector3FromRight() {
   return (
-    <div className="mt-2 flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FORK_CONNECTOR_3_FROM_RIGHT_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          {/* stem from Proxmox VE (right column x=75) down to bridge level */}
-          <line x1="75" y1="0" x2="75" y2="5" />
-          {/* bridge left to fork center */}
-          <line x1="50" y1="5" x2="75" y2="5" />
-          {/* short stem from bridge to horizontal bar */}
-          <line x1="50" y1="5" x2="50" y2="9" />
-          {/* symmetric horizontal bar centered at x=50 */}
-          <line x1="17" y1="9" x2="83" y2="9" />
-          {/* drops */}
-          <line x1="17" y1="9" x2="17" y2="20" />
-          <line x1="50" y1="9" x2="50" y2="20" />
-          <line x1="83" y1="9" x2="83" y2="20" />
-          {/* arrowheads */}
-          <polyline points="15,18 17,22 19,18" />
-          <polyline points="48,18 50,22 52,18" />
-          <polyline points="81,18 83,22 85,18" />
-        </g>
-      </svg>
+      />
     </div>
   );
 }
@@ -292,15 +301,29 @@ function ForkConnector3FromRight() {
 export function ProjectsArchitecture() {
   const { t } = useLanguage();
   const a = t.home.architecture;
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller || scroller.scrollWidth <= scroller.clientWidth) return;
+
+    scroller.scrollLeft = Math.max(
+      0,
+      (scroller.scrollWidth - scroller.clientWidth) / 2,
+    );
+  }, []);
 
   return (
-    <div className="overflow-x-clip border border-border bg-surface p-4 sm:p-6">
+    <div
+      ref={scrollerRef}
+      className="overflow-x-auto border border-border bg-surface p-4 sm:p-6"
+    >
       <p className="mb-4 text-xs text-muted">
         {a.heading}{" "}
         <span className="text-muted/70">— {a.caption}</span>
       </p>
 
-      <div className="flex flex-col items-center gap-1">
+      <div className="flex min-w-[42rem] flex-col items-center gap-1">
         {/* Row 1: NetBox */}
         <Node name="netbox" description={a.nodes.netbox} highlight logo="netbox" />
 

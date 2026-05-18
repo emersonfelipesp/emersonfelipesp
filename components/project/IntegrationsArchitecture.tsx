@@ -1,6 +1,10 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import {
+  ThreeLineCanvas,
+  type DiagramPath,
+} from "@/components/diagram/ThreeLineCanvas";
 
 type NodeProps = {
   name: string;
@@ -10,9 +14,31 @@ type NodeProps = {
   meta?: string;
 };
 
+function line(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+): DiagramPath {
+  return { points: [[x1, y1], [x2, y2]] };
+}
+
+function polyline(points: DiagramPath["points"]): DiagramPath {
+  return { points };
+}
+
+const FORK_CONNECTOR_PATHS: readonly DiagramPath[] = [
+  line(50, 0, 50, 9),
+  line(25, 9, 75, 9),
+  line(25, 9, 25, 20),
+  line(75, 9, 75, 20),
+  polyline([[23, 18], [25, 22], [27, 18]]),
+  polyline([[73, 18], [75, 22], [77, 18]]),
+];
+
 function Node({ name, description, href, highlight = false, meta }: NodeProps) {
   const baseClasses =
-    "border bg-surface px-3 py-1.5 text-sm transition-all duration-150 outline-none whitespace-nowrap";
+    "border bg-surface px-3 py-1.5 text-sm transition-colors duration-150 outline-none whitespace-nowrap";
   const stateClasses = highlight
     ? "border-accent/70 text-accent hover:bg-surface-2 hover:border-accent focus-visible:bg-surface-2 focus-visible:border-accent"
     : "border-border text-fg/90 hover:border-accent hover:text-accent hover:bg-surface-2 focus-visible:border-accent focus-visible:text-accent";
@@ -102,21 +128,11 @@ function ForkConnector({
 }) {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 24"
-        preserveAspectRatio="none"
+      <ThreeLineCanvas
+        viewBox={[100, 24]}
+        paths={FORK_CONNECTOR_PATHS}
         className="h-7 w-full text-muted"
-      >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none">
-          <line x1="50" y1="0" x2="50" y2="9" />
-          <line x1="25" y1="9" x2="75" y2="9" />
-          <line x1="25" y1="9" x2="25" y2="20" />
-          <line x1="75" y1="9" x2="75" y2="20" />
-          <polyline points="23,18 25,22 27,18" />
-          <polyline points="73,18 75,22 77,18" />
-        </g>
-      </svg>
+      />
       <div className="grid w-full grid-cols-2 gap-x-4 sm:gap-x-6">
         <div className="flex flex-col items-center text-center">
           <span className="text-[10px] uppercase tracking-wider text-muted/90">
