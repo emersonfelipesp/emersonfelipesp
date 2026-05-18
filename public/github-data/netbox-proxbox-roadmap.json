@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T07:08:21.297Z",
+  "generated_at": "2026-05-18T07:28:56.245Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 250,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 468,
+      "title": "When a server have dual homed ipv4/ipv6",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/468",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 463,
       "title": "Add Packer support",
@@ -6541,7 +6555,8 @@
         432,
         433,
         435,
-        436
+        436,
+        468
       ]
     }
   ],
