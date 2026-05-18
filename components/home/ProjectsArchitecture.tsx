@@ -318,7 +318,7 @@ export function ProjectsArchitecture() {
             <VerticalEdge />
             <Node name="Proxmox VE" description={a.nodes.proxmoxVe} logo="proxmox" />
             <ForkConnector3 />
-            <div className="grid w-full grid-cols-3 gap-2 justify-items-center">
+            <div className="grid w-full grid-cols-3 gap-4 justify-items-center">
               <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} logo="proxmox" trailing="· ceph" />
               <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs}  logo="proxmox" trailing="· PBS" />
               <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm}  logo="proxmox" trailing="· PDM" />
