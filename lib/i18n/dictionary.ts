@@ -273,6 +273,7 @@ export type Dictionary = {
         plugin: string;
         httpSseWs: string;
         rest: string;
+        base: string;
       };
       nodes: {
         netbox: string;
@@ -616,6 +617,7 @@ const en: Dictionary = {
         plugin: "plugin",
         httpSseWs: "HTTP / SSE / WS",
         rest: "REST",
+        base: "base",
       },
       nodes: {
         netbox: "Open-source source-of-truth platform for network infrastructure (DCIM / IPAM / virtualization).",
@@ -961,6 +963,7 @@ const ptBr: Dictionary = {
         plugin: "plugin",
         httpSseWs: "HTTP / SSE / WS",
         rest: "REST",
+        base: "base",
       },
       nodes: {
         netbox: "Plataforma open-source de fonte da verdade para infraestrutura de rede (DCIM / IPAM / virtualização).",

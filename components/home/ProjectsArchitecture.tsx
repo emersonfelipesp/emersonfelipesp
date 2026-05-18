@@ -105,7 +105,100 @@ function VerticalEdge({ label }: { label?: string }) {
   );
 }
 
-function ForkConnector3() {
+/** Fan-out from one source (center) to 5 targets at 10/30/50/70/90 */
+function ForkConnector5({ label }: { label?: string }) {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      {label && (
+        <span className="mb-0.5 text-[10px] uppercase tracking-wider text-muted/80">
+          {label}
+        </span>
+      )}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="50" y1="0" x2="50" y2="9" />
+          <line x1="10" y1="9" x2="90" y2="9" />
+          <line x1="10" y1="9" x2="10" y2="20" />
+          <line x1="30" y1="9" x2="30" y2="20" />
+          <line x1="50" y1="9" x2="50" y2="20" />
+          <line x1="70" y1="9" x2="70" y2="20" />
+          <line x1="90" y1="9" x2="90" y2="20" />
+          <polyline points="8,18 10,22 12,18" />
+          <polyline points="28,18 30,22 32,18" />
+          <polyline points="48,18 50,22 52,18" />
+          <polyline points="68,18 70,22 72,18" />
+          <polyline points="88,18 90,22 92,18" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Dashed horizontal connector showing the 4 right plugins (30/50/70/90)
+ * depend on netbox-proxbox (10) as their base.  Arrow points left to x=10.
+ */
+function ExtendsConnector({ label }: { label: string }) {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center gap-0.5">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 14"
+        preserveAspectRatio="none"
+        className="h-4 w-full text-muted/50"
+      >
+        <g stroke="currentColor" strokeWidth="0.5" fill="none" strokeDasharray="2 1.5">
+          <line x1="30" y1="0" x2="30" y2="7" />
+          <line x1="50" y1="0" x2="50" y2="7" />
+          <line x1="70" y1="0" x2="70" y2="7" />
+          <line x1="90" y1="0" x2="90" y2="7" />
+          <line x1="10" y1="7" x2="90" y2="7" />
+          {/* arrowhead pointing left toward netbox-proxbox at x=10 */}
+          <polyline points="13,5 10,7 13,9" />
+        </g>
+      </svg>
+      <span className="text-[10px] uppercase tracking-wider text-muted/40">{label}</span>
+    </div>
+  );
+}
+
+/** Fan-in from 5 sources at 10/30/50/70/90 to one target (center) */
+function FunnelConnector5({ label }: { label?: string }) {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="10" y1="0" x2="10" y2="9" />
+          <line x1="30" y1="0" x2="30" y2="9" />
+          <line x1="50" y1="0" x2="50" y2="9" />
+          <line x1="70" y1="0" x2="70" y2="9" />
+          <line x1="90" y1="0" x2="90" y2="9" />
+          <line x1="10" y1="9" x2="90" y2="9" />
+          <line x1="50" y1="9" x2="50" y2="20" />
+          <polyline points="48,18 50,22 52,18" />
+        </g>
+      </svg>
+      {label && (
+        <span className="mt-0.5 text-[10px] uppercase tracking-wider text-muted/80">
+          {label}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/** Fork from one source (center) to 2 targets at 25/75 */
+function ForkConnector2() {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center">
       <svg
@@ -116,6 +209,32 @@ function ForkConnector3() {
       >
         <g stroke="currentColor" strokeWidth="0.6" fill="none">
           <line x1="50" y1="0" x2="50" y2="9" />
+          <line x1="25" y1="9" x2="75" y2="9" />
+          <line x1="25" y1="9" x2="25" y2="20" />
+          <line x1="75" y1="9" x2="75" y2="20" />
+          <polyline points="23,18 25,22 27,18" />
+          <polyline points="73,18 75,22 77,18" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Fork from proxmox-sdk (right column of a 2-col grid, source at x=75)
+ * to 3 full-width targets at 17/50/83.
+ */
+function ForkConnector3OffCenter() {
+  return (
+    <div className="flex w-full max-w-2xl flex-col items-center">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+        className="h-7 w-full text-muted"
+      >
+        <g stroke="currentColor" strokeWidth="0.6" fill="none">
+          <line x1="75" y1="0" x2="75" y2="9" />
           <line x1="17" y1="9" x2="83" y2="9" />
           <line x1="17" y1="9" x2="17" y2="20" />
           <line x1="50" y1="9" x2="50" y2="20" />
@@ -141,10 +260,14 @@ export function ProjectsArchitecture() {
       </p>
 
       <div className="flex flex-col items-center gap-1">
+        {/* Row 1: NetBox */}
         <Node name="netbox" description={a.nodes.netbox} highlight logo="netbox" />
-        <VerticalEdge label={a.edges.plugin} />
 
-        <div className="flex flex-wrap justify-center gap-2 w-full max-w-2xl">
+        {/* Fan-out from netbox to all 5 plugins */}
+        <ForkConnector5 label={a.edges.plugin} />
+
+        {/* Row 2: 5 NetBox plugins */}
+        <div className="grid w-full max-w-2xl grid-cols-5 gap-2 justify-items-center">
           <Node
             name="netbox-proxbox"
             description={a.nodes.netboxProxbox}
@@ -157,12 +280,20 @@ export function ProjectsArchitecture() {
           <Node name="netbox-packer" description={a.nodes.netboxPacker} highlight />
         </div>
 
-        <VerticalEdge label={a.edges.httpSseWs} />
+        {/* Dashed connector showing netbox-ceph/pbs/pdm/packer extend netbox-proxbox */}
+        <ExtendsConnector label={a.edges.base} />
+
+        {/* Fan-in from all 5 plugins to proxbox-api */}
+        <FunnelConnector5 label={a.edges.httpSseWs} />
+
+        {/* Row 3: proxbox-api */}
         <Node name="proxbox-api" description={a.nodes.proxboxApi} highlight />
 
-        <ForkConnector3 />
+        {/* Fork to netbox-sdk (left) and proxmox-sdk (right) */}
+        <ForkConnector2 />
 
-        <div className="grid w-full max-w-2xl grid-cols-3 gap-x-4 items-start sm:gap-x-6">
+        {/* Row 4: netbox-sdk | proxmox-sdk */}
+        <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 items-start sm:gap-x-6">
           <div className="flex flex-col items-center gap-1">
             <Node
               name="netbox-sdk"
@@ -184,22 +315,17 @@ export function ProjectsArchitecture() {
               href="/proxmox-sdk"
               highlight
             />
-            <VerticalEdge label={a.edges.rest} />
-            <Node
-              name="proxmox · REST API"
-              description={a.nodes.proxmoxRest}
-              logo="proxmox"
-            />
           </div>
-          <div className="flex flex-col items-center gap-1">
-            <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} />
-            <VerticalEdge />
-            <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs} />
-            <VerticalEdge />
-            <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm} />
-            <VerticalEdge />
-            <Node name="packer"         description={a.nodes.hashicorpPacker} />
-          </div>
+        </div>
+
+        {/* Off-center fork from proxmox-sdk (x=75) to 3 proxmox services (17/50/83) */}
+        <ForkConnector3OffCenter />
+
+        {/* Row 5: 3 proxmox services */}
+        <div className="grid w-full max-w-2xl grid-cols-3 gap-2 justify-items-center">
+          <Node name="proxmox · ceph" description={a.nodes.proxmoxCeph} />
+          <Node name="proxmox · PBS"  description={a.nodes.proxmoxPbs} />
+          <Node name="proxmox · PDM"  description={a.nodes.proxmoxPdm} />
         </div>
       </div>
     </div>
