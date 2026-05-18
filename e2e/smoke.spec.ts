@@ -66,6 +66,23 @@ test("/proxmox-sdk/developer loads", async ({ page }) => {
   await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
 
+test("homepage architecture shows three Proxmox nodes with gap-4 spacing", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const ceph = page.getByRole("button", { name: "proxmox · ceph" });
+  const pbs  = page.getByRole("button", { name: "proxmox · PBS" });
+  const pdm  = page.getByRole("button", { name: "proxmox · PDM" });
+
+  await expect(ceph).toBeVisible();
+  await expect(pbs).toBeVisible();
+  await expect(pdm).toBeVisible();
+
+  const grid = page.locator(".grid.grid-cols-3").filter({ has: ceph });
+  await expect(grid).toHaveClass(/gap-4/);
+});
+
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   page,
 }) => {
