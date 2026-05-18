@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/LanguageProvider";
+import Image from "next/image";
 import {
   ThreeLineCanvas,
   type DiagramPath,
@@ -107,16 +108,14 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
   if (kind === "netbox") {
     return (
       <>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/logos/netbox-dark-teal.svg"
           alt="NetBox"
           width={86}
           height={24}
           className="block h-6 w-auto dark:hidden"
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/logos/netbox-bright-teal.svg"
           alt="NetBox"
           width={86}
@@ -131,7 +130,7 @@ function BrandLogo({ kind }: { kind: "netbox" | "proxmox" }) {
 
 function Node({ name, description, href, highlight = false, featured = false, logo, trailing }: NodeProps) {
   const baseClasses =
-    "border text-sm transition-colors duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center";
+    "relative border text-sm transition-colors duration-150 outline-none whitespace-nowrap inline-flex items-center justify-center before:absolute before:-inset-1.5 before:content-['']";
   const sizeClasses = logo
     ? trailing
       ? "h-9 px-2 py-1.5"
@@ -215,6 +214,7 @@ function ForkConnector5({ label }: { label?: string }) {
         viewBox={[100, 24]}
         paths={FORK_CONNECTOR_5_PATHS}
         className="h-7 w-full text-muted"
+        testId="projects-architecture-connector-plugin-fork"
       />
     </div>
   );
@@ -231,6 +231,7 @@ function ExtendsConnector({ label }: { label: string }) {
         viewBox={[100, 14]}
         paths={EXTENDS_CONNECTOR_PATHS}
         className="h-4 w-full text-muted"
+        testId="projects-architecture-connector-base-extends"
       />
       <span className="text-[10px] uppercase tracking-wider text-muted/40">{label}</span>
     </div>
@@ -245,6 +246,7 @@ function FunnelConnector5({ label }: { label?: string }) {
         viewBox={[100, 24]}
         paths={FUNNEL_CONNECTOR_5_PATHS}
         className="h-7 w-full text-muted"
+        testId="projects-architecture-connector-api-funnel"
       />
       {label && (
         <span className="mt-0.5 text-[10px] uppercase tracking-wider text-muted/80">
@@ -263,6 +265,7 @@ function ForkConnector2() {
         viewBox={[100, 24]}
         paths={FORK_CONNECTOR_2_PATHS}
         className="h-7 w-full text-muted"
+        testId="projects-architecture-connector-sdk-fork"
       />
     </div>
   );
@@ -276,6 +279,7 @@ function ForkConnector3() {
         viewBox={[100, 24]}
         paths={FORK_CONNECTOR_3_PATHS}
         className="h-7 w-full text-muted"
+        testId="projects-architecture-connector-service-fork"
       />
     </div>
   );
@@ -293,6 +297,7 @@ function ForkConnector3FromRight() {
         viewBox={[100, 24]}
         paths={FORK_CONNECTOR_3_FROM_RIGHT_PATHS}
         className="h-7 w-full text-muted"
+        testId="projects-architecture-connector-proxmox-services"
       />
     </div>
   );
@@ -302,25 +307,70 @@ export function ProjectsArchitecture() {
   const { t } = useLanguage();
   const a = t.home.architecture;
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const userScrolledRef = useRef(false);
 
   useLayoutEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller || scroller.scrollWidth <= scroller.clientWidth) return;
+    const scrollerEl = scrollerRef.current;
+    if (!scrollerEl) return;
 
-    scroller.scrollLeft = Math.max(
-      0,
-      (scroller.scrollWidth - scroller.clientWidth) / 2,
-    );
+    let frame: number | null = null;
+
+    function centerScroller() {
+      frame = null;
+      const scroller = scrollerRef.current;
+      if (
+        !scroller ||
+        userScrolledRef.current ||
+        scroller.scrollWidth <= scroller.clientWidth
+      ) {
+        return;
+      }
+
+      scroller.scrollLeft = Math.max(
+        0,
+        (scroller.scrollWidth - scroller.clientWidth) / 2,
+      );
+    }
+
+    function scheduleCenter() {
+      if (frame !== null) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(centerScroller);
+    }
+
+    scheduleCenter();
+    const resizeObserver = new ResizeObserver(scheduleCenter);
+    resizeObserver.observe(scrollerEl);
+    if (scrollerEl.firstElementChild) {
+      resizeObserver.observe(scrollerEl.firstElementChild);
+    }
+    window.addEventListener("orientationchange", scheduleCenter);
+
+    return () => {
+      if (frame !== null) cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      window.removeEventListener("orientationchange", scheduleCenter);
+    };
   }, []);
+
+  function markScrollerInteracted() {
+    userScrolledRef.current = true;
+  }
 
   return (
     <div
       ref={scrollerRef}
+      data-testid="projects-architecture"
+      role="group"
+      aria-label={a.heading}
       className="overflow-x-auto border border-border bg-surface p-4 sm:p-6"
+      onKeyDown={markScrollerInteracted}
+      onPointerDown={markScrollerInteracted}
+      onTouchStart={markScrollerInteracted}
+      onWheel={markScrollerInteracted}
     >
       <p className="mb-4 text-xs text-muted">
         {a.heading}{" "}
-        <span className="text-muted/70">— {a.caption}</span>
+        <span className="text-muted/70">· {a.caption}</span>
       </p>
 
       <div className="flex min-w-[42rem] flex-col items-center gap-1">

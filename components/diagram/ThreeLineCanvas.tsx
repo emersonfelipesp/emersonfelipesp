@@ -11,8 +11,11 @@ import {
   useState,
   use,
 } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { Line2 } from "three/examples/jsm/lines/Line2.js";
+import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
+import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 
 export type DiagramPoint = readonly [number, number];
 
@@ -44,6 +47,7 @@ type ThreeDiagramCanvasProps = {
   className?: string;
   preserveDrawingBuffer?: boolean;
   strokeWidth?: number;
+  testId?: string;
 };
 
 type ThreeLineCanvasProps = Omit<ThreeDiagramCanvasProps, "children"> & {
@@ -120,34 +124,37 @@ export function ThreeDiagramPath({
   opacity = 1,
 }: DiagramPath) {
   const { alpha, color, strokeWidth } = useDiagramScene();
+  const { size } = useThree();
 
   const geometry = useMemo(
-    () =>
-      new THREE.BufferGeometry().setFromPoints(
-        points.map(([x, y]) => new THREE.Vector3(x, y, 0)),
-      ),
+    () => {
+      const next = new LineGeometry();
+      next.setPositions(points.flatMap(([x, y]) => [x, y, 0]));
+      return next;
+    },
     [points],
   );
-  const material = useMemo(() => {
-    if (dashed) {
-      return new THREE.LineDashedMaterial({
+  const material = useMemo(
+    () =>
+      new LineMaterial({
         color,
+        dashed,
         dashSize: 2,
+        depthTest: false,
+        depthWrite: false,
         gapSize: 1.5,
         linewidth: strokeWidth,
         opacity: alpha * opacity,
         transparent: true,
-      });
-    }
+        worldUnits: false,
+      }),
+    [alpha, color, dashed, opacity, strokeWidth],
+  );
+  const line = useMemo(() => new Line2(geometry, material), [geometry, material]);
 
-    return new THREE.LineBasicMaterial({
-      color,
-      linewidth: strokeWidth,
-      opacity: alpha * opacity,
-      transparent: true,
-    });
-  }, [alpha, color, dashed, opacity, strokeWidth]);
-  const line = useMemo(() => new THREE.Line(geometry, material), [geometry, material]);
+  useLayoutEffect(() => {
+    material.resolution.set(size.width, size.height);
+  }, [material, size.height, size.width]);
 
   useLayoutEffect(() => {
     if (dashed) line.computeLineDistances();
@@ -210,6 +217,7 @@ export function ThreeDiagramCanvas({
   className,
   preserveDrawingBuffer = false,
   strokeWidth = 1,
+  testId,
 }: ThreeDiagramCanvasProps) {
   const hostRef = useRef<HTMLDivElement | null>(null);
   const [paint, setPaint] = useState<DiagramPaint>(() => ({
@@ -253,7 +261,12 @@ export function ThreeDiagramCanvas({
   );
 
   return (
-    <div ref={hostRef} aria-hidden="true" className={className}>
+    <div
+      ref={hostRef}
+      aria-hidden="true"
+      className={className}
+      data-testid={testId}
+    >
       <DiagramSceneContext.Provider value={contextValue}>
         <Canvas
           orthographic
@@ -293,6 +306,7 @@ export function ThreeLineCanvas({
   className,
   preserveDrawingBuffer = false,
   strokeWidth = 1,
+  testId,
 }: ThreeLineCanvasProps) {
   return (
     <ThreeDiagramCanvas
@@ -300,6 +314,7 @@ export function ThreeLineCanvas({
       className={className}
       preserveDrawingBuffer={preserveDrawingBuffer}
       strokeWidth={strokeWidth}
+      testId={testId}
     >
       {paths.map((path) => (
         <ThreeDiagramPath key={pathKey(path)} {...path} />

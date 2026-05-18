@@ -83,6 +83,63 @@ test("homepage architecture shows three Proxmox nodes with gap-4 spacing", async
   await expect(grid).toHaveClass(/gap-4/);
 });
 
+test("homepage architecture renders centered Three.js connectors", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const architecture = page.getByTestId("projects-architecture");
+  await expect(architecture).toBeVisible();
+  await expect(
+    page.locator('[data-testid^="projects-architecture-connector-"]'),
+  ).toHaveCount(5);
+
+  const metrics = await architecture.evaluate((root) => {
+    const scroller = root as HTMLElement;
+    const scrollerRect = scroller.getBoundingClientRect();
+    const netbox = scroller.querySelector<HTMLElement>('[aria-label="netbox"]');
+    const netboxRect = netbox?.getBoundingClientRect();
+    const canvases = Array.from(scroller.querySelectorAll("canvas")).map(
+      (canvas) => {
+        const rect = canvas.getBoundingClientRect();
+        return {
+          bufferHeight: canvas.height,
+          bufferWidth: canvas.width,
+          height: Math.round(rect.height),
+          width: Math.round(rect.width),
+        };
+      },
+    );
+
+    return {
+      canvasCount: canvases.length,
+      canvases,
+      clientWidth: scroller.clientWidth,
+      netboxVisible:
+        !!netboxRect &&
+        netboxRect.left >= scrollerRect.left &&
+        netboxRect.right <= scrollerRect.right,
+      scrollLeft: Math.round(scroller.scrollLeft),
+      scrollWidth: scroller.scrollWidth,
+    };
+  });
+
+  expect(metrics.canvasCount).toBe(5);
+  expect(metrics.netboxVisible).toBe(true);
+  for (const canvas of metrics.canvases) {
+    expect(canvas.width).toBeGreaterThan(0);
+    expect(canvas.height).toBeGreaterThan(0);
+    expect(canvas.bufferWidth).toBeGreaterThan(0);
+    expect(canvas.bufferHeight).toBeGreaterThan(0);
+  }
+  if (metrics.scrollWidth > metrics.clientWidth) {
+    expect(metrics.scrollLeft).toBeGreaterThan(0);
+  }
+
+  await architecture.getByRole("link", { name: "netbox-proxbox" }).focus();
+  await expect(page.locator("#tip-netbox-proxbox")).toHaveCSS("opacity", "1");
+});
+
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   page,
 }) => {
