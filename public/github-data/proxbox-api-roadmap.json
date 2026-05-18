@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-18T07:02:32.749Z",
+  "generated_at": "2026-05-18T07:08:24.882Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 15,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 121,
+      "title": "netbox-exception: tag with this name already exists.",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/121",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 120,
       "title": "Failed to stamp proxbox_last_run_id on VM id=",
@@ -433,7 +447,8 @@
         95,
         97,
         98,
-        120
+        120,
+        121
       ]
     }
   ],
