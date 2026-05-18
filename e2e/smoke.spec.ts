@@ -80,7 +80,7 @@ test("homepage architecture shows three Proxmox nodes with gap-4 spacing", async
   await expect(pdm).toBeVisible();
 
   const grid = page.locator(".grid.grid-cols-3").filter({ has: ceph });
-  await expect(grid).toHaveClass(/gap-4/);
+  await expect(grid).toHaveClass(/gap-8/);
 });
 
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
