@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T05:54:37.715Z",
+  "generated_at": "2026-05-19T05:55:50.852Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 18,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 131,
+      "title": "nginx config deprecated",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/131",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 130,
       "title": "api tries to bootstart netbox even before netbox endpoint is connected",
@@ -511,7 +525,8 @@
         95,
         97,
         98,
-        130
+        130,
+        131
       ]
     }
   ],
