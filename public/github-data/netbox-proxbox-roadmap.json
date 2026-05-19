@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T15:37:29.602Z",
+  "generated_at": "2026-05-19T15:40:09.285Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 253,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 474,
+      "title": "feat: Quick Edit button on homepage endpoint cards (modal form)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/474",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 472,
       "title": "unable to open snapshot",
@@ -6599,7 +6613,8 @@
         432,
         433,
         435,
-        436
+        436,
+        474
       ]
     }
   ],
