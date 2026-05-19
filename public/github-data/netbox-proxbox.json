@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-18T21:25:21.764Z",
+  "syncedAt": "2026-05-19T00:47:36.248Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
-  "stars": 548,
+  "stars": 549,
   "forks": 63,
   "releases": [
+    {
+      "id": 324581797,
+      "nodeId": "RE_kwDOFTMlzs4TWLml",
+      "tag": "v0.0.16.post6",
+      "name": "v0.0.16.post6",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.16.post6",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/324581797",
+      "targetCommitish": "develop",
+      "body": "**Full Changelog**: https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.16.post5...v0.0.16.post6",
+      "bodyHtml": "<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/netbox-proxbox/compare/v0.0.16.post5...v0.0.16.post6\"><tt>v0.0.16.post5...v0.0.16.post6</tt></a></p>",
+      "createdAt": "2026-05-18T19:54:01Z",
+      "publishedAt": "2026-05-18T21:44:46Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.16.post6",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.16.post6"
+      }
+    },
     {
       "id": 324496903,
       "nodeId": "RE_kwDOFTMlzs4TV24H",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-18T18:59:39Z",
       "publishedAt": "2026-05-18T19:04:15Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
