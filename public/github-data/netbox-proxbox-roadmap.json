@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T06:19:12.403Z",
+  "generated_at": "2026-05-19T07:18:27.154Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 251,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 472,
+      "title": "unable to open snapshot",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/472",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 468,
       "title": "When a server have dual homed ipv4/ipv6",
@@ -6570,7 +6584,8 @@
         432,
         433,
         435,
-        436
+        436,
+        472
       ]
     }
   ],
