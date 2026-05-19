@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T14:46:31.546Z",
+  "generated_at": "2026-05-19T15:37:34.217Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 22,
+    "open": 4,
+    "closed": 23,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 134,
@@ -106,9 +106,9 @@
     {
       "number": 130,
       "title": "api tries to bootstart netbox even before netbox endpoint is connected",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/130",
-      "closedAt": null,
+      "closedAt": "2026-05-19T15:36:10Z",
       "labels": [
         {
           "name": "bug",
@@ -120,8 +120,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -585,6 +585,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        130,
         131,
         133,
         134,
@@ -617,8 +618,7 @@
         94,
         95,
         97,
-        98,
-        130
+        98
       ]
     }
   ],

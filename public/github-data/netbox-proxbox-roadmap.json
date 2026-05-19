@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T14:46:26.862Z",
+  "generated_at": "2026-05-19T15:37:29.602Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 252,
+    "open": 7,
+    "closed": 253,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 472,
@@ -346,7 +346,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -365,7 +365,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -384,7 +384,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 616,
+      "y": 496,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -403,7 +403,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 496,
+      "y": 376,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -422,7 +422,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -2042,13 +2042,13 @@
         }
       ],
       "milestone": {
-        "title": "v0.0.14",
-        "state": "closed",
+        "title": "v0.0.17",
+        "state": "open",
         "due_on": null,
-        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/15"
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18"
       },
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -3434,7 +3434,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 136,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -3719,9 +3719,9 @@
     {
       "number": 176,
       "title": "Support for netbox >4.6.x",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/176",
-      "closedAt": null,
+      "closedAt": "2026-05-19T15:22:00Z",
       "labels": [
         {
           "name": "accepted",
@@ -3734,8 +3734,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6333,6 +6333,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        176,
         472,
         468,
         449,
@@ -6592,7 +6593,6 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        176,
         207,
         326,
         431,
@@ -6742,14 +6742,6 @@
       "closed": 6
     },
     {
-      "title": "v0.0.14",
-      "state": "closed",
-      "due_on": null,
-      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/15",
-      "open": 1,
-      "closed": 0
-    },
-    {
       "title": "v0.0.15",
       "state": "closed",
       "due_on": null,
@@ -6786,7 +6778,7 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18",
-      "open": 0,
+      "open": 1,
       "closed": 2
     },
     {
@@ -6826,8 +6818,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 7,
-      "closed": 6
+      "open": 6,
+      "closed": 7
     }
   ]
 }
