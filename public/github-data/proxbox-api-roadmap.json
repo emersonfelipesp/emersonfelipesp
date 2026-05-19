@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T07:18:32.529Z",
+  "generated_at": "2026-05-19T07:32:52.765Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 18,
     "edges": 0
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 134,
+      "title": "Vm get config is throwing error from proxmox",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/134",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 133,
       "title": "proxbox-api is really chatty in log_level: info",
@@ -556,7 +570,8 @@
         130,
         131,
         132,
-        133
+        133,
+        134
       ]
     }
   ],
