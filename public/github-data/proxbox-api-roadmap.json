@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T13:19:23.483Z",
+  "generated_at": "2026-05-19T13:50:25.702Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 10,
@@ -63,11 +63,16 @@
           "color": "d73a4a"
         },
         {
-          "name": "under review",
-          "color": "fbca04"
+          "name": "accepted",
+          "color": "0e8a16"
         }
       ],
-      "milestone": null,
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11"
+      },
       "x": 16,
       "y": 856,
       "w": 240,
@@ -611,7 +616,7 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 11
+      "count": 12
     },
     {
       "name": "bug",
@@ -621,7 +626,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 6
+      "count": 5
     },
     {
       "name": "enhancement",
@@ -653,6 +658,14 @@
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10",
       "open": 1,
       "closed": 1
+    },
+    {
+      "title": "v0.0.13",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11",
+      "open": 1,
+      "closed": 0
     },
     {
       "title": "v0.0.7.post1",
