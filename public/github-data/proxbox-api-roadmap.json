@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T14:22:28.832Z",
+  "generated_at": "2026-05-19T14:43:48.128Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
-    "closed": 20,
+    "open": 5,
+    "closed": 22,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 134,
@@ -35,9 +35,9 @@
     {
       "number": 133,
       "title": "proxbox-api is really chatty in log_level: info",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/133",
-      "closedAt": null,
+      "closedAt": "2026-05-19T14:42:25Z",
       "labels": [
         {
           "name": "accepted",
@@ -45,8 +45,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -82,9 +82,9 @@
     {
       "number": 131,
       "title": "nginx config deprecated",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/131",
-      "closedAt": null,
+      "closedAt": "2026-05-19T14:42:30Z",
       "labels": [
         {
           "name": "accepted",
@@ -97,8 +97,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11"
       },
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -585,6 +585,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        131,
+        133,
         134,
         120,
         132,
@@ -616,9 +618,7 @@
         95,
         97,
         98,
-        130,
-        131,
-        133
+        130
       ]
     }
   ],
@@ -674,8 +674,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11",
-      "open": 1,
-      "closed": 1
+      "open": 0,
+      "closed": 2
     },
     {
       "title": "v0.0.7.post1",
