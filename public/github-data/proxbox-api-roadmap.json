@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T13:56:25.581Z",
+  "generated_at": "2026-05-19T14:22:28.832Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 8,
-    "closed": 19,
+    "open": 7,
+    "closed": 20,
     "edges": 0
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 134,
       "title": "Vm get config is throwing error from proxmox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/134",
-      "closedAt": null,
+      "closedAt": "2026-05-19T14:13:14Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -585,6 +585,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        134,
         120,
         132,
         126,
@@ -617,8 +618,7 @@
         98,
         130,
         131,
-        133,
-        134
+        133
       ]
     }
   ],
