@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T13:53:37.953Z",
+  "generated_at": "2026-05-19T13:56:25.581Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 10,
-    "closed": 17,
+    "open": 8,
+    "closed": 19,
     "edges": 0
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 134,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 1096,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -46,7 +46,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 976,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -54,9 +54,9 @@
     {
       "number": 132,
       "title": "Issue #120 still an issue in the newest version of proxbox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/132",
-      "closedAt": null,
+      "closedAt": "2026-05-19T13:55:04Z",
       "labels": [
         {
           "name": "bug",
@@ -73,8 +73,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11"
       },
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -98,7 +98,7 @@
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11"
       },
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -121,7 +121,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 616,
+      "y": 496,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -176,9 +176,9 @@
     {
       "number": 120,
       "title": "Failed to stamp proxbox_last_run_id on VM id=",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/120",
-      "closedAt": null,
+      "closedAt": "2026-05-19T13:55:43Z",
       "labels": [
         {
           "name": "accepted",
@@ -195,8 +195,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10"
       },
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -585,6 +585,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        120,
+        132,
         126,
         121,
         116,
@@ -613,10 +615,8 @@
         95,
         97,
         98,
-        120,
         130,
         131,
-        132,
         133,
         134
       ]
@@ -666,16 +666,16 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/10",
-      "open": 1,
-      "closed": 1
+      "open": 0,
+      "closed": 2
     },
     {
       "title": "v0.0.13",
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11",
-      "open": 2,
-      "closed": 0
+      "open": 1,
+      "closed": 1
     },
     {
       "title": "v0.0.7.post1",
