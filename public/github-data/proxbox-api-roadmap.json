@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T05:55:50.852Z",
+  "generated_at": "2026-05-19T06:01:40.723Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 18,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 132,
+      "title": "Issue #120 still an issue in the newest version of proxbox",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/132",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 131,
       "title": "nginx config deprecated",
@@ -526,7 +540,8 @@
         97,
         98,
         130,
-        131
+        131,
+        132
       ]
     }
   ],
