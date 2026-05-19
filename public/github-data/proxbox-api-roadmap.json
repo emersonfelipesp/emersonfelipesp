@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T13:50:25.702Z",
+  "generated_at": "2026-05-19T13:53:37.953Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 10,
@@ -85,8 +85,18 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/131",
       "closedAt": null,
-      "labels": [],
-      "milestone": null,
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11"
+      },
       "x": 16,
       "y": 736,
       "w": 240,
@@ -616,7 +626,7 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 12
+      "count": 13
     },
     {
       "name": "bug",
@@ -664,7 +674,7 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/11",
-      "open": 1,
+      "open": 2,
       "closed": 0
     },
     {
