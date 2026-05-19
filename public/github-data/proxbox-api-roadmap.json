@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-19T06:01:40.723Z",
+  "generated_at": "2026-05-19T06:19:18.777Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 18,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 133,
+      "title": "proxbox-api is really chatty in log_level: info",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/133",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 132,
       "title": "Issue #120 still an issue in the newest version of proxbox",
@@ -541,7 +555,8 @@
         98,
         130,
         131,
-        132
+        132,
+        133
       ]
     }
   ],
