@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-20T12:56:46.000Z",
+  "generated_at": "2026-05-20T14:08:34.242Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 19,
-    "closed": 255,
+    "open": 18,
+    "closed": 256,
     "edges": 93
   },
-  "viewBox": "0 0 272 2288",
+  "viewBox": "0 0 272 2168",
   "nodes": [
     {
       "number": 491,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 2176,
+      "y": 2056,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -35,13 +35,13 @@
     {
       "number": 490,
       "title": "feat: add `enabled` boolean field to ProxmoxEndpoint, NetBoxEndpoint, and FastAPIEndpoint",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/490",
-      "closedAt": null,
+      "closedAt": "2026-05-20T14:05:05Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 2056,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6669,6 +6669,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        490,
         326,
         474,
         176,
@@ -6948,7 +6949,6 @@
         484,
         485,
         486,
-        490,
         491
       ]
     }

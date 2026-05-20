@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-20T12:56:50.793Z",
+  "generated_at": "2026-05-20T14:08:39.494Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 23,
+    "open": 4,
+    "closed": 24,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 140,
       "title": "feat: respect `enabled` field on ProxmoxEndpoint and NetBoxEndpoint",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/140",
-      "closedAt": null,
+      "closedAt": "2026-05-20T14:06:19Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -599,6 +599,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        140,
         130,
         131,
         133,
@@ -632,8 +633,7 @@
         94,
         95,
         97,
-        98,
-        140
+        98
       ]
     }
   ],
