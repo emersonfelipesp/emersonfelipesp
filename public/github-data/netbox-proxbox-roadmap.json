@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-20T14:08:34.242Z",
+  "generated_at": "2026-05-20T15:42:11.060Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 18,
-    "closed": 256,
+    "open": 17,
+    "closed": 257,
     "edges": 93
   },
-  "viewBox": "0 0 272 2168",
+  "viewBox": "0 0 272 2048",
   "nodes": [
     {
       "number": 491,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 2056,
+      "y": 1936,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -49,22 +49,22 @@
     {
       "number": 486,
       "title": "Versions >= 0.0.15 conflict with another plugin",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/486",
-      "closedAt": null,
+      "closedAt": "2026-05-20T15:39:40Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "invalid",
+          "color": "e4e669"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 1936,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6669,6 +6669,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        486,
         490,
         326,
         474,
@@ -6948,7 +6949,6 @@
         483,
         484,
         485,
-        486,
         491
       ]
     }
@@ -6977,7 +6977,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 28
+      "count": 27
     },
     {
       "name": "duplicate",
@@ -7008,6 +7008,11 @@
       "name": "question",
       "color": "d876e3",
       "count": 2
+    },
+    {
+      "name": "invalid",
+      "color": "e4e669",
+      "count": 1
     }
   ],
   "milestones": [
