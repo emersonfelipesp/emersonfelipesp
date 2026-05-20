@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-20T07:18:49.640Z",
+  "generated_at": "2026-05-20T12:32:46.972Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 23,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 140,
+      "title": "feat: respect `enabled` field on ProxmoxEndpoint and NetBoxEndpoint",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/140",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 134,
       "title": "Vm get config is throwing error from proxmox",
@@ -618,7 +632,8 @@
         94,
         95,
         97,
-        98
+        98,
+        140
       ]
     }
   ],

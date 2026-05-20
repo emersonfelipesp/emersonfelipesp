@@ -1,14 +1,51 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-20T07:18:42.887Z",
+  "generated_at": "2026-05-20T12:32:42.497Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 17,
+    "open": 19,
     "closed": 255,
     "edges": 93
   },
-  "viewBox": "0 0 272 2048",
+  "viewBox": "0 0 272 2288",
   "nodes": [
+    {
+      "number": 491,
+      "title": "IP addresses not Syncing in Latest Version",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/491",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 2176,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 490,
+      "title": "feat: add `enabled` boolean field to ProxmoxEndpoint, NetBoxEndpoint, and FastAPIEndpoint",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/490",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 2056,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 486,
       "title": "Versions >= 0.0.15 conflict with another plugin",
@@ -6910,7 +6947,9 @@
         483,
         484,
         485,
-        486
+        486,
+        490,
+        491
       ]
     }
   ],
@@ -6928,7 +6967,7 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 61
+      "count": 62
     },
     {
       "name": "python",
@@ -6938,7 +6977,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 27
+      "count": 28
     },
     {
       "name": "duplicate",
