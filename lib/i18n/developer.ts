@@ -257,7 +257,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
   tagline:
     "Guia do desenvolvedor — pipeline de codegen, backends mock/real duplos e a fronteira de integração da qual stacks downstream dependem.",
   intro: [
-    "O proxmox-sdk é um toolkit Python orientado a schema. Espelha a superfície REST do Proxmox VE 8.1 como 646 endpoints tipados, roda em modo mock ou proxy real, e expõe o resultado tanto como SDK em processo quanto como servidor FastAPI opcional.",
+    "O proxmox-sdk é um toolkit Python orientado a schema. Espelha a superfície REST do Proxmox VE 9.2 como 675 endpoints tipados, roda em modo mock ou proxy real, e expõe o resultado tanto como SDK em processo quanto como servidor FastAPI opcional.",
     "Esta página documenta o pipeline de codegen que produz o schema, a camada de backends plugáveis que faz cada endpoint resolver contra dados mock ou um cluster real, o fluxo de contribuição e a fronteira de integração que stacks downstream (proxbox-api, netbox-proxbox) usam em vez de rodar seu próprio E2E.",
   ],
   architectureBullets: [
@@ -265,16 +265,18 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "SDK standalone: proxmox_sdk/sdk/api.py é o ProxmoxSDK (assíncrono). proxmox_sdk/sdk/sync.py o envolve sincronamente. proxmox_sdk/sdk/resource.py acrescenta navegação por atributos.",
     "Backends plugáveis em proxmox_sdk/sdk/backends/: https.py (aiohttp, Proxmox real), mock.py (em memória), local.py (CLI pvesh), ssh_paramiko.py e openssh.py (dois transportes SSH).",
     "Camada de mock: proxmox_sdk/mock/ usa SharedMemoryMockStore (lock compartilhado, persistido em arquivo) e proxmox_sdk/mock/routes.py registra handlers CRUD a partir do schema OpenAPI dinamicamente na inicialização. O estado pode ser zerado com reset_state() entre testes.",
-    "Artefatos gerados: proxmox_sdk/generated/ (646 endpoints, ~5.2 MB de schema OpenAPI, modelos Pydantic). Pré-gerados para Proxmox VE 8.1.",
+    "Artefatos gerados: proxmox_sdk/generated/ (675 endpoints, modelos Pydantic). Pré-gerados para Proxmox VE 9.2 (9.1.11 mantido; matriz de CI: latest, 9.2, 9.1.11).",
+    "Isolamento multi-versão: cada versão de schema recebe um namespace de mock estável (PROXMOX_MOCK_STATE_NAMESPACE padroniza para pmx_{version_tag}). Uma guarda __schema_fingerprint__ no sys.modules evita re-exec de módulo obsoleto quando duas versões carregam no mesmo processo.",
     "Pipeline de codegen: proxmox_sdk/proxmox_codegen/crawler.py (Playwright rastreia o API Viewer oficial do Proxmox), normaliza o resultado, e proxmox_codegen/pipeline.py emite openapi.json + pydantic_models.py. Disparado manualmente ou pelo endpoint /codegen/generate (com rate limit, exige CODEGEN_API_KEY).",
-    "CLI / TUI: proxmox_sdk/proxmox_cli/ provê os entry points proxmox, pbx e proxmox-cli; pbx tui sobe a TUI Textual. Temas: proxmox_cli/themes/themes.py (DARK, LIGHT, MONOKAI).",
+    "Sincronização automática de schema: .github/workflows/schema-update.yml detecta mudanças na API do Proxmox semanalmente (segundas às 03:00 UTC) ou via workflow_dispatch, regenera o schema, verifica integridade de SHA e abre um PR automaticamente.",
+    "CLI / TUI: proxmox_sdk/proxmox_cli/ provê os entry points proxmox, pbx e proxmox-cli; pbx tui sobe a TUI Textual com troca de visualização por módulo (PVE / PBS / PDM). Temas: proxmox_cli/themes/themes.py (DARK, LIGHT, MONOKAI).",
     "Rate limiting: SlowAPI em toda rota pública (em processo; funciona sem Redis).",
   ],
   integrationNotes: [
     "Auth: API token (auth/token.py) ou senha/ticket+TOTP (auth/ticket.py). Usado em modo proxy real.",
     "Invocação direta de CLI quando rodando em um nó Proxmox.",
     "Dois transportes SSH intercambiáveis.",
-    "O proxbox-api fixa proxmox-sdk==0.0.3.post1; a stack E2E do netbox-proxbox baixa uma das tags por serviço (latest-pve, latest-pbs, latest-pdm) deste repo como o contêiner proxmox-e2e-mock, uma por célula da matriz.",
+    "O proxbox-api fixa proxmox-sdk==0.0.5.post1; a stack E2E do netbox-proxbox baixa uma das tags por serviço (latest-pve, latest-pbs, latest-pdm) deste repo como o contêiner proxmox-e2e-mock, uma por célula da matriz.",
   ],
   contributingCodeStyle: [
     "Linter: ruff (select E4/E7/E9/F/I/ANN201/D103/W).",
@@ -286,11 +288,12 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "pytest + pytest-xdist + pytest-cov. A fronteira de integração é coberta por tests/cli/integration/test_backend_integration.py exercitando a ponte CLI ↔ SDK contra o servidor mock.",
   e2eIntro: [
     "O proxmox-sdk não tem um diretório tests/e2e/ dedicado — a suíte de integração da CLI mais as imagens Docker por serviço publicadas (latest-pve, latest-pbs, latest-pdm) atuam como a fronteira de E2E. Stacks downstream (netbox-proxbox, proxbox-api) consomem essas tags e rodam o E2E cross-stack em paralelo.",
-    "O v0.0.5 adicionou suporte ao Proxmox Datacenter Manager (PDM) ao lado das superfícies Proxmox VE e Proxmox Backup Server já existentes, de modo que cada tag Docker serve um schema OpenAPI diferente compartilhando o mesmo encanamento de mock.",
+    "O v0.0.6 avança o schema para o Proxmox VE 9.2 e expande a matriz de CI para três versões (latest, 9.2, 9.1.11) — cada commit roda a suíte completa de testes contra cada versão de schema de forma independente, com namespacing de estado mock por versão para evitar contaminação entre execuções.",
     "O pipeline de CI faz lint, type check, roda testes com cobertura e reconstrói as variantes Docker por serviço (raw / nginx / granian × pve / pbs / pdm) em cada push para main e testing.",
   ],
   e2eCoverage: [
     "Specs: tests/cli/integration/test_backend_integration.py (ponte CLI ↔ SDK contra o servidor mock).",
+    "Matriz de schema do CI: [latest, 9.2, 9.1.11] — cada célula roda a suíte completa com seu próprio PROXMOX_MOCK_STATE_NAMESPACE para evitar colisões de estado compartilhado.",
     "Jobs do CI: lint, syntax, test, docker-images (variantes raw / nginx / granian × tags pve / pbs / pdm publicadas em cada commit em main / testing).",
     "E2E cross-stack: as tags latest-{pve,pbs,pdm} são puxadas pelo e2e-docker.yml do netbox-proxbox e pelo ci.yml do proxbox-api como contêiner proxmox-e2e-mock — uma tag por célula da matriz, provando que as imagens publicadas são consumíveis ponta a ponta.",
   ],

@@ -21,7 +21,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
     { id: "links", label: "links" },
   ],
   intro: [
-    "proxmox-sdk is a schema-driven Python toolkit. It mirrors the Proxmox VE 8.1 REST surface as 646 typed endpoints, runs in either a mock or a real-proxy mode, and exposes the result as both an in-process SDK and an optional FastAPI server.",
+    "proxmox-sdk is a schema-driven Python toolkit. It mirrors the Proxmox VE 9.2 REST surface as 675 typed endpoints, runs in either a mock or a real-proxy mode, and exposes the result as both an in-process SDK and an optional FastAPI server.",
     "This page documents the codegen pipeline that produces the schema, the pluggable backend layer that lets every endpoint resolve against mock data or a real cluster, the contribution workflow, and the integration boundary that downstream stacks (proxbox-api, netbox-proxbox) lean on instead of running their own E2E.",
   ],
   architecture: {
@@ -30,9 +30,11 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
       "Standalone SDK: proxmox_sdk/sdk/api.py is ProxmoxSDK (async). proxmox_sdk/sdk/sync.py wraps it synchronously. proxmox_sdk/sdk/resource.py adds attribute-based resource navigation.",
       "Pluggable backends in proxmox_sdk/sdk/backends/: https.py (aiohttp, real Proxmox), mock.py (in-memory), local.py (pvesh CLI), ssh_paramiko.py and openssh.py (two SSH transports).",
       "Mock layer: proxmox_sdk/mock/ uses SharedMemoryMockStore (shared-lock, file-backed) and proxmox_sdk/mock/routes.py registers CRUD handlers from the OpenAPI schema dynamically at startup. State can be reset with reset_state() between tests.",
-      "Generated artifacts: proxmox_sdk/generated/ (646 endpoints, ~5.2 MB OpenAPI schema, Pydantic models). Pre-generated for Proxmox VE 8.1.",
+      "Generated artifacts: proxmox_sdk/generated/ (675 endpoints, Pydantic models). Pre-generated for Proxmox VE 9.2 (9.1.11 retained; CI matrix: latest, 9.2, 9.1.11).",
+      "Multi-version isolation: each schema version gets a stable mock namespace (PROXMOX_MOCK_STATE_NAMESPACE defaults to pmx_{version_tag}). A __schema_fingerprint__ guard on sys.modules prevents stale module re-exec when two versions load in the same process.",
       "Codegen pipeline: proxmox_sdk/proxmox_codegen/crawler.py (Playwright crawls the official Proxmox API Viewer), normalises output, and proxmox_codegen/pipeline.py emits openapi.json + pydantic_models.py. Triggered manually or via the rate-limited /codegen/generate endpoint (CODEGEN_API_KEY required).",
-      "CLI / TUI: proxmox_sdk/proxmox_cli/ ships proxmox, pbx, and proxmox-cli entry points; pbx tui launches the Textual UI. Themes: proxmox_cli/themes/themes.py (DARK, LIGHT, MONOKAI).",
+      "Automated schema sync: .github/workflows/schema-update.yml detects upstream Proxmox API drift weekly (Monday 03:00 UTC) or on workflow_dispatch, regenerates the schema, verifies SHA integrity, and opens a PR automatically.",
+      "CLI / TUI: proxmox_sdk/proxmox_cli/ ships proxmox, pbx, and proxmox-cli entry points; pbx tui launches the Textual UI with in-app per-module view switching (PVE / PBS / PDM). Themes: proxmox_cli/themes/themes.py (DARK, LIGHT, MONOKAI).",
       "Rate limiting: SlowAPI on every public route (in-process; works without Redis).",
     ],
   },
@@ -61,7 +63,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
       protocol: "imported",
       library: "downstream consumer",
       notes:
-        "proxbox-api pins proxmox-sdk==0.0.3.post1; netbox-proxbox's E2E stack pulls one of the per-service image tags (latest-pve, latest-pbs, latest-pdm) of this repo as its proxmox-e2e-mock container, one per matrix cell.",
+        "proxbox-api pins proxmox-sdk==0.0.5.post1; netbox-proxbox's E2E stack pulls one of the per-service image tags (latest-pve, latest-pbs, latest-pdm) of this repo as its proxmox-e2e-mock container, one per matrix cell.",
     },
   ],
   contributing: {
@@ -93,7 +95,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
       "pytest + pytest-xdist + pytest-cov. Integration boundary covered via tests/cli/integration/test_backend_integration.py exercising the CLI-to-SDK bridge against the mock server.",
     intro: [
       "proxmox-sdk has no dedicated tests/e2e/ directory — the CLI integration suite plus the published service-tagged Docker images (latest-pve, latest-pbs, latest-pdm) act as the E2E boundary. Downstream stacks (netbox-proxbox, proxbox-api) consume those tags and run the cross-stack E2E in parallel.",
-      "v0.0.5 added Proxmox Datacenter Manager (PDM) support alongside the existing Proxmox VE and Proxmox Backup Server surfaces, so each Docker tag serves a different OpenAPI schema while sharing the same mock plumbing.",
+      "v0.0.6 advances the schema to Proxmox VE 9.2 and expands the CI matrix to three versions (latest, 9.2, 9.1.11) — every commit runs the full test suite against each schema version independently, with per-version mock state namespacing to prevent inter-run bleed.",
       "The CI pipeline lints, type-checks, runs tests with coverage, and rebuilds the service-tagged Docker variants (raw / nginx / granian × pve / pbs / pdm) on every main and testing push.",
     ],
     commands: [
@@ -108,6 +110,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
     ],
     coverage: [
       "Spec files: tests/cli/integration/test_backend_integration.py (CLI ↔ SDK bridge against mock server).",
+      "CI schema matrix: [latest, 9.2, 9.1.11] — each cell runs the full test suite with its own PROXMOX_MOCK_STATE_NAMESPACE to prevent shared-state collisions.",
       "CI jobs: lint, syntax, test, docker-images (raw / nginx / granian variants × pve / pbs / pdm service tags pushed on every main / testing commit).",
       "Cross-stack E2E: the latest-{pve,pbs,pdm} tags are pulled by netbox-proxbox's e2e-docker.yml and proxbox-api's ci.yml as the proxmox-e2e-mock container — one tag per matrix cell, proving the published images are consumable end-to-end.",
     ],

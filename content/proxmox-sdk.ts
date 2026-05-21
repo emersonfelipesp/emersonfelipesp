@@ -11,20 +11,22 @@ export const proxmoxSdk: ProjectContent = {
   tagline:
     "Schema-driven FastAPI SDK for the Proxmox API — generated, dual-mode, OpenAPI-first.",
   description: [
-    "proxmox-sdk is a FastAPI package that mirrors the Proxmox VE API as a fully typed OpenAPI surface, with 646 endpoints generated from Proxmox VE 8.1.",
+    "proxmox-sdk is a FastAPI package that mirrors the Proxmox VE API as a fully typed OpenAPI surface, with 675 endpoints generated from Proxmox VE 9.2.",
     "It runs in two modes out of the box: a mock mode (default) with auto-generated CRUD data so you can develop without a real cluster, and a real mode that proxies validated requests to a live Proxmox host.",
-    "v0.0.5 split the mock surface across three dedicated Docker tags — latest-pve, latest-pbs, latest-pdm — so Proxmox VE, Proxmox Backup Server and Proxmox Datacenter Manager can each be exercised in parallel by downstream consumers (proxbox-api, netbox-proxbox).",
+    "v0.0.6 advances the schema to Proxmox VE 9.2 (9.1.11 retained), adds an automated weekly schema-update workflow that detects API drift and opens a PR, and hardens multi-version mock state isolation so parallel test runs on different schema versions never share in-memory state.",
   ],
   features: [
-    "646 pre-generated Proxmox VE 8.1 endpoints with full OpenAPI schema",
+    "675 pre-generated Proxmox VE 9.2 endpoints with full OpenAPI schema (9.1.11 retained)",
     "Dual mode: mock (default) for development, real for production",
+    "Automated weekly schema sync — detects upstream API drift and opens a PR automatically",
+    "Multi-version CI matrix: latest, 9.2, and 9.1.11 each tested on every commit",
+    "Per-version mock state isolation (PROXMOX_MOCK_STATE_NAMESPACE) — safe for parallel runs",
     "Per-service Docker tags: latest-pve, latest-pbs (Backup Server), latest-pdm (Datacenter Manager)",
     "Auto-generated mock data with in-memory CRUD operations",
     "Real API proxy with request/response validation",
     "Code generation: crawls the Proxmox API Viewer into OpenAPI",
-    "Multi-version support, with 'latest' mapped to the official viewer",
     "FastAPI-generated Swagger UI at /docs",
-    "Optional CLI / TUI extras",
+    "Optional CLI / TUI extras with in-app view switching",
   ],
   stack: [
     "Python",
@@ -39,8 +41,8 @@ export const proxmoxSdk: ProjectContent = {
   meta: {
     license: "MIT",
     python: "3.11+",
-    latestRelease: "v0.0.5",
-    stars: 1,
+    latestRelease: "v0.0.6",
+    stars: 2,
     forks: 0,
   },
   links: {
