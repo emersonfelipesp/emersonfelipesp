@@ -62,6 +62,38 @@ export type DeveloperWorkflow = {
   purpose: string;
 };
 
+export type ComparisonRow = {
+  aspect: string;
+  a: string;
+  b: string;
+  winner?: "a" | "b" | "draw";
+};
+
+export type ComparisonContent = {
+  slug: string;
+  name: string;
+  fullName: string;
+  palette: Palette;
+  tagline: string;
+  banner: string;
+  sections: readonly SectionLink[];
+  intro: readonly string[];
+  libraryA: {
+    name: string;
+    description: readonly string[];
+    bestFor: readonly string[];
+  };
+  libraryB: {
+    name: string;
+    description: readonly string[];
+    bestFor: readonly string[];
+  };
+  table: readonly ComparisonRow[];
+  verdict: readonly string[];
+  install: { a: string; b: string };
+  links: Record<string, string>;
+};
+
 export type DeveloperContent = {
   slug: string;
   name: string;

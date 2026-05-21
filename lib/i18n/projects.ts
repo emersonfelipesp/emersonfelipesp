@@ -6,12 +6,13 @@ import { netboxPbs } from "@/content/netbox-pbs";
 import { netboxPdm } from "@/content/netbox-pdm";
 import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
-import type { ProjectContent, SectionLink } from "@/content/types";
+import type { ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
 import { NETBOX_SDK_PT_BR } from "./projects/netbox-sdk";
 import { PROXMOX_SDK_PT_BR } from "./projects/proxmox-sdk";
 import { PROXBOX_API_PT_BR } from "./projects/proxbox-api";
+import { PROXMOX_SDK_COMPARISON_PT_BR } from "./projects/proxmox-sdk-comparison";
 
 function localizeSections<T extends SectionLink>(
   sections: readonly T[],
@@ -478,4 +479,20 @@ export type NetboxPackerContent = typeof netboxPacker;
 export function getNetboxPacker(lang: Lang) {
   if (lang === "en") return netboxPacker;
   return { ...netboxPacker, sections: localizeSections(netboxPacker.sections, lang) };
+}
+
+export function getProxmoxerComparison(
+  lang: Lang,
+  base: ComparisonContent,
+): ComparisonContent {
+  if (lang === "en") return base;
+  return {
+    ...base,
+    tagline: PROXMOX_SDK_COMPARISON_PT_BR.tagline,
+    sections: PROXMOX_SDK_COMPARISON_PT_BR.sections,
+    intro: PROXMOX_SDK_COMPARISON_PT_BR.intro,
+    libraryA: PROXMOX_SDK_COMPARISON_PT_BR.libraryA,
+    libraryB: PROXMOX_SDK_COMPARISON_PT_BR.libraryB,
+    verdict: PROXMOX_SDK_COMPARISON_PT_BR.verdict,
+  };
 }
