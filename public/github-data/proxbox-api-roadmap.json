@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T13:13:22.673Z",
+  "generated_at": "2026-05-21T13:22:56.559Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 7,
@@ -21,8 +21,8 @@
           "color": "d73a4a"
         },
         {
-          "name": "under review",
-          "color": "fbca04"
+          "name": "accepted",
+          "color": "0e8a16"
         }
       ],
       "milestone": null,
@@ -713,7 +713,7 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 15
+      "count": 16
     },
     {
       "name": "bug",
@@ -723,7 +723,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 6
+      "count": 5
     },
     {
       "name": "enhancement",
