@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-05-21T17:21:13.817Z",
+  "syncedAt": "2026-05-21T18:27:59.807Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 327159764,
+      "nodeId": "RE_kwDORz_GBs4TgA_U",
+      "tag": "v0.0.6",
+      "name": "v0.0.6 — Proxmox VE 9.2 + Multi-Version Compatibility",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.6",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/327159764",
+      "targetCommitish": "main",
+      "body": "## What's new\n\n### Proxmox VE 9.2 Support\n- **675 operations / 449 endpoints** — upgraded from PVE 9.1.11 to PVE 9.2 schema; `latest` tag now mirrors 9.2\n- `9.1.11` schema retained for backward compatibility\n- Automated weekly schema-update workflow detects upstream Proxmox API drift and opens a PR automatically (`schema-update.yml`)\n- Real-mode startup probes `GET /api2/json/version` and warns when the loaded schema major.minor doesn't match the connected node version\n\n### Multi-Version Compatibility Hardening\n- **Isolated mock route state per schema version** — `_GENERATED_ROUTE_STATES` keyed by `version_tag`; parallel mock apps for different schemas no longer clobber each other\n- **`sys.modules` fingerprint guard** — `load_model_module()` caches by content hash; re-importing unchanged modules is a no-op\n- **Namespace isolation** — default namespace is `pmx_{version_tag}` so concurrent schema instances keep separate mock stores\n- **CI matrix isolation** — `PROXMOX_MOCK_STATE_NAMESPACE: pmx_${{ matrix.proxmox_schema }}` in `ci.yml` and `publish-testpypi.yml`\n- **PDM seed version** derived from `PROXMOX_MOCK_SCHEMA_VERSION` env var instead of hardcoded `\"9.1.11\"`\n\n### TUI\n- Per-module TUIs with in-app view switching (#57, #58)\n\n### CI / Release Pipeline\n- Release workflow now gates PyPI and Docker Hub publish on non-prerelease — RC releases publish to TestPyPI only\n- Pip CDN propagation verified before service image builds\n\n---\n\n## Docker Hub\n\n```bash\ndocker pull emersonfelipesp/proxmox-sdk:0.0.6        # uvicorn\ndocker pull emersonfelipesp/proxmox-sdk:0.0.6-nginx   # nginx + mkcert\ndocker pull emersonfelipesp/proxmox-sdk:0.0.6-granian # granian + mkcert\ndocker pull emersonfelipesp/proxmox-sdk:latest\n```\n\n## PyPI\n\n```bash\npip install proxmox-sdk==0.0.6\n```\n",
+      "bodyHtml": "<h2 dir=\"auto\">What's new</h2>\n<h3 dir=\"auto\">Proxmox VE 9.2 Support</h3>\n<ul dir=\"auto\">\n<li><strong>675 operations / 449 endpoints</strong> — upgraded from PVE 9.1.11 to PVE 9.2 schema; <code class=\"notranslate\">latest</code> tag now mirrors 9.2</li>\n<li><code class=\"notranslate\">9.1.11</code> schema retained for backward compatibility</li>\n<li>Automated weekly schema-update workflow detects upstream Proxmox API drift and opens a PR automatically (<code class=\"notranslate\">schema-update.yml</code>)</li>\n<li>Real-mode startup probes <code class=\"notranslate\">GET /api2/json/version</code> and warns when the loaded schema major.minor doesn't match the connected node version</li>\n</ul>\n<h3 dir=\"auto\">Multi-Version Compatibility Hardening</h3>\n<ul dir=\"auto\">\n<li><strong>Isolated mock route state per schema version</strong> — <code class=\"notranslate\">_GENERATED_ROUTE_STATES</code> keyed by <code class=\"notranslate\">version_tag</code>; parallel mock apps for different schemas no longer clobber each other</li>\n<li><strong><code class=\"notranslate\">sys.modules</code> fingerprint guard</strong> — <code class=\"notranslate\">load_model_module()</code> caches by content hash; re-importing unchanged modules is a no-op</li>\n<li><strong>Namespace isolation</strong> — default namespace is <code class=\"notranslate\">pmx_{version_tag}</code> so concurrent schema instances keep separate mock stores</li>\n<li><strong>CI matrix isolation</strong> — <code class=\"notranslate\">PROXMOX_MOCK_STATE_NAMESPACE: pmx_${{ matrix.proxmox_schema }}</code> in <code class=\"notranslate\">ci.yml</code> and <code class=\"notranslate\">publish-testpypi.yml</code></li>\n<li><strong>PDM seed version</strong> derived from <code class=\"notranslate\">PROXMOX_MOCK_SCHEMA_VERSION</code> env var instead of hardcoded <code class=\"notranslate\">\"9.1.11\"</code></li>\n</ul>\n<h3 dir=\"auto\">TUI</h3>\n<ul dir=\"auto\">\n<li>Per-module TUIs with in-app view switching (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461432943\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/57\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/issues/57/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/57\">#57</a>, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461469570\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/58\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/58/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/58\">#58</a>)</li>\n</ul>\n<h3 dir=\"auto\">CI / Release Pipeline</h3>\n<ul dir=\"auto\">\n<li>Release workflow now gates PyPI and Docker Hub publish on non-prerelease — RC releases publish to TestPyPI only</li>\n<li>Pip CDN propagation verified before service image builds</li>\n</ul>\n<hr>\n<h2 dir=\"auto\">Docker Hub</h2>\n<div class=\"highlight highlight-source-shell\" dir=\"auto\"><pre class=\"notranslate\">docker pull emersonfelipesp/proxmox-sdk:0.0.6        <span class=\"pl-c\"><span class=\"pl-c\">#</span> uvicorn</span>\ndocker pull emersonfelipesp/proxmox-sdk:0.0.6-nginx   <span class=\"pl-c\"><span class=\"pl-c\">#</span> nginx + mkcert</span>\ndocker pull emersonfelipesp/proxmox-sdk:0.0.6-granian <span class=\"pl-c\"><span class=\"pl-c\">#</span> granian + mkcert</span>\ndocker pull emersonfelipesp/proxmox-sdk:latest</pre></div>\n<h2 dir=\"auto\">PyPI</h2>\n<div class=\"highlight highlight-source-shell\" dir=\"auto\"><pre class=\"notranslate\">pip install proxmox-sdk==0.0.6</pre></div>",
+      "createdAt": "2026-05-21T17:47:08Z",
+      "publishedAt": "2026-05-21T17:48:38Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.6",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.6"
+      }
+    },
+    {
+      "id": 327154489,
+      "nodeId": "RE_kwDORz_GBs4Tf_s5",
+      "tag": "v0.0.6rc1",
+      "name": "v0.0.6rc1 — Release Candidate 1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.6rc1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/327154489",
+      "targetCommitish": "main",
+      "body": "## v0.0.6 Release Candidate 1\n\nThis is a pre-release for validation on TestPyPI. Do not use in production — install from PyPI only after the final `v0.0.6` release is published.\n\n---\n\n## What's new in v0.0.6\n\n### Proxmox VE 9.2 Support\n- **675 operations / 449 endpoints** — upgraded from PVE 9.1.11 to PVE 9.2 schema; `latest` tag now mirrors 9.2\n- `9.1.11` schema retained for backward compatibility\n- Automated weekly schema-update workflow: detects upstream Proxmox API drift and opens a PR automatically (`schema-update.yml`)\n- Real-mode startup now probes `GET /api2/json/version` and warns when the loaded schema major.minor doesn't match the connected node version\n\n### Multi-Version Compatibility Hardening\n- **Isolated mock route state per schema version** — `_GENERATED_ROUTE_STATES` keyed by `version_tag`; parallel mock apps for different schemas no longer clobber each other\n- **`sys.modules` fingerprint guard** — `load_model_module()` caches by content hash; re-importing unchanged modules is a no-op\n- **Namespace isolation** — default namespace is `pmx_{version_tag}` so concurrent schema instances keep separate mock stores\n- **CI matrix isolation** — `PROXMOX_MOCK_STATE_NAMESPACE: pmx_${{ matrix.proxmox_schema }}` added to both `ci.yml` and `publish-testpypi.yml`\n- **PDM seed version** derived from `PROXMOX_MOCK_SCHEMA_VERSION` env var instead of hardcoded `\"9.1.11\"`\n\n### TUI\n- Per-module TUIs with in-app view switching (#57, #58)\n\n### CI / Release Pipeline\n- Release workflow now gates PyPI and Docker Hub publish on non-prerelease — RC releases publish to TestPyPI only\n- Pip CDN propagation verified before service image builds\n\n---\n\n## Installation (TestPyPI — RC only)\n\n```bash\npip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ proxmox-sdk==0.0.6rc1\n```\n\nFor production use, wait for `v0.0.6`.\n",
+      "bodyHtml": "<h2 dir=\"auto\">v0.0.6 Release Candidate 1</h2>\n<p dir=\"auto\">This is a pre-release for validation on TestPyPI. Do not use in production — install from PyPI only after the final <code class=\"notranslate\">v0.0.6</code> release is published.</p>\n<hr>\n<h2 dir=\"auto\">What's new in v0.0.6</h2>\n<h3 dir=\"auto\">Proxmox VE 9.2 Support</h3>\n<ul dir=\"auto\">\n<li><strong>675 operations / 449 endpoints</strong> — upgraded from PVE 9.1.11 to PVE 9.2 schema; <code class=\"notranslate\">latest</code> tag now mirrors 9.2</li>\n<li><code class=\"notranslate\">9.1.11</code> schema retained for backward compatibility</li>\n<li>Automated weekly schema-update workflow: detects upstream Proxmox API drift and opens a PR automatically (<code class=\"notranslate\">schema-update.yml</code>)</li>\n<li>Real-mode startup now probes <code class=\"notranslate\">GET /api2/json/version</code> and warns when the loaded schema major.minor doesn't match the connected node version</li>\n</ul>\n<h3 dir=\"auto\">Multi-Version Compatibility Hardening</h3>\n<ul dir=\"auto\">\n<li><strong>Isolated mock route state per schema version</strong> — <code class=\"notranslate\">_GENERATED_ROUTE_STATES</code> keyed by <code class=\"notranslate\">version_tag</code>; parallel mock apps for different schemas no longer clobber each other</li>\n<li><strong><code class=\"notranslate\">sys.modules</code> fingerprint guard</strong> — <code class=\"notranslate\">load_model_module()</code> caches by content hash; re-importing unchanged modules is a no-op</li>\n<li><strong>Namespace isolation</strong> — default namespace is <code class=\"notranslate\">pmx_{version_tag}</code> so concurrent schema instances keep separate mock stores</li>\n<li><strong>CI matrix isolation</strong> — <code class=\"notranslate\">PROXMOX_MOCK_STATE_NAMESPACE: pmx_${{ matrix.proxmox_schema }}</code> added to both <code class=\"notranslate\">ci.yml</code> and <code class=\"notranslate\">publish-testpypi.yml</code></li>\n<li><strong>PDM seed version</strong> derived from <code class=\"notranslate\">PROXMOX_MOCK_SCHEMA_VERSION</code> env var instead of hardcoded <code class=\"notranslate\">\"9.1.11\"</code></li>\n</ul>\n<h3 dir=\"auto\">TUI</h3>\n<ul dir=\"auto\">\n<li>Per-module TUIs with in-app view switching (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461432943\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/57\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/issues/57/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/57\">#57</a>, <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4461469570\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/58\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/58/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/58\">#58</a>)</li>\n</ul>\n<h3 dir=\"auto\">CI / Release Pipeline</h3>\n<ul dir=\"auto\">\n<li>Release workflow now gates PyPI and Docker Hub publish on non-prerelease — RC releases publish to TestPyPI only</li>\n<li>Pip CDN propagation verified before service image builds</li>\n</ul>\n<hr>\n<h2 dir=\"auto\">Installation (TestPyPI — RC only)</h2>\n<div class=\"highlight highlight-source-shell\" dir=\"auto\"><pre class=\"notranslate\">pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ proxmox-sdk==0.0.6rc1</pre></div>\n<p dir=\"auto\">For production use, wait for <code class=\"notranslate\">v0.0.6</code>.</p>",
+      "createdAt": "2026-05-21T17:40:02Z",
+      "publishedAt": "2026-05-21T17:42:20Z",
+      "prerelease": true,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.6rc1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.6rc1"
+      }
+    },
     {
       "id": 323777178,
       "nodeId": "RE_kwDORz_GBs4TTHKa",
@@ -17,7 +67,7 @@
       "createdAt": "2026-05-16T21:57:08Z",
       "publishedAt": "2026-05-16T21:57:46Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
