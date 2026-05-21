@@ -140,6 +140,48 @@ test("homepage architecture renders centered Three.js connectors", async ({
   await expect(page.locator("#tip-netbox-proxbox")).toHaveCSS("opacity", "1");
 });
 
+test("/posts loads and lists all posts", async ({ page }) => {
+  await page.goto("/posts");
+  await expect(page).toHaveURL("/posts");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Proxmox VE 9.2 support in proxmox-sdk" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "proxmoxer vs proxmox-sdk" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "pynetbox vs netbox-sdk" })).toBeVisible();
+});
+
+test("/proxmox-sdk/proxmox-v9.2-support loads", async ({ page }) => {
+  await page.goto("/proxmox-sdk/proxmox-v9.2-support");
+  await expect(page).toHaveURL("/proxmox-sdk/proxmox-v9.2-support");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What changed in the API surface" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Cluster-wide custom CPU models" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "SDN prefix lists for BGP policy" })).toBeVisible();
+});
+
+test("/proxmox-sdk/proxmoxer-comparison loads", async ({ page }) => {
+  await page.goto("/proxmox-sdk/proxmoxer-comparison");
+  await expect(page).toHaveURL("/proxmox-sdk/proxmoxer-comparison");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "libraries" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "comparison" })).toBeVisible();
+  await expect(page.getByText("proxmoxer").first()).toBeVisible();
+  await expect(page.getByText("proxmox-sdk").first()).toBeVisible();
+});
+
+test("/netbox-sdk/pynetbox-comparison loads", async ({ page }) => {
+  await page.goto("/netbox-sdk/pynetbox-comparison");
+  await expect(page).toHaveURL("/netbox-sdk/pynetbox-comparison");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "libraries" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "comparison" })).toBeVisible();
+  await expect(page.getByText("pynetbox").first()).toBeVisible();
+  await expect(page.getByText("netbox-sdk").first()).toBeVisible();
+});
+
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   page,
 }) => {
