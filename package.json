@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.17.3",
-    "@nmulticloud/nm-three-js": "file:../nm-three-js/nmulticloud-nm-three-js-0.0.1.tgz",
+    "@nmulticloud/nm-three-js": "file:./packages/nmulticloud-nm-three-js-0.0.1.tgz",
     "@prisma/adapter-better-sqlite3": "^7.8.0",
     "@prisma/adapter-libsql": "^7.8.0",
     "@prisma/client": "^7.0.0",
