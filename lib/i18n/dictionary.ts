@@ -326,6 +326,14 @@ export type Dictionary = {
     readOriginal: string;
     fetchError: string;
   };
+  posts: {
+    title: string;
+    command: string;
+    heading: string;
+    article: string;
+    comparison: string;
+    published: string;
+  };
 };
 
 const en: Dictionary = {
@@ -674,6 +682,14 @@ const en: Dictionary = {
     postedBy: "posted by",
     readOriginal: "read original post",
     fetchError: "could not fetch post content",
+  },
+  posts: {
+    title: "posts",
+    command: "ls -la ~/posts/",
+    heading: "articles & comparisons",
+    article: "article",
+    comparison: "comparison",
+    published: "published",
   },
 };
 
@@ -1025,6 +1041,14 @@ const ptBr: Dictionary = {
     postedBy: "por",
     readOriginal: "ver post original",
     fetchError: "não foi possível carregar o conteúdo do post",
+  },
+  posts: {
+    title: "posts",
+    command: "ls -la ~/posts/",
+    heading: "artigos & comparações",
+    article: "artigo",
+    comparison: "comparação",
+    published: "publicado",
   },
 };
 

@@ -16,6 +16,7 @@ Full corpus: [llms-full.txt](https://emersonfelipesp.com/llms-full.txt) — full
 
 - [Homepage](https://emersonfelipesp.com/): Profile, skills, featured projects, and contact.
 - [Architecture diagram](https://emersonfelipesp.com/architecture-diagram): Visual map of how all projects in the Proxbox/NetBox ecosystem connect.
+- [Posts](https://emersonfelipesp.com/posts): Index of all articles and comparison guides published on the site.
 
 ## Projects
 
