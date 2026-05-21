@@ -10,19 +10,27 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { CodeSnippet } from "@/components/project/CodeSnippet";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { useProjectShellActions } from "@/components/nav/project-shell-labels";
-import { getProxmoxerComparison } from "@/lib/i18n/projects";
 import type { ComparisonContent } from "@/content/types";
+import type { Lang } from "@/lib/i18n/languages";
 import type { GitHubReleaseSummary, StaticRepoSummary } from "@/lib/github";
 
 type Props = {
   base: ComparisonContent;
+  comparisonSlug: string;
+  localize: (lang: Lang, base: ComparisonContent) => ComparisonContent;
   releases?: readonly GitHubReleaseSummary[];
   repo?: StaticRepoSummary | null;
 };
 
-export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
+export function ComparisonPageContent({
+  base,
+  comparisonSlug,
+  localize,
+  releases,
+  repo,
+}: Props) {
   const { lang, t } = useLanguage();
-  const p = getProxmoxerComparison(lang, base);
+  const p = localize(lang, base);
   const actions = t.project.actions;
   const shellActions = useProjectShellActions(p.slug);
 
@@ -31,15 +39,15 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
       <SectionNav
         sections={p.sections}
         releases={releases}
-        releasesLabel={actions.releases("proxmox-sdk")}
-        releasesBasePath="/proxmox-sdk/releases"
+        releasesLabel={actions.releases(p.slug)}
+        releasesBasePath={`/${p.slug}/releases`}
         releasesAllLabel={t.project.releases.all}
         stars={
           repo
             ? {
                 count: repo.stars,
                 href: `https://github.com/${p.fullName}/stargazers`,
-                label: actions.stars("proxmox-sdk"),
+                label: actions.stars(p.slug),
               }
             : undefined
         }
@@ -47,10 +55,10 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
       />
       <SideTOC sections={p.sections} />
 
-      <TerminalWindow title={`~/${p.slug}/proxmoxer-comparison`}>
+      <TerminalWindow title={`~/${p.slug}/${comparisonSlug}`}>
         <AsciiBanner art={p.banner} />
         <TypedCommand
-          command="diff proxmoxer proxmox-sdk"
+          command={`diff ${p.libraryA.name} ${p.libraryB.name}`}
           cwd={`~/${p.slug}`}
         />
         <OutputBlock>
@@ -98,7 +106,7 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
       <section className="space-y-3">
         <SectionHeading id="comparison">comparison</SectionHeading>
         <TypedCommand
-          command="./compare.sh proxmoxer proxmox-sdk"
+          command={`./compare.sh ${p.libraryA.name} ${p.libraryB.name}`}
           cwd={`~/${p.slug}`}
         />
         <div className="border border-border overflow-x-auto">
@@ -109,10 +117,10 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
                   aspect
                 </th>
                 <th className="px-4 py-2 text-left text-xs text-accent font-normal w-1/3">
-                  proxmoxer
+                  {p.libraryA.name}
                 </th>
                 <th className="px-4 py-2 text-left text-xs text-accent-2 font-normal w-1/3">
-                  proxmox-sdk
+                  {p.libraryB.name}
                 </th>
               </tr>
             </thead>
@@ -149,7 +157,9 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
         <TypedCommand command="./recommend.sh" cwd={`~/${p.slug}`} />
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="border border-border bg-surface p-5 text-sm">
-            <p className="text-accent font-normal mb-3">use proxmoxer when</p>
+            <p className="text-accent font-normal mb-3">
+              use {p.libraryA.name} when
+            </p>
             <ul className="space-y-1">
               {p.libraryA.bestFor.map((item) => (
                 <li key={item} className="text-xs text-fg/80">
@@ -160,7 +170,9 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
             </ul>
           </div>
           <div className="border border-border bg-surface p-5 text-sm">
-            <p className="text-accent-2 font-normal mb-3">use proxmox-sdk when</p>
+            <p className="text-accent-2 font-normal mb-3">
+              use {p.libraryB.name} when
+            </p>
             <ul className="space-y-1">
               {p.libraryB.bestFor.map((item) => (
                 <li key={item} className="text-xs text-fg/80">
@@ -183,11 +195,11 @@ export function ProxmoxerComparisonContent({ base, releases, repo }: Props) {
         <TypedCommand command="pip install" cwd={`~/${p.slug}`} />
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1">
-            <p className="text-xs text-accent px-1">proxmoxer</p>
+            <p className="text-xs text-accent px-1">{p.libraryA.name}</p>
             <CodeSnippet code={p.install.a} />
           </div>
           <div className="space-y-1">
-            <p className="text-xs text-accent-2 px-1">proxmox-sdk</p>
+            <p className="text-xs text-accent-2 px-1">{p.libraryB.name}</p>
             <CodeSnippet code={p.install.b} />
           </div>
         </div>

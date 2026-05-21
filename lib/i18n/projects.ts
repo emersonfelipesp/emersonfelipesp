@@ -13,6 +13,7 @@ import { NETBOX_SDK_PT_BR } from "./projects/netbox-sdk";
 import { PROXMOX_SDK_PT_BR } from "./projects/proxmox-sdk";
 import { PROXBOX_API_PT_BR } from "./projects/proxbox-api";
 import { PROXMOX_SDK_COMPARISON_PT_BR } from "./projects/proxmox-sdk-comparison";
+import { NETBOX_SDK_COMPARISON_PT_BR } from "./projects/netbox-sdk-comparison";
 
 function localizeSections<T extends SectionLink>(
   sections: readonly T[],
@@ -494,5 +495,21 @@ export function getProxmoxerComparison(
     libraryA: PROXMOX_SDK_COMPARISON_PT_BR.libraryA,
     libraryB: PROXMOX_SDK_COMPARISON_PT_BR.libraryB,
     verdict: PROXMOX_SDK_COMPARISON_PT_BR.verdict,
+  };
+}
+
+export function getNetboxSdkComparison(
+  lang: Lang,
+  base: ComparisonContent,
+): ComparisonContent {
+  if (lang === "en") return base;
+  return {
+    ...base,
+    tagline: NETBOX_SDK_COMPARISON_PT_BR.tagline,
+    sections: NETBOX_SDK_COMPARISON_PT_BR.sections,
+    intro: NETBOX_SDK_COMPARISON_PT_BR.intro,
+    libraryA: NETBOX_SDK_COMPARISON_PT_BR.libraryA,
+    libraryB: NETBOX_SDK_COMPARISON_PT_BR.libraryB,
+    verdict: NETBOX_SDK_COMPARISON_PT_BR.verdict,
   };
 }
