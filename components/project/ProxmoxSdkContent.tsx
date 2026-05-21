@@ -60,6 +60,16 @@ export function ProxmoxSdkContent({
           proxmoxer vs proxmox-sdk — comparison table
         </span>
       </Link>
+      <Link
+        href="/proxmox-sdk/proxmox-v9.2-support"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          Proxmox VE 9.2 support in proxmox-sdk — new API endpoints
+        </span>
+      </Link>
     </div>
   );
 }

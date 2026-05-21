@@ -6,7 +6,7 @@ import { netboxPbs } from "@/content/netbox-pbs";
 import { netboxPdm } from "@/content/netbox-pdm";
 import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
-import type { ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
+import type { ArticleContent, ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
 import { NETBOX_SDK_PT_BR } from "./projects/netbox-sdk";
@@ -14,6 +14,7 @@ import { PROXMOX_SDK_PT_BR } from "./projects/proxmox-sdk";
 import { PROXBOX_API_PT_BR } from "./projects/proxbox-api";
 import { PROXMOX_SDK_COMPARISON_PT_BR } from "./projects/proxmox-sdk-comparison";
 import { NETBOX_SDK_COMPARISON_PT_BR } from "./projects/netbox-sdk-comparison";
+import { PROXMOX_SDK_PVE92_PT_BR } from "./projects/proxmox-sdk-pve92";
 
 function localizeSections<T extends SectionLink>(
   sections: readonly T[],
@@ -511,5 +512,19 @@ export function getNetboxSdkComparison(
     libraryA: NETBOX_SDK_COMPARISON_PT_BR.libraryA,
     libraryB: NETBOX_SDK_COMPARISON_PT_BR.libraryB,
     verdict: NETBOX_SDK_COMPARISON_PT_BR.verdict,
+  };
+}
+
+export function getProxmoxPve92(
+  lang: Lang,
+  base: ArticleContent,
+): ArticleContent {
+  if (lang === "en") return base;
+  return {
+    ...base,
+    tagline: PROXMOX_SDK_PVE92_PT_BR.tagline,
+    sections: PROXMOX_SDK_PVE92_PT_BR.sections,
+    intro: PROXMOX_SDK_PVE92_PT_BR.intro,
+    highlights: PROXMOX_SDK_PVE92_PT_BR.highlights,
   };
 }

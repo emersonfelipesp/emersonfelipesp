@@ -94,6 +94,27 @@ export type ComparisonContent = {
   links: Record<string, string>;
 };
 
+export type ArticleSection = {
+  id: string;
+  heading: string;
+  body: readonly string[];
+  code?: { lang: string; content: string; label?: string };
+};
+
+export type ArticleContent = {
+  slug: string;
+  name: string;
+  fullName: string;
+  palette: Palette;
+  tagline: string;
+  banner: string;
+  published: string;
+  sections: readonly SectionLink[];
+  intro: readonly string[];
+  highlights: readonly ArticleSection[];
+  links: Record<string, string>;
+};
+
 export type DeveloperContent = {
   slug: string;
   name: string;
