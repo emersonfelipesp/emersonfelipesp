@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T00:49:59.650Z",
+  "generated_at": "2026-05-21T06:40:05.869Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 24,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 143,
+      "title": "Error fetching Virtualdisks",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/143",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 140,
       "title": "feat: respect `enabled` field on ProxmoxEndpoint and NetBoxEndpoint",
@@ -633,7 +647,8 @@
         94,
         95,
         97,
-        98
+        98,
+        143
       ]
     }
   ],
