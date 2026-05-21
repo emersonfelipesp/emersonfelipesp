@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T14:32:06.736Z",
+  "generated_at": "2026-05-21T17:22:27.861Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 27,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 150,
+      "title": "feat: implement FastAPI TestClient fixtures and migrate inline client creation",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/150",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 145,
       "title": "Possible to parse the cdrom added to vms",
@@ -705,7 +719,8 @@
         94,
         95,
         97,
-        98
+        98,
+        150
       ]
     }
   ],
