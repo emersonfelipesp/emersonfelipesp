@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { InstallSimulator } from "@/components/project/InstallSimulator";
 import { DemoInitRunner } from "@/components/project/DemoInitRunner";
 import { DemoDevicesListRunner } from "@/components/project/DemoDevicesListRunner";
@@ -86,6 +87,16 @@ export function NetboxSdkContent({
         latestRelease={repo?.latestRelease ?? meta.latestRelease}
       />
       <LinksSection project={p} sections={sections} />
+      <Link
+        href="/netbox-sdk/pynetbox-comparison"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          pynetbox vs netbox-sdk — comparison table
+        </span>
+      </Link>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   FeaturesSection,
   InstallSection,
@@ -49,6 +50,16 @@ export function ProxmoxSdkContent({
       <InstallSection project={p} sections={sections} />
       <RepoSection project={p} sections={sections} repo={repo} />
       <LinksSection project={p} sections={sections} />
+      <Link
+        href="/proxmox-sdk/proxmoxer-comparison"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          proxmoxer vs proxmox-sdk — comparison table
+        </span>
+      </Link>
     </div>
   );
 }
