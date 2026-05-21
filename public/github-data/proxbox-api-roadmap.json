@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T14:17:09.605Z",
+  "generated_at": "2026-05-21T14:28:27.193Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 26,
+    "open": 4,
+    "closed": 27,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 145,
@@ -58,22 +58,22 @@
     {
       "number": 143,
       "title": "Error fetching Virtualdisks",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/143",
-      "closedAt": null,
+      "closedAt": "2026-05-21T14:25:41Z",
       "labels": [
         {
           "name": "bug",
           "color": "d73a4a"
         },
         {
-          "name": "under review",
-          "color": "fbca04"
+          "name": "accepted",
+          "color": "0e8a16"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -668,6 +668,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        143,
         144,
         145,
         140,
@@ -704,8 +705,7 @@
         94,
         95,
         97,
-        98,
-        143
+        98
       ]
     }
   ],
@@ -713,7 +713,7 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 17
+      "count": 18
     },
     {
       "name": "bug",
@@ -723,7 +723,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 4
+      "count": 3
     },
     {
       "name": "enhancement",
