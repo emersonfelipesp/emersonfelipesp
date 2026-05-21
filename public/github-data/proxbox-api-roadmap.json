@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T18:42:36.747Z",
+  "generated_at": "2026-05-21T18:57:10.266Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 28,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 152,
+      "title": "feat: Proxmox VE 9.2 compatibility — bump proxmox-sdk to v0.0.6",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/152",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 150,
       "title": "feat: implement FastAPI TestClient fixtures and migrate inline client creation",
@@ -720,7 +739,8 @@
         94,
         95,
         97,
-        98
+        98,
+        152
       ]
     }
   ],
@@ -736,14 +756,14 @@
       "count": 11
     },
     {
-      "name": "under review",
-      "color": "fbca04",
+      "name": "enhancement",
+      "color": "a2eeef",
       "count": 3
     },
     {
-      "name": "enhancement",
-      "color": "a2eeef",
-      "count": 2
+      "name": "under review",
+      "color": "fbca04",
+      "count": 3
     }
   ],
   "milestones": [
