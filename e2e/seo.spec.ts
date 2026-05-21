@@ -82,6 +82,9 @@ test("XML sitemap includes canonical public pages", async ({ request }) => {
   const res = await request.get("/sitemap.xml");
   expect(res.status()).toBe(200);
   const body = await res.text();
+  expect(body).toContain(
+    "<loc>https://emersonfelipesp.com/architecture-diagram</loc>",
+  );
   expect(body).toContain("<loc>https://emersonfelipesp.com/netbox-sdk</loc>");
   expect(body).toContain(
     "<loc>https://emersonfelipesp.com/netbox-proxbox/releases/v0.0.14</loc>",
