@@ -10,14 +10,27 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { CodeSnippet } from "@/components/project/CodeSnippet";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { useProjectShellActions } from "@/components/nav/project-shell-labels";
+import {
+  getProxmoxerComparison,
+  getNetboxSdkComparison,
+} from "@/lib/i18n/projects";
 import type { ComparisonContent } from "@/content/types";
 import type { Lang } from "@/lib/i18n/languages";
 import type { GitHubReleaseSummary, StaticRepoSummary } from "@/lib/github";
 
+function localizeComparison(
+  slug: string,
+  lang: Lang,
+  base: ComparisonContent,
+): ComparisonContent {
+  if (slug === "proxmoxer-comparison") return getProxmoxerComparison(lang, base);
+  if (slug === "pynetbox-comparison") return getNetboxSdkComparison(lang, base);
+  return base;
+}
+
 type Props = {
   base: ComparisonContent;
   comparisonSlug: string;
-  localize: (lang: Lang, base: ComparisonContent) => ComparisonContent;
   releases?: readonly GitHubReleaseSummary[];
   repo?: StaticRepoSummary | null;
 };
@@ -25,12 +38,11 @@ type Props = {
 export function ComparisonPageContent({
   base,
   comparisonSlug,
-  localize,
   releases,
   repo,
 }: Props) {
   const { lang, t } = useLanguage();
-  const p = localize(lang, base);
+  const p = localizeComparison(comparisonSlug, lang, base);
   const actions = t.project.actions;
   const shellActions = useProjectShellActions(p.slug);
 

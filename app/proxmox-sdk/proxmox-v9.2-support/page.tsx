@@ -3,7 +3,6 @@ import { proxmoxPve92 as p } from "@/content/proxmox-sdk-pve92";
 import { loadProjectShellData } from "@/lib/project-shell";
 import { incrementView } from "@/lib/views";
 import { ProxmoxV92ArticleContent } from "@/components/project/ProxmoxV92ArticleContent";
-import { getProxmoxPve92 } from "@/lib/i18n/projects";
 
 export const metadata: Metadata = {
   title: "Proxmox VE 9.2 support in proxmox-sdk — new API endpoints",
@@ -20,7 +19,6 @@ export default async function Page(): Promise<React.JSX.Element> {
   return (
     <ProxmoxV92ArticleContent
       base={p}
-      localize={getProxmoxPve92}
       releases={shell.releases}
       repo={shell.repo}
     />

@@ -10,25 +10,23 @@ import { SectionHeading } from "@/components/project/SectionHeading";
 import { CodeSnippet } from "@/components/project/CodeSnippet";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { useProjectShellActions } from "@/components/nav/project-shell-labels";
+import { getProxmoxPve92 } from "@/lib/i18n/projects";
 import type { ArticleContent } from "@/content/types";
-import type { Lang } from "@/lib/i18n/languages";
 import type { GitHubReleaseSummary, StaticRepoSummary } from "@/lib/github";
 
 type Props = {
   base: ArticleContent;
-  localize: (lang: Lang, base: ArticleContent) => ArticleContent;
   releases?: readonly GitHubReleaseSummary[];
   repo?: StaticRepoSummary | null;
 };
 
 export function ProxmoxV92ArticleContent({
   base,
-  localize,
   releases,
   repo,
 }: Props): React.JSX.Element {
   const { lang, t } = useLanguage();
-  const p = localize(lang, base);
+  const p = getProxmoxPve92(lang, base);
   const actions = t.project.actions;
   const shellActions = useProjectShellActions(p.slug);
   const cwd = `~/${p.slug}/proxmox-v9.2-support`;

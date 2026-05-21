@@ -3,7 +3,6 @@ import { proxmoxerComparison as p } from "@/content/proxmox-sdk-proxmoxer-compar
 import { loadProjectShellData } from "@/lib/project-shell";
 import { incrementView } from "@/lib/views";
 import { ComparisonPageContent } from "@/components/project/ComparisonPageContent";
-import { getProxmoxerComparison } from "@/lib/i18n/projects";
 
 export const metadata: Metadata = {
   title: "proxmoxer vs proxmox-sdk — Python Proxmox library comparison",
@@ -21,7 +20,6 @@ export default async function Page(): Promise<React.JSX.Element> {
     <ComparisonPageContent
       base={p}
       comparisonSlug="proxmoxer-comparison"
-      localize={getProxmoxerComparison}
       releases={shell.releases}
       repo={shell.repo}
     />
