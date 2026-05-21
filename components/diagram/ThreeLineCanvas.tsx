@@ -2,20 +2,18 @@
 
 import {
   createContext,
-  createElement,
   type ReactNode,
+  use,
   useEffect,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
-  use,
 } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
-import { Line2 } from "three/examples/jsm/lines/Line2.js";
-import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
-import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
+import { NmArrow, NmDashedLine, NmTube } from "@nmulticloud/nm-three-js";
+
+// ─── Public types ──────────────────────────────────────────────────────────────
 
 export type DiagramPoint = readonly [number, number];
 
@@ -32,12 +30,14 @@ export type DiagramTriangle = {
   opacity?: number;
 };
 
-type DiagramPaint = {
-  color: THREE.Color;
+// ─── Internal types ───────────────────────────────────────────────────────────
+
+type DiagramColor = {
+  hex: number;
   alpha: number;
 };
 
-type DiagramSceneContextValue = DiagramPaint & {
+type DiagramSceneContextValue = DiagramColor & {
   strokeWidth: number;
 };
 
@@ -55,11 +55,11 @@ type ThreeLineCanvasProps = Omit<ThreeDiagramCanvasProps, "children"> & {
   triangles?: readonly DiagramTriangle[];
 };
 
-const EMPTY_TRIANGLES: readonly DiagramTriangle[] = [];
+// ─── Context (keeps ThreeDiagramCanvas + children composition working) ────────
 
 const DiagramSceneContext = createContext<DiagramSceneContextValue | null>(null);
 
-function useDiagramScene() {
+function useDiagramScene(): DiagramSceneContextValue {
   const value = use(DiagramSceneContext);
   if (!value) {
     throw new Error("Three diagram primitives must be rendered inside ThreeDiagramCanvas.");
@@ -67,7 +67,9 @@ function useDiagramScene() {
   return value;
 }
 
-function parseComputedColor(style: string): DiagramPaint {
+// ─── CSS color detection ──────────────────────────────────────────────────────
+
+function parseComputedColor(style: string): DiagramColor {
   const rgba = style.match(/rgba?\(([^)]+)\)/i);
   if (rgba) {
     const raw = rgba[1].replace("/", " ");
@@ -81,8 +83,11 @@ function parseComputedColor(style: string): DiagramPaint {
       return Number.parseFloat(part);
     });
     if (values.every((v) => Number.isFinite(v))) {
+      const r = Math.round(values[0]);
+      const g = Math.round(values[1]);
+      const b = Math.round(values[2]);
       return {
-        color: new THREE.Color(values[0] / 255, values[1] / 255, values[2] / 255),
+        hex: (r << 16) | (g << 8) | b,
         alpha: channels[3] ? Number.parseFloat(channels[3]) : 1,
       };
     }
@@ -94,8 +99,16 @@ function parseComputedColor(style: string): DiagramPaint {
   } catch {
     color.setRGB(1, 1, 1);
   }
-  return { color, alpha: 1 };
+  return { hex: color.getHex(), alpha: 1 };
 }
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function toVec3(pts: readonly DiagramPoint[]): THREE.Vector3[] {
+  return pts.map(([x, y]) => new THREE.Vector3(x, y, 0));
+}
+
+const EMPTY_TRIANGLES: readonly DiagramTriangle[] = [];
 
 function pointKey([x, y]: DiagramPoint): string {
   return `${x}:${y}`;
@@ -112,104 +125,55 @@ function pathKey(path: DiagramPath): string {
 
 function triangleKey(triangle: DiagramTriangle): string {
   const id = triangle.id ? `${triangle.id}:` : "";
-  return [
-    `${id}${triangle.opacity ?? 1}`,
-    triangle.points.map(pointKey).join("|"),
-  ].join(":");
+  return [`${id}${triangle.opacity ?? 1}`, triangle.points.map(pointKey).join("|")].join(":");
 }
 
-export function ThreeDiagramPath({
-  points,
-  dashed = false,
-  opacity = 1,
-}: DiagramPath) {
-  const { alpha, color, strokeWidth } = useDiagramScene();
-  const { size } = useThree();
+// ─── Scene primitives (use nm-three-js components) ────────────────────────────
 
-  const geometry = useMemo(
-    () => {
-      const next = new LineGeometry();
-      next.setPositions(points.flatMap(([x, y]) => [x, y, 0]));
-      return next;
-    },
-    [points],
-  );
-  const material = useMemo(
-    () =>
-      new LineMaterial({
-        color,
-        dashed,
-        dashSize: 2,
-        depthTest: false,
-        depthWrite: false,
-        gapSize: 1.5,
-        linewidth: strokeWidth,
-        opacity: alpha * opacity,
-        transparent: true,
-        worldUnits: false,
-      }),
-    [alpha, color, dashed, opacity, strokeWidth],
-  );
-  const line = useMemo(() => new Line2(geometry, material), [geometry, material]);
+export function ThreeDiagramPath({ points, dashed = false, opacity = 1 }: DiagramPath) {
+  const { hex, alpha } = useDiagramScene();
+  const vec3Points = useMemo(() => toVec3(points), [points]);
 
-  useLayoutEffect(() => {
-    material.resolution.set(size.width, size.height);
-  }, [material, size.height, size.width]);
-
-  useLayoutEffect(() => {
-    if (dashed) line.computeLineDistances();
-  }, [dashed, line]);
-
-  useEffect(
-    () => () => {
-      geometry.dispose();
-      material.dispose();
-    },
-    [geometry, material],
-  );
-
-  return createElement("primitive", { object: line });
-}
-
-export function ThreeDiagramTriangle({
-  points,
-  opacity = 1,
-}: DiagramTriangle) {
-  const { alpha, color } = useDiagramScene();
-
-  const geometry = useMemo(() => {
-    const g = new THREE.BufferGeometry();
-    g.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(
-        points.flatMap(([x, y]) => [x, y, 0]),
-        3,
-      ),
+  if (dashed) {
+    return (
+      <NmDashedLine
+        points={vec3Points}
+        color={hex}
+        dashSize={2}
+        gapSize={1.5}
+      />
     );
-    g.setIndex([0, 1, 2]);
-    return g;
-  }, [points]);
-  const material = useMemo(
-    () =>
-      new THREE.MeshBasicMaterial({
-        color,
-        opacity: alpha * opacity,
-        side: THREE.DoubleSide,
-        transparent: true,
-      }),
-    [alpha, color, opacity],
-  );
+  }
 
-  useEffect(
-    () => () => {
-      geometry.dispose();
-      material.dispose();
-    },
-    [geometry, material],
+  return (
+    <NmTube
+      points={vec3Points}
+      color={hex}
+      radius={0.7}
+      opacity={alpha * opacity}
+    />
   );
-
-  return createElement("mesh", { geometry, material });
 }
+
+export function ThreeDiagramTriangle({ points }: DiagramTriangle) {
+  const { hex } = useDiagramScene();
+
+  // Compute arrowhead angle from base midpoint → tip.
+  // Camera is Y-down (SVG coords): +Y is downward on screen.
+  // NmArrow's cone apex is at +Y when angleRad=0.
+  // atan2(-dx, dy) rotates the apex to align with the direction (dx, dy)
+  // in Y-down world space.
+  const tip = points[0];
+  const baseMidX = (points[1][0] + points[2][0]) / 2;
+  const baseMidY = (points[1][1] + points[2][1]) / 2;
+  const dx = tip[0] - baseMidX;
+  const dy = tip[1] - baseMidY;
+  const angleRad = Math.atan2(-dx, dy);
+
+  return <NmArrow tip={[tip[0], tip[1]]} angleRad={angleRad} color={hex} size={8} />;
+}
+
+// ─── Canvas wrapper ───────────────────────────────────────────────────────────
 
 export function ThreeDiagramCanvas({
   viewBox,
@@ -220,8 +184,8 @@ export function ThreeDiagramCanvas({
   testId,
 }: ThreeDiagramCanvasProps) {
   const hostRef = useRef<HTMLDivElement | null>(null);
-  const [paint, setPaint] = useState<DiagramPaint>(() => ({
-    color: new THREE.Color(1, 1, 1),
+  const [paint, setPaint] = useState<DiagramColor>(() => ({
+    hex: 0xd1d5db,
     alpha: 1,
   }));
 
@@ -233,14 +197,7 @@ export function ThreeDiagramCanvas({
     function readPaint() {
       const next = parseComputedColor(getComputedStyle(hostEl).color);
       setPaint((current) => {
-        if (
-          current.alpha === next.alpha &&
-          current.color.r === next.color.r &&
-          current.color.g === next.color.g &&
-          current.color.b === next.color.b
-        ) {
-          return current;
-        }
+        if (current.alpha === next.alpha && current.hex === next.hex) return current;
         return next;
       });
     }
@@ -255,7 +212,7 @@ export function ThreeDiagramCanvas({
   }, []);
 
   const [width, height] = viewBox;
-  const contextValue = useMemo(
+  const contextValue = useMemo<DiagramSceneContextValue>(
     () => ({ ...paint, strokeWidth }),
     [paint, strokeWidth],
   );
@@ -298,6 +255,8 @@ export function ThreeDiagramCanvas({
     </div>
   );
 }
+
+// ─── Convenience composite ────────────────────────────────────────────────────
 
 export function ThreeLineCanvas({
   viewBox,

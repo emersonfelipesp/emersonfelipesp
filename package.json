@@ -22,9 +22,11 @@
   },
   "dependencies": {
     "@libsql/client": "^0.17.3",
+    "@nmulticloud/nm-three-js": "file:../nm-three-js/nmulticloud-nm-three-js-0.0.1.tgz",
     "@prisma/adapter-better-sqlite3": "^7.8.0",
     "@prisma/adapter-libsql": "^7.8.0",
     "@prisma/client": "^7.0.0",
+    "@react-three/drei": "^9.0.0",
     "@react-three/fiber": "^9.6.1",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
