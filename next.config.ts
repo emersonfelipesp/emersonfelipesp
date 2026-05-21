@@ -12,6 +12,20 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   htmlLimitedBots: /.*/i,
   allowedDevOrigins: ["10.0.30.207"],
+  async headers() {
+    return [
+      {
+        source: "/llms.txt",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value:
+              "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     const project =
       ":project(netbox-proxbox|proxbox-api|netbox-sdk|proxmox-sdk)";

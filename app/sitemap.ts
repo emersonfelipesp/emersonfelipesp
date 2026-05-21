@@ -119,6 +119,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+    {
+      url: `${BASE}/architecture-diagram`,
+      lastModified: newestDate(modifiedDates),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${BASE}/proxmox-sdk/proxmoxer-comparison`,
+      lastModified: new Date("2026-05-21"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE}/netbox-sdk/pynetbox-comparison`,
+      lastModified: new Date("2026-05-21"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE}/proxmox-sdk/proxmox-v9.2-support`,
+      lastModified: new Date("2026-05-21"),
+      changeFrequency: "monthly",
+      priority: 0.72,
+    },
     ...routes,
   ];
 }

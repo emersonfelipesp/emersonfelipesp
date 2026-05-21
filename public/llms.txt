@@ -1,0 +1,92 @@
+# emersonfelipesp.com
+
+> Personal website and project documentation hub for Emerson Felipe — NetDevOps, infrastructure automation, NetBox plugins, and Python SDKs for Proxmox and NetBox.
+
+This site documents open-source projects built around NetBox and Proxmox VE: plugins, SDKs, CLI tools, and TUI applications for network and infrastructure automation.
+
+## Crawler directives
+
+Markdown: [raw](https://emersonfelipesp.com/md) — raw Markdown route for every page (add `/md` prefix or `?content=markdown` suffix); served with `Content-Type: text/markdown`.
+Markdown: [themed](https://emersonfelipesp.com/?content=markdown) — same content, themed Markdown alternate.
+Sitemap: [XML](https://emersonfelipesp.com/sitemap.xml) — machine-readable URL index.
+Sitemap: [Markdown](https://emersonfelipesp.com/sitemap.md) — human/LLM-readable Markdown sitemap.
+Full corpus: [llms-full.txt](https://emersonfelipesp.com/llms-full.txt) — full Markdown content corpus for LLM ingestion.
+
+## Core pages
+
+- [Homepage](https://emersonfelipesp.com/): Profile, skills, featured projects, and contact.
+- [Architecture diagram](https://emersonfelipesp.com/architecture-diagram): Visual map of how all projects in the Proxbox/NetBox ecosystem connect.
+
+## Projects
+
+### netbox-proxbox
+
+NetBox plugin that synchronizes Proxmox VE infrastructure (clusters, nodes, VMs, containers, storage, snapshots, backups) into NetBox via a FastAPI backend called proxbox-api. Uses SSE streaming for live progress.
+
+- [Showcase](https://emersonfelipesp.com/netbox-proxbox): Overview, features, installation steps, configuration, and screenshots.
+- [Developer guide](https://emersonfelipesp.com/netbox-proxbox/developer): Architecture, integrations, contributing, CI workflows, and E2E tests.
+- [Releases](https://emersonfelipesp.com/netbox-proxbox/releases): Local release index from committed GitHub snapshots.
+- [Community](https://emersonfelipesp.com/netbox-proxbox/community): Community resources, links, and support channels.
+- [Roadmap](https://emersonfelipesp.com/netbox-proxbox/roadmap): Feature roadmap and milestone tracking.
+
+### proxbox-api
+
+FastAPI backend service that bridges Proxmox VE and NetBox for the Proxbox suite. Handles discovery, sync orchestration, SSE/WebSocket progress streaming, HA reads, and VM operational verbs.
+
+- [Showcase](https://emersonfelipesp.com/proxbox-api): Overview, features, API surface, and installation.
+- [Developer guide](https://emersonfelipesp.com/proxbox-api/developer): Route map, architecture, contributing, and CI.
+- [Releases](https://emersonfelipesp.com/proxbox-api/releases): Local release index.
+- [Roadmap](https://emersonfelipesp.com/proxbox-api/roadmap): Planned features and milestones.
+
+### netbox-sdk
+
+Modern NetBox toolkit: an async Python SDK (`netbox_sdk`), a Typer CLI (`nbx`), and a Textual TUI — all sharing one runtime. Typed API with Pydantic models, offline mock server, OpenAPI-driven CLI, bundled NetBox specs for 4.3–4.6.
+
+- [Showcase](https://emersonfelipesp.com/netbox-sdk): Overview, features, install, and interactive demo.
+- [Developer guide](https://emersonfelipesp.com/netbox-sdk/developer): Architecture, contributing, CI, and E2E.
+- [Releases](https://emersonfelipesp.com/netbox-sdk/releases): Local release index.
+- [Roadmap](https://emersonfelipesp.com/netbox-sdk/roadmap): Planned features.
+- [pynetbox vs netbox-sdk comparison](https://emersonfelipesp.com/netbox-sdk/pynetbox-comparison): Honest side-by-side comparison of pynetbox (the official sync client, 2017) and netbox-sdk (async, Pydantic, CLI/TUI, mock server, 2024). Includes a 20-row feature table and when-to-choose guidance.
+
+### proxmox-sdk
+
+Schema-driven FastAPI SDK for the Proxmox VE API. Generates its endpoint surface directly from the Proxmox API Viewer OpenAPI schema. Ships 675 operations for PVE 9.2 (9.1.11 retained), a dual mock/real FastAPI server, CLI (`pbx`), and Textual TUI.
+
+- [Showcase](https://emersonfelipesp.com/proxmox-sdk): Overview, features, install, and Docker tags.
+- [Developer guide](https://emersonfelipesp.com/proxmox-sdk/developer): Codegen pipeline, architecture, contributing, and CI.
+- [Releases](https://emersonfelipesp.com/proxmox-sdk/releases): Local release index.
+- [Roadmap](https://emersonfelipesp.com/proxmox-sdk/roadmap): Planned features.
+- [proxmoxer vs proxmox-sdk comparison](https://emersonfelipesp.com/proxmox-sdk/proxmoxer-comparison): Honest side-by-side comparison of proxmoxer (the community-standard Proxmox Python client, 2012) and proxmox-sdk (generated, FastAPI-backed, mock/real, CLI/TUI, 2024). Includes a 28-row feature table and when-to-choose guidance.
+- [Proxmox VE 9.2 support](https://emersonfelipesp.com/proxmox-sdk/proxmox-v9.2-support): Article covering the 13 new API paths in PVE 9.2 (custom CPU models, SDN prefix lists, SDN route maps, storage identity) with proxmox-sdk Python code examples for each. Also covers CRS dynamic load balancing, HA Disarm/Arm, QEMU 11.0, Ceph Tentacle 20.2.1, and LXC 7.0.
+
+### netbox-pbs
+
+NetBox plugin for Proxmox Backup Server. Tracks datastores, backup jobs, verification schedules, and retention policies inside NetBox.
+
+- [Showcase](https://emersonfelipesp.com/netbox-pbs): Overview and features.
+- [Releases](https://emersonfelipesp.com/netbox-pbs/releases): Local release index.
+
+### netbox-pdm
+
+NetBox plugin for Proxmox Datacenter Manager. Models PDM nodes, remote clusters, subscriber views, and SDN topology inside NetBox.
+
+- [Showcase](https://emersonfelipesp.com/netbox-pdm): Overview and features.
+- [Releases](https://emersonfelipesp.com/netbox-pdm/releases): Local release index.
+
+### netbox-ceph
+
+NetBox plugin for Ceph. Maps clusters, OSDs, storage pools, monitors, and CRUSH topology into NetBox DCIM.
+
+- [Showcase](https://emersonfelipesp.com/netbox-ceph): Overview and features.
+- [Releases](https://emersonfelipesp.com/netbox-ceph/releases): Local release index.
+
+### netbox-packer
+
+NetBox plugin for HashiCorp Packer. Links image builds, template versions, and artifact metadata to NetBox virtual machine records.
+
+- [Showcase](https://emersonfelipesp.com/netbox-packer): Overview and features.
+- [Releases](https://emersonfelipesp.com/netbox-packer/releases): Local release index.
+
+## Other
+
+- [Sponsor](https://emersonfelipesp.com/sponsor): GitHub Sponsors page and support options.
