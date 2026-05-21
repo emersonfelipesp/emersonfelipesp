@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T18:28:42.336Z",
+  "generated_at": "2026-05-21T18:38:05.968Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 27,
+    "open": 4,
+    "closed": 28,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 150,
       "title": "feat: implement FastAPI TestClient fixtures and migrate inline client creation",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/150",
-      "closedAt": null,
+      "closedAt": "2026-05-21T18:36:10Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -682,6 +682,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        150,
         143,
         144,
         145,
@@ -719,8 +720,7 @@
         94,
         95,
         97,
-        98,
-        150
+        98
       ]
     }
   ],
