@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-21T18:56:27.559Z",
+  "syncedAt": "2026-05-21T20:24:32.865Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 327219940,
+      "nodeId": "RE_kwDORz_GBs4TgPrk",
+      "tag": "v0.0.6.post1",
+      "name": "v0.0.6.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.6.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/327219940",
+      "targetCommitish": "main",
+      "body": "## What's new in 0.0.6.post1\n\nPost-release adding FastAPI TestClient HTTP smoke tests for the PVE mock and full server entry points, validated via the 0.0.6.post1.dev1 pre-release across Python 3.11–3.13 and schema versions latest / 9.1.11 / 9.2.\n\n### Changes\n\n- **tests/mock/test_routes.py** — TestClient smoke tests for `create_mock_app()` (PVE standalone mock): root, health, version, nodes list, node detail, 404 for unknown paths, user create with state persistence\n- **tests/mock/test_app.py** — TestClient smoke tests for `create_app()` in mock mode: root, health (with `TESTING=1`), version, mode, versions list, mock sub-router, API nodes, health blocked without `TESTING=1`\n- **CI** — added `proxmox_sdk.pdm_mock_main` to the `syntax` job's import smoke checks\n\n### Validation\n\n- TestPyPI install validated on Python 3.11, 3.12, 3.13 × schema latest / 9.1.11 / 9.2",
+      "bodyHtml": "<h2 dir=\"auto\">What's new in 0.0.6.post1</h2>\n<p dir=\"auto\">Post-release adding FastAPI TestClient HTTP smoke tests for the PVE mock and full server entry points, validated via the 0.0.6.post1.dev1 pre-release across Python 3.11–3.13 and schema versions latest / 9.1.11 / 9.2.</p>\n<h3 dir=\"auto\">Changes</h3>\n<ul dir=\"auto\">\n<li><strong>tests/mock/test_routes.py</strong> — TestClient smoke tests for <code class=\"notranslate\">create_mock_app()</code> (PVE standalone mock): root, health, version, nodes list, node detail, 404 for unknown paths, user create with state persistence</li>\n<li><strong>tests/mock/test_app.py</strong> — TestClient smoke tests for <code class=\"notranslate\">create_app()</code> in mock mode: root, health (with <code class=\"notranslate\">TESTING=1</code>), version, mode, versions list, mock sub-router, API nodes, health blocked without <code class=\"notranslate\">TESTING=1</code></li>\n<li><strong>CI</strong> — added <code class=\"notranslate\">proxmox_sdk.pdm_mock_main</code> to the <code class=\"notranslate\">syntax</code> job's import smoke checks</li>\n</ul>\n<h3 dir=\"auto\">Validation</h3>\n<ul dir=\"auto\">\n<li>TestPyPI install validated on Python 3.11, 3.12, 3.13 × schema latest / 9.1.11 / 9.2</li>\n</ul>",
+      "createdAt": "2026-05-21T19:22:05Z",
+      "publishedAt": "2026-05-21T19:22:17Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.6.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.6.post1"
+      }
+    },
     {
       "id": 327159764,
       "nodeId": "RE_kwDORz_GBs4TgA_U",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-21T17:47:08Z",
       "publishedAt": "2026-05-21T17:48:38Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
@@ -52,6 +77,31 @@
       "sourceArchives": {
         "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.6rc1",
         "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.6rc1"
+      }
+    },
+    {
+      "id": 327215717,
+      "nodeId": "RE_kwDORz_GBs4TgOpl",
+      "tag": "v0.0.6.post1.dev1",
+      "name": "v0.0.6.post1.dev1 — TestPyPI Validation",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.6.post1.dev1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/327215717",
+      "targetCommitish": "main",
+      "body": "## TestPyPI validation release for v0.0.6.post1\n\nThis developmental pre-release validates the publish pipeline before the final v0.0.6.post1 release.\n\n### Changes in 0.0.6.post1\n- FastAPI TestClient HTTP smoke tests for PVE mock server (`create_mock_app`) and full server (`create_app`) in mock mode\n- CI: added `proxmox_sdk.pdm_mock_main` to import smoke checks\n- All CI matrix jobs (lint, syntax, test/latest, test/9.1.11, test/9.2) green\n\n### Validation scope\n- Publishes to TestPyPI and validates install across Python 3.11–3.13\n- Does **not** publish to PyPI or Docker Hub (prerelease guard active)",
+      "bodyHtml": "<h2 dir=\"auto\">TestPyPI validation release for v0.0.6.post1</h2>\n<p dir=\"auto\">This developmental pre-release validates the publish pipeline before the final v0.0.6.post1 release.</p>\n<h3 dir=\"auto\">Changes in 0.0.6.post1</h3>\n<ul dir=\"auto\">\n<li>FastAPI TestClient HTTP smoke tests for PVE mock server (<code class=\"notranslate\">create_mock_app</code>) and full server (<code class=\"notranslate\">create_app</code>) in mock mode</li>\n<li>CI: added <code class=\"notranslate\">proxmox_sdk.pdm_mock_main</code> to import smoke checks</li>\n<li>All CI matrix jobs (lint, syntax, test/latest, test/9.1.11, test/9.2) green</li>\n</ul>\n<h3 dir=\"auto\">Validation scope</h3>\n<ul dir=\"auto\">\n<li>Publishes to TestPyPI and validates install across Python 3.11–3.13</li>\n<li>Does <strong>not</strong> publish to PyPI or Docker Hub (prerelease guard active)</li>\n</ul>",
+      "createdAt": "2026-05-21T19:17:51Z",
+      "publishedAt": "2026-05-21T19:18:03Z",
+      "prerelease": true,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.6.post1.dev1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.6.post1.dev1"
       }
     },
     {
