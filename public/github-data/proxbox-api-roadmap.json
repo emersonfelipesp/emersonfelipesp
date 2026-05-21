@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T14:02:33.745Z",
+  "generated_at": "2026-05-21T14:17:09.605Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 25,
+    "open": 5,
+    "closed": 26,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 145,
@@ -35,9 +35,9 @@
     {
       "number": 144,
       "title": "Error getting vmconfig",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/144",
-      "closedAt": null,
+      "closedAt": "2026-05-21T14:10:45Z",
       "labels": [
         {
           "name": "bug",
@@ -49,8 +49,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -668,6 +668,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        144,
         145,
         140,
         130,
@@ -704,8 +705,7 @@
         95,
         97,
         98,
-        143,
-        144
+        143
       ]
     }
   ],
