@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-21T13:46:40.761Z",
+  "generated_at": "2026-05-21T14:02:33.745Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
-    "closed": 24,
+    "open": 6,
+    "closed": 25,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 145,
       "title": "Possible to parse the cdrom added to vms",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/145",
-      "closedAt": null,
+      "closedAt": "2026-05-21T13:56:20Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -668,6 +668,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        145,
         140,
         130,
         131,
@@ -704,8 +705,7 @@
         97,
         98,
         143,
-        144,
-        145
+        144
       ]
     }
   ],
