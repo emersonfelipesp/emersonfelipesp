@@ -162,24 +162,26 @@ test("/proxmox-sdk/proxmox-v9.2-support loads", async ({ page }) => {
 
 test("/proxmox-sdk/proxmoxer-comparison loads", async ({ page }) => {
   await page.goto("/proxmox-sdk/proxmoxer-comparison");
+  const main = page.locator("main");
   await expect(page).toHaveURL("/proxmox-sdk/proxmoxer-comparison");
-  await expect(page.locator("main")).toBeVisible();
+  await expect(main).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "libraries" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "comparison" })).toBeVisible();
-  await expect(page.getByText("proxmoxer").first()).toBeVisible();
-  await expect(page.getByText("proxmox-sdk").first()).toBeVisible();
+  await expect(main.getByText("proxmoxer").first()).toBeVisible();
+  await expect(main.getByText("proxmox-sdk").first()).toBeVisible();
 });
 
 test("/netbox-sdk/pynetbox-comparison loads", async ({ page }) => {
   await page.goto("/netbox-sdk/pynetbox-comparison");
+  const main = page.locator("main");
   await expect(page).toHaveURL("/netbox-sdk/pynetbox-comparison");
-  await expect(page.locator("main")).toBeVisible();
+  await expect(main).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "libraries" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "comparison" })).toBeVisible();
-  await expect(page.getByText("pynetbox").first()).toBeVisible();
-  await expect(page.getByText("netbox-sdk").first()).toBeVisible();
+  await expect(main.getByText("pynetbox").first()).toBeVisible();
+  await expect(main.getByText("netbox-sdk").first()).toBeVisible();
 });
 
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
