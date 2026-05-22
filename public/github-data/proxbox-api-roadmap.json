@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T05:21:11.647Z",
+  "generated_at": "2026-05-22T05:26:10.087Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 29,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 158,
+      "title": "Error when syncing virtualmachines",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/158",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 157,
       "title": "Error when syncing virtual-disks",
@@ -755,7 +769,8 @@
         95,
         97,
         98,
-        157
+        157,
+        158
       ]
     }
   ],
