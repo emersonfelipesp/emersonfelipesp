@@ -124,7 +124,7 @@ function PluginToApiConnector({
 }) {
   return (
     <div
-      className="flex w-full max-w-4xl flex-col items-center"
+      className="flex w-full flex-col items-center"
       data-testid="proxbox-api-connector-plugin-funnel"
     >
       <ThreeLineCanvas
@@ -239,9 +239,9 @@ export function IntegrationsArchitecture() {
         <span className="text-muted/70">— {a.caption}</span>
       </p>
 
-      <div className="flex min-w-[52rem] flex-col items-center gap-1">
+      <div className="flex min-w-[88rem] flex-col items-center gap-1">
         <div
-          className="grid w-full max-w-4xl grid-cols-5 gap-2 justify-items-center"
+          className="grid w-full grid-cols-5 gap-2 justify-items-center"
           data-testid="proxbox-api-plugin-row"
         >
           <Node
