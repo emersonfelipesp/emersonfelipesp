@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T12:53:59.344Z",
+  "generated_at": "2026-05-22T18:21:43.888Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 31,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 162,
+      "title": "docs(readme): add Integrations Architecture section with netbox-dark SVG",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/162",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 158,
       "title": "Error when syncing virtualmachines",
@@ -788,7 +802,8 @@
         94,
         95,
         97,
-        98
+        98,
+        162
       ]
     }
   ],

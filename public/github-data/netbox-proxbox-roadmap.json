@@ -1,14 +1,70 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T12:53:54.239Z",
+  "generated_at": "2026-05-22T18:21:37.076Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 17,
-    "closed": 257,
+    "closed": 261,
     "edges": 93
   },
   "viewBox": "0 0 272 2048",
   "nodes": [
+    {
+      "number": 504,
+      "title": "Remove Discord and Telegram community links",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/504",
+      "closedAt": "2026-05-22T18:00:35Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 502,
+      "title": "Document optional Proxbox companion plugins in README",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/502",
+      "closedAt": "2026-05-22T17:34:36Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 500,
+      "title": "Prepare netbox-proxbox for NetBox plugin certification",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/500",
+      "closedAt": "2026-05-22T17:14:04Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 499,
+      "title": "Certification readiness for Proxbox plugin family",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/499",
+      "closedAt": "2026-05-22T17:15:35Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 491,
       "title": "IP addresses not Syncing in Latest Version",
@@ -6669,6 +6725,10 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        504,
+        502,
+        499,
+        500,
         486,
         490,
         326,

@@ -1,14 +1,104 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T12:54:00.413Z",
+  "generated_at": "2026-05-22T18:21:45.882Z",
   "repo": "emersonfelipesp/netbox-sdk",
   "counts": {
     "open": 0,
-    "closed": 5,
+    "closed": 10,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
   "nodes": [
+    {
+      "number": 36,
+      "title": "Refactor dev HTTP input validation helpers",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/36",
+      "closedAt": "2026-05-22T18:04:14Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 33,
+      "title": "Refactor branching CLI command decorator defaults",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/33",
+      "closedAt": "2026-05-22T17:36:45Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 32,
+      "title": "Prepare netbox-sdk for integration package certification",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/32",
+      "closedAt": "2026-05-22T17:39:42Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 30,
+      "title": "Refactor CLI and SDK reusable decorators",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/30",
+      "closedAt": "2026-05-22T15:33:32Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 27,
+      "title": "fix(branching): address 15 correctness bugs from code review",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/27",
+      "closedAt": "2026-05-22T14:44:15Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 23,
       "title": "netbox-branching v1.0.3 support",
@@ -144,6 +234,11 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        36,
+        32,
+        33,
+        30,
+        27,
         23,
         18,
         15,
@@ -156,7 +251,7 @@
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 5
+      "count": 9
     },
     {
       "name": "accepted",

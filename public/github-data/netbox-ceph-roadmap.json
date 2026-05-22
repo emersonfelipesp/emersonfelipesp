@@ -1,16 +1,40 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T12:54:08.166Z",
+  "generated_at": "2026-05-22T18:21:55.551Z",
   "repo": "emersonfelipesp/netbox-ceph",
   "counts": {
     "open": 0,
-    "closed": 0,
+    "closed": 1,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
-  "nodes": [],
+  "nodes": [
+    {
+      "number": 3,
+      "title": "Prepare netbox-ceph for NetBox plugin certification",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-ceph/issues/3",
+      "closedAt": "2026-05-22T17:14:25Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    }
+  ],
   "edges": [],
-  "timeline": [],
+  "timeline": [
+    {
+      "phase": 0,
+      "kind": "shipped",
+      "note": "shipped",
+      "issues": [
+        3
+      ]
+    }
+  ],
   "labels": [],
   "milestones": []
 }
