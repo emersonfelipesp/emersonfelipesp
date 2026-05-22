@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T18:21:37.076Z",
+  "generated_at": "2026-05-22T18:42:09.224Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 17,
-    "closed": 261,
+    "open": 16,
+    "closed": 262,
     "edges": 93
   },
-  "viewBox": "0 0 272 2048",
+  "viewBox": "0 0 272 1928",
   "nodes": [
     {
       "number": 504,
@@ -68,22 +68,22 @@
     {
       "number": 491,
       "title": "IP addresses not Syncing in Latest Version",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/491",
-      "closedAt": null,
+      "closedAt": "2026-05-22T18:31:38Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 1936,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6725,6 +6725,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        491,
         504,
         502,
         499,
@@ -7008,8 +7009,7 @@
         482,
         483,
         484,
-        485,
-        491
+        485
       ]
     }
   ],
@@ -7017,7 +7017,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 148
+      "count": 149
     },
     {
       "name": "feature",
@@ -7037,7 +7037,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 27
+      "count": 26
     },
     {
       "name": "duplicate",

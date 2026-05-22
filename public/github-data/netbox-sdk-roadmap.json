@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T18:21:45.882Z",
+  "generated_at": "2026-05-22T18:42:15.393Z",
   "repo": "emersonfelipesp/netbox-sdk",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 10,
     "edges": 0
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 38,
+      "title": "Refresh recursive agent guidance",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/38",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 36,
       "title": "Refactor dev HTTP input validation helpers",
@@ -245,6 +264,14 @@
         12,
         14
       ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        38
+      ]
     }
   ],
   "labels": [
@@ -257,6 +284,11 @@
       "name": "accepted",
       "color": "0e8a16",
       "count": 3
+    },
+    {
+      "name": "documentation",
+      "color": "0075ca",
+      "count": 1
     }
   ],
   "milestones": [
