@@ -153,7 +153,7 @@ export const netboxProxboxDeveloper: DeveloperContent = {
   },
   links: {
     repo: "https://github.com/emersonfelipesp/netbox-proxbox",
-    docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
+    docs: "https://emersonfelipesp.com/netbox-proxbox/docs/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
     issues: "https://github.com/emersonfelipesp/netbox-proxbox/issues",
     contributing:

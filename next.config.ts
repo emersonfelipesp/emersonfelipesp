@@ -11,6 +11,7 @@ const markdownAcceptHeader = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   htmlLimitedBots: /.*/i,
+  skipTrailingSlashRedirect: true,
   allowedDevOrigins: ["10.0.30.207"],
   async headers() {
     return [
