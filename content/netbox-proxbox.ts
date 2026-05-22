@@ -43,7 +43,7 @@ export const netboxProxbox = {
   },
   links: {
     repo: project.repoUrl,
-    docs: "https://emersonfelipesp.github.io/netbox-proxbox/",
+    docs: "https://emersonfelipesp.com/netbox-proxbox/docs/",
     backendRepo: "https://github.com/emersonfelipesp/proxbox-api",
     "Proxmox Forum":
       "https://forum.proxmox.com/threads/proxbox-netbox-plugin-for-syncing-proxmox-ve-inventory-into-netbox.183646/",

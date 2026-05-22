@@ -66,6 +66,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ...(project.slug === "netbox-proxbox"
         ? [
             {
+              url: absolute("/netbox-proxbox/docs/"),
+              lastModified: projectModified ?? undefined,
+              changeFrequency: "weekly" as const,
+              priority: 0.85,
+            },
+            {
               url: absolute("/netbox-proxbox/community"),
               lastModified: new Date(),
               changeFrequency: "daily" as const,
