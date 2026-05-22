@@ -112,7 +112,7 @@ export const netboxSdk: ProjectContent = {
   },
   links: {
     repo: project.repoUrl,
-    docs: "https://emersonfelipesp.com/netbox-sdk",
+    docs: "https://emersonfelipesp.com/netbox-sdk/docs/",
   },
   banner: String.raw`
    _   _      _   ___           ___ ___  _  __

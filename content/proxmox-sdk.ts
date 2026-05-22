@@ -47,7 +47,7 @@ export const proxmoxSdk: ProjectContent = {
   },
   links: {
     repo: project.repoUrl,
-    docs: "https://emersonfelipesp.github.io/proxmox-sdk/",
+    docs: "https://emersonfelipesp.com/proxmox-sdk/docs/",
   },
   banner: String.raw`
    ___                              ___ ___  _  __

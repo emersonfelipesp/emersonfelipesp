@@ -112,7 +112,7 @@ export const netboxSdkDeveloper: DeveloperContent = {
   links: {
     repo: "https://github.com/emersonfelipesp/netbox-sdk",
     pypi: "https://pypi.org/project/netbox-sdk/",
-    docs: "https://emersonfelipesp.github.io/netbox-sdk/",
+    docs: "https://emersonfelipesp.com/netbox-sdk/docs/",
     issues: "https://github.com/emersonfelipesp/netbox-sdk/issues",
   },
 };
