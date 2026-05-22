@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T10:00:23.201Z",
+  "generated_at": "2026-05-22T10:57:39.384Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
-    "closed": 28,
+    "open": 6,
+    "closed": 29,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 158,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -35,9 +35,9 @@
     {
       "number": 157,
       "title": "Error when syncing virtual-disks",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/157",
-      "closedAt": null,
+      "closedAt": "2026-05-22T10:56:24Z",
       "labels": [
         {
           "name": "bug",
@@ -49,8 +49,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -747,6 +747,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        157,
         152,
         150,
         143,
@@ -787,7 +788,6 @@
         97,
         98,
         145,
-        157,
         158
       ]
     }
