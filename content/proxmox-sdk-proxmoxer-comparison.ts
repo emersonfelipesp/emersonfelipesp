@@ -96,7 +96,7 @@ export const proxmoxerComparison: ComparisonContent = {
     "proxmoxer · GitHub": "https://github.com/proxmoxer/proxmoxer",
     "proxmox-sdk · PyPI": "https://pypi.org/project/proxmox-sdk/",
     "proxmox-sdk · GitHub": project.repoUrl,
-    "proxmox-sdk · docs": "https://emersonfelipesp.github.io/proxmox-sdk/",
+    "proxmox-sdk · docs": "https://emersonfelipesp.com/proxmox-sdk/docs/",
     "Ansible community.general": "https://docs.ansible.com/ansible/latest/collections/community/general/proxmox_module.html",
   },
 };

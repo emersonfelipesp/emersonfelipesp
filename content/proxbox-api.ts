@@ -48,7 +48,7 @@ export const proxboxApi = {
   },
   links: {
     repo: project.repoUrl,
-    docs: "https://emersonfelipesp.github.io/proxbox-api/",
+    docs: "https://emersonfelipesp.com/proxbox-api/docs/",
     plugin: "https://github.com/emersonfelipesp/netbox-proxbox",
     "netbox-sdk": "https://github.com/emersonfelipesp/netbox-sdk",
     "proxmox-sdk": "https://github.com/emersonfelipesp/proxmox-sdk",

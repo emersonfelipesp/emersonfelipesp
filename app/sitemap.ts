@@ -3,6 +3,8 @@ import { getGitHubSnapshot } from "@/lib/github";
 import { loadRoadmap } from "@/lib/roadmap";
 import {
   PROJECT_LIST,
+  hasPublishedProjectDocs,
+  projectDocsPath,
   releaseDetailPath,
   releaseListPath,
   roadmapPath,
@@ -63,14 +65,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             },
           ]
         : []),
-      ...(project.slug === "netbox-proxbox"
+      ...(hasPublishedProjectDocs(project.slug)
         ? [
             {
-              url: absolute("/netbox-proxbox/docs/"),
+              url: absolute(projectDocsPath(project.slug)),
               lastModified: projectModified ?? undefined,
               changeFrequency: "weekly" as const,
               priority: 0.85,
             },
+          ]
+        : []),
+      ...(project.slug === "netbox-proxbox"
+        ? [
             {
               url: absolute("/netbox-proxbox/community"),
               lastModified: new Date(),

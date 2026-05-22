@@ -1,5 +1,31 @@
 import { test, expect } from "@playwright/test";
 
+const LIVE_DOCS_ACTIONS = [
+  {
+    path: "/netbox-proxbox",
+    href: "https://emersonfelipesp.com/netbox-proxbox/docs/",
+  },
+  {
+    path: "/proxbox-api",
+    href: "https://emersonfelipesp.com/proxbox-api/docs/",
+  },
+  {
+    path: "/netbox-sdk",
+    href: "https://emersonfelipesp.com/netbox-sdk/docs/",
+  },
+  {
+    path: "/proxmox-sdk",
+    href: "https://emersonfelipesp.com/proxmox-sdk/docs/",
+  },
+] as const;
+
+const UNPUBLISHED_DOCS_ACTION_PATHS = [
+  "/netbox-ceph",
+  "/netbox-pdm",
+  "/netbox-pbs",
+  "/netbox-packer",
+] as const;
+
 test("homepage loads with correct title and content", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/emersonfelipesp/);
@@ -12,10 +38,6 @@ test("/netbox-proxbox loads", async ({ page }) => {
   await expect(page).toHaveURL("/netbox-proxbox");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "View documentation" })).toHaveAttribute(
-    "href",
-    "https://emersonfelipesp.com/netbox-proxbox/docs/",
-  );
 });
 
 test("/netbox-sdk loads", async ({ page }) => {
@@ -69,6 +91,26 @@ test("/proxmox-sdk/developer loads", async ({ page }) => {
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Project view:/ })).toBeVisible();
 });
+
+for (const project of LIVE_DOCS_ACTIONS) {
+  test(`${project.path} exposes first-party docs action`, async ({ page }) => {
+    await page.goto(project.path);
+    await expect(
+      page.getByRole("link", { name: "View documentation" }),
+    ).toHaveAttribute("href", project.href);
+  });
+}
+
+for (const path of UNPUBLISHED_DOCS_ACTION_PATHS) {
+  test(`${path} does not expose docs action before docs publish`, async ({
+    page,
+  }) => {
+    await page.goto(path);
+    await expect(
+      page.getByRole("link", { name: "View documentation" }),
+    ).toHaveCount(0);
+  });
+}
 
 test("homepage architecture shows three Proxmox nodes with gap-4 spacing", async ({
   page,

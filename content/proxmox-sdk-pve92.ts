@@ -203,7 +203,7 @@ asyncio.run(main())`,
   ],
   links: {
     repo: project.repoUrl,
-    docs: "https://emersonfelipesp.github.io/proxmox-sdk/",
+    docs: "https://emersonfelipesp.com/proxmox-sdk/docs/",
     pve92: "https://www.proxmox.com/en/news/press-releases/proxmox-virtual-environment-9-2",
   },
 };

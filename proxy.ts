@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isProjectSlug } from "./lib/project-registry";
 
-const DOCS_PATH_PREFIX = "/netbox-proxbox/docs";
 const STATIC_FILE_EXTENSION =
   /\.(?:avif|br|css|eot|gif|gz|ico|jpeg|jpg|js|json|map|mjs|pdf|png|svg|ttf|txt|webp|woff|woff2|xml|yaml|yml|zip)$/i;
 
-function isDocsPath(pathname: string): boolean {
-  return (
-    pathname === DOCS_PATH_PREFIX || pathname.startsWith(`${DOCS_PATH_PREFIX}/`)
-  );
+function docsProject(pathname: string): string | null {
+  const [project, segment] = pathname.split("/").filter(Boolean);
+  if (!project || segment !== "docs" || !isProjectSlug(project)) return null;
+  return project;
 }
 
 function isStaticFilePath(pathname: string): boolean {
@@ -23,7 +23,7 @@ function redirectTo(request: NextRequest, pathname: string): NextResponse {
 export function proxy(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
 
-  if (isDocsPath(pathname)) {
+  if (docsProject(pathname)) {
     if (!pathname.endsWith("/") && !isStaticFilePath(pathname)) {
       return redirectTo(request, `${pathname}/`);
     }

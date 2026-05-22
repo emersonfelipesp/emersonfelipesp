@@ -11,6 +11,21 @@ export type ProjectSlug =
   | "netbox-ceph"
   | "netbox-packer";
 
+const SITE_URL = "https://emersonfelipesp.com";
+const GITHUB_PAGES_URL = "https://emersonfelipesp.github.io";
+
+export function projectDocsPath(slug: ProjectSlug): string {
+  return `/${slug}/docs/`;
+}
+
+export function projectDocsPublicUrl(slug: ProjectSlug): string {
+  return `${SITE_URL}${projectDocsPath(slug)}`;
+}
+
+export function projectDocsUpstreamBase(slug: ProjectSlug): string {
+  return `${GITHUB_PAGES_URL}/${slug}`;
+}
+
 export type ProjectViewKind =
   | "showcase"
   | "developer"
@@ -52,7 +67,7 @@ export const PROJECTS = {
       },
       {
         icon: "docs",
-        href: "https://emersonfelipesp.com/netbox-proxbox/docs/",
+        href: projectDocsPublicUrl("netbox-proxbox"),
       },
       { icon: "pypi", href: "https://pypi.org/project/netbox-proxbox/" },
     ],
@@ -71,6 +86,7 @@ export const PROJECTS = {
     starsHref: "https://github.com/emersonfelipesp/proxbox-api/stargazers",
     actions: [
       { icon: "github", href: "https://github.com/emersonfelipesp/proxbox-api" },
+      { icon: "docs", href: projectDocsPublicUrl("proxbox-api") },
       { icon: "pypi", href: "https://pypi.org/project/proxbox-api/" },
       {
         icon: "docker",
@@ -92,6 +108,7 @@ export const PROJECTS = {
     starsHref: "https://github.com/emersonfelipesp/netbox-sdk/stargazers",
     actions: [
       { icon: "github", href: "https://github.com/emersonfelipesp/netbox-sdk" },
+      { icon: "docs", href: projectDocsPublicUrl("netbox-sdk") },
       { icon: "pypi", href: "https://pypi.org/project/netbox-sdk/" },
     ],
   },
@@ -109,6 +126,7 @@ export const PROJECTS = {
     starsHref: "https://github.com/emersonfelipesp/proxmox-sdk/stargazers",
     actions: [
       { icon: "github", href: "https://github.com/emersonfelipesp/proxmox-sdk" },
+      { icon: "docs", href: projectDocsPublicUrl("proxmox-sdk") },
       { icon: "pypi", href: "https://pypi.org/project/proxmox-sdk/" },
       {
         icon: "docker",
@@ -188,6 +206,17 @@ export const PROJECTS = {
 
 export const PROJECT_SLUGS = Object.keys(PROJECTS) as ProjectSlug[];
 
+export const PUBLISHED_DOCS_PROJECT_SLUGS = [
+  "netbox-proxbox",
+  "proxbox-api",
+  "netbox-sdk",
+  "proxmox-sdk",
+] as const satisfies readonly ProjectSlug[];
+
+const PUBLISHED_DOCS_PROJECT_SET = new Set<ProjectSlug>(
+  PUBLISHED_DOCS_PROJECT_SLUGS,
+);
+
 export const PROJECT_LIST: readonly ProjectRegistryEntry[] = PROJECT_SLUGS.map(
   (slug) => PROJECTS[slug],
 );
@@ -212,6 +241,10 @@ export function isProjectSlug(slug: string): slug is ProjectSlug {
 
 export function getProject(slug: string): ProjectRegistryEntry | null {
   return isProjectSlug(slug) ? PROJECTS[slug] : null;
+}
+
+export function hasPublishedProjectDocs(slug: ProjectSlug): boolean {
+  return PUBLISHED_DOCS_PROJECT_SET.has(slug);
 }
 
 export function getProjectFromPath(pathname: string): ProjectRouteInfo | null {

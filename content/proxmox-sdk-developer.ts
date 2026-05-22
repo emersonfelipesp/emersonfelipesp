@@ -120,7 +120,7 @@ export const proxmoxSdkDeveloper: DeveloperContent = {
   },
   links: {
     repo: "https://github.com/emersonfelipesp/proxmox-sdk",
-    docs: "https://emersonfelipesp.github.io/proxmox-sdk/",
+    docs: "https://emersonfelipesp.com/proxmox-sdk/docs/",
     issues: "https://github.com/emersonfelipesp/proxmox-sdk/issues",
   },
 };
