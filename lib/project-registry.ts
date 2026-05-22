@@ -1,5 +1,5 @@
 export type Palette = "netbox" | "proxmox" | "mixed";
-export type ProjectActionIcon = "github" | "pypi" | "docker";
+export type ProjectActionIcon = "github" | "pypi" | "docker" | "docs";
 
 export type ProjectSlug =
   | "netbox-proxbox"
@@ -49,6 +49,10 @@ export const PROJECTS = {
       {
         icon: "github",
         href: "https://github.com/emersonfelipesp/netbox-proxbox",
+      },
+      {
+        icon: "docs",
+        href: "https://emersonfelipesp.com/netbox-proxbox/docs/",
       },
       { icon: "pypi", href: "https://pypi.org/project/netbox-proxbox/" },
     ],

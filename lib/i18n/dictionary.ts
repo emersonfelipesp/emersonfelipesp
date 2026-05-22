@@ -48,6 +48,7 @@ export type Dictionary = {
       github: string;
       pypi: string;
       docker: string;
+      docs: string;
       stars: (project: string) => string;
       releases: (project: string) => string;
     };
@@ -389,6 +390,7 @@ const en: Dictionary = {
       github: "View source on GitHub",
       pypi: "View package on PyPI",
       docker: "View image on Docker Hub",
+      docs: "View documentation",
       stars: (project) => `Star ${project} on GitHub`,
       releases: (project) => `Releases of ${project}`,
     },
@@ -754,6 +756,7 @@ const ptBr: Dictionary = {
       github: "Ver código-fonte no GitHub",
       pypi: "Ver pacote no PyPI",
       docker: "Ver imagem no Docker Hub",
+      docs: "Ver documentação",
       stars: (project) => `Dar estrela em ${project} no GitHub`,
       releases: (project) => `Versões de ${project}`,
     },

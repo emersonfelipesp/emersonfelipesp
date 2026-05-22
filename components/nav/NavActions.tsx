@@ -2,9 +2,10 @@
 
 import { ReleasesDropdown } from "./ReleasesDropdown";
 import type { GitHubReleaseSummary } from "@/lib/github";
+import type { ProjectActionIcon } from "@/lib/project-registry";
 
 export type SectionAction = {
-  icon: "github" | "pypi" | "docker";
+  icon: ProjectActionIcon;
   href: string;
   label: string;
 };
@@ -70,6 +71,27 @@ function PyPIIcon({ className }: { className?: string }) {
   );
 }
 
+function DocsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+      className={className}
+    >
+      <path d="M6.75 3.75h6l4.5 4.5v12H6.75z" />
+      <path d="M12.75 3.75v4.5h4.5" />
+      <path d="M9.25 12h5.5" />
+      <path d="M9.25 15.25h5.5" />
+      <path d="M9.25 18.5h3.5" />
+    </svg>
+  );
+}
+
 function DockerIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -87,6 +109,7 @@ const ICONS = {
   github: GitHubIcon,
   pypi: PyPIIcon,
   docker: DockerIcon,
+  docs: DocsIcon,
 } as const;
 
 export function NavActions({
