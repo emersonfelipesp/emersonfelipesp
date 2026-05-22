@@ -4,6 +4,7 @@ import {
   getProject,
   isProjectSlug,
   PROJECT_LIST,
+  type ProjectActionIcon,
   type ProjectSlug,
   releaseDetailPath,
   releaseListPath,
@@ -42,6 +43,13 @@ import {
   renderReleaseListPage,
 } from "./release-pages";
 import { renderRoadmapPage } from "./roadmap-pages";
+
+const PROJECT_ACTION_LABELS = {
+  github: "GitHub",
+  docs: "Docs",
+  pypi: "PyPI",
+  docker: "Docker Hub",
+} satisfies Record<ProjectActionIcon, string>;
 
 export async function getMarkdownForPath(
   pathname: string,
@@ -270,13 +278,7 @@ export async function getLlmsTxt(): Promise<string> {
       PROJECT_LIST.map((project) => {
         const actionLines = project.actions
           .map((action) => {
-            const label =
-              action.icon === "github"
-                ? "GitHub"
-                : action.icon === "pypi"
-                  ? "PyPI"
-                  : "Docker Hub";
-            return `  - ${label}: ${action.href}`;
+            return `  - ${PROJECT_ACTION_LABELS[action.icon]}: ${action.href}`;
           })
           .join("\n");
         return [
@@ -343,6 +345,7 @@ export async function getProjectLlmsTxt(
     ["Developer guide", absolute(developerPath)],
     ["Roadmap", absolute(roadmapHref)],
     ["Release index", absolute(releasesIndexPath)],
+    ["Docs", projectActionsMap.get("docs") ?? null],
     ["PyPI", projectActionsMap.get("pypi") ?? null],
     ["Docker Hub", projectActionsMap.get("docker") ?? null],
     ["License", content.meta.license ?? null],

@@ -12,6 +12,10 @@ test("/netbox-proxbox loads", async ({ page }) => {
   await expect(page).toHaveURL("/netbox-proxbox");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "View documentation" })).toHaveAttribute(
+    "href",
+    "https://emersonfelipesp.com/netbox-proxbox/docs/",
+  );
 });
 
 test("/netbox-sdk loads", async ({ page }) => {

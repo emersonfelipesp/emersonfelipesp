@@ -10,13 +10,14 @@ export function useProjectShellActions(
   const { t } = useLanguage();
   const meta = getProjectShellMeta(slug);
   if (!meta) return [];
+  const actionLabels = {
+    github: t.project.actions.github,
+    pypi: t.project.actions.pypi,
+    docker: t.project.actions.docker,
+    docs: t.project.actions.docs,
+  } as const;
   return meta.actions.map((a) => ({
     ...a,
-    label:
-      a.icon === "github"
-        ? t.project.actions.github
-        : a.icon === "pypi"
-          ? t.project.actions.pypi
-          : t.project.actions.docker,
+    label: actionLabels[a.icon],
   }));
 }
