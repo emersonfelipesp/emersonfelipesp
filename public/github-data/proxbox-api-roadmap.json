@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T02:38:36.126Z",
+  "generated_at": "2026-05-22T05:21:11.647Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 29,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 157,
+      "title": "Error when syncing virtual-disks",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/157",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 152,
       "title": "feat: Proxmox VE 9.2 compatibility — bump proxmox-sdk to v0.0.6",
@@ -740,7 +754,8 @@
         94,
         95,
         97,
-        98
+        98,
+        157
       ]
     }
   ],
