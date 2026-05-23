@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-23T20:21:10.299Z",
+  "syncedAt": "2026-05-23T21:04:50.975Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 5,
   "forks": 4,
   "releases": [
+    {
+      "id": 328390239,
+      "nodeId": "RE_kwDOOUepXM4TktZf",
+      "tag": "v0.0.15",
+      "name": "v0.0.15",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.15",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/328390239",
+      "targetCommitish": "main",
+      "body": "## What's Changed\n* docs: advance companion consumer reference to netbox-proxbox v0.0.18 by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/155\n* fix: use _parse_proxmox_kv_flag for QEMU agent checks in sync_vm (#491) by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/156\n* fix: sync CD-ROM drives to NetBox with size=0; fix fallback lookup filter (#157) by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/159\n* fix: silence HTTP 501 noise on PVE < 9.2 SDN/CPU-model endpoints by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/160\n* fix: prevent CD-ROM PATCH storm, fix bulk reconcile counter and strict lookup by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/161\n* docs(readme): add Integrations Architecture section with hosted SVG by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/163\n* chore: bump proxmox-sdk pin to 0.0.7 by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/164\n\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.14...v0.0.15",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>docs: advance companion consumer reference to netbox-proxbox v0.0.18 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4499371043\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/155\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/155/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/155\">#155</a></li>\n<li>fix: use _parse_proxmox_kv_flag for QEMU agent checks in sync_vm (#491) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4499465246\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/156\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/156/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/156\">#156</a></li>\n<li>fix: sync CD-ROM drives to NetBox with size=0; fix fallback lookup filter (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4500047710\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/157\" data-hovercard-type=\"issue\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/issues/157/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/issues/157\">#157</a>) by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4501662998\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/159\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/159/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/159\">#159</a></li>\n<li>fix: silence HTTP 501 noise on PVE &lt; 9.2 SDN/CPU-model endpoints by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4502400994\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/160\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/160/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/160\">#160</a></li>\n<li>fix: prevent CD-ROM PATCH storm, fix bulk reconcile counter and strict lookup by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4503208458\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/161\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/161/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/161\">#161</a></li>\n<li>docs(readme): add Integrations Architecture section with hosted SVG by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4504763492\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/163\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/163/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/163\">#163</a></li>\n<li>chore: bump proxmox-sdk pin to 0.0.7 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4505669662\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/164\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/164/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/164\">#164</a></li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.14...v0.0.15\"><tt>v0.0.14...v0.0.15</tt></a></p>",
+      "createdAt": "2026-05-23T19:41:35Z",
+      "publishedAt": "2026-05-23T20:59:22Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.15",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.15"
+      }
+    },
     {
       "id": 327553182,
       "nodeId": "RE_kwDOOUepXM4ThhCe",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-21T23:44:12Z",
       "publishedAt": "2026-05-22T02:37:26Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
