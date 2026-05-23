@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-22T18:57:38.258Z",
+  "syncedAt": "2026-05-23T00:45:58.435Z",
   "fullName": "emersonfelipesp/netbox-sdk",
   "stars": 15,
   "forks": 0,
   "releases": [
+    {
+      "id": 328122857,
+      "nodeId": "RE_kwDORsQ6kM4TjsHp",
+      "tag": "v0.0.9",
+      "name": "netbox-sdk v0.0.9",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.9",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/releases/328122857",
+      "targetCommitish": "f178936e1f7da027d49d8e64ff95c41fc78f82da",
+      "body": "netbox-sdk v0.0.9\n\nHighlights:\n- Adds reusable branching command decorators and aligns repeated CLI command wiring behind shared helpers.\n- Improves CLI startup robustness when the default log path is unwritable.\n- Refreshes agent documentation and release metadata for 0.0.9.\n\nValidation:\n- Main branch CI is green for f178936e1f7da027d49d8e64ff95c41fc78f82da.\n- TestPyPI candidate 0.0.9rc2 passed GitHub Actions validation on Python 3.11, 3.12, and 3.13.\n- Independent clean-venv TestPyPI smoke verified SDK import, branching import, and nbx --help.",
+      "bodyHtml": "<p dir=\"auto\">netbox-sdk v0.0.9</p>\n<p dir=\"auto\">Highlights:</p>\n<ul dir=\"auto\">\n<li>Adds reusable branching command decorators and aligns repeated CLI command wiring behind shared helpers.</li>\n<li>Improves CLI startup robustness when the default log path is unwritable.</li>\n<li>Refreshes agent documentation and release metadata for 0.0.9.</li>\n</ul>\n<p dir=\"auto\">Validation:</p>\n<ul dir=\"auto\">\n<li>Main branch CI is green for <a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/emersonfelipesp/netbox-sdk/commit/f178936e1f7da027d49d8e64ff95c41fc78f82da/hovercard\" href=\"https://github.com/emersonfelipesp/netbox-sdk/commit/f178936e1f7da027d49d8e64ff95c41fc78f82da\"><tt>f178936</tt></a>.</li>\n<li>TestPyPI candidate 0.0.9rc2 passed GitHub Actions validation on Python 3.11, 3.12, and 3.13.</li>\n<li>Independent clean-venv TestPyPI smoke verified SDK import, branching import, and nbx --help.</li>\n</ul>",
+      "createdAt": "2026-05-22T19:41:14Z",
+      "publishedAt": "2026-05-22T19:59:04Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/zipball/v0.0.9",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/tarball/v0.0.9"
+      }
+    },
     {
       "id": 317864267,
       "nodeId": "RE_kwDORsQ6kM4S8jlL",
@@ -17,7 +42,7 @@
       "createdAt": "2026-05-05T14:30:58Z",
       "publishedAt": "2026-05-05T14:39:45Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

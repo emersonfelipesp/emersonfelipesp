@@ -1,14 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-22T18:58:25.184Z",
+  "generated_at": "2026-05-23T00:46:34.810Z",
   "repo": "emersonfelipesp/netbox-sdk",
   "counts": {
     "open": 0,
-    "closed": 11,
+    "closed": 13,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
   "nodes": [
+    {
+      "number": 42,
+      "title": "Fix CLI startup when default log path is unwritable",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/42",
+      "closedAt": "2026-05-22T19:41:15Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 40,
+      "title": "Align README for netbox-sdk v0.0.9 release",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/40",
+      "closedAt": "2026-05-22T19:11:50Z",
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 38,
       "title": "Refresh recursive agent guidance",
@@ -253,6 +286,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        42,
+        40,
         38,
         36,
         32,
@@ -281,7 +316,7 @@
     {
       "name": "documentation",
       "color": "0075ca",
-      "count": 1
+      "count": 2
     }
   ],
   "milestones": [
