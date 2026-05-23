@@ -1,14 +1,208 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-23T18:24:26.896Z",
+  "generated_at": "2026-05-23T20:22:02.654Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 14,
     "closed": 32,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 1688",
   "nodes": [
+    {
+      "number": 174,
+      "title": "Add CI, wheels, docs, and rollout for Rust reconciliation",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/174",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        },
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1576,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 173,
+      "title": "Add VM reconciliation parity fixtures and benchmarks",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/173",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1456,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 172,
+      "title": "Wire Python Rust bridge and reconciliation engine modes",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/172",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1336,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 171,
+      "title": "Implement Rust VM queue reconciliation parity",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/171",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1216,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 170,
+      "title": "Scaffold proxbox-reconcile-rs sibling package",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/170",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 169,
+      "title": "Evaluate Python-only serialization and Pydantic optimization",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/169",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 168,
+      "title": "Extract VM queue builder into a pure reconciliation service",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/168",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 167,
+      "title": "Lock and correct Python VM queue reconciliation contract",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/167",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 166,
+      "title": "Measure VM reconciliation cost before Rust work",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/166",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 165,
+      "title": "Rust-backed VM reconciliation queue engine",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/165",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 162,
       "title": "docs(readme): add Integrations Architecture section with netbox-dark SVG",
@@ -803,7 +997,17 @@
         94,
         95,
         97,
-        98
+        98,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174
       ]
     }
   ],
@@ -819,14 +1023,19 @@
       "count": 13
     },
     {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "count": 13
+    },
+    {
       "name": "under review",
       "color": "fbca04",
       "count": 4
     },
     {
-      "name": "enhancement",
-      "color": "a2eeef",
-      "count": 3
+      "name": "documentation",
+      "color": "0075ca",
+      "count": 1
     }
   ],
   "milestones": [

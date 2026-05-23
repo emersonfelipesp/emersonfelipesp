@@ -1,11 +1,11 @@
 {
-  "syncedAt": "2026-05-23T18:23:45.697Z",
+  "syncedAt": "2026-05-23T20:21:10.691Z",
   "repos": [
     {
       "slug": "netbox-proxbox",
       "fullName": "emersonfelipesp/netbox-proxbox",
       "ok": true,
-      "skipped": true
+      "skipped": false
     },
     {
       "slug": "proxbox-api",
