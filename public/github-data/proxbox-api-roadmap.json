@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T18:25:48.950Z",
+  "generated_at": "2026-05-24T18:28:19.275Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 43,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 188,
+      "title": "Handle VM disk aggregate drift during sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/188",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "d73a4a"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 186,
       "title": "Publish experimental PyO3 Rust Docker images",
@@ -1042,7 +1061,8 @@
         95,
         97,
         98,
-        186
+        186,
+        188
       ]
     }
   ],
@@ -1053,14 +1073,14 @@
       "count": 19
     },
     {
-      "name": "enhancement",
-      "color": "a2eeef",
+      "name": "bug",
+      "color": "d73a4a",
       "count": 14
     },
     {
-      "name": "bug",
-      "color": "d73a4a",
-      "count": 13
+      "name": "enhancement",
+      "color": "a2eeef",
+      "count": 14
     },
     {
       "name": "under review",
