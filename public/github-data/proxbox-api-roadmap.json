@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T16:18:11.682Z",
+  "generated_at": "2026-05-24T16:22:09.762Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 41,
+    "open": 4,
+    "closed": 42,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 174,
@@ -187,9 +187,9 @@
     {
       "number": 165,
       "title": "Rust-backed VM reconciliation queue engine",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/165",
-      "closedAt": null,
+      "closedAt": "2026-05-24T16:20:48Z",
       "labels": [
         {
           "name": "enhancement",
@@ -197,8 +197,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -955,6 +955,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        165,
         174,
         173,
         172,
@@ -1006,8 +1007,7 @@
         94,
         95,
         97,
-        98,
-        165
+        98
       ]
     }
   ],
