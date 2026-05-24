@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T16:22:09.762Z",
+  "generated_at": "2026-05-24T16:28:33.253Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 42,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 184,
+      "title": "Document Rust reconciliation engine in agent guides",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/184",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 174,
       "title": "Add CI, wheels, docs, and rollout for Rust reconciliation",
@@ -1007,7 +1021,8 @@
         94,
         95,
         97,
-        98
+        98,
+        184
       ]
     }
   ],

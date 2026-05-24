@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-24T16:21:15.847Z",
+  "syncedAt": "2026-05-24T16:27:57.039Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 328537694,
+      "nodeId": "RE_kwDORz_GBs4TlRZe",
+      "tag": "v0.0.8rc1",
+      "name": "v0.0.8rc1 - Release Candidate 1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.8rc1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/328537694",
+      "targetCommitish": "release/v0.0.8rc1",
+      "body": "Release candidate for proxmox-sdk v0.0.8. This candidate validates the static generated route metadata, lazy generated model loading, SQLite-backed mock state, optional orjson serialization path, and existing Granian Docker variant through the TestPyPI GitHub Actions release workflow.",
+      "bodyHtml": "<p dir=\"auto\">Release candidate for proxmox-sdk v0.0.8. This candidate validates the static generated route metadata, lazy generated model loading, SQLite-backed mock state, optional orjson serialization path, and existing Granian Docker variant through the TestPyPI GitHub Actions release workflow.</p>",
+      "createdAt": "2026-05-24T16:20:31Z",
+      "publishedAt": "2026-05-24T16:21:26Z",
+      "prerelease": true,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.8rc1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.8rc1"
+      }
+    },
     {
       "id": 328149820,
       "nodeId": "RE_kwDORz_GBs4Tjys8",
