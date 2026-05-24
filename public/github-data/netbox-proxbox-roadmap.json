@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T18:59:42.882Z",
+  "generated_at": "2026-05-24T19:07:38.864Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 16,
+    "open": 17,
     "closed": 263,
     "edges": 93
   },
-  "viewBox": "0 0 272 1928",
+  "viewBox": "0 0 272 2048",
   "nodes": [
+    {
+      "number": 511,
+      "title": "Add PyO3 Rust backend to Docker E2E release gate",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/511",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 1936,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 508,
       "title": "Render companion plugin endpoints on ProxBox homepage",
@@ -7024,7 +7043,8 @@
         482,
         483,
         484,
-        485
+        485,
+        511
       ]
     }
   ],
@@ -7037,7 +7057,7 @@
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 113
+      "count": 114
     },
     {
       "name": "bug",
