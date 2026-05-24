@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T21:51:46.391Z",
+  "generated_at": "2026-05-24T22:00:24.922Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 10,
     "closed": 272,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 514,
+      "title": "Implement browser SSH terminal for Proxmox endpoints",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/514",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 513,
       "title": "Add Firecracker inventory models and API",
@@ -7059,7 +7073,8 @@
         436,
         476,
         485,
-        513
+        513,
+        514
       ]
     }
   ],
