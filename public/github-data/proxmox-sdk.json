@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-05-24T16:27:57.039Z",
+  "syncedAt": "2026-05-24T17:17:37.863Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 328539363,
+      "nodeId": "RE_kwDORz_GBs4TlRzj",
+      "tag": "v0.0.8",
+      "name": "proxmox-sdk v0.0.8",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.8",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/328539363",
+      "targetCommitish": "07efc64b0c584ac16aeeb42a6aebe72824449468",
+      "body": "## proxmox-sdk v0.0.8\n\nPerformance-focused release for the schema-driven Proxmox mock/SDK runtime.\n\n### Highlights\n\n- Uses pre-generated static route metadata for generated Proxmox routes, avoiding runtime route introspection work.\n- Adds route-group lazy loading for generated Pydantic models so the mock API no longer imports the full generated model tree at startup.\n- Ships generated `route_metadata.json`, `model_index.json`, and model shard artifacts in the package.\n- Moves the default mock state backend to SQLite WAL while retaining the shared-memory and dict backends for compatibility.\n- Adds an optional `orjson` serialization fast path before considering any custom native extension work.\n- Keeps the existing Granian Docker variant for native ASGI/server wins without changing package internals.\n- Adds integrity and route-loading tests for the generated artifacts across `latest`, `9.2`, and `9.1.11` schemas.\n\n### Validation\n\n- Main CI passed on commit `07efc64b0c584ac16aeeb42a6aebe72824449468`.\n- TestPyPI release candidate `v0.0.8rc1` passed the release workflow matrix across Python 3.11, 3.12, and 3.13 with schema versions `latest`, `9.2`, and `9.1.11`.\n- Clean install validation from the TestPyPI wheel confirmed package metadata, CLI startup, packaged generated artifacts, route registration, and live mock API responses.\n",
+      "bodyHtml": "<h2 dir=\"auto\">proxmox-sdk v0.0.8</h2>\n<p dir=\"auto\">Performance-focused release for the schema-driven Proxmox mock/SDK runtime.</p>\n<h3 dir=\"auto\">Highlights</h3>\n<ul dir=\"auto\">\n<li>Uses pre-generated static route metadata for generated Proxmox routes, avoiding runtime route introspection work.</li>\n<li>Adds route-group lazy loading for generated Pydantic models so the mock API no longer imports the full generated model tree at startup.</li>\n<li>Ships generated <code class=\"notranslate\">route_metadata.json</code>, <code class=\"notranslate\">model_index.json</code>, and model shard artifacts in the package.</li>\n<li>Moves the default mock state backend to SQLite WAL while retaining the shared-memory and dict backends for compatibility.</li>\n<li>Adds an optional <code class=\"notranslate\">orjson</code> serialization fast path before considering any custom native extension work.</li>\n<li>Keeps the existing Granian Docker variant for native ASGI/server wins without changing package internals.</li>\n<li>Adds integrity and route-loading tests for the generated artifacts across <code class=\"notranslate\">latest</code>, <code class=\"notranslate\">9.2</code>, and <code class=\"notranslate\">9.1.11</code> schemas.</li>\n</ul>\n<h3 dir=\"auto\">Validation</h3>\n<ul dir=\"auto\">\n<li>Main CI passed on commit <code class=\"notranslate\">07efc64b0c584ac16aeeb42a6aebe72824449468</code>.</li>\n<li>TestPyPI release candidate <code class=\"notranslate\">v0.0.8rc1</code> passed the release workflow matrix across Python 3.11, 3.12, and 3.13 with schema versions <code class=\"notranslate\">latest</code>, <code class=\"notranslate\">9.2</code>, and <code class=\"notranslate\">9.1.11</code>.</li>\n<li>Clean install validation from the TestPyPI wheel confirmed package metadata, CLI startup, packaged generated artifacts, route registration, and live mock API responses.</li>\n</ul>",
+      "createdAt": "2026-05-24T16:09:05Z",
+      "publishedAt": "2026-05-24T16:33:28Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.8",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.8"
+      }
+    },
     {
       "id": 328537694,
       "nodeId": "RE_kwDORz_GBs4TlRZe",
@@ -42,7 +67,7 @@
       "createdAt": "2026-05-22T21:11:31Z",
       "publishedAt": "2026-05-22T21:11:59Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T16:28:33.253Z",
+  "generated_at": "2026-05-24T17:18:45.725Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 42,
+    "open": 4,
+    "closed": 43,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 184,
       "title": "Document Rust reconciliation engine in agent guides",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/184",
-      "closedAt": null,
+      "closedAt": "2026-05-24T17:15:06Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -969,6 +969,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        184,
         165,
         174,
         173,
@@ -1021,8 +1022,7 @@
         94,
         95,
         97,
-        98,
-        184
+        98
       ]
     }
   ],
