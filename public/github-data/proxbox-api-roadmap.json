@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T23:03:32.416Z",
+  "generated_at": "2026-05-24T23:45:16.132Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 47,
+    "open": 4,
+    "closed": 48,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 193,
       "title": "Add AsyncSSH WebSocket gateway for Proxbox terminal sessions",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/193",
-      "closedAt": null,
+      "closedAt": "2026-05-24T23:24:26Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1054,6 +1054,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        193,
         191,
         192,
         188,
@@ -1111,8 +1112,7 @@
         94,
         95,
         97,
-        98,
-        193
+        98
       ]
     }
   ],
