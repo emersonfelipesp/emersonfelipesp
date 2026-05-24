@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T19:07:38.864Z",
+  "generated_at": "2026-05-24T19:26:15.011Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 17,
-    "closed": 263,
+    "open": 16,
+    "closed": 264,
     "edges": 93
   },
-  "viewBox": "0 0 272 2048",
+  "viewBox": "0 0 272 1928",
   "nodes": [
     {
       "number": 511,
       "title": "Add PyO3 Rust backend to Docker E2E release gate",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/511",
-      "closedAt": null,
+      "closedAt": "2026-05-24T19:20:00Z",
       "labels": [
         {
           "name": "feature",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 1936,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6758,6 +6758,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        511,
         508,
         491,
         504,
@@ -7043,8 +7044,7 @@
         482,
         483,
         484,
-        485,
-        511
+        485
       ]
     }
   ],
