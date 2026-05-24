@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">NetBox dark project architecture social preview</title>
+  <desc id="desc">A compact NetBox dark theme architecture diagram for Emerson Felipe projects: NetBox plugins flow into proxbox-api, then into netbox-sdk, proxmox-sdk, NetBox REST API, Proxmox VE, and Proxmox service APIs.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 H 0 V 32" class="grid-line"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 Z" class="arrow-head"/>
+    </marker>
+    <style>
+      .bg { fill: #001423; }
+      .grid-line { fill: none; stroke: #2E3C51; stroke-opacity: 0.2; stroke-width: 1; }
+      .grid-fill { fill: url(#grid); opacity: 0.65; }
+      .frame { fill: #081B2A; stroke: #2E3C51; stroke-width: 1.5; }
+      .frame-top { fill: #18212F; stroke: #2E3C51; stroke-width: 1.5; }
+      .prompt { fill: #E2E8F0; font: 500 16px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .accent { fill: #00F2D4; }
+      .accent-2 { fill: #00857D; }
+      .muted { fill: #9CA3AF; }
+      .tiny { fill: #9CA3AF; font: 500 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.8px; }
+      .title { fill: #E2E8F0; font: 700 23px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .subtitle { fill: #9CA3AF; font: 500 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .connector { fill: none; stroke: #9CA3AF; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .connector-muted { stroke-opacity: 0.72; }
+      .connector-dashed { stroke-dasharray: 5 6; stroke-opacity: 0.62; }
+      .arrow-head { fill: #9CA3AF; }
+      .edge-label { fill: #9CA3AF; font: 600 10px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 1px; text-anchor: middle; text-transform: uppercase; }
+      .node rect { fill: #081B2A; stroke: #2E3C51; stroke-width: 1.4; }
+      .node-highlight rect { stroke: #00F2D4; stroke-opacity: 0.76; }
+      .node-featured rect { fill: #00F2D4; fill-opacity: 0.11; stroke: #00F2D4; stroke-width: 1.7; }
+      .node text { fill: #E2E8F0; font: 600 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; text-anchor: middle; }
+      .node-highlight text,
+      .node-featured text,
+      .node-netbox text { fill: #00F2D4; }
+      .node-service text { font-size: 12.5px; }
+      .node-proxmox text { fill: #00857D; }
+      .chip { fill: #001423; stroke: #2E3C51; stroke-width: 1; }
+      .chip-text { fill: #9CA3AF; font: 600 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.7px; text-anchor: middle; }
+      .scan { fill: #00F2D4; opacity: 0.05; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1280" height="640"/>
+  <rect class="grid-fill" width="1280" height="640"/>
+  <path class="scan" d="M 0 112 H 1280 V 208 H 0 Z"/>
+  <path class="scan" d="M 0 432 H 1280 V 500 H 0 Z"/>
+
+  <rect class="frame" x="32" y="24" width="1216" height="592"/>
+  <rect class="frame-top" x="32" y="24" width="1216" height="44"/>
+  <circle cx="58" cy="46" r="5" fill="#D63939"/>
+  <circle cx="76" cy="46" r="5" fill="#F59F00"/>
+  <circle cx="94" cy="46" r="5" fill="#2FB344"/>
+  <text class="prompt" x="124" y="52">
+    <tspan class="accent">emerson</tspan><tspan class="muted">@</tspan><tspan class="accent-2">netdevops</tspan><tspan class="muted">:~$ </tspan><tspan>./show --architecture --theme netbox-dark</tspan>
+  </text>
+  <rect class="chip" x="1080" y="35" width="132" height="22"/>
+  <text class="chip-text" x="1146" y="50">1280x640 SVG</text>
+
+  <text class="title" x="64" y="99">NetBox + Proxmox automation architecture</text>
+  <text class="subtitle" x="64" y="121">Homepage diagram adapted for GitHub repository social preview, using the netbox-dark theme tokens.</text>
+  <text class="tiny" x="1062" y="100">// emersonfelipesp.com</text>
+
+  <g class="diagram">
+    <g class="node node-highlight node-netbox">
+      <rect x="556" y="132" width="168" height="42"/>
+      <text x="640" y="158">NetBox</text>
+    </g>
+
+    <line class="connector connector-muted" x1="640" y1="174" x2="640" y2="190"/>
+    <line class="connector connector-muted" x1="185" y1="190" x2="1095" y2="190"/>
+    <line class="connector connector-muted" x1="185" y1="190" x2="185" y2="202" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="412" y1="190" x2="412" y2="202" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="640" y1="190" x2="640" y2="202" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="868" y1="190" x2="868" y2="202" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="1095" y1="190" x2="1095" y2="202" marker-end="url(#arrow)"/>
+    <text class="edge-label" x="666" y="187">PLUGIN</text>
+
+    <g class="node node-highlight">
+      <rect x="103" y="206" width="164" height="42"/>
+      <text x="185" y="232">[ netbox-ceph ]</text>
+    </g>
+    <g class="node node-highlight">
+      <rect x="335" y="206" width="154" height="42"/>
+      <text x="412" y="232">[ netbox-pbs ]</text>
+    </g>
+    <g class="node node-featured">
+      <rect x="548" y="206" width="184" height="42"/>
+      <text x="640" y="232">[ netbox-proxbox ]</text>
+    </g>
+    <g class="node node-highlight">
+      <rect x="793" y="206" width="150" height="42"/>
+      <text x="868" y="232">[ netbox-pdm ]</text>
+    </g>
+    <g class="node node-highlight">
+      <rect x="1011" y="206" width="168" height="42"/>
+      <text x="1095" y="232">[ netbox-packer ]</text>
+    </g>
+
+    <line class="connector connector-dashed" x1="185" y1="248" x2="185" y2="264"/>
+    <line class="connector connector-dashed" x1="412" y1="248" x2="412" y2="264"/>
+    <line class="connector connector-dashed" x1="868" y1="248" x2="868" y2="264"/>
+    <line class="connector connector-dashed" x1="1095" y1="248" x2="1095" y2="264"/>
+    <line class="connector connector-dashed" x1="185" y1="264" x2="622" y2="264" marker-end="url(#arrow)"/>
+    <line class="connector connector-dashed" x1="1095" y1="264" x2="658" y2="264" marker-end="url(#arrow)"/>
+    <text class="edge-label" x="640" y="267">BASE</text>
+
+    <line class="connector" x1="185" y1="278" x2="185" y2="294"/>
+    <line class="connector" x1="412" y1="278" x2="412" y2="294"/>
+    <line class="connector" x1="640" y1="278" x2="640" y2="294"/>
+    <line class="connector" x1="868" y1="278" x2="868" y2="294"/>
+    <line class="connector" x1="1095" y1="278" x2="1095" y2="294"/>
+    <line class="connector" x1="185" y1="294" x2="1095" y2="294"/>
+    <line class="connector" x1="640" y1="294" x2="640" y2="326" marker-end="url(#arrow)"/>
+    <text class="edge-label" x="694" y="320">HTTP / SSE / WS</text>
+
+    <g class="node node-highlight">
+      <rect x="545" y="330" width="190" height="42"/>
+      <text x="640" y="356">[ proxbox-api ]</text>
+    </g>
+
+    <line class="connector connector-muted" x1="640" y1="372" x2="640" y2="390"/>
+    <line class="connector connector-muted" x1="410" y1="390" x2="870" y2="390"/>
+    <line class="connector connector-muted" x1="410" y1="390" x2="410" y2="410" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="870" y1="390" x2="870" y2="410" marker-end="url(#arrow)"/>
+
+    <g class="node node-highlight">
+      <rect x="330" y="414" width="160" height="42"/>
+      <text x="410" y="440">[ netbox-sdk ]</text>
+    </g>
+    <g class="node node-highlight">
+      <rect x="783" y="414" width="174" height="42"/>
+      <text x="870" y="440">[ proxmox-sdk ]</text>
+    </g>
+
+    <line class="connector" x1="410" y1="456" x2="410" y2="500" marker-end="url(#arrow)"/>
+    <line class="connector" x1="870" y1="456" x2="870" y2="500" marker-end="url(#arrow)"/>
+    <text class="edge-label" x="440" y="482">REST</text>
+    <text class="edge-label" x="900" y="482">REST</text>
+
+    <g class="node node-netbox">
+      <rect x="315" y="504" width="190" height="42"/>
+      <text x="410" y="530">NetBox REST API</text>
+    </g>
+    <g class="node node-proxmox">
+      <rect x="784" y="504" width="172" height="42"/>
+      <text x="870" y="530">Proxmox VE</text>
+    </g>
+
+    <line class="connector connector-muted" x1="870" y1="546" x2="870" y2="560"/>
+    <line class="connector connector-muted" x1="750" y1="560" x2="1090" y2="560"/>
+    <line class="connector connector-muted" x1="750" y1="560" x2="750" y2="574" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="920" y1="560" x2="920" y2="574" marker-end="url(#arrow)"/>
+    <line class="connector connector-muted" x1="1090" y1="560" x2="1090" y2="574" marker-end="url(#arrow)"/>
+
+    <g class="node node-service node-proxmox">
+      <rect x="674" y="578" width="152" height="30"/>
+      <text x="750" y="598">Proxmox Ceph</text>
+    </g>
+    <g class="node node-service node-proxmox">
+      <rect x="844" y="578" width="152" height="30"/>
+      <text x="920" y="598">Proxmox PBS</text>
+    </g>
+    <g class="node node-service node-proxmox">
+      <rect x="1014" y="578" width="152" height="30"/>
+      <text x="1090" y="598">Proxmox PDM</text>
+    </g>
+  </g>
+</svg>
