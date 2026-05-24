@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T19:43:23.694Z",
+  "generated_at": "2026-05-24T20:23:57.272Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 45,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 191,
+      "title": "Pin proxbox-api to proxmox-sdk 0.0.8",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/191",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 188,
       "title": "Handle VM disk aggregate drift during sync",
@@ -1062,7 +1081,8 @@
         94,
         95,
         97,
-        98
+        98,
+        191
       ]
     }
   ],
@@ -1073,13 +1093,13 @@
       "count": 19
     },
     {
-      "name": "bug",
-      "color": "d73a4a",
-      "count": 14
-    },
-    {
       "name": "enhancement",
       "color": "a2eeef",
+      "count": 15
+    },
+    {
+      "name": "bug",
+      "color": "d73a4a",
       "count": 14
     },
     {
