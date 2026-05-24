@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T17:18:35.878Z",
+  "generated_at": "2026-05-24T17:49:08.206Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 16,
+    "open": 17,
     "closed": 262,
     "edges": 93
   },
-  "viewBox": "0 0 272 1928",
+  "viewBox": "0 0 272 2048",
   "nodes": [
+    {
+      "number": 508,
+      "title": "Render companion plugin endpoints on ProxBox homepage",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/508",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1936,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 504,
       "title": "Remove Discord and Telegram community links",
@@ -7009,7 +7023,8 @@
         482,
         483,
         484,
-        485
+        485,
+        508
       ]
     }
   ],
