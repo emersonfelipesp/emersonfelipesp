@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T18:56:42.719Z",
+  "generated_at": "2026-05-24T18:59:49.164Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 43,
+    "open": 5,
+    "closed": 44,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 188,
@@ -23,7 +23,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 616,
+      "y": 496,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -31,9 +31,9 @@
     {
       "number": 186,
       "title": "Publish experimental PyO3 Rust Docker images",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/186",
-      "closedAt": null,
+      "closedAt": "2026-05-24T18:58:40Z",
       "labels": [
         {
           "name": "enhancement",
@@ -41,8 +41,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1007,6 +1007,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        186,
         184,
         165,
         174,
@@ -1061,7 +1062,6 @@
         95,
         97,
         98,
-        186,
         188
       ]
     }
