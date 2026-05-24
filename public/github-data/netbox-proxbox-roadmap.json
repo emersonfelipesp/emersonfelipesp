@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T23:45:05.234Z",
+  "generated_at": "2026-05-24T23:55:40.742Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 273,
+    "open": 8,
+    "closed": 274,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 514,
       "title": "Implement browser SSH terminal for Proxmox endpoints",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/514",
-      "closedAt": null,
+      "closedAt": "2026-05-24T23:53:54Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6786,6 +6786,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        514,
         513,
         483,
         479,
@@ -7073,8 +7074,7 @@
         435,
         436,
         476,
-        485,
-        514
+        485
       ]
     }
   ],
