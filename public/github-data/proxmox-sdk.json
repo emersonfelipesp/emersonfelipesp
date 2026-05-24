@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-05-24T20:22:53.252Z",
+  "syncedAt": "2026-05-24T21:00:17.415Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 328577913,
+      "nodeId": "RE_kwDORz_GBs4TlbN5",
+      "tag": "v0.0.9",
+      "name": "proxmox-sdk v0.0.9",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.9",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/328577913",
+      "targetCommitish": "d3e73ac818a68dacf2067e29d11409b5d5b428c2",
+      "body": "## proxmox-sdk v0.0.9\n\nMaintenance release for the schema-driven Proxmox SDK and mock runtime.\n\n### Highlights\n\n- Promotes the post-v0.0.8 performance architecture and generated-route documentation updates.\n- Includes the Dependabot lockfile alert resolution merged after v0.0.8.\n- Keeps package metadata and `uv.lock` aligned at `0.0.9`.\n\n### Validation\n\n- Main CI passed on commit `d3e73ac818a68dacf2067e29d11409b5d5b428c2`, including lint, syntax/import smoke checks, all schema test jobs (`latest`, `9.2`, `9.1.11`), and Docker image smoke/push jobs.\n- TestPyPI release candidate `v0.0.9rc1` passed release workflow `26372086908`: artifact build, TestPyPI upload, and all 9 validation jobs across Python 3.11, 3.12, 3.13 and schemas `latest`, `9.2`, `9.1.11`.\n- Clean install validation installed `proxmox-sdk==0.0.9rc1` from TestPyPI into a fresh environment; package metadata, `__version__`, packaged generated artifacts, and `pbx --version` / `proxmox-cli --version` were verified.\n",
+      "bodyHtml": "<h2 dir=\"auto\">proxmox-sdk v0.0.9</h2>\n<p dir=\"auto\">Maintenance release for the schema-driven Proxmox SDK and mock runtime.</p>\n<h3 dir=\"auto\">Highlights</h3>\n<ul dir=\"auto\">\n<li>Promotes the post-v0.0.8 performance architecture and generated-route documentation updates.</li>\n<li>Includes the Dependabot lockfile alert resolution merged after v0.0.8.</li>\n<li>Keeps package metadata and <code class=\"notranslate\">uv.lock</code> aligned at <code class=\"notranslate\">0.0.9</code>.</li>\n</ul>\n<h3 dir=\"auto\">Validation</h3>\n<ul dir=\"auto\">\n<li>Main CI passed on commit <code class=\"notranslate\">d3e73ac818a68dacf2067e29d11409b5d5b428c2</code>, including lint, syntax/import smoke checks, all schema test jobs (<code class=\"notranslate\">latest</code>, <code class=\"notranslate\">9.2</code>, <code class=\"notranslate\">9.1.11</code>), and Docker image smoke/push jobs.</li>\n<li>TestPyPI release candidate <code class=\"notranslate\">v0.0.9rc1</code> passed release workflow <code class=\"notranslate\">26372086908</code>: artifact build, TestPyPI upload, and all 9 validation jobs across Python 3.11, 3.12, 3.13 and schemas <code class=\"notranslate\">latest</code>, <code class=\"notranslate\">9.2</code>, <code class=\"notranslate\">9.1.11</code>.</li>\n<li>Clean install validation installed <code class=\"notranslate\">proxmox-sdk==0.0.9rc1</code> from TestPyPI into a fresh environment; package metadata, <code class=\"notranslate\">__version__</code>, packaged generated artifacts, and <code class=\"notranslate\">pbx --version</code> / <code class=\"notranslate\">proxmox-cli --version</code> were verified.</li>\n</ul>",
+      "createdAt": "2026-05-24T20:42:29Z",
+      "publishedAt": "2026-05-24T20:50:58Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.9",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.9"
+      }
+    },
+    {
+      "id": 328575549,
+      "nodeId": "RE_kwDORz_GBs4Tlao9",
+      "tag": "v0.0.9rc1",
+      "name": "v0.0.9rc1 - Release Candidate 1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.9rc1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/328575549",
+      "targetCommitish": "75bb288cd0128038ccc0da77f3723eb98f2c1579",
+      "body": "## proxmox-sdk v0.0.9rc1\n\nRelease candidate for `v0.0.9`.\n\n### Scope\n\n- Carries the post-v0.0.8 documentation updates for performance architecture and generated-route internals.\n- Carries the Dependabot lockfile alert resolution currently on `main`.\n- Bumps package metadata to `0.0.9rc1` for TestPyPI validation.\n\n### Local validation\n\n- `uv lock --check`\n- `uv run ruff check .`\n- `uv run ruff format --check .`\n- `uv run ty check proxmox_sdk tests --output-format concise`\n- `uv run python -m compileall proxmox_sdk tests`\n- `uv run pytest tests/test_imports.py tests/test_generated_integrity.py tests/mock/test_routes.py tests/mock/test_sqlite_state.py` (64 passed)\n- `uv run pre-commit run --all-files`\n",
+      "bodyHtml": "<h2 dir=\"auto\">proxmox-sdk v0.0.9rc1</h2>\n<p dir=\"auto\">Release candidate for <code class=\"notranslate\">v0.0.9</code>.</p>\n<h3 dir=\"auto\">Scope</h3>\n<ul dir=\"auto\">\n<li>Carries the post-v0.0.8 documentation updates for performance architecture and generated-route internals.</li>\n<li>Carries the Dependabot lockfile alert resolution currently on <code class=\"notranslate\">main</code>.</li>\n<li>Bumps package metadata to <code class=\"notranslate\">0.0.9rc1</code> for TestPyPI validation.</li>\n</ul>\n<h3 dir=\"auto\">Local validation</h3>\n<ul dir=\"auto\">\n<li><code class=\"notranslate\">uv lock --check</code></li>\n<li><code class=\"notranslate\">uv run ruff check .</code></li>\n<li><code class=\"notranslate\">uv run ruff format --check .</code></li>\n<li><code class=\"notranslate\">uv run ty check proxmox_sdk tests --output-format concise</code></li>\n<li><code class=\"notranslate\">uv run python -m compileall proxmox_sdk tests</code></li>\n<li><code class=\"notranslate\">uv run pytest tests/test_imports.py tests/test_generated_integrity.py tests/mock/test_routes.py tests/mock/test_sqlite_state.py</code> (64 passed)</li>\n<li><code class=\"notranslate\">uv run pre-commit run --all-files</code></li>\n</ul>",
+      "createdAt": "2026-05-24T20:32:00Z",
+      "publishedAt": "2026-05-24T20:34:50Z",
+      "prerelease": true,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.9rc1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.9rc1"
+      }
+    },
     {
       "id": 328539363,
       "nodeId": "RE_kwDORz_GBs4TlRzj",
@@ -17,7 +67,7 @@
       "createdAt": "2026-05-24T16:09:05Z",
       "publishedAt": "2026-05-24T16:33:28Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

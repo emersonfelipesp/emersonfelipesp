@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T20:23:57.272Z",
+  "generated_at": "2026-05-24T21:00:54.938Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 5,
@@ -11,7 +11,7 @@
   "nodes": [
     {
       "number": 191,
-      "title": "Pin proxbox-api to proxmox-sdk 0.0.8",
+      "title": "Pin proxbox-api to proxmox-sdk 0.0.9",
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/191",
       "closedAt": null,
