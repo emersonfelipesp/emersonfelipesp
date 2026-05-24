@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T22:00:24.922Z",
+  "generated_at": "2026-05-24T22:51:45.344Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 272,
+    "open": 9,
+    "closed": 273,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1088",
   "nodes": [
     {
       "number": 514,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 1096,
+      "y": 976,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 513,
       "title": "Add Firecracker inventory models and API",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/513",
-      "closedAt": null,
+      "closedAt": "2026-05-24T22:46:13Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6786,6 +6786,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        513,
         483,
         479,
         484,
@@ -7073,7 +7074,6 @@
         436,
         476,
         485,
-        513,
         514
       ]
     }

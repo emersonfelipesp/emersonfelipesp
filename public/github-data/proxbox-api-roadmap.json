@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T22:00:30.774Z",
+  "generated_at": "2026-05-24T22:51:56.099Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
-    "closed": 45,
+    "open": 6,
+    "closed": 46,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 193,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 192,
       "title": "Add Firecracker host-agent and Cloud provisioning API",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/192",
-      "closedAt": null,
+      "closedAt": "2026-05-24T22:50:15Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1054,6 +1054,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        192,
         188,
         186,
         184,
@@ -1111,7 +1112,6 @@
         97,
         98,
         191,
-        192,
         193
       ]
     }
