@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:44:45.860Z",
+  "generated_at": "2026-05-25T14:59:15.595Z",
   "repo": "emersonfelipesp/netbox-packer",
   "counts": {
-    "open": 1,
-    "closed": 10,
+    "open": 0,
+    "closed": 11,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 26,
       "title": "Integrate with proxbox-api image factory as stateless executor",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-packer/issues/26",
-      "closedAt": null,
+      "closedAt": "2026-05-25T14:52:35Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -216,6 +216,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        26,
         24,
         10,
         9,
@@ -226,14 +227,6 @@
         4,
         3,
         2
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        26
       ]
     }
   ],

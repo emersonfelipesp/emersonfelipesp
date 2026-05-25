@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:44:27.804Z",
+  "generated_at": "2026-05-25T14:58:49.719Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 281,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 531,
+      "title": "Fix TypeError when adding dashboard widgets to home page",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/531",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 529,
       "title": "Proxbox sync job endpoint runtime cards",
@@ -7211,7 +7230,8 @@
         435,
         436,
         519,
-        529
+        529,
+        531
       ]
     }
   ],
@@ -7229,7 +7249,7 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 63
+      "count": 64
     },
     {
       "name": "python",

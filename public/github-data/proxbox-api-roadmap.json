@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:44:34.673Z",
+  "generated_at": "2026-05-25T14:58:59.477Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 51,
+    "open": 5,
+    "closed": 52,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 608",
   "nodes": [
     {
       "number": 205,
@@ -26,13 +26,13 @@
     {
       "number": 204,
       "title": "Make image factory stateless — drop ImageBuildRun persistence",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/204",
-      "closedAt": null,
+      "closedAt": "2026-05-25T14:52:32Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1129,6 +1129,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        204,
         205,
         199,
         197,
@@ -1191,8 +1192,7 @@
         95,
         97,
         98,
-        201,
-        204
+        201
       ]
     }
   ],
