@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:36:52.040Z",
+  "generated_at": "2026-05-25T14:44:27.804Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 280,
+    "open": 8,
+    "closed": 281,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 529,
@@ -15,10 +15,19 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/529",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": null,
       "x": 16,
-      "y": 976,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +35,22 @@
     {
       "number": 527,
       "title": "feat: add dashboard widgets for NetBox home page",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/527",
-      "closedAt": null,
-      "labels": [],
+      "closedAt": "2026-05-25T14:38:44Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6898,6 +6916,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        527,
         525,
         485,
         476,
@@ -7192,7 +7211,6 @@
         435,
         436,
         519,
-        527,
         529
       ]
     }
@@ -7201,12 +7219,12 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 149
+      "count": 151
     },
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 114
+      "count": 116
     },
     {
       "name": "bug",
