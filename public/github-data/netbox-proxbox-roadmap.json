@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:58:49.719Z",
+  "generated_at": "2026-05-25T15:08:06.596Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 281,
+    "open": 8,
+    "closed": 282,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 531,
       "title": "Fix TypeError when adding dashboard widgets to home page",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/531",
-      "closedAt": null,
+      "closedAt": "2026-05-25T15:07:02Z",
       "labels": [
         {
           "name": "bug",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6935,6 +6935,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        531,
         527,
         525,
         485,
@@ -7230,8 +7231,7 @@
         435,
         436,
         519,
-        529,
-        531
+        529
       ]
     }
   ],
