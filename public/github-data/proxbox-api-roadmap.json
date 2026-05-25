@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T15:43:27.939Z",
+  "generated_at": "2026-05-25T17:56:43.214Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 52,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 208,
+      "title": "Add Gitea provisioner recipe to image factory",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/208",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 205,
       "title": "Make VM reconciliation engine selection plugin-controlled",
@@ -1192,7 +1206,8 @@
         95,
         97,
         98,
-        201
+        201,
+        208
       ]
     }
   ],
