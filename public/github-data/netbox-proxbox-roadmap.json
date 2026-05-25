@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T20:53:33.287Z",
+  "generated_at": "2026-05-25T21:19:57.473Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 284,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 536,
+      "title": "Show PBS connection status on Proxbox homepage",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/536",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 533,
       "title": "Dashboard widgets too wide to fit three on one row",
@@ -7251,7 +7265,8 @@
         433,
         435,
         436,
-        519
+        519,
+        536
       ]
     }
   ],
