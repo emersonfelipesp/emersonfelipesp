@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T11:39:43.776Z",
+  "generated_at": "2026-05-25T12:04:06.617Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 49,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 199,
+      "title": "Read reconciliation engine from NetBox plugin settings",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/199",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 197,
       "title": "Document Firecracker host-agent provisioning in proxbox-api",
@@ -1132,7 +1146,8 @@
         94,
         95,
         97,
-        98
+        98,
+        199
       ]
     }
   ],
