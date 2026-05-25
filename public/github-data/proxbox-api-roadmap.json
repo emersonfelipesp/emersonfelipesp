@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T14:22:55.579Z",
+  "generated_at": "2026-05-25T14:37:02.167Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 7,
-    "closed": 50,
+    "open": 6,
+    "closed": 51,
     "edges": 0
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 205,
       "title": "Make VM reconciliation engine selection plugin-controlled",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/205",
-      "closedAt": null,
+      "closedAt": "2026-05-25T14:33:07Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1129,6 +1129,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        205,
         199,
         197,
         193,
@@ -1191,8 +1192,7 @@
         97,
         98,
         201,
-        204,
-        205
+        204
       ]
     }
   ],
