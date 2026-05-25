@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:17:10.684Z",
+  "generated_at": "2026-05-25T13:25:13.989Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 50,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 204,
+      "title": "Make image factory stateless — drop ImageBuildRun persistence",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/204",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 201,
       "title": "feat: add Firecracker host VM template images (Debian 12 + Ubuntu 24.04)",
@@ -1162,7 +1176,8 @@
         95,
         97,
         98,
-        201
+        201,
+        204
       ]
     }
   ],

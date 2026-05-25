@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:17:02.278Z",
+  "generated_at": "2026-05-25T13:25:05.737Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 276,
+    "open": 9,
+    "closed": 277,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1088",
   "nodes": [
     {
       "number": 522,
       "title": "Configure proxbox-api reconciliation engine from plugin settings",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/522",
-      "closedAt": null,
+      "closedAt": "2026-05-25T13:18:08Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 1096,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6856,6 +6856,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        522,
         520,
         517,
         514,
@@ -7147,8 +7148,7 @@
         436,
         476,
         485,
-        519,
-        522
+        519
       ]
     }
   ],

@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:17:25.195Z",
+  "generated_at": "2026-05-25T13:25:27.697Z",
   "repo": "emersonfelipesp/netbox-packer",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 10,
     "edges": 0
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 26,
+      "title": "Integrate with proxbox-api image factory as stateless executor",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-packer/issues/26",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 24,
       "title": "Prepare netbox-packer for NetBox plugin certification",
@@ -212,6 +226,14 @@
         4,
         3,
         2
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        26
       ]
     }
   ],
