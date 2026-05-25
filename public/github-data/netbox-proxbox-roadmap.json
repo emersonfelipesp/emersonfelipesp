@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:33:12.735Z",
+  "generated_at": "2026-05-25T13:55:24.484Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 277,
+    "open": 8,
+    "closed": 279,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 525,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 1096,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -69,7 +69,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 976,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -273,9 +273,9 @@
     {
       "number": 485,
       "title": "PVE Firewall Sync | NetBox > Proxmox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/485",
-      "closedAt": null,
+      "closedAt": "2026-05-25T13:50:34Z",
       "labels": [
         {
           "name": "feature",
@@ -291,8 +291,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -508,9 +508,9 @@
     {
       "number": 476,
       "title": "[Firewall Write] proxbox-api Write Endpoints (POST/PUT/DELETE)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/476",
-      "closedAt": null,
+      "closedAt": "2026-05-25T13:49:55Z",
       "labels": [
         {
           "name": "feature",
@@ -526,8 +526,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6870,6 +6870,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        485,
+        476,
         522,
         520,
         517,
@@ -7160,8 +7162,6 @@
         433,
         435,
         436,
-        476,
-        485,
         519,
         525
       ]
