@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T12:56:53.226Z",
+  "generated_at": "2026-05-25T13:03:19.862Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 50,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 201,
+      "title": "feat: add Firecracker host VM template images (Debian 12 + Ubuntu 24.04)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/201",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 199,
       "title": "Read reconciliation engine from NetBox plugin settings",
@@ -1147,7 +1161,8 @@
         94,
         95,
         97,
-        98
+        98,
+        201
       ]
     }
   ],
