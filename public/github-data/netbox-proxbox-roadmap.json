@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T07:39:18.048Z",
+  "generated_at": "2026-05-25T07:46:16.887Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 275,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 519,
+      "title": "Cannot re-import VM from PVE cluster after deletion",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/519",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 517,
       "title": "Document Firecracker inventory and APIs in NetBox Proxbox",
@@ -7094,7 +7108,8 @@
         435,
         436,
         476,
-        485
+        485,
+        519
       ]
     }
   ],
