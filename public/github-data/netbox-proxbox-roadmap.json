@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T15:13:04.578Z",
+  "generated_at": "2026-05-25T15:33:37.747Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 283,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 533,
+      "title": "Dashboard widgets too wide to fit three on one row",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/533",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 531,
       "title": "Fix TypeError when adding dashboard widgets to home page",
@@ -7231,7 +7250,8 @@
         433,
         435,
         436,
-        519
+        519,
+        533
       ]
     }
   ],
@@ -7249,7 +7269,7 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 64
+      "count": 65
     },
     {
       "name": "python",
