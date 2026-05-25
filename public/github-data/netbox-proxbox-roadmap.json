@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:55:24.484Z",
+  "generated_at": "2026-05-25T14:22:47.778Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 279,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 527,
+      "title": "feat: add dashboard widgets for NetBox home page",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/527",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 525,
       "title": "Expose VM reconciliation engine in Proxbox settings",
@@ -7163,7 +7177,8 @@
         435,
         436,
         519,
-        525
+        525,
+        527
       ]
     }
   ],
