@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T11:11:46.151Z",
+  "generated_at": "2026-05-25T11:23:08.639Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 10,
     "closed": 275,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 520,
+      "title": "Add live PBS connection status to Proxbox home",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/520",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 519,
       "title": "Cannot re-import VM from PVE cluster after deletion",
@@ -7118,7 +7132,8 @@
         436,
         476,
         485,
-        519
+        519,
+        520
       ]
     }
   ],
