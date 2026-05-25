@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T11:23:08.639Z",
+  "generated_at": "2026-05-25T11:39:32.506Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 275,
+    "open": 9,
+    "closed": 276,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1088",
   "nodes": [
     {
       "number": 520,
       "title": "Add live PBS connection status to Proxbox home",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/520",
-      "closedAt": null,
+      "closedAt": "2026-05-25T11:37:54Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 1096,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6842,6 +6842,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        520,
         517,
         514,
         513,
@@ -7132,8 +7133,7 @@
         436,
         476,
         485,
-        519,
-        520
+        519
       ]
     }
   ],
