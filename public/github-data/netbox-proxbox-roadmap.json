@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T15:33:37.747Z",
+  "generated_at": "2026-05-25T15:43:20.287Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 283,
+    "open": 7,
+    "closed": 284,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 533,
       "title": "Dashboard widgets too wide to fit three on one row",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/533",
-      "closedAt": null,
+      "closedAt": "2026-05-25T15:42:12Z",
       "labels": [
         {
           "name": "bug",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6954,6 +6954,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        533,
         529,
         531,
         527,
@@ -7250,8 +7251,7 @@
         433,
         435,
         436,
-        519,
-        533
+        519
       ]
     }
   ],
