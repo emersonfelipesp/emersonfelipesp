@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T18:37:15.054Z",
+  "generated_at": "2026-05-25T20:53:39.750Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
-    "closed": 52,
+    "open": 4,
+    "closed": 54,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 208,
       "title": "Add Gitea provisioner recipe to image factory",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/208",
-      "closedAt": null,
+      "closedAt": "2026-05-25T20:52:35Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -54,13 +54,13 @@
     {
       "number": 201,
       "title": "feat: add Firecracker host VM template images (Debian 12 + Ubuntu 24.04)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/201",
-      "closedAt": null,
+      "closedAt": "2026-05-25T20:52:32Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1143,6 +1143,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        208,
+        201,
         204,
         205,
         199,
@@ -1205,9 +1207,7 @@
         94,
         95,
         97,
-        98,
-        201,
-        208
+        98
       ]
     }
   ],
