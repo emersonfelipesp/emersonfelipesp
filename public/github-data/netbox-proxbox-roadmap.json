@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T21:19:57.473Z",
+  "generated_at": "2026-05-25T21:29:24.690Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 284,
+    "open": 7,
+    "closed": 285,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 536,
       "title": "Show PBS connection status on Proxbox homepage",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/536",
-      "closedAt": null,
+      "closedAt": "2026-05-25T21:28:08Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6968,6 +6968,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        536,
         533,
         529,
         531,
@@ -7265,8 +7266,7 @@
         433,
         435,
         436,
-        519,
-        536
+        519
       ]
     }
   ],
