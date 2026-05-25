@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:25:13.989Z",
+  "generated_at": "2026-05-25T13:33:19.852Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 50,
     "edges": 0
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 205,
+      "title": "Make VM reconciliation engine selection plugin-controlled",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/205",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 204,
       "title": "Make image factory stateless — drop ImageBuildRun persistence",
@@ -1177,7 +1191,8 @@
         97,
         98,
         201,
-        204
+        204,
+        205
       ]
     }
   ],

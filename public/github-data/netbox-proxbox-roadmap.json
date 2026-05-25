@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T13:25:05.737Z",
+  "generated_at": "2026-05-25T13:33:12.735Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 10,
     "closed": 277,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 525,
+      "title": "Expose VM reconciliation engine in Proxbox settings",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/525",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 522,
       "title": "Configure proxbox-api reconciliation engine from plugin settings",
@@ -7148,7 +7162,8 @@
         436,
         476,
         485,
-        519
+        519,
+        525
       ]
     }
   ],
