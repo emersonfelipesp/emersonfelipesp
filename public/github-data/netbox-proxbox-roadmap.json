@@ -1,14 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T23:55:40.742Z",
+  "generated_at": "2026-05-25T00:07:05.601Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 274,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 517,
+      "title": "Document Firecracker inventory and APIs in NetBox Proxbox",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/517",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 514,
       "title": "Implement browser SSH terminal for Proxmox endpoints",
@@ -7074,7 +7093,8 @@
         435,
         436,
         476,
-        485
+        485,
+        517
       ]
     }
   ],
@@ -7122,7 +7142,7 @@
     {
       "name": "documentation",
       "color": "0075ca",
-      "count": 3
+      "count": 4
     },
     {
       "name": "good first issue",
