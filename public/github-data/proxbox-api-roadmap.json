@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T00:49:48.534Z",
+  "generated_at": "2026-05-25T01:37:50.984Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 48,
+    "open": 4,
+    "closed": 49,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 197,
       "title": "Document Firecracker host-agent provisioning in proxbox-api",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/197",
-      "closedAt": null,
+      "closedAt": "2026-05-25T01:32:10Z",
       "labels": [
         {
           "name": "documentation",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1073,6 +1073,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        197,
         193,
         191,
         192,
@@ -1131,8 +1132,7 @@
         94,
         95,
         97,
-        98,
-        197
+        98
       ]
     }
   ],

@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T00:49:37.939Z",
+  "generated_at": "2026-05-25T01:37:40.477Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 274,
+    "open": 8,
+    "closed": 275,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 517,
       "title": "Document Firecracker inventory and APIs in NetBox Proxbox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/517",
-      "closedAt": null,
+      "closedAt": "2026-05-25T01:30:50Z",
       "labels": [
         {
           "name": "documentation",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6805,6 +6805,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        517,
         514,
         513,
         483,
@@ -7093,8 +7094,7 @@
         435,
         436,
         476,
-        485,
-        517
+        485
       ]
     }
   ],
