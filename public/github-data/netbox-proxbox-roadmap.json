@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25T15:08:06.596Z",
+  "generated_at": "2026-05-25T15:13:04.578Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 282,
+    "open": 7,
+    "closed": 283,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 531,
@@ -31,9 +31,9 @@
     {
       "number": 529,
       "title": "Proxbox sync job endpoint runtime cards",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/529",
-      "closedAt": null,
+      "closedAt": "2026-05-25T15:11:55Z",
       "labels": [
         {
           "name": "feature",
@@ -45,8 +45,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6935,6 +6935,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        529,
         531,
         527,
         525,
@@ -7230,8 +7231,7 @@
         433,
         435,
         436,
-        519,
-        529
+        519
       ]
     }
   ],
