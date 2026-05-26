@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T00:47:37.328Z",
+  "generated_at": "2026-05-26T06:27:22.975Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 54,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 211,
+      "title": "Errors when syncing virutal disks",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/211",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 208,
       "title": "Add Gitea provisioner recipe to image factory",
@@ -1207,7 +1221,8 @@
         94,
         95,
         97,
-        98
+        98,
+        211
       ]
     }
   ],
