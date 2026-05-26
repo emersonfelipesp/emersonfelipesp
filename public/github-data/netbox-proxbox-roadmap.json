@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T23:22:45.910Z",
+  "generated_at": "2026-05-26T23:58:15.294Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 286,
+    "open": 7,
+    "closed": 287,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 541,
@@ -23,7 +23,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -31,13 +31,13 @@
     {
       "number": 537,
       "title": "Not able to delete ip-address",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/537",
-      "closedAt": null,
+      "closedAt": "2026-05-26T23:47:04Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7001,6 +7001,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        537,
         519,
         536,
         533,
@@ -7300,7 +7301,6 @@
         433,
         435,
         436,
-        537,
         541
       ]
     }
