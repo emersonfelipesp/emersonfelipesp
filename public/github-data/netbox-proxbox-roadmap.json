@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T18:51:52.145Z",
+  "generated_at": "2026-05-26T20:04:33.962Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 285,
+    "open": 7,
+    "closed": 286,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 537,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -166,9 +166,9 @@
     {
       "number": 519,
       "title": "Cannot re-import VM from PVE cluster after deletion",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/519",
-      "closedAt": null,
+      "closedAt": "2026-05-26T20:03:04Z",
       "labels": [
         {
           "name": "bug",
@@ -180,8 +180,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -6982,6 +6982,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        519,
         536,
         533,
         529,
@@ -7280,7 +7281,6 @@
         433,
         435,
         436,
-        519,
         537
       ]
     }
