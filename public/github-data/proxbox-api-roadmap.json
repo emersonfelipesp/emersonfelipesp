@@ -1,24 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T07:18:32.649Z",
+  "generated_at": "2026-05-26T13:05:24.311Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 54,
+    "open": 4,
+    "closed": 55,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 211,
       "title": "Errors when syncing virutal disks",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/211",
-      "closedAt": null,
-      "labels": [],
+      "closedAt": "2026-05-26T12:09:27Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "d73a4a"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1157,6 +1166,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        211,
         208,
         201,
         204,
@@ -1221,8 +1231,7 @@
         94,
         95,
         97,
-        98,
-        211
+        98
       ]
     }
   ],
@@ -1230,17 +1239,17 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 19
+      "count": 20
+    },
+    {
+      "name": "bug",
+      "color": "d73a4a",
+      "count": 15
     },
     {
       "name": "enhancement",
       "color": "a2eeef",
       "count": 15
-    },
-    {
-      "name": "bug",
-      "color": "d73a4a",
-      "count": 14
     },
     {
       "name": "under review",
