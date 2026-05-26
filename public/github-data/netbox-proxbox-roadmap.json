@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-26T06:27:15.387Z",
+  "generated_at": "2026-05-26T06:39:03.798Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 285,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 537,
+      "title": "Not able to delete ip-address",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/537",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 536,
       "title": "Show PBS connection status on Proxbox homepage",
@@ -7266,7 +7280,8 @@
         433,
         435,
         436,
-        519
+        519,
+        537
       ]
     }
   ],
