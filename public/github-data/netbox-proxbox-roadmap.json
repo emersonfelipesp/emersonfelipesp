@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-27T18:55:11.760Z",
+  "generated_at": "2026-05-27T20:53:35.370Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 287,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 545,
+      "title": "Error adding server - API tokens",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/545",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 544,
       "title": "proxbox-api ignoring ssl setting",
@@ -7321,7 +7335,8 @@
         435,
         436,
         541,
-        544
+        544,
+        545
       ]
     }
   ],
