@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-27T07:31:21.627Z",
+  "generated_at": "2026-05-27T09:46:26.689Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 287,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 544,
+      "title": "proxbox-api ignoring ssl setting",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/544",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 541,
       "title": "Sharing resolved configuration challenges and help with current issues.",
@@ -7301,7 +7315,8 @@
         433,
         435,
         436,
-        541
+        541,
+        544
       ]
     }
   ],
