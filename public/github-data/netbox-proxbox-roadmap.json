@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-28T18:56:04.850Z",
+  "generated_at": "2026-05-28T20:15:03.318Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 287,
+    "open": 8,
+    "closed": 288,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 545,
       "title": "Error adding server - API tokens",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/545",
-      "closedAt": null,
+      "closedAt": "2026-05-28T20:13:08Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7043,6 +7043,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        545,
         537,
         519,
         536,
@@ -7344,8 +7345,7 @@
         435,
         436,
         541,
-        544,
-        545
+        544
       ]
     }
   ],
