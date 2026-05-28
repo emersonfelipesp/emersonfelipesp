@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-28T20:39:26.881Z",
+  "generated_at": "2026-05-28T21:01:29.790Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 288,
+    "open": 7,
+    "closed": 289,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 545,
@@ -46,7 +46,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -54,9 +54,9 @@
     {
       "number": 541,
       "title": "Sharing resolved configuration challenges and help with current issues.",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/541",
-      "closedAt": null,
+      "closedAt": "2026-05-28T21:00:13Z",
       "labels": [
         {
           "name": "bug",
@@ -68,8 +68,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7047,6 +7047,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        541,
         545,
         537,
         519,
@@ -7348,7 +7349,6 @@
         433,
         435,
         436,
-        541,
         544
       ]
     }
