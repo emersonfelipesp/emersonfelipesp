@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-05-28T13:18:33.841Z",
+  "syncedAt": "2026-05-28T18:55:20.906Z",
   "fullName": "emersonfelipesp/netbox-packer",
   "stars": 0,
   "forks": 0,
@@ -17,7 +17,7 @@
       "createdAt": "2026-05-18T15:46:25Z",
       "publishedAt": "2026-05-18T15:52:59Z",
       "prerelease": false,
-      "latest": false,
+      "latest": true,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
