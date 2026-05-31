@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T12:38:45.036Z",
+  "generated_at": "2026-05-31T16:52:49.803Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 290,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 551,
+      "title": "Bug at Full-Sync via netbox-proxbox",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/551",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 545,
       "title": "Error adding server - API tokens",
@@ -7349,7 +7363,8 @@
         432,
         433,
         435,
-        436
+        436,
+        551
       ]
     }
   ],
