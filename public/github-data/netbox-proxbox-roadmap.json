@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T17:48:50.083Z",
+  "generated_at": "2026-05-31T17:51:53.894Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 291,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 554,
+      "title": "Option to exclude Proxmox templates from VM sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/554",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 552,
       "title": "Release pipeline: PyPI idempotency check + document Gitea-first flow",
@@ -7379,7 +7393,8 @@
         433,
         435,
         436,
-        551
+        551,
+        554
       ]
     }
   ],
