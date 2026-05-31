@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T17:52:00.925Z",
+  "generated_at": "2026-05-31T17:56:27.701Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 55,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 218,
+      "title": "Release pipeline: add Gitea publish workflow idempotency and PyPI pre-check",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/218",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 211,
       "title": "Errors when syncing virutal disks",
@@ -1231,7 +1245,8 @@
         94,
         95,
         97,
-        98
+        98,
+        218
       ]
     }
   ],
