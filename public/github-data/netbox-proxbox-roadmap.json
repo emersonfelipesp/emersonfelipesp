@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T16:52:49.803Z",
+  "generated_at": "2026-05-31T17:48:50.083Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 7,
-    "closed": 290,
+    "closed": 291,
     "edges": 93
   },
   "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 552,
+      "title": "Release pipeline: PyPI idempotency check + document Gitea-first flow",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/552",
+      "closedAt": "2026-05-31T17:47:40Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 551,
       "title": "Bug at Full-Sync via netbox-proxbox",
@@ -7061,6 +7075,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        552,
         544,
         541,
         545,
