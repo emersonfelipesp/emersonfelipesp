@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T20:16:14.268Z",
+  "generated_at": "2026-05-31T20:23:00.846Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 291,
+    "open": 7,
+    "closed": 293,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 556,
       "title": "Option to disable IP address synchronization for VMs",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/556",
-      "closedAt": null,
+      "closedAt": "2026-05-31T20:21:42Z",
       "labels": [
         {
           "name": "accepted",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 976,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -31,9 +31,9 @@
     {
       "number": 554,
       "title": "Option to exclude Proxmox templates from VM sync",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/554",
-      "closedAt": null,
+      "closedAt": "2026-05-31T20:15:41Z",
       "labels": [
         {
           "name": "feature",
@@ -45,8 +45,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 856,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7117,6 +7117,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        556,
+        554,
         552,
         544,
         541,
@@ -7421,9 +7423,7 @@
         433,
         435,
         436,
-        551,
-        554,
-        556
+        551
       ]
     }
   ],
