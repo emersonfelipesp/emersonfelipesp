@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T19:19:39.608Z",
+  "generated_at": "2026-05-31T20:16:14.268Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 9,
@@ -15,7 +15,12 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/556",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 976,
@@ -7426,7 +7431,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 155
+      "count": 156
     },
     {
       "name": "feature",
