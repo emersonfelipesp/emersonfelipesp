@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T20:23:00.846Z",
+  "generated_at": "2026-05-31T20:39:06.903Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
-    "closed": 293,
+    "open": 6,
+    "closed": 294,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 556,
@@ -68,13 +68,22 @@
     {
       "number": 551,
       "title": "Bug at Full-Sync via netbox-proxbox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/551",
-      "closedAt": null,
-      "labels": [],
+      "closedAt": "2026-05-31T20:36:38Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7117,6 +7126,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        551,
         556,
         554,
         552,
@@ -7422,8 +7432,7 @@
         432,
         433,
         435,
-        436,
-        551
+        436
       ]
     }
   ],
@@ -7431,7 +7440,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 156
+      "count": 157
     },
     {
       "name": "feature",
@@ -7441,7 +7450,7 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 67
+      "count": 68
     },
     {
       "name": "python",
