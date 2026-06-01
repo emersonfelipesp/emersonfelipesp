@@ -1,34 +1,9 @@
 {
-  "syncedAt": "2026-06-01T21:34:39.069Z",
+  "syncedAt": "2026-06-01T22:08:29.323Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 560,
   "forks": 65,
   "releases": [
-    {
-      "id": 332779150,
-      "nodeId": "RE_kwDOFTMlzs4T1c6O",
-      "tag": "v0.0.19.post3",
-      "name": "v0.0.19.post3",
-      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.19.post3",
-      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/332779150",
-      "targetCommitish": "develop",
-      "body": "## Summary\n\nBug fixes from code review audit of netbox-proxbox develop branch integration and compatibility with proxbox-api main branch.\n\n## Changes\n\n### REST API Validation Fix\n- Added `MinValueValidator(1)` to `interface_batch_size` model field to prevent REST API from persisting invalid 0 values (form already enforced min_value=1)\n\n### UI Visibility Fix\n- Added missing `render_field` blocks in settings template for `interface_batch_size` and `interface_batch_delay_ms` fields (were invisible in NetBox UI, only configurable via REST API)\n\n### Test Coverage & Clarity Improvements\n- Split misleading test method into two focused methods for better clarity and test traceability\n- Added dedicated test for `full-update` path timeout coverage\n- Removed dead-code marker guards that were unreachable due to broader subsumption\n\n## Compatibility\n\n- **NetBox Compatibility:** 4.5.8 → 4.6.99 (unchanged)\n- **Backend Requirement:** proxbox-api ≥ 0.0.13\n- **Breaking Changes:** None\n\n## Validation\n\n- All syntax checks passed\n- Code review findings addressed and verified\n- Ready for production deployment\n",
-      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">Bug fixes from code review audit of netbox-proxbox develop branch integration and compatibility with proxbox-api main branch.</p>\n<h2 dir=\"auto\">Changes</h2>\n<h3 dir=\"auto\">REST API Validation Fix</h3>\n<ul dir=\"auto\">\n<li>Added <code class=\"notranslate\">MinValueValidator(1)</code> to <code class=\"notranslate\">interface_batch_size</code> model field to prevent REST API from persisting invalid 0 values (form already enforced min_value=1)</li>\n</ul>\n<h3 dir=\"auto\">UI Visibility Fix</h3>\n<ul dir=\"auto\">\n<li>Added missing <code class=\"notranslate\">render_field</code> blocks in settings template for <code class=\"notranslate\">interface_batch_size</code> and <code class=\"notranslate\">interface_batch_delay_ms</code> fields (were invisible in NetBox UI, only configurable via REST API)</li>\n</ul>\n<h3 dir=\"auto\">Test Coverage &amp; Clarity Improvements</h3>\n<ul dir=\"auto\">\n<li>Split misleading test method into two focused methods for better clarity and test traceability</li>\n<li>Added dedicated test for <code class=\"notranslate\">full-update</code> path timeout coverage</li>\n<li>Removed dead-code marker guards that were unreachable due to broader subsumption</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<ul dir=\"auto\">\n<li><strong>NetBox Compatibility:</strong> 4.5.8 → 4.6.99 (unchanged)</li>\n<li><strong>Backend Requirement:</strong> proxbox-api ≥ 0.0.13</li>\n<li><strong>Breaking Changes:</strong> None</li>\n</ul>\n<h2 dir=\"auto\">Validation</h2>\n<ul dir=\"auto\">\n<li>All syntax checks passed</li>\n<li>Code review findings addressed and verified</li>\n<li>Ready for production deployment</li>\n</ul>",
-      "createdAt": "2026-06-01T21:21:12Z",
-      "publishedAt": "2026-06-01T21:21:35Z",
-      "prerelease": false,
-      "latest": true,
-      "author": {
-        "login": "emersonfelipesp",
-        "htmlUrl": "https://github.com/emersonfelipesp",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
-      },
-      "assets": [],
-      "sourceArchives": {
-        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.19.post3",
-        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.19.post3"
-      }
-    },
     {
       "id": 332672993,
       "nodeId": "RE_kwDOFTMlzs4T1C_h",
@@ -42,7 +17,7 @@
       "createdAt": "2026-06-01T19:09:10Z",
       "publishedAt": "2026-06-01T17:56:32Z",
       "prerelease": false,
-      "latest": false,
+      "latest": true,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
