@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T21:28:04.625Z",
+  "generated_at": "2026-06-01T21:35:21.556Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 296,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 560,
+      "title": "Issues synchronizing a large number of virtual machine interfaces",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/560",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 558,
       "title": "Synchronizing virtual machines with a large number of interfaces",
@@ -7480,7 +7494,8 @@
         432,
         433,
         435,
-        436
+        436,
+        560
       ]
     }
   ],
