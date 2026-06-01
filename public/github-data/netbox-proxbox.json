@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-06-01T14:33:07.346Z",
+  "syncedAt": "2026-06-01T16:35:41.892Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 560,
   "forks": 65,
@@ -14,7 +14,7 @@
       "targetCommitish": "develop",
       "body": "Post-release update: fixed database persistence issue in Docker environments, enhanced CI/CD compatibility, improved VM template UI routing",
       "bodyHtml": "<p dir=\"auto\">Post-release update: fixed database persistence issue in Docker environments, enhanced CI/CD compatibility, improved VM template UI routing</p>",
-      "createdAt": "2026-06-01T14:31:27Z",
+      "createdAt": "2026-06-01T16:05:51Z",
       "publishedAt": "2026-06-01T14:32:30Z",
       "prerelease": false,
       "latest": true,
