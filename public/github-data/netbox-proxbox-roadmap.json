@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T13:34:29.273Z",
+  "generated_at": "2026-06-01T14:03:42.560Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
-    "closed": 294,
+    "open": 6,
+    "closed": 295,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 557,
       "title": "sqlite-database \"database.db\" is not in repository root but in /app/.venv/lib/python3.13/site-packages/",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/557",
-      "closedAt": null,
+      "closedAt": "2026-06-01T14:01:06Z",
       "labels": [
         {
           "name": "feature",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7149,6 +7149,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        557,
         551,
         556,
         554,
@@ -7455,8 +7456,7 @@
         432,
         433,
         435,
-        436,
-        557
+        436
       ]
     }
   ],
