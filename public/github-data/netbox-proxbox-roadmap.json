@@ -1,33 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T17:23:03.167Z",
+  "generated_at": "2026-06-01T18:08:24.637Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
-    "closed": 295,
+    "open": 6,
+    "closed": 296,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 558,
       "title": "Synchronizing virtual machines with a large number of interfaces",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/558",
-      "closedAt": null,
+      "closedAt": "2026-06-01T17:46:39Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7172,6 +7172,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        558,
         557,
         551,
         556,
@@ -7479,8 +7480,7 @@
         432,
         433,
         435,
-        436,
-        558
+        436
       ]
     }
   ],
@@ -7488,7 +7488,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 157
+      "count": 158
     },
     {
       "name": "feature",
@@ -7501,13 +7501,13 @@
       "count": 69
     },
     {
-      "name": "under review",
-      "color": "FBCA04",
-      "count": 29
-    },
-    {
       "name": "python",
       "color": "2b67c6",
+      "count": 28
+    },
+    {
+      "name": "under review",
+      "color": "FBCA04",
       "count": 28
     },
     {
