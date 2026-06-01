@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T00:54:15.752Z",
+  "generated_at": "2026-06-01T06:14:52.693Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 294,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 557,
+      "title": "sqlite-database \"database.db\" is not in repository root but in /app/.venv/lib/python3.13/site-packages/",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/557",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 556,
       "title": "Option to disable IP address synchronization for VMs",
@@ -7432,7 +7446,8 @@
         432,
         433,
         435,
-        436
+        436,
+        557
       ]
     }
   ],
