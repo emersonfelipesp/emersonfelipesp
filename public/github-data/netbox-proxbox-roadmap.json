@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T17:17:59.938Z",
+  "generated_at": "2026-06-02T17:36:48.354Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 297,
+    "open": 7,
+    "closed": 298,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 563,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -35,9 +35,9 @@
     {
       "number": 561,
       "title": "importing a new cluster when physical device already exists",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/561",
-      "closedAt": null,
+      "closedAt": "2026-06-02T17:35:07Z",
       "labels": [
         {
           "name": "feature",
@@ -54,8 +54,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21"
       },
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7251,6 +7251,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        561,
         560,
         558,
         557,
@@ -7561,7 +7562,6 @@
         433,
         435,
         436,
-        561,
         563
       ]
     }
@@ -7762,8 +7762,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21",
-      "open": 1,
-      "closed": 1
+      "open": 0,
+      "closed": 2
     },
     {
       "title": "v0.0.4",
