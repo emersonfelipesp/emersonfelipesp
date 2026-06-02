@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T12:08:10.395Z",
+  "generated_at": "2026-06-02T12:50:06.415Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 296,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 561,
+      "title": "importing a new cluster when physical device already exists",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/561",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 560,
       "title": "Issues synchronizing a large number of virtual machine interfaces",
@@ -7504,7 +7518,8 @@
         433,
         435,
         436,
-        560
+        560,
+        561
       ]
     }
   ],
