@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T12:50:06.415Z",
+  "generated_at": "2026-06-02T13:05:44.464Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 8,
@@ -15,8 +15,22 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/561",
       "closedAt": null,
-      "labels": [],
-      "milestone": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.20",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21"
+      },
       "x": 16,
       "y": 856,
       "w": 240,
@@ -7527,12 +7541,12 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 158
+      "count": 159
     },
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 118
+      "count": 119
     },
     {
       "name": "bug",
@@ -7713,6 +7727,14 @@
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/19",
       "open": 0,
       "closed": 1
+    },
+    {
+      "title": "v0.0.20",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21",
+      "open": 1,
+      "closed": 0
     },
     {
       "title": "v0.0.4",
