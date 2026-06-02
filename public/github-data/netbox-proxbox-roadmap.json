@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T13:36:43.740Z",
+  "generated_at": "2026-06-02T14:27:23.883Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 297,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 563,
+      "title": "Issue with multiple proxmox endpoints",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/563",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 561,
       "title": "importing a new cluster when physical device already exists",
@@ -7538,7 +7552,8 @@
         433,
         435,
         436,
-        561
+        561,
+        563
       ]
     }
   ],
