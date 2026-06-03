@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T19:33:43.972Z",
+  "generated_at": "2026-06-03T20:20:10.933Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 5,
-    "closed": 56,
+    "closed": 57,
     "edges": 0
   },
   "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 224,
+      "title": "Ceph v2: Proxmox-backed write executor (wire ProxmoxCephProviderAdapter to CephWrite)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/224",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 223,
       "title": "If the virtualserver_id is the same across different proxmox clusters",
@@ -18,7 +32,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 496,
+      "y": 376,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -894,7 +908,7 @@
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
       },
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -913,7 +927,7 @@
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
       },
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -921,9 +935,9 @@
     {
       "number": 95,
       "title": "Ceph v2: orchestration API, plan/apply engine, and operation runs",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/95",
-      "closedAt": null,
+      "closedAt": "2026-06-03T20:18:14Z",
       "labels": [],
       "milestone": {
         "title": "v0.1.0",
@@ -931,8 +945,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
       },
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1194,6 +1208,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        95,
         218,
         211,
         208,
@@ -1258,10 +1273,10 @@
       "note": "start anywhere",
       "issues": [
         94,
-        95,
         97,
         98,
-        223
+        223,
+        224
       ]
     }
   ],
@@ -1338,8 +1353,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7",
-      "open": 4,
-      "closed": 0
+      "open": 3,
+      "closed": 1
     }
   ]
 }
