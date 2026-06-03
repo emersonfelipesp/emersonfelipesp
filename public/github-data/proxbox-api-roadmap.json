@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T21:20:13.335Z",
+  "generated_at": "2026-06-03T22:50:52.471Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 5,
-    "closed": 58,
+    "open": 4,
+    "closed": 59,
     "edges": 0
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 226,
       "title": "Ceph v2: accept the netbox-ceph CephOperation payload shape in /ceph/v2 plan/apply",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/226",
-      "closedAt": null,
+      "closedAt": "2026-06-03T22:46:12Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1222,6 +1222,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        226,
         224,
         95,
         218,
@@ -1290,8 +1291,7 @@
         94,
         97,
         98,
-        223,
-        226
+        223
       ]
     }
   ],
