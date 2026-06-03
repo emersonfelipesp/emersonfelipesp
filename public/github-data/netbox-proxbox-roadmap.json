@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T22:50:42.064Z",
+  "generated_at": "2026-06-03T23:29:58.975Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
+    "open": 11,
     "closed": 298,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1328",
   "nodes": [
+    {
+      "number": 567,
+      "title": "Duplicate import path netbox_pbs(?)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/567",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1216,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 566,
       "title": "Virtual Server interfaces is wrong matched",
@@ -7616,7 +7630,8 @@
         563,
         564,
         565,
-        566
+        566,
+        567
       ]
     }
   ],
