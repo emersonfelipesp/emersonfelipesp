@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-06-03T13:41:55.211Z",
+  "syncedAt": "2026-06-03T19:23:01.067Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
-  "stars": 560,
+  "stars": 561,
   "forks": 64,
   "releases": [
+    {
+      "id": 332672993,
+      "nodeId": "RE_kwDOFTMlzs4T1C_h",
+      "tag": "v0.0.19.post2",
+      "name": "v0.0.19.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.19.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/332672993",
+      "targetCommitish": "release/v0.0.19.post2",
+      "body": "Add interface batching settings for large VM sync: configurable interface_batch_size (default 5) and interface_batch_delay_ms (default 100ms), migration 0048, and increased HTTP read timeout to 3600s for VM sync paths.",
+      "bodyHtml": "<p dir=\"auto\">Add interface batching settings for large VM sync: configurable interface_batch_size (default 5) and interface_batch_delay_ms (default 100ms), migration 0048, and increased HTTP read timeout to 3600s for VM sync paths.</p>",
+      "createdAt": "2026-06-01T19:09:10Z",
+      "publishedAt": "2026-06-01T17:56:32Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.19.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.19.post2"
+      }
+    },
+    {
+      "id": 332652811,
+      "nodeId": "RE_kwDOFTMlzs4T0-EL",
+      "tag": "v0.0.19.post1",
+      "name": "v0.0.19.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.19.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/332652811",
+      "targetCommitish": "develop",
+      "body": "Post-release bug fixes and quality standards integration",
+      "bodyHtml": "<p dir=\"auto\">Post-release bug fixes and quality standards integration</p>",
+      "createdAt": "2026-06-01T17:10:46Z",
+      "publishedAt": "2026-06-01T17:15:11Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.19.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.19.post1"
+      }
+    },
     {
       "id": 327535690,
       "nodeId": "RE_kwDOFTMlzs4ThcxK",
