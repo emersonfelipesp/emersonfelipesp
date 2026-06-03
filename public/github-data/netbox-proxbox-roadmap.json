@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T00:59:59.831Z",
+  "generated_at": "2026-06-03T07:26:19.872Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 298,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 564,
+      "title": "Proxbox -> Virtualization -> Virtual Machines only display the first 100",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/564",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 563,
       "title": "Issue with multiple proxmox endpoints",
@@ -7562,7 +7576,8 @@
         433,
         435,
         436,
-        563
+        563,
+        564
       ]
     }
   ],
