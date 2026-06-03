@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T11:13:16.568Z",
+  "generated_at": "2026-06-03T11:21:38.325Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 56,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 223,
+      "title": "If the virtualserver_id is the same across different proxmox clusters",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/223",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 218,
       "title": "Release pipeline: add Gitea publish workflow idempotency and PyPI pre-check",
@@ -1246,7 +1260,8 @@
         94,
         95,
         97,
-        98
+        98,
+        223
       ]
     }
   ],
