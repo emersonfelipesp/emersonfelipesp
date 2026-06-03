@@ -1,24 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T20:20:10.933Z",
+  "generated_at": "2026-06-03T21:20:13.335Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 5,
-    "closed": 57,
+    "closed": 58,
     "edges": 0
   },
   "viewBox": "0 0 272 608",
   "nodes": [
     {
-      "number": 224,
-      "title": "Ceph v2: Proxmox-backed write executor (wire ProxmoxCephProviderAdapter to CephWrite)",
+      "number": 226,
+      "title": "Ceph v2: accept the netbox-ceph CephOperation payload shape in /ceph/v2 plan/apply",
       "state": "open",
-      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/224",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/226",
       "closedAt": null,
       "labels": [],
       "milestone": null,
       "x": 16,
       "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 224,
+      "title": "Ceph v2: Proxmox-backed write executor (wire ProxmoxCephProviderAdapter to CephWrite)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/224",
+      "closedAt": "2026-06-03T21:17:55Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1208,6 +1222,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        224,
         95,
         218,
         211,
@@ -1276,7 +1291,7 @@
         97,
         98,
         223,
-        224
+        226
       ]
     }
   ],
