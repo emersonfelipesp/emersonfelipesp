@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T07:26:19.872Z",
+  "generated_at": "2026-06-03T07:29:58.960Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
+    "open": 9,
     "closed": 298,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 1088",
   "nodes": [
+    {
+      "number": 565,
+      "title": "When opening proxmox summary on the cluster node, it throws error",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/565",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 976,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 564,
       "title": "Proxbox -> Virtualization -> Virtual Machines only display the first 100",
@@ -7577,7 +7591,8 @@
         435,
         436,
         563,
-        564
+        564,
+        565
       ]
     }
   ],
