@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T07:47:18.730Z",
+  "generated_at": "2026-06-03T11:13:00.067Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
+    "open": 10,
     "closed": 298,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 1208",
   "nodes": [
+    {
+      "number": 566,
+      "title": "Virtual Server interfaces is wrong matched",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/566",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 1096,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 565,
       "title": "When opening proxmox summary on the cluster node, it throws error",
@@ -7592,7 +7606,8 @@
         436,
         563,
         564,
-        565
+        565,
+        566
       ]
     }
   ],
