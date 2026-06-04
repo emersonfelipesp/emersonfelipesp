@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-03T23:30:30.586Z",
+  "generated_at": "2026-06-04T00:59:36.965Z",
   "repo": "emersonfelipesp/netbox-ceph",
   "counts": {
     "open": 0,
-    "closed": 1,
+    "closed": 2,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
   "nodes": [
+    {
+      "number": 9,
+      "title": "Ceph v2: align netbox-ceph response parsing with proxbox-api PlanResponse/OperationRun",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-ceph/issues/9",
+      "closedAt": "2026-06-04T00:53:41Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 3,
       "title": "Prepare netbox-ceph for NetBox plugin certification",
@@ -31,6 +45,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        9,
         3
       ]
     }
