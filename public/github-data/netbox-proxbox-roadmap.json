@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T13:12:39.139Z",
+  "generated_at": "2026-06-05T13:17:11.091Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 10,
-    "closed": 299,
+    "open": 9,
+    "closed": 300,
     "edges": 93
   },
-  "viewBox": "0 0 272 1208",
+  "viewBox": "0 0 272 1088",
   "nodes": [
     {
       "number": 567,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 1096,
+      "y": 976,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -50,7 +50,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 976,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -73,7 +73,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -81,9 +81,9 @@
     {
       "number": 564,
       "title": "Proxbox -> Virtualization -> Virtual Machines only display the first 100",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/564",
-      "closedAt": null,
+      "closedAt": "2026-06-05T13:15:32Z",
       "labels": [
         {
           "name": "bug",
@@ -95,8 +95,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7392,6 +7392,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        564,
         432,
         561,
         560,
@@ -7704,7 +7705,6 @@
         435,
         436,
         563,
-        564,
         565,
         566,
         567
