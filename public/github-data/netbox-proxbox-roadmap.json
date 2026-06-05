@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T13:39:32.864Z",
+  "generated_at": "2026-06-05T13:49:51.431Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 301,
+    "open": 7,
+    "closed": 302,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 848",
   "nodes": [
     {
       "number": 567,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -50,7 +50,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -104,9 +104,9 @@
     {
       "number": 563,
       "title": "Issue with multiple proxmox endpoints",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/563",
-      "closedAt": null,
+      "closedAt": "2026-06-05T13:48:38Z",
       "labels": [
         {
           "name": "bug",
@@ -118,8 +118,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7392,6 +7392,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        563,
         565,
         564,
         432,
@@ -7705,7 +7706,6 @@
         433,
         435,
         436,
-        563,
         566,
         567
       ]
