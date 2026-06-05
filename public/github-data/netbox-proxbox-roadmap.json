@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T13:17:11.091Z",
+  "generated_at": "2026-06-05T13:31:17.113Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 9,
-    "closed": 300,
+    "open": 8,
+    "closed": 301,
     "edges": 93
   },
-  "viewBox": "0 0 272 1088",
+  "viewBox": "0 0 272 968",
   "nodes": [
     {
       "number": 567,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 976,
+      "y": 856,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -50,7 +50,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 736,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -58,9 +58,9 @@
     {
       "number": 565,
       "title": "When opening proxmox summary on the cluster node, it throws error",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/565",
-      "closedAt": null,
+      "closedAt": "2026-06-05T13:29:54Z",
       "labels": [
         {
           "name": "bug",
@@ -72,8 +72,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7392,6 +7392,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        565,
         564,
         432,
         561,
@@ -7705,7 +7706,6 @@
         435,
         436,
         563,
-        565,
         566,
         567
       ]
