@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T14:23:37.575Z",
+  "generated_at": "2026-06-05T18:09:16.528Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 3,
-    "closed": 61,
+    "open": 1,
+    "closed": 63,
     "edges": 0
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 226,
@@ -55,7 +55,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -920,9 +920,9 @@
     {
       "number": 98,
       "title": "Ceph v2: direct Ceph Dashboard API integration",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/98",
-      "closedAt": null,
+      "closedAt": "2026-06-05T18:07:15Z",
       "labels": [
         {
           "name": "enhancement",
@@ -939,8 +939,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
       },
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -967,9 +967,9 @@
     {
       "number": 97,
       "title": "Ceph v2: external non-Proxmox Ceph cluster support",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/97",
-      "closedAt": null,
+      "closedAt": "2026-06-05T18:07:17Z",
       "labels": [
         {
           "name": "enhancement",
@@ -986,8 +986,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
       },
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1277,6 +1277,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        97,
+        98,
         94,
         96,
         226,
@@ -1345,8 +1347,6 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        97,
-        98,
         223
       ]
     }
@@ -1424,8 +1424,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7",
-      "open": 2,
-      "closed": 3
+      "open": 0,
+      "closed": 5
     }
   ]
 }
