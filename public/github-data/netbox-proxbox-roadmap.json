@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T18:09:01.255Z",
+  "generated_at": "2026-06-05T19:25:06.501Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
-    "closed": 302,
+    "open": 6,
+    "closed": 303,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 567,
       "title": "Duplicate import path netbox_pbs(?)",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/567",
-      "closedAt": null,
+      "closedAt": "2026-06-05T18:21:44Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7392,6 +7392,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        567,
         563,
         565,
         564,
@@ -7706,8 +7707,7 @@
         433,
         435,
         436,
-        566,
-        567
+        566
       ]
     }
   ],

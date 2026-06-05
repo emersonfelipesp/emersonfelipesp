@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T18:09:16.528Z",
+  "generated_at": "2026-06-05T19:25:14.637Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
-    "closed": 63,
+    "open": 0,
+    "closed": 64,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 226,
@@ -40,9 +40,9 @@
     {
       "number": 223,
       "title": "If the virtualserver_id is the same across different proxmox clusters",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/223",
-      "closedAt": null,
+      "closedAt": "2026-06-05T18:47:19Z",
       "labels": [
         {
           "name": "bug",
@@ -54,8 +54,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1277,6 +1277,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        223,
         97,
         98,
         94,
@@ -1340,14 +1341,6 @@
         1,
         3,
         4
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        223
       ]
     }
   ],
