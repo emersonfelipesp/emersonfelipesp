@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T19:44:58.973Z",
+  "generated_at": "2026-06-05T20:02:29.013Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
-    "closed": 303,
+    "open": 2,
+    "closed": 308,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 567,
@@ -50,7 +50,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 616,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1345,9 +1345,9 @@
     {
       "number": 436,
       "title": "Ceph v2: RBD image inventory and NetBox-driven image management",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/436",
-      "closedAt": null,
+      "closedAt": "2026-06-05T19:44:50Z",
       "labels": [
         {
           "name": "feature",
@@ -1364,8 +1364,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1373,9 +1373,9 @@
     {
       "number": 435,
       "title": "Ceph v2: RGW/S3 inventory and NetBox-driven bucket management",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/435",
-      "closedAt": null,
+      "closedAt": "2026-06-05T19:44:47Z",
       "labels": [
         {
           "name": "feature",
@@ -1392,8 +1392,27 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 434,
+      "title": "Ceph v2: RBD image inventory and NetBox-driven image management",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/434",
+      "closedAt": "2026-06-05T19:44:52Z",
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1401,9 +1420,9 @@
     {
       "number": 433,
       "title": "Ceph v2: v0.1.0 release hardening, docs, and smoke validation",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/433",
-      "closedAt": null,
+      "closedAt": "2026-06-05T20:01:16Z",
       "labels": [
         {
           "name": "feature",
@@ -1420,8 +1439,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1457,9 +1476,9 @@
     {
       "number": 431,
       "title": "Ceph v2: NetBox-only Ceph control plane",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/431",
-      "closedAt": null,
+      "closedAt": "2026-06-05T20:01:18Z",
       "labels": [
         {
           "name": "feature",
@@ -1476,8 +1495,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7392,6 +7411,11 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        431,
+        433,
+        434,
+        436,
+        435,
         567,
         563,
         565,
@@ -7703,10 +7727,6 @@
       "note": "start anywhere",
       "issues": [
         207,
-        431,
-        433,
-        435,
-        436,
         566
       ]
     }
@@ -7939,8 +7959,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 5,
-      "closed": 8
+      "open": 1,
+      "closed": 13
     }
   ]
 }
