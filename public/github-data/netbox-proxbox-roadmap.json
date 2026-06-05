@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T00:52:03.017Z",
+  "generated_at": "2026-06-05T01:37:24.528Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 11,
@@ -15,7 +15,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/567",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 1216,
@@ -52,7 +61,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/565",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 976,
@@ -66,7 +84,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/564",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 856,
@@ -1321,7 +1348,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/436",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -1340,7 +1376,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/435",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -1359,7 +1404,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/433",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -1378,7 +1432,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/432",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -1397,7 +1460,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/431",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -4405,6 +4477,10 @@
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/207",
       "closedAt": null,
       "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
         {
           "name": "accepted",
           "color": "0E8A16"
@@ -7639,22 +7715,22 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 160
+      "count": 165
     },
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 119
+      "count": 125
     },
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 72
+      "count": 75
     },
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 30
+      "count": 33
     },
     {
       "name": "python",
