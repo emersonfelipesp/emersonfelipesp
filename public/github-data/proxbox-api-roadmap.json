@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T01:41:06.091Z",
+  "generated_at": "2026-06-05T01:52:11.939Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 4,
-    "closed": 59,
+    "closed": 60,
     "edges": 0
   },
   "viewBox": "0 0 272 488",
@@ -946,6 +946,25 @@
       "blocked_by": []
     },
     {
+      "number": 96,
+      "title": "Ceph v2: direct Ceph Dashboard API integration",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/96",
+      "closedAt": "2026-06-05T01:50:41Z",
+      "labels": [],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
       "number": 97,
       "title": "Ceph v2: external non-Proxmox Ceph cluster support",
       "state": "open",
@@ -1258,6 +1277,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        96,
         226,
         224,
         95,
@@ -1405,7 +1425,7 @@
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxbox-api/milestone/7",
       "open": 3,
-      "closed": 1
+      "closed": 2
     }
   ]
 }
