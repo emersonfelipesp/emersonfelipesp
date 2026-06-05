@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-05T01:37:35.636Z",
+  "generated_at": "2026-06-05T01:41:06.091Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 4,
@@ -43,7 +43,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/223",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "bug",
+          "color": "d73a4a"
+        },
+        {
+          "name": "under review",
+          "color": "fbca04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 376,
@@ -914,7 +923,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/98",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -933,7 +951,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/97",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -971,7 +998,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/94",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "accepted",
+          "color": "0e8a16"
+        }
+      ],
       "milestone": {
         "title": "v0.1.0",
         "state": "open",
@@ -1299,22 +1335,22 @@
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 20
-    },
-    {
-      "name": "bug",
-      "color": "d73a4a",
-      "count": 15
+      "count": 23
     },
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 15
+      "count": 18
+    },
+    {
+      "name": "bug",
+      "color": "d73a4a",
+      "count": 16
     },
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 4
+      "count": 5
     },
     {
       "name": "documentation",
