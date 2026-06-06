@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-06T14:18:23.974Z",
+  "generated_at": "2026-06-06T14:21:39.563Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 308,
+    "open": 1,
+    "closed": 309,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 567,
@@ -35,9 +35,9 @@
     {
       "number": 566,
       "title": "Virtual Server interfaces is wrong matched",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/566",
-      "closedAt": null,
+      "closedAt": "2026-06-06T14:19:32Z",
       "labels": [
         {
           "name": "bug",
@@ -49,8 +49,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7411,6 +7411,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        566,
         431,
         433,
         434,
@@ -7726,8 +7727,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207,
-        566
+        207
       ]
     }
   ],
