@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-08T14:55:06.529Z",
+  "generated_at": "2026-06-08T15:09:33.870Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 2,
@@ -21,11 +21,16 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
-      "milestone": null,
+      "milestone": {
+        "title": "v0.0.21",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26"
+      },
       "x": 16,
       "y": 136,
       "w": 240,
@@ -7759,7 +7764,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 169
+      "count": 170
     },
     {
       "name": "feature",
@@ -7774,7 +7779,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 30
+      "count": 29
     },
     {
       "name": "python",
@@ -7953,6 +7958,14 @@
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21",
       "open": 0,
       "closed": 2
+    },
+    {
+      "title": "v0.0.21",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26",
+      "open": 1,
+      "closed": 0
     },
     {
       "title": "v0.0.4",
