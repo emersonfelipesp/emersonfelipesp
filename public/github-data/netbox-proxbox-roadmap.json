@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-08T15:09:33.870Z",
+  "generated_at": "2026-06-08T16:30:29.042Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 309,
+    "open": 1,
+    "closed": 310,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 574,
       "title": "VM_INTERFACES stage ignores sync_mode_ip_address=disabled",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/574",
-      "closedAt": null,
+      "closedAt": "2026-06-08T16:26:43Z",
       "labels": [
         {
           "name": "feature",
@@ -31,8 +31,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26"
       },
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7439,6 +7439,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        574,
         566,
         431,
         433,
@@ -7755,8 +7756,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207,
-        574
+        207
       ]
     }
   ],
@@ -7964,8 +7964,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26",
-      "open": 1,
-      "closed": 0
+      "open": 0,
+      "closed": 1
     },
     {
       "title": "v0.0.4",

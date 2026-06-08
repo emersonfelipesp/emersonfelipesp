@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-08T15:08:47.350Z",
+  "syncedAt": "2026-06-08T16:29:42.855Z",
   "fullName": "emersonfelipesp/netbox-sdk",
   "stars": 16,
   "forks": 0,
   "releases": [
+    {
+      "id": 336036228,
+      "nodeId": "RE_kwDORsQ6kM4UB4GE",
+      "tag": "v0.0.9.post2",
+      "name": "netbox-sdk v0.0.9.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.9.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/releases/336036228",
+      "targetCommitish": "main",
+      "body": "## netbox-sdk v0.0.9.post2\n\nPackaging fix release.\n\n### Fixed\n- **`pip install netbox-sdk[cli]` produced a broken `nbx`** (`ModuleNotFoundError: No module named 'click'`). Typer 0.26.0 vendored Click and dropped its standalone `click` dependency, but `netbox_cli` imports `click` directly. The `cli` (and `all`/`dev`) dependency sets now declare `click>=8.1.0` explicitly. `nbx` installs and runs correctly again.\n\nNo SDK/CLI/TUI behavior changes beyond the dependency fix.\n",
+      "bodyHtml": "<h2 dir=\"auto\">netbox-sdk v0.0.9.post2</h2>\n<p dir=\"auto\">Packaging fix release.</p>\n<h3 dir=\"auto\">Fixed</h3>\n<ul dir=\"auto\">\n<li><strong><code class=\"notranslate\">pip install netbox-sdk[cli]</code> produced a broken <code class=\"notranslate\">nbx</code></strong> (<code class=\"notranslate\">ModuleNotFoundError: No module named 'click'</code>). Typer 0.26.0 vendored Click and dropped its standalone <code class=\"notranslate\">click</code> dependency, but <code class=\"notranslate\">netbox_cli</code> imports <code class=\"notranslate\">click</code> directly. The <code class=\"notranslate\">cli</code> (and <code class=\"notranslate\">all</code>/<code class=\"notranslate\">dev</code>) dependency sets now declare <code class=\"notranslate\">click&gt;=8.1.0</code> explicitly. <code class=\"notranslate\">nbx</code> installs and runs correctly again.</li>\n</ul>\n<p dir=\"auto\">No SDK/CLI/TUI behavior changes beyond the dependency fix.</p>",
+      "createdAt": "2026-06-08T15:22:57Z",
+      "publishedAt": "2026-06-08T15:23:26Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/zipball/v0.0.9.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/tarball/v0.0.9.post2"
+      }
+    },
     {
       "id": 335663123,
       "nodeId": "RE_kwDORsQ6kM4UAdAT",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-07T19:43:43Z",
       "publishedAt": "2026-06-07T19:43:56Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
