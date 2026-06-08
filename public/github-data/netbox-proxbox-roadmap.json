@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-08T13:34:49.620Z",
+  "generated_at": "2026-06-08T14:16:50.323Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 309,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 574,
+      "title": "VM_INTERFACES stage ignores sync_mode_ip_address=disabled",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/574",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 567,
       "title": "Duplicate import path netbox_pbs(?)",
@@ -7727,7 +7741,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207
+        207,
+        574
       ]
     }
   ],

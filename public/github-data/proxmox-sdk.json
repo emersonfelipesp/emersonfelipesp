@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-08T13:34:07.407Z",
+  "syncedAt": "2026-06-08T14:15:48.278Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 335993351,
+      "nodeId": "RE_kwDORz_GBs4UBtoH",
+      "tag": "v0.0.11.post2",
+      "name": "v0.0.11.post2",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.11.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/335993351",
+      "targetCommitish": "1e08d94255515a9fe6b985a92551204c993862a0",
+      "body": "Post-release hardening for the direct Ceph provider clients (Dashboard / RGW /\nRBD), the Ceph write domain, and the SSL/auth layer. No breaking changes;\ndrop-in for v0.0.11.post1.\n\n## Fixes\n\n- **Capability gating no longer fails open.** `ProviderCapability.supports()`\n  now reports an unknown write-like operation as *unsupported* instead of\n  defaulting to \"writable\". Callers that gate destructive operations on\n  capability detection are no longer cleared for operations a provider never\n  declared. Read queries still resolve via the provider's read capability.\n- **RGW quota writes sign correctly.** The S3 Signature v2 signature for\n  `set_user_quota` / `set_bucket_quota` now folds the `quota` sub-resource into\n  the signed canonical resource, so these requests are accepted by RGW\n  deployments that validate sub-resources.\n- **Injected HTTP transports are no longer closed by the provider.** A transport\n  supplied by the caller (and potentially shared across clients) is left open;\n  only provider-owned transports are closed on `close()`.\n- **Ceph task helpers validate the returned task id.** The Proxmox VE Ceph write\n  helpers verify the API returned a task UPID string and raise a clear error\n  otherwise, instead of returning a mistyped value.\n\n## Improvements\n\n- RGW user listing fetches users concurrently for faster inventory on large\n  clusters.\n- The async HTTP transport builds its TLS context once instead of per request.\n- The destructive-operation confirmation gate is consolidated into a single\n  shared helper.\n- Tighter return-type and async context-manager annotations across the provider\n  clients.\n\n## Compatibility\n\n- Python >= 3.11. Same Proxmox VE schema support as v0.0.11 (latest / 9.2 /\n  9.1.11). No API or configuration changes are required to upgrade.\n\nValidation: lint, type-check, and the full test matrix (Python 3.11/3.12/3.13 ×\nschemas latest/9.2/9.1.11) are green; the release pipeline stages and validates\nthe package on TestPyPI before publishing to PyPI.\n",
+      "bodyHtml": "<p dir=\"auto\">Post-release hardening for the direct Ceph provider clients (Dashboard / RGW /<br>\nRBD), the Ceph write domain, and the SSL/auth layer. No breaking changes;<br>\ndrop-in for v0.0.11.post1.</p>\n<h2 dir=\"auto\">Fixes</h2>\n<ul dir=\"auto\">\n<li><strong>Capability gating no longer fails open.</strong> <code class=\"notranslate\">ProviderCapability.supports()</code><br>\nnow reports an unknown write-like operation as <em>unsupported</em> instead of<br>\ndefaulting to \"writable\". Callers that gate destructive operations on<br>\ncapability detection are no longer cleared for operations a provider never<br>\ndeclared. Read queries still resolve via the provider's read capability.</li>\n<li><strong>RGW quota writes sign correctly.</strong> The S3 Signature v2 signature for<br>\n<code class=\"notranslate\">set_user_quota</code> / <code class=\"notranslate\">set_bucket_quota</code> now folds the <code class=\"notranslate\">quota</code> sub-resource into<br>\nthe signed canonical resource, so these requests are accepted by RGW<br>\ndeployments that validate sub-resources.</li>\n<li><strong>Injected HTTP transports are no longer closed by the provider.</strong> A transport<br>\nsupplied by the caller (and potentially shared across clients) is left open;<br>\nonly provider-owned transports are closed on <code class=\"notranslate\">close()</code>.</li>\n<li><strong>Ceph task helpers validate the returned task id.</strong> The Proxmox VE Ceph write<br>\nhelpers verify the API returned a task UPID string and raise a clear error<br>\notherwise, instead of returning a mistyped value.</li>\n</ul>\n<h2 dir=\"auto\">Improvements</h2>\n<ul dir=\"auto\">\n<li>RGW user listing fetches users concurrently for faster inventory on large<br>\nclusters.</li>\n<li>The async HTTP transport builds its TLS context once instead of per request.</li>\n<li>The destructive-operation confirmation gate is consolidated into a single<br>\nshared helper.</li>\n<li>Tighter return-type and async context-manager annotations across the provider<br>\nclients.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<ul dir=\"auto\">\n<li>Python &gt;= 3.11. Same Proxmox VE schema support as v0.0.11 (latest / 9.2 /<br>\n9.1.11). No API or configuration changes are required to upgrade.</li>\n</ul>\n<p dir=\"auto\">Validation: lint, type-check, and the full test matrix (Python 3.11/3.12/3.13 ×<br>\nschemas latest/9.2/9.1.11) are green; the release pipeline stages and validates<br>\nthe package on TestPyPI before publishing to PyPI.</p>",
+      "createdAt": "2026-06-08T13:49:09Z",
+      "publishedAt": "2026-06-08T14:10:57Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.11.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.11.post2"
+      }
+    },
     {
       "id": 335657220,
       "nodeId": "RE_kwDORz_GBs4UAbkE",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-07T19:06:16Z",
       "publishedAt": "2026-06-07T19:06:34Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
