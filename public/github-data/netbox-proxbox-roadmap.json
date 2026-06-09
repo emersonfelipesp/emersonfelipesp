@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T07:18:55.294Z",
+  "generated_at": "2026-06-09T10:34:26.990Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 310,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 576,
+      "title": "Trouble connecting to proxmox endpoints",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/576",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 574,
       "title": "VM_INTERFACES stage ignores sync_mode_ip_address=disabled",
@@ -7756,7 +7770,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207
+        207,
+        576
       ]
     }
   ],
