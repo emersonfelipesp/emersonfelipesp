@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T13:04:52.499Z",
+  "generated_at": "2026-06-09T14:22:06.130Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 310,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 577,
+      "title": "sync_mode_vm_template=disabled does not filter templates from VIRTUAL_MACHINES stage",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/577",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 576,
       "title": "VM interfaces with large payload aren't syncing",
@@ -7771,7 +7785,8 @@
       "note": "start anywhere",
       "issues": [
         207,
-        576
+        576,
+        577
       ]
     }
   ],
