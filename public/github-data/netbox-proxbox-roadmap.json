@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-09T10:34:26.990Z",
+  "generated_at": "2026-06-09T10:35:55.338Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 2,
@@ -11,7 +11,7 @@
   "nodes": [
     {
       "number": 576,
-      "title": "Trouble connecting to proxmox endpoints",
+      "title": "VM interfaces for lagde payload aren't syncing",
       "state": "open",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/576",
       "closedAt": null,
