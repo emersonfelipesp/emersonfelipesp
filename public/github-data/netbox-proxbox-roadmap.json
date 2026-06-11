@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-11T00:53:36.565Z",
+  "generated_at": "2026-06-11T01:13:26.096Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 310,
+    "open": 2,
+    "closed": 311,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 577,
       "title": "sync_mode_vm_template=disabled does not filter templates from VIRTUAL_MACHINES stage",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/577",
-      "closedAt": null,
+      "closedAt": "2026-06-11T01:12:43Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7485,6 +7485,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        577,
         574,
         566,
         431,
@@ -7803,8 +7804,7 @@
       "note": "start anywhere",
       "issues": [
         207,
-        576,
-        577
+        576
       ]
     }
   ],
