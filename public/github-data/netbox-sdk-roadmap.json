@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-11T13:23:39.952Z",
+  "generated_at": "2026-06-11T19:03:43.468Z",
   "repo": "emersonfelipesp/netbox-sdk",
   "counts": {
     "open": 0,
-    "closed": 13,
+    "closed": 14,
     "edges": 0
   },
   "viewBox": "0 0 1 1",
   "nodes": [
+    {
+      "number": 49,
+      "title": "security: bump starlette to >=1.0.1 (CVE — missing Host header validation)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/issues/49",
+      "closedAt": "2026-06-11T13:54:38Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 42,
       "title": "Fix CLI startup when default log path is unwritable",
@@ -286,6 +300,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        49,
         42,
         40,
         38,
