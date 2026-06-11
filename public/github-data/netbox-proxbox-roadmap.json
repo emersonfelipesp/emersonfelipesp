@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-11T01:13:26.096Z",
+  "generated_at": "2026-06-11T07:45:44.724Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 311,
+    "open": 1,
+    "closed": 312,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 577,
@@ -35,9 +35,9 @@
     {
       "number": 576,
       "title": "VM interfaces with large payload aren't syncing",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/576",
-      "closedAt": null,
+      "closedAt": "2026-06-11T01:13:08Z",
       "labels": [
         {
           "name": "bug",
@@ -49,8 +49,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7485,6 +7485,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        576,
         577,
         574,
         566,
@@ -7803,8 +7804,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207,
-        576
+        207
       ]
     }
   ],
