@@ -1,0 +1,15 @@
+onlyBuiltDependencies:
+  - "@prisma/engines"
+  - better-sqlite3
+  - esbuild
+  - prisma
+  - sharp
+  - unrs-resolver
+
+overrides:
+  fast-uri: ">=3.1.2"
+  hono: ">=4.12.21"
+  "@hono/node-server": ">=1.19.13"
+  postcss: ">=8.5.10"
+  ws: ">=8.20.1"
+  brace-expansion: ">=5.0.6"
