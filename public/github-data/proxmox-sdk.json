@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-15T14:10:20.637Z",
+  "syncedAt": "2026-06-15T16:12:02.956Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 2,
   "forks": 0,
   "releases": [
+    {
+      "id": 339649976,
+      "nodeId": "RE_kwDORz_GBs4UPqW4",
+      "tag": "v0.0.12",
+      "name": "v0.0.12",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.12",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/339649976",
+      "targetCommitish": "main",
+      "body": "## proxmox-sdk v0.0.12\n\n### What's New\n\n- Schema updated to Proxmox VE 9.2 (675 operations / 449 endpoints)\n- Ceph facade: `CephClient` / `SyncCephClient` with dashboard, RGW, and RBD domain providers\n- PBS (Proxmox Backup Server) facade: `PBSClient` / `SyncPBSClient` with datastores, jobs, nodes, and snapshots domains\n- PDM (Proxmox Datacenter Manager) facade: `PDMClient` / `SyncPDMClient`\n- SQLite mock state backend (`PROXMOX_MOCK_STORE=sqlite`) with tombstone support\n- Two-phase full-update VM batch for improved E2E reliability\n- Per-VM dispatch failure isolation\n- Various sync reliability improvements\n\n### Installation\n\n```bash\npip install proxmox-sdk==0.0.12\n```",
+      "bodyHtml": "<h2 dir=\"auto\">proxmox-sdk v0.0.12</h2>\n<h3 dir=\"auto\">What's New</h3>\n<ul dir=\"auto\">\n<li>Schema updated to Proxmox VE 9.2 (675 operations / 449 endpoints)</li>\n<li>Ceph facade: <code class=\"notranslate\">CephClient</code> / <code class=\"notranslate\">SyncCephClient</code> with dashboard, RGW, and RBD domain providers</li>\n<li>PBS (Proxmox Backup Server) facade: <code class=\"notranslate\">PBSClient</code> / <code class=\"notranslate\">SyncPBSClient</code> with datastores, jobs, nodes, and snapshots domains</li>\n<li>PDM (Proxmox Datacenter Manager) facade: <code class=\"notranslate\">PDMClient</code> / <code class=\"notranslate\">SyncPDMClient</code></li>\n<li>SQLite mock state backend (<code class=\"notranslate\">PROXMOX_MOCK_STORE=sqlite</code>) with tombstone support</li>\n<li>Two-phase full-update VM batch for improved E2E reliability</li>\n<li>Per-VM dispatch failure isolation</li>\n<li>Various sync reliability improvements</li>\n</ul>\n<h3 dir=\"auto\">Installation</h3>\n<div class=\"highlight highlight-source-shell\" dir=\"auto\"><pre class=\"notranslate\">pip install proxmox-sdk==0.0.12</pre></div>",
+      "createdAt": "2026-06-15T15:35:53Z",
+      "publishedAt": "2026-06-15T15:38:31Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.12",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.12"
+      }
+    },
     {
       "id": 338785556,
       "nodeId": "RE_kwDORz_GBs4UMXUU",
@@ -42,7 +67,7 @@
       "createdAt": "2026-06-08T13:49:09Z",
       "publishedAt": "2026-06-08T14:10:57Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

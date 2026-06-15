@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-15T14:10:21.171Z",
+  "syncedAt": "2026-06-15T16:12:02.924Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 6,
   "forks": 4,
   "releases": [
+    {
+      "id": 339666775,
+      "nodeId": "RE_kwDOOUepXM4UPudX",
+      "tag": "v0.0.18",
+      "name": "v0.0.18",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.18",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/339666775",
+      "targetCommitish": "main",
+      "body": "## proxbox-api v0.0.18\n\nOfficial release of proxbox-api v0.0.18.\n\n### Changes since v0.0.17.post1\n\n- Per-record sync-mode filtering enforced at source: `sync_mode_vm` / `sync_mode_vm_template` query params filter VMs before dependency precompute — a `disabled` mode no longer creates dependent NetBox objects for skipped VMs\n- Two-phase VM batch processing: eliminates event-loop starvation on large clusters via `asyncio.to_thread` offload in phase 2\n- Per-VM dispatch failure isolation: `_dispatch_vm_operation_queue` returns `(resolved, failed_keys)` so one VM error doesn't abort the queue\n- Interface-dense guest alias matching by name (not MAC) with partial-failure stream frame\n- Dedicated `PROXBOX_GUEST_AGENT_TIMEOUT` env var (default 15s, range 1-600) with widen-only timeout scoping\n\n### Compatibility\n\n- netbox-proxbox >= 0.0.21\n- proxmox-sdk == 0.0.12\n- netbox-sdk == 0.0.10\n- NetBox 4.5.8 – 4.6.99",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api v0.0.18</h2>\n<p dir=\"auto\">Official release of proxbox-api v0.0.18.</p>\n<h3 dir=\"auto\">Changes since v0.0.17.post1</h3>\n<ul dir=\"auto\">\n<li>Per-record sync-mode filtering enforced at source: <code class=\"notranslate\">sync_mode_vm</code> / <code class=\"notranslate\">sync_mode_vm_template</code> query params filter VMs before dependency precompute — a <code class=\"notranslate\">disabled</code> mode no longer creates dependent NetBox objects for skipped VMs</li>\n<li>Two-phase VM batch processing: eliminates event-loop starvation on large clusters via <code class=\"notranslate\">asyncio.to_thread</code> offload in phase 2</li>\n<li>Per-VM dispatch failure isolation: <code class=\"notranslate\">_dispatch_vm_operation_queue</code> returns <code class=\"notranslate\">(resolved, failed_keys)</code> so one VM error doesn't abort the queue</li>\n<li>Interface-dense guest alias matching by name (not MAC) with partial-failure stream frame</li>\n<li>Dedicated <code class=\"notranslate\">PROXBOX_GUEST_AGENT_TIMEOUT</code> env var (default 15s, range 1-600) with widen-only timeout scoping</li>\n</ul>\n<h3 dir=\"auto\">Compatibility</h3>\n<ul dir=\"auto\">\n<li>netbox-proxbox &gt;= 0.0.21</li>\n<li>proxmox-sdk == 0.0.12</li>\n<li>netbox-sdk == 0.0.10</li>\n<li>NetBox 4.5.8 – 4.6.99</li>\n</ul>",
+      "createdAt": "2026-06-15T16:10:48Z",
+      "publishedAt": "2026-06-15T16:11:13Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.18",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.18"
+      }
+    },
     {
       "id": 336201494,
       "nodeId": "RE_kwDOOUepXM4UCgcW",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-08T17:54:45Z",
       "publishedAt": "2026-06-08T19:40:50Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
