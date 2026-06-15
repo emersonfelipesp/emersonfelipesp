@@ -1,21 +1,21 @@
 {
-  "syncedAt": "2026-06-15T16:47:58.089Z",
+  "syncedAt": "2026-06-15T17:58:44.907Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 6,
   "forks": 4,
   "releases": [
     {
-      "id": 339666775,
-      "nodeId": "RE_kwDOOUepXM4UPudX",
-      "tag": "v0.0.18",
-      "name": "v0.0.18",
-      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.18",
-      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/339666775",
+      "id": 339712545,
+      "nodeId": "RE_kwDOOUepXM4UP5oh",
+      "tag": "v0.0.18.post1",
+      "name": "v0.0.18.post1",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.18.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/339712545",
       "targetCommitish": "main",
-      "body": "## proxbox-api v0.0.18\n\nOfficial release of proxbox-api v0.0.18.\n\n### Changes since v0.0.17.post1\n\n- Per-record sync-mode filtering enforced at source: `sync_mode_vm` / `sync_mode_vm_template` query params filter VMs before dependency precompute — a `disabled` mode no longer creates dependent NetBox objects for skipped VMs\n- Two-phase VM batch processing: eliminates event-loop starvation on large clusters via `asyncio.to_thread` offload in phase 2\n- Per-VM dispatch failure isolation: `_dispatch_vm_operation_queue` returns `(resolved, failed_keys)` so one VM error doesn't abort the queue\n- Interface-dense guest alias matching by name (not MAC) with partial-failure stream frame\n- Dedicated `PROXBOX_GUEST_AGENT_TIMEOUT` env var (default 15s, range 1-600) with widen-only timeout scoping\n\n### Compatibility\n\n- netbox-proxbox >= 0.0.21\n- proxmox-sdk == 0.0.12\n- netbox-sdk == 0.0.10\n- NetBox 4.5.8 – 4.6.99",
-      "bodyHtml": "<h2 dir=\"auto\">proxbox-api v0.0.18</h2>\n<p dir=\"auto\">Official release of proxbox-api v0.0.18.</p>\n<h3 dir=\"auto\">Changes since v0.0.17.post1</h3>\n<ul dir=\"auto\">\n<li>Per-record sync-mode filtering enforced at source: <code class=\"notranslate\">sync_mode_vm</code> / <code class=\"notranslate\">sync_mode_vm_template</code> query params filter VMs before dependency precompute — a <code class=\"notranslate\">disabled</code> mode no longer creates dependent NetBox objects for skipped VMs</li>\n<li>Two-phase VM batch processing: eliminates event-loop starvation on large clusters via <code class=\"notranslate\">asyncio.to_thread</code> offload in phase 2</li>\n<li>Per-VM dispatch failure isolation: <code class=\"notranslate\">_dispatch_vm_operation_queue</code> returns <code class=\"notranslate\">(resolved, failed_keys)</code> so one VM error doesn't abort the queue</li>\n<li>Interface-dense guest alias matching by name (not MAC) with partial-failure stream frame</li>\n<li>Dedicated <code class=\"notranslate\">PROXBOX_GUEST_AGENT_TIMEOUT</code> env var (default 15s, range 1-600) with widen-only timeout scoping</li>\n</ul>\n<h3 dir=\"auto\">Compatibility</h3>\n<ul dir=\"auto\">\n<li>netbox-proxbox &gt;= 0.0.21</li>\n<li>proxmox-sdk == 0.0.12</li>\n<li>netbox-sdk == 0.0.10</li>\n<li>NetBox 4.5.8 – 4.6.99</li>\n</ul>",
-      "createdAt": "2026-06-15T16:10:48Z",
-      "publishedAt": "2026-06-15T16:11:13Z",
+      "body": "## What's Changed\n* fix(docker): bake openssh-client into runtime image for cloud image pipeline by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/236\n* docs: document the Cloud Image Build Pipeline by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/237\n* Release v0.0.18rc1 by @emersonfelipesp in https://github.com/emersonfelipesp/proxbox-api/pull/239\n\n\n**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.17.post2...v0.0.18.post1",
+      "bodyHtml": "<h2 dir=\"auto\">What's Changed</h2>\n<ul dir=\"auto\">\n<li>fix(docker): bake openssh-client into runtime image for cloud image pipeline by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4621647967\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/236\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/236/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/236\">#236</a></li>\n<li>docs: document the Cloud Image Build Pipeline by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4622026607\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/237\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/237/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/237\">#237</a></li>\n<li>Release v0.0.18rc1 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4652193432\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxbox-api/issues/239\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxbox-api/pull/239/hovercard\" href=\"https://github.com/emersonfelipesp/proxbox-api/pull/239\">#239</a></li>\n</ul>\n<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.17.post2...v0.0.18.post1\"><tt>v0.0.17.post2...v0.0.18.post1</tt></a></p>",
+      "createdAt": "2026-06-15T17:53:02Z",
+      "publishedAt": "2026-06-15T17:57:54Z",
       "prerelease": false,
       "latest": true,
       "author": {
@@ -25,8 +25,8 @@
       },
       "assets": [],
       "sourceArchives": {
-        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.18",
-        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.18"
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.18.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.18.post1"
       }
     },
     {
