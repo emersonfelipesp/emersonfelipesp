@@ -1,33 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-16T17:35:40.906Z",
+  "generated_at": "2026-06-16T18:22:33.038Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 312,
+    "open": 1,
+    "closed": 313,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 582,
       "title": "vm-disks sync stage processes VMs sequentially with multiple per-VM API roundtrips",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/582",
-      "closedAt": null,
+      "closedAt": "2026-06-16T18:21:03Z",
       "labels": [
         {
           "name": "feature",
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7508,6 +7508,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        582,
         576,
         577,
         574,
@@ -7827,8 +7828,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207,
-        582
+        207
       ]
     }
   ],
@@ -7836,7 +7836,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 170
+      "count": 171
     },
     {
       "name": "feature",
@@ -7851,7 +7851,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 32
+      "count": 31
     },
     {
       "name": "python",

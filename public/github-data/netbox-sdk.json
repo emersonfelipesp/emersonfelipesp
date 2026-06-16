@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-16T17:34:38.833Z",
+  "syncedAt": "2026-06-16T18:21:41.380Z",
   "fullName": "emersonfelipesp/netbox-sdk",
   "stars": 16,
   "forks": 0,
   "releases": [
+    {
+      "id": 340310776,
+      "nodeId": "RE_kwDORsQ6kM4USLr4",
+      "tag": "v0.0.10",
+      "name": "netbox-sdk v0.0.10",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.10",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/releases/340310776",
+      "targetCommitish": "main",
+      "body": "NetBox SDK 0.0.10 finalizes the CLI and SDK updates from the 0.0.10 release line.\n\nHighlights:\n- Adds CLI bulk update, bulk patch, and bulk delete operations for writable list endpoints.\n- Adds auto-pagination support with --all and --max-records for dynamic list commands.\n- Adds filter discovery so users can inspect supported query parameters from the CLI.\n- Adds versioned NetBox schema selection for CLI usage.\n- Adds live integration coverage against demo NetBox workflows.\n- Pins the Starlette dependency floor to include upstream Host header validation fixes.\n- Avoids eager demo TUI profile prompts.\n\nCompatibility and validation:\n- Package: netbox-sdk 0.0.10\n- Distribution: PyPI package netbox-sdk==0.0.10\n- Python validation covered the release workflow test matrix before package publication.\n- No migration step is required for existing CLI or SDK users.",
+      "bodyHtml": "<p dir=\"auto\">NetBox SDK 0.0.10 finalizes the CLI and SDK updates from the 0.0.10 release line.</p>\n<p dir=\"auto\">Highlights:</p>\n<ul dir=\"auto\">\n<li>Adds CLI bulk update, bulk patch, and bulk delete operations for writable list endpoints.</li>\n<li>Adds auto-pagination support with --all and --max-records for dynamic list commands.</li>\n<li>Adds filter discovery so users can inspect supported query parameters from the CLI.</li>\n<li>Adds versioned NetBox schema selection for CLI usage.</li>\n<li>Adds live integration coverage against demo NetBox workflows.</li>\n<li>Pins the Starlette dependency floor to include upstream Host header validation fixes.</li>\n<li>Avoids eager demo TUI profile prompts.</li>\n</ul>\n<p dir=\"auto\">Compatibility and validation:</p>\n<ul dir=\"auto\">\n<li>Package: netbox-sdk 0.0.10</li>\n<li>Distribution: PyPI package netbox-sdk==0.0.10</li>\n<li>Python validation covered the release workflow test matrix before package publication.</li>\n<li>No migration step is required for existing CLI or SDK users.</li>\n</ul>",
+      "createdAt": "2026-06-15T15:51:48Z",
+      "publishedAt": "2026-06-16T17:35:35Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/zipball/v0.0.10",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/tarball/v0.0.10"
+      }
+    },
     {
       "id": 336036228,
       "nodeId": "RE_kwDORsQ6kM4UB4GE",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-08T15:22:57Z",
       "publishedAt": "2026-06-08T15:23:26Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
