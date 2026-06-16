@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-16T15:22:18.375Z",
+  "generated_at": "2026-06-16T17:22:43.161Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 312,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 582,
+      "title": "vm-disks sync stage processes VMs sequentially with multiple per-VM API roundtrips",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/582",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 577,
       "title": "sync_mode_vm_template=disabled does not filter templates from VIRTUAL_MACHINES stage",
@@ -7804,7 +7818,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207
+        207,
+        582
       ]
     }
   ],
