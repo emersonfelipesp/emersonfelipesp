@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T20:43:54.221Z",
+  "generated_at": "2026-06-22T21:53:23.346Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 313,
+    "open": 1,
+    "closed": 314,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 586,
       "title": "Synchronization of interfaces with the initial 'net1'",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/586",
-      "closedAt": null,
+      "closedAt": "2026-06-22T21:52:12Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7531,6 +7531,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        586,
         582,
         576,
         577,
@@ -7851,8 +7852,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207,
-        586
+        207
       ]
     }
   ],
