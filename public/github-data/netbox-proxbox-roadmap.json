@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T08:07:17.692Z",
+  "generated_at": "2026-06-22T09:42:24.448Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 313,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 586,
+      "title": "Synchronization of interfaces with the initial 'net1'",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/586",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 582,
       "title": "vm-disks sync stage processes VMs sequentially with multiple per-VM API roundtrips",
@@ -7828,7 +7842,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        207
+        207,
+        586
       ]
     }
   ],
