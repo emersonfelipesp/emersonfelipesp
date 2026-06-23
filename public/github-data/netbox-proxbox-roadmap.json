@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T22:20:59.971Z",
+  "generated_at": "2026-06-23T00:32:59.852Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
-    "closed": 314,
+    "open": 0,
+    "closed": 315,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 586,
@@ -4612,9 +4612,9 @@
     {
       "number": 207,
       "title": "Support for Proxmox v8.3.0 Webhook feature.",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/207",
-      "closedAt": null,
+      "closedAt": "2026-06-23T00:31:31Z",
       "labels": [
         {
           "name": "feature",
@@ -4631,8 +4631,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7531,6 +7531,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        207,
         586,
         582,
         576,
@@ -7846,14 +7847,6 @@
         8,
         6
       ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        207
-      ]
     }
   ],
   "labels": [
@@ -8092,8 +8085,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 1,
-      "closed": 13
+      "open": 0,
+      "closed": 14
     }
   ]
 }
