@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T13:17:30.012Z",
+  "generated_at": "2026-06-27T13:29:59.665Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 315,
     "edges": 93
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 589,
+      "title": "Plugin list pages render raw paginator template comment instead of pagination controls",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/589",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 586,
       "title": "Synchronization of interfaces with the initial 'net1'",
@@ -7846,6 +7860,14 @@
         9,
         8,
         6
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        589
       ]
     }
   ],
