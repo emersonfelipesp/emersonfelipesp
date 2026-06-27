@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T13:29:59.665Z",
+  "generated_at": "2026-06-27T13:49:40.592Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 315,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 591,
+      "title": "Proxbox 'Homepage' menu item stays highlighted on every plugin page",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/591",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 589,
       "title": "Plugin list pages render raw paginator template comment instead of pagination controls",
@@ -7867,7 +7881,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        589
+        589,
+        591
       ]
     }
   ],
