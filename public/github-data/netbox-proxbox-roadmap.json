@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-29T00:44:18.480Z",
+  "generated_at": "2026-06-29T00:46:12.916Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 315,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 594,
+      "title": "EVPN/VXLAN",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/594",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 593,
       "title": "BGP",
@@ -7897,7 +7911,8 @@
       "issues": [
         589,
         591,
-        593
+        593,
+        594
       ]
     }
   ],
