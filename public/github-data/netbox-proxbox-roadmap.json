@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-28T18:28:08.561Z",
+  "generated_at": "2026-06-29T00:44:18.480Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 315,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 593,
+      "title": "BGP",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/593",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 591,
       "title": "Proxbox 'Homepage' menu item stays highlighted on every plugin page",
@@ -7882,7 +7896,8 @@
       "note": "start anywhere",
       "issues": [
         589,
-        591
+        591,
+        593
       ]
     }
   ],
