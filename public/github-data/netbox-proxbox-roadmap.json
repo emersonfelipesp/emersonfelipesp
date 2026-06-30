@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T16:34:43.599Z",
+  "generated_at": "2026-06-30T16:50:12.768Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 8,
-    "closed": 317,
+    "open": 2,
+    "closed": 323,
     "edges": 93
   },
-  "viewBox": "0 0 272 968",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 602,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 856,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,9 +26,9 @@
     {
       "number": 599,
       "title": "SDN plugin inventory",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/599",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -40,8 +40,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 736,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -49,9 +49,9 @@
     {
       "number": 598,
       "title": "NetBox L2VPN sync",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/598",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -63,8 +63,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 616,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -72,9 +72,9 @@
     {
       "number": 597,
       "title": "Docs, tests, and lifecycle evidence for SDN sync",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/597",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -86,8 +86,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -95,9 +95,9 @@
     {
       "number": 596,
       "title": "Optional SDN sync controls",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/596",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -109,8 +109,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -118,9 +118,9 @@
     {
       "number": 595,
       "title": "SDN schema and collectors",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/595",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -132,8 +132,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -141,9 +141,9 @@
     {
       "number": 594,
       "title": "EVPN/VXLAN",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/594",
-      "closedAt": null,
+      "closedAt": "2026-06-30T16:49:03Z",
       "labels": [
         {
           "name": "feature",
@@ -160,8 +160,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7744,6 +7744,12 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        599,
+        598,
+        597,
+        596,
+        595,
+        594,
         591,
         589,
         207,
@@ -8069,12 +8075,6 @@
       "note": "start anywhere",
       "issues": [
         593,
-        594,
-        595,
-        596,
-        597,
-        598,
-        599,
         602
       ]
     }
@@ -8315,8 +8315,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 2,
-      "closed": 14
+      "open": 1,
+      "closed": 15
     }
   ]
 }
