@@ -1,14 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T12:45:02.609Z",
+  "generated_at": "2026-06-30T12:49:51.767Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 317,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 595,
+      "title": "SDN schema and collectors",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/595",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 594,
       "title": "EVPN/VXLAN",
@@ -7940,7 +7963,8 @@
       "note": "start anywhere",
       "issues": [
         593,
-        594
+        594,
+        595
       ]
     }
   ],
@@ -7953,7 +7977,7 @@
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 129
+      "count": 130
     },
     {
       "name": "bug",
@@ -7963,7 +7987,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 33
+      "count": 34
     },
     {
       "name": "python",
