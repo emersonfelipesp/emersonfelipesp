@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T20:50:40.965Z",
+  "generated_at": "2026-06-30T20:56:17.977Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 3,
@@ -58,8 +58,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -81,8 +81,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -104,8 +104,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -127,8 +127,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -150,8 +150,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -173,8 +173,8 @@
           "color": "5DB5F8"
         },
         {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": {
@@ -8107,7 +8107,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 172
+      "count": 178
     },
     {
       "name": "feature",
@@ -8122,7 +8122,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 39
+      "count": 33
     },
     {
       "name": "python",

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T20:50:53.335Z",
+  "generated_at": "2026-06-30T20:56:31.517Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 3,
-    "closed": 65,
+    "open": 2,
+    "closed": 66,
     "edges": 0
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 249,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 248,
       "title": "VM interface bulk reconciliation intermittently fails on confirmed-duplicate idempotency race",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/248",
-      "closedAt": null,
+      "closedAt": "2026-06-30T20:54:10Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1351,6 +1351,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        248,
         238,
         223,
         97,
@@ -1424,7 +1425,6 @@
       "note": "start anywhere",
       "issues": [
         243,
-        248,
         249
       ]
     }
