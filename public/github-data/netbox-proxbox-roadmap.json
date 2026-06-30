@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T12:07:04.612Z",
+  "generated_at": "2026-06-30T12:20:49.122Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
-    "closed": 315,
+    "open": 2,
+    "closed": 317,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 594,
@@ -32,7 +32,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 376,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -60,7 +60,7 @@
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
       "x": 16,
-      "y": 256,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -68,13 +68,13 @@
     {
       "number": 591,
       "title": "Proxbox 'Homepage' menu item stays highlighted on every plugin page",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/591",
-      "closedAt": null,
+      "closedAt": "2026-06-30T12:20:02Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -82,13 +82,13 @@
     {
       "number": 589,
       "title": "Plugin list pages render raw paginator template comment instead of pagination controls",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/589",
-      "closedAt": null,
+      "closedAt": "2026-06-30T12:19:32Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7615,6 +7615,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        591,
+        589,
         207,
         586,
         582,
@@ -7937,8 +7939,6 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        589,
-        591,
         593,
         594
       ]
