@@ -1,14 +1,106 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T12:49:51.767Z",
+  "generated_at": "2026-06-30T13:15:14.956Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 7,
     "closed": 317,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 599,
+      "title": "SDN plugin inventory",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/599",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 598,
+      "title": "NetBox L2VPN sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/598",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 597,
+      "title": "Docs, tests, and lifecycle evidence for SDN sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/597",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 596,
+      "title": "Optional SDN sync controls",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/596",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 595,
       "title": "SDN schema and collectors",
@@ -7964,7 +8056,11 @@
       "issues": [
         593,
         594,
-        595
+        595,
+        596,
+        597,
+        598,
+        599
       ]
     }
   ],
@@ -7977,7 +8073,7 @@
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 130
+      "count": 134
     },
     {
       "name": "bug",
@@ -7987,7 +8083,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 34
+      "count": 38
     },
     {
       "name": "python",
