@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-06-30T18:39:51.875Z",
+  "syncedAt": "2026-06-30T20:49:42.822Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 6,
   "forks": 5,
   "releases": [
+    {
+      "id": 347094362,
+      "nodeId": "RE_kwDOOUepXM4UsD1a",
+      "tag": "v0.0.19",
+      "name": "v0.0.19 — Proxmox SDN sync + interface-reconcile idempotency hardening",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.19",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/347094362",
+      "targetCommitish": "main",
+      "body": "## proxbox-api 0.0.19\n\nAdds the Proxmox SDN synchronization backend and hardens VM-interface reconciliation.\n\n### Proxmox SDN sync\n- Read-only Proxmox SDN collection (controllers, zones, VNets, subnets, fabrics, route maps, prefix lists, node runtime).\n- Reconciles EVPN/VXLAN VNets into NetBox built-ins: vpn.L2VPN (EVPN to vxlan-evpn, VXLAN to vxlan), EVPN import route-targets into ipam.RouteTarget (import only), valid subnets into ipam.Prefix, and conflict-safe vpn.L2VPNTermination records (never overwrites a manual termination binding a target to a different L2VPN).\n- Unsupported Proxmox clusters are skipped, not failed. Per-object reconcile errors are surfaced in the sync result.\n\n### Reliability\n- VM-interface bulk reconciliation is now idempotent under the duplicate-visibility race: a confirmed registry duplicate that cannot be re-fetched (after a bounded retry) is treated as already-present instead of a hard sync failure. Non-duplicate errors still surface.\n\n### Compatibility\nPairs with proxmox-sdk 0.0.12 and netbox-sdk 0.0.10. NetBox 4.5.8 through 4.6.x.",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api 0.0.19</h2>\n<p dir=\"auto\">Adds the Proxmox SDN synchronization backend and hardens VM-interface reconciliation.</p>\n<h3 dir=\"auto\">Proxmox SDN sync</h3>\n<ul dir=\"auto\">\n<li>Read-only Proxmox SDN collection (controllers, zones, VNets, subnets, fabrics, route maps, prefix lists, node runtime).</li>\n<li>Reconciles EVPN/VXLAN VNets into NetBox built-ins: vpn.L2VPN (EVPN to vxlan-evpn, VXLAN to vxlan), EVPN import route-targets into ipam.RouteTarget (import only), valid subnets into ipam.Prefix, and conflict-safe vpn.L2VPNTermination records (never overwrites a manual termination binding a target to a different L2VPN).</li>\n<li>Unsupported Proxmox clusters are skipped, not failed. Per-object reconcile errors are surfaced in the sync result.</li>\n</ul>\n<h3 dir=\"auto\">Reliability</h3>\n<ul dir=\"auto\">\n<li>VM-interface bulk reconciliation is now idempotent under the duplicate-visibility race: a confirmed registry duplicate that cannot be re-fetched (after a bounded retry) is treated as already-present instead of a hard sync failure. Non-duplicate errors still surface.</li>\n</ul>\n<h3 dir=\"auto\">Compatibility</h3>\n<p dir=\"auto\">Pairs with proxmox-sdk 0.0.12 and netbox-sdk 0.0.10. NetBox 4.5.8 through 4.6.x.</p>",
+      "createdAt": "2026-06-30T20:46:10Z",
+      "publishedAt": "2026-06-30T20:48:37Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.19",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.19"
+      }
+    },
     {
       "id": 340164792,
       "nodeId": "RE_kwDOOUepXM4URoC4",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-16T13:23:47Z",
       "publishedAt": "2026-06-16T13:25:17Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
