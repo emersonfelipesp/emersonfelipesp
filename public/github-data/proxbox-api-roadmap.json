@@ -1,14 +1,42 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T17:36:56.179Z",
+  "generated_at": "2026-06-30T18:20:22.421Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
+    "open": 3,
     "closed": 65,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 249,
+      "title": "Promote Proxmox SDN backend to develop/production, expand SDN tests, release 0.0.19",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/249",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 248,
+      "title": "VM interface bulk reconciliation intermittently fails on confirmed-duplicate idempotency race",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/248",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 243,
       "title": "feat(sync): optionally sync full node network topology (/nodes/{node}/network) into dcim.Interface",
@@ -1395,7 +1423,9 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243
+        243,
+        248,
+        249
       ]
     }
   ],

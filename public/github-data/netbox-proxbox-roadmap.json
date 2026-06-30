@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T17:36:45.686Z",
+  "generated_at": "2026-06-30T18:20:10.616Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 323,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 606,
+      "title": "Finalize full Proxmox SDN release: bump to 0.0.22, release notes, proxbox-api 0.0.19 compat pin",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/606",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 602,
       "title": "Cabling documentation ",
@@ -8084,7 +8098,8 @@
       "note": "start anywhere",
       "issues": [
         593,
-        602
+        602,
+        606
       ]
     }
   ],
