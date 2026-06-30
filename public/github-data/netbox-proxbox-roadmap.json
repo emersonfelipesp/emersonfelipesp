@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T13:15:14.956Z",
+  "generated_at": "2026-06-30T16:14:32.237Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
+    "open": 8,
     "closed": 317,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 968",
   "nodes": [
+    {
+      "number": 602,
+      "title": "Cabling documentation ",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/602",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 856,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 599,
       "title": "SDN plugin inventory",
@@ -8060,7 +8074,8 @@
         596,
         597,
         598,
-        599
+        599,
+        602
       ]
     }
   ],
