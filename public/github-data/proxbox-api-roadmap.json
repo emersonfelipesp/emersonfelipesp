@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T21:05:01.163Z",
+  "generated_at": "2026-06-30T22:11:42.758Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 2,
-    "closed": 66,
+    "open": 1,
+    "closed": 67,
     "edges": 0
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 249,
       "title": "Promote Proxmox SDN backend to develop/production, expand SDN tests, release 0.0.19",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/249",
-      "closedAt": null,
+      "closedAt": "2026-06-30T22:10:25Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1351,6 +1351,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        249,
         248,
         238,
         223,
@@ -1424,8 +1425,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243,
-        249
+        243
       ]
     }
   ],
