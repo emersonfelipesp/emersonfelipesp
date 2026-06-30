@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-30T11:28:53.040Z",
+  "generated_at": "2026-06-30T12:07:16.895Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 1,
@@ -15,7 +15,16 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/243",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "under review",
+          "color": "fbca04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 16,
@@ -1399,7 +1408,7 @@
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 18
+      "count": 19
     },
     {
       "name": "bug",
@@ -1409,7 +1418,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 4
+      "count": 5
     },
     {
       "name": "documentation",
