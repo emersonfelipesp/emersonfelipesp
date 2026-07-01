@@ -1,21 +1,21 @@
 {
-  "syncedAt": "2026-07-01T21:16:40.526Z",
+  "syncedAt": "2026-07-01T22:07:03.527Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 568,
   "forks": 65,
   "releases": [
     {
-      "id": 347663052,
-      "nodeId": "RE_kwDOFTMlzs4UuOrM",
+      "id": 347738895,
+      "nodeId": "RE_kwDOFTMlzs4UuhMP",
       "tag": "v0.0.22",
       "name": "v0.0.22",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.22",
-      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/347663052",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/347738895",
       "targetCommitish": "main",
-      "body": "netbox-proxbox 0.0.22 — endpoint access and certification release.\n\nHighlights\n- Per-endpoint access method on Proxmox endpoints: choose API-only or API+SSH, with the selected transport enforced on the backend.\n- Proxmox endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection (dedicated vs reused endpoint credentials), and a Fetch host key action that pins the SSH host-key fingerprint.\n- Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.\n- PDM endpoint detail and Sync Now remote discovery; optional SDN inventory and sync, with NetBox 4.5 migration fixes.\n- Firecracker serializer tenant handling tightened.\n- REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (the last two remain read-only audit surfaces).\n\nCompatibility\n- NetBox 4.5.8 through 4.6.99 (validated against 4.5.8, 4.5.9, and 4.6.0 through 4.6.4).\n- Python >= 3.12.\n- Pairs with the separately deployed backend proxbox-api 0.0.19.post3 (communicates over REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.",
-      "bodyHtml": "<p dir=\"auto\">netbox-proxbox 0.0.22 — endpoint access and certification release.</p>\n<p dir=\"auto\">Highlights</p>\n<ul dir=\"auto\">\n<li>Per-endpoint access method on Proxmox endpoints: choose API-only or API+SSH, with the selected transport enforced on the backend.</li>\n<li>Proxmox endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection (dedicated vs reused endpoint credentials), and a Fetch host key action that pins the SSH host-key fingerprint.</li>\n<li>Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.</li>\n<li>PDM endpoint detail and Sync Now remote discovery; optional SDN inventory and sync, with NetBox 4.5 migration fixes.</li>\n<li>Firecracker serializer tenant handling tightened.</li>\n<li>REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (the last two remain read-only audit surfaces).</li>\n</ul>\n<p dir=\"auto\">Compatibility</p>\n<ul dir=\"auto\">\n<li>NetBox 4.5.8 through 4.6.99 (validated against 4.5.8, 4.5.9, and 4.6.0 through 4.6.4).</li>\n<li>Python &gt;= 3.12.</li>\n<li>Pairs with the separately deployed backend proxbox-api 0.0.19.post3 (communicates over REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.</li>\n</ul>",
+      "body": "netbox-proxbox 0.0.22 — endpoint access and certification release.\n\nHighlights\n- Per-endpoint access method on Proxmox endpoints: API-only or API+SSH, enforced on the backend.\n- Endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection, and a Fetch host key action that pins the SSH host-key fingerprint.\n- Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.\n- PDM endpoint detail + Sync Now; optional SDN inventory and sync, with NetBox 4.5 migration fixes.\n- Firecracker serializer tenant handling tightened.\n- REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (last two read-only audit surfaces).\n\nCompatibility\n- NetBox 4.5.8–4.6.99 (validated against 4.5.8, 4.5.9, 4.6.0–4.6.4); Python >= 3.12.\n- Pairs with the separately deployed backend proxbox-api 0.0.19.post5 (REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.",
+      "bodyHtml": "<p dir=\"auto\">netbox-proxbox 0.0.22 — endpoint access and certification release.</p>\n<p dir=\"auto\">Highlights</p>\n<ul dir=\"auto\">\n<li>Per-endpoint access method on Proxmox endpoints: API-only or API+SSH, enforced on the backend.</li>\n<li>Endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection, and a Fetch host key action that pins the SSH host-key fingerprint.</li>\n<li>Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.</li>\n<li>PDM endpoint detail + Sync Now; optional SDN inventory and sync, with NetBox 4.5 migration fixes.</li>\n<li>Firecracker serializer tenant handling tightened.</li>\n<li>REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (last two read-only audit surfaces).</li>\n</ul>\n<p dir=\"auto\">Compatibility</p>\n<ul dir=\"auto\">\n<li>NetBox 4.5.8–4.6.99 (validated against 4.5.8, 4.5.9, 4.6.0–4.6.4); Python &gt;= 3.12.</li>\n<li>Pairs with the separately deployed backend proxbox-api 0.0.19.post5 (REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.</li>\n</ul>",
       "createdAt": "2026-07-01T19:04:29Z",
-      "publishedAt": "2026-07-01T19:05:14Z",
+      "publishedAt": "2026-07-01T22:06:32Z",
       "prerelease": false,
       "latest": true,
       "author": {
