@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T20:50:50.298Z",
+  "generated_at": "2026-07-01T21:11:16.041Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
-    "closed": 323,
+    "open": 3,
+    "closed": 324,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 609,
@@ -27,7 +27,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -35,13 +35,13 @@
     {
       "number": 606,
       "title": "Finalize full Proxmox SDN release: bump to 0.0.22, release notes, proxbox-api 0.0.19 compat pin",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/606",
-      "closedAt": null,
+      "closedAt": "2026-07-01T21:07:07Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7790,6 +7790,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        606,
         599,
         598,
         597,
@@ -8122,7 +8123,6 @@
       "issues": [
         593,
         602,
-        606,
         609
       ]
     }
