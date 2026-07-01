@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T21:11:26.172Z",
+  "generated_at": "2026-07-01T21:17:38.580Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 2,
-    "closed": 67,
+    "open": 1,
+    "closed": 68,
     "edges": 0
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 254,
       "title": "Implement optional netbox-bgp projection for Proxbox SDN sync",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/254",
-      "closedAt": null,
+      "closedAt": "2026-07-01T21:15:55Z",
       "labels": [
         {
           "name": "enhancement",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1374,6 +1374,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        254,
         249,
         248,
         238,
@@ -1448,8 +1449,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243,
-        254
+        243
       ]
     }
   ],

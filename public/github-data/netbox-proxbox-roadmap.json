@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T21:11:16.041Z",
+  "generated_at": "2026-07-01T21:17:28.683Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 324,
+    "open": 1,
+    "closed": 326,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 609,
       "title": "Add optional netbox-bgp SDN sync mode to Proxbox plugin",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/609",
-      "closedAt": null,
+      "closedAt": "2026-07-01T21:15:41Z",
       "labels": [
         {
           "name": "feature",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -64,7 +64,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 136,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -215,9 +215,9 @@
     {
       "number": 593,
       "title": "BGP",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/593",
-      "closedAt": null,
+      "closedAt": "2026-07-01T21:15:43Z",
       "labels": [
         {
           "name": "feature",
@@ -234,8 +234,8 @@
         "due_on": null,
         "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
       },
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7790,6 +7790,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        593,
+        609,
         606,
         599,
         598,
@@ -8121,9 +8123,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        593,
-        602,
-        609
+        602
       ]
     }
   ],
@@ -8363,8 +8363,8 @@
       "state": "open",
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
-      "open": 1,
-      "closed": 15
+      "open": 0,
+      "closed": 16
     }
   ]
 }
