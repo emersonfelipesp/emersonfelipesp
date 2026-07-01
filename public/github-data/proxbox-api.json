@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-07-01T19:07:09.925Z",
+  "syncedAt": "2026-07-01T19:56:43.576Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 6,
   "forks": 5,
   "releases": [
+    {
+      "id": 347687720,
+      "nodeId": "RE_kwDOOUepXM4UuUso",
+      "tag": "v0.0.19.post4",
+      "name": "v0.0.19.post4",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.19.post4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/347687720",
+      "targetCommitish": "main",
+      "body": "**Full Changelog**: https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.19.post3...v0.0.19.post4",
+      "bodyHtml": "<p dir=\"auto\"><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/emersonfelipesp/proxbox-api/compare/v0.0.19.post3...v0.0.19.post4\"><tt>v0.0.19.post3...v0.0.19.post4</tt></a></p>",
+      "createdAt": "2026-07-01T19:52:43Z",
+      "publishedAt": "2026-07-01T19:56:19Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.19.post4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.19.post4"
+      }
+    },
     {
       "id": 347639190,
       "nodeId": "RE_kwDOOUepXM4UuI2W",
@@ -17,7 +42,7 @@
       "createdAt": "2026-07-01T18:08:04Z",
       "publishedAt": "2026-07-01T18:11:06Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
