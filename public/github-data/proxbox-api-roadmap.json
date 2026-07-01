@@ -1,14 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T18:43:00.610Z",
+  "generated_at": "2026-07-01T18:58:13.808Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 67,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 254,
+      "title": "Implement optional netbox-bgp projection for Proxbox SDN sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/254",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        },
+        {
+          "name": "under review",
+          "color": "fbca04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 249,
       "title": "Promote Proxmox SDN backend to develop/production, expand SDN tests, release 0.0.19",
@@ -1425,7 +1448,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243
+        243,
+        254
       ]
     }
   ],
@@ -1438,7 +1462,7 @@
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 19
+      "count": 20
     },
     {
       "name": "bug",
@@ -1448,7 +1472,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 5
+      "count": 6
     },
     {
       "name": "documentation",

@@ -1,14 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T18:42:51.880Z",
+  "generated_at": "2026-07-01T18:58:05.157Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 323,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 609,
+      "title": "Add optional netbox-bgp SDN sync mode to Proxbox plugin",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/609",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 606,
       "title": "Finalize full Proxmox SDN release: bump to 0.0.22, release notes, proxbox-api 0.0.19 compat pin",
@@ -8099,7 +8122,8 @@
       "issues": [
         593,
         602,
-        606
+        606,
+        609
       ]
     }
   ],
@@ -8112,7 +8136,7 @@
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 135
+      "count": 136
     },
     {
       "name": "bug",
@@ -8122,7 +8146,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 33
+      "count": 34
     },
     {
       "name": "python",
