@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-02T13:56:13.628Z",
+  "generated_at": "2026-07-02T16:41:20.645Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 326,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 610,
+      "title": "Multiple interfaces with conflicts are not created",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/610",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 609,
       "title": "Add optional netbox-bgp SDN sync mode to Proxbox plugin",
@@ -8123,7 +8137,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        610
       ]
     }
   ],
