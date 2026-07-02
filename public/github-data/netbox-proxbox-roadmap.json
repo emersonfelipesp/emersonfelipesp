@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-02T19:22:27.120Z",
+  "generated_at": "2026-07-02T20:53:31.575Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 326,
+    "open": 1,
+    "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 610,
       "title": "Multiple interfaces with conflicts are not created",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/610",
-      "closedAt": null,
+      "closedAt": "2026-07-02T20:52:27Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7813,6 +7813,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        610,
         593,
         609,
         606,
@@ -8146,8 +8147,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        610
+        602
       ]
     }
   ],
