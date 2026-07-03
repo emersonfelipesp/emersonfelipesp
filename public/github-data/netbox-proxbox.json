@@ -1,9 +1,184 @@
 {
-  "syncedAt": "2026-07-03T13:59:08.414Z",
+  "syncedAt": "2026-07-03T19:18:33.921Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 568,
   "forks": 65,
   "releases": [
+    {
+      "id": 347738895,
+      "nodeId": "RE_kwDOFTMlzs4UuhMP",
+      "tag": "v0.0.22",
+      "name": "v0.0.22",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.22",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/347738895",
+      "targetCommitish": "main",
+      "body": "netbox-proxbox 0.0.22 — endpoint access and certification release.\n\nHighlights\n- Per-endpoint access method on Proxmox endpoints: API-only or API+SSH, enforced on the backend.\n- Endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection, and a Fetch host key action that pins the SSH host-key fingerprint.\n- Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.\n- PDM endpoint detail + Sync Now; optional SDN inventory and sync, with NetBox 4.5 migration fixes.\n- Firecracker serializer tenant handling tightened.\n- REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (last two read-only audit surfaces).\n\nCompatibility\n- NetBox 4.5.8–4.6.99 (validated against 4.5.8, 4.5.9, 4.6.0–4.6.4); Python >= 3.12.\n- Pairs with the separately deployed backend proxbox-api 0.0.19.post5 (REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.",
+      "bodyHtml": "<p dir=\"auto\">netbox-proxbox 0.0.22 — endpoint access and certification release.</p>\n<p dir=\"auto\">Highlights</p>\n<ul dir=\"auto\">\n<li>Per-endpoint access method on Proxmox endpoints: API-only or API+SSH, enforced on the backend.</li>\n<li>Endpoint operator controls: Proxmox-side write-permission toggle, SSH credential-source selection, and a Fetch host key action that pins the SSH host-key fingerprint.</li>\n<li>Tenant allowlists for endpoint visibility, cluster-tenant inheritance for synced VMs, and bulk enable/disable of endpoints.</li>\n<li>PDM endpoint detail + Sync Now; optional SDN inventory and sync, with NetBox 4.5 migration fixes.</li>\n<li>Firecracker serializer tenant handling tightened.</li>\n<li>REST API viewsets for PBS endpoints, PDM endpoints/remotes, DeletionRequest, and ProxmoxApplyJob (last two read-only audit surfaces).</li>\n</ul>\n<p dir=\"auto\">Compatibility</p>\n<ul dir=\"auto\">\n<li>NetBox 4.5.8–4.6.99 (validated against 4.5.8, 4.5.9, 4.6.0–4.6.4); Python &gt;= 3.12.</li>\n<li>Pairs with the separately deployed backend proxbox-api 0.0.19.post5 (REST/SSE/WebSocket; not a Python dependency), proxmox-sdk 0.0.12, and netbox-sdk 0.0.10.</li>\n</ul>",
+      "createdAt": "2026-07-01T19:04:29Z",
+      "publishedAt": "2026-07-01T22:06:32Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.22",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.22"
+      }
+    },
+    {
+      "id": 340238645,
+      "nodeId": "RE_kwDOFTMlzs4UR6E1",
+      "tag": "v0.0.21",
+      "name": "v0.0.21",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.21",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/340238645",
+      "targetCommitish": "release/v0.0.21",
+      "body": "# Version 0.0.21\n\nnetbox-proxbox `0.0.21` pairs with the `proxbox-api 0.0.18.post5`\nbackend release, the `proxmox-sdk 0.0.12` Proxmox SDK, and\n`netbox-sdk 0.0.10`. NetBox compatibility is unchanged: `4.5.8` through\n`4.6.99` (validated against `4.5.8`, `4.5.9`, `4.6.0`, and the official\n`4.6.1`).\n\n## Highlights\n\n- **Sync-mode filtering at source.** Per-record VM and VM-template filtering is\n  now enforced by the `proxbox-api` backend using the `sync_mode_vm` /\n  `sync_mode_vm_template` query parameters transmitted by the plugin.  A\n  `disabled` mode no longer creates dependent NetBox objects (manufacturer,\n  device-type, cluster, site, node-device, role) for VMs that will never sync,\n  because the backend skips those records before dependency precompute.\n- **VM sync reliability.** Two-phase VM batch processing eliminates event-loop\n  starvation on large clusters.  Per-VM dispatch failures are isolated so one\n  VM error counts against `failed_vms` rather than aborting the whole queue.\n- **Interface-dense guest fixes.** Guest-agent alias entries are matched by name\n  (not MAC) and aggregated into their parent interface.  A partial-failure bulk\n  reconciliation now raises and emits a failed stream frame instead of silent\n  empty/partial success.\n- **Template forwarding contract test.** `tests/test_sync_mode_forwarding.py`\n  pins the two sync-mode query params that the plugin transmits to the backend.\n\n## Compatibility\n\n| NetBox  | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.21 | v0.0.18.post5 | v0.0.10 | v0.0.12 |\n| >=4.5.8 | v0.0.20.post3 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20.post2 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20.post1 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20 | v0.0.17 | v0.0.8.post1 | v0.0.11 |\n\n`proxbox-api` is not a Python dependency of this plugin; the services\ncommunicate over HTTP/SSE/WebSocket. Install the matching\n`proxbox-api 0.0.18.post5` backend separately. This release supports NetBox\n`4.5.8` through `4.6.99` and requires Python `>=3.12`.\n\n## Upgrade Notes\n\n- Upgrade the plugin to `netbox-proxbox 0.0.21` and the backend to\n  `proxbox-api 0.0.18.post5`.\n- Use `proxmox-sdk 0.0.12` and `netbox-sdk 0.0.10` in the paired\n  backend environment.\n- Run the normal NetBox plugin upgrade flow: install the package, run\n  `python manage.py migrate netbox_proxbox`, collect static files, and restart\n  NetBox/RQ workers.\n- No model or migration changes are included in this release.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.21</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.21</code> pairs with the <code class=\"notranslate\">proxbox-api 0.0.18.post5</code><br>\nbackend release, the <code class=\"notranslate\">proxmox-sdk 0.0.12</code> Proxmox SDK, and<br>\n<code class=\"notranslate\">netbox-sdk 0.0.10</code>. NetBox compatibility is unchanged: <code class=\"notranslate\">4.5.8</code> through<br>\n<code class=\"notranslate\">4.6.99</code> (validated against <code class=\"notranslate\">4.5.8</code>, <code class=\"notranslate\">4.5.9</code>, <code class=\"notranslate\">4.6.0</code>, and the official<br>\n<code class=\"notranslate\">4.6.1</code>).</p>\n<h2 dir=\"auto\">Highlights</h2>\n<ul dir=\"auto\">\n<li><strong>Sync-mode filtering at source.</strong> Per-record VM and VM-template filtering is<br>\nnow enforced by the <code class=\"notranslate\">proxbox-api</code> backend using the <code class=\"notranslate\">sync_mode_vm</code> /<br>\n<code class=\"notranslate\">sync_mode_vm_template</code> query parameters transmitted by the plugin.  A<br>\n<code class=\"notranslate\">disabled</code> mode no longer creates dependent NetBox objects (manufacturer,<br>\ndevice-type, cluster, site, node-device, role) for VMs that will never sync,<br>\nbecause the backend skips those records before dependency precompute.</li>\n<li><strong>VM sync reliability.</strong> Two-phase VM batch processing eliminates event-loop<br>\nstarvation on large clusters.  Per-VM dispatch failures are isolated so one<br>\nVM error counts against <code class=\"notranslate\">failed_vms</code> rather than aborting the whole queue.</li>\n<li><strong>Interface-dense guest fixes.</strong> Guest-agent alias entries are matched by name<br>\n(not MAC) and aggregated into their parent interface.  A partial-failure bulk<br>\nreconciliation now raises and emits a failed stream frame instead of silent<br>\nempty/partial success.</li>\n<li><strong>Template forwarding contract test.</strong> <code class=\"notranslate\">tests/test_sync_mode_forwarding.py</code><br>\npins the two sync-mode query params that the plugin transmits to the backend.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.21</td>\n<td>v0.0.18.post5</td>\n<td>v0.0.10</td>\n<td>v0.0.12</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post3</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post2</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post1</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20</td>\n<td>v0.0.17</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.11</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\"><code class=\"notranslate\">proxbox-api</code> is not a Python dependency of this plugin; the services<br>\ncommunicate over HTTP/SSE/WebSocket. Install the matching<br>\n<code class=\"notranslate\">proxbox-api 0.0.18.post5</code> backend separately. This release supports NetBox<br>\n<code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code> and requires Python <code class=\"notranslate\">&gt;=3.12</code>.</p>\n<h2 dir=\"auto\">Upgrade Notes</h2>\n<ul dir=\"auto\">\n<li>Upgrade the plugin to <code class=\"notranslate\">netbox-proxbox 0.0.21</code> and the backend to<br>\n<code class=\"notranslate\">proxbox-api 0.0.18.post5</code>.</li>\n<li>Use <code class=\"notranslate\">proxmox-sdk 0.0.12</code> and <code class=\"notranslate\">netbox-sdk 0.0.10</code> in the paired<br>\nbackend environment.</li>\n<li>Run the normal NetBox plugin upgrade flow: install the package, run<br>\n<code class=\"notranslate\">python manage.py migrate netbox_proxbox</code>, collect static files, and restart<br>\nNetBox/RQ workers.</li>\n<li>No model or migration changes are included in this release.</li>\n</ul>",
+      "createdAt": "2026-06-15T20:57:43Z",
+      "publishedAt": "2026-06-16T15:20:29Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.21",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.21"
+      }
+    },
+    {
+      "id": 336868282,
+      "nodeId": "RE_kwDOFTMlzs4UFDO6",
+      "tag": "v0.0.20.post3",
+      "name": "v0.0.20.post3",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.20.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/336868282",
+      "targetCommitish": "develop",
+      "body": "# Version 0.0.20.post3\n\nnetbox-proxbox `0.0.20.post3` pairs with the `proxbox-api 0.0.17.post1`\nbackend release, the `proxmox-sdk 0.0.11.post1` Proxmox SDK, and\n`netbox-sdk 0.0.9.post1`. NetBox compatibility is unchanged: `4.5.8` through\n`4.6.99` (validated against `4.5.8`, `4.5.9`, `4.6.0`, and the official\n`4.6.1`).\n\n## Highlights\n\n- **Disabled endpoints are inventory-only.** Endpoint-like rows with\n  `enabled=False` remain visible in UI/API output, but operational paths now\n  return before any proxbox-api, NetBox, Proxmox, PBS, PDM, OpenAPI, keepalive,\n  backend registration, startup/signal, or sync network attempt.\n- **Shared guard for companion endpoints.** The enabled-state guard applies to\n  `ProxmoxEndpoint`, `NetBoxEndpoint`, `FastAPIEndpoint`, `PBSEndpoint`,\n  `PDMEndpoint`, and companion endpoint objects that expose an `enabled` field.\n- **Maintenance coverage.** LLM-facing and developer docs now describe the\n  all-endpoint no-connection invariant, and regression tests cover\n  PBSEndpoint/PDMEndpoint shared `EndpointBase.enabled` behavior plus guard\n  wiring in operational modules.\n\n## Compatibility\n\n| NetBox  | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.20.post3 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20.post2 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20.post1 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20 | v0.0.17 | v0.0.8.post1 | v0.0.11 |\n\n`proxbox-api` is not a Python dependency of this plugin; the services\ncommunicate over HTTP/SSE/WebSocket. Install the matching\n`proxbox-api 0.0.17.post1` backend separately. This release supports NetBox\n`4.5.8` through `4.6.99` and requires Python `>=3.12`.\n\n## Upgrade Notes\n\n- Upgrade the plugin to `netbox-proxbox 0.0.20.post3` and keep the backend on\n  `proxbox-api 0.0.17.post1`.\n- Use `proxmox-sdk 0.0.11.post1` and `netbox-sdk 0.0.9.post1` in the paired\n  backend environment.\n- Run the normal NetBox plugin upgrade flow: install the package, run\n  `python manage.py migrate netbox_proxbox`, collect static files, and restart\n  NetBox/RQ workers.\n- No model, migration, dependency, NetBox compatibility, or backend-contract\n  version changes are included in this post-release patch.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.20.post3</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.20.post3</code> pairs with the <code class=\"notranslate\">proxbox-api 0.0.17.post1</code><br>\nbackend release, the <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> Proxmox SDK, and<br>\n<code class=\"notranslate\">netbox-sdk 0.0.9.post1</code>. NetBox compatibility is unchanged: <code class=\"notranslate\">4.5.8</code> through<br>\n<code class=\"notranslate\">4.6.99</code> (validated against <code class=\"notranslate\">4.5.8</code>, <code class=\"notranslate\">4.5.9</code>, <code class=\"notranslate\">4.6.0</code>, and the official<br>\n<code class=\"notranslate\">4.6.1</code>).</p>\n<h2 dir=\"auto\">Highlights</h2>\n<ul dir=\"auto\">\n<li><strong>Disabled endpoints are inventory-only.</strong> Endpoint-like rows with<br>\n<code class=\"notranslate\">enabled=False</code> remain visible in UI/API output, but operational paths now<br>\nreturn before any proxbox-api, NetBox, Proxmox, PBS, PDM, OpenAPI, keepalive,<br>\nbackend registration, startup/signal, or sync network attempt.</li>\n<li><strong>Shared guard for companion endpoints.</strong> The enabled-state guard applies to<br>\n<code class=\"notranslate\">ProxmoxEndpoint</code>, <code class=\"notranslate\">NetBoxEndpoint</code>, <code class=\"notranslate\">FastAPIEndpoint</code>, <code class=\"notranslate\">PBSEndpoint</code>,<br>\n<code class=\"notranslate\">PDMEndpoint</code>, and companion endpoint objects that expose an <code class=\"notranslate\">enabled</code> field.</li>\n<li><strong>Maintenance coverage.</strong> LLM-facing and developer docs now describe the<br>\nall-endpoint no-connection invariant, and regression tests cover<br>\nPBSEndpoint/PDMEndpoint shared <code class=\"notranslate\">EndpointBase.enabled</code> behavior plus guard<br>\nwiring in operational modules.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post3</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post2</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post1</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20</td>\n<td>v0.0.17</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.11</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\"><code class=\"notranslate\">proxbox-api</code> is not a Python dependency of this plugin; the services<br>\ncommunicate over HTTP/SSE/WebSocket. Install the matching<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code> backend separately. This release supports NetBox<br>\n<code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code> and requires Python <code class=\"notranslate\">&gt;=3.12</code>.</p>\n<h2 dir=\"auto\">Upgrade Notes</h2>\n<ul dir=\"auto\">\n<li>Upgrade the plugin to <code class=\"notranslate\">netbox-proxbox 0.0.20.post3</code> and keep the backend on<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code>.</li>\n<li>Use <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> and <code class=\"notranslate\">netbox-sdk 0.0.9.post1</code> in the paired<br>\nbackend environment.</li>\n<li>Run the normal NetBox plugin upgrade flow: install the package, run<br>\n<code class=\"notranslate\">python manage.py migrate netbox_proxbox</code>, collect static files, and restart<br>\nNetBox/RQ workers.</li>\n<li>No model, migration, dependency, NetBox compatibility, or backend-contract<br>\nversion changes are included in this post-release patch.</li>\n</ul>",
+      "createdAt": "2026-06-09T20:56:27Z",
+      "publishedAt": "2026-06-09T20:57:33Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.20.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.20.post3"
+      }
+    },
+    {
+      "id": 336229505,
+      "nodeId": "RE_kwDOFTMlzs4UCnSB",
+      "tag": "v0.0.20.post2",
+      "name": "v0.0.20.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.20.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/336229505",
+      "targetCommitish": "develop",
+      "body": "# Version 0.0.20.post2\n\nnetbox-proxbox `0.0.20.post2` pairs with the `proxbox-api 0.0.17.post1`\nbackend release, the `proxmox-sdk 0.0.11.post1` Proxmox SDK, and\n`netbox-sdk 0.0.9.post1`. NetBox compatibility is unchanged: `4.5.8` through\n`4.6.99` (validated against `4.5.8`, `4.5.9`, `4.6.0`, and the official\n`4.6.1`).\n\n## Highlights\n\n- **Latest Sync Jobs on the plugin homepage.** The Proxbox homepage now shows a\n  read-only **Latest Sync Jobs** table with the five most recent Proxbox sync\n  jobs, rendered after the additional plugin endpoint cards. A **View all sync\n  jobs** button links operators to the full sync-job list when they need more\n  history.\n\n## Compatibility\n\n| NetBox  | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.20.post2 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20.post1 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20 | v0.0.17 | v0.0.8.post1 | v0.0.11 |\n| >=4.5.8 | v0.0.19 | v0.0.16 | v0.0.8.post1 | v0.0.9 |\n\n`proxbox-api` is not a Python dependency of this plugin; the services\ncommunicate over HTTP/SSE/WebSocket. Install the matching\n`proxbox-api 0.0.17.post1` backend separately. This release supports NetBox\n`4.5.8` through `4.6.99` and requires Python `>=3.12`.\n\n## Upgrade Notes\n\n- Upgrade the plugin to `netbox-proxbox 0.0.20.post2` and keep the backend on\n  `proxbox-api 0.0.17.post1`.\n- Use `proxmox-sdk 0.0.11.post1` and `netbox-sdk 0.0.9.post1` in the paired\n  backend environment.\n- Run the normal NetBox plugin upgrade flow: install the package, run\n  `python manage.py migrate netbox_proxbox`, collect static files, and restart\n  NetBox/RQ workers.\n- No model, migration, dependency, NetBox compatibility, or backend-contract\n  changes are included in this post-release patch.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.20.post2</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.20.post2</code> pairs with the <code class=\"notranslate\">proxbox-api 0.0.17.post1</code><br>\nbackend release, the <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> Proxmox SDK, and<br>\n<code class=\"notranslate\">netbox-sdk 0.0.9.post1</code>. NetBox compatibility is unchanged: <code class=\"notranslate\">4.5.8</code> through<br>\n<code class=\"notranslate\">4.6.99</code> (validated against <code class=\"notranslate\">4.5.8</code>, <code class=\"notranslate\">4.5.9</code>, <code class=\"notranslate\">4.6.0</code>, and the official<br>\n<code class=\"notranslate\">4.6.1</code>).</p>\n<h2 dir=\"auto\">Highlights</h2>\n<ul dir=\"auto\">\n<li><strong>Latest Sync Jobs on the plugin homepage.</strong> The Proxbox homepage now shows a<br>\nread-only <strong>Latest Sync Jobs</strong> table with the five most recent Proxbox sync<br>\njobs, rendered after the additional plugin endpoint cards. A <strong>View all sync<br>\njobs</strong> button links operators to the full sync-job list when they need more<br>\nhistory.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post2</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post1</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20</td>\n<td>v0.0.17</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.11</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.19</td>\n<td>v0.0.16</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.9</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\"><code class=\"notranslate\">proxbox-api</code> is not a Python dependency of this plugin; the services<br>\ncommunicate over HTTP/SSE/WebSocket. Install the matching<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code> backend separately. This release supports NetBox<br>\n<code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code> and requires Python <code class=\"notranslate\">&gt;=3.12</code>.</p>\n<h2 dir=\"auto\">Upgrade Notes</h2>\n<ul dir=\"auto\">\n<li>Upgrade the plugin to <code class=\"notranslate\">netbox-proxbox 0.0.20.post2</code> and keep the backend on<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code>.</li>\n<li>Use <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> and <code class=\"notranslate\">netbox-sdk 0.0.9.post1</code> in the paired<br>\nbackend environment.</li>\n<li>Run the normal NetBox plugin upgrade flow: install the package, run<br>\n<code class=\"notranslate\">python manage.py migrate netbox_proxbox</code>, collect static files, and restart<br>\nNetBox/RQ workers.</li>\n<li>No model, migration, dependency, NetBox compatibility, or backend-contract<br>\nchanges are included in this post-release patch.</li>\n</ul>",
+      "createdAt": "2026-06-08T20:46:43Z",
+      "publishedAt": "2026-06-08T20:47:33Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.20.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.20.post2"
+      }
+    },
+    {
+      "id": 335693828,
+      "nodeId": "RE_kwDOFTMlzs4UAkgE",
+      "tag": "v0.0.20.post1",
+      "name": "v0.0.20.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.20.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/335693828",
+      "targetCommitish": "develop",
+      "body": "# Version 0.0.20.post1\n\nnetbox-proxbox `0.0.20.post1` pairs with the `proxbox-api 0.0.17.post1`\nbackend release, the `proxmox-sdk 0.0.11.post1` Proxmox SDK, and\n`netbox-sdk 0.0.9.post1`. NetBox compatibility is unchanged: `4.5.8` through\n`4.6.99` (validated against `4.5.8`, `4.5.9`, `4.6.0`, and the official\n`4.6.1`).\n\n## Highlights\n\n- **VM template sync is now wired into `ProxboxSyncJob`.** `ProxmoxVMTemplate`\n  inventory was never populated before because `sync_vm_templates()` was\n  implemented but never called; commits `0f843083` and `aae76f13` connect the\n  template stage to the scheduled/full sync job path.\n\n## Compatibility\n\n| NetBox  | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.20.post1 | v0.0.17.post1 | v0.0.9.post1 | v0.0.11.post1 |\n| >=4.5.8 | v0.0.20 | v0.0.17 | v0.0.8.post1 | v0.0.11 |\n| >=4.5.8 | v0.0.19 | v0.0.16 | v0.0.8.post1 | v0.0.9 |\n\n`proxbox-api` is not a Python dependency of this plugin; the services\ncommunicate over HTTP/SSE/WebSocket. Install the matching\n`proxbox-api 0.0.17.post1` backend separately. This release supports NetBox\n`4.5.8` through `4.6.99` and requires Python `>=3.12`.\n\n## Upgrade Notes\n\n- Upgrade the plugin to `netbox-proxbox 0.0.20.post1` and the backend to\n  `proxbox-api 0.0.17.post1` together.\n- Use `proxmox-sdk 0.0.11.post1` and `netbox-sdk 0.0.9.post1` in the paired\n  backend environment.\n- Run the normal NetBox plugin upgrade flow: install the package, run\n  `python manage.py migrate netbox_proxbox`, collect static files, and restart\n  NetBox/RQ workers.\n- After upgrade, run a full Proxbox sync to populate `ProxmoxVMTemplate`\n  inventory through the newly wired template stage.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.20.post1</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.20.post1</code> pairs with the <code class=\"notranslate\">proxbox-api 0.0.17.post1</code><br>\nbackend release, the <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> Proxmox SDK, and<br>\n<code class=\"notranslate\">netbox-sdk 0.0.9.post1</code>. NetBox compatibility is unchanged: <code class=\"notranslate\">4.5.8</code> through<br>\n<code class=\"notranslate\">4.6.99</code> (validated against <code class=\"notranslate\">4.5.8</code>, <code class=\"notranslate\">4.5.9</code>, <code class=\"notranslate\">4.6.0</code>, and the official<br>\n<code class=\"notranslate\">4.6.1</code>).</p>\n<h2 dir=\"auto\">Highlights</h2>\n<ul dir=\"auto\">\n<li><strong>VM template sync is now wired into <code class=\"notranslate\">ProxboxSyncJob</code>.</strong> <code class=\"notranslate\">ProxmoxVMTemplate</code><br>\ninventory was never populated before because <code class=\"notranslate\">sync_vm_templates()</code> was<br>\nimplemented but never called; commits <code class=\"notranslate\">0f843083</code> and <code class=\"notranslate\">aae76f13</code> connect the<br>\ntemplate stage to the scheduled/full sync job path.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20.post1</td>\n<td>v0.0.17.post1</td>\n<td>v0.0.9.post1</td>\n<td>v0.0.11.post1</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.20</td>\n<td>v0.0.17</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.11</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.19</td>\n<td>v0.0.16</td>\n<td>v0.0.8.post1</td>\n<td>v0.0.9</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\"><code class=\"notranslate\">proxbox-api</code> is not a Python dependency of this plugin; the services<br>\ncommunicate over HTTP/SSE/WebSocket. Install the matching<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code> backend separately. This release supports NetBox<br>\n<code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code> and requires Python <code class=\"notranslate\">&gt;=3.12</code>.</p>\n<h2 dir=\"auto\">Upgrade Notes</h2>\n<ul dir=\"auto\">\n<li>Upgrade the plugin to <code class=\"notranslate\">netbox-proxbox 0.0.20.post1</code> and the backend to<br>\n<code class=\"notranslate\">proxbox-api 0.0.17.post1</code> together.</li>\n<li>Use <code class=\"notranslate\">proxmox-sdk 0.0.11.post1</code> and <code class=\"notranslate\">netbox-sdk 0.0.9.post1</code> in the paired<br>\nbackend environment.</li>\n<li>Run the normal NetBox plugin upgrade flow: install the package, run<br>\n<code class=\"notranslate\">python manage.py migrate netbox_proxbox</code>, collect static files, and restart<br>\nNetBox/RQ workers.</li>\n<li>After upgrade, run a full Proxbox sync to populate <code class=\"notranslate\">ProxmoxVMTemplate</code><br>\ninventory through the newly wired template stage.</li>\n</ul>",
+      "createdAt": "2026-06-07T23:00:53Z",
+      "publishedAt": "2026-06-07T23:01:44Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.20.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.20.post1"
+      }
+    },
+    {
+      "id": 332672993,
+      "nodeId": "RE_kwDOFTMlzs4T1C_h",
+      "tag": "v0.0.19.post2",
+      "name": "v0.0.19.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.19.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/332672993",
+      "targetCommitish": "release/v0.0.19.post2",
+      "body": "Add interface batching settings for large VM sync: configurable interface_batch_size (default 5) and interface_batch_delay_ms (default 100ms), migration 0048, and increased HTTP read timeout to 3600s for VM sync paths.",
+      "bodyHtml": "<p dir=\"auto\">Add interface batching settings for large VM sync: configurable interface_batch_size (default 5) and interface_batch_delay_ms (default 100ms), migration 0048, and increased HTTP read timeout to 3600s for VM sync paths.</p>",
+      "createdAt": "2026-06-01T19:09:10Z",
+      "publishedAt": "2026-06-01T17:56:32Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.19.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.19.post2"
+      }
+    },
+    {
+      "id": 332652811,
+      "nodeId": "RE_kwDOFTMlzs4T0-EL",
+      "tag": "v0.0.19.post1",
+      "name": "v0.0.19.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.19.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/332652811",
+      "targetCommitish": "main",
+      "body": "Post-release bug fixes and quality standards integration",
+      "bodyHtml": "<p dir=\"auto\">Post-release bug fixes and quality standards integration</p>",
+      "createdAt": "2026-06-01T17:10:46Z",
+      "publishedAt": "2026-06-01T17:15:11Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.19.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.19.post1"
+      }
+    },
     {
       "id": 327535690,
       "nodeId": "RE_kwDOFTMlzs4ThcxK",
