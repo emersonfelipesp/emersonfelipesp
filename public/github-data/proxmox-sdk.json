@@ -1,9 +1,59 @@
 {
-  "syncedAt": "2026-07-06T10:15:50.688Z",
+  "syncedAt": "2026-07-06T15:27:47.194Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
   "stars": 4,
   "forks": 2,
   "releases": [
+    {
+      "id": 349623241,
+      "nodeId": "RE_kwDORz_GBs4U1tPJ",
+      "tag": "v0.0.13",
+      "name": "v0.0.13",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.13",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/349623241",
+      "targetCommitish": "9b018d47faf61d6fdd1fd9f9b8a35c68e24221fe",
+      "body": "## proxmox-sdk v0.0.13\n\nA correctness, robustness, and security hardening release — including community contributions that fix Proxmox password/ticket authentication and add caller-supplied session support.\n\n### Highlights\n- **Password/ticket authentication fixes** — the ticket endpoint is now built under the service API prefix (`/api2/json/access/ticket`, reverse-proxy aware) and the `PVEAuthCookie` is sent unquoted, so `user@realm` + password auth works against real Proxmox nodes. Previously it failed with a `JSONDecodeError` and then 401. Thanks @nanomad!\n- **Bring-your-own `aiohttp` session** — pass `session=` to `ProxmoxSDK` / `HttpsBackend` to reuse your own connection pool, timeouts, tracing, or proxy. The SDK reuses it verbatim and never closes it (it also handles the ticket-cookie quoting for external cookie jars). Thanks @CoMPaTech!\n- **Review hardening** — config CLI commands (`config-add`/`-remove`/`-set-default`/`-list`/`-show`) now load existing config before operating, fixing silent profile loss and empty list/show; `batch` uses the configured default profile; download checksum auto-discovery blocks SSRF probes to loopback/private/link-local/metadata hosts; typed `AuthenticationError` on non-JSON auth responses; negative-retry validation and a cross-event-loop `close()` leak fix; idempotent synchronous `close()`.\n- Also includes opt-in OpenTelemetry tracing and Proxmox Datacenter Manager (PDM) API codegen support merged since 0.0.12.\n\n### Pull requests in this release\n- #112 — Make Proxmox password/ticket auth work (API prefix + unquoted cookie) — @nanomad\n- #113 — Allow a caller-supplied aiohttp session — @CoMPaTech\n- #114 — Harden config CLI, auth, downloads, and backend lifecycle — @emersonfelipesp\n- #115 — Version bump to 0.0.13rc1 (release candidate) — @emersonfelipesp\n- #116 — Version bump to 0.0.13 (final) — @emersonfelipesp\n\n### Thanks to our contributors 🙏\nSpecial thanks to **@nanomad** (Giovanni Condello) and **@CoMPaTech** (Tom Scholten) for reporting, independently reproducing, reviewing, and fixing the authentication and session issues that make this release possible.\n\n---\nPublished to PyPI and Docker Hub (`raw`, `nginx`, `granian`, and per-service mock images).",
+      "bodyHtml": "<h2 dir=\"auto\">proxmox-sdk v0.0.13</h2>\n<p dir=\"auto\">A correctness, robustness, and security hardening release — including community contributions that fix Proxmox password/ticket authentication and add caller-supplied session support.</p>\n<h3 dir=\"auto\">Highlights</h3>\n<ul dir=\"auto\">\n<li><strong>Password/ticket authentication fixes</strong> — the ticket endpoint is now built under the service API prefix (<code class=\"notranslate\">/api2/json/access/ticket</code>, reverse-proxy aware) and the <code class=\"notranslate\">PVEAuthCookie</code> is sent unquoted, so <code class=\"notranslate\">user@realm</code> + password auth works against real Proxmox nodes. Previously it failed with a <code class=\"notranslate\">JSONDecodeError</code> and then 401. Thanks <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/nanomad/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/nanomad\">@nanomad</a>!</li>\n<li><strong>Bring-your-own <code class=\"notranslate\">aiohttp</code> session</strong> — pass <code class=\"notranslate\">session=</code> to <code class=\"notranslate\">ProxmoxSDK</code> / <code class=\"notranslate\">HttpsBackend</code> to reuse your own connection pool, timeouts, tracing, or proxy. The SDK reuses it verbatim and never closes it (it also handles the ticket-cookie quoting for external cookie jars). Thanks <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/CoMPaTech/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/CoMPaTech\">@CoMPaTech</a>!</li>\n<li><strong>Review hardening</strong> — config CLI commands (<code class=\"notranslate\">config-add</code>/<code class=\"notranslate\">-remove</code>/<code class=\"notranslate\">-set-default</code>/<code class=\"notranslate\">-list</code>/<code class=\"notranslate\">-show</code>) now load existing config before operating, fixing silent profile loss and empty list/show; <code class=\"notranslate\">batch</code> uses the configured default profile; download checksum auto-discovery blocks SSRF probes to loopback/private/link-local/metadata hosts; typed <code class=\"notranslate\">AuthenticationError</code> on non-JSON auth responses; negative-retry validation and a cross-event-loop <code class=\"notranslate\">close()</code> leak fix; idempotent synchronous <code class=\"notranslate\">close()</code>.</li>\n<li>Also includes opt-in OpenTelemetry tracing and Proxmox Datacenter Manager (PDM) API codegen support merged since 0.0.12.</li>\n</ul>\n<h3 dir=\"auto\">Pull requests in this release</h3>\n<ul dir=\"auto\">\n<li><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4757854003\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/112\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/112/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/112\">#112</a> — Make Proxmox password/ticket auth work (API prefix + unquoted cookie) — <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/nanomad/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/nanomad\">@nanomad</a></li>\n<li><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4762221248\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/113\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/113/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/113\">#113</a> — Allow a caller-supplied aiohttp session — <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/CoMPaTech/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/CoMPaTech\">@CoMPaTech</a></li>\n<li><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4820147895\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/114\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/114/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/114\">#114</a> — Harden config CLI, auth, downloads, and backend lifecycle — <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4820179235\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/115\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/115/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/115\">#115</a> — Version bump to 0.0.13rc1 (release candidate) — <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n<li><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4820229094\" data-permission-text=\"Title is private\" data-url=\"https://github.com/emersonfelipesp/proxmox-sdk/issues/116\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/emersonfelipesp/proxmox-sdk/pull/116/hovercard\" href=\"https://github.com/emersonfelipesp/proxmox-sdk/pull/116\">#116</a> — Version bump to 0.0.13 (final) — <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/emersonfelipesp/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/emersonfelipesp\">@emersonfelipesp</a></li>\n</ul>\n<h3 dir=\"auto\">Thanks to our contributors 🙏</h3>\n<p dir=\"auto\">Special thanks to <strong><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/nanomad/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/nanomad\">@nanomad</a></strong> (Giovanni Condello) and <strong><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/CoMPaTech/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/CoMPaTech\">@CoMPaTech</a></strong> (Tom Scholten) for reporting, independently reproducing, reviewing, and fixing the authentication and session issues that make this release possible.</p>\n<hr>\n<p dir=\"auto\">Published to PyPI and Docker Hub (<code class=\"notranslate\">raw</code>, <code class=\"notranslate\">nginx</code>, <code class=\"notranslate\">granian</code>, and per-service mock images).</p>",
+      "createdAt": "2026-07-06T14:46:41Z",
+      "publishedAt": "2026-07-06T14:47:05Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.13",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.13"
+      }
+    },
+    {
+      "id": 349619454,
+      "nodeId": "RE_kwDORz_GBs4U1sT-",
+      "tag": "v0.0.13rc1",
+      "name": "v0.0.13rc1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.13rc1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/349619454",
+      "targetCommitish": "4f89509834c4b6218608d6237d0cf9dd4b10af27",
+      "body": "Release candidate for v0.0.13.\n\nThis RC validates a batch of correctness, robustness, and security fixes:\n- Config CLI commands (add/remove/set-default/list/show) now load existing configuration before operating, fixing silent profile loss and empty list/show output.\n- Batch execution uses the configured default profile.\n- Download checksum auto-discovery blocks SDK-side probes to loopback/private/link-local/metadata addresses (SSRF hardening).\n- Password/ticket auth returns a typed error on non-JSON gateway responses instead of a raw decode error.\n- HTTPS backend rejects negative retry settings and fixes a cross-loop session-close leak.\n- Synchronous SDK `close()` is now idempotent.\n\nPublished to TestPyPI for validation only; not for production use.",
+      "bodyHtml": "<p dir=\"auto\">Release candidate for v0.0.13.</p>\n<p dir=\"auto\">This RC validates a batch of correctness, robustness, and security fixes:</p>\n<ul dir=\"auto\">\n<li>Config CLI commands (add/remove/set-default/list/show) now load existing configuration before operating, fixing silent profile loss and empty list/show output.</li>\n<li>Batch execution uses the configured default profile.</li>\n<li>Download checksum auto-discovery blocks SDK-side probes to loopback/private/link-local/metadata addresses (SSRF hardening).</li>\n<li>Password/ticket auth returns a typed error on non-JSON gateway responses instead of a raw decode error.</li>\n<li>HTTPS backend rejects negative retry settings and fixes a cross-loop session-close leak.</li>\n<li>Synchronous SDK <code class=\"notranslate\">close()</code> is now idempotent.</li>\n</ul>\n<p dir=\"auto\">Published to TestPyPI for validation only; not for production use.</p>",
+      "createdAt": "2026-07-06T14:40:50Z",
+      "publishedAt": "2026-07-06T14:41:18Z",
+      "prerelease": true,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.13rc1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.13rc1"
+      }
+    },
     {
       "id": 339649976,
       "nodeId": "RE_kwDORz_GBs4UPqW4",
@@ -17,7 +67,7 @@
       "createdAt": "2026-06-15T15:35:53Z",
       "publishedAt": "2026-06-15T15:38:31Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
