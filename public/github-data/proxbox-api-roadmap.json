@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-08T19:22:58.665Z",
+  "generated_at": "2026-07-08T20:45:23.097Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 2,
-    "closed": 68,
+    "open": 1,
+    "closed": 69,
     "edges": 0
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 255,
       "title": "# Bug Report: Duplicate VMIDs across standalone endpoints break VM interface/IP sync and cause VM-create failures",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/255",
-      "closedAt": null,
+      "closedAt": "2026-07-08T20:43:58Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1397,6 +1397,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        255,
         254,
         249,
         248,
@@ -1472,8 +1473,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243,
-        255
+        243
       ]
     }
   ],
