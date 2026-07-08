@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-08T14:00:48.659Z",
+  "generated_at": "2026-07-08T15:26:10.247Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 68,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 255,
+      "title": "# Bug Report: Duplicate VMIDs across standalone endpoints break VM interface/IP sync and cause VM-create failures",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/255",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 254,
       "title": "Implement optional netbox-bgp projection for Proxbox SDN sync",
@@ -1449,7 +1463,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        243
+        243,
+        255
       ]
     }
   ],
