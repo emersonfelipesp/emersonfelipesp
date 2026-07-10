@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-07-10T18:11:09.372Z",
+  "syncedAt": "2026-07-10T19:08:07.550Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 575,
   "forks": 65,
   "releases": [
+    {
+      "id": 352282388,
+      "nodeId": "RE_kwDOFTMlzs4U_2cU",
+      "tag": "v0.0.23.post1",
+      "name": "v0.0.23.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.23.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/352282388",
+      "targetCommitish": "develop",
+      "body": "# Version 0.0.23.post1\n\nnetbox-proxbox `0.0.23.post1` pairs with a `proxbox-api`\nguest-VM-interface writer build / next release, alongside\n`proxmox-sdk 0.0.12` and `netbox-sdk 0.0.10`. NetBox compatibility is unchanged:\n`4.5.8` through `4.6.99` (validated against `4.5.8`, `4.5.9`, and `4.6.0`\nthrough `4.6.4`).\n\nCurrent pairing: netbox-proxbox 0.0.23.post1 <-> proxbox-api (guest-VM-interface writer build / next release) <-> proxmox-sdk 0.0.12 <-> netbox-sdk 0.0.10.\n\n## Compatibility and upgrade notes\n\n| NetBox  | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.23.post1 | guest-VM-interface writer build / next release | v0.0.10 | v0.0.12 |\n| >=4.5.8 | v0.0.23 | guest-VM-interface writer build / next release | v0.0.10 | v0.0.12 |\n\n`0.0.23.post1` makes `guest_os_model` the universal default for VM interface\nsync, including existing installs. Migration `0060` supersedes the `0.0.23`\nbackward-compat backfill that had kept upgrades on `legacy_rename`.\n\nThis resolves the `net0`-vs-`ensX` interface-naming reports out-of-the-box on\nupgrade. Proxmox `netX` interfaces stay named `netX`, and guest OS names are\nstored in `GuestVMInterface` rows. `legacy_rename` remains a deprecated,\nselectable opt-out in plugin settings. No other behavior change.\n\nThis is a documented, intentional behavior change on upgrade.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.23.post1</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.23.post1</code> pairs with a <code class=\"notranslate\">proxbox-api</code><br>\nguest-VM-interface writer build / next release, alongside<br>\n<code class=\"notranslate\">proxmox-sdk 0.0.12</code> and <code class=\"notranslate\">netbox-sdk 0.0.10</code>. NetBox compatibility is unchanged:<br>\n<code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code> (validated against <code class=\"notranslate\">4.5.8</code>, <code class=\"notranslate\">4.5.9</code>, and <code class=\"notranslate\">4.6.0</code><br>\nthrough <code class=\"notranslate\">4.6.4</code>).</p>\n<p dir=\"auto\">Current pairing: netbox-proxbox 0.0.23.post1 &lt;-&gt; proxbox-api (guest-VM-interface writer build / next release) &lt;-&gt; proxmox-sdk 0.0.12 &lt;-&gt; netbox-sdk 0.0.10.</p>\n<h2 dir=\"auto\">Compatibility and upgrade notes</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.23.post1</td>\n<td>guest-VM-interface writer build / next release</td>\n<td>v0.0.10</td>\n<td>v0.0.12</td>\n</tr>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.23</td>\n<td>guest-VM-interface writer build / next release</td>\n<td>v0.0.10</td>\n<td>v0.0.12</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\"><code class=\"notranslate\">0.0.23.post1</code> makes <code class=\"notranslate\">guest_os_model</code> the universal default for VM interface<br>\nsync, including existing installs. Migration <code class=\"notranslate\">0060</code> supersedes the <code class=\"notranslate\">0.0.23</code><br>\nbackward-compat backfill that had kept upgrades on <code class=\"notranslate\">legacy_rename</code>.</p>\n<p dir=\"auto\">This resolves the <code class=\"notranslate\">net0</code>-vs-<code class=\"notranslate\">ensX</code> interface-naming reports out-of-the-box on<br>\nupgrade. Proxmox <code class=\"notranslate\">netX</code> interfaces stay named <code class=\"notranslate\">netX</code>, and guest OS names are<br>\nstored in <code class=\"notranslate\">GuestVMInterface</code> rows. <code class=\"notranslate\">legacy_rename</code> remains a deprecated,<br>\nselectable opt-out in plugin settings. No other behavior change.</p>\n<p dir=\"auto\">This is a documented, intentional behavior change on upgrade.</p>",
+      "createdAt": "2026-07-10T19:05:33Z",
+      "publishedAt": "2026-07-10T19:07:41Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.23.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.23.post1"
+      }
+    },
     {
       "id": 352257622,
       "nodeId": "RE_kwDOFTMlzs4U_wZW",
@@ -17,7 +42,7 @@
       "createdAt": "2026-07-10T18:09:00Z",
       "publishedAt": "2026-07-10T18:10:36Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
