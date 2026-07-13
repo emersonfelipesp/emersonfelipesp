@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-13T19:21:58.874Z",
+  "generated_at": "2026-07-13T21:05:29.079Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 614,
+      "title": "Some VM from cluster do not synchronised in proxbox",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/614",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 610,
       "title": "Multiple interfaces with conflicts are not created",
@@ -8147,7 +8161,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        614
       ]
     }
   ],
