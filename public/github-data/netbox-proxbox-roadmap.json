@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-14T19:59:10.976Z",
+  "generated_at": "2026-07-14T20:45:30.752Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 615,
+      "title": "Issues with Node/VM Sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/615",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 614,
       "title": "Some VM from cluster do not synchronised in proxbox",
@@ -8171,7 +8185,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        614
+        614,
+        615
       ]
     }
   ],
