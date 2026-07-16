@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-16T13:28:27.705Z",
+  "generated_at": "2026-07-16T13:33:22.263Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 618,
+      "title": "UI error in cluster view",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/618",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 617,
       "title": "VM name and status do not change during synchronization",
@@ -8225,7 +8239,8 @@
         614,
         615,
         616,
-        617
+        617,
+        618
       ]
     }
   ],
