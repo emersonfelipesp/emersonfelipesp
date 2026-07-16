@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-16T08:10:06.065Z",
+  "generated_at": "2026-07-16T13:28:27.705Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 617,
+      "title": "VM name and status do not change during synchronization",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/617",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 616,
       "title": "Error with sync single VM",
@@ -8210,7 +8224,8 @@
         602,
         614,
         615,
-        616
+        616,
+        617
       ]
     }
   ],
