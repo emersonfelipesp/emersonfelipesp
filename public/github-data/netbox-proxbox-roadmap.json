@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T13:23:58.485Z",
+  "generated_at": "2026-07-17T14:06:51.211Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 7,
-    "closed": 327,
+    "open": 6,
+    "closed": 328,
     "edges": 93
   },
-  "viewBox": "0 0 272 848",
+  "viewBox": "0 0 272 728",
   "nodes": [
     {
       "number": 619,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 736,
+      "y": 616,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -32,7 +32,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 616,
+      "y": 496,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -46,7 +46,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 496,
+      "y": 376,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -60,7 +60,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -68,9 +68,9 @@
     {
       "number": 615,
       "title": "Issues with Node/VM Sync",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/615",
-      "closedAt": null,
+      "closedAt": "2026-07-17T14:05:45Z",
       "labels": [
         {
           "name": "bug",
@@ -82,8 +82,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7915,6 +7915,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        615,
         610,
         593,
         609,
@@ -8251,7 +8252,6 @@
       "issues": [
         602,
         614,
-        615,
         616,
         617,
         618,
