@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17T08:07:25.374Z",
+  "generated_at": "2026-07-17T08:20:49.186Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 327,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 619,
+      "title": "Custom Field missing",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/619",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 618,
       "title": "UI error in cluster view",
@@ -8240,7 +8254,8 @@
         615,
         616,
         617,
-        618
+        618,
+        619
       ]
     }
   ],
