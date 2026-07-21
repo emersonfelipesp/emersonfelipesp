@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:19:07.322Z",
+  "generated_at": "2026-07-21T21:06:58.148Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
-    "closed": 329,
+    "open": 3,
+    "closed": 331,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 619,
@@ -26,13 +26,13 @@
     {
       "number": 618,
       "title": "UI error in cluster view",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/618",
-      "closedAt": null,
+      "closedAt": "2026-07-21T21:06:09Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -46,7 +46,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -54,13 +54,13 @@
     {
       "number": 616,
       "title": "Error with sync single VM",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/616",
-      "closedAt": null,
+      "closedAt": "2026-07-21T21:05:45Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7915,6 +7915,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        618,
+        616,
         619,
         615,
         610,
@@ -8253,9 +8255,7 @@
       "issues": [
         602,
         614,
-        616,
-        617,
-        618
+        617
       ]
     }
   ],
