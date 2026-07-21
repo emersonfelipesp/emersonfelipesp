@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T22:21:46.764Z",
+  "generated_at": "2026-07-21T23:38:25.812Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 332,
+    "open": 1,
+    "closed": 333,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 619,
@@ -40,13 +40,13 @@
     {
       "number": 617,
       "title": "VM name and status do not change during synchronization",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/617",
-      "closedAt": null,
+      "closedAt": "2026-07-21T23:36:59Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7915,6 +7915,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        617,
         614,
         618,
         616,
@@ -8254,8 +8255,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        617
+        602
       ]
     }
   ],
