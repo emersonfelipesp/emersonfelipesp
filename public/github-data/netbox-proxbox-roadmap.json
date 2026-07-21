@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T21:06:58.148Z",
+  "generated_at": "2026-07-21T22:21:46.764Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 331,
+    "open": 2,
+    "closed": 332,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 619,
@@ -46,7 +46,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -91,9 +91,9 @@
     {
       "number": 614,
       "title": "Some VM from cluster do not synchronised in proxbox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/614",
-      "closedAt": null,
+      "closedAt": "2026-07-21T22:20:08Z",
       "labels": [
         {
           "name": "bug",
@@ -105,8 +105,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7915,6 +7915,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        614,
         618,
         616,
         619,
@@ -8254,7 +8255,6 @@
       "note": "start anywhere",
       "issues": [
         602,
-        614,
         617
       ]
     }
