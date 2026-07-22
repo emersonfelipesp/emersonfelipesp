@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T08:26:26.733Z",
+  "generated_at": "2026-07-22T12:55:50.245Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 333,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 623,
+      "title": "UI error when click Sync Now from Cluster page",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/623",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 620,
       "title": "Some VM not sync in custer",
@@ -8270,7 +8284,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        620
+        620,
+        623
       ]
     }
   ],
