@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T23:38:25.812Z",
+  "generated_at": "2026-07-22T01:06:13.976Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 333,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 620,
+      "title": "Some VM not sync in custer",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/620",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 619,
       "title": "Custom Field missing",
@@ -8255,7 +8269,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        620
       ]
     }
   ],
