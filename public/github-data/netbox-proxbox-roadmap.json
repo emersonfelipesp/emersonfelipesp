@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T12:55:50.245Z",
+  "generated_at": "2026-07-22T13:11:07.137Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 333,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 624,
+      "title": "Error ensuring Proxbox tag",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/624",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 623,
       "title": "UI error when click Sync Now from Cluster page",
@@ -8285,7 +8299,8 @@
       "issues": [
         602,
         620,
-        623
+        623,
+        624
       ]
     }
   ],
