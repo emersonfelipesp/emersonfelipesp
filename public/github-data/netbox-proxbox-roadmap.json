@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T02:33:41.452Z",
+  "generated_at": "2026-07-23T03:16:21.959Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
-    "closed": 333,
+    "open": 3,
+    "closed": 334,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 624,
       "title": "Error ensuring Proxbox tag",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/624",
-      "closedAt": null,
+      "closedAt": "2026-07-23T03:14:46Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7957,6 +7957,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        624,
         617,
         614,
         618,
@@ -8299,8 +8300,7 @@
       "issues": [
         602,
         620,
-        623,
-        624
+        623
       ]
     }
   ],
