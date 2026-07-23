@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T08:26:31.600Z",
+  "generated_at": "2026-07-23T12:27:02.381Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 334,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 625,
+      "title": "Proxmox task status request timed out",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/625",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 624,
       "title": "Error ensuring Proxbox tag",
@@ -8300,7 +8314,8 @@
       "issues": [
         602,
         620,
-        623
+        623,
+        625
       ]
     }
   ],
