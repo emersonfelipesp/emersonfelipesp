@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-24T08:25:43.904Z",
+  "generated_at": "2026-07-24T11:00:42.259Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
-    "closed": 334,
+    "open": 3,
+    "closed": 335,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 625,
       "title": "Proxmox task status request timed out",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/625",
-      "closedAt": null,
+      "closedAt": "2026-07-24T10:58:25Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7971,6 +7971,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        625,
         624,
         617,
         614,
@@ -8314,8 +8315,7 @@
       "issues": [
         602,
         620,
-        623,
-        625
+        623
       ]
     }
   ],
