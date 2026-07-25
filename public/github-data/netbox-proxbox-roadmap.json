@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-25T08:04:07.792Z",
+  "generated_at": "2026-07-25T13:11:32.685Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 335,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 626,
+      "title": "Error when creating SSH Credentials",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/626",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 625,
       "title": "Proxmox task status request timed out",
@@ -8315,7 +8329,8 @@
       "issues": [
         602,
         620,
-        623
+        623,
+        626
       ]
     }
   ],
