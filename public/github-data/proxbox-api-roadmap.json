@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-26T19:08:08.165Z",
+  "generated_at": "2026-07-26T20:53:14.488Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
-    "closed": 69,
+    "open": 0,
+    "closed": 70,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 255,
@@ -86,9 +86,9 @@
     {
       "number": 243,
       "title": "feat(sync): optionally sync full node network topology (/nodes/{node}/network) into dcim.Interface",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/243",
-      "closedAt": null,
+      "closedAt": "2026-07-26T20:51:50Z",
       "labels": [
         {
           "name": "enhancement",
@@ -100,8 +100,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1397,6 +1397,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        243,
         255,
         254,
         249,
@@ -1466,14 +1467,6 @@
         1,
         3,
         4
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        243
       ]
     }
   ],
