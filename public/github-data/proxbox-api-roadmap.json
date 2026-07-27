@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T19:25:19.684Z",
+  "generated_at": "2026-07-27T21:34:47.811Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 1,
@@ -15,7 +15,12 @@
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/258",
       "closedAt": null,
-      "labels": [],
+      "labels": [
+        {
+          "name": "under review",
+          "color": "fbca04"
+        }
+      ],
       "milestone": null,
       "x": 16,
       "y": 16,
@@ -1511,7 +1516,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 6
+      "count": 7
     },
     {
       "name": "documentation",
