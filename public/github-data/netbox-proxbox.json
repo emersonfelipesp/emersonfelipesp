@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-07-27T14:28:31.625Z",
+  "syncedAt": "2026-07-27T17:50:00.648Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 578,
   "forks": 65,
   "releases": [
+    {
+      "id": 360608249,
+      "nodeId": "RE_kwDOFTMlzs4VfnH5",
+      "tag": "v0.0.23.post2",
+      "name": "v0.0.23.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.23.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/360608249",
+      "targetCommitish": "develop",
+      "body": "# Version 0.0.23.post2\n\nnetbox-proxbox `0.0.23.post2` adds bounded endpoint auto-configuration and\ncredential establishment for the Proxbox backend. It retains the existing\nbackend and SDK pairing and supports NetBox `4.5.8` through `4.6.99`\n(validated against `4.5.8` through `4.5.10` and `4.6.0` through `4.6.5`).\n\nCurrent pairing: netbox-proxbox 0.0.23.post2 <-> proxbox-api (guest-VM-interface writer build / next release) <-> proxmox-sdk 0.0.12 <-> netbox-sdk 0.0.10.\n\n## Compatibility\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|--------|----------------|-------------|------------|-------------|\n| >=4.5.8 | v0.0.23.post2 | guest-VM-interface writer build / next release | v0.0.10 | v0.0.12 |\n\nMigration `0075_fastapi_backend_key_target_fingerprint` adds the durable,\ncredential-free target binding for existing and new backend rows. Run the\nnormal NetBox migration step during upgrade. No companion-backend upgrade is\nrequired.\n\n## Endpoint auto-configuration\n\n- Operators may create or enable a Proxbox backend without pasting an API key.\n  After the row commits, the plugin probes only the exact URL or IP, port, and\n  TLS policy saved in that row. A healthy empty backend can complete its\n  one-time key bootstrap automatically; an initialized backend without a\n  locally held key remains pending and requires explicit recovery.\n- When no backend row exists, startup discovery is limited to plugin-configured\n  targets and same-site names derived from NetBox's trusted public origin. It\n  does not scan the network, accept arbitrary user-supplied discovery targets,\n  or follow redirects.\n- NetBox endpoint configuration can be derived from the trusted local public\n  origin, and the corresponding token is established through the already\n  authenticated backend boundary rather than exposed in the UI.\n\n## Security behavior\n\n- The persisted endpoint is the complete discovery allowlist. Any IP or domain\n  that is not the configured target or an explicitly derived same-site target\n  is rejected before credentials are sent.\n- Backend ciphertext is bound to a credential-free fingerprint covering the\n  canonical HTTP target, fallback IP, TLS flags, and WebSocket target. Target\n  drift fails closed until the operator explicitly re-establishes trust.\n- Disabled endpoints never perform discovery or network access. HTTP and\n  WebSocket authentication reject redirects, and ambient proxy settings are\n  disabled for the credential-bearing WebSocket client.\n\n## Operations\n\nOn startup, a successfully configured installation logs backend key\nverification and the NetBox endpoint push. A configuration that cannot be\nproved safe logs a `pending` result and continues serving NetBox without\nattempting an untrusted connection.\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.23.post2</h1>\n<p dir=\"auto\">netbox-proxbox <code class=\"notranslate\">0.0.23.post2</code> adds bounded endpoint auto-configuration and<br>\ncredential establishment for the Proxbox backend. It retains the existing<br>\nbackend and SDK pairing and supports NetBox <code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.6.99</code><br>\n(validated against <code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.5.10</code> and <code class=\"notranslate\">4.6.0</code> through <code class=\"notranslate\">4.6.5</code>).</p>\n<p dir=\"auto\">Current pairing: netbox-proxbox 0.0.23.post2 &lt;-&gt; proxbox-api (guest-VM-interface writer build / next release) &lt;-&gt; proxmox-sdk 0.0.12 &lt;-&gt; netbox-sdk 0.0.10.</p>\n<h2 dir=\"auto\">Compatibility</h2>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;=4.5.8</td>\n<td>v0.0.23.post2</td>\n<td>guest-VM-interface writer build / next release</td>\n<td>v0.0.10</td>\n<td>v0.0.12</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>\n<p dir=\"auto\">Migration <code class=\"notranslate\">0075_fastapi_backend_key_target_fingerprint</code> adds the durable,<br>\ncredential-free target binding for existing and new backend rows. Run the<br>\nnormal NetBox migration step during upgrade. No companion-backend upgrade is<br>\nrequired.</p>\n<h2 dir=\"auto\">Endpoint auto-configuration</h2>\n<ul dir=\"auto\">\n<li>Operators may create or enable a Proxbox backend without pasting an API key.<br>\nAfter the row commits, the plugin probes only the exact URL or IP, port, and<br>\nTLS policy saved in that row. A healthy empty backend can complete its<br>\none-time key bootstrap automatically; an initialized backend without a<br>\nlocally held key remains pending and requires explicit recovery.</li>\n<li>When no backend row exists, startup discovery is limited to plugin-configured<br>\ntargets and same-site names derived from NetBox's trusted public origin. It<br>\ndoes not scan the network, accept arbitrary user-supplied discovery targets,<br>\nor follow redirects.</li>\n<li>NetBox endpoint configuration can be derived from the trusted local public<br>\norigin, and the corresponding token is established through the already<br>\nauthenticated backend boundary rather than exposed in the UI.</li>\n</ul>\n<h2 dir=\"auto\">Security behavior</h2>\n<ul dir=\"auto\">\n<li>The persisted endpoint is the complete discovery allowlist. Any IP or domain<br>\nthat is not the configured target or an explicitly derived same-site target<br>\nis rejected before credentials are sent.</li>\n<li>Backend ciphertext is bound to a credential-free fingerprint covering the<br>\ncanonical HTTP target, fallback IP, TLS flags, and WebSocket target. Target<br>\ndrift fails closed until the operator explicitly re-establishes trust.</li>\n<li>Disabled endpoints never perform discovery or network access. HTTP and<br>\nWebSocket authentication reject redirects, and ambient proxy settings are<br>\ndisabled for the credential-bearing WebSocket client.</li>\n</ul>\n<h2 dir=\"auto\">Operations</h2>\n<p dir=\"auto\">On startup, a successfully configured installation logs backend key<br>\nverification and the NetBox endpoint push. A configuration that cannot be<br>\nproved safe logs a <code class=\"notranslate\">pending</code> result and continues serving NetBox without<br>\nattempting an untrusted connection.</p>",
+      "createdAt": "2026-07-27T17:48:38Z",
+      "publishedAt": "2026-07-27T17:49:24Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.23.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.23.post2"
+      }
+    },
     {
       "id": 352282388,
       "nodeId": "RE_kwDOFTMlzs4U_2cU",
@@ -17,7 +42,7 @@
       "createdAt": "2026-07-10T19:05:33Z",
       "publishedAt": "2026-07-10T19:07:41Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
