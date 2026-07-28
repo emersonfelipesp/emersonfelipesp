@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-28T19:24:50.048Z",
+  "generated_at": "2026-07-28T19:47:14.282Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
-    "closed": 70,
+    "open": 0,
+    "closed": 71,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 258,
       "title": "feat(sync): set physical-NIC MACs on node interfaces via the hardware-discovery path",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/258",
-      "closedAt": null,
+      "closedAt": "2026-07-28T19:45:45Z",
       "labels": [
         {
           "name": "under review",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1416,6 +1416,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        258,
         243,
         255,
         254,
@@ -1486,14 +1487,6 @@
         1,
         3,
         4
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        258
       ]
     }
   ],
