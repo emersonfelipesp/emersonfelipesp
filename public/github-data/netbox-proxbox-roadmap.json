@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-30T08:23:50.885Z",
+  "generated_at": "2026-07-30T11:46:09.009Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 335,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 629,
+      "title": "Title: overwrite_vm_role=No is not respected, role is reset on every sync regardless of proxmox_last_synced_role_id",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/629",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 626,
       "title": "Error when creating SSH Credentials",
@@ -8330,7 +8344,8 @@
         602,
         620,
         623,
-        626
+        626,
+        629
       ]
     }
   ],
