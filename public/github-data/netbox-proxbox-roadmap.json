@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-31T19:22:25.062Z",
+  "generated_at": "2026-07-31T19:41:01.633Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
-    "closed": 335,
+    "open": 4,
+    "closed": 336,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 629,
       "title": "Title: overwrite_vm_role=No is not respected, role is reset on every sync regardless of proxmox_last_synced_role_id",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/629",
-      "closedAt": null,
+      "closedAt": "2026-07-31T19:39:23Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -7999,6 +7999,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        629,
         625,
         624,
         617,
@@ -8344,8 +8345,7 @@
         602,
         620,
         623,
-        626,
-        629
+        626
       ]
     }
   ],
