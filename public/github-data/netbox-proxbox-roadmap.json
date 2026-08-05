@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-05T19:27:10.228Z",
+  "generated_at": "2026-08-05T20:52:51.805Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
+    "open": 5,
     "closed": 336,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 633,
+      "title": "Multiple bugs in non-Docker (venv/systemd) install: DATABASE_URL ignored, dual encryption-key systems crash forms on rotation, auth-lockout self-triggers with legitimate traffic",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/633",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 629,
       "title": "Title: overwrite_vm_role=No is not respected, role is reset on every sync regardless of proxmox_last_synced_role_id",
@@ -8345,7 +8359,8 @@
         602,
         620,
         623,
-        626
+        626,
+        633
       ]
     }
   ],
