@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-06T08:32:36.753Z",
+  "generated_at": "2026-08-06T09:54:52.555Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
+    "open": 6,
     "closed": 336,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 634,
+      "title": "SND dispay server error",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/634",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 633,
       "title": "Multiple bugs in non-Docker (venv/systemd) install: DATABASE_URL ignored, dual encryption-key systems crash forms on rotation, auth-lockout self-triggers with legitimate traffic",
@@ -8360,7 +8374,8 @@
         620,
         623,
         626,
-        633
+        633,
+        634
       ]
     }
   ],
