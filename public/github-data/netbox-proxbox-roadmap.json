@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-07T07:12:16.148Z",
+  "generated_at": "2026-08-07T12:17:52.396Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 6,
+    "open": 7,
     "closed": 336,
     "edges": 93
   },
-  "viewBox": "0 0 272 728",
+  "viewBox": "0 0 272 848",
   "nodes": [
+    {
+      "number": 635,
+      "title": "can't add system - authentication issues",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/635",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 736,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 634,
       "title": "SND dispay server error",
@@ -8375,7 +8389,8 @@
         623,
         626,
         633,
-        634
+        634,
+        635
       ]
     }
   ],
