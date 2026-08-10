@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-10T18:55:16.436Z",
+  "generated_at": "2026-08-10T19:52:36.398Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 4,
-    "closed": 339,
+    "open": 3,
+    "closed": 340,
     "edges": 93
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 635,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 376,
+      "y": 256,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -55,7 +55,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -133,13 +133,13 @@
     {
       "number": 620,
       "title": "Some VM not sync in custer",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/620",
-      "closedAt": null,
+      "closedAt": "2026-08-10T19:50:33Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8050,6 +8050,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        620,
         634,
         623,
         626,
@@ -8397,7 +8398,6 @@
       "note": "start anywhere",
       "issues": [
         602,
-        620,
         633,
         635
       ]
