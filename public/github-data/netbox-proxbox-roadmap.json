@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-10T19:52:36.398Z",
+  "generated_at": "2026-08-10T20:43:58.217Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 340,
+    "open": 1,
+    "closed": 342,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 635,
       "title": "can't add system - authentication issues",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/635",
-      "closedAt": null,
+      "closedAt": "2026-08-10T20:42:40Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -49,13 +49,13 @@
     {
       "number": 633,
       "title": "Multiple bugs in non-Docker (venv/systemd) install: DATABASE_URL ignored, dual encryption-key systems crash forms on rotation, auth-lockout self-triggers with legitimate traffic",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/633",
-      "closedAt": null,
+      "closedAt": "2026-08-10T20:42:38Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8050,6 +8050,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        635,
+        633,
         620,
         634,
         623,
@@ -8397,9 +8399,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        633,
-        635
+        602
       ]
     }
   ],
