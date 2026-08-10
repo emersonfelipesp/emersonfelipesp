@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-10T07:28:36.919Z",
+  "generated_at": "2026-08-10T11:17:43.258Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
-    "closed": 338,
+    "open": 4,
+    "closed": 339,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 488",
   "nodes": [
     {
       "number": 635,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 496,
+      "y": 376,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 634,
       "title": "SND dispay server error",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/634",
-      "closedAt": null,
+      "closedAt": "2026-08-10T11:16:29Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8041,6 +8041,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        634,
         623,
         626,
         629,
@@ -8389,7 +8390,6 @@
         602,
         620,
         633,
-        634,
         635
       ]
     }
