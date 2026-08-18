@@ -1,14 +1,42 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T18:35:15.331Z",
+  "generated_at": "2026-08-18T19:56:01.255Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 3,
     "closed": 342,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 641,
+      "title": "Docs: backend encryption key and Compose networking are missing from the install guide",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/641",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 640,
+      "title": "Sync job completes successfully even when all NetBox writes were rejected",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/640",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 635,
       "title": "can't add system - authentication issues",
@@ -8399,7 +8427,9 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        640,
+        641
       ]
     }
   ],
