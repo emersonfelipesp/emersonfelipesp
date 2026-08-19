@@ -23,7 +23,7 @@ const LIVE_DOCS_PROJECTS = [
   },
 ] as const;
 
-const UNPUBLISHED_DOCS_PROJECTS = [
+const SECONDARY_DOCS_PROJECTS = [
   "netbox-ceph",
   "netbox-pdm",
   "netbox-pbs",
@@ -91,8 +91,8 @@ test("netbox-proxbox docs nested pages and assets are proxied", async ({
   expect(await searchIndex.text()).toContain("Proxbox");
 });
 
-test("unpublished docs projects proxy upstream 404s", async ({ request }) => {
-  for (const slug of UNPUBLISHED_DOCS_PROJECTS) {
+test("secondary docs projects proxy upstream", async ({ request }) => {
+  for (const slug of SECONDARY_DOCS_PROJECTS) {
     const redirect = await request.get(`/${slug}/docs`, {
       maxRedirects: 0,
     });
@@ -101,8 +101,12 @@ test("unpublished docs projects proxy upstream 404s", async ({ request }) => {
       new RegExp(`/${slug}/docs/$`),
     );
 
+    // These four sites publish to GitHub Pages independently of this repo, so
+    // assert only that the proxy forwards the upstream response instead of
+    // failing on its own. A 404 here means upstream has not published yet; a
+    // 5xx means the proxy itself is broken.
     const response = await request.get(`/${slug}/docs/`);
-    expect(response.status(), slug).toBe(404);
+    expect([200, 404], slug).toContain(response.status());
   }
 });
 
