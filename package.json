@@ -51,7 +51,8 @@
     "overrides": {
       "brace-expansion@>=4.0.0": "^5.0.9",
       "js-yaml@>=4.0.0 <5.0.0": "^4.3.1",
-      "@swc/helpers": "^0.5.23"
+      "@swc/helpers": "^0.5.23",
+      "deepmerge-ts": "^8.0.1"
     }
   },
   "devDependencies": {
