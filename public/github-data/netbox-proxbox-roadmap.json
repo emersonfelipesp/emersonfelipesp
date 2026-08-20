@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T12:43:54.864Z",
+  "generated_at": "2026-08-20T15:08:17.822Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 342,
+    "open": 1,
+    "closed": 344,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 641,
       "title": "Docs: backend encryption key and Compose networking are missing from the install guide",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/641",
-      "closedAt": null,
+      "closedAt": "2026-08-20T15:02:07Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 640,
       "title": "Sync job completes successfully even when all NetBox writes were rejected",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/640",
-      "closedAt": null,
+      "closedAt": "2026-08-20T15:02:02Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8078,6 +8078,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        641,
+        640,
         635,
         633,
         620,
@@ -8427,9 +8429,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        640,
-        641
+        602
       ]
     }
   ],
