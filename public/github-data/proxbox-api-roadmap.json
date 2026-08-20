@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T18:35:46.994Z",
+  "generated_at": "2026-08-20T22:04:16.412Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 3,
-    "closed": 71,
+    "open": 0,
+    "closed": 74,
     "edges": 0
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 262,
       "title": "VM description from Proxmox is replaced by the \"Synced from Proxmox node\" placeholder",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/262",
-      "closedAt": null,
+      "closedAt": "2026-08-20T22:02:55Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 261,
       "title": "Feature request: populate the NetBox `platform` field from the guest OS",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/261",
-      "closedAt": null,
+      "closedAt": "2026-08-20T22:02:58Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -40,13 +40,13 @@
     {
       "number": 260,
       "title": "Sync fails when the `devices` stage runs first: NetBox bootstrap is not triggered",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/260",
-      "closedAt": null,
+      "closedAt": "2026-08-20T22:02:53Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1458,6 +1458,9 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        261,
+        262,
+        260,
         258,
         243,
         255,
@@ -1529,16 +1532,6 @@
         1,
         3,
         4
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        260,
-        261,
-        262
       ]
     }
   ],
