@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-08-19T18:31:14.281Z",
+  "syncedAt": "2026-08-20T00:06:07.311Z",
   "fullName": "emersonfelipesp/netbox-sdk",
   "stars": 17,
   "forks": 0,
   "releases": [
+    {
+      "id": 373358792,
+      "nodeId": "RE_kwDORsQ6kM4WQQDI",
+      "tag": "v0.0.11",
+      "name": "netbox-sdk v0.0.11",
+      "url": "https://github.com/emersonfelipesp/netbox-sdk/releases/tag/v0.0.11",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/releases/373358792",
+      "targetCommitish": "920a9c76cd0e2ef1a97de9ccde62f58f324d9ae4",
+      "body": "netbox-sdk 0.0.11 is a large release. It adds NetBox 4.7 support, a Model Context Protocol server so AI agents can operate NetBox through a typed, gated tool surface, and a set of correctness fixes in the typed client and runtime discovery.\n\n## NetBox 4.7 support\n\n- Bundled OpenAPI schema, Pydantic models, and typed bindings for the 4.7 release line, alongside 4.3 through 4.6.\n- Release-line resolution is now a single shared registry consumed by the SDK, CLI, TUI, and MCP server, so every surface agrees on which contract it is speaking.\n- Typed callers can request 4.7 background bulk operations with `background=True`, receiving the job reference the server returns instead of a validation error.\n\n## Model Context Protocol server\n\n- New optional `netbox_mcp` package and `nbx-mcp` entry point (`pip install 'netbox-sdk[mcp]'`), exposing a narrow typed tool surface over the same schema index, request resolver, and client the SDK and CLI use.\n- Mutations are denied by default and require an explicit opt-in; dry runs preview a request without constructing a client or sending anything.\n- A versioned plugin bridge lets a NetBox plugin advertise semantic tools backed by its own REST endpoints, with strict manifest, schema, argument, and size validation, and no second credential store.\n- `nbx capabilities` emits the whole reachable surface as one structured document.\n\n## Correctness fixes\n\n- **Bulk mutations no longer report success as failure.** Posting a list committed the batch but validated the list response against the single-object model, raising after the server had already applied every object and inviting a duplicate retry.\n- **An unpinned MCP server now answers for the instance it is connected to**, resolving the connected release line once on first use and failing closed rather than answering from the default bundled contract.\n- **Capability discovery probes a real record.** It previously sent OPTIONS to a literal `{id}` placeholder, which routers reject, so supported PATCH, PUT, and DELETE methods were silently reported as unavailable.\n- **The shared schema document is read-only**, so one consumer can no longer corrupt it for every other consumer in the process.\n- Runtime discovery pagination preserves repeated query parameters and terminates on a repeated or excessive page.\n\n## Packaging and telemetry\n\n- Django model-build catalogs now ship inside the distribution and are read through package resources, so an installed wheel exposes them; generated builds are written to a user-writable location instead of alongside the installed package.\n- Optional OpenTelemetry request metrics: set an OTLP endpoint and the client emits request counts and durations with bounded-cardinality attributes. Failed requests are counted, and telemetry never raises into the caller.\n\n## Compatibility\n\nNo breaking API changes. Supports Python 3.11+ and NetBox 4.3 through 4.7.\n\n```\npip install 'netbox-sdk[all]==0.0.11'\n```\n",
+      "bodyHtml": "<p dir=\"auto\">netbox-sdk 0.0.11 is a large release. It adds NetBox 4.7 support, a Model Context Protocol server so AI agents can operate NetBox through a typed, gated tool surface, and a set of correctness fixes in the typed client and runtime discovery.</p>\n<h2 dir=\"auto\">NetBox 4.7 support</h2>\n<ul dir=\"auto\">\n<li>Bundled OpenAPI schema, Pydantic models, and typed bindings for the 4.7 release line, alongside 4.3 through 4.6.</li>\n<li>Release-line resolution is now a single shared registry consumed by the SDK, CLI, TUI, and MCP server, so every surface agrees on which contract it is speaking.</li>\n<li>Typed callers can request 4.7 background bulk operations with <code class=\"notranslate\">background=True</code>, receiving the job reference the server returns instead of a validation error.</li>\n</ul>\n<h2 dir=\"auto\">Model Context Protocol server</h2>\n<ul dir=\"auto\">\n<li>New optional <code class=\"notranslate\">netbox_mcp</code> package and <code class=\"notranslate\">nbx-mcp</code> entry point (<code class=\"notranslate\">pip install 'netbox-sdk[mcp]'</code>), exposing a narrow typed tool surface over the same schema index, request resolver, and client the SDK and CLI use.</li>\n<li>Mutations are denied by default and require an explicit opt-in; dry runs preview a request without constructing a client or sending anything.</li>\n<li>A versioned plugin bridge lets a NetBox plugin advertise semantic tools backed by its own REST endpoints, with strict manifest, schema, argument, and size validation, and no second credential store.</li>\n<li><code class=\"notranslate\">nbx capabilities</code> emits the whole reachable surface as one structured document.</li>\n</ul>\n<h2 dir=\"auto\">Correctness fixes</h2>\n<ul dir=\"auto\">\n<li><strong>Bulk mutations no longer report success as failure.</strong> Posting a list committed the batch but validated the list response against the single-object model, raising after the server had already applied every object and inviting a duplicate retry.</li>\n<li><strong>An unpinned MCP server now answers for the instance it is connected to</strong>, resolving the connected release line once on first use and failing closed rather than answering from the default bundled contract.</li>\n<li><strong>Capability discovery probes a real record.</strong> It previously sent OPTIONS to a literal <code class=\"notranslate\">{id}</code> placeholder, which routers reject, so supported PATCH, PUT, and DELETE methods were silently reported as unavailable.</li>\n<li><strong>The shared schema document is read-only</strong>, so one consumer can no longer corrupt it for every other consumer in the process.</li>\n<li>Runtime discovery pagination preserves repeated query parameters and terminates on a repeated or excessive page.</li>\n</ul>\n<h2 dir=\"auto\">Packaging and telemetry</h2>\n<ul dir=\"auto\">\n<li>Django model-build catalogs now ship inside the distribution and are read through package resources, so an installed wheel exposes them; generated builds are written to a user-writable location instead of alongside the installed package.</li>\n<li>Optional OpenTelemetry request metrics: set an OTLP endpoint and the client emits request counts and durations with bounded-cardinality attributes. Failed requests are counted, and telemetry never raises into the caller.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility</h2>\n<p dir=\"auto\">No breaking API changes. Supports Python 3.11+ and NetBox 4.3 through 4.7.</p>\n<pre class=\"notranslate\"><code class=\"notranslate\">pip install 'netbox-sdk[all]==0.0.11'\n</code></pre>",
+      "createdAt": "2026-08-19T21:10:28Z",
+      "publishedAt": "2026-08-19T21:21:53Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/zipball/v0.0.11",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-sdk/tarball/v0.0.11"
+      }
+    },
     {
       "id": 340310776,
       "nodeId": "RE_kwDORsQ6kM4USLr4",
@@ -17,7 +42,7 @@
       "createdAt": "2026-06-15T15:51:48Z",
       "publishedAt": "2026-06-16T17:35:35Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
