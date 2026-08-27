@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T07:19:21.072Z",
+  "generated_at": "2026-08-27T20:38:35.037Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 344,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 649,
+      "title": "Proxmox status request failed",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/649",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 641,
       "title": "Docs: backend encryption key and Compose networking are missing from the install guide",
@@ -8429,7 +8443,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        649
       ]
     }
   ],
