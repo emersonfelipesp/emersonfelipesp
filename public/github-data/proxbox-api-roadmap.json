@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T12:10:51.518Z",
+  "generated_at": "2026-09-08T12:26:16.005Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 74,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 264,
+      "title": "Netbox ID and VMID are mixed up",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/264",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 263,
       "title": "Orphan VMs don't deleted",
@@ -1553,7 +1567,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        263
+        263,
+        264
       ]
     }
   ],
