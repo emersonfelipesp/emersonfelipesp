@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T10:36:01.299Z",
+  "generated_at": "2026-09-08T12:10:51.518Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 74,
     "edges": 0
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 263,
+      "title": "Orphan VMs don't deleted",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/263",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 262,
       "title": "VM description from Proxmox is replaced by the \"Synced from Proxmox node\" placeholder",
@@ -1532,6 +1546,14 @@
         1,
         3,
         4
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        263
       ]
     }
   ],
