@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T12:26:03.402Z",
+  "generated_at": "2026-09-08T12:31:29.572Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 344,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 657,
+      "title": "ProxBox backend returned an unexpected response",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/657",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 651,
       "title": "RuntimeError(\"Stage 'devices' failed (HTTP 400): Error ensuring Proxbox tag\")",
@@ -8468,7 +8482,8 @@
       "issues": [
         602,
         649,
-        651
+        651,
+        657
       ]
     }
   ],
