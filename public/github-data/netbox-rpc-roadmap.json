@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T21:20:26.453Z",
+  "repo": "N-MultiCloud/netbox-rpc",
+  "counts": {
+    "open": 0,
+    "closed": 1,
+    "edges": 0
+  },
+  "viewBox": "0 0 1 1",
+  "nodes": [
+    {
+      "number": 1,
+      "title": "Add seed migration for NGINX RPC procedures",
+      "state": "closed",
+      "url": "https://github.com/N-MultiCloud/netbox-rpc/issues/1",
+      "closedAt": "2026-05-27T19:07:43Z",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    }
+  ],
+  "edges": [],
+  "timeline": [
+    {
+      "phase": 0,
+      "kind": "shipped",
+      "note": "shipped",
+      "issues": [
+        1
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "count": 1
+    }
+  ],
+  "milestones": []
+}

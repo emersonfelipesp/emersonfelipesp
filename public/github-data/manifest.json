@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-09T15:55:03.713Z",
+  "syncedAt": "2026-09-09T21:19:13.085Z",
   "repos": [
     {
       "slug": "netbox-proxbox",
@@ -52,6 +52,12 @@
     {
       "slug": "netbox-openbao",
       "fullName": "emersonfelipesp/netbox-openbao",
+      "ok": true,
+      "skipped": false
+    },
+    {
+      "slug": "netbox-rpc",
+      "fullName": "N-MultiCloud/netbox-rpc",
       "ok": true,
       "skipped": false
     }
