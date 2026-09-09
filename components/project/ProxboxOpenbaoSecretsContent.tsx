@@ -92,7 +92,7 @@ export function ProxboxOpenbaoSecretsContent({
       </section>
 
       <section id="stack" className="scroll-mt-28 space-y-3">
-        <SectionHeading id="stack">{p.sections[3]?.label ?? "security stack"}</SectionHeading>
+        <SectionHeading id="stack">{p.sections[4]?.label ?? "security stack"}</SectionHeading>
         <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="stack" />
       </section>
 
