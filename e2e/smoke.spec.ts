@@ -41,6 +41,24 @@ test("/netbox-openbao loads", async ({ page }) => {
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
 });
 
+test("/netbox-openbao/proxmox-secrets loads with architecture diagrams", async ({
+  page,
+}) => {
+  await page.goto("/netbox-openbao/proxmox-secrets");
+  await expect(page).toHaveURL("/netbox-openbao/proxmox-secrets");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(
+    page.getByTestId("proxbox-openbao-inventory-diagram"),
+  ).toBeVisible();
+  await expect(
+    page.getByTestId("proxbox-openbao-credential-diagram"),
+  ).toBeVisible();
+  await expect(
+    page.getByTestId("proxbox-openbao-reveal-diagram"),
+  ).toBeVisible();
+  await expect(page.getByText("no passwords").first()).toBeVisible();
+});
+
 test("/netbox-proxbox loads", async ({ page }) => {
   await page.goto("/netbox-proxbox");
   await expect(page).toHaveURL("/netbox-proxbox");

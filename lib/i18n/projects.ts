@@ -8,6 +8,8 @@ import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
 import { netboxOpenbao } from "@/content/netbox-openbao";
 import { NETBOX_OPENBAO_PT_BR } from "./projects/netbox-openbao";
+import { PROXBOX_OPENBAO_SECRETS_PT_BR } from "./projects/netbox-openbao-proxmox-secrets";
+import { proxboxOpenbaoSecrets } from "@/content/netbox-openbao-proxmox-secrets";
 import type { ArticleContent, ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
@@ -486,6 +488,35 @@ export function getNetboxPacker(lang: Lang) {
 }
 
 export type NetboxOpenbaoLocalized = ReturnType<typeof getNetboxOpenbao>;
+
+export type ProxboxOpenbaoSecretsLocalized = ReturnType<
+  typeof getProxboxOpenbaoSecrets
+>;
+
+export function getProxboxOpenbaoSecrets(lang: Lang) {
+  if (lang === "en") return proxboxOpenbaoSecrets;
+  const pt = PROXBOX_OPENBAO_SECRETS_PT_BR;
+  return {
+    ...proxboxOpenbaoSecrets,
+    tagline: pt.tagline,
+    intro: pt.intro,
+    principles: pt.principles,
+    boundary: pt.boundary,
+    workflow: pt.workflow,
+    diagrams: pt.diagrams,
+    seeAlso: pt.seeAlso,
+    sections: proxboxOpenbaoSecretsSectionsLocalized(lang),
+  };
+}
+
+function proxboxOpenbaoSecretsSectionsLocalized(lang: Lang) {
+  if (lang === "en") return proxboxOpenbaoSecrets.sections;
+  const pt = PROXBOX_OPENBAO_SECRETS_PT_BR.sections;
+  return proxboxOpenbaoSecrets.sections.map((section) => ({
+    ...section,
+    label: pt[section.id as keyof typeof pt] ?? section.label,
+  }));
+}
 
 export function getNetboxOpenbao(lang: Lang) {
   if (lang === "en") return netboxOpenbao;

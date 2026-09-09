@@ -92,6 +92,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             },
           ]
         : []),
+      ...(project.slug === "netbox-openbao"
+        ? [
+            {
+              url: absolute("/netbox-openbao/proxmox-secrets"),
+              lastModified: projectModified ?? new Date(),
+              changeFrequency: "monthly" as const,
+              priority: 0.82,
+            },
+          ]
+        : []),
     ];
 
     const releaseRoutes: MetadataRoute.Sitemap = [];

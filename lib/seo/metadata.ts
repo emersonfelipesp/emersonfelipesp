@@ -186,6 +186,28 @@ export function createRoadmapMetadata(project: ProjectRegistryEntry): Metadata {
   });
 }
 
+export function createProxboxOpenbaoSecretsMetadata(): Metadata {
+  return createPageMetadata({
+    title: "netbox-proxbox + netbox-openbao — VM & container secrets",
+    description:
+      "Architecture diagrams for Proxmox inventory sync (netbox-proxbox) and secure credential storage (netbox-openbao) on VirtualMachine and LXC objects.",
+    path: "/netbox-openbao/proxmox-secrets",
+    keywords: [
+      "netbox-proxbox",
+      "netbox-openbao",
+      "Proxmox",
+      "VirtualMachine",
+      "LXC",
+      "OpenBao",
+      "SSH credentials",
+      "secrets",
+    ],
+    article: {
+      tags: ["netbox-proxbox", "netbox-openbao", "OpenBao", "Proxmox"],
+    },
+  });
+}
+
 export function createCommunityMetadata(): Metadata {
   return createPageMetadata({
     title: "netbox-proxbox community threads",

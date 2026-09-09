@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { SectionHeading } from "@/components/project/SectionHeading";
@@ -111,6 +112,16 @@ export function NetboxProxboxContent({
 
       <RepoSection project={p} sections={sections} repo={repo} />
       <LinksSection project={p} sections={sections} />
+      <Link
+        href="/netbox-openbao/proxmox-secrets"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          VM & container SSH secrets with netbox-openbao — architecture diagrams
+        </span>
+      </Link>
     </div>
   );
 }

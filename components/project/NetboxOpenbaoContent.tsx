@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   FeaturesSection,
   InstallSection,
@@ -86,6 +87,17 @@ export function NetboxOpenbaoContent({
         <SectionHeading id="security">{p.security.title}</SectionHeading>
         <FeatureList items={p.security.bullets} />
       </section>
+
+      <Link
+        href="/netbox-openbao/proxmox-secrets"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          Proxmox VM & container secrets — proxbox + openbao architecture
+        </span>
+      </Link>
 
       <section id="ecosystem" className="scroll-mt-28">
         <SectionDivider label={`// ${sections.ecosystem}`} />
