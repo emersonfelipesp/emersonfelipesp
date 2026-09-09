@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T00:00:00Z",
+  "generated_at": "2026-09-09T15:56:48.084Z",
   "repo": "emersonfelipesp/netbox-openbao",
   "counts": {
     "open": 0,
     "closed": 0,
     "edges": 0
   },
-  "viewBox": "0 0 1200 800",
+  "viewBox": "0 0 1 1",
   "nodes": [],
   "edges": [],
   "timeline": [],
