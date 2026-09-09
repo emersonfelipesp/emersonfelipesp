@@ -7,7 +7,11 @@ import { netboxPdm } from "@/content/netbox-pdm";
 import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
 import { netboxOpenbao } from "@/content/netbox-openbao";
+import { netboxRpc } from "@/content/netbox-rpc";
+import { netboxRpcIntegrations } from "@/content/netbox-rpc-integrations";
 import { NETBOX_OPENBAO_PT_BR } from "./projects/netbox-openbao";
+import { NETBOX_RPC_PT_BR } from "./projects/netbox-rpc";
+import { NETBOX_RPC_INTEGRATIONS_PT_BR } from "./projects/netbox-rpc-integrations";
 import { PROXBOX_OPENBAO_SECRETS_PT_BR } from "./projects/netbox-openbao-proxmox-secrets";
 import { proxboxOpenbaoSecrets } from "@/content/netbox-openbao-proxmox-secrets";
 import type { ArticleContent, ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
@@ -489,6 +493,12 @@ export function getNetboxPacker(lang: Lang) {
 
 export type NetboxOpenbaoLocalized = ReturnType<typeof getNetboxOpenbao>;
 
+export type NetboxRpcLocalized = ReturnType<typeof getNetboxRpc>;
+
+export type NetboxRpcIntegrationsLocalized = ReturnType<
+  typeof getNetboxRpcIntegrations
+>;
+
 export type ProxboxOpenbaoSecretsLocalized = ReturnType<
   typeof getProxboxOpenbaoSecrets
 >;
@@ -516,6 +526,74 @@ function proxboxOpenbaoSecretsSectionsLocalized(lang: Lang) {
     ...section,
     label: pt[section.id as keyof typeof pt] ?? section.label,
   }));
+}
+
+function netboxRpcIntegrationsSectionsLocalized(lang: Lang) {
+  if (lang === "en") return netboxRpcIntegrations.sections;
+  const pt = NETBOX_RPC_INTEGRATIONS_PT_BR.sections;
+  return netboxRpcIntegrations.sections.map((section) => ({
+    ...section,
+    label: pt[section.id as keyof typeof pt] ?? section.label,
+  }));
+}
+
+export function getNetboxRpcIntegrations(lang: Lang) {
+  if (lang === "en") return netboxRpcIntegrations;
+  const pt = NETBOX_RPC_INTEGRATIONS_PT_BR;
+  return {
+    ...netboxRpcIntegrations,
+    tagline: pt.tagline,
+    intro: pt.intro,
+    principles: pt.principles,
+    integrationsTable: pt.integrationsTable,
+    boundary: pt.boundary,
+    workflow: pt.workflow,
+    diagrams: pt.diagrams,
+    seeAlso: pt.seeAlso,
+    sections: netboxRpcIntegrationsSectionsLocalized(lang),
+  };
+}
+
+export function getNetboxRpc(lang: Lang) {
+  if (lang === "en") return netboxRpc;
+  const pt = NETBOX_RPC_PT_BR;
+  return {
+    ...netboxRpc,
+    tagline: pt.tagline,
+    description: pt.description,
+    features: pt.features,
+    howItWorks: {
+      ...netboxRpc.howItWorks,
+      title: pt.howItWorks.title,
+      paragraphs: pt.howItWorks.paragraphs,
+      splitTable: pt.howItWorks.splitTable,
+    },
+    security: {
+      ...netboxRpc.security,
+      title: pt.security.title,
+      bullets: pt.security.bullets,
+    },
+    ecosystem: {
+      ...netboxRpc.ecosystem,
+      title: pt.ecosystem.title,
+      items: netboxRpc.ecosystem.items.map((item, index) => ({
+        ...item,
+        description: pt.ecosystem.items[index]?.description ?? item.description,
+      })),
+    },
+    apiExamples: {
+      ...netboxRpc.apiExamples,
+      title: pt.apiExamples.title,
+      intro: pt.apiExamples.intro,
+      snippets: netboxRpc.apiExamples.snippets.map((snippet, index) => ({
+        ...snippet,
+        label: pt.apiExamples.snippets[index]?.label ?? snippet.label,
+      })),
+    },
+    stack: pt.stack,
+    install: { ...netboxRpc.install, note: pt.install.note },
+    sections: localizeSections(netboxRpc.sections, lang),
+  };
 }
 
 export function getNetboxOpenbao(lang: Lang) {

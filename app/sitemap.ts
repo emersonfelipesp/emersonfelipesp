@@ -31,6 +31,99 @@ function newestDate(dates: readonly (Date | null | undefined)[]): Date {
   return new Date(timestamps.length ? Math.max(...timestamps) : Date.now());
 }
 
+function baseProjectRoutes(
+  project: (typeof PROJECT_LIST)[number],
+  projectModified: Date | null,
+  roadmapModified: Date | null,
+): MetadataRoute.Sitemap {
+  return [
+    {
+      url: absolute(project.projectPath),
+      lastModified: projectModified ?? undefined,
+      changeFrequency: "weekly",
+      priority: project.slug === "netbox-proxbox" ? 0.95 : 0.9,
+    },
+    ...(DEVELOPER_GUIDE_PROJECT_SLUGS.includes(
+      project.slug as (typeof DEVELOPER_GUIDE_PROJECT_SLUGS)[number],
+    )
+      ? [
+          {
+            url: absolute(project.developerPath),
+            lastModified: projectModified ?? undefined,
+            changeFrequency: "monthly" as const,
+            priority: 0.75,
+          },
+        ]
+      : []),
+    ...(!project.parentSlug && roadmapModified
+      ? [
+          {
+            url: absolute(
+              roadmapPath(project.slug) ?? `/${project.slug}/roadmap`,
+            ),
+            lastModified: roadmapModified ?? projectModified ?? undefined,
+            changeFrequency: "daily" as const,
+            priority: 0.65,
+          },
+        ]
+      : []),
+    ...(hasPublishedProjectDocs(project.slug)
+      ? [
+          {
+            url: absolute(projectDocsPath(project.slug)),
+            lastModified: projectModified ?? undefined,
+            changeFrequency: "weekly" as const,
+            priority: 0.85,
+          },
+        ]
+      : []),
+  ];
+}
+
+function specialProjectRoutes(
+  project: (typeof PROJECT_LIST)[number],
+  projectModified: Date | null,
+): MetadataRoute.Sitemap {
+  const routes: MetadataRoute.Sitemap = [];
+  if (project.slug === "netbox-proxbox") {
+    routes.push({
+      url: absolute("/netbox-proxbox/community"),
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    });
+  }
+  if (project.slug === "netbox-openbao") {
+    routes.push({
+      url: absolute("/netbox-openbao/proxmox-secrets"),
+      lastModified: projectModified ?? new Date(),
+      changeFrequency: "monthly",
+      priority: 0.82,
+    });
+  }
+  if (project.slug === "netbox-rpc") {
+    routes.push({
+      url: absolute("/netbox-rpc/integrations"),
+      lastModified: projectModified ?? new Date(),
+      changeFrequency: "monthly",
+      priority: 0.82,
+    });
+  }
+
+  return routes;
+}
+
+function projectRoutes(
+  project: (typeof PROJECT_LIST)[number],
+  projectModified: Date | null,
+  roadmapModified: Date | null,
+): MetadataRoute.Sitemap {
+  return [
+    ...baseProjectRoutes(project, projectModified, roadmapModified),
+    ...specialProjectRoutes(project, projectModified),
+  ];
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routeGroups = await Promise.all(PROJECT_LIST.map(async (project) => {
     const [snapshot, roadmap] = await Promise.all([
@@ -41,68 +134,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const roadmapModified = dateOrNull(roadmap?.generated_at);
     const modifiedDates = [projectModified, roadmapModified];
 
-    const projectRoutes: MetadataRoute.Sitemap = [
-      {
-        url: absolute(project.projectPath),
-        lastModified: projectModified ?? undefined,
-        changeFrequency: "weekly",
-        priority: project.slug === "netbox-proxbox" ? 0.95 : 0.9,
-      },
-      ...(DEVELOPER_GUIDE_PROJECT_SLUGS.includes(
-        project.slug as (typeof DEVELOPER_GUIDE_PROJECT_SLUGS)[number],
-      )
-        ? [
-            {
-              url: absolute(project.developerPath),
-              lastModified: projectModified ?? undefined,
-              changeFrequency: "monthly" as const,
-              priority: 0.75,
-            },
-          ]
-        : []),
-      ...(!project.parentSlug && roadmapModified
-        ? [
-            {
-              url: absolute(
-                roadmapPath(project.slug) ?? `/${project.slug}/roadmap`,
-              ),
-              lastModified: roadmapModified ?? projectModified ?? undefined,
-              changeFrequency: "daily" as const,
-              priority: 0.65,
-            },
-          ]
-        : []),
-      ...(hasPublishedProjectDocs(project.slug)
-        ? [
-            {
-              url: absolute(projectDocsPath(project.slug)),
-              lastModified: projectModified ?? undefined,
-              changeFrequency: "weekly" as const,
-              priority: 0.85,
-            },
-          ]
-        : []),
-      ...(project.slug === "netbox-proxbox"
-        ? [
-            {
-              url: absolute("/netbox-proxbox/community"),
-              lastModified: new Date(),
-              changeFrequency: "daily" as const,
-              priority: 0.7,
-            },
-          ]
-        : []),
-      ...(project.slug === "netbox-openbao"
-        ? [
-            {
-              url: absolute("/netbox-openbao/proxmox-secrets"),
-              lastModified: projectModified ?? new Date(),
-              changeFrequency: "monthly" as const,
-              priority: 0.82,
-            },
-          ]
-        : []),
-    ];
+    const projectRoutesList = projectRoutes(
+      project,
+      projectModified,
+      roadmapModified,
+    );
 
     const releaseRoutes: MetadataRoute.Sitemap = [];
 
@@ -128,7 +164,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return {
       modifiedDates,
-      routes: [...projectRoutes, ...releaseRoutes],
+      routes: [...projectRoutesList, ...releaseRoutes],
     };
   }));
 

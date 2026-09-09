@@ -10,7 +10,8 @@ export type ProjectSlug =
   | "netbox-pdm"
   | "netbox-ceph"
   | "netbox-packer"
-  | "netbox-openbao";
+  | "netbox-openbao"
+  | "netbox-rpc";
 
 const SITE_URL = "https://emersonfelipesp.com";
 const GITHUB_PAGES_URL = "https://emersonfelipesp.github.io";
@@ -221,6 +222,25 @@ export const PROJECTS = {
         href: "https://github.com/emersonfelipesp/netbox-openbao",
       },
       { icon: "pypi", href: "https://pypi.org/project/netbox-openbao/" },
+    ],
+  },
+  "netbox-rpc": {
+    slug: "netbox-rpc",
+    name: "netbox-rpc",
+    fullName: "N-MultiCloud/netbox-rpc",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin that catalogs audited remote procedures, dispatches them through netbox-rpc-backend, and records every execution in NetBox.",
+    projectPath: "/netbox-rpc",
+    developerPath: "/netbox-rpc/developer",
+    repoUrl: "https://github.com/N-MultiCloud/netbox-rpc",
+    releasesUrl: "https://github.com/N-MultiCloud/netbox-rpc/releases",
+    starsHref: "https://github.com/N-MultiCloud/netbox-rpc/stargazers",
+    actions: [
+      {
+        icon: "github",
+        href: "https://github.com/N-MultiCloud/netbox-rpc",
+      },
     ],
   },
 } as const satisfies Record<ProjectSlug, ProjectRegistryEntry>;

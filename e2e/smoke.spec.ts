@@ -21,6 +21,7 @@ const LIVE_DOCS_ACTIONS = [
 
 const UNPUBLISHED_DOCS_ACTION_PATHS = [
   "/netbox-openbao",
+  "/netbox-rpc",
   "/netbox-ceph",
   "/netbox-pdm",
   "/netbox-pbs",
@@ -56,10 +57,28 @@ test("/netbox-openbao/proxmox-secrets loads with architecture diagrams", async (
   await expect(
     page.getByTestId("proxbox-openbao-reveal-diagram"),
   ).toBeVisible();
+  await expect(page.getByText("no passwords").first()).toBeVisible();
   await expect(
     page.getByTestId("proxbox-openbao-stack-diagram"),
   ).toBeVisible();
-  await expect(page.getByText("no passwords").first()).toBeVisible();
+});
+
+test("/netbox-rpc loads", async ({ page }) => {
+  await page.goto("/netbox-rpc");
+  await expect(page).toHaveURL("/netbox-rpc");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+});
+
+test("/netbox-rpc/integrations loads with architecture diagrams", async ({
+  page,
+}) => {
+  await page.goto("/netbox-rpc/integrations");
+  await expect(page).toHaveURL("/netbox-rpc/integrations");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.getByTestId("netbox-rpc-dispatch-diagram")).toBeVisible();
+  await expect(page.getByTestId("netbox-rpc-credential-diagram")).toBeVisible();
+  await expect(page.getByTestId("netbox-rpc-map-diagram")).toBeVisible();
 });
 
 test("/netbox-proxbox loads", async ({ page }) => {

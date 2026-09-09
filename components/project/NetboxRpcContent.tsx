@@ -16,7 +16,7 @@ import { CodeSnippet } from "@/components/project/CodeSnippet";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { FeatureList } from "@/components/project/FeatureList";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
-import { getNetboxOpenbao } from "@/lib/i18n/projects";
+import { getNetboxRpc } from "@/lib/i18n/projects";
 import type {
   GitHubReleaseSummary,
   StaticRepoSummary,
@@ -27,12 +27,12 @@ type Props = {
   repo?: StaticRepoSummary | null;
 };
 
-export function NetboxOpenbaoContent({
+export function NetboxRpcContent({
   releases,
   repo,
 }: Props = {}): React.JSX.Element {
   const { lang, t } = useLanguage();
-  const p = getNetboxOpenbao(lang);
+  const p = getNetboxRpc(lang);
   const sections = t.project.sections;
 
   return (
@@ -88,28 +88,16 @@ export function NetboxOpenbaoContent({
         <FeatureList items={p.security.bullets} />
       </section>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Link
-          href="/netbox-openbao/proxmox-secrets"
-          className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
-        >
-          <span className="text-muted">see also</span>
-          <span className="text-accent ml-2">›</span>
-          <span className="text-accent-2 group-hover:text-accent ml-2">
-            Proxmox VM & container secrets — proxbox + openbao architecture
-          </span>
-        </Link>
-        <Link
-          href="/netbox-rpc/integrations"
-          className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
-        >
-          <span className="text-muted">see also</span>
-          <span className="text-accent ml-2">›</span>
-          <span className="text-accent-2 group-hover:text-accent ml-2">
-            netbox-rpc cross-plugin integrations — dispatch, reveal, companions
-          </span>
-        </Link>
-      </div>
+      <Link
+        href="/netbox-rpc/integrations"
+        className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
+      >
+        <span className="text-muted">see also</span>
+        <span className="text-accent ml-2">›</span>
+        <span className="text-accent-2 group-hover:text-accent ml-2">
+          Cross-plugin RPC architecture — openbao, proxbox, packer, and more
+        </span>
+      </Link>
 
       <section id="ecosystem" className="scroll-mt-28">
         <SectionDivider label={`// ${sections.ecosystem}`} />
@@ -120,8 +108,8 @@ export function NetboxOpenbaoContent({
               <a
                 href={item.href}
                 className="text-accent hover:underline"
-                target="_blank"
-                rel="noreferrer"
+                target={item.href.startsWith("/") ? undefined : "_blank"}
+                rel={item.href.startsWith("/") ? undefined : "noreferrer"}
               >
                 {item.name}
               </a>
@@ -156,3 +144,4 @@ export function NetboxOpenbaoContent({
     </div>
   );
 }
+

@@ -9,10 +9,10 @@ import { AsciiBanner } from "@/components/terminal/AsciiBanner";
 import { OutputBlock } from "@/components/terminal/OutputBlock";
 import { SectionHeading } from "@/components/project/SectionHeading";
 import { FeatureList } from "@/components/project/FeatureList";
-import { ProxboxOpenbaoSecretsArchitecture } from "@/components/project/ProxboxOpenbaoSecretsArchitecture";
+import { NetboxRpcIntegrationsArchitecture } from "@/components/project/NetboxRpcIntegrationsArchitecture";
 import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { useProjectShellActions } from "@/components/nav/project-shell-labels";
-import { getProxboxOpenbaoSecrets } from "@/lib/i18n/projects";
+import { getNetboxRpcIntegrations } from "@/lib/i18n/projects";
 import type {
   GitHubReleaseSummary,
   StaticRepoSummary,
@@ -23,12 +23,12 @@ type Props = {
   repo?: StaticRepoSummary | null;
 };
 
-export function ProxboxOpenbaoSecretsContent({
+export function NetboxRpcIntegrationsContent({
   releases,
   repo,
 }: Props = {}): React.JSX.Element {
   const { lang, t } = useLanguage();
-  const p = getProxboxOpenbaoSecrets(lang);
+  const p = getNetboxRpcIntegrations(lang);
   const actions = t.project.actions;
   const shellActions = useProjectShellActions(p.slug);
 
@@ -56,7 +56,7 @@ export function ProxboxOpenbaoSecretsContent({
       <TerminalWindow title={`~/${p.slug}/${p.pageSlug}`}>
         <AsciiBanner art={p.banner} />
         <TypedCommand
-          command="diagram proxbox-openbao --vms --secrets"
+          command="diagram netbox-rpc --integrations --cross-plugin"
           cwd={`~/${p.slug}`}
         />
         <OutputBlock>
@@ -71,29 +71,57 @@ export function ProxboxOpenbaoSecretsContent({
       </TerminalWindow>
 
       <section id="overview" className="scroll-mt-28 space-y-4">
-        <SectionHeading id="overview">{p.sections[0]?.label ?? "overview"}</SectionHeading>
+        <SectionHeading id="overview">
+          {p.sections[0]?.label ?? "overview"}
+        </SectionHeading>
         <p className="text-sm text-accent">{p.principles.title}</p>
         <FeatureList items={p.principles.bullets} />
       </section>
 
-      <section id="inventory" className="scroll-mt-28 space-y-3">
-        <SectionHeading id="inventory">{p.sections[1]?.label ?? "inventory sync"}</SectionHeading>
-        <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="inventory" />
+      <section id="dispatch" className="scroll-mt-28 space-y-3">
+        <SectionHeading id="dispatch">
+          {p.sections[1]?.label ?? "dispatch lane"}
+        </SectionHeading>
+        <NetboxRpcIntegrationsArchitecture diagrams={p.diagrams} lane="dispatch" />
       </section>
 
       <section id="credentials" className="scroll-mt-28 space-y-3">
-        <SectionHeading id="credentials">{p.sections[2]?.label ?? "credential write"}</SectionHeading>
-        <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="credentials" />
+        <SectionHeading id="credentials">
+          {p.sections[2]?.label ?? "credential lane"}
+        </SectionHeading>
+        <NetboxRpcIntegrationsArchitecture
+          diagrams={p.diagrams}
+          lane="credentials"
+        />
       </section>
 
-      <section id="reveal" className="scroll-mt-28 space-y-3">
-        <SectionHeading id="reveal">{p.sections[3]?.label ?? "reveal & access"}</SectionHeading>
-        <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="reveal" />
-      </section>
-
-      <section id="stack" className="scroll-mt-28 space-y-3">
-        <SectionHeading id="stack">{p.sections[4]?.label ?? "security stack"}</SectionHeading>
-        <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="stack" />
+      <section id="integrations" className="scroll-mt-28 space-y-4">
+        <SectionHeading id="integrations">
+          {p.sections[3]?.label ?? "plugin map"}
+        </SectionHeading>
+        <NetboxRpcIntegrationsArchitecture diagrams={p.diagrams} lane="map" />
+        <div className="overflow-x-auto border border-border">
+          <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-border bg-surface-2">
+                {p.integrationsTable.headers.map((header) => (
+                  <th key={header} className="px-4 py-2 font-normal text-accent">
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {p.integrationsTable.rows.map((row) => (
+                <tr key={row[0]} className="border-b border-border/70">
+                  <td className="px-4 py-2 text-fg/90">{row[0]}</td>
+                  <td className="px-4 py-2 text-muted">{row[1]}</td>
+                  <td className="px-4 py-2 text-muted">{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="boundary" className="scroll-mt-28 space-y-4">
@@ -107,7 +135,18 @@ export function ProxboxOpenbaoSecretsContent({
           <p>
             <span className="text-accent">#</span>{" "}
             <a
-              href={p.links.stackDocs}
+              href={p.links.architectureDocs}
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              netbox-rpc docs/cross-plugin-integrations.md
+            </a>
+          </p>
+          <p>
+            <span className="text-accent">#</span>{" "}
+            <a
+              href={p.links.openbaoStackDocs}
               className="text-accent hover:underline"
               target="_blank"
               rel="noreferrer"
@@ -118,34 +157,12 @@ export function ProxboxOpenbaoSecretsContent({
           <p>
             <span className="text-accent">#</span>{" "}
             <a
-              href={p.links.architectureDocs}
+              href={p.links.proxboxRpcDocs}
               className="text-accent hover:underline"
               target="_blank"
               rel="noreferrer"
             >
-              netbox-openbao docs/architecture/proxmox-vm-secrets.md
-            </a>
-          </p>
-          <p>
-            <span className="text-accent">#</span>{" "}
-            <a
-              href={p.links.proxboxCompanionDocs}
-              className="text-accent hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              netbox-proxbox docs/companion-plugins/netbox-openbao.md
-            </a>
-          </p>
-          <p>
-            <span className="text-accent">#</span>{" "}
-            <a
-              href={p.links.quickAddDocs}
-              className="text-accent hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              netbox-openbao docs/quick-add-ssh.md
+              netbox-proxbox docs/companion-plugins/netbox-rpc.md
             </a>
           </p>
         </div>
@@ -160,38 +177,29 @@ export function ProxboxOpenbaoSecretsContent({
         </ol>
       </section>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2">
         <Link
-          href={p.links.netboxOpenbao}
+          href={p.links.netboxRpc}
           className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
         >
           <span className="text-muted">{p.seeAlso.label}</span>
           <span className="text-accent ml-2">›</span>
           <span className="text-accent-2 group-hover:text-accent ml-2">
-            {p.seeAlso.netboxOpenbao}
+            {p.seeAlso.netboxRpc}
           </span>
         </Link>
         <Link
-          href={p.links.netboxProxbox}
+          href={p.links.proxmoxSecrets}
           className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
         >
           <span className="text-muted">{p.seeAlso.label}</span>
           <span className="text-accent ml-2">›</span>
           <span className="text-accent-2 group-hover:text-accent ml-2">
-            {p.seeAlso.netboxProxbox}
-          </span>
-        </Link>
-        <Link
-          href="/netbox-rpc/integrations"
-          className="block border border-border bg-surface p-4 text-sm group hover:border-accent transition-colors"
-        >
-          <span className="text-muted">{p.seeAlso.label}</span>
-          <span className="text-accent ml-2">›</span>
-          <span className="text-accent-2 group-hover:text-accent ml-2">
-            netbox-rpc cross-plugin integrations — dispatch and credential lanes
+            {p.seeAlso.proxmoxSecrets}
           </span>
         </Link>
       </div>
     </div>
   );
 }
+

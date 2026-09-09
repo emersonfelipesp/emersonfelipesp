@@ -15,5 +15,6 @@ export function useProjectLabels(): Record<ProjectSlug, string> {
     "netbox-ceph": t.nav.netboxCeph,
     "netbox-packer": t.nav.netboxPacker,
     "netbox-openbao": t.nav.netboxOpenbao,
+    "netbox-rpc": t.nav.netboxRpc,
   };
 }

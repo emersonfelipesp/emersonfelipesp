@@ -186,6 +186,27 @@ export function createRoadmapMetadata(project: ProjectRegistryEntry): Metadata {
   });
 }
 
+export function createNetboxRpcIntegrationsMetadata(): Metadata {
+  return createPageMetadata({
+    title: "netbox-rpc — cross-plugin integrations",
+    description:
+      "Architecture diagrams for audited RPC dispatch (netbox-rpc + netbox-rpc-backend), credential reveal via netbox-openbao, and companion plugins including netbox-proxbox.",
+    path: "/netbox-rpc/integrations",
+    keywords: [
+      "netbox-rpc",
+      "netbox-rpc-backend",
+      "netbox-openbao",
+      "netbox-proxbox",
+      "RPCExecution",
+      "cross-plugin",
+      "OpenBao",
+    ],
+    article: {
+      tags: ["netbox-rpc", "netbox-openbao", "netbox-proxbox", "OpenBao"],
+    },
+  });
+}
+
 export function createProxboxOpenbaoSecretsMetadata(): Metadata {
   return createPageMetadata({
     title: "netbox-proxbox + netbox-openbao — VM & container secrets",

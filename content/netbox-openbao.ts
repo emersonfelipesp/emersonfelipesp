@@ -61,15 +61,9 @@ export const netboxOpenbao = {
       },
       {
         name: "netbox-rpc",
-        href: "https://github.com/N-MultiCloud/netbox-rpc",
+        href: "https://emersonfelipesp.com/netbox-rpc",
         description:
-          "Audited procedure catalog in NetBox; host SSH and OpenBao maintenance dispatch through netbox-rpc-backend — never ad-hoc shell from the plugin.",
-      },
-      {
-        name: "netbox-rpc-backend",
-        href: "https://github.com/N-MultiCloud/netbox-rpc-backend",
-        description:
-          "SSH and CLI executor for catalogued procedures; resolves guest credentials through the openbao reveal API.",
+          "OpenBao host operations and companion automation dispatch through audited RPC procedures — see the cross-plugin architecture page.",
       },
       {
         name: "netbox-sdk / nbx",

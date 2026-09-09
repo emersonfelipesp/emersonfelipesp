@@ -12,6 +12,7 @@ export type Dictionary = {
     netboxCeph: string;
     netboxPacker: string;
     netboxOpenbao: string;
+    netboxRpc: string;
     sponsor: string;
     sponsorButtonLabel: string;
     sponsorButtonAria: string;
@@ -363,6 +364,7 @@ const en: Dictionary = {
     netboxCeph: "~/netbox-ceph",
     netboxPacker: "~/netbox-packer",
     netboxOpenbao: "~/netbox-openbao",
+    netboxRpc: "~/netbox-rpc",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ sponsor",
     sponsorButtonAria: "Sponsor emersonfelipesp on GitHub",
@@ -742,6 +744,7 @@ const ptBr: Dictionary = {
     netboxCeph: "~/netbox-ceph",
     netboxPacker: "~/netbox-packer",
     netboxOpenbao: "~/netbox-openbao",
+    netboxRpc: "~/netbox-rpc",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ apoiar",
     sponsorButtonAria: "Apoiar emersonfelipesp no GitHub",
