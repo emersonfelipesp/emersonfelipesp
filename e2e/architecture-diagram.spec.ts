@@ -7,6 +7,9 @@ const expectedNodes = [
   "netbox-proxbox",
   "netbox-pdm",
   "netbox-packer",
+  "netbox-openbao",
+  "OpenBao · KV v2",
+  "openbao-broker",
   "proxbox-api",
   "netbox-sdk",
   "netbox · REST API",
@@ -34,7 +37,10 @@ test("standalone architecture diagram page renders the homepage diagram", async 
 
   for (const node of expectedNodes) {
     const locator =
-      node === "netbox-proxbox" || node === "netbox-sdk" || node === "proxmox-sdk"
+      node === "netbox-proxbox" ||
+      node === "netbox-openbao" ||
+      node === "netbox-sdk" ||
+      node === "proxmox-sdk"
         ? page.getByRole("link", { name: exactName(node) })
         : page.getByRole("button", { name: exactName(node) });
     await expect(locator).toBeVisible();
@@ -42,7 +48,7 @@ test("standalone architecture diagram page renders the homepage diagram", async 
 
   await expect(
     page.locator('[data-testid^="architecture-diagram-connector-"]'),
-  ).toHaveCount(5);
+  ).toHaveCount(6);
 
   await page.getByRole("link", { name: exactName("netbox-proxbox") }).focus();
   await expect(page.locator("#architecture-tip-netbox-proxbox")).toHaveCSS(
@@ -79,4 +85,7 @@ test("architecture diagram SVG is self-contained and GitHub embeddable", async (
   expect(body).not.toContain("<link");
   expect(body).not.toContain("<image");
   expect(body).not.toContain("stylesheet");
+  expect(body).toContain("netbox-openbao");
+  expect(body).toMatch(/height="918"/);
+  expect(body).toContain('data-node="proxmox-pdm"');
 });

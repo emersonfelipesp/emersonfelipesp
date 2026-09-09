@@ -11,6 +11,7 @@ export type Dictionary = {
     netboxPdm: string;
     netboxCeph: string;
     netboxPacker: string;
+    netboxOpenbao: string;
     sponsor: string;
     sponsorButtonLabel: string;
     sponsorButtonAria: string;
@@ -41,6 +42,10 @@ export type Dictionary = {
       configure: string;
       integrations: string;
       screenshots: string;
+      "how-it-works": string;
+      security: string;
+      ecosystem: string;
+      api: string;
       repo: string;
       links: string;
     };
@@ -283,6 +288,8 @@ export type Dictionary = {
         httpSseWs: string;
         rest: string;
         base: string;
+        kvSecrets: string;
+        brokerOptional: string;
       };
       nodes: {
         netbox: string;
@@ -291,6 +298,9 @@ export type Dictionary = {
         netboxPbs: string;
         netboxPdm: string;
         netboxPacker: string;
+        netboxOpenbao: string;
+        openBao: string;
+        openbaoBroker: string;
         proxboxApi: string;
         netboxSdk: string;
         netboxRest: string;
@@ -352,6 +362,7 @@ const en: Dictionary = {
     netboxPdm: "~/netbox-pdm",
     netboxCeph: "~/netbox-ceph",
     netboxPacker: "~/netbox-packer",
+    netboxOpenbao: "~/netbox-openbao",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ sponsor",
     sponsorButtonAria: "Sponsor emersonfelipesp on GitHub",
@@ -383,6 +394,10 @@ const en: Dictionary = {
       configure: "configure",
       integrations: "integrations",
       screenshots: "screenshots",
+      "how-it-works": "how-it-works",
+      security: "security",
+      ecosystem: "ecosystem",
+      api: "api",
       repo: "repo",
       links: "links",
     },
@@ -649,6 +664,8 @@ const en: Dictionary = {
         httpSseWs: "HTTP / SSE / WS",
         rest: "REST",
         base: "base",
+        kvSecrets: "KV v2 · AppRole",
+        brokerOptional: "optional mTLS",
       },
       nodes: {
         netbox: "Open-source source-of-truth platform for network infrastructure (DCIM / IPAM / virtualization).",
@@ -657,6 +674,12 @@ const en: Dictionary = {
         netboxPbs: "NetBox plugin that surfaces Proxmox Backup Server job history and datastore status in NetBox.",
         netboxPdm: "NetBox plugin that integrates Proxmox Datacenter Manager inventory and cross-cluster views into NetBox.",
         netboxPacker: "NetBox plugin that tracks HashiCorp Packer build metadata and provisioned image records in NetBox.",
+        netboxOpenbao:
+          "NetBox plugin for credentials: inventory and RBAC in NetBox, secret material in OpenBao. Server-side reveal over the REST API — not browser-side vault reads.",
+        openBao:
+          "OpenBao 2.6 KV v2 secret store. Holds private keys, passwords, and tokens; NetBox never stores material in PostgreSQL.",
+        openbaoBroker:
+          "Optional netbox-openbao-broker sidecar. Holds the AppRole; NetBox uses a client certificate to request reads.",
         proxboxApi: "FastAPI backend that orchestrates the NetBox ↔ Proxmox sync workflow over HTTP, SSE, and WebSocket.",
         netboxSdk: "Python async SDK + CLI (nbx) + Textual TUI for the NetBox REST API. Used by proxbox-api to read/write NetBox.",
         netboxRest: "NetBox's REST API — the data target where Proxmox infrastructure ends up.",
@@ -718,6 +741,7 @@ const ptBr: Dictionary = {
     netboxPdm: "~/netbox-pdm",
     netboxCeph: "~/netbox-ceph",
     netboxPacker: "~/netbox-packer",
+    netboxOpenbao: "~/netbox-openbao",
     sponsor: "~/sponsor",
     sponsorButtonLabel: "♥ apoiar",
     sponsorButtonAria: "Apoiar emersonfelipesp no GitHub",
@@ -749,6 +773,10 @@ const ptBr: Dictionary = {
       configure: "configuração",
       integrations: "integrações",
       screenshots: "capturas de tela",
+      "how-it-works": "como funciona",
+      security: "segurança",
+      ecosystem: "ecossistema",
+      api: "api",
       repo: "repositório",
       links: "links",
     },
@@ -1017,6 +1045,8 @@ const ptBr: Dictionary = {
         httpSseWs: "HTTP / SSE / WS",
         rest: "REST",
         base: "base",
+        kvSecrets: "KV v2 · AppRole",
+        brokerOptional: "mTLS opcional",
       },
       nodes: {
         netbox: "Plataforma open-source de fonte da verdade para infraestrutura de rede (DCIM / IPAM / virtualização).",
@@ -1025,6 +1055,12 @@ const ptBr: Dictionary = {
         netboxPbs: "Plugin do NetBox que exibe o histórico de jobs e o status dos datastores do Proxmox Backup Server no NetBox.",
         netboxPdm: "Plugin do NetBox que integra o inventário do Proxmox Datacenter Manager e visões cross-cluster no NetBox.",
         netboxPacker: "Plugin do NetBox que registra metadados de builds do HashiCorp Packer e imagens provisionadas no NetBox.",
+        netboxOpenbao:
+          "Plugin do NetBox para credenciais: inventário e RBAC no NetBox, material secreto no OpenBao. Reveal server-side pela REST API — não leitura de vault no navegador.",
+        openBao:
+          "OpenBao 2.6 KV v2. Guarda chaves privadas, senhas e tokens; o NetBox nunca armazena material no PostgreSQL.",
+        openbaoBroker:
+          "Sidecar opcional netbox-openbao-broker. Guarda o AppRole; o NetBox usa certificado cliente para solicitar leituras.",
         proxboxApi: "Backend FastAPI que orquestra o fluxo de sincronização NetBox ↔ Proxmox via HTTP, SSE e WebSocket.",
         netboxSdk: "SDK Python assíncrono + CLI (nbx) + TUI Textual para a API REST do NetBox. Usado pelo proxbox-api para ler e gravar no NetBox.",
         netboxRest: "API REST do NetBox — o destino onde a infraestrutura do Proxmox é registrada.",

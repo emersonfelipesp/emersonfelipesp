@@ -44,7 +44,7 @@ test("project, developer, roadmap, and release pages serve Markdown", async ({
     },
   ];
 
-  await Promise.all(cases.map(async (item) => {
+  for (const item of cases) {
     const res = await request.get(item.path, { headers: markdownHeaders });
     expect(res.status(), item.path).toBe(200);
     expect(res.headers()["content-type"], item.path).toContain(
@@ -54,7 +54,7 @@ test("project, developer, roadmap, and release pages serve Markdown", async ({
     for (const expected of item.expected) {
       expect(body, item.path).toContain(expected);
     }
-  }));
+  }
 });
 
 test("HTML and API requests are not rewritten to Markdown", async ({

@@ -10,6 +10,7 @@ import { netboxPbs } from "@/content/netbox-pbs";
 import { netboxPdm } from "@/content/netbox-pdm";
 import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
+import { netboxOpenbao } from "@/content/netbox-openbao";
 import type {
   DeveloperContent,
   ProjectContent,
@@ -120,6 +121,7 @@ export const PROJECT_CONTENT: Record<ProjectSlug, MarkdownProject> = {
   "netbox-pdm": netboxPdm,
   "netbox-ceph": netboxCeph,
   "netbox-packer": netboxPacker,
+  "netbox-openbao": netboxOpenbao,
 };
 
 export const DEVELOPER_CONTENT = {
@@ -131,4 +133,5 @@ export const DEVELOPER_CONTENT = {
   "netbox-pdm": stubDeveloper(netboxPdm),
   "netbox-ceph": stubDeveloper(netboxCeph),
   "netbox-packer": stubDeveloper(netboxPacker),
+  "netbox-openbao": stubDeveloper(netboxOpenbao),
 } satisfies Record<ProjectSlug, DeveloperContent>;

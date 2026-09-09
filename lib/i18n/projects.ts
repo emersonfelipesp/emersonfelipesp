@@ -6,6 +6,8 @@ import { netboxPbs } from "@/content/netbox-pbs";
 import { netboxPdm } from "@/content/netbox-pdm";
 import { netboxCeph } from "@/content/netbox-ceph";
 import { netboxPacker } from "@/content/netbox-packer";
+import { netboxOpenbao } from "@/content/netbox-openbao";
+import { NETBOX_OPENBAO_PT_BR } from "./projects/netbox-openbao";
 import type { ArticleContent, ComparisonContent, ProjectContent, SectionLink } from "@/content/types";
 import { DICTIONARIES } from "./dictionary";
 import type { Lang } from "./languages";
@@ -481,6 +483,50 @@ export type NetboxPackerContent = typeof netboxPacker;
 export function getNetboxPacker(lang: Lang) {
   if (lang === "en") return netboxPacker;
   return { ...netboxPacker, sections: localizeSections(netboxPacker.sections, lang) };
+}
+
+export type NetboxOpenbaoLocalized = ReturnType<typeof getNetboxOpenbao>;
+
+export function getNetboxOpenbao(lang: Lang) {
+  if (lang === "en") return netboxOpenbao;
+  const pt = NETBOX_OPENBAO_PT_BR;
+  return {
+    ...netboxOpenbao,
+    tagline: pt.tagline,
+    description: pt.description,
+    features: pt.features,
+    howItWorks: {
+      ...netboxOpenbao.howItWorks,
+      title: pt.howItWorks.title,
+      paragraphs: pt.howItWorks.paragraphs,
+      splitTable: pt.howItWorks.splitTable,
+    },
+    security: {
+      ...netboxOpenbao.security,
+      title: pt.security.title,
+      bullets: pt.security.bullets,
+    },
+    ecosystem: {
+      ...netboxOpenbao.ecosystem,
+      title: pt.ecosystem.title,
+      items: netboxOpenbao.ecosystem.items.map((item, index) => ({
+        ...item,
+        description: pt.ecosystem.items[index]?.description ?? item.description,
+      })),
+    },
+    apiExamples: {
+      ...netboxOpenbao.apiExamples,
+      title: pt.apiExamples.title,
+      intro: pt.apiExamples.intro,
+      snippets: netboxOpenbao.apiExamples.snippets.map((snippet, index) => ({
+        ...snippet,
+        label: pt.apiExamples.snippets[index]?.label ?? snippet.label,
+      })),
+    },
+    stack: pt.stack,
+    install: { ...netboxOpenbao.install, note: pt.install.note },
+    sections: localizeSections(netboxOpenbao.sections, lang),
+  };
 }
 
 export function getProxmoxerComparison(

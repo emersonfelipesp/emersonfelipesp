@@ -48,6 +48,12 @@
       "fullName": "emersonfelipesp/netbox-packer",
       "ok": true,
       "skipped": false
+    },
+    {
+      "slug": "netbox-openbao",
+      "fullName": "emersonfelipesp/netbox-openbao",
+      "ok": true,
+      "skipped": true
     }
   ]
 }

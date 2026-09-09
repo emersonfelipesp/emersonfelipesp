@@ -114,9 +114,9 @@ function VerticalEdge({ label }: { label?: string }) {
 }
 
 /** Fan-out from one source (center) to 5 targets at 10/30/50/70/90 */
-function ForkConnector5({ label }: { label?: string }) {
+function ForkConnector6({ label }: { label?: string }) {
   return (
-    <div className="flex w-full max-w-2xl flex-col items-center">
+    <div className="flex w-full max-w-3xl flex-col items-center">
       {label && (
         <span className="mb-0.5 text-[10px] uppercase tracking-wider text-muted/80">
           {label}
@@ -124,10 +124,35 @@ function ForkConnector5({ label }: { label?: string }) {
       )}
       <ThreeLineCanvas
         viewBox={[100, 24]}
-        paths={ARCHITECTURE_CONNECTORS.pluginFork5}
+        paths={ARCHITECTURE_CONNECTORS.pluginFork6}
         className="h-7 w-full text-muted"
         testId="projects-architecture-connector-plugin-fork"
       />
+    </div>
+  );
+}
+
+function SecretsConnector({
+  kvLabel,
+  brokerLabel,
+}: {
+  kvLabel: string;
+  brokerLabel: string;
+}) {
+  return (
+    <div className="flex w-full flex-col items-center gap-0.5">
+      <ThreeLineCanvas
+        viewBox={[100, 32]}
+        paths={ARCHITECTURE_CONNECTORS.openbaoSecretsColumn}
+        className="h-9 w-full text-muted"
+        testId="projects-architecture-connector-openbao-secrets"
+      />
+      <span className="text-[10px] uppercase tracking-wider text-muted/80">
+        {kvLabel}
+      </span>
+      <span className="text-[10px] uppercase tracking-wider text-muted/40">
+        {brokerLabel}
+      </span>
     </div>
   );
 }
@@ -138,7 +163,7 @@ function ForkConnector5({ label }: { label?: string }) {
  */
 function ExtendsConnector({ label }: { label: string }) {
   return (
-    <div className="flex w-full max-w-2xl flex-col items-center gap-0.5">
+    <div className="flex w-full max-w-3xl flex-col items-center gap-0.5">
       <ThreeLineCanvas
         viewBox={[100, 14]}
         paths={ARCHITECTURE_CONNECTORS.baseExtends}
@@ -153,7 +178,7 @@ function ExtendsConnector({ label }: { label: string }) {
 /** Fan-in from 5 sources at 10/30/50/70/90 to one target (center) */
 function FunnelConnector5({ label }: { label?: string }) {
   return (
-    <div className="flex w-full max-w-2xl flex-col items-center">
+    <div className="flex w-full max-w-3xl flex-col items-center">
       <ThreeLineCanvas
         viewBox={[100, 24]}
         paths={ARCHITECTURE_CONNECTORS.apiFunnel5}
@@ -271,15 +296,26 @@ export function ProjectsArchitecture() {
         <span className="text-muted/70">· {diagram.caption}</span>
       </p>
 
-      <div className="flex min-w-[42rem] flex-col items-center gap-1">
+      <div className="flex min-w-[52rem] flex-col items-center gap-1">
         <Node node={diagram.nodes.netbox} />
 
-        <ForkConnector5 label={diagram.edges.plugin} />
+        <ForkConnector6 label={diagram.edges.plugin} />
 
-        <div className="grid w-full max-w-2xl grid-cols-5 gap-2 justify-items-center">
+        <div className="grid w-full max-w-3xl grid-cols-6 gap-2 justify-items-center">
           {diagram.pluginNodes.map((plugin) => (
             <Node key={plugin.id} node={plugin} />
           ))}
+        </div>
+
+        <div className="grid w-full max-w-3xl grid-cols-6 gap-2">
+          <div className="col-start-6 flex flex-col items-center gap-1">
+            <SecretsConnector
+              kvLabel={diagram.edges.kvSecrets}
+              brokerLabel={diagram.edges.brokerOptional}
+            />
+            <Node node={diagram.nodes.openBao} />
+            <Node node={diagram.nodes.openbaoBroker} />
+          </div>
         </div>
 
         <ExtendsConnector label={diagram.edges.base} />

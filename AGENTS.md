@@ -53,6 +53,7 @@ project action URLs.
 | `/proxbox-api` | FastAPI backend showcase | `mixed` |
 | `/netbox-sdk` | NetBox SDK / CLI / TUI showcase | `netbox` |
 | `/proxmox-sdk` | Proxmox SDK showcase | `proxmox` |
+| `/netbox-openbao` | OpenBao credentials plugin showcase | `netbox` |
 | `/<project>/developer` | Developer guide for each allowlisted project | project palette |
 | `/<project>/releases` | Local release index from committed GitHub snapshots | project palette |
 | `/<project>/releases/[...tag]` | Local release detail, including slash-containing tags | project palette |

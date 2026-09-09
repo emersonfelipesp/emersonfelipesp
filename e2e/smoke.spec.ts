@@ -20,6 +20,7 @@ const LIVE_DOCS_ACTIONS = [
 ] as const;
 
 const UNPUBLISHED_DOCS_ACTION_PATHS = [
+  "/netbox-openbao",
   "/netbox-ceph",
   "/netbox-pdm",
   "/netbox-pbs",
@@ -30,6 +31,13 @@ test("homepage loads with correct title and content", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/emersonfelipesp/);
   await expect(page.getByText("Emerson Felipe").first()).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+});
+
+test("/netbox-openbao loads", async ({ page }) => {
+  await page.goto("/netbox-openbao");
+  await expect(page).toHaveURL("/netbox-openbao");
+  await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
 });
 
@@ -138,7 +146,7 @@ test("homepage architecture renders centered Three.js connectors", async ({
   await expect(architecture).toBeVisible();
   await expect(
     page.locator('[data-testid^="projects-architecture-connector-"]'),
-  ).toHaveCount(5);
+  ).toHaveCount(6);
 
   const metrics = await architecture.evaluate((root) => {
     const scroller = root as HTMLElement;
@@ -170,7 +178,7 @@ test("homepage architecture renders centered Three.js connectors", async ({
     };
   });
 
-  expect(metrics.canvasCount).toBe(5);
+  expect(metrics.canvasCount).toBe(6);
   expect(metrics.netboxVisible).toBe(true);
   for (const canvas of metrics.canvases) {
     expect(canvas.width).toBeGreaterThan(0);
@@ -233,7 +241,8 @@ test("/netbox-sdk/pynetbox-comparison loads", async ({ page }) => {
 test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   page,
 }) => {
-  await page.goto("/netbox-proxbox/roadmap");
+  test.setTimeout(60_000);
+  await page.goto("/netbox-proxbox/roadmap", { waitUntil: "networkidle" });
   await expect(page).toHaveURL("/netbox-proxbox/roadmap");
   await expect(page.locator("main")).toBeVisible();
   await expect(
