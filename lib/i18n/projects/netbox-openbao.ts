@@ -12,7 +12,7 @@ export const NETBOX_OPENBAO_PT_BR = {
     "Rotação em estágios: escreve candidato ao lado da versão live, promove na decisão",
     "AppRoles por tier limitam blast radius; modo broker opcional tira credenciais do vault do host NetBox",
     "HashiCorp Vault suportado como backend alternativo no mesmo contrato",
-    "Quick-add de senha SSH; espelha no netbox-nms quando esse plugin está instalado",
+    "Quick-add de senha SSH; modo broker e netbox-rpc integram sem mirror proprietário de credencial",
   ],
   howItWorks: {
     title: "como funciona",
@@ -51,11 +51,11 @@ export const NETBOX_OPENBAO_PT_BR = {
       },
       {
         description:
-          "Quando instalado, quick-add de senha SSH espelha o mesmo login em DeviceCredential e DeviceService SSH.",
+          "Catálogo auditado de procedures no NetBox; SSH em hosts e manutenção OpenBao via netbox-rpc-backend.",
       },
       {
         description:
-          "Operações de host OpenBao (health, seal, reload de policy) via procedures RPC auditadas — nunca shell ad-hoc do plugin.",
+          "Executor SSH/CLI para procedures catalogadas; resolve credenciais de guest pela API reveal do openbao.",
       },
       {
         description:

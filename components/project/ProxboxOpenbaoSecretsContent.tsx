@@ -91,6 +91,11 @@ export function ProxboxOpenbaoSecretsContent({
         <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="reveal" />
       </section>
 
+      <section id="stack" className="scroll-mt-28 space-y-3">
+        <SectionHeading id="stack">{p.sections[3]?.label ?? "security stack"}</SectionHeading>
+        <ProxboxOpenbaoSecretsArchitecture diagrams={p.diagrams} lane="stack" />
+      </section>
+
       <section id="boundary" className="scroll-mt-28 space-y-4">
         <SectionHeading id="boundary">{p.boundary.title}</SectionHeading>
         <div className="space-y-3 text-sm leading-relaxed text-fg/90">
@@ -99,6 +104,17 @@ export function ProxboxOpenbaoSecretsContent({
           ))}
         </div>
         <div className="space-y-1 text-xs text-muted">
+          <p>
+            <span className="text-accent">#</span>{" "}
+            <a
+              href={p.links.stackDocs}
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              netbox-openbao docs/architecture/openbao-broker-rpc.md
+            </a>
+          </p>
           <p>
             <span className="text-accent">#</span>{" "}
             <a

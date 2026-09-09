@@ -20,7 +20,7 @@ export const netboxOpenbao = {
     "Staged rotation: write candidate alongside live version, promote on decision",
     "Per-tier AppRoles bound blast radius; optional broker mode keeps vault credentials off the NetBox host",
     "HashiCorp Vault supported as an alternative backend on the same wire contract",
-    "Quick-add SSH password flow; mirrors into netbox-nms when that plugin is present",
+    "Quick-add SSH password flow; broker mode and netbox-rpc integrate without a proprietary credential mirror",
   ],
   howItWorks: {
     title: "how it works",
@@ -60,16 +60,16 @@ export const netboxOpenbao = {
           "Optional sidecar that holds the AppRole. NetBox authenticates with a client certificate; audit log sits outside NetBox's blast radius.",
       },
       {
-        name: "netbox-nms",
-        href: "https://github.com/N-MultiCloud/netbox-nms",
-        description:
-          "When installed, quick-add SSH password auth mirrors the same login into DeviceCredential and SSH DeviceService records.",
-      },
-      {
         name: "netbox-rpc",
         href: "https://github.com/N-MultiCloud/netbox-rpc",
         description:
-          "OpenBao host operations (health, seal status, policy reload) dispatch through audited RPC procedures — never ad-hoc shell from the plugin.",
+          "Audited procedure catalog in NetBox; host SSH and OpenBao maintenance dispatch through netbox-rpc-backend — never ad-hoc shell from the plugin.",
+      },
+      {
+        name: "netbox-rpc-backend",
+        href: "https://github.com/N-MultiCloud/netbox-rpc-backend",
+        description:
+          "SSH and CLI executor for catalogued procedures; resolves guest credentials through the openbao reveal API.",
       },
       {
         name: "netbox-sdk / nbx",

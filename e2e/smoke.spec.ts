@@ -56,6 +56,9 @@ test("/netbox-openbao/proxmox-secrets loads with architecture diagrams", async (
   await expect(
     page.getByTestId("proxbox-openbao-reveal-diagram"),
   ).toBeVisible();
+  await expect(
+    page.getByTestId("proxbox-openbao-stack-diagram"),
+  ).toBeVisible();
   await expect(page.getByText("no passwords").first()).toBeVisible();
 });
 

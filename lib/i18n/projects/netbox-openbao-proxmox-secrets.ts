@@ -12,7 +12,7 @@ export const PROXBOX_OPENBAO_SECRETS_PT_BR = {
       "Sync de inventário e armazenamento de segredos são trilhos separados — falha de job proxbox não deve rotacionar ou vazar credenciais, e um reveal não dispara chamada à API Proxmox.",
       "Proxbox nunca escreve no OpenBao; netbox-openbao nunca consulta a API Proxmox para descoberta de VMs.",
       "Quick-add SSH na página da VM é o handoff usual: proxbox fornece o objeto; o operador (ou automação com RBAC NetBox) grava o material de login em uma transação atômica.",
-      "Com netbox-nms instalado, quick-add por senha espelha em DeviceCredential e SSH DeviceService para RPC/NMS resolver o mesmo segredo sem segundo passo manual.",
+      "Modo broker mantém material AppRole no netbox-openbao-broker; netbox-rpc cataloga procedures auditadas que resolvem credenciais pelo mesmo contrato de reveal do openbao.",
     ],
   },
   boundary: {
@@ -36,6 +36,7 @@ export const PROXBOX_OPENBAO_SECRETS_PT_BR = {
     inventory: "sync inventário",
     credentials: "gravação credencial",
     reveal: "reveal e acesso",
+    stack: "stack de segurança",
     boundary: "fronteira",
     workflow: "fluxo operador",
   },
@@ -71,15 +72,15 @@ export const PROXBOX_OPENBAO_SECRETS_PT_BR = {
         netboxMeta:
           "NetBox — Credential (metadados), CredentialAssignment, ipam.Service ssh:22 quando assignable_models inclui service.",
         openbaoKv:
-          "OpenBao KV v2 — ssh-password ou ssh-keypair; AppRole ou broker mTLS.",
-        nmsOptional:
-          "netbox-nms (opcional) — espelha senha em DeviceCredential + SSH DeviceService para RPC.",
+          "OpenBao KV v2 — ssh-password ou ssh-keypair; AppRole direto ou via broker mTLS.",
+        brokerOptional:
+          "netbox-openbao-broker (opcional) — guarda AppRole; NetBox pergunta via mTLS com auditoria fora do blast radius.",
       },
       edges: {
         submit: "POST · transação atômica",
         meta: "metadados indexados",
         secret: "material write-only",
-        mirror: "mirror opcional",
+        brokerPath: "modo broker",
       },
     },
     reveal: {
@@ -87,7 +88,7 @@ export const PROXBOX_OPENBAO_SECRETS_PT_BR = {
       caption: "Material só sai via POST reveal auditado",
       nodes: {
         consumer:
-          "Operador, nbx CLI, ou NMS RPC — precisa de login SSH para a VM/container.",
+          "Operador, nbx CLI, ou dispatch netbox-rpc — precisa de login SSH para a VM/container.",
         revealApi:
           "POST /api/plugins/openbao/credentials/{id}/reveal/ — permissão reveal_credential, JSON-only, no-store.",
         openbaoRead:
@@ -99,6 +100,34 @@ export const PROXBOX_OPENBAO_SECRETS_PT_BR = {
         request: "POST reveal",
         vault: "KV v2 read",
         ssh: "SSH · fora do NetBox",
+      },
+    },
+    stack: {
+      heading: "Stack OpenBao, broker e RPC",
+      caption: "Armazenamento open-source e acesso auditado a hosts",
+      nodes: {
+        consumer:
+          "Operador ou nbx — reveal humano ou dispatch de procedure via RBAC NetBox.",
+        openbaoPlugin:
+          "netbox-openbao — inventário Credential, API reveal, writes OpenBao via services.py.",
+        rpcPlugin:
+          "netbox-rpc — catálogo auditado de procedures, aprovações, histórico de execução.",
+        broker:
+          "netbox-openbao-broker (opcional) — sidecar mTLS com AppRole; credenciais do vault nunca no host NetBox.",
+        openbaoKv:
+          "OpenBao KV v2 — único repositório de senhas, chaves e tokens.",
+        rpcBackend:
+          "netbox-rpc-backend — executor SSH de argv fixo; resolve material via reveal openbao.",
+        target:
+          "Device ou VirtualMachine — sessão SSH usando inventário proxbox para reachability.",
+      },
+      edges: {
+        plugins: "plugins NetBox",
+        toBroker: "modo broker",
+        toVault: "AppRole direto",
+        dispatch: "procedure aprovada",
+        resolve: "POST reveal",
+        ssh: "sessão SSH",
       },
     },
   },

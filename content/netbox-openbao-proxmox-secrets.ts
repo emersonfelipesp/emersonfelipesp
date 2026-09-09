@@ -8,6 +8,7 @@ export const proxboxOpenbaoSecretsSections: readonly SectionLink[] = [
   { id: "inventory", label: "inventory sync" },
   { id: "credentials", label: "credential write" },
   { id: "reveal", label: "reveal & access" },
+  { id: "stack", label: "security stack" },
   { id: "boundary", label: "boundary" },
   { id: "workflow", label: "operator flow" },
 ];
@@ -38,7 +39,7 @@ export const proxboxOpenbaoSecrets = {
       "Inventory sync and secret storage are separate lanes — a proxbox job failure must not rotate or leak credentials, and a reveal must not trigger a Proxmox API call.",
       "Proxbox never writes to OpenBao; netbox-openbao never queries the Proxmox API for VM discovery.",
       "Quick-add SSH on a VM page is the usual handoff: proxbox supplies the object; the operator (or automation with NetBox RBAC) stores the login material in one atomic transaction.",
-      "When netbox-nms is installed, password quick-add mirrors into DeviceCredential and SSH DeviceService so NMS RPC and automation resolve the same secret without a second manual step.",
+      "Broker mode keeps AppRole material on netbox-openbao-broker; netbox-rpc catalogs audited host procedures that resolve credentials through the same openbao reveal contract.",
     ],
   },
   boundary: {
@@ -63,6 +64,8 @@ export const proxboxOpenbaoSecrets = {
     proxboxApi: "/proxbox-api",
     quickAddDocs:
       "https://github.com/emersonfelipesp/netbox-openbao/blob/main/docs/quick-add-ssh.md",
+    stackDocs:
+      "https://github.com/emersonfelipesp/netbox-openbao/blob/main/docs/architecture/openbao-broker-rpc.md",
     architectureDocs:
       "https://github.com/emersonfelipesp/netbox-openbao/blob/main/docs/architecture/proxmox-vm-secrets.md",
     proxboxCompanionDocs:
@@ -100,15 +103,15 @@ export const proxboxOpenbaoSecrets = {
         netboxMeta:
           "NetBox — Credential (metadata), CredentialAssignment, ipam.Service ssh:22 when assignable_models includes service.",
         openbaoKv:
-          "OpenBao KV v2 — ssh-password or ssh-keypair payload; AppRole or broker mTLS.",
-        nmsOptional:
-          "netbox-nms (optional) — mirrors password into DeviceCredential + SSH DeviceService for RPC.",
+          "OpenBao KV v2 — ssh-password or ssh-keypair payload; direct AppRole or via broker mTLS.",
+        brokerOptional:
+          "netbox-openbao-broker (optional) — holds AppRole; NetBox asks over mTLS with audit outside NetBox blast radius.",
       },
       edges: {
         submit: "POST · atomic transaction",
         meta: "indexed metadata",
         secret: "write-only material",
-        mirror: "optional mirror",
+        brokerPath: "broker mode",
       },
     },
     reveal: {
@@ -116,7 +119,7 @@ export const proxboxOpenbaoSecrets = {
       caption: "Material leaves only through audited POST reveal",
       nodes: {
         consumer:
-          "Operator, nbx CLI, or NMS RPC — needs SSH login for the VM/container.",
+          "Operator, nbx CLI, or netbox-rpc dispatch — needs SSH login for the VM/container.",
         revealApi:
           "POST /api/plugins/openbao/credentials/{id}/reveal/ — reveal_credential permission, JSON-only, no-store.",
         openbaoRead:
@@ -128,6 +131,34 @@ export const proxboxOpenbaoSecrets = {
         request: "POST reveal",
         vault: "KV v2 read",
         ssh: "SSH · outside NetBox",
+      },
+    },
+    stack: {
+      heading: "OpenBao, broker, and RPC stack",
+      caption: "Open-source secret storage and audited host access",
+      nodes: {
+        consumer:
+          "Operator or nbx — human reveal or procedure dispatch through NetBox RBAC.",
+        openbaoPlugin:
+          "netbox-openbao — Credential inventory, reveal API, OpenBao writes through services.py.",
+        rpcPlugin:
+          "netbox-rpc — audited procedure catalog, approvals, execution history in NetBox.",
+        broker:
+          "netbox-openbao-broker (optional) — mTLS sidecar holding AppRole; vault credentials never on the NetBox host.",
+        openbaoKv:
+          "OpenBao KV v2 — sole store for passwords, keys, and tokens.",
+        rpcBackend:
+          "netbox-rpc-backend — fixed-argv SSH executor; resolves material via openbao reveal, never ad-hoc shell.",
+        target:
+          "Device or VirtualMachine — SSH session using proxbox inventory for reachability.",
+      },
+      edges: {
+        plugins: "NetBox plugins",
+        toBroker: "broker mode",
+        toVault: "direct AppRole",
+        dispatch: "approved procedure",
+        resolve: "POST reveal",
+        ssh: "SSH session",
       },
     },
   },

@@ -248,8 +248,8 @@ function CredentialDiagram({ d }: { d: DiagramCopy["credentials"] }) {
         <SplitConnector
           leftPrimary={d.edges.meta}
           leftSecondary="NetBox rows"
-          rightPrimary={d.edges.secret}
-          rightSecondary="OpenBao KV v2"
+          rightPrimary={d.edges.brokerPath}
+          rightSecondary="optional"
         />
         <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-2 justify-items-center">
           <DiagramNode
@@ -258,17 +258,18 @@ function CredentialDiagram({ d }: { d: DiagramCopy["credentials"] }) {
             highlight
           />
           <DiagramNode
-            name="OpenBao KV v2"
-            meta="ssh-password · keypair"
-            description={d.nodes.openbaoKv}
+            name="netbox-openbao-broker"
+            meta="mTLS · optional"
+            description={d.nodes.brokerOptional}
             highlight
           />
         </div>
-        <VerticalConnector primary={d.edges.mirror} />
+        <VerticalConnector primary={d.edges.secret} secondary="direct AppRole or via broker" />
         <DiagramNode
-          name="netbox-nms"
-          meta="optional"
-          description={d.nodes.nmsOptional}
+          name="OpenBao KV v2"
+          meta="ssh-password · keypair"
+          description={d.nodes.openbaoKv}
+          featured
         />
       </div>
     </div>
@@ -287,7 +288,7 @@ function RevealDiagram({ d }: { d: DiagramCopy["reveal"] }) {
       </p>
       <div className="flex min-w-[48rem] flex-col items-center gap-1">
         <DiagramNode
-          name="operator · nbx · NMS RPC"
+          name="operator · nbx · netbox-rpc"
           description={d.nodes.consumer}
         />
         <VerticalConnector primary={d.edges.request} />
@@ -316,9 +317,78 @@ function RevealDiagram({ d }: { d: DiagramCopy["reveal"] }) {
   );
 }
 
+function StackDiagram({ d }: { d: DiagramCopy["stack"] }) {
+  return (
+    <div
+      className="overflow-x-auto border border-border bg-surface p-4 sm:p-6"
+      data-testid="proxbox-openbao-stack-diagram"
+    >
+      <p className="mb-4 text-xs text-muted">
+        {d.heading}{" "}
+        <span className="text-muted/70">— {d.caption}</span>
+      </p>
+      <div className="flex min-w-[56rem] flex-col items-center gap-1">
+        <DiagramNode
+          name="operator · nbx"
+          description={d.nodes.consumer}
+        />
+        <VerticalConnector primary={d.edges.plugins} />
+        <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-2 justify-items-center">
+          <DiagramNode
+            name="netbox-openbao"
+            meta="plugin"
+            description={d.nodes.openbaoPlugin}
+            href="/netbox-openbao"
+            featured
+          />
+          <DiagramNode
+            name="netbox-rpc"
+            meta="plugin"
+            description={d.nodes.rpcPlugin}
+            highlight
+          />
+        </div>
+        <SplitConnector
+          leftPrimary={d.edges.toBroker}
+          leftSecondary={d.edges.toVault}
+          rightPrimary={d.edges.dispatch}
+          rightSecondary="catalog"
+        />
+        <div className="grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-2 justify-items-center">
+          <DiagramNode
+            name="netbox-openbao-broker"
+            meta="optional"
+            description={d.nodes.broker}
+            highlight
+          />
+          <DiagramNode
+            name="netbox-rpc-backend"
+            meta="executor"
+            description={d.nodes.rpcBackend}
+            highlight
+          />
+        </div>
+        <VerticalConnector primary={d.edges.resolve} />
+        <DiagramNode
+          name="OpenBao KV v2"
+          description={d.nodes.openbaoKv}
+          featured
+        />
+        <VerticalConnector primary={d.edges.ssh} />
+        <DiagramNode
+          name="Device · VirtualMachine"
+          meta="SSH target"
+          description={d.nodes.target}
+          featured
+        />
+      </div>
+    </div>
+  );
+}
+
 type Props = {
   diagrams: DiagramCopy;
-  lane: "inventory" | "credentials" | "reveal";
+  lane: "inventory" | "credentials" | "reveal" | "stack";
 };
 
 export function ProxboxOpenbaoSecretsArchitecture({ diagrams, lane }: Props) {
@@ -327,6 +397,9 @@ export function ProxboxOpenbaoSecretsArchitecture({ diagrams, lane }: Props) {
   }
   if (lane === "credentials") {
     return <CredentialDiagram d={diagrams.credentials} />;
+  }
+  if (lane === "stack") {
+    return <StackDiagram d={diagrams.stack} />;
   }
   return <RevealDiagram d={diagrams.reveal} />;
 }
