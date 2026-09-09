@@ -1,16 +1,6017 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T13:36:05.228Z",
+  "generated_at": "2026-09-09T14:33:28.578Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
-    "closed": 0,
-    "edges": 0
+    "open": 2,
+    "closed": 247,
+    "edges": 7
   },
-  "viewBox": "0 0 1 1",
-  "nodes": [],
+  "viewBox": "0 0 272 248",
+  "nodes": [
+    {
+      "number": 657,
+      "title": "ProxBox backend returned an unexpected response",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/657",
+      "closedAt": "2026-09-09T13:06:04Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 651,
+      "title": "RuntimeError(\"Stage 'devices' failed (HTTP 400): Error ensuring Proxbox tag\")",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/651",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 649,
+      "title": "Proxmox status request failed",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/649",
+      "closedAt": "2026-09-09T14:32:28Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 641,
+      "title": "Docs: backend encryption key and Compose networking are missing from the install guide",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/641",
+      "closedAt": "2026-08-20T15:02:07Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 640,
+      "title": "Sync job completes successfully even when all NetBox writes were rejected",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/640",
+      "closedAt": "2026-08-20T15:02:02Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 635,
+      "title": "can't add system - authentication issues",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/635",
+      "closedAt": "2026-08-10T20:42:40Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 634,
+      "title": "SND dispay server error",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/634",
+      "closedAt": "2026-08-10T11:16:29Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 633,
+      "title": "Multiple bugs in non-Docker (venv/systemd) install: DATABASE_URL ignored, dual encryption-key systems crash forms on rotation, auth-lockout self-triggers with legitimate traffic",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/633",
+      "closedAt": "2026-08-10T20:42:38Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 629,
+      "title": "Title: overwrite_vm_role=No is not respected, role is reset on every sync regardless of proxmox_last_synced_role_id",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/629",
+      "closedAt": "2026-07-31T19:39:23Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 626,
+      "title": "Error when creating SSH Credentials",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/626",
+      "closedAt": "2026-08-08T23:43:38Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 625,
+      "title": "Proxmox task status request timed out",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/625",
+      "closedAt": "2026-07-24T10:58:25Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 624,
+      "title": "Error ensuring Proxbox tag",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/624",
+      "closedAt": "2026-07-23T03:14:46Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 623,
+      "title": "UI error when click Sync Now from Cluster page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/623",
+      "closedAt": "2026-08-09T23:34:15Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 620,
+      "title": "Some VM not sync in custer",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/620",
+      "closedAt": "2026-08-10T19:50:33Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 619,
+      "title": "Custom Field missing",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/619",
+      "closedAt": "2026-07-17T20:52:36Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 618,
+      "title": "UI error in cluster view",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/618",
+      "closedAt": "2026-07-21T21:06:09Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 617,
+      "title": "VM name and status do not change during synchronization",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/617",
+      "closedAt": "2026-07-21T23:36:59Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 616,
+      "title": "Error with sync single VM",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/616",
+      "closedAt": "2026-07-21T21:05:45Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 615,
+      "title": "Issues with Node/VM Sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/615",
+      "closedAt": "2026-07-17T14:05:45Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 614,
+      "title": "Some VM from cluster do not synchronised in proxbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/614",
+      "closedAt": "2026-07-21T22:20:08Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 610,
+      "title": "Multiple interfaces with conflicts are not created",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/610",
+      "closedAt": "2026-07-02T20:52:27Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 609,
+      "title": "Add optional netbox-bgp SDN sync mode to Proxbox plugin",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/609",
+      "closedAt": "2026-07-01T21:15:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 606,
+      "title": "Finalize full Proxmox SDN release: bump to 0.0.22, release notes, proxbox-api 0.0.19 compat pin",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/606",
+      "closedAt": "2026-07-01T21:07:07Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 602,
+      "title": "Cabling documentation ",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/602",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 599,
+      "title": "SDN plugin inventory",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/599",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 598,
+      "title": "NetBox L2VPN sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/598",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 597,
+      "title": "Docs, tests, and lifecycle evidence for SDN sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/597",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 596,
+      "title": "Optional SDN sync controls",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/596",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 595,
+      "title": "SDN schema and collectors",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/595",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 594,
+      "title": "EVPN/VXLAN",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/594",
+      "closedAt": "2026-06-30T16:49:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 593,
+      "title": "BGP",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/593",
+      "closedAt": "2026-07-01T21:15:43Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 591,
+      "title": "Proxbox 'Homepage' menu item stays highlighted on every plugin page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/591",
+      "closedAt": "2026-06-30T12:20:02Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 589,
+      "title": "Plugin list pages render raw paginator template comment instead of pagination controls",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/589",
+      "closedAt": "2026-06-30T12:19:32Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 586,
+      "title": "Synchronization of interfaces with the initial 'net1'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/586",
+      "closedAt": "2026-06-22T21:52:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 582,
+      "title": "vm-disks sync stage processes VMs sequentially with multiple per-VM API roundtrips",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/582",
+      "closedAt": "2026-06-16T18:21:03Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 577,
+      "title": "sync_mode_vm_template=disabled does not filter templates from VIRTUAL_MACHINES stage",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/577",
+      "closedAt": "2026-06-11T01:12:43Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 576,
+      "title": "VM interfaces with large payload aren't syncing",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/576",
+      "closedAt": "2026-06-11T01:13:08Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 574,
+      "title": "VM_INTERFACES stage ignores sync_mode_ip_address=disabled",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/574",
+      "closedAt": "2026-06-08T16:26:43Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.21",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 567,
+      "title": "Duplicate import path netbox_pbs(?)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/567",
+      "closedAt": "2026-06-05T18:21:44Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 566,
+      "title": "Virtual Server interfaces is wrong matched",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/566",
+      "closedAt": "2026-06-06T14:19:32Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 565,
+      "title": "When opening proxmox summary on the cluster node, it throws error",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/565",
+      "closedAt": "2026-06-05T13:29:54Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 564,
+      "title": "Proxbox -> Virtualization -> Virtual Machines only display the first 100",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/564",
+      "closedAt": "2026-06-05T13:15:32Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 563,
+      "title": "Issue with multiple proxmox endpoints",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/563",
+      "closedAt": "2026-06-05T13:48:38Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 561,
+      "title": "importing a new cluster when physical device already exists",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/561",
+      "closedAt": "2026-06-02T17:35:07Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.20",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 560,
+      "title": "Issues synchronizing a large number of virtual machine interfaces",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/560",
+      "closedAt": "2026-06-02T13:30:21Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.20",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 558,
+      "title": "Synchronizing virtual machines with a large number of interfaces",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/558",
+      "closedAt": "2026-06-01T17:46:39Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 557,
+      "title": "sqlite-database \"database.db\" is not in repository root but in /app/.venv/lib/python3.13/site-packages/",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/557",
+      "closedAt": "2026-06-01T14:01:06Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 556,
+      "title": "Option to disable IP address synchronization for VMs",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/556",
+      "closedAt": "2026-05-31T20:21:42Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 554,
+      "title": "Option to exclude Proxmox templates from VM sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/554",
+      "closedAt": "2026-05-31T20:15:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 552,
+      "title": "Release pipeline: PyPI idempotency check + document Gitea-first flow",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/552",
+      "closedAt": "2026-05-31T17:47:40Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 551,
+      "title": "Bug at Full-Sync via netbox-proxbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/551",
+      "closedAt": "2026-05-31T20:36:38Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 545,
+      "title": "Error adding server - API tokens",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/545",
+      "closedAt": "2026-05-28T20:13:08Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 544,
+      "title": "proxbox-api ignoring ssl setting",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/544",
+      "closedAt": "2026-05-28T22:13:20Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 541,
+      "title": "Sharing resolved configuration challenges and help with current issues.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/541",
+      "closedAt": "2026-05-28T21:00:13Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 537,
+      "title": "Not able to delete ip-address",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/537",
+      "closedAt": "2026-05-26T23:47:04Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 536,
+      "title": "Show PBS connection status on Proxbox homepage",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/536",
+      "closedAt": "2026-05-25T21:28:08Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 533,
+      "title": "Dashboard widgets too wide to fit three on one row",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/533",
+      "closedAt": "2026-05-25T15:42:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 531,
+      "title": "Fix TypeError when adding dashboard widgets to home page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/531",
+      "closedAt": "2026-05-25T15:07:02Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 529,
+      "title": "Proxbox sync job endpoint runtime cards",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/529",
+      "closedAt": "2026-05-25T15:11:55Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 527,
+      "title": "feat: add dashboard widgets for NetBox home page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/527",
+      "closedAt": "2026-05-25T14:38:44Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 525,
+      "title": "Expose VM reconciliation engine in Proxbox settings",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/525",
+      "closedAt": "2026-05-25T14:33:07Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 522,
+      "title": "Configure proxbox-api reconciliation engine from plugin settings",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/522",
+      "closedAt": "2026-05-25T13:18:08Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 520,
+      "title": "Add live PBS connection status to Proxbox home",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/520",
+      "closedAt": "2026-05-25T11:37:54Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 519,
+      "title": "Cannot re-import VM from PVE cluster after deletion",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/519",
+      "closedAt": "2026-05-26T20:03:04Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 517,
+      "title": "Document Firecracker inventory and APIs in NetBox Proxbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/517",
+      "closedAt": "2026-05-25T01:30:50Z",
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 514,
+      "title": "Implement browser SSH terminal for Proxmox endpoints",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/514",
+      "closedAt": "2026-05-24T23:53:54Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 513,
+      "title": "Add Firecracker inventory models and API",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/513",
+      "closedAt": "2026-05-24T22:46:13Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 511,
+      "title": "Add PyO3 Rust backend to Docker E2E release gate",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/511",
+      "closedAt": "2026-05-24T19:20:00Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 508,
+      "title": "Render companion plugin endpoints on ProxBox homepage",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/508",
+      "closedAt": "2026-05-24T18:52:50Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 504,
+      "title": "Remove Discord and Telegram community links",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/504",
+      "closedAt": "2026-05-22T18:00:35Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 502,
+      "title": "Document optional Proxbox companion plugins in README",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/502",
+      "closedAt": "2026-05-22T17:34:36Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 500,
+      "title": "Prepare netbox-proxbox for NetBox plugin certification",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/500",
+      "closedAt": "2026-05-22T17:14:04Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 499,
+      "title": "Certification readiness for Proxbox plugin family",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/499",
+      "closedAt": "2026-05-22T17:15:35Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 491,
+      "title": "IP addresses not Syncing in Latest Version",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/491",
+      "closedAt": "2026-05-22T18:31:38Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 490,
+      "title": "feat: add `enabled` boolean field to ProxmoxEndpoint, NetBoxEndpoint, and FastAPIEndpoint",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/490",
+      "closedAt": "2026-05-20T14:05:05Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 486,
+      "title": "Versions >= 0.0.15 conflict with another plugin",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/486",
+      "closedAt": "2026-05-20T15:39:40Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "invalid",
+          "color": "e4e669"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 485,
+      "title": "PVE Firewall Sync | NetBox > Proxmox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/485",
+      "closedAt": "2026-05-25T13:50:34Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 484,
+      "title": "[Firewall Write] VNet/SDN Firewall Management — nftables Tech-Preview",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/484",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 483,
+      "title": "[Firewall Write] Tests & CI Verification",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/483",
+      "closedAt": "2026-05-24T21:50:42Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 482,
+      "title": "[Firewall Write] Intent & Apply Workflow (Branching-Driven Intent)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/482",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 481,
+      "title": "[Firewall Write] NetBox UI Write Forms & Push Actions",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/481",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 480,
+      "title": "[Firewall Write] VM/LXC Container Firewall Management (NetBox → Proxmox)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/480",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 479,
+      "title": "[Firewall Write] VM/QEMU Firewall Management (NetBox → Proxmox)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/479",
+      "closedAt": "2026-05-24T21:50:42Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 478,
+      "title": "[Firewall Write] Node/Host Firewall Management (NetBox → Proxmox)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/478",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 477,
+      "title": "[Firewall Write] Datacenter Firewall Management (NetBox → Proxmox)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/477",
+      "closedAt": "2026-05-24T21:50:41Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 476,
+      "title": "[Firewall Write] proxbox-api Write Endpoints (POST/PUT/DELETE)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/476",
+      "closedAt": "2026-05-25T13:49:55Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        },
+        {
+          "name": "python",
+          "color": "2b67c6"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 474,
+      "title": "feat: Quick Edit button on homepage endpoint cards (modal form)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/474",
+      "closedAt": "2026-05-19T15:42:21Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 472,
+      "title": "unable to open snapshot",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/472",
+      "closedAt": "2026-05-19T13:57:32Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.17",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 468,
+      "title": "When a server have dual homed ipv4/ipv6",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/468",
+      "closedAt": "2026-05-18T12:47:44Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16.post5",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/24"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 463,
+      "title": "Add Packer support",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/463",
+      "closedAt": "2026-05-17T17:23:13Z",
+      "labels": [],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": [
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462
+      ]
+    },
+    {
+      "number": 462,
+      "title": "Packer / PHASE7: proxmox-iso builder support (post-MVP)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/462",
+      "closedAt": "2026-05-17T17:22:51Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 461,
+      "title": "Packer / PHASE6: plugin settings, security gating, and operational controls",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/461",
+      "closedAt": "2026-05-17T17:22:25Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 460,
+      "title": "Packer / PHASE5: publish successful builds to CloudImageTemplate and tenant catalog",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/460",
+      "closedAt": "2026-05-17T17:22:11Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 459,
+      "title": "Packer / PHASE4: netbox_packer build job and proxbox-api SSE proxy (PackerImageBuildJob)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/459",
+      "closedAt": "2026-05-17T17:21:53Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 458,
+      "title": "Packer / PHASE3: netbox_packer UI surface (forms, tables, filtersets, navigation, templates)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/458",
+      "closedAt": "2026-05-17T15:42:48Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 457,
+      "title": "Packer / PHASE2: netbox_packer plugin scaffold (PluginConfig, models, migrations, choices, API)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/457",
+      "closedAt": "2026-05-17T15:15:22Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 256,
+      "title": "Fix template error when there's no object created. Also update 'Nodes' and 'Virtual Machines' templates to use new WebSocket client.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/256",
+      "closedAt": "2025-03-03T21:01:43Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 255,
+      "title": "Generate CORS origins based on user provided information at NetBox Endpoint.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/255",
+      "closedAt": "2025-03-13T12:41:50Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 254,
+      "title": "[0.0.6b1] only first call to fastapi application works after that application freezes",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/254",
+      "closedAt": "2025-03-03T14:44:28Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 252,
+      "title": "Allow GUI sync buttons to be clicked only when Websocket is sucessfully connected with backend.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/252",
+      "closedAt": "2025-03-27T21:03:21Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 251,
+      "title": "Ensure Cluster object exists before creating Device, otherwise raise error or skip device creation.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/251",
+      "closedAt": "2026-03-31T13:14:54Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 250,
+      "title": "Hide Token values on NetBox Models.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/250",
+      "closedAt": "2025-03-29T16:01:03Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 247,
+      "title": "Move to use pynetbox-api NetBox endpoint (session) instead of current one. Basically the same, but proxbox will not have a SQL table anymore.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/247",
+      "closedAt": "2025-02-28T19:44:20Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 246,
+      "title": "Refine websocket client/server code, making it more reliable.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/246",
+      "closedAt": "2025-02-28T16:06:56Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 244,
+      "title": "Move backend communication with NetBox to use pynetbox-api.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/244",
+      "closedAt": "2025-02-26T01:15:51Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 243,
+      "title": "Add HA status in Proxmox to Netbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/243",
+      "closedAt": "2026-05-07T17:02:17Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.15",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/16"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 242,
+      "title": "Add a last updated timestamp to objects the plugin makes changes to",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/242",
+      "closedAt": "2026-03-31T13:05:25Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 241,
+      "title": "Allow a choice in how the type of virtualization, qemu or lxc, is stored in Netbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/241",
+      "closedAt": "2026-04-27T21:48:05Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 239,
+      "title": "\"New Documentation Available!\" link in the front page readme 404s",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/239",
+      "closedAt": "2026-03-30T18:47:12Z",
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.7",
+        "state": "closed",
+        "due_on": "2025-04-15T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/6"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 237,
+      "title": "Change Proxbox API to get info from plugin Models instead of configuration.py",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/237",
+      "closedAt": "2025-01-24T19:22:45Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 236,
+      "title": "Change 'netbox_proxbox' package (django app) to 'uv' package manager.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/236",
+      "closedAt": "2025-03-29T13:01:16Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 234,
+      "title": "Allow only one object for NetBoxEndpoint and FastAPIEndpoint on API",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/234",
+      "closedAt": "2025-03-28T00:52:30Z",
+      "labels": [],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 233,
+      "title": "Allow only one object for NetBoxEndpoint and FastAPIEndpoint on GUI",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/233",
+      "closedAt": "2025-01-23T14:59:42Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 231,
+      "title": "Move 'backend' package to parent folder and renames it to 'proxbox_api' and use 'uv' on this new package.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/231",
+      "closedAt": "2025-01-22T18:59:32Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 229,
+      "title": "Changes 'Full Update' Page to render config from Models instead of Netbox configuration.py",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/229",
+      "closedAt": "2025-01-20T14:07:30Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 228,
+      "title": "Automatically populate NetBoxEndpoint and FastAPIEndpoint models and starts Proxbox Backend service.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/228",
+      "closedAt": "2026-04-01T19:36:40Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 227,
+      "title": "Move Proxbox current configuration to Django Models to allow GUI and API CRUD operations.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/227",
+      "closedAt": "2025-03-29T19:30:05Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 224,
+      "title": "Expose Proxbox configuration on Netbox API for CRUD operations.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/224",
+      "closedAt": "2025-01-20T01:36:08Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 219,
+      "title": "Create command-line tool for managing Proxmox VM with Netbox as Source of Truth",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/219",
+      "closedAt": "2026-04-01T19:48:04Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 215,
+      "title": "Refactor Javascript Vanilla to Alpine.js/HTMX",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/215",
+      "closedAt": "2026-03-30T18:49:10Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "closed",
+        "due_on": "2025-04-30T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 213,
+      "title": "Changes package installation and CI/CD from 'pip' to 'uv'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/213",
+      "closedAt": "2025-03-29T13:02:07Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 210,
+      "title": "Full Update fails on advanced qemu_guest_agent options",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/210",
+      "closedAt": "2025-04-09T00:44:26Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 208,
+      "title": "Refactor \"netbox_proxbox.backend.routes.netbox.generic\" subpackage and split it into smaller subpackages.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/208",
+      "closedAt": "2024-11-26T18:56:45Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 207,
+      "title": "Support for Proxmox v8.3.0 Webhook feature.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/207",
+      "closedAt": "2026-06-23T00:31:31Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 206,
+      "title": "Start using Ruff or other Python Linter",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/206",
+      "closedAt": "2024-10-28T21:15:47Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 204,
+      "title": "The Proxbox Backend default port is already in use. Try to use another port and inform user on GUI.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/204",
+      "closedAt": "2026-03-31T14:45:48Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 203,
+      "title": "Enable FastAPI HTTPS Connection",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/203",
+      "closedAt": "2026-04-01T19:05:55Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 202,
+      "title": "Add keepalive status for all Proxbox services (Netbox API, Proxbox API and Proxmox API)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/202",
+      "closedAt": "2025-01-22T18:59:32Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 200,
+      "title": "Provide sudo-enabled linux user on 'fastapi' section at Netbox 'configuration.py' file.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/200",
+      "closedAt": "2024-10-22T18:19:52Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 198,
+      "title": "Remove all code related to previous Django backend.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/198",
+      "closedAt": "2024-10-21T20:55:00Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 196,
+      "title": "Customize Proxbox Backend systemd Status Page (systemctl status proxbox)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/196",
+      "closedAt": "2024-10-21T20:17:53Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 195,
+      "title": "Proxbox backend docker support",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/195",
+      "closedAt": "2025-03-03T18:58:14Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 194,
+      "title": "Handle corner cases on \"Let Proxbox fix it\" button at Probox Plugin Homepage.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/194",
+      "closedAt": "2024-10-25T06:35:28Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 192,
+      "title": "Create service buttons on FastAPI card at Proxbox Plugin Homepage and \"Fix it\" button",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/192",
+      "closedAt": "2024-10-19T20:08:49Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 189,
+      "title": "Fix bug when the first cluster is not communicating, the status of other clusters remain unknown.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/189",
+      "closedAt": "2026-03-30T18:50:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "closed",
+        "due_on": "2025-04-30T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 180,
+      "title": "project still a live ?",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/180",
+      "closedAt": "2024-08-03T11:33:04Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 176,
+      "title": "Support for netbox >4.6.x",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/176",
+      "closedAt": "2026-05-19T15:22:00Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 175,
+      "title": "pynetbox.core.query.RequestError - The specified disk size (53) must match the aggregate size of assigned virtual disks (55)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/175",
+      "closedAt": "2026-03-30T18:47:30Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "closed",
+        "due_on": "2025-04-30T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 174,
+      "title": "errors python3 manage.py migrate",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/174",
+      "closedAt": "2024-05-05T16:55:22Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 173,
+      "title": "object has no attribute \"slug\"",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/173",
+      "closedAt": "2024-10-24T13:06:32Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 172,
+      "title": "Dynamic Proxmox configuration",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/172",
+      "closedAt": "2025-01-17T22:03:28Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 170,
+      "title": "migration error .. and SSL.. Of course.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/170",
+      "closedAt": "2024-10-24T12:55:36Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 169,
+      "title": "How are you supposed to use this without SSL?",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/169",
+      "closedAt": "2024-10-24T12:56:07Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 167,
+      "title": "Full update does not work",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/167",
+      "closedAt": "2024-10-24T12:53:23Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 166,
+      "title": "full update from netbox gives error",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/166",
+      "closedAt": "2025-04-09T00:22:13Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 165,
+      "title": "Support version 3.7.1",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/165",
+      "closedAt": "2024-10-24T12:53:50Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 163,
+      "title": "Support for  Netbox 3.2.x",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/163",
+      "closedAt": "2024-10-24T12:54:15Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 162,
+      "title": "dont show token value on proxbox plugin page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/162",
+      "closedAt": "2024-10-24T12:58:31Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 160,
+      "title": "CLOSED",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/160",
+      "closedAt": "2025-04-08T23:54:53Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 159,
+      "title": "Refactor all backend to FastAPI framework",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/159",
+      "closedAt": "2024-10-24T13:07:59Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 157,
+      "title": "Unable to add PVE nodes to Netbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/157",
+      "closedAt": "2026-03-30T18:49:56Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 156,
+      "title": "multiple proxmox clusters - support setting site_id on each cluster config",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/156",
+      "closedAt": "2025-04-09T00:25:45Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 150,
+      "title": "Can't add multiple proxmox clusters to proxbox PLUGINS_CONFIG block. Issue with dict vs list",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/150",
+      "closedAt": "2024-09-24T12:40:42Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 149,
+      "title": "Compatibility for Netbox 3.6.1",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/149",
+      "closedAt": "2024-11-17T20:19:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 148,
+      "title": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/148",
+      "closedAt": "2025-04-09T00:20:42Z",
+      "labels": [
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 146,
+      "title": "Migration error",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/146",
+      "closedAt": "2023-09-08T10:58:45Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 145,
+      "title": "Different site_id for different clusters possible?",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/145",
+      "closedAt": "2026-04-01T17:45:01Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 144,
+      "title": "SSL certificate verify failed",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/144",
+      "closedAt": "2024-10-24T13:01:37Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "question",
+          "color": "d876e3"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 143,
+      "title": "AttributeError while running Proxmox Full Update for the first time",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/143",
+      "closedAt": "2025-04-08T23:57:10Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 140,
+      "title": "Interfaces from all VMs are deleted when executing Proxmox Full Update",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/140",
+      "closedAt": "2025-04-08T23:49:49Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 138,
+      "title": "im getting this error whentrying to run the migrate command part of install",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/138",
+      "closedAt": "2023-08-11T12:48:30Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 136,
+      "title": "<class 'TypeError'> While full Update proxmox | Proxbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/136",
+      "closedAt": "2025-04-09T00:45:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 132,
+      "title": "AttributeError: module 'netbox_proxbox.proxbox_api' has no attribute 'update",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/132",
+      "closedAt": "2023-07-31T18:50:30Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 130,
+      "title": "Deploy Standalone version of Proxbox plugin (independent of NetBox source-code)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/130",
+      "closedAt": "2023-08-17T15:22:51Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 129,
+      "title": "OS error: 'coroutine' object has no attribute 'id'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/129",
+      "closedAt": "2024-10-24T13:02:30Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 125,
+      "title": "Full Upgrade Fail on Netbox 3.5.4",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/125",
+      "closedAt": "2024-10-24T12:54:40Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 124,
+      "title": "Add CSV code to ease Custom Fields import.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/124",
+      "closedAt": "2025-04-08T23:58:15Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 123,
+      "title": "Multiple Proxmox Clusters",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/123",
+      "closedAt": "2023-07-21T16:07:25Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 121,
+      "title": "Missing IP Address and some basic information.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/121",
+      "closedAt": "2025-04-09T00:24:27Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 120,
+      "title": "name=iface['name'] - string indices must be integers",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/120",
+      "closedAt": "2025-04-09T00:04:04Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 119,
+      "title": "[  SOLVED ] proxmox_cluster['name']: object has no attribute 'name'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/119",
+      "closedAt": "2023-05-31T13:04:51Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 117,
+      "title": "Missing curly bracket in the install procedure",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/117",
+      "closedAt": "2023-06-01T19:54:24Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 116,
+      "title": "Flap Mac address and interface",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/116",
+      "closedAt": "2025-04-09T00:18:26Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "good first issue",
+          "color": "7057ff"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 115,
+      "title": "Change from 'pynetbox' to 'netbox-plugin'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/115",
+      "closedAt": "2025-04-09T00:02:23Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "good first issue",
+          "color": "7057ff"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "closed",
+        "due_on": "2025-04-30T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 112,
+      "title": "Auto Maintain source of truth by having scheduled routine sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/112",
+      "closedAt": "2026-03-31T12:32:12Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.7",
+        "state": "closed",
+        "due_on": "2025-04-15T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/6"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 111,
+      "title": "Automatic Full Update",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/111",
+      "closedAt": "2026-03-31T12:42:33Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 110,
+      "title": "'NoneType' object has no attribute 'id'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/110",
+      "closedAt": "2025-04-09T00:29:25Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 108,
+      "title": "Custom BASE_PATH support",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/108",
+      "closedAt": "2023-05-11T12:44:36Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "good first issue",
+          "color": "7057ff"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 107,
+      "title": "Stuck when full request",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/107",
+      "closedAt": "2025-04-09T00:16:47Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 106,
+      "title": "'NoneType' object has no attribute 'lower'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/106",
+      "closedAt": "2025-04-09T00:12:56Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 105,
+      "title": "Option to Ignore IPv6 Link Local Addresses",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/105",
+      "closedAt": "2026-04-01T18:11:07Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 104,
+      "title": "Use interface name from qemu-guest-agent",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/104",
+      "closedAt": "2026-03-31T14:43:11Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 101,
+      "title": "Adapt remove functions so that it works with duplicated devices.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/101",
+      "closedAt": "2026-04-01T18:36:02Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 98,
+      "title": "Proxbox plugin crashing when adding an extra network interface to generated devices",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/98",
+      "closedAt": "2023-03-23T15:37:26Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 97,
+      "title": "Assign device into virtual machine view",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/97",
+      "closedAt": "2026-03-30T18:52:18Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 96,
+      "title": "Change print() to python logging library",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/96",
+      "closedAt": "2023-03-23T20:46:24Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 94,
+      "title": "Interfaces are updated event though it's not needed",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/94",
+      "closedAt": "2023-03-21T11:25:11Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 90,
+      "title": "Change how tables are displayed using django_tables2",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/90",
+      "closedAt": "2023-03-16T19:22:11Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 89,
+      "title": "Increase performance by reduncing HTTP requests and using asynchronous code",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/89",
+      "closedAt": "2023-07-24T16:51:34Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 88,
+      "title": "[ERROR] 500 Internal Server Error: QEMU guest agent is not running",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/88",
+      "closedAt": "2026-03-31T13:32:16Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 86,
+      "title": "Automatically fill Virtual Machine Primary Field when syncing.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/86",
+      "closedAt": "2026-03-31T15:28:26Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 85,
+      "title": "VM info for ethernet device and IP and other VM information not automatically created and associated",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/85",
+      "closedAt": "2023-03-08T20:37:08Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 75,
+      "title": "Error creating PVE node when there's existing Netbox device with the same name (duplicate)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/75",
+      "closedAt": "2023-03-23T15:27:26Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 74,
+      "title": "'str' object has no attribute 'id'",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/74",
+      "closedAt": "2023-02-17T19:26:46Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 73,
+      "title": "The problem with the template footer.html",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/73",
+      "closedAt": "2023-02-17T18:44:33Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 72,
+      "title": "netbox-proxbox and netbox 3.4.x ",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/72",
+      "closedAt": "2023-02-17T18:32:06Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 355,
+      "title": "Home Page UI missing Logos",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/355",
+      "closedAt": "2026-05-07T15:32:43Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 354,
+      "title": "dns_name is not set in netbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/354",
+      "closedAt": "2026-05-07T15:54:30Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.15",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/16"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 352,
+      "title": "Proxbox fastapi setup, is failing when using the nginx docker container",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/352",
+      "closedAt": "2026-05-07T15:43:28Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 350,
+      "title": "\"Role,\" \"Type,\" and \"Tags\" device fields overwritten",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/350",
+      "closedAt": "2026-05-11T14:21:09Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 349,
+      "title": "proxmox_last_updated custom field scope is incomplete and VM sync can fail on disk validation",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/349",
+      "closedAt": "2026-05-04T20:23:40Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 343,
+      "title": "No overwrite_* in settings view",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/343",
+      "closedAt": "2026-04-30T20:18:56Z",
+      "labels": [
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 342,
+      "title": "Syncing Devices Reverts Device Type",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/342",
+      "closedAt": "2026-04-30T21:10:18Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 337,
+      "title": "Syncing machines erases tags",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/337",
+      "closedAt": "2026-04-28T20:28:23Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 336,
+      "title": "Controlled Devices fields",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/336",
+      "closedAt": "2026-04-27T21:24:04Z",
+      "labels": [
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 335,
+      "title": "Controlled Devices fields",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/335",
+      "closedAt": "2026-04-27T21:27:48Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.13",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 332,
+      "title": "Improve per-endpoint Proxmox configuration options, such as SSL verification, timeout, retry count, etc.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/332",
+      "closedAt": "2026-04-20T20:11:36Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.12",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/13"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 331,
+      "title": "Add the ability to append site+tenant to PVE endpoint",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/331",
+      "closedAt": "2026-04-20T18:28:13Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.12",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/13"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 330,
+      "title": "Sync tasks supports no more than 255 characters",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/330",
+      "closedAt": "2026-04-20T18:07:03Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.12",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/13"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 327,
+      "title": "NetBox 4.5.x compatibility fixes for netbox-proxbox + proxbox-api",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/327",
+      "closedAt": "2026-04-13T16:05:30Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.11",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/12"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 326,
+      "title": "PVE Firewall sync",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/326",
+      "closedAt": "2026-05-19T15:43:50Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.17",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 325,
+      "title": "Proxmox Backup Server (PBS) support.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/325",
+      "closedAt": "2026-05-16T23:03:42Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.16",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 323,
+      "title": "Bug: Internal Server Error when creating or viewing Proxmox Endpoint (AttributeError in tabs)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/323",
+      "closedAt": "2026-04-08T21:49:33Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.11",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/12"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 316,
+      "title": "Create a `Backend Logs` page on plugin.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/316",
+      "closedAt": "2026-04-03T01:40:01Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 315,
+      "title": "Add Replication page on plugin that automatically sync Proxmox Replication data.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/315",
+      "closedAt": "2026-04-03T02:00:34Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 314,
+      "title": "Add a Backup Routines page on plugin that shows Datacenter > Backup scheduled backups.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/314",
+      "closedAt": "2026-04-02T23:06:01Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 313,
+      "title": "Showing live job updates on core/jobs even when job is not running (scheduled)",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/313",
+      "closedAt": "2026-04-02T22:48:38Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 312,
+      "title": "Add a Console button tha redirects to console on Proxmox.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/312",
+      "closedAt": "2026-04-02T22:20:25Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 310,
+      "title": "Add /proxbox/interfaces Page to list only plugin-related NetBox /virtualization/interfaces.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/310",
+      "closedAt": "2026-04-01T19:39:12Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 309,
+      "title": "Render OpenAPI schema from Backend on ProxboxEndpoint (/plugins/proxbox/endpoints/fastapi/<pk>) Object Details.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/309",
+      "closedAt": "2026-04-01T17:22:56Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 308,
+      "title": "Improve /plugins/proxbox/endpoints/proxmox/<pk> Object View with details of Proxmox Cluster and its Nodes.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/308",
+      "closedAt": "2026-04-01T17:39:08Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.10",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 293,
+      "title": "Install / test blocker on the published v4 beta builds",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/293",
+      "closedAt": "2026-03-30T18:44:44Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 292,
+      "title": "Plugin can't connect to proxmox or netbox",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/292",
+      "closedAt": "2026-03-30T18:44:28Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 290,
+      "title": "Proxbox api Docker on other Host",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/290",
+      "closedAt": "2026-03-30T18:45:02Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 289,
+      "title": "Link to instructions for docker alternative does not exist",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/289",
+      "closedAt": "2026-03-30T18:45:36Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 288,
+      "title": "Error after install",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/288",
+      "closedAt": "2026-03-30T18:45:16Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 286,
+      "title": "NetBox API connection not found despite valid configuration",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/286",
+      "closedAt": "2026-03-30T18:46:14Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 285,
+      "title": "Cant get api-backend to connect to Netbox, UNIQUE constraint failed: netboxendpoint.id",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/285",
+      "closedAt": "2026-03-30T18:46:20Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 284,
+      "title": "Error with proxbox-api when installing Proxbox 0.0.6.b2",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/284",
+      "closedAt": "2026-03-30T18:45:50Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 283,
+      "title": "Automatically create VLANs of network interfaces.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/283",
+      "closedAt": "2026-03-31T15:28:37Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 282,
+      "title": "False-positive with GUI when RawNetBoxSession is sucessful, but NetBoxBase not.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/282",
+      "closedAt": "2026-03-31T13:07:12Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 281,
+      "title": "Style Sync Process table and add logs to each Sync Process object view.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/281",
+      "closedAt": "2026-03-31T13:12:15Z",
+      "labels": [
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 279,
+      "title": "Hide Proxmox Token on NetBox Plugin GUI",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/279",
+      "closedAt": "2026-03-31T13:09:29Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 278,
+      "title": "Add domain field to ProxmoxEndpoint model.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/278",
+      "closedAt": "2025-03-31T20:42:46Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 277,
+      "title": "Fix GUI bug when NetBox HTMX is disabled causing to render layout.html instead of just the desired element.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/277",
+      "closedAt": "2026-03-30T18:46:39Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "wontfix",
+          "color": "ffffff"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.8",
+        "state": "closed",
+        "due_on": "2025-04-30T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 274,
+      "title": "Implement Backup and Snapshot django modelling and integrate it with Proxmox.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/274",
+      "closedAt": "2025-05-08T18:49:36Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.7",
+        "state": "closed",
+        "due_on": "2025-04-15T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/6"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 267,
+      "title": "FR: Add to each Endpoints view page a basic validation of the API's connection",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/267",
+      "closedAt": "2026-03-31T14:45:15Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.9",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 266,
+      "title": "Error in Nodes and Virtual Machines: class 'django.template.exceptions.TemplateDoesNotExist'  netbox_proxbox/nodes_table/script.html netbox_proxbox/virtual_machine_table/script.html",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/266",
+      "closedAt": "2025-03-27T17:51:05Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "duplicate",
+          "color": "cfd3d7"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 265,
+      "title": "Promox API and Netbox API only accessible via IP address",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/265",
+      "closedAt": "2025-04-09T00:37:49Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6",
+        "state": "closed",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 264,
+      "title": "Implement Sync Routines using Django Models to trigger and follow sync progress.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/264",
+      "closedAt": "2025-03-27T17:39:08Z",
+      "labels": [
+        {
+          "name": "help wanted",
+          "color": "008672"
+        },
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 263,
+      "title": "Change websocket communication to server-only and on client, work with pulling.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/263",
+      "closedAt": "2025-03-27T17:39:08Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 261,
+      "title": "Create Domain fields for NetBox and FastAPI endpoints and manual mkcert cert generation already working with the provided domain.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/261",
+      "closedAt": "2025-03-12T15:22:58Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 258,
+      "title": "Automatically create a self-signed certificate with local-CA with mkcert to Proxbox Backend",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/258",
+      "closedAt": "2026-03-31T12:44:37Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 256,
+      "title": "Fix template error when there's no object created. Also update 'Nodes' and 'Virtual Machines' templates to use new WebSocket client.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/256",
+      "closedAt": "2025-03-03T21:01:43Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 255,
+      "title": "Generate CORS origins based on user provided information at NetBox Endpoint.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/255",
+      "closedAt": "2025-03-13T12:41:50Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 254,
+      "title": "[0.0.6b1] only first call to fastapi application works after that application freezes",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/254",
+      "closedAt": "2025-03-03T14:44:28Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 252,
+      "title": "Allow GUI sync buttons to be clicked only when Websocket is sucessfully connected with backend.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/252",
+      "closedAt": "2025-03-27T21:03:21Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 251,
+      "title": "Ensure Cluster object exists before creating Device, otherwise raise error or skip device creation.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/251",
+      "closedAt": "2026-03-31T13:14:54Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.1.0",
+        "state": "open",
+        "due_on": null,
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 250,
+      "title": "Hide Token values on NetBox Models.",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/250",
+      "closedAt": "2025-03-29T16:01:03Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": {
+        "title": "v0.0.6b2",
+        "state": "closed",
+        "due_on": "2025-03-31T00:00:00Z",
+        "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10"
+      },
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    }
+  ],
   "edges": [],
-  "timeline": [],
-  "labels": [],
-  "milestones": []
+  "timeline": [
+    {
+      "phase": 0,
+      "kind": "shipped",
+      "note": "shipped",
+      "issues": [
+        649,
+        657,
+        641,
+        640,
+        635,
+        633,
+        620,
+        634,
+        623,
+        626,
+        629,
+        625,
+        624,
+        617,
+        614,
+        618,
+        616,
+        619,
+        615,
+        610,
+        593,
+        609,
+        606,
+        599,
+        598,
+        597,
+        596,
+        595,
+        594,
+        591,
+        589,
+        207,
+        586,
+        582,
+        576,
+        577,
+        574,
+        566,
+        567,
+        563,
+        565,
+        564,
+        561,
+        560,
+        558,
+        557,
+        551,
+        556,
+        554,
+        552,
+        544,
+        541,
+        545,
+        537,
+        519,
+        536,
+        533,
+        529,
+        531,
+        527,
+        525,
+        485,
+        476,
+        522,
+        520,
+        517,
+        514,
+        513,
+        483,
+        479,
+        484,
+        482,
+        481,
+        480,
+        478,
+        477,
+        511,
+        508,
+        491,
+        504,
+        502,
+        499,
+        500,
+        486,
+        490,
+        326,
+        474,
+        176,
+        472,
+        468,
+        463,
+        462,
+        461,
+        460,
+        459,
+        458,
+        457,
+        325,
+        350,
+        243,
+        354,
+        352,
+        355,
+        349,
+        342,
+        343,
+        337,
+        241,
+        335,
+        336,
+        332,
+        331,
+        330,
+        327,
+        323,
+        315,
+        316,
+        314,
+        313,
+        312,
+        219,
+        310,
+        228,
+        203,
+        101,
+        105,
+        145,
+        308,
+        309,
+        283,
+        86,
+        204,
+        267,
+        104,
+        88,
+        251,
+        251,
+        281,
+        279,
+        282,
+        242,
+        258,
+        111,
+        112,
+        97,
+        189,
+        157,
+        215,
+        175,
+        239,
+        277,
+        285,
+        286,
+        284,
+        289,
+        288,
+        290,
+        293,
+        292,
+        274,
+        136,
+        210,
+        265,
+        110,
+        156,
+        121,
+        166,
+        148,
+        116,
+        107,
+        106,
+        120,
+        115,
+        124,
+        143,
+        160,
+        140,
+        278,
+        227,
+        250,
+        250,
+        213,
+        236,
+        234,
+        252,
+        252,
+        266,
+        264,
+        263,
+        255,
+        255,
+        261,
+        256,
+        256,
+        195,
+        254,
+        254,
+        247,
+        246,
+        244,
+        237,
+        233,
+        231,
+        202,
+        229,
+        224,
+        172,
+        208,
+        149,
+        206,
+        194,
+        159,
+        173,
+        129,
+        144,
+        162,
+        169,
+        170,
+        125,
+        163,
+        165,
+        167,
+        200,
+        198,
+        196,
+        192,
+        150,
+        180,
+        174,
+        146,
+        130,
+        138,
+        132,
+        89,
+        123,
+        117,
+        119,
+        108,
+        96,
+        98,
+        75,
+        94,
+        90,
+        85,
+        74,
+        73,
+        72
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        602,
+        651
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "name": "accepted",
+      "color": "0E8A16",
+      "count": 137
+    },
+    {
+      "name": "bug",
+      "color": "D93F0B",
+      "count": 69
+    },
+    {
+      "name": "feature",
+      "color": "5DB5F8",
+      "count": 69
+    },
+    {
+      "name": "under review",
+      "color": "FBCA04",
+      "count": 32
+    },
+    {
+      "name": "duplicate",
+      "color": "cfd3d7",
+      "count": 13
+    },
+    {
+      "name": "help wanted",
+      "color": "008672",
+      "count": 9
+    },
+    {
+      "name": "python",
+      "color": "2b67c6",
+      "count": 9
+    },
+    {
+      "name": "wontfix",
+      "color": "ffffff",
+      "count": 9
+    },
+    {
+      "name": "good first issue",
+      "color": "7057ff",
+      "count": 3
+    },
+    {
+      "name": "documentation",
+      "color": "0075ca",
+      "count": 2
+    },
+    {
+      "name": "invalid",
+      "color": "e4e669",
+      "count": 1
+    },
+    {
+      "name": "question",
+      "color": "d876e3",
+      "count": 1
+    }
+  ],
+  "milestones": [
+    {
+      "title": "v0.0.6b2",
+      "state": "closed",
+      "due_on": "2025-03-31T00:00:00Z",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/10",
+      "open": 0,
+      "closed": 14
+    },
+    {
+      "title": "v0.0.7",
+      "state": "closed",
+      "due_on": "2025-04-15T00:00:00Z",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/6",
+      "open": 0,
+      "closed": 3
+    },
+    {
+      "title": "v0.0.8",
+      "state": "closed",
+      "due_on": "2025-04-30T00:00:00Z",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/7",
+      "open": 0,
+      "closed": 5
+    },
+    {
+      "title": "v0.0.10",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/11",
+      "open": 0,
+      "closed": 11
+    },
+    {
+      "title": "v0.0.11",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/12",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.12",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/13",
+      "open": 0,
+      "closed": 3
+    },
+    {
+      "title": "v0.0.13",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/14",
+      "open": 0,
+      "closed": 6
+    },
+    {
+      "title": "v0.0.15",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/16",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.16",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/17",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.16.post5",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/24",
+      "open": 0,
+      "closed": 1
+    },
+    {
+      "title": "v0.0.17",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/18",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.20",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/21",
+      "open": 0,
+      "closed": 2
+    },
+    {
+      "title": "v0.0.21",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/26",
+      "open": 0,
+      "closed": 1
+    },
+    {
+      "title": "v0.0.6",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/5",
+      "open": 0,
+      "closed": 15
+    },
+    {
+      "title": "v0.0.9",
+      "state": "closed",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/8",
+      "open": 0,
+      "closed": 11
+    },
+    {
+      "title": "v0.1.0",
+      "state": "open",
+      "due_on": null,
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/milestone/9",
+      "open": 0,
+      "closed": 8
+    }
+  ]
 }
