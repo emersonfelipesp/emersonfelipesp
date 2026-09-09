@@ -13,10 +13,24 @@ export const netboxProxbox = {
     "netbox-proxbox keeps your DCIM in sync with real Proxmox clusters by streaming clusters, nodes, VMs, containers, storage, snapshots and backups straight into NetBox.",
     "It pairs a NetBox plugin (Django) with a dedicated FastAPI service called proxbox-api that does the heavy lifting and pushes progress live over Server-Sent Events.",
   ],
+  monitoring: {
+    title: "InfluxDB metrics integration",
+    summary:
+      "Query Proxmox time-series metrics from the NetBox operator surface through a bounded, credential-safe proxy.",
+    points: [
+      "Proxmox writes measurements to InfluxDB while netbox-proxbox stores the cluster mapping and encrypted query token.",
+      "NetBox sends structured filters to proxbox-api; the browser never receives the InfluxDB credential or connects to InfluxDB directly.",
+      "The backend validates the request, generates Flux, enforces bounded time and row limits, and returns normalized results.",
+    ],
+    docsLabel: "Read the monitoring setup guide",
+    docsHref:
+      "https://emersonfelipesp.com/netbox-proxbox/docs/features/monitoring/",
+  },
   features: [
     "Automatic sync: clusters, nodes, VMs, containers, storage, snapshots, backups",
     "Real-time progress via Server-Sent Events (SSE) streaming",
     "Granular per-VM and per-endpoint sync flags",
+    "InfluxDB metrics integration through a bounded proxbox-api query proxy",
     "Live backend log viewer pulled from proxbox-api",
     "Endpoint configuration via CSV / JSON / YAML import & export",
     "Read-only discovery — never mutates resources on Proxmox",

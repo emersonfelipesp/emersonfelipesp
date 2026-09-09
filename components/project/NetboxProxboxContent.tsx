@@ -54,6 +54,29 @@ export function NetboxProxboxContent({
       <OverviewSection project={p} sections={sections} inlineStack />
       <FeaturesSection project={p} sections={sections} />
 
+      <section id="monitoring" className="space-y-3 scroll-mt-24">
+        <SectionHeading id="monitoring">{p.monitoring.title}</SectionHeading>
+        <TypedCommand command="./monitoring --influxdb" cwd={`~/${p.slug}`} />
+        <div className="border border-border bg-surface p-5 text-sm">
+          <p className="text-fg/90">{p.monitoring.summary}</p>
+          <ul className="mt-4 space-y-2 text-fg/90">
+            {p.monitoring.points.map((point) => (
+              <li key={point}>
+                <span className="text-accent">›</span> {point}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={p.monitoring.docsHref}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex border border-accent px-3 py-2 text-xs text-accent transition-colors hover:bg-accent hover:text-bg"
+          >
+            {p.monitoring.docsLabel} <span className="ml-2">→</span>
+          </a>
+        </div>
+      </section>
+
       <section className="space-y-4">
         <SectionHeading id="install">{sections.install}</SectionHeading>
         <TypedCommand command="./install --help" cwd={`~/${p.slug}`} />

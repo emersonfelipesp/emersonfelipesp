@@ -45,10 +45,24 @@ const NETBOX_PROXBOX_PT_BR = {
     "O netbox-proxbox mantém seu DCIM em sincronia com clusters Proxmox reais, transmitindo clusters, nós, VMs, contêineres, storage, snapshots e backups direto para o NetBox.",
     "Combina um plugin para o NetBox (Django) com um serviço FastAPI dedicado chamado proxbox-api, que faz o trabalho pesado e envia o progresso ao vivo via Server-Sent Events.",
   ],
+  monitoring: {
+    title: "Integração de métricas com InfluxDB",
+    summary:
+      "Consulte métricas temporais do Proxmox na superfície operacional do NetBox por meio de um proxy limitado e seguro para credenciais.",
+    points: [
+      "O Proxmox grava as medições no InfluxDB enquanto o netbox-proxbox mantém o mapeamento do cluster e o token de consulta criptografado.",
+      "O NetBox envia filtros estruturados ao proxbox-api; o navegador nunca recebe a credencial do InfluxDB nem se conecta diretamente ao InfluxDB.",
+      "O backend valida a requisição, gera Flux, aplica limites de tempo e linhas e devolve resultados normalizados.",
+    ],
+    docsLabel: "Ler o guia de configuração de monitoramento",
+    docsHref:
+      "https://emersonfelipesp.com/netbox-proxbox/docs/features/monitoring/",
+  },
   features: [
     "Sincronização automática: clusters, nós, VMs, contêineres, storage, snapshots, backups",
     "Progresso em tempo real via streaming Server-Sent Events (SSE)",
     "Flags de sincronização granulares por VM e por endpoint",
+    "Integração de métricas com InfluxDB por meio de um proxy de consulta limitado no proxbox-api",
     "Visualizador ao vivo dos logs do backend obtidos do proxbox-api",
     "Configuração de endpoints via importação/exportação CSV / JSON / YAML",
     "Descoberta somente leitura — nunca altera recursos no Proxmox",
@@ -451,6 +465,7 @@ export function getNetboxProxbox(lang: Lang): NetboxProxboxContent {
     tagline: NETBOX_PROXBOX_PT_BR.tagline,
     description: NETBOX_PROXBOX_PT_BR.description,
     features: NETBOX_PROXBOX_PT_BR.features,
+    monitoring: NETBOX_PROXBOX_PT_BR.monitoring,
     stack: NETBOX_PROXBOX_PT_BR.stack,
     install: { ...netboxProxbox.install, ...NETBOX_PROXBOX_PT_BR.install },
     sections: localizeSections(
