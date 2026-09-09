@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-19T18:31:14.400Z",
+  "syncedAt": "2026-09-09T14:32:58.568Z",
   "repos": [
     {
       "slug": "netbox-proxbox",
@@ -48,6 +48,12 @@
       "fullName": "emersonfelipesp/netbox-packer",
       "ok": true,
       "skipped": false
+    },
+    {
+      "slug": "netbox-openbao",
+      "fullName": "emersonfelipesp/netbox-openbao",
+      "ok": true,
+      "skipped": true
     }
   ]
 }

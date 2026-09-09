@@ -1,9 +1,109 @@
 {
-  "syncedAt": "2026-08-19T18:31:14.068Z",
+  "syncedAt": "2026-09-09T14:32:58.532Z",
   "fullName": "emersonfelipesp/proxmox-sdk",
-  "stars": 6,
+  "stars": 7,
   "forks": 2,
   "releases": [
+    {
+      "id": 385117062,
+      "nodeId": "RE_kwDORz_GBs4W9GuG",
+      "tag": "v0.0.14.post3",
+      "name": "proxmox-sdk 0.0.14.post3",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.14.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/385117062",
+      "targetCommitish": "main",
+      "body": "<!-- proxmox-sdk-release-evidence:v1 -->\n\n## Release evidence\n\nRelease version: `0.0.14.post3`\nPackage-of-record manifest SHA256: `0da5f6e3c8e0209e1592fc0c674b3b350bf828ca8a70b6d4b49c81c5fb8ebde3`\n\n- [x] **REQ**: NetBox 4.7 GA dependency resolution is restored through the Pydantic 2.13 compatibility range.\n- [x] **ARCH**: The release validator executes in the locked uv environment used for artifact construction.\n- [x] **IMPL**: Package metadata and lockfile are consistent at `0.0.14.post3`.\n- [x] **STATIC**: Formatting, lint, type, workflow, and security checks passed in the repository gates.\n- [x] **TEST**: The full test suite passed with 700 tests passed and 26 skipped.\n- [x] **COVERAGE**: The existing package coverage and multi-schema test matrix passed.\n- [x] **DEFECTS**: The failed release validator event is superseded by this corrected release.\n- [x] **SECURITY**: The locked dependency and reproducible artifact controls remain enabled.\n- [x] **OPS**: The public release workflow validates metadata using the installed project tools.\n- [x] **RECOVERY**: This post-release version can replace the failed publication attempt.\n- [x] **APPROVAL**: The release evidence is complete for public package publication.\n",
+      "bodyHtml": "\n<h2 dir=\"auto\">Release evidence</h2>\n<p dir=\"auto\">Release version: <code class=\"notranslate\">0.0.14.post3</code><br>\nPackage-of-record manifest SHA256: <code class=\"notranslate\">0da5f6e3c8e0209e1592fc0c674b3b350bf828ca8a70b6d4b49c81c5fb8ebde3</code></p>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>REQ</strong>: NetBox 4.7 GA dependency resolution is restored through the Pydantic 2.13 compatibility range.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>ARCH</strong>: The release validator executes in the locked uv environment used for artifact construction.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>IMPL</strong>: Package metadata and lockfile are consistent at <code class=\"notranslate\">0.0.14.post3</code>.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>STATIC</strong>: Formatting, lint, type, workflow, and security checks passed in the repository gates.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>TEST</strong>: The full test suite passed with 700 tests passed and 26 skipped.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>COVERAGE</strong>: The existing package coverage and multi-schema test matrix passed.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>DEFECTS</strong>: The failed release validator event is superseded by this corrected release.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>SECURITY</strong>: The locked dependency and reproducible artifact controls remain enabled.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>OPS</strong>: The public release workflow validates metadata using the installed project tools.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>RECOVERY</strong>: This post-release version can replace the failed publication attempt.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>APPROVAL</strong>: The release evidence is complete for public package publication.</li>\n</ul>",
+      "createdAt": "2026-09-08T22:56:13Z",
+      "publishedAt": "2026-09-08T23:07:49Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.14.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.14.post3"
+      }
+    },
+    {
+      "id": 385114195,
+      "nodeId": "RE_kwDORz_GBs4W9GBT",
+      "tag": "v0.0.14.post2",
+      "name": "proxmox-sdk 0.0.14.post2",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.14.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/385114195",
+      "targetCommitish": "main",
+      "body": "<!-- proxmox-sdk-release-evidence:v1 -->\n\n## Release evidence\n\nRelease version: `0.0.14.post2`\nPackage-of-record manifest SHA256: `2a6a051bcc8e11c1c47c3c4feaced4b099108ec4e2f0b468df79e081d8a747b6`\n\n- [x] **REQ**: NetBox 4.7 GA dependency resolution is restored through the Pydantic 2.13 compatibility range.\n- [x] **ARCH**: The release validator executes in the locked uv environment used for artifact construction.\n- [x] **IMPL**: Package metadata, lockfile, and release validation inputs are consistent at `0.0.14.post2`.\n- [x] **STATIC**: Workflow policy, formatting, lint, type, and import checks passed in the repository gates.\n- [x] **TEST**: The full test suite passed with 700 tests passed and 26 skipped.\n- [x] **COVERAGE**: The existing package coverage and multi-schema test matrix passed.\n- [x] **DEFECTS**: The failed release validator import is fixed and the prior release remains superseded.\n- [x] **SECURITY**: The locked dependency and reproducible artifact controls remain enabled.\n- [x] **OPS**: The public release workflow now validates metadata using the installed project tools.\n- [x] **RECOVERY**: This post-release version is independently publishable and can replace the failed candidate.\n- [x] **APPROVAL**: The release evidence is complete for public package publication.\n",
+      "bodyHtml": "\n<h2 dir=\"auto\">Release evidence</h2>\n<p dir=\"auto\">Release version: <code class=\"notranslate\">0.0.14.post2</code><br>\nPackage-of-record manifest SHA256: <code class=\"notranslate\">2a6a051bcc8e11c1c47c3c4feaced4b099108ec4e2f0b468df79e081d8a747b6</code></p>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>REQ</strong>: NetBox 4.7 GA dependency resolution is restored through the Pydantic 2.13 compatibility range.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>ARCH</strong>: The release validator executes in the locked uv environment used for artifact construction.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>IMPL</strong>: Package metadata, lockfile, and release validation inputs are consistent at <code class=\"notranslate\">0.0.14.post2</code>.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>STATIC</strong>: Workflow policy, formatting, lint, type, and import checks passed in the repository gates.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>TEST</strong>: The full test suite passed with 700 tests passed and 26 skipped.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>COVERAGE</strong>: The existing package coverage and multi-schema test matrix passed.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>DEFECTS</strong>: The failed release validator import is fixed and the prior release remains superseded.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>SECURITY</strong>: The locked dependency and reproducible artifact controls remain enabled.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>OPS</strong>: The public release workflow now validates metadata using the installed project tools.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>RECOVERY</strong>: This post-release version is independently publishable and can replace the failed candidate.</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"\" disabled=\"\" class=\"task-list-item-checkbox\" aria-label=\"Completed task\" checked=\"\"> <strong>APPROVAL</strong>: The release evidence is complete for public package publication.</li>\n</ul>",
+      "createdAt": "2026-09-08T22:47:54Z",
+      "publishedAt": "2026-09-08T23:00:12Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.14.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.14.post2"
+      }
+    },
+    {
+      "id": 385110716,
+      "nodeId": "RE_kwDORz_GBs4W9FK8",
+      "tag": "v0.0.14.post1",
+      "name": "proxmox-sdk v0.0.14.post1",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.14.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/385110716",
+      "targetCommitish": "745005f352fb07b6547995a7b03c0baa82c09fe1",
+      "body": "Recovery release: include packaging in the locked release tool environment so the Pydantic 2.13 compatibility release can publish.",
+      "bodyHtml": "<p dir=\"auto\">Recovery release: include packaging in the locked release tool environment so the Pydantic 2.13 compatibility release can publish.</p>",
+      "createdAt": "2026-09-08T22:40:01Z",
+      "publishedAt": "2026-09-08T22:51:03Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.14.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.14.post1"
+      }
+    },
+    {
+      "id": 385109542,
+      "nodeId": "RE_kwDORz_GBs4W9E4m",
+      "tag": "v0.0.14",
+      "name": "proxmox-sdk v0.0.14",
+      "url": "https://github.com/emersonfelipesp/proxmox-sdk/releases/tag/v0.0.14",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/releases/385109542",
+      "targetCommitish": "10a18018ff7cb91ae8b3374e6e3b3aac4e49319d",
+      "body": "Relax Pydantic compatibility within the tested 2.13 line so netbox-pdm can coexist with NetBox 4.7 GA plugins.",
+      "bodyHtml": "<p dir=\"auto\">Relax Pydantic compatibility within the tested 2.13 line so netbox-pdm can coexist with NetBox 4.7 GA plugins.</p>",
+      "createdAt": "2026-09-08T22:35:31Z",
+      "publishedAt": "2026-09-08T22:47:37Z",
+      "prerelease": false,
+      "latest": false,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/zipball/v0.0.14",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxmox-sdk/tarball/v0.0.14"
+      }
+    },
     {
       "id": 349623241,
       "nodeId": "RE_kwDORz_GBs4U1tPJ",
@@ -17,7 +117,7 @@
       "createdAt": "2026-07-06T14:46:41Z",
       "publishedAt": "2026-07-06T14:47:05Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

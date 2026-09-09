@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T18:32:20.585Z",
+  "generated_at": "2026-09-09T14:33:39.264Z",
   "repo": "emersonfelipesp/proxmox-sdk",
   "counts": {
     "open": 0,
-    "closed": 62,
+    "closed": 56,
     "edges": 29
   },
   "viewBox": "0 0 1 1",
@@ -1280,125 +1280,6 @@
       "w": 240,
       "h": 96,
       "blocked_by": []
-    },
-    {
-      "number": 17,
-      "title": "Proxmox Datacenter Manager (PDM) Support",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/17",
-      "closedAt": "2026-05-16T21:29:34Z",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        }
-      ],
-      "milestone": {
-        "title": "v0.0.5",
-        "state": "closed",
-        "due_on": null,
-        "url": "https://github.com/emersonfelipesp/proxmox-sdk/milestone/3"
-      },
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    },
-    {
-      "number": 13,
-      "title": "Add Support for Ceph operations via TUI and CLI (only integrated with Proxmox for now)",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/13",
-      "closedAt": "2026-05-15T00:32:12Z",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        }
-      ],
-      "milestone": null,
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    },
-    {
-      "number": 12,
-      "title": "Ceph v2: provider SDKs and write-capable Ceph clients",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/12",
-      "closedAt": "2026-06-05T13:30:33Z",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        }
-      ],
-      "milestone": {
-        "title": "v0.1.0",
-        "state": "open",
-        "due_on": null,
-        "url": "https://github.com/emersonfelipesp/proxmox-sdk/milestone/2"
-      },
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    },
-    {
-      "number": 11,
-      "title": "Ceph support: read-only SDK facade",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/11",
-      "closedAt": "2026-05-14T22:57:41Z",
-      "labels": [],
-      "milestone": null,
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    },
-    {
-      "number": 3,
-      "title": "Add Proxmox proxy option",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/3",
-      "closedAt": "2026-04-20T18:12:07Z",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        }
-      ],
-      "milestone": null,
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    },
-    {
-      "number": 1,
-      "title": "Create CLI app using Typer and TUI app using Textual.",
-      "state": "closed",
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/issues/1",
-      "closedAt": "2026-04-06T16:39:51Z",
-      "labels": [
-        {
-          "name": "enhancement",
-          "color": "a2eeef"
-        }
-      ],
-      "milestone": null,
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
     }
   ],
   "edges": [],
@@ -1409,7 +1290,6 @@
       "note": "shipped",
       "issues": [
         111,
-        12,
         95,
         93,
         90,
@@ -1432,7 +1312,6 @@
         59,
         57,
         55,
-        17,
         50,
         49,
         48,
@@ -1465,11 +1344,7 @@
         23,
         22,
         19,
-        18,
-        13,
-        11,
-        3,
-        1
+        18
       ]
     }
   ],
@@ -1477,7 +1352,7 @@
     {
       "name": "enhancement",
       "color": "a2eeef",
-      "count": 59
+      "count": 54
     },
     {
       "name": "bug",
@@ -1497,15 +1372,7 @@
       "due_on": null,
       "url": "https://github.com/emersonfelipesp/proxmox-sdk/milestone/3",
       "open": 0,
-      "closed": 34
-    },
-    {
-      "title": "v0.1.0",
-      "state": "open",
-      "due_on": null,
-      "url": "https://github.com/emersonfelipesp/proxmox-sdk/milestone/2",
-      "open": 0,
-      "closed": 1
+      "closed": 33
     }
   ]
 }

@@ -35,6 +35,9 @@ export type ArchitectureDiagram = {
     netboxProxbox: ArchitectureNode;
     netboxPdm: ArchitectureNode;
     netboxPacker: ArchitectureNode;
+    netboxOpenbao: ArchitectureNode;
+    openBao: ArchitectureNode;
+    openbaoBroker: ArchitectureNode;
     proxboxApi: ArchitectureNode;
     netboxSdk: ArchitectureNode;
     netboxRest: ArchitectureNode;
@@ -45,6 +48,8 @@ export type ArchitectureDiagram = {
     proxmoxPdm: ArchitectureNode;
   };
   pluginNodes: readonly ArchitectureNode[];
+  proxboxPluginNodes: readonly ArchitectureNode[];
+  secretsNodes: readonly ArchitectureNode[];
   serviceApiNodes: readonly ArchitectureNode[];
 };
 
@@ -66,6 +71,36 @@ function polyline(
 }
 
 export const ARCHITECTURE_CONNECTORS = {
+  pluginFork6: [
+    line(50, 0, 50, 9),
+    line(8.3, 9, 91.6, 9),
+    line(8.3, 9, 8.3, 20),
+    line(25, 9, 25, 20),
+    line(41.6, 9, 41.6, 20),
+    line(58.3, 9, 58.3, 20),
+    line(75, 9, 75, 20),
+    line(91.6, 9, 91.6, 20),
+    polyline([[6.3, 18], [8.3, 22], [10.3, 18]]),
+    polyline([[23, 18], [25, 22], [27, 18]]),
+    polyline([[39.6, 18], [41.6, 22], [43.6, 18]]),
+    polyline([[56.3, 18], [58.3, 22], [60.3, 18]]),
+    polyline([[73, 18], [75, 22], [77, 18]]),
+    polyline([[89.6, 18], [91.6, 22], [93.6, 18]]),
+  ],
+  /** Full-width layout: sixth plugin column center at 91.6. */
+  openbaoSecrets: [
+    line(91.6, 0, 91.6, 20),
+    polyline([[89.6, 18], [91.6, 22], [93.6, 18]]),
+    line(91.6, 20, 91.6, 28, { dashed: true, opacity: 0.55 }),
+    polyline([[89.6, 26], [91.6, 30], [93.6, 26]], { dashed: true, opacity: 0.55 }),
+  ],
+  /** Column-local layout: connector rendered inside the sixth grid cell. */
+  openbaoSecretsColumn: [
+    line(50, 0, 50, 20),
+    polyline([[48, 18], [50, 22], [52, 18]]),
+    line(50, 20, 50, 28, { dashed: true, opacity: 0.55 }),
+    polyline([[48, 26], [50, 30], [52, 26]], { dashed: true, opacity: 0.55 }),
+  ],
   pluginFork5: [
     line(50, 0, 50, 9),
     line(10, 9, 90, 9),
@@ -81,21 +116,21 @@ export const ARCHITECTURE_CONNECTORS = {
     polyline([[88, 18], [90, 22], [92, 18]]),
   ],
   baseExtends: [
-    line(10, 0, 10, 7, { dashed: true, opacity: 0.5 }),
-    line(30, 0, 30, 7, { dashed: true, opacity: 0.5 }),
-    line(70, 0, 70, 7, { dashed: true, opacity: 0.5 }),
-    line(90, 0, 90, 7, { dashed: true, opacity: 0.5 }),
-    line(10, 7, 90, 7, { dashed: true, opacity: 0.5 }),
-    polyline([[47, 5], [50, 7], [47, 9]], { dashed: true, opacity: 0.5 }),
-    polyline([[53, 5], [50, 7], [53, 9]], { dashed: true, opacity: 0.5 }),
+    line(8.3, 0, 8.3, 7, { dashed: true, opacity: 0.5 }),
+    line(25, 0, 25, 7, { dashed: true, opacity: 0.5 }),
+    line(58.3, 0, 58.3, 7, { dashed: true, opacity: 0.5 }),
+    line(75, 0, 75, 7, { dashed: true, opacity: 0.5 }),
+    line(8.3, 7, 75, 7, { dashed: true, opacity: 0.5 }),
+    polyline([[39.6, 5], [41.6, 7], [39.6, 9]], { dashed: true, opacity: 0.5 }),
+    polyline([[43.6, 5], [41.6, 7], [43.6, 9]], { dashed: true, opacity: 0.5 }),
   ],
   apiFunnel5: [
-    line(10, 0, 10, 9),
-    line(30, 0, 30, 9),
-    line(50, 0, 50, 9),
-    line(70, 0, 70, 9),
-    line(90, 0, 90, 9),
-    line(10, 9, 90, 9),
+    line(8.3, 0, 8.3, 9),
+    line(25, 0, 25, 9),
+    line(41.6, 0, 41.6, 9),
+    line(58.3, 0, 58.3, 9),
+    line(75, 0, 75, 9),
+    line(8.3, 9, 75, 9),
     line(50, 9, 50, 20),
     polyline([[48, 18], [50, 22], [52, 18]]),
   ],
@@ -170,6 +205,29 @@ export function createArchitectureDiagram(
         svgWidth: 152,
       },
     ),
+    netboxOpenbao: node(
+      "netbox-openbao",
+      "netbox-openbao",
+      architecture.nodes.netboxOpenbao,
+      {
+        href: "/netbox-openbao",
+        variant: "featured",
+        svgWidth: 168,
+      },
+    ),
+    openBao: node("openbao", "OpenBao · KV v2", architecture.nodes.openBao, {
+      variant: "highlight",
+      svgWidth: 148,
+    }),
+    openbaoBroker: node(
+      "openbao-broker",
+      "openbao-broker",
+      architecture.nodes.openbaoBroker,
+      {
+        variant: "default",
+        svgWidth: 168,
+      },
+    ),
     proxboxApi: node("proxbox-api", "proxbox-api", architecture.nodes.proxboxApi, {
       variant: "highlight",
     }),
@@ -230,7 +288,16 @@ export function createArchitectureDiagram(
       nodes.netboxProxbox,
       nodes.netboxPdm,
       nodes.netboxPacker,
+      nodes.netboxOpenbao,
     ],
+    proxboxPluginNodes: [
+      nodes.netboxCeph,
+      nodes.netboxPbs,
+      nodes.netboxProxbox,
+      nodes.netboxPdm,
+      nodes.netboxPacker,
+    ],
+    secretsNodes: [nodes.openBao, nodes.openbaoBroker],
     serviceApiNodes: [nodes.proxmoxCeph, nodes.proxmoxPbs, nodes.proxmoxPdm],
   };
 }

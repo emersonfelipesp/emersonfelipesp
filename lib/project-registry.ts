@@ -9,7 +9,8 @@ export type ProjectSlug =
   | "netbox-pbs"
   | "netbox-pdm"
   | "netbox-ceph"
-  | "netbox-packer";
+  | "netbox-packer"
+  | "netbox-openbao";
 
 const SITE_URL = "https://emersonfelipesp.com";
 const GITHUB_PAGES_URL = "https://emersonfelipesp.github.io";
@@ -202,11 +203,38 @@ export const PROJECTS = {
       { icon: "github", href: "https://github.com/emersonfelipesp/netbox-packer" },
     ],
   },
+  "netbox-openbao": {
+    slug: "netbox-openbao",
+    name: "netbox-openbao",
+    fullName: "emersonfelipesp/netbox-openbao",
+    palette: "netbox",
+    tagline:
+      "NetBox plugin that keeps secret material in OpenBao while NetBox owns credential inventory, assignments, and audit.",
+    projectPath: "/netbox-openbao",
+    developerPath: "/netbox-openbao/developer",
+    repoUrl: "https://github.com/emersonfelipesp/netbox-openbao",
+    releasesUrl: "https://github.com/emersonfelipesp/netbox-openbao/releases",
+    starsHref: "https://github.com/emersonfelipesp/netbox-openbao/stargazers",
+    actions: [
+      {
+        icon: "github",
+        href: "https://github.com/emersonfelipesp/netbox-openbao",
+      },
+      { icon: "pypi", href: "https://pypi.org/project/netbox-openbao/" },
+    ],
+  },
 } as const satisfies Record<ProjectSlug, ProjectRegistryEntry>;
 
 export const PROJECT_SLUGS = Object.keys(PROJECTS) as ProjectSlug[];
 
 export const PUBLISHED_DOCS_PROJECT_SLUGS = [
+  "netbox-proxbox",
+  "proxbox-api",
+  "netbox-sdk",
+  "proxmox-sdk",
+] as const satisfies readonly ProjectSlug[];
+
+export const DEVELOPER_GUIDE_PROJECT_SLUGS = [
   "netbox-proxbox",
   "proxbox-api",
   "netbox-sdk",

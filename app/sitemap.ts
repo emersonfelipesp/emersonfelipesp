@@ -3,6 +3,7 @@ import { getGitHubSnapshot } from "@/lib/github";
 import { loadRoadmap } from "@/lib/roadmap";
 import {
   PROJECT_LIST,
+  DEVELOPER_GUIDE_PROJECT_SLUGS,
   hasPublishedProjectDocs,
   projectDocsPath,
   releaseDetailPath,
@@ -47,7 +48,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "weekly",
         priority: project.slug === "netbox-proxbox" ? 0.95 : 0.9,
       },
-      ...(!project.parentSlug
+      ...(DEVELOPER_GUIDE_PROJECT_SLUGS.includes(
+        project.slug as (typeof DEVELOPER_GUIDE_PROJECT_SLUGS)[number],
+      )
         ? [
             {
               url: absolute(project.developerPath),
@@ -55,6 +58,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               changeFrequency: "monthly" as const,
               priority: 0.75,
             },
+          ]
+        : []),
+      ...(!project.parentSlug && roadmapModified
+        ? [
             {
               url: absolute(
                 roadmapPath(project.slug) ?? `/${project.slug}/roadmap`,

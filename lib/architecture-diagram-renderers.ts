@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/seo/links";
 const DIAGRAM_EN = getArchitectureDiagram("en");
 
 const SVG_WIDTH = 1200;
-const SVG_HEIGHT = 940;
+const SVG_HEIGHT = 1020;
 const SVG_CONTENT_X = 150;
 const SVG_CONTENT_WIDTH = 900;
 
@@ -122,12 +122,28 @@ function renderHtmlDiagram(): string {
     htmlNode(DIAGRAM_EN.nodes.netbox),
     htmlConnector({
       label: DIAGRAM_EN.edges.plugin,
-      paths: ARCHITECTURE_CONNECTORS.pluginFork5,
+      paths: ARCHITECTURE_CONNECTORS.pluginFork6,
       testId: "architecture-diagram-connector-plugin-fork",
       viewBoxHeight: 24,
     }),
-    `<div class="node-grid node-grid-five">`,
+    `<div class="node-grid node-grid-six">`,
     DIAGRAM_EN.pluginNodes.map(htmlNode).join(""),
+    `</div>`,
+    `<div class="node-grid node-grid-six secrets-lane">`,
+    `<div class="secrets-stack">`,
+    htmlConnector({
+      label: DIAGRAM_EN.edges.kvSecrets,
+      labelAfter: true,
+      paths: ARCHITECTURE_CONNECTORS.openbaoSecretsColumn,
+      testId: "architecture-diagram-connector-openbao-secrets",
+      viewBoxHeight: 32,
+    }),
+    `<span class="connector-label connector-label-muted">${escapeHtml(
+      DIAGRAM_EN.edges.brokerOptional,
+    )}</span>`,
+    htmlNode(DIAGRAM_EN.nodes.openBao),
+    htmlNode(DIAGRAM_EN.nodes.openbaoBroker),
+    `</div>`,
     `</div>`,
     htmlConnector({
       label: DIAGRAM_EN.edges.base,
@@ -300,14 +316,36 @@ export function renderArchitectureDiagramHtml(): string {
       flex-direction: column;
       gap: 0.25rem;
       margin: 0 auto;
-      min-width: 42rem;
-      width: 42rem;
+      min-width: 52rem;
+      width: 52rem;
     }
 
     .node-grid {
       display: grid;
       justify-items: center;
       width: 100%;
+    }
+
+    .node-grid-six {
+      gap: 0.5rem;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .secrets-lane {
+      margin-top: 0.25rem;
+    }
+
+    .secrets-stack {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      grid-column: 6;
+      width: 100%;
+    }
+
+    .connector-label-muted {
+      color: rgba(139, 154, 168, 0.45);
     }
 
     .node-grid-five {
@@ -640,9 +678,11 @@ function svgVerticalEdge(
 }
 
 export function renderArchitectureDiagramSvg(): string {
-  const pluginCenters = [0.1, 0.3, 0.5, 0.7, 0.9].map(
+  const pluginCenters = [0.083, 0.25, 0.417, 0.583, 0.75, 0.917].map(
     (position) => SVG_CONTENT_X + SVG_CONTENT_WIDTH * position,
   );
+  const openBaoCenter = pluginCenters[5];
+  const brokerCenter = openBaoCenter;
   const leftCenter = SVG_CONTENT_X + SVG_CONTENT_WIDTH * 0.24;
   const rightCenter = SVG_CONTENT_X + SVG_CONTENT_WIDTH * 0.76;
   const serviceCenters = [0.16, 0.5, 0.84].map(
@@ -651,7 +691,7 @@ export function renderArchitectureDiagramSvg(): string {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${SVG_WIDTH}" height="${SVG_HEIGHT}" viewBox="0 0 ${SVG_WIDTH} ${SVG_HEIGHT}" role="img" aria-labelledby="architecture-title architecture-desc">
   <title id="architecture-title">Emerson Felipe project architecture diagram</title>
-  <desc id="architecture-desc">NetBox connects to five NetBox plugins, which feed proxbox-api, then netbox-sdk, proxmox-sdk, NetBox REST API, Proxmox VE, and Proxmox service APIs.</desc>
+  <desc id="architecture-desc">NetBox connects to six NetBox plugins including netbox-openbao and OpenBao for secrets, while the Proxmox suite feeds proxbox-api, netbox-sdk, proxmox-sdk, and downstream REST APIs.</desc>
   <defs>
     <style>
       .bg { fill: #07101a; }
@@ -673,35 +713,40 @@ export function renderArchitectureDiagramSvg(): string {
   </defs>
   <rect class="bg" width="${SVG_WIDTH}" height="${SVG_HEIGHT}"></rect>
   <text class="prompt" x="48" y="48"><tspan class="prompt-accent">emerson</tspan><tspan fill="#8b9aa8">@</tspan><tspan class="prompt-accent-2">netdevops</tspan><tspan fill="#8b9aa8">:~$ </tspan><tspan>./show --architecture</tspan></text>
-  <rect class="frame" x="40" y="88" width="1120" height="846"></rect>
+  <rect class="frame" x="40" y="88" width="1120" height="918"></rect>
   <text class="muted" x="64" y="124">${svgText(DIAGRAM_EN.heading)}  ·  ${svgText(
     DIAGRAM_EN.caption,
   )}</text>
 
   ${svgNode(DIAGRAM_EN.nodes.netbox, 600, 154)}
   <text class="edge-label" x="600" y="219">${svgText(DIAGRAM_EN.edges.plugin)}</text>
-  ${svgPathElements(ARCHITECTURE_CONNECTORS.pluginFork5, SVG_CONTENT_X, 228, SVG_CONTENT_WIDTH, 54, 24)}
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.pluginFork6, SVG_CONTENT_X, 228, SVG_CONTENT_WIDTH, 54, 24)}
   ${DIAGRAM_EN.pluginNodes
     .map((node, index) => svgNode(node, pluginCenters[index], 286))
     .join("")}
-  ${svgPathElements(ARCHITECTURE_CONNECTORS.baseExtends, SVG_CONTENT_X, 350, SVG_CONTENT_WIDTH, 28, 14)}
-  <text class="edge-label" x="600" y="390">${svgText(DIAGRAM_EN.edges.base)}</text>
-  ${svgPathElements(ARCHITECTURE_CONNECTORS.apiFunnel5, SVG_CONTENT_X, 402, SVG_CONTENT_WIDTH, 54, 24)}
-  <text class="edge-label" x="600" y="466">${svgText(DIAGRAM_EN.edges.httpSseWs)}</text>
-  ${svgNode(DIAGRAM_EN.nodes.proxboxApi, 600, 482)}
-  ${svgPathElements(ARCHITECTURE_CONNECTORS.sdkFork2, SVG_CONTENT_X, 548, SVG_CONTENT_WIDTH, 54, 24)}
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.openbaoSecrets, SVG_CONTENT_X, 344, SVG_CONTENT_WIDTH, 72, 32)}
+  <text class="edge-label" x="${openBaoCenter}" y="392">${svgText(DIAGRAM_EN.edges.kvSecrets)}</text>
+  <text class="edge-label" x="${openBaoCenter}" y="406">${svgText(DIAGRAM_EN.edges.brokerOptional)}</text>
+  ${svgNode(DIAGRAM_EN.nodes.openBao, openBaoCenter, 418)}
+  ${svgNode(DIAGRAM_EN.nodes.openbaoBroker, brokerCenter, 472, 168)}
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.baseExtends, SVG_CONTENT_X, 430, SVG_CONTENT_WIDTH, 28, 14)}
+  <text class="edge-label" x="600" y="470">${svgText(DIAGRAM_EN.edges.base)}</text>
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.apiFunnel5, SVG_CONTENT_X, 482, SVG_CONTENT_WIDTH, 54, 24)}
+  <text class="edge-label" x="600" y="546">${svgText(DIAGRAM_EN.edges.httpSseWs)}</text>
+  ${svgNode(DIAGRAM_EN.nodes.proxboxApi, 600, 562)}
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.sdkFork2, SVG_CONTENT_X, 628, SVG_CONTENT_WIDTH, 54, 24)}
 
-  ${svgNode(DIAGRAM_EN.nodes.netboxSdk, leftCenter, 616)}
-  ${svgVerticalEdge(leftCenter, 660, 718, DIAGRAM_EN.edges.rest)}
-  ${svgNode(DIAGRAM_EN.nodes.netboxRest, leftCenter, 730)}
+  ${svgNode(DIAGRAM_EN.nodes.netboxSdk, leftCenter, 696)}
+  ${svgVerticalEdge(leftCenter, 740, 798, DIAGRAM_EN.edges.rest)}
+  ${svgNode(DIAGRAM_EN.nodes.netboxRest, leftCenter, 810)}
 
-  ${svgNode(DIAGRAM_EN.nodes.proxmoxSdk, rightCenter, 616)}
-  ${svgVerticalEdge(rightCenter, 660, 704)}
-  ${svgNode(DIAGRAM_EN.nodes.proxmoxVe, rightCenter, 716)}
-  ${svgVerticalEdge(rightCenter, 760, 812)}
-  ${svgPathElements(ARCHITECTURE_CONNECTORS.proxmoxServicesFork3, SVG_CONTENT_X, 820, SVG_CONTENT_WIDTH, 54, 24)}
+  ${svgNode(DIAGRAM_EN.nodes.proxmoxSdk, rightCenter, 696)}
+  ${svgVerticalEdge(rightCenter, 740, 784)}
+  ${svgNode(DIAGRAM_EN.nodes.proxmoxVe, rightCenter, 796)}
+  ${svgVerticalEdge(rightCenter, 840, 892)}
+  ${svgPathElements(ARCHITECTURE_CONNECTORS.proxmoxServicesFork3, SVG_CONTENT_X, 900, SVG_CONTENT_WIDTH, 54, 24)}
   ${DIAGRAM_EN.serviceApiNodes
-    .map((node, index) => svgNode(node, serviceCenters[index], 884, 170))
+    .map((node, index) => svgNode(node, serviceCenters[index], 964, 170))
     .join("")}
 </svg>`;
 }

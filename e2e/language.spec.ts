@@ -52,6 +52,13 @@ test("project pages render in pt-br when language is pt-br", async ({
   await page.goto("/netbox-sdk");
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
   await expect(page.getByText(/Toolkit moderno/i).first()).toBeVisible();
+
+  await page.goto("/netbox-openbao");
+  await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
+  await expect(
+    page.getByRole("heading", { name: /como funciona/i }),
+  ).toBeVisible();
+  await expect(page.getByText(/Vai para o OpenBao/i).first()).toBeVisible();
 });
 
 test("theme and language are independent", async ({ page }) => {
