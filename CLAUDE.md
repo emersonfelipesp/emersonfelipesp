@@ -19,7 +19,7 @@ deliberate terminal / CLI / NetDevOps aesthetic.
 |---|---|---|
 | Runtime | Node.js | 22.x |
 | Package manager | pnpm | 10.33.2 |
-| Framework | Next.js | 16.2.4 |
+| Framework | Next.js | 16.3.3 |
 | UI | React | 19.2 |
 | Language | TypeScript | 6.0 |
 | Styling | Tailwind CSS | 4.2 |
@@ -149,6 +149,8 @@ Useful scripts:
 pnpm lint
 pnpm typecheck
 pnpm build
+pnpm test:dependency-security
+pnpm audit --prod --audit-level high
 pnpm test:e2e
 pnpm fixtures:sync
 pnpm github:sync

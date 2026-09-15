@@ -1,0 +1,8 @@
+self-hosted-runner:
+  labels:
+    - ci-untrusted-python312
+
+paths:
+  .gitea/workflows/**/*.{yml,yaml}:
+    ignore:
+      - 'specifying action "https://git\.nmulti\.cloud/.+" in invalid format'
