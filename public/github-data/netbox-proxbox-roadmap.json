@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T04:02:58.434Z",
+  "generated_at": "2026-09-16T09:35:44.325Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 346,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 662,
+      "title": "Redundant connections on the Proxmox Endpoints page",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/662",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 657,
       "title": "ProxBox backend returned an unexpected response",
@@ -8501,7 +8515,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        651
+        651,
+        662
       ]
     }
   ],
