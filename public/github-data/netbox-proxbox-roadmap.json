@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T13:17:36.086Z",
+  "generated_at": "2026-09-16T16:09:00.579Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
     "open": 2,
@@ -17,12 +17,8 @@
       "closedAt": "2026-09-16T13:15:30Z",
       "labels": [
         {
-          "name": "bug",
-          "color": "D93F0B"
-        },
-        {
-          "name": "under review",
-          "color": "FBCA04"
+          "name": "accepted",
+          "color": "0E8A16"
         }
       ],
       "milestone": null,
@@ -8533,7 +8529,7 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 183
+      "count": 184
     },
     {
       "name": "feature",
@@ -8543,12 +8539,12 @@
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 86
+      "count": 85
     },
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 37
+      "count": 36
     },
     {
       "name": "python",
