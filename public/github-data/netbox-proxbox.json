@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-09-16T20:55:05.197Z",
+  "syncedAt": "2026-09-16T23:05:57.957Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 594,
   "forks": 65,
   "releases": [
+    {
+      "id": 390329189,
+      "nodeId": "RE_kwDOFTMlzs4XQ_Nl",
+      "tag": "v0.0.26.post7",
+      "name": "v0.0.26.post7",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.26.post7",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/390329189",
+      "targetCommitish": "main",
+      "body": "# Version 0.0.26.post7\n\n## Import path fix for VM list filter helpers\n\nExport `get_proxbox_tagged_virtual_machines_queryset` and\n`apply_virtual_machine_list_filters` from `netbox_proxbox.utils` (the package\n`__init__`) so production imports resolve correctly when both `utils.py` and\n`utils/` are present in the wheel.\n\n## Production deploy compatibility for VM list filters\n\nRestores migration `0083_openbao_credential_storage.py` to the byte-identical\nhistory already installed in production so package-first deploys pass the\nmigration-preservation gate. The OpenBao default change remains in migration\n`0094_automatic_credential_storage_default`.\n\n## Proxbox virtual machines list search and filtering\n\nCurrent backend-runtime pairing: netbox-proxbox 0.0.26.post7 <-> proxbox-api 0.0.21.post7 <-> proxmox-sdk 0.0.13 <-> netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.\n\nThis maintenance release ships NetBox-native search and filtering on the Proxbox virtual machines list. The page reuses `VirtualMachineFilterSet`, exposes the standard Results and Filters tabs, and keeps sync actions and pagination. The list and API views share the same proxbox-tagged queryset helper so filter behavior stays aligned.\n\nNo compatibility floor or ceiling changes in this release. NetBox `4.5.8` through official `4.7.0` GA remains supported.\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---|---|---|---|---|\n| 4.5.8-4.7.0 GA | v0.0.26.post7 | v0.0.21.post7 | v0.0.10 | v0.0.13 |\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.26.post7</h1>\n<h2 dir=\"auto\">Import path fix for VM list filter helpers</h2>\n<p dir=\"auto\">Export <code class=\"notranslate\">get_proxbox_tagged_virtual_machines_queryset</code> and<br>\n<code class=\"notranslate\">apply_virtual_machine_list_filters</code> from <code class=\"notranslate\">netbox_proxbox.utils</code> (the package<br>\n<code class=\"notranslate\">__init__</code>) so production imports resolve correctly when both <code class=\"notranslate\">utils.py</code> and<br>\n<code class=\"notranslate\">utils/</code> are present in the wheel.</p>\n<h2 dir=\"auto\">Production deploy compatibility for VM list filters</h2>\n<p dir=\"auto\">Restores migration <code class=\"notranslate\">0083_openbao_credential_storage.py</code> to the byte-identical<br>\nhistory already installed in production so package-first deploys pass the<br>\nmigration-preservation gate. The OpenBao default change remains in migration<br>\n<code class=\"notranslate\">0094_automatic_credential_storage_default</code>.</p>\n<h2 dir=\"auto\">Proxbox virtual machines list search and filtering</h2>\n<p dir=\"auto\">Current backend-runtime pairing: netbox-proxbox 0.0.26.post7 &lt;-&gt; proxbox-api 0.0.21.post7 &lt;-&gt; proxmox-sdk 0.0.13 &lt;-&gt; netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.</p>\n<p dir=\"auto\">This maintenance release ships NetBox-native search and filtering on the Proxbox virtual machines list. The page reuses <code class=\"notranslate\">VirtualMachineFilterSet</code>, exposes the standard Results and Filters tabs, and keeps sync actions and pagination. The list and API views share the same proxbox-tagged queryset helper so filter behavior stays aligned.</p>\n<p dir=\"auto\">No compatibility floor or ceiling changes in this release. NetBox <code class=\"notranslate\">4.5.8</code> through official <code class=\"notranslate\">4.7.0</code> GA remains supported.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4.5.8-4.7.0 GA</td>\n<td>v0.0.26.post7</td>\n<td>v0.0.21.post7</td>\n<td>v0.0.10</td>\n<td>v0.0.13</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>",
+      "createdAt": "2026-09-11T22:41:04Z",
+      "publishedAt": "2026-09-16T23:05:33Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.26.post7",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.26.post7"
+      }
+    },
     {
       "id": 327535690,
       "nodeId": "RE_kwDOFTMlzs4ThcxK",
