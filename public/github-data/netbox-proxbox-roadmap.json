@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T13:09:18.408Z",
+  "generated_at": "2026-09-16T13:17:36.086Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 346,
+    "open": 2,
+    "closed": 347,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 662,
       "title": "Redundant connections on the Proxmox Endpoints page",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/662",
-      "closedAt": null,
+      "closedAt": "2026-09-16T13:15:30Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8170,6 +8170,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        662,
         649,
         657,
         641,
@@ -8524,8 +8525,7 @@
       "note": "start anywhere",
       "issues": [
         602,
-        651,
-        662
+        651
       ]
     }
   ],
