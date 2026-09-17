@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-17T10:58:54.507Z",
+  "generated_at": "2026-09-17T15:32:14.765Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 347,
+    "open": 1,
+    "closed": 348,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 662,
@@ -54,9 +54,9 @@
     {
       "number": 651,
       "title": "RuntimeError(\"Stage 'devices' failed (HTTP 400): Error ensuring Proxbox tag\")",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/651",
-      "closedAt": null,
+      "closedAt": "2026-09-17T15:23:25Z",
       "labels": [
         {
           "name": "bug",
@@ -68,8 +68,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8166,6 +8166,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        651,
         662,
         649,
         657,
@@ -8520,8 +8521,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        651
+        602
       ]
     }
   ],
