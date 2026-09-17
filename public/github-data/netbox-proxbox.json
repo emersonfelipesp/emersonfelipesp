@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-17T01:46:22.993Z",
+  "syncedAt": "2026-09-17T03:10:42.476Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 594,
   "forks": 65,
@@ -17,7 +17,7 @@
       "createdAt": "2026-09-17T01:44:21Z",
       "publishedAt": "2026-09-17T01:45:36Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
@@ -27,6 +27,31 @@
       "sourceArchives": {
         "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.26.post9",
         "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.26.post9"
+      }
+    },
+    {
+      "id": 390408960,
+      "nodeId": "RE_kwDOFTMlzs4XRSsA",
+      "tag": "v0.0.26.post10",
+      "name": "v0.0.26.post10",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.26.post10",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/390408960",
+      "targetCommitish": "main",
+      "body": "# Version 0.0.26.post10\n\n## Release-validation end-to-end matrix scoped to its backend\n\nThe public release validation workflow runs an end-to-end Docker matrix that\ninstalls a published backend (proxbox-api from PyPI, TestPyPI, or Docker Hub).\nThat backend is certified through NetBox 4.6.6: on the NetBox 4.7.0 image its\nPVE synchronization fails at NetBox object creation while the PBS and PDM\nservices pass, so the two PVE cells on 4.7.0 blocked publication on every\nattempt.\n\nThose two cells are now excluded only in the published-backend dependency\nmodes. Runs that build the backend from source (pull requests, scheduled runs,\nand manual dev-backend runs) keep every NetBox 4.7.0 cell, and the 4.7.0 PBS\nand PDM cells stay in the release lane.\n\nEnd-to-end PVE synchronization on NetBox 4.7.0 with the published backend this\nline pairs with is known-broken (observed failures in NetBox object creation)\nand is not validated by this release. The Django compatibility matrix still\nruns the plugin's own test suite on NetBox 4.7.0; it does not exercise the\nbackend-to-NetBox synchronization path. The NetBox 4.7.0 certification entry\ntherefore covers plugin/Django compatibility only; operators on NetBox 4.7.0\nshould treat PVE synchronization through proxbox-api 0.0.19.post5 through\n0.0.21.post7 as known-broken.\n\nNo plugin runtime changes. This release exists so the 0.0.26 line can be\npublished publicly.\n\nLimitation: end-to-end PVE synchronization on NetBox 4.7.0 through the published backend this line pairs with (proxbox-api 0.0.19.post5 through 0.0.21.post7) is known-broken and excluded from the release-validation matrix; the NetBox 4.7.0 entry covers plugin/Django compatibility only.\n\n## Compatibility\n\nIdentical runtime to 0.0.26.post9.\n\nCurrent backend-runtime pairing: netbox-proxbox 0.0.26.post10 <-> proxbox-api 0.0.21.post7 <-> proxmox-sdk 0.0.13 <-> netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---|---|---|---|---|\n| 4.5.8-4.7.0 GA | v0.0.26.post10 | v0.0.21.post7 | v0.0.10 | v0.0.13 |\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.26.post10</h1>\n<h2 dir=\"auto\">Release-validation end-to-end matrix scoped to its backend</h2>\n<p dir=\"auto\">The public release validation workflow runs an end-to-end Docker matrix that<br>\ninstalls a published backend (proxbox-api from PyPI, TestPyPI, or Docker Hub).<br>\nThat backend is certified through NetBox 4.6.6: on the NetBox 4.7.0 image its<br>\nPVE synchronization fails at NetBox object creation while the PBS and PDM<br>\nservices pass, so the two PVE cells on 4.7.0 blocked publication on every<br>\nattempt.</p>\n<p dir=\"auto\">Those two cells are now excluded only in the published-backend dependency<br>\nmodes. Runs that build the backend from source (pull requests, scheduled runs,<br>\nand manual dev-backend runs) keep every NetBox 4.7.0 cell, and the 4.7.0 PBS<br>\nand PDM cells stay in the release lane.</p>\n<p dir=\"auto\">End-to-end PVE synchronization on NetBox 4.7.0 with the published backend this<br>\nline pairs with is known-broken (observed failures in NetBox object creation)<br>\nand is not validated by this release. The Django compatibility matrix still<br>\nruns the plugin's own test suite on NetBox 4.7.0; it does not exercise the<br>\nbackend-to-NetBox synchronization path. The NetBox 4.7.0 certification entry<br>\ntherefore covers plugin/Django compatibility only; operators on NetBox 4.7.0<br>\nshould treat PVE synchronization through proxbox-api 0.0.19.post5 through<br>\n0.0.21.post7 as known-broken.</p>\n<p dir=\"auto\">No plugin runtime changes. This release exists so the 0.0.26 line can be<br>\npublished publicly.</p>\n<p dir=\"auto\">Limitation: end-to-end PVE synchronization on NetBox 4.7.0 through the published backend this line pairs with (proxbox-api 0.0.19.post5 through 0.0.21.post7) is known-broken and excluded from the release-validation matrix; the NetBox 4.7.0 entry covers plugin/Django compatibility only.</p>\n<h2 dir=\"auto\">Compatibility</h2>\n<p dir=\"auto\">Identical runtime to 0.0.26.post9.</p>\n<p dir=\"auto\">Current backend-runtime pairing: netbox-proxbox 0.0.26.post10 &lt;-&gt; proxbox-api 0.0.21.post7 &lt;-&gt; proxmox-sdk 0.0.13 &lt;-&gt; netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4.5.8-4.7.0 GA</td>\n<td>v0.0.26.post10</td>\n<td>v0.0.21.post7</td>\n<td>v0.0.10</td>\n<td>v0.0.13</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>",
+      "createdAt": "2026-09-17T03:09:02Z",
+      "publishedAt": "2026-09-17T03:10:17Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.26.post10",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.26.post10"
       }
     },
     {
