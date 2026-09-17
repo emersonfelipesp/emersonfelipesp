@@ -1,7 +1,33 @@
 {
-  "syncedAt": "2026-09-17T16:54:18.669Z",
+  "syncedAt": "2026-09-17T20:59:14.025Z",
   "fullName": "emersonfelipesp/netbox-openbao",
   "stars": 0,
   "forks": 0,
-  "releases": []
+  "releases": [
+    {
+      "id": 391031144,
+      "nodeId": "RE_kwDOULJON84XTqlo",
+      "tag": "v0.1.0",
+      "name": "netbox-openbao v0.1.0",
+      "url": "https://github.com/emersonfelipesp/netbox-openbao/releases/tag/v0.1.0",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/releases/391031144",
+      "targetCommitish": "main",
+      "body": "NetBox OpenBao 0.1.0 introduces the production-ready OpenBao secrets integration for NetBox.\n\nHighlights include:\n\n- OpenBao cluster, secret-engine, policy, credential, assignment, and settings management.\n- Secure credential reveal and audited access workflows.\n- SSH credential quick-add support for NetBox objects.\n- OpenBao initialization, unseal, recovery, and administrative procedure workflows.\n- Package-first production deployment with signed deployment proofs and byte-exact artifact verification.\n\nThe production deployment at `https://netbox.nmulti.cloud` uses the immutable Gitea package built from source commit `7313d2db47a2fc9df64e6a8ce85d88e6138d5ae2`.\n",
+      "bodyHtml": "<p dir=\"auto\">NetBox OpenBao 0.1.0 introduces the production-ready OpenBao secrets integration for NetBox.</p>\n<p dir=\"auto\">Highlights include:</p>\n<ul dir=\"auto\">\n<li>OpenBao cluster, secret-engine, policy, credential, assignment, and settings management.</li>\n<li>Secure credential reveal and audited access workflows.</li>\n<li>SSH credential quick-add support for NetBox objects.</li>\n<li>OpenBao initialization, unseal, recovery, and administrative procedure workflows.</li>\n<li>Package-first production deployment with signed deployment proofs and byte-exact artifact verification.</li>\n</ul>\n<p dir=\"auto\">The production deployment at <code class=\"notranslate\">https://netbox.nmulti.cloud</code> uses the immutable Gitea package built from source commit <code class=\"notranslate\">7313d2db47a2fc9df64e6a8ce85d88e6138d5ae2</code>.</p>",
+      "createdAt": "2026-09-17T18:45:20Z",
+      "publishedAt": "2026-09-17T20:15:57Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/zipball/v0.1.0",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/tarball/v0.1.0"
+      }
+    }
+  ]
 }
