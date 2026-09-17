@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-09-17T01:12:17.843Z",
+  "syncedAt": "2026-09-17T01:46:22.993Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 594,
   "forks": 65,
   "releases": [
+    {
+      "id": 390380481,
+      "nodeId": "RE_kwDOFTMlzs4XRLvB",
+      "tag": "v0.0.26.post9",
+      "name": "v0.0.26.post9",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.26.post9",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/390380481",
+      "targetCommitish": "main",
+      "body": "# Version 0.0.26.post9\n\n## Release-validation page-coverage gate aligned with its backend\n\nThe public release validation workflow runs a page-coverage gate that drives a\nfull Proxmox synchronization through a pinned PyPI backend (proxbox-api\n0.0.18.post5). That backend is certified through NetBox 4.6.6, but the gate had\nmoved to the NetBox 4.7.0 image, so every virtual-machine creation failed and\nthe gate blocked publication. The gate now runs the NetBox 4.6.6 image pinned by digest, the last green\nbaseline for this backend; NetBox 4.7.0 GA certification continues to be\ncarried by the Django compatibility matrix and the end-to-end matrix.\n\nNo plugin runtime changes. This release exists so the 0.0.26 line can be\npublished publicly.\n\n## Compatibility\n\nIdentical runtime to 0.0.26.post8.\n\nCurrent backend-runtime pairing: netbox-proxbox 0.0.26.post9 <-> proxbox-api 0.0.21.post7 <-> proxmox-sdk 0.0.13 <-> netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---|---|---|---|---|\n| 4.5.8-4.7.0 GA | v0.0.26.post9 | v0.0.21.post7 | v0.0.10 | v0.0.13 |\n",
+      "bodyHtml": "<h1 dir=\"auto\">Version 0.0.26.post9</h1>\n<h2 dir=\"auto\">Release-validation page-coverage gate aligned with its backend</h2>\n<p dir=\"auto\">The public release validation workflow runs a page-coverage gate that drives a<br>\nfull Proxmox synchronization through a pinned PyPI backend (proxbox-api<br>\n0.0.18.post5). That backend is certified through NetBox 4.6.6, but the gate had<br>\nmoved to the NetBox 4.7.0 image, so every virtual-machine creation failed and<br>\nthe gate blocked publication. The gate now runs the NetBox 4.6.6 image pinned by digest, the last green<br>\nbaseline for this backend; NetBox 4.7.0 GA certification continues to be<br>\ncarried by the Django compatibility matrix and the end-to-end matrix.</p>\n<p dir=\"auto\">No plugin runtime changes. This release exists so the 0.0.26 line can be<br>\npublished publicly.</p>\n<h2 dir=\"auto\">Compatibility</h2>\n<p dir=\"auto\">Identical runtime to 0.0.26.post8.</p>\n<p dir=\"auto\">Current backend-runtime pairing: netbox-proxbox 0.0.26.post9 &lt;-&gt; proxbox-api 0.0.21.post7 &lt;-&gt; proxmox-sdk 0.0.13 &lt;-&gt; netbox-sdk 0.0.10. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4.5.8-4.7.0 GA</td>\n<td>v0.0.26.post9</td>\n<td>v0.0.21.post7</td>\n<td>v0.0.10</td>\n<td>v0.0.13</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>",
+      "createdAt": "2026-09-17T01:44:21Z",
+      "publishedAt": "2026-09-17T01:45:36Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.26.post9",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.26.post9"
+      }
+    },
     {
       "id": 390345636,
       "nodeId": "RE_kwDOFTMlzs4XRDOk",
@@ -17,7 +42,7 @@
       "createdAt": "2026-09-16T23:55:12Z",
       "publishedAt": "2026-09-17T01:04:40Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
