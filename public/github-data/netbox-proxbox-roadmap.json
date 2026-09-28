@@ -1,14 +1,90 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-28T12:55:58.967Z",
+  "generated_at": "2026-09-28T14:44:13.406Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 5,
     "closed": 348,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 608",
   "nodes": [
+    {
+      "number": 672,
+      "title": "Large multi-cluster tuning guide and wiring of ignored settings",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/672",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 671,
+      "title": "Full sync fails almost immediately with many Proxmox endpoints; one failing cluster aborts the whole run",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/671",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 670,
+      "title": "Home page shows reachable clusters as Error for 1-2 minutes when many endpoints are configured",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/670",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 669,
+      "title": "Configurable node device name template (FQDN) for Proxmox nodes reused across clusters",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/669",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 662,
       "title": "Redundant connections on the Proxmox Endpoints page",
@@ -8521,7 +8597,11 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        669,
+        670,
+        671,
+        672
       ]
     }
   ],
@@ -8534,12 +8614,12 @@
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 136
+      "count": 137
     },
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 85
+      "count": 87
     },
     {
       "name": "under review",
@@ -8569,7 +8649,7 @@
     {
       "name": "documentation",
       "color": "0075ca",
-      "count": 4
+      "count": 5
     },
     {
       "name": "good first issue",
