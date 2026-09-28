@@ -1,29 +1,33 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-28T14:44:13.406Z",
+  "generated_at": "2026-09-28T21:17:16.445Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 5,
-    "closed": 348,
+    "open": 1,
+    "closed": 352,
     "edges": 93
   },
-  "viewBox": "0 0 272 608",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 672,
       "title": "Large multi-cluster tuning guide and wiring of ignored settings",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/672",
-      "closedAt": null,
+      "closedAt": "2026-09-28T21:15:20Z",
       "labels": [
         {
           "name": "documentation",
           "color": "0075ca"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 496,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -31,18 +35,22 @@
     {
       "number": 671,
       "title": "Full sync fails almost immediately with many Proxmox endpoints; one failing cluster aborts the whole run",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/671",
-      "closedAt": null,
+      "closedAt": "2026-09-28T21:15:21Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -50,18 +58,22 @@
     {
       "number": 670,
       "title": "Home page shows reachable clusters as Error for 1-2 minutes when many endpoints are configured",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/670",
-      "closedAt": null,
+      "closedAt": "2026-09-28T21:15:20Z",
       "labels": [
         {
           "name": "bug",
           "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 256,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -69,18 +81,22 @@
     {
       "number": 669,
       "title": "Configurable node device name template (FQDN) for Proxmox nodes reused across clusters",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/669",
-      "closedAt": null,
+      "closedAt": "2026-09-28T21:15:21Z",
       "labels": [
         {
           "name": "feature",
           "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8242,6 +8258,10 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        671,
+        669,
+        672,
+        670,
         651,
         662,
         649,
@@ -8597,11 +8617,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        669,
-        670,
-        671,
-        672
+        602
       ]
     }
   ],
@@ -8624,7 +8640,7 @@
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 36
+      "count": 40
     },
     {
       "name": "python",
