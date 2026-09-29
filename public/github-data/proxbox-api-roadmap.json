@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-29T21:52:33.798Z",
+  "generated_at": "2026-09-29T22:16:51.984Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 3,
+    "open": 4,
     "closed": 74,
     "edges": 0
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 488",
   "nodes": [
+    {
+      "number": 266,
+      "title": "full-update ignores sync_node_interfaces: behavior_flags not passed to create_all_device_interfaces, so node bridges never get their hwaddress MAC",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/266",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 265,
       "title": "Muitiple warnings and errors during endpoint synchronization",
@@ -1601,7 +1615,8 @@
       "issues": [
         263,
         264,
-        265
+        265,
+        266
       ]
     }
   ],
