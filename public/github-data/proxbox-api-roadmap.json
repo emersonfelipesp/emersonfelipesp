@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-29T12:09:25.478Z",
+  "generated_at": "2026-09-29T17:23:36.289Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 74,
     "edges": 0
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 265,
+      "title": "Muitiple warnings and errors during endpoint synchronization",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/265",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 264,
       "title": "Netbox ID and VMID are mixed up",
@@ -1586,7 +1600,8 @@
       "note": "start anywhere",
       "issues": [
         263,
-        264
+        264,
+        265
       ]
     }
   ],

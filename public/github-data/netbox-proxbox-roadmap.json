@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-29T12:09:11.668Z",
+  "generated_at": "2026-09-29T17:23:24.056Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 352,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 673,
+      "title": "Error when delete multiple virtual machines at once",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/673",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 672,
       "title": "Large multi-cluster tuning guide and wiring of ignored settings",
@@ -8617,7 +8631,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        673
       ]
     }
   ],
