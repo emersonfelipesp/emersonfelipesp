@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-30T17:38:39.356Z",
+  "generated_at": "2026-09-30T21:21:31.165Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 3,
-    "closed": 75,
+    "open": 2,
+    "closed": 76,
     "edges": 0
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 266,
@@ -41,7 +41,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -64,7 +64,7 @@
       ],
       "milestone": null,
       "x": 16,
-      "y": 136,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -72,9 +72,9 @@
     {
       "number": 263,
       "title": "Orphan VMs don't deleted",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/263",
-      "closedAt": null,
+      "closedAt": "2026-09-30T21:20:02Z",
       "labels": [
         {
           "name": "bug",
@@ -86,8 +86,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1541,6 +1541,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        263,
         266,
         261,
         262,
@@ -1623,7 +1624,6 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        263,
         264,
         265
       ]
