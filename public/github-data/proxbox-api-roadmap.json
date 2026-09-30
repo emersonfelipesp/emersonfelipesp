@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-30T12:51:48.224Z",
+  "generated_at": "2026-09-30T13:44:22.082Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 4,
-    "closed": 74,
+    "open": 3,
+    "closed": 75,
     "edges": 0
   },
-  "viewBox": "0 0 272 488",
+  "viewBox": "0 0 272 368",
   "nodes": [
     {
       "number": 266,
       "title": "full-update ignores sync_node_interfaces: behavior_flags not passed to create_all_device_interfaces, so node bridges never get their hwaddress MAC",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/266",
-      "closedAt": null,
+      "closedAt": "2026-09-30T13:42:45Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 376,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1541,6 +1541,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        266,
         261,
         262,
         260,
@@ -1624,8 +1625,7 @@
       "issues": [
         263,
         264,
-        265,
-        266
+        265
       ]
     }
   ],
