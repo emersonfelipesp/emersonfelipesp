@@ -58,6 +58,22 @@ const NETBOX_PROXBOX_PT_BR = {
     docsHref:
       "https://emersonfelipesp.com/netbox-proxbox/docs/features/monitoring/",
   },
+  appliance: {
+    title: "Appliance OCI de teste para Proxmox",
+    summary:
+      "Execute um ambiente descartável e completo do NetBox Proxbox pelo fluxo Pull from OCI Registry do Proxmox VE.",
+    points: [
+      "Inclui NetBox, a versão estável do plugin netbox-proxbox, proxbox-api, PostgreSQL, Redis e um worker RQ do NetBox.",
+      "Publica imagens linux/amd64 e linux/arm64, com o NetBox na porta TCP 8080 e o proxbox-api restrito por padrão ao loopback TCP 8800.",
+      "Testes persistentes exigem os volumes documentados do PostgreSQL, Redis, proxbox-api e dos segredos gerados.",
+      "Crie o primeiro administrador no console do LXC com /opt/netbox/netbox/manage.py createsuperuser.",
+      "Appliance somente para testes — use uma arquitetura multisserviço suportada em implantações de produção do NetBox.",
+    ],
+    imageLabel: "Abrir a imagem no Docker Hub",
+    imageHref: netboxProxbox.appliance.imageHref,
+    docsLabel: "Ler o guia do appliance OCI",
+    docsHref: netboxProxbox.appliance.docsHref,
+  },
   features: [
     "Sincronização automática: clusters, nós, VMs, contêineres, storage, snapshots, backups",
     "Progresso em tempo real via streaming Server-Sent Events (SSE)",
@@ -466,6 +482,7 @@ export function getNetboxProxbox(lang: Lang): NetboxProxboxContent {
     description: NETBOX_PROXBOX_PT_BR.description,
     features: NETBOX_PROXBOX_PT_BR.features,
     monitoring: NETBOX_PROXBOX_PT_BR.monitoring,
+    appliance: NETBOX_PROXBOX_PT_BR.appliance,
     stack: NETBOX_PROXBOX_PT_BR.stack,
     install: { ...netboxProxbox.install, ...NETBOX_PROXBOX_PT_BR.install },
     sections: localizeSections(

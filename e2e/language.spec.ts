@@ -44,6 +44,10 @@ test("project pages render in pt-br when language is pt-br", async ({
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
   await expect(page.getByText(/sincroniza/i).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: /visão geral/i })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Appliance OCI de teste para Proxmox" }),
+  ).toBeVisible();
+  await expect(page.getByText(/somente para testes/i)).toBeVisible();
 
   await page.goto("/proxmox-sdk");
   await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");

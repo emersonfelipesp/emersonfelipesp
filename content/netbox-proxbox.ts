@@ -26,6 +26,23 @@ export const netboxProxbox = {
     docsHref:
       "https://emersonfelipesp.com/netbox-proxbox/docs/features/monitoring/",
   },
+  appliance: {
+    title: "Proxmox OCI testing appliance",
+    summary:
+      "Run a disposable, all-in-one NetBox Proxbox environment through Proxmox VE's Pull from OCI Registry workflow.",
+    points: [
+      "Bundles NetBox, the stable netbox-proxbox plugin, proxbox-api, PostgreSQL, Redis, and a NetBox RQ worker.",
+      "Publishes linux/amd64 and linux/arm64 images, with NetBox on TCP 8080 and proxbox-api bound to loopback TCP 8800 by default.",
+      "Persistent testing requires the documented PostgreSQL, Redis, proxbox-api, and generated-secret volumes.",
+      "Create the first administrator from the LXC console with /opt/netbox/netbox/manage.py createsuperuser.",
+      "Testing appliance only — use a supported multi-service architecture for production NetBox deployments.",
+    ],
+    imageLabel: "Open the image on Docker Hub",
+    imageHref: "https://hub.docker.com/r/emersonfelipesp/netbox-proxbox",
+    docsLabel: "Read the OCI appliance guide",
+    docsHref:
+      "https://github.com/emersonfelipesp/netbox-proxbox/blob/develop/docs/installation/proxmox-oci-appliance.md",
+  },
   features: [
     "Automatic sync: clusters, nodes, VMs, containers, storage, snapshots, backups",
     "Real-time progress via Server-Sent Events (SSE) streaming",
