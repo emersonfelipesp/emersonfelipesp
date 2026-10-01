@@ -558,3 +558,9 @@ textarea:focus-visible {
     }
   }
 }
+
+/* Thin rule between sibling content sections; everything else stays borderless. */
+main section + section {
+  border-top: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+  padding-top: 2rem;
+}
