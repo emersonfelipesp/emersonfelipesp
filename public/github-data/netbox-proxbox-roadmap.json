@@ -1,14 +1,148 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T21:20:01.047Z",
+  "generated_at": "2026-10-01T17:32:51.371Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
-    "closed": 347,
+    "open": 2,
+    "closed": 352,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 673,
+      "title": "Error when delete multiple virtual machines at once",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/673",
+      "closedAt": null,
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 672,
+      "title": "Large multi-cluster tuning guide and wiring of ignored settings",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/672",
+      "closedAt": "2026-09-28T21:15:20Z",
+      "labels": [
+        {
+          "name": "documentation",
+          "color": "0075ca"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 671,
+      "title": "Full sync fails almost immediately with many Proxmox endpoints; one failing cluster aborts the whole run",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/671",
+      "closedAt": "2026-09-28T21:15:21Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 670,
+      "title": "Home page shows reachable clusters as Error for 1-2 minutes when many endpoints are configured",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/670",
+      "closedAt": "2026-09-28T21:15:20Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "D93F0B"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 669,
+      "title": "Configurable node device name template (FQDN) for Proxmox nodes reused across clusters",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/669",
+      "closedAt": "2026-09-28T21:15:21Z",
+      "labels": [
+        {
+          "name": "feature",
+          "color": "5DB5F8"
+        },
+        {
+          "name": "under review",
+          "color": "FBCA04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 662,
+      "title": "Redundant connections on the Proxmox Endpoints page",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/662",
+      "closedAt": "2026-09-16T13:15:30Z",
+      "labels": [
+        {
+          "name": "accepted",
+          "color": "0E8A16"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 657,
       "title": "ProxBox backend returned an unexpected response",
@@ -37,7 +171,7 @@
       "title": "RuntimeError(\"Stage 'devices' failed (HTTP 400): Error ensuring Proxbox tag\")",
       "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/651",
-      "closedAt": "2026-09-09T15:23:39Z",
+      "closedAt": "2026-09-17T15:23:25Z",
       "labels": [
         {
           "name": "bug",
@@ -8147,7 +8281,12 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        671,
+        669,
+        672,
+        670,
         651,
+        662,
         649,
         657,
         641,
@@ -8501,7 +8640,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        673
       ]
     }
   ],
@@ -8509,22 +8649,22 @@
     {
       "name": "accepted",
       "color": "0E8A16",
-      "count": 183
+      "count": 184
     },
     {
       "name": "feature",
       "color": "5DB5F8",
-      "count": 136
+      "count": 137
     },
     {
       "name": "bug",
       "color": "D93F0B",
-      "count": 85
+      "count": 88
     },
     {
       "name": "under review",
       "color": "FBCA04",
-      "count": 36
+      "count": 41
     },
     {
       "name": "python",
@@ -8549,7 +8689,7 @@
     {
       "name": "documentation",
       "color": "0075ca",
-      "count": 4
+      "count": 5
     },
     {
       "name": "good first issue",

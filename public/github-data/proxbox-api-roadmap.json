@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T21:20:11.316Z",
+  "generated_at": "2026-10-01T17:33:01.627Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 2,
-    "closed": 74,
+    "open": 0,
+    "closed": 78,
     "edges": 0
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
-      "number": 264,
-      "title": "Netbox ID and VMID are mixed up",
-      "state": "open",
-      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/264",
-      "closedAt": null,
+      "number": 266,
+      "title": "full-update ignores sync_node_interfaces: behavior_flags not passed to create_all_device_interfaces, so node bridges never get their hwaddress MAC",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/266",
+      "closedAt": "2026-09-30T13:42:45Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,45 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 265,
+      "title": "Muitiple warnings and errors during endpoint synchronization",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/265",
+      "closedAt": "2026-10-01T00:22:17Z",
+      "labels": [],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 264,
+      "title": "Netbox ID and VMID are mixed up",
+      "state": "closed",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/issues/264",
+      "closedAt": "2026-10-01T00:22:19Z",
+      "labels": [
+        {
+          "name": "bug",
+          "color": "d73a4a"
+        },
+        {
+          "name": "under review",
+          "color": "fbca04"
+        }
+      ],
+      "milestone": null,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -35,9 +72,9 @@
     {
       "number": 263,
       "title": "Orphan VMs don't deleted",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/263",
-      "closedAt": null,
+      "closedAt": "2026-09-30T21:20:02Z",
       "labels": [
         {
           "name": "bug",
@@ -49,8 +86,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1504,6 +1541,10 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        264,
+        265,
+        263,
+        266,
         261,
         262,
         260,
@@ -1579,15 +1620,6 @@
         3,
         4
       ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        263,
-        264
-      ]
     }
   ],
   "labels": [
@@ -1599,7 +1631,7 @@
     {
       "name": "bug",
       "color": "d73a4a",
-      "count": 20
+      "count": 21
     },
     {
       "name": "enhancement",
@@ -1609,7 +1641,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 9
+      "count": 10
     },
     {
       "name": "documentation",
