@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T13:06:06.585Z",
+  "generated_at": "2026-10-02T13:13:00.494Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 352,
+    "open": 1,
+    "closed": 353,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 673,
       "title": "Error when delete multiple virtual machines at once",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/673",
-      "closedAt": null,
+      "closedAt": "2026-10-02T13:11:39Z",
       "labels": [
         {
           "name": "bug",
@@ -26,8 +26,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8281,6 +8281,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        673,
         671,
         669,
         672,
@@ -8640,8 +8641,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        673
+        602
       ]
     }
   ],
