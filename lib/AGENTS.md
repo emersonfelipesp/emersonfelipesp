@@ -1,18 +1,8 @@
-# lib/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # lib/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/lib/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/lib/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -35,8 +25,8 @@ localization helpers, and validators. Keep Node-only code out of client bundles.
 - `database-url.ts` - Resolves Prisma `file:` URLs to absolute filenames for runtime, migrations, and seed scripts.
 - `views.ts` - `incrementView(path)` and `readView(path)` wrappers over `PageView`.
 - `netbox-sdk-meta.ts` - Reads committed `public/netbox-sdk-fixtures/netbox-sdk-metadata.json` and returns netbox-sdk compatibility metadata, falling back at call sites when unavailable.
-- `i18n/` - Dictionaries and localized content. See `i18n/CLAUDE.md`.
-- `validators/` - Zod input schemas. See `validators/CLAUDE.md`.
+- `i18n/` - Dictionaries and localized content. See `i18n/AGENTS.md`.
+- `validators/` - Zod input schemas. See `validators/AGENTS.md`.
 
 ## Key Conventions
 

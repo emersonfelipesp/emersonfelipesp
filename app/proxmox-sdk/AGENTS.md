@@ -1,18 +1,8 @@
-# app/proxmox-sdk/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # app/proxmox-sdk/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/app/proxmox-sdk/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/app/proxmox-sdk/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -27,7 +17,7 @@ Proxmox VE API. Uses the `proxmox` palette.
 ## Files
 
 - `page.tsx` - Server shell. Exports metadata and `dynamic = "force-dynamic"`, increments `/${p.slug}`, loads static release/repo data with `loadProjectShellData("proxmox-sdk")`, and renders `<ProxmoxSdkContent releases={...} repo={...} />`.
-- `developer/` - Developer-facing companion route. See `developer/CLAUDE.md`.
+- `developer/` - Developer-facing companion route. See `developer/AGENTS.md`.
 
 ## Key Conventions
 

@@ -1,18 +1,8 @@
-# prisma/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # prisma/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/prisma/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/prisma/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -31,7 +21,7 @@ is configured.
   - `ContactMessage` - contact form submissions.
   - `PageView` - per-path view counters.
 - `seed.ts` - Creates initial `PageView` rows for `/`, `/netbox-proxbox`, `/proxbox-api`, `/netbox-sdk`, and `/proxmox-sdk`.
-- `migrations/` - SQL migration history. See `migrations/CLAUDE.md`.
+- `migrations/` - SQL migration history. See `migrations/AGENTS.md`.
 
 ## Key Conventions
 
