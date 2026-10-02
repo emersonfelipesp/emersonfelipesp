@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-02T11:52:58.587Z",
+  "syncedAt": "2026-10-02T13:05:12.863Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 9,
   "forks": 7,
   "releases": [
+    {
+      "id": 401824966,
+      "nodeId": "RE_kwDOOUepXM4X81zG",
+      "tag": "v0.0.24",
+      "name": "v0.0.24",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.24",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/401824966",
+      "targetCommitish": "main",
+      "body": "## proxbox-api 0.0.24\n\nThis release makes synchronization safer and more predictable on estates with several Proxmox endpoints and clusters.\n\n### Fixes and improvements\n\n- **Node interfaces during a full update.** `GET /full-update` and `GET /full-update/stream` now honor `sync_node_interfaces`, so bridge `hwaddress` MAC addresses are written, matching `GET /dcim/devices/interfaces/create`.\n- **Orphan VM sweep for staged runs.** A standalone, endpoint-scoped sweep is available at `GET /virtualization/virtual-machines/orphans/sweep` (plus a `/stream` variant). It is fail closed: live runs require an endpoint scope, the run must have synchronized VMs in that scope, the VM stage must not have failed, and a VM is only marked when its guest is confirmed absent from a fresh live Proxmox inventory. Orphans stay soft-deleted (status `decommissioning` plus a marker tag); permanent deletion remains a human action. Decommissioned VMs are excluded from the disk, snapshot, interface and IP stages, and a VM that reappears is re-adopted.\n- **Staged runs no longer abort on one bad VM.** A VM whose ownership record is incomplete, duplicated or unresolvable is skipped with a warning and the stage is reported as degraded, instead of failing the whole run. Requests that address a single VM by id remain strict.\n- **Cross-cluster matching.** VM matches keyed by endpoint and VMID now also require the VM's cluster to match, so interface, IP and snapshot data are never written to another cluster's VM. A stale stored endpoint id is repaired automatically only in the unambiguous case, which prevents duplicate `name (2)` VMs.\n- **Platform.** FastAPI is upgraded and opt-in native telemetry is available.\n\n### Compatibility and upgrade\n\nNo database migration and no change to the public authentication contract. Compatible with `proxmox-sdk 0.0.15`, `netbox-sdk 0.0.13` and the netbox-proxbox `0.0.27` line. Responses gain `warnings` and `degraded` fields only when a staged stage skipped a VM.\n\nKnown limitations: for plugin-driven syncs to sweep orphans, the netbox-proxbox job must call the new sweep route after its stages; VMs already duplicated as `name (2)` are not merged automatically; a record with no cluster information can still match across clusters.\n\nDeploy the exact `0.0.24` package or container, restart every backend worker, verify the health endpoint, then run one node and one virtual-machine synchronization before resuming scheduled jobs.\n",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api 0.0.24</h2>\n<p dir=\"auto\">This release makes synchronization safer and more predictable on estates with several Proxmox endpoints and clusters.</p>\n<h3 dir=\"auto\">Fixes and improvements</h3>\n<ul dir=\"auto\">\n<li><strong>Node interfaces during a full update.</strong> <code class=\"notranslate\">GET /full-update</code> and <code class=\"notranslate\">GET /full-update/stream</code> now honor <code class=\"notranslate\">sync_node_interfaces</code>, so bridge <code class=\"notranslate\">hwaddress</code> MAC addresses are written, matching <code class=\"notranslate\">GET /dcim/devices/interfaces/create</code>.</li>\n<li><strong>Orphan VM sweep for staged runs.</strong> A standalone, endpoint-scoped sweep is available at <code class=\"notranslate\">GET /virtualization/virtual-machines/orphans/sweep</code> (plus a <code class=\"notranslate\">/stream</code> variant). It is fail closed: live runs require an endpoint scope, the run must have synchronized VMs in that scope, the VM stage must not have failed, and a VM is only marked when its guest is confirmed absent from a fresh live Proxmox inventory. Orphans stay soft-deleted (status <code class=\"notranslate\">decommissioning</code> plus a marker tag); permanent deletion remains a human action. Decommissioned VMs are excluded from the disk, snapshot, interface and IP stages, and a VM that reappears is re-adopted.</li>\n<li><strong>Staged runs no longer abort on one bad VM.</strong> A VM whose ownership record is incomplete, duplicated or unresolvable is skipped with a warning and the stage is reported as degraded, instead of failing the whole run. Requests that address a single VM by id remain strict.</li>\n<li><strong>Cross-cluster matching.</strong> VM matches keyed by endpoint and VMID now also require the VM's cluster to match, so interface, IP and snapshot data are never written to another cluster's VM. A stale stored endpoint id is repaired automatically only in the unambiguous case, which prevents duplicate <code class=\"notranslate\">name (2)</code> VMs.</li>\n<li><strong>Platform.</strong> FastAPI is upgraded and opt-in native telemetry is available.</li>\n</ul>\n<h3 dir=\"auto\">Compatibility and upgrade</h3>\n<p dir=\"auto\">No database migration and no change to the public authentication contract. Compatible with <code class=\"notranslate\">proxmox-sdk 0.0.15</code>, <code class=\"notranslate\">netbox-sdk 0.0.13</code> and the netbox-proxbox <code class=\"notranslate\">0.0.27</code> line. Responses gain <code class=\"notranslate\">warnings</code> and <code class=\"notranslate\">degraded</code> fields only when a staged stage skipped a VM.</p>\n<p dir=\"auto\">Known limitations: for plugin-driven syncs to sweep orphans, the netbox-proxbox job must call the new sweep route after its stages; VMs already duplicated as <code class=\"notranslate\">name (2)</code> are not merged automatically; a record with no cluster information can still match across clusters.</p>\n<p dir=\"auto\">Deploy the exact <code class=\"notranslate\">0.0.24</code> package or container, restart every backend worker, verify the health endpoint, then run one node and one virtual-machine synchronization before resuming scheduled jobs.</p>",
+      "createdAt": "2026-10-01T18:30:46Z",
+      "publishedAt": "2026-10-02T13:04:44Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.24",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.24"
+      }
+    },
     {
       "id": 399366930,
       "nodeId": "RE_kwDOOUepXM4XzdsS",
@@ -17,7 +42,7 @@
       "createdAt": "2026-09-29T14:52:47Z",
       "publishedAt": "2026-09-29T17:17:53Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
