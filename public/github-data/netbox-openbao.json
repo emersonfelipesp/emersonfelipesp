@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-02T20:39:47.334Z",
+  "syncedAt": "2026-10-02T21:49:16.645Z",
   "fullName": "emersonfelipesp/netbox-openbao",
   "stars": 0,
   "forks": 0,
   "releases": [
+    {
+      "id": 402147159,
+      "nodeId": "RE_kwDOULJON84X-EdX",
+      "tag": "v0.2.0",
+      "name": "v0.2.0",
+      "url": "https://github.com/emersonfelipesp/netbox-openbao/releases/tag/v0.2.0",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/releases/402147159",
+      "targetCommitish": "main",
+      "body": "- **Upgrade action required.** OpenBao login material (AppRole role and secret\n  IDs, token, Kubernetes role, broker client certificate) and every plugin\n  setting now live in encrypted NetBox models instead of `PLUGINS_CONFIG` and\n  `NETBOX_BAO_*` environment variables. Runtime code no longer reads those\n  sources; only the one-time `openbao_configure import-legacy-settings` and\n  `import-env` commands do. Follow `docs/upgrading.md` in a maintenance window\n  before relying on the upgraded plugin; until authentication material is\n  stored, OpenBao access fails. Also added: a Settings page and API, and the\n  `openbao_configure` management command for headless setup, connection tests\n  and re-encryption after a `SECRET_KEY` rotation.\n- One consolidated migration, `0024_engine_auth_material`, covers everything\n  added since 0.1.0.post2: the service endpoint and credential schema models\n  with their seed, the unique credential import source constraint, the\n  idempotent `SSH` service template seed, each policy's former environment\n  prefix retained as non-executable metadata, and the encrypted authentication\n  material model. Databases that already recorded that name skip it.\n- Service endpoints and an SSH public-key inventory, a permission-constrained\n  metadata-only credential resolver, an atomic endpoint-with-credential write\n  and a revision-bound endpoint reveal. Provider-specific imports remain the\n  responsibility of consuming plugins.\n- SSH credentials (`ssh-keypair`, `ssh-password`) must now be tied to an SSH\n  Application Service: the chain is OpenBao Credential > Application Service\n  (`ipam.Service`) > Device or Virtual Machine. Assigning an SSH credential\n  directly to a Device or VM is rejected (other targets such as hypervisor\n  endpoints are unaffected).\n- Added a seeded `SSH` service template (`tcp/22`). Quick-add now builds the\n  Application Service from a chosen service template and creates the\n  credential on the same form; the optional \"create service\" checkbox is gone\n  and the REST quick-add accepts `service_template` and `service_name` instead\n  of `create_service`.\n- NetBox 4.7 is now required; the 4.6 `protocol` + `ports` service path was\n  removed. Existing direct Device/VM assignments of SSH credentials are not\n  rewritten and stay editable; the Application Service rule applies to new\n  assignments.\n",
+      "bodyHtml": "<ul dir=\"auto\">\n<li><strong>Upgrade action required.</strong> OpenBao login material (AppRole role and secret<br>\nIDs, token, Kubernetes role, broker client certificate) and every plugin<br>\nsetting now live in encrypted NetBox models instead of <code class=\"notranslate\">PLUGINS_CONFIG</code> and<br>\n<code class=\"notranslate\">NETBOX_BAO_*</code> environment variables. Runtime code no longer reads those<br>\nsources; only the one-time <code class=\"notranslate\">openbao_configure import-legacy-settings</code> and<br>\n<code class=\"notranslate\">import-env</code> commands do. Follow <code class=\"notranslate\">docs/upgrading.md</code> in a maintenance window<br>\nbefore relying on the upgraded plugin; until authentication material is<br>\nstored, OpenBao access fails. Also added: a Settings page and API, and the<br>\n<code class=\"notranslate\">openbao_configure</code> management command for headless setup, connection tests<br>\nand re-encryption after a <code class=\"notranslate\">SECRET_KEY</code> rotation.</li>\n<li>One consolidated migration, <code class=\"notranslate\">0024_engine_auth_material</code>, covers everything<br>\nadded since 0.1.0.post2: the service endpoint and credential schema models<br>\nwith their seed, the unique credential import source constraint, the<br>\nidempotent <code class=\"notranslate\">SSH</code> service template seed, each policy's former environment<br>\nprefix retained as non-executable metadata, and the encrypted authentication<br>\nmaterial model. Databases that already recorded that name skip it.</li>\n<li>Service endpoints and an SSH public-key inventory, a permission-constrained<br>\nmetadata-only credential resolver, an atomic endpoint-with-credential write<br>\nand a revision-bound endpoint reveal. Provider-specific imports remain the<br>\nresponsibility of consuming plugins.</li>\n<li>SSH credentials (<code class=\"notranslate\">ssh-keypair</code>, <code class=\"notranslate\">ssh-password</code>) must now be tied to an SSH<br>\nApplication Service: the chain is OpenBao Credential &gt; Application Service<br>\n(<code class=\"notranslate\">ipam.Service</code>) &gt; Device or Virtual Machine. Assigning an SSH credential<br>\ndirectly to a Device or VM is rejected (other targets such as hypervisor<br>\nendpoints are unaffected).</li>\n<li>Added a seeded <code class=\"notranslate\">SSH</code> service template (<code class=\"notranslate\">tcp/22</code>). Quick-add now builds the<br>\nApplication Service from a chosen service template and creates the<br>\ncredential on the same form; the optional \"create service\" checkbox is gone<br>\nand the REST quick-add accepts <code class=\"notranslate\">service_template</code> and <code class=\"notranslate\">service_name</code> instead<br>\nof <code class=\"notranslate\">create_service</code>.</li>\n<li>NetBox 4.7 is now required; the 4.6 <code class=\"notranslate\">protocol</code> + <code class=\"notranslate\">ports</code> service path was<br>\nremoved. Existing direct Device/VM assignments of SSH credentials are not<br>\nrewritten and stay editable; the Application Service rule applies to new<br>\nassignments.</li>\n</ul>",
+      "createdAt": "2026-10-02T20:49:11Z",
+      "publishedAt": "2026-10-02T20:51:38Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/zipball/v0.2.0",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/tarball/v0.2.0"
+      }
+    },
     {
       "id": 402029132,
       "nodeId": "RE_kwDOULJON84X9npM",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-01T17:43:20Z",
       "publishedAt": "2026-10-02T17:42:07Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
