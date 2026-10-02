@@ -1,14 +1,84 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T17:29:14.914Z",
+  "generated_at": "2026-10-02T20:40:56.885Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 6,
     "closed": 353,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 728",
   "nodes": [
+    {
+      "number": 685,
+      "title": "plugin settings readable by any authenticated user",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/685",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 616,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 684,
+      "title": "insecure transport defaults + process-wide trust-store swap + no-KDF key",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/684",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 496,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 683,
+      "title": "device name flows unsanitized into an authenticated backend request path",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/683",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 376,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 682,
+      "title": "HA arm/disarm checks the wrong permission and acts on every endpoint",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/682",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 681,
+      "title": "GET to the websocket sync route triggers a backend sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/681",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 673,
       "title": "Error when delete multiple virtual machines at once",
@@ -8641,7 +8711,12 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        681,
+        682,
+        683,
+        684,
+        685
       ]
     }
   ],
