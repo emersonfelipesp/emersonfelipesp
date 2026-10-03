@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-02T21:49:16.880Z",
+  "syncedAt": "2026-10-03T01:16:49.323Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 9,
   "forks": 7,
   "releases": [
+    {
+      "id": 402256498,
+      "nodeId": "RE_kwDOOUepXM4X-fJy",
+      "tag": "v0.0.25",
+      "name": "v0.0.25",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.25",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/402256498",
+      "targetCommitish": "main",
+      "body": "## proxbox-api 0.0.25\n\nThis release makes synchronization more robust and safer on estates with several Proxmox endpoints and clusters.\n\n### Fixes and improvements\n\n- **Nightly schema refresh.** The schema contract check accepts both NetBox 4.6 and 4.7 virtual machine schema names, so the scheduled refresh works against current NetBox.\n- **Pinned granian.** The granian container images and the CI end-to-end container install a validated, pinned granian version, with a guard test that keeps the pin consistent.\n- **Node-interface synchronization (opt-in `sync_node_interfaces`).** A failed VLAN synchronization no longer clears existing VLAN assignments, and VLAN, IP and MAC failures, including partial responses without a persisted record, are reported as warnings with a degraded result in the REST response (only when degraded), the SSE events and full update.\n- **Shared-owner detection.** During sidecar hydration, two NetBox VMs claiming the same Proxmox owner (endpoint, cluster, VMID and type) are detected, including when one is outside the selection: lenient runs skip every claimant with a warning and report the stage degraded; strict requests fail before any write.\n- **Verified-cluster matching.** A VM whose only endpoint-keyed candidate has no verifiable cluster (missing or unassigned) is skipped with a structured warning and the stage is reported degraded, instead of being updated or duplicated. Missing cluster data is completed with bounded concurrency, and the Python and Rust reconciliation engines agree.\n- **Test reliability.** The console relay rejection tests are hardened against a test-harness cancellation race.\n\n### Compatibility and upgrade\n\nNo database migration and no change to the public authentication contract. Compatible with `proxmox-sdk 0.0.15`, `netbox-sdk 0.0.13` and the netbox-proxbox `0.0.27` line. Responses gain `warnings` and `degraded` fields only when a staged stage skipped a VM or a node-interface sub-sync failed.\n\nDeploy the exact `0.0.25` package or container, restart every backend worker, verify the health endpoint, then run one node and one virtual-machine synchronization before resuming scheduled jobs.\n",
+      "bodyHtml": "<h2 dir=\"auto\">proxbox-api 0.0.25</h2>\n<p dir=\"auto\">This release makes synchronization more robust and safer on estates with several Proxmox endpoints and clusters.</p>\n<h3 dir=\"auto\">Fixes and improvements</h3>\n<ul dir=\"auto\">\n<li><strong>Nightly schema refresh.</strong> The schema contract check accepts both NetBox 4.6 and 4.7 virtual machine schema names, so the scheduled refresh works against current NetBox.</li>\n<li><strong>Pinned granian.</strong> The granian container images and the CI end-to-end container install a validated, pinned granian version, with a guard test that keeps the pin consistent.</li>\n<li><strong>Node-interface synchronization (opt-in <code class=\"notranslate\">sync_node_interfaces</code>).</strong> A failed VLAN synchronization no longer clears existing VLAN assignments, and VLAN, IP and MAC failures, including partial responses without a persisted record, are reported as warnings with a degraded result in the REST response (only when degraded), the SSE events and full update.</li>\n<li><strong>Shared-owner detection.</strong> During sidecar hydration, two NetBox VMs claiming the same Proxmox owner (endpoint, cluster, VMID and type) are detected, including when one is outside the selection: lenient runs skip every claimant with a warning and report the stage degraded; strict requests fail before any write.</li>\n<li><strong>Verified-cluster matching.</strong> A VM whose only endpoint-keyed candidate has no verifiable cluster (missing or unassigned) is skipped with a structured warning and the stage is reported degraded, instead of being updated or duplicated. Missing cluster data is completed with bounded concurrency, and the Python and Rust reconciliation engines agree.</li>\n<li><strong>Test reliability.</strong> The console relay rejection tests are hardened against a test-harness cancellation race.</li>\n</ul>\n<h3 dir=\"auto\">Compatibility and upgrade</h3>\n<p dir=\"auto\">No database migration and no change to the public authentication contract. Compatible with <code class=\"notranslate\">proxmox-sdk 0.0.15</code>, <code class=\"notranslate\">netbox-sdk 0.0.13</code> and the netbox-proxbox <code class=\"notranslate\">0.0.27</code> line. Responses gain <code class=\"notranslate\">warnings</code> and <code class=\"notranslate\">degraded</code> fields only when a staged stage skipped a VM or a node-interface sub-sync failed.</p>\n<p dir=\"auto\">Deploy the exact <code class=\"notranslate\">0.0.25</code> package or container, restart every backend worker, verify the health endpoint, then run one node and one virtual-machine synchronization before resuming scheduled jobs.</p>",
+      "createdAt": "2026-10-02T23:27:34Z",
+      "publishedAt": "2026-10-03T01:16:22Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.25",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.25"
+      }
+    },
     {
       "id": 401824966,
       "nodeId": "RE_kwDOOUepXM4X81zG",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-01T18:30:46Z",
       "publishedAt": "2026-10-02T13:04:44Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
