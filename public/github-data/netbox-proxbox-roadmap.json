@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T05:22:39.193Z",
+  "generated_at": "2026-10-03T05:48:13.257Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 356,
+    "open": 2,
+    "closed": 357,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 685,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 684,
       "title": "insecure transport defaults + process-wide trust-store swap + no-KDF key",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/684",
-      "closedAt": null,
+      "closedAt": "2026-10-03T05:46:54Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8351,6 +8351,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        684,
         681,
         683,
         682,
@@ -8715,7 +8716,6 @@
       "note": "start anywhere",
       "issues": [
         602,
-        684,
         685
       ]
     }
