@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T05:48:13.257Z",
+  "generated_at": "2026-10-03T06:16:25.353Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 357,
+    "open": 1,
+    "closed": 358,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 685,
       "title": "plugin settings readable by any authenticated user",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/685",
-      "closedAt": null,
+      "closedAt": "2026-10-03T06:15:20Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8351,6 +8351,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        685,
         684,
         681,
         683,
@@ -8715,8 +8716,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        685
+        602
       ]
     }
   ],
