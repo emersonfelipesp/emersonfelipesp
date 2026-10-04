@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T16:26:52.148Z",
+  "generated_at": "2026-10-04T19:12:44.430Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 358,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 687,
+      "title": "Netbox 4.7.2",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/687",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 686,
       "title": "Can't create new proxmox API endpoint",
@@ -8731,7 +8745,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        686
+        686,
+        687
       ]
     }
   ],
