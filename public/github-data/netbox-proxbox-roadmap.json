@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T11:47:52.521Z",
+  "generated_at": "2026-10-04T14:19:22.767Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 358,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 686,
+      "title": "Can't create new proxmox API endpoint",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/686",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 685,
       "title": "plugin settings readable by any authenticated user",
@@ -8716,7 +8730,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        686
       ]
     }
   ],
