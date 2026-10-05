@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-05T13:37:45.075Z",
+  "generated_at": "2026-10-05T22:14:37.641Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 359,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 688,
+      "title": "Connections to the Proxmox endpoints are being lost",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/688",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 687,
       "title": "Netbox 4.7.2",
@@ -8746,7 +8760,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        687
+        687,
+        688
       ]
     }
   ],

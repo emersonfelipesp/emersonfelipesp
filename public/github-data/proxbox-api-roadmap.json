@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-05T13:38:00.837Z",
+  "generated_at": "2026-10-05T22:14:49.109Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
-    "closed": 78,
+    "open": 0,
+    "closed": 79,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 267,
       "title": "Ambiguous Proxmox node device identity",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/267",
-      "closedAt": null,
+      "closedAt": "2026-10-05T22:13:16Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1555,6 +1555,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        267,
         264,
         265,
         263,
@@ -1633,14 +1634,6 @@
         1,
         3,
         4
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        267
       ]
     }
   ],
