@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-08T20:48:59.590Z",
+  "syncedAt": "2026-10-08T21:27:12.527Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 602,
   "forks": 65,
   "releases": [
+    {
+      "id": 407273384,
+      "nodeId": "RE_kwDOFTMlzs4YRn-o",
+      "tag": "v0.0.29.post2",
+      "name": "v0.0.29.post2",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.29.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/407273384",
+      "targetCommitish": "main",
+      "body": "## Summary\n\nThis maintenance release adds a system check that explains a Proxbox\nsynchronization outage seen after upgrading to 0.0.29. It adds no database\nmigration and changes no runtime behavior.\n\n## Release identity\n\nThe package and plugin source both identify this maintenance release as\n`0.0.29.post2`.\n\n## Backend token sensitive-data access\n\n0.0.29 returns the plugin encryption key from the settings runtime endpoint\nonly to an active superuser or a user with an explicit sensitive-data grant.\nproxbox-api reads that key with the token configured on the enabled NetBox\nendpoint. If proxbox-api relies on the plugin key instead of its own key and\nthat token's user has no grant, every Proxbox synchronization fails with HTTP\n503.\n\nThe new system check `netbox_proxbox.W107` (`manage.py check --database\ndefault`) names each enabled NetBox endpoint whose token user cannot receive the\nkey. Prefer provisioning proxbox-api's own encryption key. If it must keep\nusing the plugin key, an active superuser can create the grant through\n`POST /api/plugins/proxbox/sensitive-data-access/` with the user ID and\n`can_access_sensitive_data: true`. The grant is deliberately not created by a migration, because endpoint\nconfiguration alone does not prove that a user should hold global\nsensitive-data access.\n\n## Upgrade\n\nUpgrade from 0.0.29 or 0.0.29.post1 with the usual package upgrade and\n`manage.py migrate`; this release adds no migration. Then run\n`manage.py check --database default` and resolve any `netbox_proxbox.W107`\nwarning before the next synchronization.\n\nUse proxbox-api 0.0.27.post2 or later: earlier backends could also block the\nplugin key after the plugin's per-sync endpoint push until they restarted.\n\n## Compatibility baseline\n\nThe support contract remains NetBox `4.5.8` through `4.7.0` GA. This maintenance\nsource retains the preceding backend pairing.\n\nCurrent backend-runtime pairing: netbox-proxbox 0.0.29.post2 <-> proxbox-api 0.0.23.post3 <-> proxmox-sdk 0.0.15 <-> netbox-sdk 0.0.13. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.\n\n| NetBox | netbox-proxbox | proxbox-api | netbox-sdk | proxmox-sdk |\n|---|---|---|---|---|\n| 4.5.8-4.7.0 GA | v0.0.29.post2 | v0.0.23.post3 | v0.0.13 | v0.0.15 |\n",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">This maintenance release adds a system check that explains a Proxbox<br>\nsynchronization outage seen after upgrading to 0.0.29. It adds no database<br>\nmigration and changes no runtime behavior.</p>\n<h2 dir=\"auto\">Release identity</h2>\n<p dir=\"auto\">The package and plugin source both identify this maintenance release as<br>\n<code class=\"notranslate\">0.0.29.post2</code>.</p>\n<h2 dir=\"auto\">Backend token sensitive-data access</h2>\n<p dir=\"auto\">0.0.29 returns the plugin encryption key from the settings runtime endpoint<br>\nonly to an active superuser or a user with an explicit sensitive-data grant.<br>\nproxbox-api reads that key with the token configured on the enabled NetBox<br>\nendpoint. If proxbox-api relies on the plugin key instead of its own key and<br>\nthat token's user has no grant, every Proxbox synchronization fails with HTTP<br>\n503.</p>\n<p dir=\"auto\">The new system check <code class=\"notranslate\">netbox_proxbox.W107</code> (<code class=\"notranslate\">manage.py check --database default</code>) names each enabled NetBox endpoint whose token user cannot receive the<br>\nkey. Prefer provisioning proxbox-api's own encryption key. If it must keep<br>\nusing the plugin key, an active superuser can create the grant through<br>\n<code class=\"notranslate\">POST /api/plugins/proxbox/sensitive-data-access/</code> with the user ID and<br>\n<code class=\"notranslate\">can_access_sensitive_data: true</code>. The grant is deliberately not created by a migration, because endpoint<br>\nconfiguration alone does not prove that a user should hold global<br>\nsensitive-data access.</p>\n<h2 dir=\"auto\">Upgrade</h2>\n<p dir=\"auto\">Upgrade from 0.0.29 or 0.0.29.post1 with the usual package upgrade and<br>\n<code class=\"notranslate\">manage.py migrate</code>; this release adds no migration. Then run<br>\n<code class=\"notranslate\">manage.py check --database default</code> and resolve any <code class=\"notranslate\">netbox_proxbox.W107</code><br>\nwarning before the next synchronization.</p>\n<p dir=\"auto\">Use proxbox-api 0.0.27.post2 or later: earlier backends could also block the<br>\nplugin key after the plugin's per-sync endpoint push until they restarted.</p>\n<h2 dir=\"auto\">Compatibility baseline</h2>\n<p dir=\"auto\">The support contract remains NetBox <code class=\"notranslate\">4.5.8</code> through <code class=\"notranslate\">4.7.0</code> GA. This maintenance<br>\nsource retains the preceding backend pairing.</p>\n<p dir=\"auto\">Current backend-runtime pairing: netbox-proxbox 0.0.29.post2 &lt;-&gt; proxbox-api 0.0.23.post3 &lt;-&gt; proxmox-sdk 0.0.15 &lt;-&gt; netbox-sdk 0.0.13. This netbox-sdk version is proxbox-api's REST dependency only and does not provide the semantic MCP bridge.</p>\n<markdown-accessiblity-table><table role=\"table\">\n<thead>\n<tr>\n<th>NetBox</th>\n<th>netbox-proxbox</th>\n<th>proxbox-api</th>\n<th>netbox-sdk</th>\n<th>proxmox-sdk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4.5.8-4.7.0 GA</td>\n<td>v0.0.29.post2</td>\n<td>v0.0.23.post3</td>\n<td>v0.0.13</td>\n<td>v0.0.15</td>\n</tr>\n</tbody>\n</table></markdown-accessiblity-table>",
+      "createdAt": "2026-10-08T20:04:37Z",
+      "publishedAt": "2026-10-08T21:20:59Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.29.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.29.post2"
+      }
+    },
     {
       "id": 407146769,
       "nodeId": "RE_kwDOFTMlzs4YRJER",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-08T18:12:15Z",
       "publishedAt": "2026-10-08T18:34:36Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
