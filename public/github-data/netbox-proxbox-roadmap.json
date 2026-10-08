@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T18:35:58.823Z",
+  "generated_at": "2026-10-08T20:50:21.595Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 359,
+    "open": 2,
+    "closed": 360,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 688,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 687,
       "title": "Netbox 4.7.2",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/687",
-      "closedAt": null,
+      "closedAt": "2026-10-08T20:46:55Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8393,6 +8393,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        687,
         686,
         685,
         684,
@@ -8760,7 +8761,6 @@
       "note": "start anywhere",
       "issues": [
         602,
-        687,
         688
       ]
     }
