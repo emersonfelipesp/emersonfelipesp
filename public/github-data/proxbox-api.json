@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-08T12:49:12.715Z",
+  "syncedAt": "2026-10-08T15:12:08.394Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 9,
   "forks": 7,
   "releases": [
+    {
+      "id": 406967776,
+      "nodeId": "RE_kwDOOUepXM4YQdXg",
+      "tag": "v0.0.27.post2",
+      "name": "v0.0.27.post2",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.27.post2",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/406967776",
+      "targetCommitish": "main",
+      "body": "## Summary\n\nThis post-release fixes a production outage in which every Proxbox\nsynchronization after the first one failed with HTTP 503 \"Plugin\nencryption-key authorization is unavailable\" until the backend was restarted.\nIt adds no features and no database migrations.\n\n## Fix\n\n- **Unchanged NetBox endpoint updates are a no-op.** netbox-proxbox pushes its\n  NetBox endpoint to the backend before every synchronization. Each\n  `PUT /netbox/endpoint/{id}` used to re-encrypt the stored token, commit, and\n  invalidate the cached NetBox clients, even when nothing had changed. That\n  invalidation retires the selected plugin encryption-key source, which then\n  stays blocked by design until an explicit reselection. As a result, once the\n  plugin key had been selected, the next push made every key request fail until\n  the process restarted.\n\n  An update now compares the connection and credential fields before and after\n  the request. Stored secrets are decrypted for that comparison because\n  encryption is not deterministic, and the decryption runs in a worker thread so\n  that it cannot block the event loop. When nothing changed, the backend\n  discards the in-memory changes and returns the endpoint without\n  re-encrypting, committing, or invalidating anything.\n\n## Unchanged behavior and known limitation\n\n- Creating, deleting, or really changing the NetBox endpoint still invalidates\n  the clients and keeps the selected plugin-key source blocked until restart.\n  This protects against a credential swap.\n- When the plugin key is the selected source, a changed endpoint credential is\n  re-encrypted under that plugin key. The backend can then fail to start,\n  because it needs that same credential to fetch the key. Give the backend its\n  own encryption key (environment variable or local key file) before you change\n  the NetBox endpoint credentials. A later release will address this.\n\n## Upgrade\n\nDeploy the exact `proxbox-api 0.0.27.post2` package or container through the\napproved release workflow and restart every backend worker. Then run two\nconsecutive synchronizations from netbox-proxbox and confirm that both pass the\nbackend endpoint push and the plugin-key read.\n",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">This post-release fixes a production outage in which every Proxbox<br>\nsynchronization after the first one failed with HTTP 503 \"Plugin<br>\nencryption-key authorization is unavailable\" until the backend was restarted.<br>\nIt adds no features and no database migrations.</p>\n<h2 dir=\"auto\">Fix</h2>\n<ul dir=\"auto\">\n<li>\n<p dir=\"auto\"><strong>Unchanged NetBox endpoint updates are a no-op.</strong> netbox-proxbox pushes its<br>\nNetBox endpoint to the backend before every synchronization. Each<br>\n<code class=\"notranslate\">PUT /netbox/endpoint/{id}</code> used to re-encrypt the stored token, commit, and<br>\ninvalidate the cached NetBox clients, even when nothing had changed. That<br>\ninvalidation retires the selected plugin encryption-key source, which then<br>\nstays blocked by design until an explicit reselection. As a result, once the<br>\nplugin key had been selected, the next push made every key request fail until<br>\nthe process restarted.</p>\n<p dir=\"auto\">An update now compares the connection and credential fields before and after<br>\nthe request. Stored secrets are decrypted for that comparison because<br>\nencryption is not deterministic, and the decryption runs in a worker thread so<br>\nthat it cannot block the event loop. When nothing changed, the backend<br>\ndiscards the in-memory changes and returns the endpoint without<br>\nre-encrypting, committing, or invalidating anything.</p>\n</li>\n</ul>\n<h2 dir=\"auto\">Unchanged behavior and known limitation</h2>\n<ul dir=\"auto\">\n<li>Creating, deleting, or really changing the NetBox endpoint still invalidates<br>\nthe clients and keeps the selected plugin-key source blocked until restart.<br>\nThis protects against a credential swap.</li>\n<li>When the plugin key is the selected source, a changed endpoint credential is<br>\nre-encrypted under that plugin key. The backend can then fail to start,<br>\nbecause it needs that same credential to fetch the key. Give the backend its<br>\nown encryption key (environment variable or local key file) before you change<br>\nthe NetBox endpoint credentials. A later release will address this.</li>\n</ul>\n<h2 dir=\"auto\">Upgrade</h2>\n<p dir=\"auto\">Deploy the exact <code class=\"notranslate\">proxbox-api 0.0.27.post2</code> package or container through the<br>\napproved release workflow and restart every backend worker. Then run two<br>\nconsecutive synchronizations from netbox-proxbox and confirm that both pass the<br>\nbackend endpoint push and the plugin-key read.</p>",
+      "createdAt": "2026-10-08T12:44:36Z",
+      "publishedAt": "2026-10-08T15:11:39Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.27.post2",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.27.post2"
+      }
+    },
     {
       "id": 406043510,
       "nodeId": "RE_kwDOOUepXM4YM7t2",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-07T18:03:36Z",
       "publishedAt": "2026-10-07T18:26:35Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
