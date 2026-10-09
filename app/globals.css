@@ -564,3 +564,91 @@ main section + section {
   border-top: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
   padding-top: 2rem;
 }
+
+/* netbox-proxbox "how it works" pitch animation (components/project/StackPitch.tsx) */
+@keyframes pitch-stage {
+  0%, 30% {
+    border-color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+    transform: translateY(-2px);
+  }
+  36%, 100% {
+    border-color: var(--border);
+    background-color: transparent;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pitch-caption {
+  0%, 30% { opacity: 1; }
+  36%, 100% { opacity: 0.45; }
+}
+
+@keyframes pitch-packet-x {
+  0% { left: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { left: calc(100% - 0.5rem); opacity: 0; }
+}
+
+@keyframes pitch-packet-y {
+  0% { top: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { top: calc(100% - 0.5rem); opacity: 0; }
+}
+
+@keyframes pitch-free {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 45%, transparent); }
+  50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--success) 0%, transparent); }
+}
+
+.pitch-stage,
+.pitch-caption {
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.pitch-stage { animation-name: pitch-stage; }
+.pitch-caption { animation-name: pitch-caption; }
+.pitch-d1 { animation-delay: 0s; }
+.pitch-d2 { animation-delay: 3s; }
+.pitch-d3 { animation-delay: 6s; }
+
+.pitch-packet {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--accent-2);
+  animation: pitch-packet-y 1.8s linear infinite;
+  top: 0;
+  left: calc(50% - 0.25rem);
+}
+
+.pitch-packet-2 { animation-delay: 0.6s; }
+.pitch-packet-3 { animation-delay: 1.2s; }
+
+@media (min-width: 768px) {
+  .pitch-packet {
+    animation-name: pitch-packet-x;
+    top: calc(50% - 0.25rem);
+    left: 0;
+  }
+}
+
+.pitch-free { animation: pitch-free 2.4s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pitch-stage,
+  .pitch-caption,
+  .pitch-free {
+    animation: none;
+  }
+  .pitch-packet {
+    animation: none;
+    opacity: 1;
+  }
+  .pitch-packet-2,
+  .pitch-packet-3 {
+    display: none;
+  }
+}

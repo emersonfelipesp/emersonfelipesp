@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { SectionHeading } from "@/components/project/SectionHeading";
+import { StackPitch } from "@/components/project/StackPitch";
 import { StepList } from "@/components/project/StepList";
 import { ScreenshotGallery } from "@/components/project/ScreenshotGallery";
 import {
@@ -52,6 +53,7 @@ export function NetboxProxboxContent({
       />
 
       <OverviewSection project={p} sections={sections} inlineStack />
+      <StackPitch slug={p.slug} repoUrl={p.links.repo} />
       <FeaturesSection project={p} sections={sections} />
 
       <section id="monitoring" className="space-y-3 scroll-mt-24">
@@ -89,6 +91,42 @@ export function NetboxProxboxContent({
           <span className="text-accent">#</span> {proxbox.quickInstallNote}
         </p>
         <InstallSnippet command={p.install.primary} note={p.install.note} />
+
+        <div
+          id="oci-appliance"
+          data-testid="proxbox-oci-appliance"
+          className="scroll-mt-24 border border-border bg-surface p-5 text-sm"
+        >
+          <h3 className="text-base font-semibold text-accent-2">
+            {p.appliance.title}
+          </h3>
+          <p className="mt-3 text-fg/90">{p.appliance.summary}</p>
+          <ul className="mt-4 space-y-2 text-fg/90">
+            {p.appliance.points.map((point) => (
+              <li key={point}>
+                <span className="text-accent">›</span> {point}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a
+              href={p.appliance.imageHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex border border-accent px-3 py-2 text-xs text-accent transition-colors hover:bg-accent hover:text-bg"
+            >
+              {p.appliance.imageLabel} <span className="ml-2">→</span>
+            </a>
+            <a
+              href={p.appliance.docsHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex border border-border px-3 py-2 text-xs text-accent-2 transition-colors hover:border-accent hover:text-accent"
+            >
+              {p.appliance.docsLabel} <span className="ml-2">→</span>
+            </a>
+          </div>
+        </div>
 
         <div className="space-y-6 pt-2">
           <StepList

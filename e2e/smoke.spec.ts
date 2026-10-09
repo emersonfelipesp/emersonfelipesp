@@ -86,6 +86,17 @@ test("/netbox-proxbox loads", async ({ page }) => {
   await expect(page).toHaveURL("/netbox-proxbox");
   await expect(page.locator("main")).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Top navigation" })).toBeVisible();
+  const appliance = page.getByTestId("proxbox-oci-appliance");
+  await expect(appliance).toContainText("Proxmox OCI testing appliance");
+  await expect(appliance).toContainText("linux/amd64");
+  await expect(appliance.getByRole("link", { name: /Docker Hub/ })).toHaveAttribute(
+    "href",
+    "https://hub.docker.com/r/emersonfelipesp/netbox-proxbox",
+  );
+  await expect(appliance.getByRole("link", { name: /OCI appliance guide/ })).toHaveAttribute(
+    "href",
+    "https://github.com/emersonfelipesp/netbox-proxbox/blob/develop/docs/installation/proxmox-oci-appliance.md",
+  );
 });
 
 test("/netbox-sdk loads", async ({ page }) => {

@@ -1,18 +1,8 @@
-# scripts/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # scripts/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/scripts/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/scripts/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -28,6 +18,7 @@ client bundle.
 
 - `sync-netbox-sdk-fixtures.ts` - Imports netbox-sdk docgen artifacts, generated TUI simulation SVGs, live demo command output, metadata, and prompt flow into `public/netbox-sdk-fixtures/`.
 - `sync-github-data.ts` - Fetches GitHub release snapshots and repo stats for every `PROJECT_LIST` entry and writes `public/github-data/<slug>.json` plus `manifest.json`.
+- `sync-roadmaps.ts` - Iterates `PROJECT_LIST` and writes per-project `public/github-data/<slug>-roadmap.json` snapshots with GitHub issues, `blocked_by` dependency edges, dagre layout, and topological timeline phases. Honors `Retry-After` on 429/403 secondary rate limits and skips repos that return 404.
 
 ## Behavior
 
@@ -48,6 +39,9 @@ client bundle.
 
 ## Key Conventions
 
-- Run explicitly with `pnpm fixtures:sync` or `pnpm github:sync`; these are not `predev` or `prebuild` hooks.
+- Run explicitly with `pnpm fixtures:sync`, `pnpm github:sync`, or `pnpm github:roadmap`; these are not `predev` or `prebuild` hooks.
 - Do not synthesize terminal output by hand. Fixture content must trace back to netbox-sdk.
 - Keep project iteration based on `lib/project-registry.ts` / `lib/release-projects.ts`, not duplicated arrays.
+
+- `sync-netbox-sdk-fixtures.ts` - Imports netbox-sdk docgen artifacts, generated TUI simulation SVGs, live demo command output, metadata, and prompt flow into `public/netbox-sdk-fixtures/`.
+- `sync-github-data.ts` - Fetches GitHub release snapshots and repo stats for every `PROJECT_LIST` entry and writes `public/github-data/<slug>.json` plus `manifest.json`.

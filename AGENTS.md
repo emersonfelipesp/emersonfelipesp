@@ -1,18 +1,8 @@
-# CLAUDE.md - emersonfelipesp.com — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
-# CLAUDE.md - emersonfelipesp.com
+# AGENTS.md - emersonfelipesp.com
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -249,5 +239,6 @@ scripts/
 
 ## 12. Folder Documentation
 
-Each major folder has a scoped `CLAUDE.md`. Keep [AGENTS.md](AGENTS.md) in
-sync whenever a guide is added or removed.
+Each major folder has a scoped `AGENTS.md`; its sibling `CLAUDE.md` is a one-line
+`@AGENTS.md` pointer. Keep the File Map above in sync whenever a guide is added or
+removed.

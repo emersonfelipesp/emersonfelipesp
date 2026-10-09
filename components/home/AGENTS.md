@@ -1,18 +1,8 @@
-# components/home/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # components/home/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/components/home/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/components/home/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -39,5 +29,5 @@ Homepage-only components for `/`. They consume localized profile/home data from
 
 - Do not hardcode visible copy in these components; use profile/i18n data.
 - `HomeContent`, `ProjectsArchitecture`, and `ContactForm` are client components.
-- Brand logos are handled by `ProjectsArchitecture.tsx` and `ProxmoxLogo.tsx`; see `public/logos/CLAUDE.md`.
+- Brand logos are handled by `ProjectsArchitecture.tsx` and `ProxmoxLogo.tsx`; see `public/logos/AGENTS.md`.
 - Contact payload shape must stay aligned with `lib/validators/contact.ts`.

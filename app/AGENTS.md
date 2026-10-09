@@ -1,18 +1,8 @@
-# app/ — AGENTS.md Mirror
-
-This file mirrors the sibling `CLAUDE.md` guidance for agents that read `AGENTS.md`. Treat `CLAUDE.md` as the source material; the content below preserves the current guide.
-
-## Source
-
-@CLAUDE.md
-
----
-
 # app/
 
 ## Workspace Context
 
-This file lives at `/root/personal-context/emersonfelipesp/app/CLAUDE.md` inside the `personal-context` workspace.
+This file lives at `/root/personal-context/emersonfelipesp/app/AGENTS.md` inside the `personal-context` workspace.
 Workspace guidance: `/root/personal-context/CLAUDE.md`.
 Per-repo deep-dive: `/root/personal-context/claude-reference/emersonfelipesp.md`.
 Submodule layout and cross-repo links: `/root/personal-context/claude-reference/dependency-map.md`.
@@ -39,8 +29,8 @@ image.
 
 - `/netbox-proxbox`, `/proxbox-api`, `/netbox-sdk`, `/proxmox-sdk` - Showcase page server shells. Each increments its own view row, loads static release/repo data with `loadProjectShellData()`, and passes that data into the matching client content component.
 - `/<project>/developer` - Developer-guide server shells for every allowlisted project. They load `content/*-developer.ts`, increment views, and pass static release/repo data to `<ProjectDeveloperContent />`.
-- `/[project]/releases` and `/[project]/releases/[...tag]` - Allowlisted release index/detail pages backed by `public/github-data` snapshots. See `[project]/releases/CLAUDE.md`.
-- `/api/contact` and `/api/views` - Node.js API routes. See `api/CLAUDE.md`.
+- `/[project]/releases` and `/[project]/releases/[...tag]` - Allowlisted release index/detail pages backed by `public/github-data` snapshots. See `[project]/releases/AGENTS.md`.
+- `/api/contact` and `/api/views` - Node.js API routes. See `api/AGENTS.md`.
 
 ## Key Conventions
 
