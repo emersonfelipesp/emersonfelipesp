@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T16:27:49.226Z",
+  "generated_at": "2026-10-09T18:31:01.946Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 361,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 694,
+      "title": "Support for Netbox 5.x",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/694",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 688,
       "title": "Connections to the Proxmox endpoints are being lost",
@@ -8761,7 +8775,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        694
       ]
     }
   ],
