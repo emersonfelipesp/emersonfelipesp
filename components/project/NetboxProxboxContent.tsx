@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TypedCommand } from "@/components/terminal/TypedCommand";
 import { InstallSnippet } from "@/components/project/InstallSnippet";
 import { SectionHeading } from "@/components/project/SectionHeading";
+import { StackPitch } from "@/components/project/StackPitch";
 import { StepList } from "@/components/project/StepList";
 import { ScreenshotGallery } from "@/components/project/ScreenshotGallery";
 import {
@@ -52,6 +53,7 @@ export function NetboxProxboxContent({
       />
 
       <OverviewSection project={p} sections={sections} inlineStack />
+      <StackPitch slug={p.slug} repoUrl={p.links.repo} />
       <FeaturesSection project={p} sections={sections} />
 
       <section id="monitoring" className="space-y-3 scroll-mt-24">

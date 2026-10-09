@@ -125,6 +125,25 @@ export type Dictionary = {
       configureSettings: string;
       screenshotsDivider: string;
       repoDivider: string;
+      pitch: {
+        tocLabel: string;
+        heading: string;
+        eyebrow: string;
+        headline: string;
+        subhead: string;
+        freeBadge: string;
+        freePrice: string;
+        freeNote: string;
+        steps: readonly {
+          verb: string;
+          title: string;
+          body: string;
+        }[];
+        ledger: readonly { label: string; value: string }[];
+        ctaInstall: string;
+        ctaRepo: string;
+        flowLabel: string;
+      };
     };
     developer: {
       heading: string;
@@ -496,6 +515,43 @@ const en: Dictionary = {
       configureSettings: "plugin settings & sync overwrite flags",
       screenshotsDivider: "// screenshots",
       repoDivider: "// repo",
+      pitch: {
+        tocLabel: "how it works",
+        heading: "how it works",
+        eyebrow: "the whole stack, in 3 steps",
+        headline: "Your Proxmox, documented in NetBox. Automatically.",
+        subhead:
+          "Stop copying VMs into spreadsheets. netbox-proxbox discovers your Proxmox clusters and keeps NetBox current, live, with zero manual entry.",
+        freeBadge: "100% FREE",
+        freePrice: "$0",
+        freeNote: "forever · open source · no license keys",
+        steps: [
+          {
+            verb: "discover",
+            title: "Proxmox VE",
+            body: "Clusters, nodes, VMs, containers, storage, snapshots and backups are read from the Proxmox API. Read-only: nothing on Proxmox is ever changed.",
+          },
+          {
+            verb: "sync",
+            title: "proxbox-api",
+            body: "A FastAPI service normalizes everything and streams live progress to you over Server-Sent Events.",
+          },
+          {
+            verb: "document",
+            title: "NetBox",
+            body: "Your DCIM becomes the always-current source of truth, including interfaces and IP assignments.",
+          },
+        ],
+        ledger: [
+          { label: "license", value: "Apache-2.0" },
+          { label: "price", value: "$0" },
+          { label: "per-node fees", value: "none" },
+          { label: "source", value: "open on GitHub" },
+        ],
+        ctaInstall: "pip install netbox-proxbox",
+        ctaRepo: "star it on GitHub",
+        flowLabel: "animated diagram: Proxmox VE to proxbox-api to NetBox",
+      },
     },
     developer: {
       heading: "developer guide",
@@ -878,6 +934,43 @@ const ptBr: Dictionary = {
         "configurações do plugin e flags de sobrescrita de sincronização",
       screenshotsDivider: "// capturas",
       repoDivider: "// repositório",
+      pitch: {
+        tocLabel: "como funciona",
+        heading: "como funciona",
+        eyebrow: "a stack inteira, em 3 passos",
+        headline: "Seu Proxmox, documentado no NetBox. Automaticamente.",
+        subhead:
+          "Chega de copiar VMs para planilhas. O netbox-proxbox descobre seus clusters Proxmox e mantém o NetBox atualizado, ao vivo, sem digitação manual.",
+        freeBadge: "100% GRÁTIS",
+        freePrice: "R$0",
+        freeNote: "para sempre · código aberto · sem chave de licença",
+        steps: [
+          {
+            verb: "descobrir",
+            title: "Proxmox VE",
+            body: "Clusters, nós, VMs, contêineres, storage, snapshots e backups são lidos pela API do Proxmox. Somente leitura: nada no Proxmox é alterado.",
+          },
+          {
+            verb: "sincronizar",
+            title: "proxbox-api",
+            body: "Um serviço FastAPI normaliza tudo e transmite o progresso ao vivo para você via Server-Sent Events.",
+          },
+          {
+            verb: "documentar",
+            title: "NetBox",
+            body: "Seu DCIM vira a fonte da verdade sempre atualizada, incluindo interfaces e endereços IP.",
+          },
+        ],
+        ledger: [
+          { label: "licença", value: "Apache-2.0" },
+          { label: "preço", value: "R$0" },
+          { label: "taxa por nó", value: "nenhuma" },
+          { label: "código", value: "aberto no GitHub" },
+        ],
+        ctaInstall: "pip install netbox-proxbox",
+        ctaRepo: "dê uma estrela no GitHub",
+        flowLabel: "diagrama animado: Proxmox VE para proxbox-api para NetBox",
+      },
     },
     developer: {
       heading: "guia do desenvolvedor",
