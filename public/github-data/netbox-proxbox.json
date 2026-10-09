@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-09T13:55:04.203Z",
+  "syncedAt": "2026-10-09T16:26:31.453Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 602,
   "forks": 65,
   "releases": [
+    {
+      "id": 408108098,
+      "nodeId": "RE_kwDOFTMlzs4YUzxC",
+      "tag": "v0.0.29.post3",
+      "name": "v0.0.29.post3",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.29.post3",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/408108098",
+      "targetCommitish": "main",
+      "body": "## netbox-proxbox 0.0.29.post3\n\nA maintenance release on top of 0.0.29.post2. It adds no database migration.\n\n### NetBox 4.7 patch releases\n\nThe plugin now declares NetBox 4.7.99 as its maximum version, so NetBox 4.7 patch releases such as 4.7.2 load without a plugin update. The certified baseline is unchanged: NetBox 4.5.8 through the 4.7.0 GA release.\n\n### OCI testing appliance image\n\nThe appliance image build previously installed the newest stable plugin release found on PyPI at build time. Because PyPI publication runs in parallel with the image build, an image could install the previous release while its tag named the new release commit. The 0.0.29.post2 image was affected and contains plugin 0.0.29.post1, so it lacks the `netbox_proxbox.W107` system check.\n\nThe build now installs exactly the plugin version named by the release, waits for it to appear on PyPI, retries transient PyPI errors, refuses prerelease tags, and verifies the installed plugin version inside the image before publishing. The `oci` tag moves to the published image only when the released version is the newest stable release ever published, so rebuilding an older release never downgrades it. If you run the appliance, pull the image published for this release.\n\n### Upgrade\n\nUpgrade from any 0.0.29 release with the usual package upgrade and `manage.py migrate`. Backend pairing is unchanged: proxbox-api 0.0.23.post3 (use proxbox-api 0.0.27.post2 or later for the plugin key behavior described in the 0.0.29.post2 notes).\n\nFull notes: docs/release-notes/version-0.0.29.post3.md\n",
+      "bodyHtml": "<h2 dir=\"auto\">netbox-proxbox 0.0.29.post3</h2>\n<p dir=\"auto\">A maintenance release on top of 0.0.29.post2. It adds no database migration.</p>\n<h3 dir=\"auto\">NetBox 4.7 patch releases</h3>\n<p dir=\"auto\">The plugin now declares NetBox 4.7.99 as its maximum version, so NetBox 4.7 patch releases such as 4.7.2 load without a plugin update. The certified baseline is unchanged: NetBox 4.5.8 through the 4.7.0 GA release.</p>\n<h3 dir=\"auto\">OCI testing appliance image</h3>\n<p dir=\"auto\">The appliance image build previously installed the newest stable plugin release found on PyPI at build time. Because PyPI publication runs in parallel with the image build, an image could install the previous release while its tag named the new release commit. The 0.0.29.post2 image was affected and contains plugin 0.0.29.post1, so it lacks the <code class=\"notranslate\">netbox_proxbox.W107</code> system check.</p>\n<p dir=\"auto\">The build now installs exactly the plugin version named by the release, waits for it to appear on PyPI, retries transient PyPI errors, refuses prerelease tags, and verifies the installed plugin version inside the image before publishing. The <code class=\"notranslate\">oci</code> tag moves to the published image only when the released version is the newest stable release ever published, so rebuilding an older release never downgrades it. If you run the appliance, pull the image published for this release.</p>\n<h3 dir=\"auto\">Upgrade</h3>\n<p dir=\"auto\">Upgrade from any 0.0.29 release with the usual package upgrade and <code class=\"notranslate\">manage.py migrate</code>. Backend pairing is unchanged: proxbox-api 0.0.23.post3 (use proxbox-api 0.0.27.post2 or later for the plugin key behavior described in the 0.0.29.post2 notes).</p>\n<p dir=\"auto\">Full notes: docs/release-notes/version-0.0.29.post3.md</p>",
+      "createdAt": "2026-10-09T16:21:48Z",
+      "publishedAt": "2026-10-09T16:26:00Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.29.post3",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.29.post3"
+      }
+    },
     {
       "id": 407273384,
       "nodeId": "RE_kwDOFTMlzs4YRn-o",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-08T20:04:37Z",
       "publishedAt": "2026-10-08T21:20:59Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
