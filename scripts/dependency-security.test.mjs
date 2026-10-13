@@ -36,37 +36,43 @@ function isSecureBraceExpansion(version) {
     ["1", "1.1.18"],
     ["2", "2.1.4"],
     ["3", "3.0.6"],
-    ["5", "5.0.9"],
+    ["5", "5.0.12"],
   ]);
   const floor = branchFloors.get(versionParts(version)[0].toString());
   return floor !== undefined && isAtLeast(version, floor);
 }
 
 test("direct framework and security overrides use reviewed floors", () => {
-  assert.equal(packageJson.dependencies.next, "16.3.3");
-  assert.equal(packageJson.devDependencies["eslint-config-next"], "16.3.3");
+  assert.equal(packageJson.dependencies.next, "16.3.8");
+  assert.equal(packageJson.devDependencies["eslint-config-next"], "16.3.8");
   assert.deepEqual(packageJson.pnpm.overrides, {
-    "brace-expansion@>=4.0.0": "^5.0.9",
+    "brace-expansion@>=4.0.0": "^5.0.12",
     "js-yaml@>=4.0.0 <5.0.0": "^4.3.2",
-    "fast-uri@>=3.0.0 <4.0.0": "^3.1.6",
+    "fast-uri@>=3.0.0 <4.0.0": "^3.1.8",
     "fflate@>=0.6.0 <0.7.0": "^0.6.11",
     "fflate@>=0.8.0 <0.9.0": "^0.8.3",
     mysql2: "^3.23.1",
-    sharp: "^0.35.4",
+    sharp: "^0.35.5",
     "@swc/helpers": "^0.5.23",
     "deepmerge-ts": "^8.0.1",
+    axios: "^1.20.0",
+    "source-map-js": "^1.2.2",
+    dompurify: "^3.4.16",
   });
 });
 
 test("the lock contains no package below a reviewed security floor", () => {
   const floors = new Map([
-    ["next", "16.3.3"],
+    ["next", "16.3.8"],
     ["js-yaml", "4.3.2"],
-    ["sharp", "0.35.4"],
-    ["fast-uri", "3.1.6"],
+    ["sharp", "0.35.5"],
+    ["fast-uri", "3.1.8"],
     ["mysql2", "3.23.1"],
     ["@swc/helpers", "0.5.23"],
     ["deepmerge-ts", "8.0.1"],
+    ["axios", "1.20.0"],
+    ["source-map-js", "1.2.2"],
+    ["dompurify", "3.4.16"],
   ]);
   for (const [packageName, floor] of floors) {
     const versions = lockedVersions(packageName);
@@ -103,8 +109,8 @@ test("brace-expansion advisory floors reject each vulnerable branch boundary", (
     ["3.0.5", false],
     ["3.0.6", true],
     ["4.0.2", false],
-    ["5.0.8", false],
-    ["5.0.9", true],
+    ["5.0.11", false],
+    ["5.0.12", true],
   ];
   for (const [version, secure] of boundaries) {
     assert.equal(isSecureBraceExpansion(version), secure, version);
