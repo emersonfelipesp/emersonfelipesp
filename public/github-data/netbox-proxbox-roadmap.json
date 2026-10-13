@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T14:33:24.814Z",
+  "generated_at": "2026-10-13T15:21:09.015Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 363,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 696,
+      "title": "Settings-GUI has some broken checkboxes",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/696",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 695,
       "title": "Can't save proxmox endpoint without ssh credentials",
@@ -8796,7 +8810,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602
+        602,
+        696
       ]
     }
   ],
