@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T13:35:26.522Z",
+  "generated_at": "2026-10-13T14:33:24.814Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 362,
+    "open": 1,
+    "closed": 363,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 128",
   "nodes": [
     {
       "number": 695,
       "title": "Can't save proxmox endpoint without ssh credentials",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/695",
-      "closedAt": null,
+      "closedAt": "2026-10-13T14:32:00Z",
       "labels": [
         {
           "name": "bug",
@@ -22,8 +22,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8426,6 +8426,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        695,
         694,
         688,
         687,
@@ -8795,8 +8796,7 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
-        695
+        602
       ]
     }
   ],
