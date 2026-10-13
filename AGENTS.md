@@ -19,7 +19,7 @@ deliberate terminal / CLI / NetDevOps aesthetic.
 |---|---|---|
 | Runtime | Node.js | 22.x |
 | Package manager | pnpm | 10.33.2 |
-| Framework | Next.js | 16.3.3 |
+| Framework | Next.js | 16.3.8 |
 | UI | React | 19.2 |
 | Language | TypeScript | 6.0 |
 | Styling | Tailwind CSS | 4.2 |
