@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-14T11:10:51.702Z",
+  "syncedAt": "2026-10-14T14:34:42.138Z",
   "fullName": "emersonfelipesp/netbox-proxbox",
   "stars": 604,
   "forks": 66,
   "releases": [
+    {
+      "id": 412821632,
+      "nodeId": "RE_kwDOFTMlzs4YmyiA",
+      "tag": "v0.0.29.post4",
+      "name": "v0.0.29.post4",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/releases/tag/v0.0.29.post4",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/releases/412821632",
+      "targetCommitish": "main",
+      "body": "## netbox-proxbox 0.0.29.post4\n\nA maintenance release on top of 0.0.29.post3. It adds no database migration.\n\n### API-only endpoints no longer need SSH credentials\n\nA Proxmox endpoint whose access method is \"API only\" could not be saved without SSH credentials, even though it never opens an SSH connection. The form and the model now skip SSH validation for API-only endpoints and discard any SSH values submitted with them. SSH credentials are validated only when the access method is \"API + SSH\". Existing endpoints keep their stored values.\n\n### Clearer endpoint form\n\nThe endpoint form is now grouped into connection and credentials (read-only API access), opt-in write access, access methods, SSH credential access (API + SSH only), and service monitoring. Write-enabled and SSH sections stay hidden until the setting that needs them is turned on. A section that holds an error, a checked option, or a pending clear-credential request always stays visible.\n\n### Upgrade\n\nUpgrade from any 0.0.29 release with the usual package upgrade and `manage.py migrate`. NetBox compatibility and backend pairing are unchanged.\n\nFull notes: docs/release-notes/version-0.0.29.post4.md\n",
+      "bodyHtml": "<h2 dir=\"auto\">netbox-proxbox 0.0.29.post4</h2>\n<p dir=\"auto\">A maintenance release on top of 0.0.29.post3. It adds no database migration.</p>\n<h3 dir=\"auto\">API-only endpoints no longer need SSH credentials</h3>\n<p dir=\"auto\">A Proxmox endpoint whose access method is \"API only\" could not be saved without SSH credentials, even though it never opens an SSH connection. The form and the model now skip SSH validation for API-only endpoints and discard any SSH values submitted with them. SSH credentials are validated only when the access method is \"API + SSH\". Existing endpoints keep their stored values.</p>\n<h3 dir=\"auto\">Clearer endpoint form</h3>\n<p dir=\"auto\">The endpoint form is now grouped into connection and credentials (read-only API access), opt-in write access, access methods, SSH credential access (API + SSH only), and service monitoring. Write-enabled and SSH sections stay hidden until the setting that needs them is turned on. A section that holds an error, a checked option, or a pending clear-credential request always stays visible.</p>\n<h3 dir=\"auto\">Upgrade</h3>\n<p dir=\"auto\">Upgrade from any 0.0.29 release with the usual package upgrade and <code class=\"notranslate\">manage.py migrate</code>. NetBox compatibility and backend pairing are unchanged.</p>\n<p dir=\"auto\">Full notes: docs/release-notes/version-0.0.29.post4.md</p>",
+      "createdAt": "2026-10-13T21:14:09Z",
+      "publishedAt": "2026-10-14T14:34:08Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/zipball/v0.0.29.post4",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-proxbox/tarball/v0.0.29.post4"
+      }
+    },
     {
       "id": 408108098,
       "nodeId": "RE_kwDOFTMlzs4YUzxC",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-09T16:21:48Z",
       "publishedAt": "2026-10-09T16:26:00Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
