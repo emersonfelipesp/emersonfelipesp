@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T03:13:03.986Z",
+  "generated_at": "2026-10-15T09:53:18.419Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
+    "open": 3,
     "closed": 363,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 272 368",
   "nodes": [
+    {
+      "number": 701,
+      "title": "`QuerySetNotOrdered` causes HTTP 500 during guest VM interface address sync on NetBox 4.6.10",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/701",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 256,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 696,
       "title": "Settings-GUI has some broken checkboxes",
@@ -8811,7 +8825,8 @@
       "note": "start anywhere",
       "issues": [
         602,
-        696
+        696,
+        701
       ]
     }
   ],
