@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T04:11:48.547Z",
+  "generated_at": "2026-10-16T10:06:06.087Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 366,
     "edges": 93
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 702,
+      "title": "Problems with access to proxbox plugin settings",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/702",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 701,
       "title": "`QuerySetNotOrdered` causes HTTP 500 during guest VM interface address sync on NetBox 4.6.10",
@@ -8820,6 +8834,14 @@
         9,
         8,
         6
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        702
       ]
     }
   ],
