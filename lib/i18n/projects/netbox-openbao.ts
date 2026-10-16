@@ -8,6 +8,7 @@ export const NETBOX_OPENBAO_PT_BR = {
   features: [
     "Nenhum campo do model pode guardar material secreto — changelog, exports e GET da REST API são seguros por construção",
     "Consultas de inventário (expiração, fingerprint, atribuição) não exigem leitura no OpenBao",
+    "O quick-add SSH transacional pode criar ou reutilizar o endereço IP da conexão",
     "Permissão reveal dedicada com constraints de objeto no RBAC padrão do NetBox",
     "Rotação em estágios: escreve candidato ao lado da versão live, promove na decisão",
     "AppRoles por tier limitam blast radius; modo broker opcional tira credenciais do vault do host NetBox",

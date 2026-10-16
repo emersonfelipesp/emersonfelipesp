@@ -12,6 +12,7 @@ export const netboxProxbox = {
   description: [
     "netbox-proxbox keeps your DCIM in sync with real Proxmox clusters by streaming clusters, nodes, VMs, containers, storage, snapshots and backups straight into NetBox.",
     "It pairs a NetBox plugin (Django) with a dedicated FastAPI service called proxbox-api that does the heavy lifting and pushes progress live over Server-Sent Events.",
+    "The current pair keeps HA reads, operational actions, and device ownership bound to the exact Proxmox endpoint, with run-correlated completion and explicit trust gates at every remote boundary.",
   ],
   monitoring: {
     title: "InfluxDB metrics integration",
@@ -45,13 +46,15 @@ export const netboxProxbox = {
   },
   features: [
     "Automatic sync: clusters, nodes, VMs, containers, storage, snapshots, backups",
-    "Real-time progress via Server-Sent Events (SSE) streaming",
+    "Endpoint-exact HA reads and endpoint-scoped run_proxmox_action permissions",
+    "Run-correlated SSE and WebSocket progress with aggregate completion status",
+    "Capture-only mode via automatic_background_tasks=False",
+    "Atomic device ownership claims with HTTP 409 endpoint_ownership_conflict",
+    "Token-bound approval for remote NetBox connections",
+    "Transaction-locked OpenBao storage and assignment guards",
     "Granular per-VM and per-endpoint sync flags",
     "InfluxDB metrics integration through a bounded proxbox-api query proxy",
-    "Live backend log viewer pulled from proxbox-api",
-    "Endpoint configuration via CSV / JSON / YAML import & export",
-    "Read-only discovery — never mutates resources on Proxmox",
-    "Network interface and IP assignment tracking inside NetBox",
+    "Multi-architecture OCI testing appliance with a pinned proxbox-api backend",
   ],
   stack: [
     "NetBox plugin (Django / Python 3.12+)",
@@ -65,12 +68,12 @@ export const netboxProxbox = {
   },
   meta: {
     license: "Apache-2.0",
-    netbox: "4.6.x",
+    netbox: "4.5.8 – 4.7.x",
     python: "3.12+",
-    proxmox: "7.x / 8.x",
-    latestRelease: "v0.0.13.post4",
-    stars: 539,
-    forks: 62,
+    proxmox: "7.x – 9.x",
+    latestRelease: "v0.0.29.post5",
+    stars: 604,
+    forks: 66,
   },
   links: {
     repo: project.repoUrl,

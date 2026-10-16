@@ -24,7 +24,7 @@ export const NETBOX_SDK_COMPARISON_PT_BR: Pick<
     description: [
       "Um wrapper Python fino e síncrono para a API REST do NetBox. Retorna objetos Record e RecordSet com acesso a atributos estilo ORM, métodos .save() e .delete() — então você pode escrever device.name = 'foo'; device.save() sem construir dicts manualmente.",
       "pynetbox é somente síncrono (usa requests). Suporta paginação paralela via threading=True, validação de filtros contra o OpenAPI com strict_filters=True, e um gerenciador de contexto para o plugin de branching do NetBox. Nenhum servidor mock é incluído — você usa unittest.mock nos testes.",
-      "A biblioteca é mantida pela organização GitHub netbox-community e acompanha as versões do NetBox de perto. A compatibilidade está documentada em uma matriz de versões de 3.3 a 4.5.",
+      "A biblioteca é mantida pela organização GitHub netbox-community e acompanha as versões do NetBox de perto. O pynetbox 7.9.0 é testado com NetBox 4.7, e as releases a partir da 6.7 suportam NetBox 3.3 ou mais recente.",
     ],
     bestFor: [
       "Scripts, playbooks Ansible e automações que já usam o ecossistema da netbox-community",
@@ -36,9 +36,9 @@ export const NETBOX_SDK_COMPARISON_PT_BR: Pick<
   libraryB: {
     name: "netbox-sdk",
     description: [
-      "Um SDK assíncrono construído sobre aiohttp, expondo três camadas de uso: um cliente HTTP bruto, uma fachada assíncrona (api()), e um cliente tipado versionado (typed_api()) que retorna modelos Pydantic para NetBox 4.3–4.6. As três camadas compartilham o mesmo runtime.",
+      "Um SDK assíncrono construído sobre aiohttp, expondo três camadas de uso: um cliente HTTP bruto, uma fachada assíncrona (api()), e um cliente tipado versionado (typed_api()) que retorna modelos Pydantic para NetBox 4.3–4.7. As três camadas compartilham o mesmo runtime.",
       "O pacote oferece extras opcionais: [cli] adiciona uma CLI Typer-based (nbx) com comandos dinâmicos gerados a partir do OpenAPI, [tui] adiciona uma interface de terminal com Textual, e [mock] adiciona um servidor mock FastAPI local (nbx-mock) para desenvolver e testar sem uma instância real do NetBox.",
-      "netbox-sdk está em pré-lançamento (alpha, versão 0.0.9) com baixa adoção. A superfície de API cobre NetBox 4.3–4.6 e pode mudar entre versões. Python 3.11+ é necessário.",
+      "netbox-sdk está em pré-lançamento (alpha, versão 0.0.13) com baixa adoção. A superfície tipada cobre NetBox 4.3–4.7 e pode mudar entre versões. Python 3.11–3.13 é suportado.",
     ],
     bestFor: [
       "Aplicações e serviços assíncronos que precisam de suporte nativo a asyncio",

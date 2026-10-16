@@ -466,25 +466,25 @@ const en: Dictionary = {
         caption: "hover any node for details",
         nodes: {
           netboxCeph:
-            "NetBox plugin for Ceph. Maps clusters, OSDs, storage pools, monitors, and CRUSH topology into NetBox DCIM, with optional Proxmox-hosted Ceph discovery.",
+            "Read-only NetBox plugin for Proxmox-managed Ceph inventory through proxbox-api; direct Ceph APIs and write operations remain out of scope.",
           netboxPbs:
             "NetBox plugin for Proxmox Backup Server. Tracks datastores, backup jobs, verification schedules, retention policies, and VM backup context.",
           netboxProxbox:
             "Django plugin inside NetBox. Stores three endpoint objects (Proxmox, NetBox, FastAPI) and dispatches every Full Update / per-VM sync to proxbox-api.",
           netboxPdm:
-            "NetBox plugin for Proxmox Datacenter Manager. Models PDM nodes, remote clusters, subscriber views, scheduled tasks, and SDN topology.",
+            "Released scaffold for future read-only Proxmox Datacenter Manager inventory through proxbox-api; model and sync views are not shipped yet.",
           netboxPacker:
-            "NetBox plugin for HashiCorp Packer. Links image builds, template versions, artifact metadata, and provisioned image records to NetBox VM context.",
+            "Released scaffold for future read-only HashiCorp Packer artifact inventory; image models and HCP synchronization are not shipped yet.",
           proxboxApi:
             "FastAPI orchestrator on :8000. Bcrypt-hashed X-Proxbox-API-Key auth, brute-force lockout, Fernet-encrypted credentials at rest. Owns the SSE + WebSocket sync streams.",
           netboxSdk:
             "Async Python SDK for NetBox REST. Used by proxbox-api as the write target — DCIM, IPAM and Virtualization writes go through here. Cached GET layer (60s TTL) shared across the workflow.",
           proxmoxSdk:
-            "Schema-driven async SDK mirroring the Proxmox VE 8.1 API as 646 typed endpoints. Read-only client used inside the SSE-driven sync workflow; mock mode enables offline integration tests.",
+            "Schema-driven async SDK exposing 675 Proxmox VE 9.2 operations across 444 endpoints. Used inside the sync workflow; mock mode enables offline integration tests.",
           netboxRest:
-            "NetBox REST API (4.5.x / 4.6.x) — the data target where Proxmox infrastructure ends up.",
+            "NetBox REST API (4.5.8–4.7.x) — the data target where Proxmox infrastructure ends up.",
           proxmoxRest:
-            "Proxmox VE 7.x / 8.x REST API — read-only data source for clusters, nodes, storage, VMs, containers, snapshots and backups.",
+            "Proxmox VE 7.x – 9.x runtime target. Inventory synchronization is read-only; separate writes check per-endpoint allow_writes, actor-aware routes require X-Proxbox-Actor, and plugin-triggered operator actions require endpoint-scoped run_proxmox_action.",
         },
         edges: {
           pluginToApiTransport: "HTTP REST · SSE · WebSocket",
@@ -494,9 +494,9 @@ const en: Dictionary = {
             "async · cached GET 60s TTL",
             "PROXBOX_NETBOX_MAX_CONCURRENT",
           ],
-          apiToProxmoxLabel: "read source",
+          apiToProxmoxLabel: "inventory read source",
           apiToProxmoxBullets: [
-            "async · mock | real · read-only",
+            "sync reads · gated write surfaces",
             "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
           ],
           sdkToRest: "REST",
@@ -529,7 +529,7 @@ const en: Dictionary = {
           {
             verb: "discover",
             title: "Proxmox VE",
-            body: "Clusters, nodes, VMs, containers, storage, snapshots and backups are read from the Proxmox API. Read-only: nothing on Proxmox is ever changed.",
+            body: "Clusters, nodes, VMs, containers, storage, snapshots and backups are read from the Proxmox API. This inventory synchronization step is read-only; separate operator actions use explicit write gates.",
           },
           {
             verb: "sync",
@@ -728,10 +728,10 @@ const en: Dictionary = {
       nodes: {
         netbox: "Open-source source-of-truth platform for network infrastructure (DCIM / IPAM / virtualization).",
         netboxProxbox: "NetBox plugin that surfaces Proxmox infra (clusters, nodes, VMs, backups) inside NetBox and triggers syncs.",
-        netboxCeph: "NetBox plugin that syncs Proxmox Ceph storage pool and health data into NetBox.",
+        netboxCeph: "Read-only NetBox plugin for Proxmox-managed Ceph inventory through proxbox-api.",
         netboxPbs: "NetBox plugin that surfaces Proxmox Backup Server job history and datastore status in NetBox.",
-        netboxPdm: "NetBox plugin that integrates Proxmox Datacenter Manager inventory and cross-cluster views into NetBox.",
-        netboxPacker: "NetBox plugin that tracks HashiCorp Packer build metadata and provisioned image records in NetBox.",
+        netboxPdm: "Released plugin scaffold for future read-only Proxmox Datacenter Manager inventory.",
+        netboxPacker: "Released plugin scaffold for future read-only HashiCorp Packer artifact inventory.",
         netboxOpenbao:
           "NetBox plugin for credentials: inventory and RBAC in NetBox, secret material in OpenBao. Server-side reveal over the REST API — not browser-side vault reads.",
         openBao:
@@ -741,7 +741,7 @@ const en: Dictionary = {
         proxboxApi: "FastAPI backend that orchestrates the NetBox ↔ Proxmox sync workflow over HTTP, SSE, and WebSocket.",
         netboxSdk: "Python async SDK + CLI (nbx) + Textual TUI for the NetBox REST API. Used by proxbox-api to read/write NetBox.",
         netboxRest: "NetBox's REST API — the data target where Proxmox infrastructure ends up.",
-        proxmoxSdk: "Schema-driven FastAPI SDK for the Proxmox VE API: 646 generated endpoints, dual mock/real modes, CLI + TUI.",
+        proxmoxSdk: "Schema-driven FastAPI SDK for the Proxmox VE API: 675 operations across 444 endpoints, mock/real modes, CLI + TUI.",
         proxmoxVe: "Proxmox Virtual Environment — the hypervisor platform exposing the REST API consumed by proxmox-sdk.",
         proxmoxRest: "Proxmox VE's REST API — the data source for clusters, nodes, VMs, storage, and backups.",
         proxmoxCeph: "Proxmox Ceph REST API — distributed storage cluster integrated directly with Proxmox VE nodes.",
@@ -883,25 +883,25 @@ const ptBr: Dictionary = {
         caption: "passe o cursor sobre qualquer nó para ver detalhes",
         nodes: {
           netboxCeph:
-            "Plugin do NetBox para Ceph. Mapeia clusters, OSDs, pools de storage, monitores e topologia CRUSH no DCIM do NetBox, com descoberta opcional de Ceph hospedado no Proxmox.",
+            "Plugin somente leitura do NetBox para inventário do Ceph gerenciado pelo Proxmox via proxbox-api; APIs diretas do Ceph e operações de escrita permanecem fora do escopo.",
           netboxPbs:
             "Plugin do NetBox para Proxmox Backup Server. Registra datastores, jobs de backup, agendas de verificação, políticas de retenção e contexto de backup das VMs.",
           netboxProxbox:
             "Plugin Django dentro do NetBox. Armazena três objetos de endpoint (Proxmox, NetBox, FastAPI) e despacha cada Full Update / sincronização por VM para o proxbox-api.",
           netboxPdm:
-            "Plugin do NetBox para Proxmox Datacenter Manager. Modela nós PDM, clusters remotos, subscriber views, tarefas agendadas e topologia SDN.",
+            "Scaffold publicado para futuro inventário somente leitura do Proxmox Datacenter Manager via proxbox-api; models e views de sync ainda não foram publicados.",
           netboxPacker:
-            "Plugin do NetBox para HashiCorp Packer. Liga builds de imagem, versões de template, metadados de artefatos e imagens provisionadas ao contexto de VMs no NetBox.",
+            "Scaffold publicado para futuro inventário somente leitura de artefatos do HashiCorp Packer; models e sincronização HCP ainda não foram publicados.",
           proxboxApi:
             "Orquestrador FastAPI na :8000. Auth via X-Proxbox-API-Key com hash bcrypt, lockout contra força bruta e credenciais cifradas em repouso (Fernet). É dono dos streams SSE + WebSocket.",
           netboxSdk:
             "SDK Python assíncrono para a REST do NetBox. Usado pelo proxbox-api como destino de escrita — gravações em DCIM, IPAM e Virtualization passam por aqui. Camada de cache em GET (60s) compartilhada pelo workflow.",
           proxmoxSdk:
-            "SDK assíncrono orientado a schema espelhando a API do Proxmox VE 8.1 como 646 endpoints tipados. Cliente somente leitura usado no workflow de sincronização via SSE; modo mock habilita testes de integração offline.",
+            "SDK assíncrono orientado a schema que expõe 675 operações do Proxmox VE 9.2 em 444 endpoints. Usado no workflow de sincronização; o modo mock habilita testes de integração offline.",
           netboxRest:
-            "API REST do NetBox (4.5.x / 4.6.x) — o destino onde a infraestrutura do Proxmox é registrada.",
+            "API REST do NetBox (4.5.8–4.7.x) — o destino onde a infraestrutura do Proxmox é registrada.",
           proxmoxRest:
-            "API REST do Proxmox VE 7.x / 8.x — fonte somente leitura de clusters, nós, storage, VMs, contêineres, snapshots e backups.",
+            "API REST do Proxmox VE 7.x – 9.x como alvo de runtime. A sincronização de inventário é somente leitura; escritas separadas verificam allow_writes por endpoint, rotas com atribuição de ator exigem X-Proxbox-Actor e ações disparadas pelo plugin exigem run_proxmox_action com escopo no endpoint.",
         },
         edges: {
           pluginToApiTransport: "HTTP REST · SSE · WebSocket",
@@ -911,9 +911,9 @@ const ptBr: Dictionary = {
             "async · GET cacheado por 60s",
             "PROXBOX_NETBOX_MAX_CONCURRENT",
           ],
-          apiToProxmoxLabel: "fonte de leitura",
+          apiToProxmoxLabel: "fonte de leitura de inventário",
           apiToProxmoxBullets: [
-            "async · mock | real · somente leitura",
+            "sync de leitura · escritas protegidas",
             "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
           ],
           sdkToRest: "REST",
@@ -948,7 +948,7 @@ const ptBr: Dictionary = {
           {
             verb: "descobrir",
             title: "Proxmox VE",
-            body: "Clusters, nós, VMs, contêineres, storage, snapshots e backups são lidos pela API do Proxmox. Somente leitura: nada no Proxmox é alterado.",
+            body: "Clusters, nós, VMs, contêineres, storage, snapshots e backups são lidos pela API do Proxmox. Essa etapa de sincronização de inventário é somente leitura; ações separadas do operador usam gates explícitos de escrita.",
           },
           {
             verb: "sincronizar",
@@ -1147,10 +1147,10 @@ const ptBr: Dictionary = {
       nodes: {
         netbox: "Plataforma open-source de fonte da verdade para infraestrutura de rede (DCIM / IPAM / virtualização).",
         netboxProxbox: "Plugin do NetBox que expõe a infraestrutura do Proxmox (clusters, nós, VMs, backups) dentro do NetBox e dispara sincronizações.",
-        netboxCeph: "Plugin do NetBox que sincroniza pools de armazenamento e dados de saúde do Proxmox Ceph no NetBox.",
+        netboxCeph: "Plugin somente leitura do NetBox para inventário do Ceph gerenciado pelo Proxmox via proxbox-api.",
         netboxPbs: "Plugin do NetBox que exibe o histórico de jobs e o status dos datastores do Proxmox Backup Server no NetBox.",
-        netboxPdm: "Plugin do NetBox que integra o inventário do Proxmox Datacenter Manager e visões cross-cluster no NetBox.",
-        netboxPacker: "Plugin do NetBox que registra metadados de builds do HashiCorp Packer e imagens provisionadas no NetBox.",
+        netboxPdm: "Scaffold publicado para futuro inventário somente leitura do Proxmox Datacenter Manager.",
+        netboxPacker: "Scaffold publicado para futuro inventário somente leitura de artefatos do HashiCorp Packer.",
         netboxOpenbao:
           "Plugin do NetBox para credenciais: inventário e RBAC no NetBox, material secreto no OpenBao. Reveal server-side pela REST API — não leitura de vault no navegador.",
         openBao:
@@ -1160,7 +1160,7 @@ const ptBr: Dictionary = {
         proxboxApi: "Backend FastAPI que orquestra o fluxo de sincronização NetBox ↔ Proxmox via HTTP, SSE e WebSocket.",
         netboxSdk: "SDK Python assíncrono + CLI (nbx) + TUI Textual para a API REST do NetBox. Usado pelo proxbox-api para ler e gravar no NetBox.",
         netboxRest: "API REST do NetBox — o destino onde a infraestrutura do Proxmox é registrada.",
-        proxmoxSdk: "SDK FastAPI orientado a schema para a API do Proxmox VE: 646 endpoints gerados, modos mock/real, CLI + TUI.",
+        proxmoxSdk: "SDK FastAPI orientado a schema para a API do Proxmox VE: 675 operações em 444 endpoints, modos mock/real, CLI + TUI.",
         proxmoxVe: "Proxmox Virtual Environment — a plataforma hypervisor que expõe a API REST consumida pelo proxmox-sdk.",
         proxmoxRest: "API REST do Proxmox VE — a fonte de dados de clusters, nós, VMs, storage e backups.",
         proxmoxCeph: "API REST do Proxmox Ceph — cluster de armazenamento distribuído integrado diretamente aos nós do Proxmox VE.",

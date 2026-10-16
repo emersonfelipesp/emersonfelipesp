@@ -16,6 +16,7 @@ export const netboxOpenbao = {
   features: [
     "No model field can hold secret material — changelog, exports, and REST GET responses are safe by construction",
     "Inventory queries (expiry, fingerprint, assignment) need zero OpenBao reads",
+    "Transactional SSH quick-add can create or reuse its connection IP address",
     "Dedicated reveal permission with object-level constraints in standard NetBox RBAC",
     "Staged rotation: write candidate alongside live version, promote on decision",
     "Per-tier AppRoles bound blast radius; optional broker mode keeps vault credentials off the NetBox host",
@@ -104,8 +105,9 @@ export const netboxOpenbao = {
   },
   meta: {
     license: "Apache-2.0",
-    netbox: "4.6.x – 4.7.x",
+    netbox: "4.7.x",
     python: "3.12+",
+    latestRelease: "v0.2.2",
   },
   links: {
     repo: project.repoUrl,

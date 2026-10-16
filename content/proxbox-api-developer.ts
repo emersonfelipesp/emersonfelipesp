@@ -31,10 +31,13 @@ export const proxboxApiDeveloper: DeveloperContent = {
       "Layers: routes/ (FastAPI routers — auth, dcim, extras, netbox, proxbox, proxmox, sync, virtualization) → services/sync/ (workflow orchestration) → schemas/ + enum/ (Pydantic 2 validation at every I/O boundary) → proxmox_to_netbox/ (transformation) → session/ (NetBox + Proxmox client factories as FastAPI dependencies).",
       "Sync runs stream Server-Sent Events plus optional WebSocket progress. /full-update/stream drives the complete chain: devices → storage → VMs → disks → backups → snapshots → interfaces → IPs → backup routines → replications.",
       "Auth: bcrypt-hashed API key in the X-Proxbox-API-Key header with brute-force lockout (proxbox_api/auth.py). Credentials at rest are Fernet-encrypted (PROXBOX_ENCRYPTION_KEY required in production).",
+      "Bootstrap and encryption: unauthenticated POST /auth/register-key is available only before the first durable key registration; key replacement and credential writes use generation fences so stale writers fail with HTTP 409.",
+      "Network boundary: endpoint hosts remain request-scoped until commit. SSH connects only to validated addresses and requires the stored host-key pin before authentication; redirects and ambient SSH credentials are refused.",
+      "Sync integrity: device records carry endpoint ownership, HTTP 409 endpoint_ownership_conflict protects competing claims, and run_id is carried through WebSocket progress, errors, and aggregate completion.",
       "Persistence: SQLModel + aiosqlite for endpoint and key storage; no PostgreSQL dependency on the proxbox-api side.",
       "Concurrency knobs: PROXBOX_NETBOX_TIMEOUT (120s), PROXBOX_NETBOX_MAX_CONCURRENT (default 1, intentionally low), PROXBOX_VM_SYNC_MAX_CONCURRENCY, PROXBOX_NETBOX_GET_CACHE_TTL (60s GET cache, 0 disables), PROXBOX_RATE_LIMIT (60 req/min/IP via SlowAPI).",
       "Embedded admin UI: nextjs-ui/ — a Next.js frontend used to administer endpoints, separate build target.",
-      "Generated proxy routes: proxbox_api/generated/ holds 646 typed Proxmox endpoints crawled from the Proxmox API Viewer. Do not edit by hand — regenerate from proxbox-api/proxmox_codegen/.",
+      "Generated proxy routes: proxbox_api/generated/ holds versioned Proxmox OpenAPI artifacts and typed models. Do not edit by hand — regenerate from proxbox-api/proxmox_codegen/.",
     ],
   },
   integrations: [
@@ -48,16 +51,16 @@ export const proxboxApiDeveloper: DeveloperContent = {
     {
       target: "NetBox REST API (write target)",
       protocol: "HTTP",
-      library: "netbox-sdk==0.0.8.post1",
+      library: "netbox-sdk==0.0.13",
       notes:
         "Async aiohttp client sessions in proxbox_api/session/ + helpers in proxbox_api/netbox_rest.py. Cached GET layer (60s TTL) shared across the workflow.",
     },
     {
       target: "Proxmox VE (read source)",
       protocol: "HTTP",
-      library: "proxmox-sdk==0.0.3.post1",
+      library: "proxmox-sdk==0.0.15",
       notes:
-        "Read-only — the workflow never POST/PUT/DELETEs back into Proxmox. Mock backend (MockBackend) used for fast tests.",
+        "Inventory synchronization is read-only against Proxmox. Separate operational routes use explicit endpoint, actor-attribution and plugin-permission gates. MockBackend is used for fast tests.",
     },
     {
       target: "Next.js admin UI",
@@ -104,7 +107,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
         name: "ci.yml",
         trigger: "push + pull_request + release + manual",
         purpose:
-          "Runs core pytest checks, Python 3.11 floor checks, free-threaded smoke, Docker bind smoke, and the NetBox E2E matrix.",
+          "Runs core pytest checks, Python 3.12 floor checks, free-threaded smoke, Docker bind smoke, and the NetBox E2E matrix.",
       },
       {
         name: "publish-testpypi.yml",
@@ -170,7 +173,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
       "Spec files: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py, test_proxmox_mock_health.py.",
       "Markers: @pytest.mark.mock_backend (in-process MockBackend) and @pytest.mark.mock_http (proxmox-sdk Docker container on ports 8006/8007). The requires_pve_schema session fixture auto-skips PVE-only tests on pbs/pdm cells.",
       "Auth helpers in proxbox_api/e2e/ are the only place Playwright is used in the backend; the proxmox_sdk_mock fixture switches container tags based on the PROXMOX_SERVICE env var.",
-      "CI: ci.yml runs the core test job (pytest excluding tests/e2e) plus a 7 × 3 × 3 (transport × NetBox × service) E2E Docker matrix with fail-fast disabled. The mock_backend pass is gated to main + pve so it runs exactly once.",
+      "CI: ci.yml runs the core test job (pytest excluding tests/e2e) plus a 7 × 9 × 3 (transport × NetBox × service) E2E Docker matrix with fail-fast disabled. Release runs add dev/PyPI package modes while bounding PBS/PDM to the baseline transport; the mock_backend pass is limited to main-branch PVE cells.",
       "Release gate: publish-testpypi.yml validates TestPyPI installs first, then PyPI rc/final installs, Docker image publish, and post-publish E2E across the same service matrix.",
     ],
     ciWorkflow: ".github/workflows/ci.yml",

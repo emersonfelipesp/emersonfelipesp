@@ -159,7 +159,7 @@ export const PROJECTS = {
     fullName: "emersonfelipesp/netbox-pdm",
     palette: "netbox",
     tagline:
-      "NetBox plugin for Proxmox Datacenter Manager — models PDM nodes, remote clusters, subscriber views, and SDN topology.",
+      "NetBox plugin scaffold for read-only Proxmox Datacenter Manager inventory through proxbox-api.",
     projectPath: "/netbox-pdm",
     developerPath: "/netbox-pdm/developer",
     repoUrl: "https://github.com/emersonfelipesp/netbox-pdm",
@@ -176,7 +176,7 @@ export const PROJECTS = {
     fullName: "emersonfelipesp/netbox-ceph",
     palette: "netbox",
     tagline:
-      "NetBox plugin for Ceph — maps clusters, OSDs, storage pools, monitors, and CRUSH topology into NetBox DCIM.",
+      "Read-only NetBox plugin for Proxmox-managed Ceph inventory through proxbox-api.",
     projectPath: "/netbox-ceph",
     developerPath: "/netbox-ceph/developer",
     repoUrl: "https://github.com/emersonfelipesp/netbox-ceph",
@@ -193,7 +193,7 @@ export const PROJECTS = {
     fullName: "emersonfelipesp/netbox-packer",
     palette: "netbox",
     tagline:
-      "NetBox plugin for HashiCorp Packer — links image builds, template versions, and artifact metadata to NetBox virtual machine records.",
+      "NetBox plugin scaffold for read-only HashiCorp Packer artifact inventory through proxbox-api.",
     projectPath: "/netbox-packer",
     developerPath: "/netbox-packer/developer",
     repoUrl: "https://github.com/emersonfelipesp/netbox-packer",

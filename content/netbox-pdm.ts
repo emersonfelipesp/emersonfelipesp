@@ -8,24 +8,22 @@ export const netboxPdm = {
   fullName: project.fullName,
   palette: project.palette,
   tagline:
-    "NetBox plugin for Proxmox Datacenter Manager — models PDM nodes, remote clusters, subscriber views, and SDN topology.",
+    "NetBox plugin scaffold for read-only Proxmox Datacenter Manager inventory through proxbox-api.",
   description: [
-    "netbox-pdm brings Proxmox Datacenter Manager (PDM) awareness into NetBox, mapping the multi-cluster topology managed by PDM into structured DCIM objects.",
-    "PDM nodes, remote cluster registrations, subscriber assignments, and scheduled tasks are all surfaced in NetBox alongside the rest of your infrastructure inventory.",
+    "netbox-pdm is a sibling of netbox-proxbox for future read-only PDM inventory: remotes, views, and SDN-adjacent state through proxbox-api.",
+    "The released v0.0.1 package ships the plugin scaffold and NetBox installation glue. Model and synchronization views are not part of this release.",
   ],
   features: [
-    "PDM node discovery and status tracking",
-    "Remote cluster registration and subscriber view mapping",
-    "Scheduled task visibility per PDM node",
-    "SDN zone and VNET topology modeled as NetBox objects",
-    "Links PDM objects to existing Proxmox cluster records",
-    "Read-only discovery — never mutates resources on PDM",
-    "REST API for all plugin models",
+    "Plugin scaffold and NetBox installation glue",
+    "Reuses netbox-proxbox endpoint resolution and job conventions when installed",
+    "Falls back to proxbox_api_url and proxbox_api_key plugin settings",
+    "Read-only boundary — all mutations remain in PDM",
+    "Model and synchronization views are planned for later releases",
   ],
   stack: [
     "NetBox plugin (Django / Python 3.12+)",
-    "Proxmox Datacenter Manager API integration",
-    "netbox-proxbox (companion plugin for cluster context)",
+    "proxbox-api backend with PDM-aware endpoints",
+    "netbox-proxbox >=0.0.16",
   ],
   install: {
     primary: "pip install netbox-pdm",
@@ -33,8 +31,9 @@ export const netboxPdm = {
   },
   meta: {
     license: "Apache-2.0",
-    netbox: "4.6.x",
+    netbox: "4.5.8 – 4.6.x",
     python: "3.12+",
+    latestRelease: "v0.0.1",
   },
   links: {
     repo: project.repoUrl,

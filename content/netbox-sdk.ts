@@ -12,7 +12,7 @@ export const netboxSdk: ProjectContent = {
     "Modern NetBox toolkit: an async SDK plus a CLI and a TUI for faster automation.",
   description: [
     "netbox-sdk is an SDK-first NetBox toolkit built on a single async runtime, exposing the same surface as a Python client, a Typer-powered CLI and a Textual-powered TUI.",
-    "It ships with a mock API for tests, GraphQL support, dynamic CLI commands and several Textual UIs for browsing and debugging your NetBox infrastructure.",
+    "It ships typed clients for NetBox 4.3 through 4.7, a mock API for tests, GraphQL support, dynamic CLI commands, a guarded MCP server, and Textual UIs for browsing and debugging your NetBox infrastructure.",
   ],
   features: [
     "Standalone async NetBox REST API SDK",
@@ -21,6 +21,8 @@ export const netboxSdk: ProjectContent = {
     "Async REST client with token authentication",
     "Dynamic CLI commands with GraphQL support",
     "Built-in mock API with full CRUD for local testing",
+    "Stable typed clients for NetBox 4.3–4.7; 4.7.0 GA is the default schema",
+    "Guarded nbx-mcp server and semantic plugin bridge",
     "Multiple Textual TUIs for browsing and debugging infra",
   ],
   stack: [
@@ -32,7 +34,7 @@ export const netboxSdk: ProjectContent = {
   ],
   install: {
     primary: "pip install 'netbox-sdk[all]'",
-    note: "Pin a specific version: pip install 'netbox-sdk[all]==0.0.8.post1'",
+    note: "Pin a specific version: pip install 'netbox-sdk[all]==0.0.13'",
     runScript: [
       {
         kind: "banner",
@@ -104,10 +106,10 @@ export const netboxSdk: ProjectContent = {
     ],
   },
   meta: {
-    netbox: "4.3 / 4.4 / 4.5",
-    python: "3.11+",
-    latestRelease: "v0.0.8.post1",
-    stars: 14,
+    netbox: "4.3 – 4.7",
+    python: "3.11–3.13",
+    latestRelease: "v0.0.13",
+    stars: 18,
     forks: 0,
   },
   links: {
