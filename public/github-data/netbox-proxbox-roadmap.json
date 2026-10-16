@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T10:43:31.629Z",
+  "generated_at": "2026-10-16T14:03:07.728Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
-    "closed": 366,
+    "open": 0,
+    "closed": 367,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 702,
       "title": "Problems with access to proxbox plugin settings",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/702",
-      "closedAt": null,
+      "closedAt": "2026-10-16T14:01:28Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8468,6 +8468,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        702,
         696,
         701,
         602,
@@ -8834,14 +8835,6 @@
         9,
         8,
         6
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        702
       ]
     }
   ],
