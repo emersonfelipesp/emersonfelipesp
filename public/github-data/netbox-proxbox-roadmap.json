@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T03:19:51.643Z",
+  "generated_at": "2026-10-16T03:29:36.001Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 3,
-    "closed": 363,
+    "open": 2,
+    "closed": 364,
     "edges": 93
   },
-  "viewBox": "0 0 272 368",
+  "viewBox": "0 0 272 248",
   "nodes": [
     {
       "number": 701,
@@ -18,7 +18,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 256,
+      "y": 136,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -32,7 +32,7 @@
       "labels": [],
       "milestone": null,
       "x": 16,
-      "y": 136,
+      "y": 16,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -713,9 +713,9 @@
     {
       "number": 602,
       "title": "Cabling documentation ",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/602",
-      "closedAt": null,
+      "closedAt": "2026-10-16T03:27:59Z",
       "labels": [
         {
           "name": "feature",
@@ -727,8 +727,8 @@
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8454,6 +8454,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        602,
         695,
         694,
         688,
@@ -8824,7 +8825,6 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        602,
         696,
         701
       ]
