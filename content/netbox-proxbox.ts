@@ -70,7 +70,7 @@ export const netboxProxbox = {
     license: "Apache-2.0",
     netbox: "4.5.8 – 4.7.x",
     python: "3.12+",
-    proxmox: "8.1 – 9.2",
+    proxmox: "7.x – 9.x",
     latestRelease: "v0.0.29.post5",
     stars: 604,
     forks: 66,

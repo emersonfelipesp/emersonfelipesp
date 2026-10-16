@@ -83,7 +83,8 @@ export const PROXBOX_API_PT_BR = {
       ],
       bullets: [
         "Dependência fixada: proxmox-sdk 0.0.15",
-        "Somente leitura — o proxbox-api nunca faz POST, PUT ou DELETE no Proxmox",
+        "A sincronização de inventário é somente leitura no Proxmox",
+        "As superfícies de escrita são separadas e protegidas: allow_writes é verificado por endpoint, rotas com atribuição de ator exigem X-Proxbox-Actor e ações disparadas pelo plugin exigem run_proxmox_action com escopo no endpoint",
         "Cliente assíncrono usado dentro do workflow de sincronização baseado em SSE",
         "O modo mock viabiliza testes de integração offline com schemas realistas",
         "Concorrência limitada por PROXBOX_VM_SYNC_MAX_CONCURRENCY",

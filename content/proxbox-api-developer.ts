@@ -60,7 +60,7 @@ export const proxboxApiDeveloper: DeveloperContent = {
       protocol: "HTTP",
       library: "proxmox-sdk==0.0.15",
       notes:
-        "Read-only — the workflow never POST/PUT/DELETEs back into Proxmox. Mock backend (MockBackend) used for fast tests.",
+        "Inventory synchronization is read-only against Proxmox. Separate operational routes use explicit endpoint, actor-attribution and plugin-permission gates. MockBackend is used for fast tests.",
     },
     {
       target: "Next.js admin UI",

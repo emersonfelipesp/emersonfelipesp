@@ -149,7 +149,7 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
   integrationNotes: [
     "Cada clique em Full Update no plugin chega aqui como uma requisição para /full-update/stream.",
     "Sessões assíncronas em aiohttp em proxbox_api/session/ + helpers em proxbox_api/netbox_rest.py. Camada de cache GET (60s TTL) compartilhada pelo workflow.",
-    "Somente leitura — o workflow nunca faz POST/PUT/DELETE de volta no Proxmox. MockBackend é usado para testes rápidos.",
+    "A sincronização de inventário é somente leitura no Proxmox. Rotas operacionais separadas usam gates explícitos de endpoint, atribuição de ator e permissão do plugin. MockBackend é usado para testes rápidos.",
     "Gerencia chaves bcrypt, credenciais cifradas e registros de endpoint pela mesma superfície FastAPI.",
   ],
   contributingCodeStyle: [

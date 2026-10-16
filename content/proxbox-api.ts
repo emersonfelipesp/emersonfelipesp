@@ -44,7 +44,7 @@ export const proxboxApi = {
     license: "Apache-2.0",
     python: "3.12–3.13",
     netbox: "4.5.8 – 4.7.x",
-    proxmox: "8.1 – 9.2",
+    proxmox: "7.x – 9.x",
     latestRelease: "v0.0.27.post3",
     stars: 9,
     forks: 7,
@@ -113,7 +113,7 @@ export const proxboxApi = {
     {
       id: "proxmox-sdk",
       title: "proxmox-sdk · Proxmox VE SDK",
-      role: "downstream — read source",
+      role: "downstream — inventory read source",
       transport: "HTTP (Proxmox VE REST API)",
       direction: "proxbox-api → proxmox-sdk → Proxmox VE",
       href: "/proxmox-sdk",
@@ -123,7 +123,8 @@ export const proxboxApi = {
       ],
       bullets: [
         "Pinned dependency: proxmox-sdk 0.0.15",
-        "Read-only — proxbox-api never POSTs, PUTs or DELETEs into Proxmox",
+        "Inventory synchronization is read-only against Proxmox",
+        "Separate write surfaces are gated: allow_writes is checked per endpoint, actor-aware routes require X-Proxbox-Actor, and plugin-triggered operator actions require endpoint-scoped run_proxmox_action",
         "Async client used inside the SSE-driven sync workflow",
         "Mock mode enables offline integration tests with realistic schemas",
         "Concurrency capped by PROXBOX_VM_SYNC_MAX_CONCURRENCY",

@@ -484,7 +484,7 @@ const en: Dictionary = {
           netboxRest:
             "NetBox REST API (4.5.8–4.7.x) — the data target where Proxmox infrastructure ends up.",
           proxmoxRest:
-            "Proxmox VE 7.x / 8.x REST API — read-only data source for clusters, nodes, storage, VMs, containers, snapshots and backups.",
+            "Proxmox VE 7.x – 9.x runtime target. Inventory synchronization is read-only; separate writes check per-endpoint allow_writes, actor-aware routes require X-Proxbox-Actor, and plugin-triggered operator actions require endpoint-scoped run_proxmox_action.",
         },
         edges: {
           pluginToApiTransport: "HTTP REST · SSE · WebSocket",
@@ -494,9 +494,9 @@ const en: Dictionary = {
             "async · cached GET 60s TTL",
             "PROXBOX_NETBOX_MAX_CONCURRENT",
           ],
-          apiToProxmoxLabel: "read source",
+          apiToProxmoxLabel: "inventory read source",
           apiToProxmoxBullets: [
-            "async · mock | real · read-only",
+            "sync reads · gated write surfaces",
             "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
           ],
           sdkToRest: "REST",
@@ -529,7 +529,7 @@ const en: Dictionary = {
           {
             verb: "discover",
             title: "Proxmox VE",
-            body: "Clusters, nodes, VMs, containers, storage, snapshots and backups are read from the Proxmox API. Read-only: nothing on Proxmox is ever changed.",
+            body: "Clusters, nodes, VMs, containers, storage, snapshots and backups are read from the Proxmox API. This inventory synchronization step is read-only; separate operator actions use explicit write gates.",
           },
           {
             verb: "sync",
@@ -901,7 +901,7 @@ const ptBr: Dictionary = {
           netboxRest:
             "API REST do NetBox (4.5.8–4.7.x) — o destino onde a infraestrutura do Proxmox é registrada.",
           proxmoxRest:
-            "API REST do Proxmox VE 7.x / 8.x — fonte somente leitura de clusters, nós, storage, VMs, contêineres, snapshots e backups.",
+            "API REST do Proxmox VE 7.x – 9.x como alvo de runtime. A sincronização de inventário é somente leitura; escritas separadas verificam allow_writes por endpoint, rotas com atribuição de ator exigem X-Proxbox-Actor e ações disparadas pelo plugin exigem run_proxmox_action com escopo no endpoint.",
         },
         edges: {
           pluginToApiTransport: "HTTP REST · SSE · WebSocket",
@@ -911,9 +911,9 @@ const ptBr: Dictionary = {
             "async · GET cacheado por 60s",
             "PROXBOX_NETBOX_MAX_CONCURRENT",
           ],
-          apiToProxmoxLabel: "fonte de leitura",
+          apiToProxmoxLabel: "fonte de leitura de inventário",
           apiToProxmoxBullets: [
-            "async · mock | real · somente leitura",
+            "sync de leitura · escritas protegidas",
             "PROXBOX_VM_SYNC_MAX_CONCURRENCY",
           ],
           sdkToRest: "REST",
@@ -948,7 +948,7 @@ const ptBr: Dictionary = {
           {
             verb: "descobrir",
             title: "Proxmox VE",
-            body: "Clusters, nós, VMs, contêineres, storage, snapshots e backups são lidos pela API do Proxmox. Somente leitura: nada no Proxmox é alterado.",
+            body: "Clusters, nós, VMs, contêineres, storage, snapshots e backups são lidos pela API do Proxmox. Essa etapa de sincronização de inventário é somente leitura; ações separadas do operador usam gates explícitos de escrita.",
           },
           {
             verb: "sincronizar",

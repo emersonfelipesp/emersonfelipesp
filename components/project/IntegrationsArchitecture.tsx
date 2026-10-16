@@ -325,7 +325,7 @@ export function IntegrationsArchitecture() {
             <VerticalEdge primary={a.edges.sdkToRest} />
             <Node
               name="proxmox · REST API"
-              meta="7.x / 8.x"
+              meta="7.x – 9.x"
               description={a.nodes.proxmoxRest}
             />
           </div>
