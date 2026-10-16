@@ -42,7 +42,7 @@ export const proxmoxerComparison: ComparisonContent = {
     name: "proxmox-sdk",
     description: [
       "A code-generated Python SDK built from the Proxmox API Viewer schema. The same package ships a full FastAPI server (with Swagger UI at /docs), a CLI (pbx), and a Textual TUI — but the core SDK is usable standalone without any of those extras.",
-      "proxmox-sdk defaults to mock mode: an in-memory FastAPI server that responds to all 675 PVE 9.2 endpoints with auto-generated CRUD data. Switching to real mode proxies validated requests to a live Proxmox node.",
+      "proxmox-sdk defaults to mock mode: an in-memory FastAPI server that responds to 675 PVE 9.2 operations across 444 endpoints with auto-generated CRUD data. Switching to real mode proxies validated requests to a live Proxmox node.",
       "Responses are Pydantic models, not raw dicts. The schema is refreshed weekly via a GitHub Actions workflow that detects API drift automatically. proxmox-sdk is pre-release (alpha) with low adoption and an API surface that may change between versions.",
     ],
     bestFor: [
@@ -56,8 +56,8 @@ export const proxmoxerComparison: ComparisonContent = {
     { aspect: "type", a: "Python library", b: "Python library + FastAPI server", winner: "draw" },
     { aspect: "first release", a: "2012", b: "2024", winner: "a" },
     { aspect: "maturity", a: "production, widely adopted", b: "alpha, low adoption", winner: "a" },
-    { aspect: "license", a: "BSD-2-Clause", b: "MIT", winner: "draw" },
-    { aspect: "python", a: "2.7 / 3.x", b: "3.11+", winner: "a" },
+    { aspect: "license", a: "MIT", b: "MIT", winner: "draw" },
+    { aspect: "python", a: "3.10–3.14", b: "3.11+", winner: "draw" },
     { aspect: "response format", a: "raw dict / JSON", b: "Pydantic models", winner: "b" },
     { aspect: "mock / offline dev", a: "no", b: "yes (default mode)", winner: "b" },
     { aspect: "OpenAPI schema", a: "no", b: "yes — 675 ops, PVE 9.2", winner: "b" },

@@ -84,7 +84,7 @@ export const featured: FeaturedProject[] = [
     name: "netbox-proxbox",
     href: "/netbox-proxbox",
     tagline: "NetBox plugin syncing Proxmox infra into NetBox.",
-    badge: "[ flagship · 539+ ★ ]",
+    badge: "[ flagship · open source ]",
   },
   {
     slug: "netbox-sdk",

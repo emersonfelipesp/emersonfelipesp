@@ -37,7 +37,7 @@ export const PROXMOX_SDK_COMPARISON_PT_BR: Pick<
     name: "proxmox-sdk",
     description: [
       "Um SDK Python gerado por código a partir do schema do Proxmox API Viewer. O mesmo pacote disponibiliza um servidor FastAPI completo (com Swagger UI em /docs), uma CLI (pbx) e uma TUI Textual — mas o SDK principal pode ser usado de forma standalone sem esses extras.",
-      "proxmox-sdk opera por padrão em modo mock: um servidor FastAPI em memória que responde a todos os 675 endpoints do PVE 9.2 com dados CRUD gerados automaticamente. Trocar para o modo real encaminha requisições validadas para um nó Proxmox real.",
+      "proxmox-sdk opera por padrão em modo mock: um servidor FastAPI em memória que responde a 675 operações do PVE 9.2 em 444 endpoints com dados CRUD gerados automaticamente. Trocar para o modo real encaminha requisições validadas para um nó Proxmox real.",
       "As respostas são modelos Pydantic, não dicts brutos. O schema é atualizado semanalmente via um workflow do GitHub Actions que detecta drift de API automaticamente. proxmox-sdk está em pré-lançamento (alpha) com baixa adoção e uma superfície de API que pode mudar entre versões.",
     ],
     bestFor: [

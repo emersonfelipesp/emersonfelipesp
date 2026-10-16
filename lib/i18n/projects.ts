@@ -44,6 +44,7 @@ const NETBOX_PROXBOX_PT_BR = {
   description: [
     "O netbox-proxbox mantém seu DCIM em sincronia com clusters Proxmox reais, transmitindo clusters, nós, VMs, contêineres, storage, snapshots e backups direto para o NetBox.",
     "Combina um plugin para o NetBox (Django) com um serviço FastAPI dedicado chamado proxbox-api, que faz o trabalho pesado e envia o progresso ao vivo via Server-Sent Events.",
+    "O par atual mantém leituras de HA, ações operacionais e propriedade de devices vinculadas ao endpoint Proxmox exato, com conclusão correlacionada por execução e gates explícitos de confiança em cada fronteira remota.",
   ],
   monitoring: {
     title: "Integração de métricas com InfluxDB",
@@ -76,13 +77,15 @@ const NETBOX_PROXBOX_PT_BR = {
   },
   features: [
     "Sincronização automática: clusters, nós, VMs, contêineres, storage, snapshots, backups",
-    "Progresso em tempo real via streaming Server-Sent Events (SSE)",
+    "Leituras de HA exatas por endpoint e permissões run_proxmox_action com escopo por endpoint",
+    "Progresso SSE e WebSocket correlacionado por execução, com status agregado de conclusão",
+    "Modo somente captura via automatic_background_tasks=False",
+    "Claims atômicos de propriedade de devices com HTTP 409 endpoint_ownership_conflict",
+    "Aprovação de conexões remotas do NetBox vinculada ao token",
+    "Guardas transacionais de storage e assignments no OpenBao",
     "Flags de sincronização granulares por VM e por endpoint",
     "Integração de métricas com InfluxDB por meio de um proxy de consulta limitado no proxbox-api",
-    "Visualizador ao vivo dos logs do backend obtidos do proxbox-api",
-    "Configuração de endpoints via importação/exportação CSV / JSON / YAML",
-    "Descoberta somente leitura — nunca altera recursos no Proxmox",
-    "Rastreamento de interfaces de rede e atribuições de IP dentro do NetBox",
+    "Appliance OCI de teste multi-arquitetura com backend proxbox-api fixado",
   ],
   stack: [
     "Plugin do NetBox (Django / Python 3.12+)",
@@ -504,23 +507,116 @@ export function getNetboxPbs(lang: Lang) {
 
 export type NetboxPdmContent = typeof netboxPdm;
 
+const NETBOX_PDM_PT_BR = {
+  tagline:
+    "Scaffold de plugin do NetBox para inventário somente leitura do Proxmox Datacenter Manager via proxbox-api.",
+  description: [
+    "O netbox-pdm é um plugin irmão do netbox-proxbox para futuro inventário somente leitura do PDM: remotes, views e estado adjacente ao SDN via proxbox-api.",
+    "O pacote v0.0.1 publicado entrega o scaffold do plugin e a integração de instalação no NetBox. Models e views de sincronização não fazem parte desta release.",
+  ],
+  features: [
+    "Scaffold do plugin e integração de instalação no NetBox",
+    "Reutiliza a resolução de endpoints e as convenções de jobs do netbox-proxbox quando instalado",
+    "Faz fallback para as configurações proxbox_api_url e proxbox_api_key do plugin",
+    "Fronteira somente leitura — todas as mutações permanecem no PDM",
+    "Models e views de sincronização estão planejados para releases futuras",
+  ],
+  stack: [
+    "Plugin do NetBox (Django / Python 3.12+)",
+    "Backend proxbox-api com endpoints compatíveis com PDM",
+    "netbox-proxbox >=0.0.16",
+  ],
+  installNote:
+    "Exige uma instância do Proxmox Datacenter Manager e netbox-proxbox para o contexto de cluster.",
+} as const;
+
 export function getNetboxPdm(lang: Lang) {
   if (lang === "en") return netboxPdm;
-  return { ...netboxPdm, sections: localizeSections(netboxPdm.sections, lang) };
+  return {
+    ...netboxPdm,
+    tagline: NETBOX_PDM_PT_BR.tagline,
+    description: NETBOX_PDM_PT_BR.description,
+    features: NETBOX_PDM_PT_BR.features,
+    stack: NETBOX_PDM_PT_BR.stack,
+    install: { ...netboxPdm.install, note: NETBOX_PDM_PT_BR.installNote },
+    sections: localizeSections(netboxPdm.sections, lang),
+  };
 }
 
 export type NetboxCephContent = typeof netboxCeph;
 
+const NETBOX_CEPH_PT_BR = {
+  tagline:
+    "Plugin somente leitura do NetBox para inventário do Ceph gerenciado pelo Proxmox via proxbox-api.",
+  description: [
+    "O netbox-ceph v0.0.1 espelha o inventário do Ceph gerenciado pelo Proxmox via proxbox-api.",
+    "Reutiliza o contexto de backend, o ciclo de branches, as relações de endpoints e as convenções de jobs do netbox-proxbox sem gravar no Ceph.",
+  ],
+  features: [
+    "Inventário somente leitura do Ceph gerenciado pelo Proxmox",
+    "Contexto de backend e relações de endpoints compartilhados com o netbox-proxbox",
+    "Ciclo de branches e convenções de jobs compartilhados",
+    "Sem operações de escrita do NetBox para o Ceph",
+    "Ceph Dashboard direto, Prometheus, RGW/S3, RBD e clusters externos permanecem fora do escopo",
+  ],
+  stack: [
+    "Plugin do NetBox (Django / Python 3.12+)",
+    "Superfície Proxmox Ceph do proxbox-api",
+    "netbox-proxbox >=0.0.16",
+  ],
+  installNote:
+    "Exige netbox-proxbox e um backend proxbox-api com acesso ao Ceph gerenciado pelo Proxmox.",
+} as const;
+
 export function getNetboxCeph(lang: Lang) {
   if (lang === "en") return netboxCeph;
-  return { ...netboxCeph, sections: localizeSections(netboxCeph.sections, lang) };
+  return {
+    ...netboxCeph,
+    tagline: NETBOX_CEPH_PT_BR.tagline,
+    description: NETBOX_CEPH_PT_BR.description,
+    features: NETBOX_CEPH_PT_BR.features,
+    stack: NETBOX_CEPH_PT_BR.stack,
+    install: { ...netboxCeph.install, note: NETBOX_CEPH_PT_BR.installNote },
+    sections: localizeSections(netboxCeph.sections, lang),
+  };
 }
 
 export type NetboxPackerContent = typeof netboxPacker;
 
+const NETBOX_PACKER_PT_BR = {
+  tagline:
+    "Scaffold de plugin do NetBox para inventário somente leitura de artefatos do HashiCorp Packer via proxbox-api.",
+  description: [
+    "O netbox-packer é um plugin irmão do netbox-proxbox para futuro inventário de builds de imagens, incluindo templates Proxmox, appliances e golden images de sistemas de rede.",
+    "O pacote v0.0.2.post1 publicado contém o scaffold, a integração de instalação e correções de empacotamento. Models de inventário de imagens e sincronização com HCP Packer não fazem parte desta release.",
+  ],
+  features: [
+    "Scaffold do plugin e integração de instalação no NetBox",
+    "Reutiliza a resolução de endpoints e as convenções de jobs do netbox-proxbox quando instalado",
+    "Configurações opcionais de organização e projeto do HCP Packer",
+    "Fronteira somente leitura — todas as operações de build permanecem no Packer ou HCP Packer",
+    "Models de inventário e sincronização com HCP Packer estão planejados para releases futuras",
+  ],
+  stack: [
+    "Plugin do NetBox (Django / Python 3.12+)",
+    "Backend proxbox-api com endpoints compatíveis com Packer",
+    "netbox-proxbox >=0.0.16",
+  ],
+  installNote:
+    "Exige netbox-proxbox e um backend proxbox-api acessível com endpoints compatíveis com Packer.",
+} as const;
+
 export function getNetboxPacker(lang: Lang) {
   if (lang === "en") return netboxPacker;
-  return { ...netboxPacker, sections: localizeSections(netboxPacker.sections, lang) };
+  return {
+    ...netboxPacker,
+    tagline: NETBOX_PACKER_PT_BR.tagline,
+    description: NETBOX_PACKER_PT_BR.description,
+    features: NETBOX_PACKER_PT_BR.features,
+    stack: NETBOX_PACKER_PT_BR.stack,
+    install: { ...netboxPacker.install, note: NETBOX_PACKER_PT_BR.installNote },
+    sections: localizeSections(netboxPacker.sections, lang),
+  };
 }
 
 export type NetboxOpenbaoLocalized = ReturnType<typeof getNetboxOpenbao>;

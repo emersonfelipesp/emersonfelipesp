@@ -302,7 +302,7 @@ export function IntegrationsArchitecture() {
           <div className="flex flex-col items-center gap-1">
             <Node
               name="netbox-sdk"
-              meta="0.0.7.post6"
+              meta="0.0.13"
               description={a.nodes.netboxSdk}
               href="/netbox-sdk"
               highlight
@@ -310,14 +310,14 @@ export function IntegrationsArchitecture() {
             <VerticalEdge primary={a.edges.sdkToRest} />
             <Node
               name="netbox · REST API"
-              meta="4.5.x / 4.6.x"
+              meta="4.5.8 – 4.7.x"
               description={a.nodes.netboxRest}
             />
           </div>
           <div className="flex flex-col items-center gap-1">
             <Node
               name="proxmox-sdk"
-              meta="0.0.3.post1"
+              meta="0.0.15"
               description={a.nodes.proxmoxSdk}
               href="/proxmox-sdk"
               highlight

@@ -11,18 +11,19 @@ export const proxmoxSdk: ProjectContent = {
   tagline:
     "Schema-driven FastAPI SDK for the Proxmox API — generated, dual-mode, OpenAPI-first.",
   description: [
-    "proxmox-sdk is a FastAPI package that mirrors the Proxmox VE API as a fully typed OpenAPI surface, with 675 endpoints generated from Proxmox VE 9.2.",
+    "proxmox-sdk is a FastAPI package that mirrors the Proxmox VE API as a fully typed OpenAPI surface, with 675 operations across 444 endpoints generated from Proxmox VE 9.2.",
     "It runs in two modes out of the box: a mock mode (default) with auto-generated CRUD data so you can develop without a real cluster, and a real mode that proxies validated requests to a live Proxmox host.",
     "Beyond the server it ships a standalone async + sync Python SDK (ProxmoxSDK / SyncProxmoxSDK) with API-token and password/ticket authentication, a bring-your-own aiohttp session option, typed Ceph / PBS / PDM service clients, and an automated weekly schema-update workflow that detects upstream API drift and opens a PR.",
   ],
   features: [
-    "675 pre-generated Proxmox VE 9.2 endpoints with full OpenAPI schema (9.1.11 retained)",
+    "675 Proxmox VE 9.2 operations across 444 endpoints with a full OpenAPI schema",
     "Standalone async + sync Python SDK (ProxmoxSDK / SyncProxmoxSDK) — no server required",
     "Dual mode: mock (default) for development, real for production",
     "Reliable password/ticket auth (API-prefixed ticket URL + unquoted PVEAuthCookie) plus API-token auth with TOTP",
     "Bring-your-own aiohttp session (session=) — reuse your connection pool, timeouts, tracing, or proxy",
     "Typed Ceph / PBS / PDM service clients on top of the transport backends",
-    "Security hardening: SSRF-guarded download checksum discovery, credential redaction in logs, quoted SSH commands",
+    "Bounded JSON response reads and redirect refusal across HTTPS and CLI transports",
+    "Live certification against Proxmox VE 9.2.20, including HA, SDN, CRS, and token lifecycle",
     "Automated weekly schema sync — detects upstream API drift and opens a PR automatically",
     "Multi-version CI matrix: latest, 9.2, and 9.1.11 each tested on every commit",
     "Per-version mock state isolation (PROXMOX_MOCK_STATE_NAMESPACE) — safe for parallel runs",
@@ -45,9 +46,9 @@ export const proxmoxSdk: ProjectContent = {
   meta: {
     license: "MIT",
     python: "3.11+",
-    latestRelease: "v0.0.13",
-    stars: 2,
-    forks: 0,
+    latestRelease: "v0.0.15",
+    stars: 9,
+    forks: 2,
   },
   links: {
     repo: project.repoUrl,

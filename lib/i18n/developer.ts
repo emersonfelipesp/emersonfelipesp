@@ -39,17 +39,21 @@ const NETBOX_PROXBOX_PT_BR: LocalizedDeveloper = {
   tagline:
     "Guia do desenvolvedor — arquitetura, integrações, fluxo de contribuição e testes ponta a ponta.",
   intro: [
-    "O netbox-proxbox é um plugin Django publicado sobre o NetBox 4.5.x / 4.6.x. Ele roda dentro do processo do NetBox e orquestra todo o tráfego real do Proxmox por meio de um serviço FastAPI irmão chamado proxbox-api.",
+    "O netbox-proxbox é um plugin Django para NetBox 4.5.8 a 4.7.x, com verificação GA até 4.7.0. Ele roda dentro do processo do NetBox e orquestra o tráfego do Proxmox por meio de um serviço FastAPI irmão chamado proxbox-api.",
     "Esta página documenta as peças que um contribuidor precisa entender: como um clique em Full Update na UI do NetBox acaba transmitindo clusters, nós, VMs, snapshots e backups para a fonte da verdade, onde mora o código que faz isso, e como a suíte de testes prova que a fiação funciona.",
   ],
   architectureBullets: [
-    "Entry point do plugin: netbox_proxbox/__init__.py registra o NetBoxPluginConfig (atualmente certificado contra NetBox v4.5.8 → v4.6.x).",
+    "Entry point do plugin: netbox_proxbox/__init__.py registra o NetBoxPluginConfig (faixa declarada 4.5.8–4.7.99; CI GA até 4.7.0).",
     "Modelos persistidos: ProxmoxEndpoint, NetBoxEndpoint (singleton), FastAPIEndpoint (singleton), ProxmoxCluster, ProxmoxNode, ProxmoxStorage, BackupRoutine, Replication, VMBackup, VMSnapshot, VMTaskHistory, ProxboxPluginSettings.",
     "Roteamento: netbox_proxbox/urls.py liga toda view de CRUD e operacional; views em netbox_proxbox/views/ estendem NetBoxModelViewSet e usam register_model_view para painéis de objetos relacionados.",
     "API REST: netbox_proxbox/api/ expõe rotas DRF NetBoxModelViewSet para cada modelo persistido.",
     "Workflow de sincronização: um Full Update enfileira ProxboxSyncJob na fila default do RQ do NetBox (timeout de job 7200s, leitura HTTP 3600s). O job chama o endpoint full-update/stream do proxbox-api e retransmite cada evento SSE para o navegador via netbox_proxbox/services/backend_proxy.py.",
     "Visualizador ao vivo de logs: uma ponte WebSocket separada mantém o buffer de logs do proxbox-api fluindo dentro da UI do plugin. O parsing no navegador vive em netbox_proxbox/static/netbox_proxbox/js/.",
-    "Modelo de segurança: views CRUD usam ObjectPermissionRequiredMixin; views customizadas usam ConditionalLoginRequiredMixin (respeita LOGIN_REQUIRED do NetBox); endpoints operacionais usam ContentTypePermissionRequiredMixin.",
+    "Modelo de segurança: ações operacionais usam run_proxmox_action no ProxmoxEndpoint proprietário exato; ObjectPermissions restritas do NetBox permitem que não-superusuários operem apenas endpoints aprovados.",
+    "Leituras de HA e despachos operacionais falham antes de I/O com o backend quando a identidade do endpoint está ausente, conflitante, desabilitada ou oculta.",
+    "A migração 0106_device_sync_scope_and_netbox_token_approval adiciona claims de propriedade por endpoint e aprovação vinculada ao token para conexões remotas do NetBox.",
+    "automatic_background_tasks=False habilita operação somente captura, enquanto a capability ws_run_id correlaciona a conclusão WebSocket com a execução iniciada no backend.",
+    "Seleção de storage no OpenBao, overrides por endpoint, exclusão de owner, updates em massa e conflict upserts são validados sob locks transacionais.",
     "CLI complementar: proxbox_cli/ disponibiliza o comando pxb (declarado em pyproject.toml [project.scripts]) para disparos de sincronização sem interface.",
   ],
   integrationNotes: [
@@ -114,9 +118,9 @@ const NETBOX_PROXBOX_PT_BR: LocalizedDeveloper = {
   ],
   e2eCoverage: [
     "Specs: tests/e2e/e2e_stack_check.py, stack_setup.py, stack_sync.py, stack_common.py, mock_proxmox_api.py.",
-    "Stack: imagem netboxcommunity/netbox:v4.5.8 / v4.5.9 / v4.6.0 + Postgres + Redis + proxbox-api + proxmox-sdk:latest-{pve,pbs,pdm} escolhido por célula.",
+    "Stack: todas as versões do NetBox de 4.5.8 a 4.5.10, todas as versões 4.6 até 4.6.6 e 4.7.0 + Postgres + Redis + proxbox-api + a imagem de serviço selecionada do proxmox-sdk.",
     "Dados de mock: tests/e2e/proxmox_openapi_mock_data.json montado dentro do contêiner mock do proxmox-sdk; a tag de serviço solicitada determina qual superfície OpenAPI (PVE / PBS / PDM) é servida.",
-    "Eixos da matriz: netbox_image (3) × install_source ∈ {local, pypi, container, testpypi} × dependency_mode ∈ {dev, published, testpypi-package, pypi-package} × proxmox_service ∈ {pve, pbs, pdm}, com fail-fast desabilitado.",
+    "Eixos da matriz: 11 imagens do NetBox × install_source ∈ {local, pypi, container} × proxbox_api_runtime ∈ {python, pyo3-rust} × proxmox_service ∈ {pve, pbs, pdm}, com fail-fast desabilitado; pull requests reduzem a cobertura de runtime/serviço para python + pve.",
     "Gate de release: publish-testpypi.yml publica no TestPyPI primeiro, valida instalacoes exatas de pacote, e so promove versoes rc/final no PyPI depois do E2E passar com o indice correspondente do proxbox-api.",
     "Agendamento: cron noturno 31 2 * * * exercita a matriz completa sem supervisão.",
   ],
@@ -134,10 +138,13 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
     "Camadas: routes/ (routers FastAPI — auth, dcim, extras, netbox, proxbox, proxmox, sync, virtualization) → services/sync/ (orquestração) → schemas/ + enum/ (validação Pydantic 2 em todos os limites) → proxmox_to_netbox/ (transformação) → session/ (factories de cliente NetBox + Proxmox como dependências FastAPI).",
     "Sincronizações transmitem Server-Sent Events e, opcionalmente, progresso por WebSocket. /full-update/stream conduz a cadeia completa: devices → storage → VMs → discos → backups → snapshots → interfaces → IPs → backup routines → replications.",
     "Auth: API key com hash bcrypt no header X-Proxbox-API-Key, com bloqueio anti-brute-force (proxbox_api/auth.py). Credenciais em repouso são cifradas com Fernet (PROXBOX_ENCRYPTION_KEY obrigatório em produção).",
+    "Bootstrap e criptografia: POST /auth/register-key sem autenticação só existe antes do primeiro registro durável de chave; troca de chave e escrita de credenciais usam fences de geração para que writers obsoletos falhem com HTTP 409.",
+    "Fronteira de rede: hosts de endpoint permanecem no escopo da requisição até o commit. SSH conecta apenas a endereços validados e exige a host key armazenada antes da autenticação; redirects e credenciais SSH do ambiente são recusados.",
+    "Integridade de sync: devices carregam propriedade por endpoint, HTTP 409 endpoint_ownership_conflict protege claims concorrentes e run_id acompanha progresso, erros e conclusão agregada no WebSocket.",
     "Persistência: SQLModel + aiosqlite para armazenar endpoints e chaves; o lado proxbox-api não depende de PostgreSQL.",
     "Knobs de concorrência: PROXBOX_NETBOX_TIMEOUT (120s), PROXBOX_NETBOX_MAX_CONCURRENT (padrão 1, intencionalmente baixo), PROXBOX_VM_SYNC_MAX_CONCURRENCY, PROXBOX_NETBOX_GET_CACHE_TTL (cache GET 60s, 0 desabilita), PROXBOX_RATE_LIMIT (60 req/min/IP via SlowAPI).",
     "UI administrativa embutida: nextjs-ui/ — frontend Next.js usado para administrar endpoints, com build target separado.",
-    "Rotas geradas de proxy: proxbox_api/generated/ contém 646 endpoints tipados do Proxmox extraídos do API Viewer. Não edite à mão — regenere a partir de proxbox-api/proxmox_codegen/.",
+    "Rotas geradas de proxy: proxbox_api/generated/ contém artefatos OpenAPI versionados e models tipados do Proxmox. Não edite à mão — regenere a partir de proxbox-api/proxmox_codegen/.",
   ],
   integrationNotes: [
     "Cada clique em Full Update no plugin chega aqui como uma requisição para /full-update/stream.",
@@ -160,7 +167,7 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
       name: "ci.yml",
       trigger: "push + pull_request + release + manual",
       purpose:
-        "Roda pytest core, piso Python 3.11, smoke free-threaded, Docker bind smoke e matriz E2E com NetBox.",
+        "Roda pytest core, piso Python 3.12, smoke free-threaded, Docker bind smoke e matriz E2E com NetBox.",
     },
     {
       name: "publish-testpypi.yml",
@@ -205,7 +212,7 @@ const PROXBOX_API_PT_BR: LocalizedDeveloper = {
     "Specs: tests/e2e/conftest.py, test_vm_sync.py, test_devices_sync.py, test_backups_sync.py, test_demo_auth.py, test_proxmox_mock_health.py.",
     "Markers: @pytest.mark.mock_backend (MockBackend em processo) e @pytest.mark.mock_http (contêiner Docker do proxmox-sdk nas portas 8006/8007). A fixture de sessão requires_pve_schema pula automaticamente specs exclusivas de PVE nas células pbs/pdm.",
     "Os helpers de auth em proxbox_api/e2e/ são o único lugar do backend onde Playwright é usado; a fixture proxmox_sdk_mock troca as tags do contêiner conforme a variável PROXMOX_SERVICE.",
-    "CI: ci.yml roda o job core de testes (pytest excluindo tests/e2e) mais uma matriz E2E em Docker de 7 × 3 × 3 (transport × NetBox × service) com fail-fast desabilitado. A passagem mock_backend tem gate em main + pve para rodar exatamente uma vez.",
+    "CI: ci.yml roda o job core de testes (pytest excluindo tests/e2e) mais uma matriz E2E em Docker de 7 × 9 × 3 (transport × NetBox × service) com fail-fast desabilitado. Execuções de release adicionam modos de pacote dev/PyPI e limitam PBS/PDM ao transporte-base; a passagem mock_backend fica restrita às células PVE da branch main.",
     "Gate de release: publish-testpypi.yml valida instalacoes TestPyPI primeiro, depois instalacoes rc/final PyPI, publicacao de imagens Docker e E2E pos-publicacao na mesma matriz de serviços.",
   ],
 };
@@ -220,7 +227,7 @@ const NETBOX_SDK_PT_BR: LocalizedDeveloper = {
   architectureBullets: [
     "Três pacotes co-publicados: netbox_sdk/ (camada de API standalone, sem deps de CLI/TUI), netbox_cli/ (CLI Typer, entry point nbx), netbox_tui/ (TUI Textual, carregada sob demanda). Build backend: setuptools.",
     "Fronteira de import (forçada por convenção + testes): netbox_sdk NÃO pode importar netbox_cli nem netbox_tui. Imports absolutos apenas.",
-    "Núcleo do SDK: netbox_sdk/client.py envolve aiohttp.ClientSession e expõe três camadas — NetBoxApiClient cru, fachada assíncrona api(), cliente tipado versionado typed_api() (4.3 / 4.4 / 4.5 / 4.6).",
+    "Núcleo do SDK: netbox_sdk/client.py envolve aiohttp.ClientSession e expõe três camadas — NetBoxApiClient cru, fachada assíncrona api(), cliente tipado versionado typed_api() (4.3 / 4.4 / 4.5 / 4.6 / 4.7).",
     "OpenAPI embarcado: netbox_sdk/reference/openapi/*.json contém schemas embarcados para cada release suportada do NetBox.",
     "Geração dinâmica de comandos da CLI: netbox_cli/dynamic.py registra comandos do Typer em tempo de import a partir do schema OpenAPI. netbox_cli/runtime.py é dono das factories de config / index / cliente. Os docs são gerados por netbox_cli/docgen*.",
     "TUI: netbox_tui/app.py é o app principal. netbox_tui/theme_registry.py auto-descobre temas JSON em netbox_tui/themes/*.json. Arquivos TCSS são assets em runtime; tests/test_no_hardcoded_colors.py proíbe literais hex em TCSS.",
@@ -231,7 +238,7 @@ const NETBOX_SDK_PT_BR: LocalizedDeveloper = {
     "Autenticação por token; paginação, validação de filtros e carregamento preguiçoso de objetos relacionados ficam no cliente.",
     "Usado pelo perfil de demo para obter um token válido sem fixar credenciais em código.",
     "Disparado pelo entry point nbx-mock. Mesmas rotas que o SDK exercita nos testes.",
-    "O proxbox-api fixa netbox-sdk==0.0.8.post1 como seu destino de escrita no NetBox.",
+    "O proxbox-api fixa netbox-sdk==0.0.13 como seu destino de escrita REST no NetBox; essa dependência é separada da bridge semântica MCP.",
   ],
   contributingCodeStyle: [
     "Linter: ruff (select E/F/I/UP/W/ANN201/ANN202).",
@@ -248,7 +255,7 @@ const NETBOX_SDK_PT_BR: LocalizedDeveloper = {
   e2eCoverage: [
     "Specs: tests/test_cli_tui.py (navegação + execução de comandos do NbxCliTuiApp), test_tui_interaction.py (breadcrumb, filtragem, cable trace, tokens de tema), test_dev_tui.py, test_graphql_tui.py.",
     "Harness de screenshots: test_tui_screenshots.py captura fixtures usadas pela pipeline de docgen do site portfólio.",
-    "Matriz contra NetBox ao vivo: .github/workflows/test.yml × {v4.5.8, v4.5.9, v4.6.0} roda suite_sdk contra uma API real, incluindo auth / paginação / GraphQL.",
+    "Matriz ao vivo: 4.7.0, 4.6.6, 4.6.3, 4.6.2 e 4.5.10 exercitam o SDK contra uma API real; jobs de schema embarcado cobrem cada linha 4.3–4.7.",
     "Guarda contra hex literais: tests/test_no_hardcoded_colors.py mantém valores de tema fora dos TCSS.",
   ],
 };
@@ -257,7 +264,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
   tagline:
     "Guia do desenvolvedor — pipeline de codegen, backends mock/real duplos e a fronteira de integração da qual stacks downstream dependem.",
   intro: [
-    "O proxmox-sdk é um toolkit Python orientado a schema. Espelha a superfície REST do Proxmox VE 9.2 como 675 endpoints tipados, roda em modo mock ou proxy real, e expõe o resultado tanto como SDK em processo quanto como servidor FastAPI opcional.",
+    "O proxmox-sdk é um toolkit Python orientado a schema. Espelha a superfície REST do Proxmox VE 9.2 como 675 operações em 444 endpoints, roda em modo mock ou proxy real, e expõe o resultado tanto como SDK em processo quanto como servidor FastAPI opcional.",
     "Esta página documenta o pipeline de codegen que produz o schema, a camada de backends plugáveis que faz cada endpoint resolver contra dados mock ou um cluster real, o fluxo de contribuição e a fronteira de integração que stacks downstream (proxbox-api, netbox-proxbox) usam em vez de rodar seu próprio E2E.",
   ],
   architectureBullets: [
@@ -265,7 +272,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "SDK standalone: proxmox_sdk/sdk/api.py é o ProxmoxSDK (assíncrono). proxmox_sdk/sdk/sync.py o envolve sincronamente. proxmox_sdk/sdk/resource.py acrescenta navegação por atributos.",
     "Backends plugáveis em proxmox_sdk/sdk/backends/: https.py (aiohttp, Proxmox real), mock.py (em memória), local.py (CLI pvesh), ssh_paramiko.py e openssh.py (dois transportes SSH).",
     "Camada de mock: proxmox_sdk/mock/ usa SharedMemoryMockStore (lock compartilhado, persistido em arquivo) e proxmox_sdk/mock/routes.py registra handlers CRUD a partir do schema OpenAPI dinamicamente na inicialização. O estado pode ser zerado com reset_state() entre testes.",
-    "Artefatos gerados: proxmox_sdk/generated/ (675 endpoints, modelos Pydantic). Pré-gerados para Proxmox VE 9.2 (9.1.11 mantido; matriz de CI: latest, 9.2, 9.1.11).",
+    "Artefatos gerados: proxmox_sdk/generated/ (675 operações em 444 endpoints, além de models Pydantic). Pré-gerados para Proxmox VE 9.2 (9.1.11 mantido; matriz de CI: latest, 9.2, 9.1.11).",
     "Isolamento multi-versão: cada versão de schema recebe um namespace de mock estável (PROXMOX_MOCK_STATE_NAMESPACE padroniza para pmx_{version_tag}). Uma guarda __schema_fingerprint__ no sys.modules evita re-exec de módulo obsoleto quando duas versões carregam no mesmo processo.",
     "Pipeline de codegen: proxmox_sdk/proxmox_codegen/crawler.py (Playwright rastreia o API Viewer oficial do Proxmox), normaliza o resultado, e proxmox_codegen/pipeline.py emite openapi.json + pydantic_models.py. Disparado manualmente ou pelo endpoint /codegen/generate (com rate limit, exige CODEGEN_API_KEY).",
     "Sincronização automática de schema: .github/workflows/schema-update.yml detecta mudanças na API do Proxmox semanalmente (segundas às 03:00 UTC) ou via workflow_dispatch, regenera o schema, verifica integridade de SHA e abre um PR automaticamente.",
@@ -276,7 +283,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "Auth: API token (auth/token.py) ou senha/ticket+TOTP (auth/ticket.py). Usado em modo proxy real.",
     "Invocação direta de CLI quando rodando em um nó Proxmox.",
     "Dois transportes SSH intercambiáveis.",
-    "O proxbox-api fixa proxmox-sdk==0.0.5.post1; a stack E2E do netbox-proxbox baixa uma das tags por serviço (latest-pve, latest-pbs, latest-pdm) deste repo como o contêiner proxmox-e2e-mock, uma por célula da matriz.",
+    "O proxbox-api fixa proxmox-sdk==0.0.15; a stack E2E do netbox-proxbox baixa a imagem de serviço selecionada deste repositório como contêiner proxmox-e2e-mock.",
   ],
   contributingCodeStyle: [
     "Linter: ruff (select E4/E7/E9/F/I/ANN201/D103/W).",
@@ -288,7 +295,7 @@ const PROXMOX_SDK_PT_BR: LocalizedDeveloper = {
     "pytest + pytest-xdist + pytest-cov. A fronteira de integração é coberta por tests/cli/integration/test_backend_integration.py exercitando a ponte CLI ↔ SDK contra o servidor mock.",
   e2eIntro: [
     "O proxmox-sdk não tem um diretório tests/e2e/ dedicado — a suíte de integração da CLI mais as imagens Docker por serviço publicadas (latest-pve, latest-pbs, latest-pdm) atuam como a fronteira de E2E. Stacks downstream (netbox-proxbox, proxbox-api) consomem essas tags e rodam o E2E cross-stack em paralelo.",
-    "O v0.0.6 avança o schema para o Proxmox VE 9.2 e expande a matriz de CI para três versões (latest, 9.2, 9.1.11) — cada commit roda a suíte completa de testes contra cada versão de schema de forma independente, com namespacing de estado mock por versão para evitar contaminação entre execuções.",
+    "A release atual v0.0.15 mantém a matriz de schemas latest / 9.2 / 9.1.11 e adiciona leituras JSON limitadas, recusa de redirects em todo transporte e certificação ao vivo contra Proxmox VE 9.2.20.",
     "O pipeline de CI faz lint, type check, roda testes com cobertura e reconstrói as variantes Docker por serviço (raw / nginx / granian × pve / pbs / pdm) em cada push para main e testing.",
   ],
   e2eCoverage: [

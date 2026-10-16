@@ -39,9 +39,10 @@ export function NetboxSdkContent({
   const sections = t.project.sections;
 
   const meta = {
-    netbox: liveMeta?.netbox ?? p.meta.netbox,
-    python: liveMeta?.python ?? p.meta.python,
-    latestRelease: liveMeta?.latestRelease ?? p.meta.latestRelease,
+    netbox: p.meta.netbox ?? liveMeta?.netbox,
+    python: p.meta.python ?? liveMeta?.python,
+    latestRelease:
+      repo?.latestRelease ?? p.meta.latestRelease ?? liveMeta?.latestRelease,
   };
 
   return (

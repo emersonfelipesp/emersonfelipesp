@@ -77,11 +77,11 @@ I love processes, workflows, building APIs, and seeing systems communicate. But 
 ---
 
 #### 🔌 NetBox Proxbox Plugin
-*Integration between Proxmox and NetBox for seamless VM management*
+*NetBox plugin that synchronizes Proxmox infrastructure through a hardened FastAPI backend*
 
-[![Proxbox Banner](https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png)](https://github.com/N-Multifibra/netbox-proxbox)
+[![Proxbox Banner](https://user-images.githubusercontent.com/24397251/156668969-2f9d3775-41fa-47d2-ba13-7a6cdabb4db0.png)](https://github.com/emersonfelipesp/netbox-proxbox)
 
-[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=N-Multifibra&repo=netbox-proxbox&theme=tokyonight)](https://github.com/N-Multifibra/netbox-proxbox)
+[![Repo Card](https://github-readme-stats.vercel.app/api/pin/?username=emersonfelipesp&repo=netbox-proxbox&theme=tokyonight)](https://github.com/emersonfelipesp/netbox-proxbox)
 
 ---
 

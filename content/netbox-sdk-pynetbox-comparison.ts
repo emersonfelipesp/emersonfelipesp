@@ -30,7 +30,7 @@ export const netboxSdkPynetboxComparison: ComparisonContent = {
     description: [
       "A thin, synchronous Python wrapper around the NetBox REST API. Returns Record and RecordSet objects with ORM-like attribute access, .save(), and .delete() methods — so you can write device.name = 'foo'; device.save() without building a dict manually.",
       "pynetbox is sync-only (built on requests). It supports parallel pagination via threading=True, strict OpenAPI-backed filter validation, and a context manager for the NetBox branching plugin. No mock server is bundled — you stub requests with unittest.mock in tests.",
-      "The library is maintained by the netbox-community GitHub organization and follows NetBox releases closely. NetBox compatibility is documented in a version matrix from 3.3 through 4.5.",
+      "The library is maintained by the netbox-community GitHub organization and follows NetBox releases closely. pynetbox 7.9.0 is tested with NetBox 4.7, and releases from 6.7 onward support NetBox 3.3 or newer.",
     ],
     bestFor: [
       "Scripts, Ansible playbooks, and automation that already use the NetBox community ecosystem",
@@ -42,9 +42,9 @@ export const netboxSdkPynetboxComparison: ComparisonContent = {
   libraryB: {
     name: "netbox-sdk",
     description: [
-      "An async SDK built on aiohttp, exposing three usage layers: a raw HTTP client, an async facade (api()), and a versioned typed client (typed_api()) that returns Pydantic models for NetBox 4.3–4.6. All three share the same runtime.",
+      "An async SDK built on aiohttp, exposing three usage layers: a raw HTTP client, an async facade (api()), and a versioned typed client (typed_api()) that returns Pydantic models for NetBox 4.3–4.7. All three share the same runtime.",
       "The package ships optional extras: [cli] adds a Typer-based nbx CLI with OpenAPI-driven dynamic commands, [tui] adds a Textual-based terminal interface, and [mock] adds a local FastAPI mock server (nbx-mock) so you can develop and test without a live NetBox instance.",
-      "netbox-sdk is pre-release (alpha, version 0.0.9) with low adoption. The API surface covers NetBox 4.3–4.6 and may change between releases. Python 3.11+ is required.",
+      "netbox-sdk is pre-release (alpha, version 0.0.13) with low adoption. The typed API surface covers NetBox 4.3–4.7 and may change between releases. Python 3.11–3.13 is supported.",
     ],
     bestFor: [
       "Async applications and services that need native asyncio support",
@@ -58,7 +58,7 @@ export const netboxSdkPynetboxComparison: ComparisonContent = {
     { aspect: "first release", a: "2017", b: "2024", winner: "a" },
     { aspect: "maturity", a: "production, widely adopted", b: "alpha, low adoption", winner: "a" },
     { aspect: "license", a: "Apache 2.0", b: "Apache 2.0", winner: "draw" },
-    { aspect: "python", a: "3.10+", b: "3.11+", winner: "a" },
+    { aspect: "python", a: "3.12+", b: "3.11–3.13", winner: "b" },
     { aspect: "response format", a: "Record objects (ORM-like)", b: "raw JSON or Pydantic models", winner: "b" },
     { aspect: ".save() / .delete() on records", a: "yes", b: "no (call API methods directly)", winner: "a" },
     { aspect: "mock / offline dev", a: "no", b: "yes ([mock] extra)", winner: "b" },
@@ -66,12 +66,12 @@ export const netboxSdkPynetboxComparison: ComparisonContent = {
     { aspect: "parallel pagination", a: "yes (threading=True)", b: "yes (async concurrent)", winner: "draw" },
     { aspect: "NetBox branching", a: "yes (activate_branch())", b: "yes ([branching] extra)", winner: "draw" },
     { aspect: "filter validation", a: "yes (strict_filters=True)", b: "yes (bundled OpenAPI specs)", winner: "draw" },
-    { aspect: "bundled OpenAPI specs", a: "no", b: "yes (4.3–4.6)", winner: "b" },
+    { aspect: "bundled OpenAPI specs", a: "no", b: "yes (4.3–4.7)", winner: "b" },
     { aspect: "CLI", a: "no", b: "yes — nbx ([cli] extra)", winner: "b" },
     { aspect: "TUI", a: "no", b: "yes (Textual, [tui] extra)", winner: "b" },
     { aspect: "deps footprint (base)", a: "minimal (requests, packaging)", b: "medium (aiohttp, pydantic, rich)", winner: "a" },
     { aspect: "deps footprint (full)", a: "minimal", b: "heavy (+FastAPI, Textual, Typer)", winner: "a" },
-    { aspect: "NetBox compat range", a: "3.3–4.5", b: "4.3–4.6 (typed)", winner: "draw" },
+    { aspect: "NetBox compat range", a: "3.3+", b: "4.3–4.7 (typed)", winner: "draw" },
     { aspect: "ecosystem adoption", a: "very high", b: "very low (new)", winner: "a" },
     { aspect: "community support", a: "netbox-community", b: "emersonfelipesp", winner: "a" },
   ],
