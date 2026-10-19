@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-19T12:08:01.033Z",
+  "syncedAt": "2026-10-19T19:18:23.829Z",
   "fullName": "emersonfelipesp/netbox-openbao",
   "stars": 0,
   "forks": 0,
   "releases": [
+    {
+      "id": 417643259,
+      "nodeId": "RE_kwDOULJON84Y5Lr7",
+      "tag": "v0.2.2.post1",
+      "name": "v0.2.2.post1",
+      "url": "https://github.com/emersonfelipesp/netbox-openbao/releases/tag/v0.2.2.post1",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/releases/417643259",
+      "targetCommitish": "main",
+      "body": "## netbox-openbao 0.2.2.post1\n\nPost-release fix for 0.2.2.\n\n### Fixed\n\n- The NetBox plugins page (`/core/plugins/`) no longer fails with\n  `AttributeError: module 'netbox_openbao.config' has no attribute 'version'`.\n  NetBox reads a plugin's configuration through the package attribute\n  `config`. The plugin's settings-resolution module was also named `config`,\n  and importing it replaced that attribute with the module object.\n\n### Compatibility\n\n- The settings-resolution module is now `netbox_openbao.conf`, with the same\n  contents. Code outside the plugin that imported `get_config`,\n  `clear_config`, or `assignable_model_labels` from `netbox_openbao.config`\n  must import them from `netbox_openbao.conf`.\n- No model or migration change. NetBox 4.7.x, Python 3.12+.\n\n### Software version description\n\n- Package: `netbox-openbao` 0.2.2.post1 (wheel and source distribution).\n- Source commit: `9a4b69974f92bf00fa0951d6904a31b9c879d693`.\n- Verification: regression tests confirm that the package attribute stays the\n  PluginConfig class after every submodule is imported, that the package has\n  no `config` submodule, and that NetBox's own plugin listing reads the\n  plugin's version. They fail on 0.2.2 with the original error. The fix was\n  validated on a staging NetBox 4.7.0 instance.\n",
+      "bodyHtml": "<h2 dir=\"auto\">netbox-openbao 0.2.2.post1</h2>\n<p dir=\"auto\">Post-release fix for 0.2.2.</p>\n<h3 dir=\"auto\">Fixed</h3>\n<ul dir=\"auto\">\n<li>The NetBox plugins page (<code class=\"notranslate\">/core/plugins/</code>) no longer fails with<br>\n<code class=\"notranslate\">AttributeError: module 'netbox_openbao.config' has no attribute 'version'</code>.<br>\nNetBox reads a plugin's configuration through the package attribute<br>\n<code class=\"notranslate\">config</code>. The plugin's settings-resolution module was also named <code class=\"notranslate\">config</code>,<br>\nand importing it replaced that attribute with the module object.</li>\n</ul>\n<h3 dir=\"auto\">Compatibility</h3>\n<ul dir=\"auto\">\n<li>The settings-resolution module is now <code class=\"notranslate\">netbox_openbao.conf</code>, with the same<br>\ncontents. Code outside the plugin that imported <code class=\"notranslate\">get_config</code>,<br>\n<code class=\"notranslate\">clear_config</code>, or <code class=\"notranslate\">assignable_model_labels</code> from <code class=\"notranslate\">netbox_openbao.config</code><br>\nmust import them from <code class=\"notranslate\">netbox_openbao.conf</code>.</li>\n<li>No model or migration change. NetBox 4.7.x, Python 3.12+.</li>\n</ul>\n<h3 dir=\"auto\">Software version description</h3>\n<ul dir=\"auto\">\n<li>Package: <code class=\"notranslate\">netbox-openbao</code> 0.2.2.post1 (wheel and source distribution).</li>\n<li>Source commit: <code class=\"notranslate\">9a4b69974f92bf00fa0951d6904a31b9c879d693</code>.</li>\n<li>Verification: regression tests confirm that the package attribute stays the<br>\nPluginConfig class after every submodule is imported, that the package has<br>\nno <code class=\"notranslate\">config</code> submodule, and that NetBox's own plugin listing reads the<br>\nplugin's version. They fail on 0.2.2 with the original error. The fix was<br>\nvalidated on a staging NetBox 4.7.0 instance.</li>\n</ul>",
+      "createdAt": "2026-10-19T18:55:25Z",
+      "publishedAt": "2026-10-19T19:06:29Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/zipball/v0.2.2.post1",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/netbox-openbao/tarball/v0.2.2.post1"
+      }
+    },
     {
       "id": 403885350,
       "nodeId": "RE_kwDOULJON84YEs0m",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-05T15:48:59Z",
       "publishedAt": "2026-10-05T15:49:51Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",

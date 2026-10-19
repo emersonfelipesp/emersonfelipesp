@@ -1,9 +1,34 @@
 {
-  "syncedAt": "2026-10-19T12:08:01.648Z",
+  "syncedAt": "2026-10-19T19:18:24.232Z",
   "fullName": "emersonfelipesp/proxbox-api",
   "stars": 9,
   "forks": 7,
   "releases": [
+    {
+      "id": 417604844,
+      "nodeId": "RE_kwDOOUepXM4Y5CTs",
+      "tag": "v0.0.28",
+      "name": "v0.0.28",
+      "url": "https://github.com/emersonfelipesp/proxbox-api/releases/tag/v0.0.28",
+      "apiUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/releases/417604844",
+      "targetCommitish": "main",
+      "body": "## Summary\n\nThis release adds extra data disks, Proxmox tags, and descriptions to QEMU VM\nprovisioning. It also adds caller-supplied Cloud-Init vendor-data to the Cloud\nImage Build Pipeline.\n\n## Fixes and improvements\n\n- **Provision extra QEMU data disks.** The QEMU provision routes accept up to\n  eight extra SCSI, VirtIO, or SATA disks. Each disk can specify its slot,\n  storage, size, discard setting, and SSD setting where supported. The backend\n  reads the cloned VM configuration before it writes any extra disk. It sends the configuration\n  digest with the write so Proxmox can reject a concurrent configuration\n  change. It reports slot conflicts as HTTP 409 and invalid storage as HTTP 422.\n  When storage is omitted, the backend infers it only from an attached disk.\n- **Set Proxmox tags and descriptions during provisioning.** QEMU provision\n  requests can set Proxmox tags and a description on the cloned VM. Requests\n  that omit these fields keep the previous configuration payload.\n- **Supply a first-boot vendor script.** The Cloud Image Build Pipeline accepts\n  `first_boot_script` as an alternative to `user_data_yaml`. It stores the\n  script as a Cloud-Init vendor-data snippet. The signed plan digest binds the\n  exact script content. A stable SHA-256 content prefix in the snippet name\n  prevents separate signed builds from overwriting each other's scripts. The\n  vendor-data path leaves the per-VM Cloud-Init fields available on clones.\n\n## Compatibility and migration\n\nThis release does not add a database migration and does not change the public\nauthentication contract. The new provisioning fields are additive. A build\nrequest cannot specify both `first_boot_script` and `user_data_yaml`.\n\n## Upgrade\n\nDeploy the exact `proxbox-api 0.0.28` package or published container through\nthe approved release workflow and restart every backend worker. Verify the\nhealth endpoint. Then run one QEMU provision request and one image-build plan\nbefore resuming scheduled provisioning jobs.\n",
+      "bodyHtml": "<h2 dir=\"auto\">Summary</h2>\n<p dir=\"auto\">This release adds extra data disks, Proxmox tags, and descriptions to QEMU VM<br>\nprovisioning. It also adds caller-supplied Cloud-Init vendor-data to the Cloud<br>\nImage Build Pipeline.</p>\n<h2 dir=\"auto\">Fixes and improvements</h2>\n<ul dir=\"auto\">\n<li><strong>Provision extra QEMU data disks.</strong> The QEMU provision routes accept up to<br>\neight extra SCSI, VirtIO, or SATA disks. Each disk can specify its slot,<br>\nstorage, size, discard setting, and SSD setting where supported. The backend<br>\nreads the cloned VM configuration before it writes any extra disk. It sends the configuration<br>\ndigest with the write so Proxmox can reject a concurrent configuration<br>\nchange. It reports slot conflicts as HTTP 409 and invalid storage as HTTP 422.<br>\nWhen storage is omitted, the backend infers it only from an attached disk.</li>\n<li><strong>Set Proxmox tags and descriptions during provisioning.</strong> QEMU provision<br>\nrequests can set Proxmox tags and a description on the cloned VM. Requests<br>\nthat omit these fields keep the previous configuration payload.</li>\n<li><strong>Supply a first-boot vendor script.</strong> The Cloud Image Build Pipeline accepts<br>\n<code class=\"notranslate\">first_boot_script</code> as an alternative to <code class=\"notranslate\">user_data_yaml</code>. It stores the<br>\nscript as a Cloud-Init vendor-data snippet. The signed plan digest binds the<br>\nexact script content. A stable SHA-256 content prefix in the snippet name<br>\nprevents separate signed builds from overwriting each other's scripts. The<br>\nvendor-data path leaves the per-VM Cloud-Init fields available on clones.</li>\n</ul>\n<h2 dir=\"auto\">Compatibility and migration</h2>\n<p dir=\"auto\">This release does not add a database migration and does not change the public<br>\nauthentication contract. The new provisioning fields are additive. A build<br>\nrequest cannot specify both <code class=\"notranslate\">first_boot_script</code> and <code class=\"notranslate\">user_data_yaml</code>.</p>\n<h2 dir=\"auto\">Upgrade</h2>\n<p dir=\"auto\">Deploy the exact <code class=\"notranslate\">proxbox-api 0.0.28</code> package or published container through<br>\nthe approved release workflow and restart every backend worker. Verify the<br>\nhealth endpoint. Then run one QEMU provision request and one image-build plan<br>\nbefore resuming scheduled provisioning jobs.</p>",
+      "createdAt": "2026-10-19T18:18:11Z",
+      "publishedAt": "2026-10-19T18:22:11Z",
+      "prerelease": false,
+      "latest": true,
+      "author": {
+        "login": "emersonfelipesp",
+        "htmlUrl": "https://github.com/emersonfelipesp",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/24397251?v=4"
+      },
+      "assets": [],
+      "sourceArchives": {
+        "zipballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/zipball/v0.0.28",
+        "tarballUrl": "https://api.github.com/repos/emersonfelipesp/proxbox-api/tarball/v0.0.28"
+      }
+    },
     {
       "id": 415328944,
       "nodeId": "RE_kwDOOUepXM4YwWqw",
@@ -17,7 +42,7 @@
       "createdAt": "2026-10-16T19:01:09Z",
       "publishedAt": "2026-10-16T19:54:49Z",
       "prerelease": false,
-      "latest": true,
+      "latest": false,
       "author": {
         "login": "emersonfelipesp",
         "htmlUrl": "https://github.com/emersonfelipesp",
