@@ -1,14 +1,42 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T14:00:08.442Z",
+  "generated_at": "2026-11-05T20:02:07.899Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
+    "open": 2,
     "closed": 367,
     "edges": 93
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 727,
+      "title": "VM sync-state `endpoint` / `proxmox_node` / `proxmox_cluster` links are never set, so the console reports `SYNC_ENDPOINT_LINK_MISSING`",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/727",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
+    {
+      "number": 726,
+      "title": "Browser console never finds a backend: `websocket_url` is dropped from the backend context",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/726",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 702,
       "title": "Problems with access to proxbox plugin settings",
@@ -8835,6 +8863,15 @@
         9,
         8,
         6
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        726,
+        727
       ]
     }
   ],
