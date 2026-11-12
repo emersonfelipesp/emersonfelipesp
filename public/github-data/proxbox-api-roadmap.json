@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T00:03:14.507Z",
+  "generated_at": "2026-11-12T06:58:32.717Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
     "open": 1,
@@ -11,7 +11,7 @@
   "nodes": [
     {
       "number": 271,
-      "title": "Slow single-cluster sync, VMs from other clusters processed, repeated vm_helpers warnings, and inconsistent node FQDN names",
+      "title": "Slow cluster sync, VMs from other clusters processed, repeated vm_helpers warnings, and inconsistent node FQDN names",
       "state": "open",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/271",
       "closedAt": null,
