@@ -1,29 +1,29 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T16:39:02.022Z",
+  "generated_at": "2026-11-13T17:38:54.912Z",
   "repo": "emersonfelipesp/proxbox-api",
   "counts": {
-    "open": 1,
-    "closed": 80,
+    "open": 0,
+    "closed": 81,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 271,
       "title": "Slow cluster sync, VMs from other clusters processed, repeated vm_helpers warnings, and inconsistent node FQDN names",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/proxbox-api/issues/271",
-      "closedAt": null,
+      "closedAt": "2026-11-13T17:27:13Z",
       "labels": [
         {
-          "name": "under review",
-          "color": "fbca04"
+          "name": "accepted",
+          "color": "0e8a16"
         }
       ],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -1588,6 +1588,7 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        271,
         268,
         267,
         264,
@@ -1669,21 +1670,13 @@
         3,
         4
       ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        271
-      ]
     }
   ],
   "labels": [
     {
       "name": "accepted",
       "color": "0e8a16",
-      "count": 26
+      "count": 27
     },
     {
       "name": "bug",
@@ -1698,7 +1691,7 @@
     {
       "name": "under review",
       "color": "fbca04",
-      "count": 11
+      "count": 10
     },
     {
       "name": "documentation",
