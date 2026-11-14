@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T23:17:27.627Z",
+  "generated_at": "2026-11-14T00:17:17.930Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 2,
-    "closed": 368,
+    "open": 0,
+    "closed": 370,
     "edges": 93
   },
-  "viewBox": "0 0 272 248",
+  "viewBox": "0 0 1 1",
   "nodes": [
     {
       "number": 729,
       "title": "Full network topology synchronization is not enabled by netbox-proxbox",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/729",
-      "closedAt": null,
+      "closedAt": "2026-11-14T00:15:43Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 136,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -26,13 +26,13 @@
     {
       "number": 727,
       "title": "VM sync-state `endpoint` / `proxmox_node` / `proxmox_cluster` links are never set, so the console reports `SYNC_ENDPOINT_LINK_MISSING`",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/727",
-      "closedAt": null,
+      "closedAt": "2026-11-14T00:15:40Z",
       "labels": [],
       "milestone": null,
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 0,
       "w": 240,
       "h": 96,
       "blocked_by": []
@@ -8510,6 +8510,8 @@
       "kind": "shipped",
       "note": "shipped",
       "issues": [
+        729,
+        727,
         726,
         702,
         696,
@@ -8878,15 +8880,6 @@
         9,
         8,
         6
-      ]
-    },
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        727,
-        729
       ]
     }
   ],
