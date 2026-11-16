@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T04:46:34.449Z",
+  "generated_at": "2026-11-16T05:39:09.864Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 370,
     "edges": 93
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 736,
+      "title": "IP address dns_name is cleared on update even when “IP address dns name” is disabled",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/736",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 729,
       "title": "Full network topology synchronization is not enabled by netbox-proxbox",
@@ -8880,6 +8894,14 @@
         9,
         8,
         6
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        736
       ]
     }
   ],
