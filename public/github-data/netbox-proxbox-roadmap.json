@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T05:39:09.864Z",
+  "generated_at": "2026-11-16T05:49:19.321Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 1,
+    "open": 2,
     "closed": 370,
     "edges": 93
   },
-  "viewBox": "0 0 272 128",
+  "viewBox": "0 0 272 248",
   "nodes": [
+    {
+      "number": 737,
+      "title": "Sync reports VM “Start on boot” as Off when Proxmox has it enabled (LXC and QEMU)",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/737",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 136,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 736,
       "title": "IP address dns_name is cleared on update even when “IP address dns name” is disabled",
@@ -8901,7 +8915,8 @@
       "kind": "open",
       "note": "start anywhere",
       "issues": [
-        736
+        736,
+        737
       ]
     }
   ],
