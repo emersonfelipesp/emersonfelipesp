@@ -1,8 +1,9 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import dagre from "@dagrejs/dagre";
 import { PROJECT_LIST, type ProjectSlug } from "../lib/project-registry";
+import { assertRoadmapNotErased } from "./roadmap-snapshot-guard.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = path.resolve(__dirname, "../public/github-data");
@@ -396,6 +397,10 @@ async function syncRoadmap(slug: ProjectSlug, fullName: string): Promise<boolean
   console.log(`[roadmap-sync] ${slug}: fetching issues for ${fullName}...`);
   const issues = await fetchAllIssues(fullName);
   if (issues === null) return false;
+  const dest = path.join(OUTPUT_DIR, `${slug}-roadmap.json`);
+  if (issues.length === 0 && existsSync(dest)) {
+    assertRoadmapNotErased(issues.length, JSON.parse(readFileSync(dest, "utf8")));
+  }
   console.log(
     `[roadmap-sync] ${slug}: ${issues.length} issue(s) (${issues.filter((i) => i.state === "open").length} open, ${issues.filter((i) => i.state === "closed").length} closed)`,
   );
@@ -447,7 +452,6 @@ async function syncRoadmap(slug: ProjectSlug, fullName: string): Promise<boolean
   };
 
   mkdirSync(OUTPUT_DIR, { recursive: true });
-  const dest = path.join(OUTPUT_DIR, `${slug}-roadmap.json`);
   writeFileSync(dest, JSON.stringify(payload, null, 2) + "\n");
   console.log(`[roadmap-sync] ${slug}: wrote ${dest}`);
   return true;

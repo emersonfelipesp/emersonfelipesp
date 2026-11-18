@@ -11,6 +11,7 @@ permissions:
   contents: write
   pull-requests: write
   actions: write
+  issues: read
 
 concurrency:
   group: sync-github-data
@@ -105,7 +106,7 @@ jobs:
             pr_url="$(gh pr create --base main --head "$branch" \
               --title 'chore(github-data): refresh release snapshot' \
               --body 'Refresh the committed GitHub snapshots with the existing generators. The complete profile CI must pass before this pull request can merge.')"
-            # A pull request created by GITHUB_TOKEN does not start PR workflows.
+            # A pull request created by GITHUB_TOKEN requires approval to run PR workflows.
             # Dispatch the real workflow on the exact new branch instead.
             gh workflow run ci.yml --ref "$branch"
             gh pr merge "$pr_url" --auto --squash --match-head-commit "$head_sha"
