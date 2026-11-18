@@ -55,7 +55,12 @@ jobs:
               --json number,headRefName,headRefOid,author,isCrossRepository,mergeStateStatus)"
             pending="$(PENDING_PULLS="$pending" node -e '
               const pulls = JSON.parse(process.env.PENDING_PULLS);
-              const owned = pulls.filter((pull) => pull.author?.login === "github-actions[bot]" && pull.isCrossRepository === false && pull.headRefName?.startsWith("automation/github-data-"));
+              const owned = pulls.filter((pull) =>
+                pull.author?.is_bot === true &&
+                ["app/github-actions", "github-actions[bot]"].includes(pull.author.login) &&
+                pull.isCrossRepository === false &&
+                pull.headRefName?.startsWith("automation/github-data-")
+              );
               process.stdout.write(JSON.stringify(owned) + "\n");
             ')"
             pending_count="$(PENDING_PULLS="$pending" node -e 'process.stdout.write(String(JSON.parse(process.env.PENDING_PULLS).length))')"
