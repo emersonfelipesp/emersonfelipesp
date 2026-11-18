@@ -52,16 +52,23 @@ jobs:
           set -euo pipefail
           if [[ -n "$(git status --porcelain public/github-data)" ]]; then
             pending="$(gh pr list --state open --base main --limit 100 \
-              --json number,headRefName,headRefOid,author,isCrossRepository,mergeStateStatus \
-              --jq '[.[] | select(.author.login == "github-actions[bot]" and .isCrossRepository == false and (.headRefName | startswith("automation/github-data-")))]')"
-            pending_count="$(jq 'length' <<< "$pending")"
+              --json number,headRefName,headRefOid,author,isCrossRepository,mergeStateStatus)"
+            pending="$(PENDING_PULLS="$pending" node -e '
+              const pulls = JSON.parse(process.env.PENDING_PULLS);
+              const owned = pulls.filter((pull) => pull.author?.login === "github-actions[bot]" && pull.isCrossRepository === false && pull.headRefName?.startsWith("automation/github-data-"));
+              console.log(JSON.stringify(owned));
+            ')"
+            pending_count="$(PENDING_PULLS="$pending" node -p 'JSON.parse(process.env.PENDING_PULLS).length')"
             if (( pending_count > 1 )); then
               echo 'Multiple generated snapshot pull requests need reconciliation.' >&2
               exit 1
             fi
             if (( pending_count == 1 )); then
               IFS=$'\t' read -r pending_number pending_branch pending_sha merge_state < <(
-                jq -r '.[0] | [.number, .headRefName, .headRefOid, .mergeStateStatus] | @tsv' <<< "$pending"
+                PENDING_PULLS="$pending" node -e '
+                  const pull = JSON.parse(process.env.PENDING_PULLS)[0];
+                  console.log([pull.number, pull.headRefName, pull.headRefOid, pull.mergeStateStatus].join("\t"));
+                '
               )
               [[ "$pending_number" =~ ^[0-9]+$ && "$pending_branch" =~ ^automation/github-data-[0-9]+-[0-9]+$ && "$pending_sha" =~ ^[0-9a-f]{40}$ ]]
               if [[ "$merge_state" == BEHIND ]]; then

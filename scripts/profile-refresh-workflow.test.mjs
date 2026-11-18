@@ -24,7 +24,6 @@ const ownedPull = {
 const mock = `#!${process.execPath}
 const fs = require("node:fs");
 const path = require("node:path");
-const { spawnSync } = require("node:child_process");
 const tool = path.basename(process.argv[1]);
 const args = process.argv.slice(2);
 fs.appendFileSync(process.env.CALL_LOG, JSON.stringify([tool, ...args]) + "\\n");
@@ -33,11 +32,9 @@ if (tool === "git" && args[0] === "status") {
 } else if (tool === "git" && args[0] === "rev-parse") {
   console.log(process.env.NEW_SHA);
 } else if (tool === "gh" && args[0] === "pr" && args[1] === "list") {
-  const result = spawnSync("jq", [args[args.indexOf("--jq") + 1]], {
-    input: process.env.PULLS, encoding: "utf8"
-  });
-  process.stdout.write(result.stdout);
-  process.exit(result.status);
+  console.log(process.env.PULLS);
+} else if (tool === "jq") {
+  process.exit(127);
 } else if (tool === "gh" && args[0] === "api") {
   process.exit(Number(process.env.UPDATE_EXIT));
 } else if (tool === "gh" && args[0] === "pr" && args[1] === "view") {
@@ -51,7 +48,7 @@ function runScenario({ pulls = [], changes = true, updateExit = 0, observedSha =
   const directory = mkdtempSync(path.join(tmpdir(), "profile-refresh-contract-"));
   const callsFile = path.join(directory, "calls.jsonl");
   try {
-    for (const tool of ["gh", "git", "sleep"]) {
+    for (const tool of ["gh", "git", "sleep", "jq"]) {
       writeFileSync(path.join(directory, tool), mock, { mode: 0o700 });
     }
     writeFileSync(callsFile, "");
@@ -74,7 +71,9 @@ function runScenario({ pulls = [], changes = true, updateExit = 0, observedSha =
     });
     assert.equal(result.error, undefined);
     const lines = readFileSync(callsFile, "utf8").trim();
-    return { ...result, calls: lines ? lines.split("\n").map(JSON.parse) : [] };
+    const calls = lines ? lines.split("\n").map(JSON.parse) : [];
+    assert.equal(calls.some((call) => call[0] === "jq"), false, "The workflow must use the installed Node runtime for JSON parsing");
+    return { ...result, calls };
   } finally {
     rmSync(directory, { recursive: true, force: true });
   }
