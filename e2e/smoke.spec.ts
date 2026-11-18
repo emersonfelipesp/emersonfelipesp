@@ -1,5 +1,8 @@
 import { test, expect } from "@playwright/test";
-import proxboxRoadmap from "../public/github-data/netbox-proxbox-roadmap.json";
+import proxboxRoadmapSnapshot from "../public/github-data/netbox-proxbox-roadmap.json";
+import { RoadmapSchema } from "../lib/roadmap";
+
+const proxboxRoadmap = RoadmapSchema.parse(proxboxRoadmapSnapshot);
 
 const LIVE_DOCS_ACTIONS = [
   {

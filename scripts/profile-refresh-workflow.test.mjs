@@ -5,6 +5,18 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { parse } from "yaml";
+import { assertRoadmapNotErased } from "./roadmap-snapshot-guard.mjs";
+
+test("the roadmap reader has read-only issue permission", () => {
+  assert.equal(workflow.permissions.issues, "read");
+});
+
+test("an empty response cannot erase an existing populated roadmap", () => {
+  assert.throws(() => assertRoadmapNotErased(0, { nodes: [{ number: 1 }] }), /Refusing to replace/);
+  assert.doesNotThrow(() => assertRoadmapNotErased(1, { nodes: [{ number: 1 }] }));
+  assert.doesNotThrow(() => assertRoadmapNotErased(0, { nodes: [] }));
+  assert.doesNotThrow(() => assertRoadmapNotErased(0, null));
+});
 
 const workflow = parse(readFileSync(".github/workflows/sync-github-data.yml", "utf8"));
 const script = workflow.jobs.sync.steps.find(
