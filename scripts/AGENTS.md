@@ -11,14 +11,15 @@ Submodule layout and cross-repo links: `/root/personal-context/claude-reference/
 
 ## Purpose
 
-Build/support helpers run with `tsx`. These scripts are not part of the Next.js
-client bundle.
+Build/support helpers run with `tsx`, and workflow contract tests use Node's
+built-in test runner. These scripts are not part of the Next.js client bundle.
 
 ## Files
 
 - `sync-netbox-sdk-fixtures.ts` - Imports netbox-sdk docgen artifacts, generated TUI simulation SVGs, live demo command output, metadata, and prompt flow into `public/netbox-sdk-fixtures/`.
 - `sync-github-data.ts` - Fetches GitHub release snapshots and repo stats for every `PROJECT_LIST` entry and writes `public/github-data/<slug>.json` plus `manifest.json`.
 - `sync-roadmaps.ts` - Iterates `PROJECT_LIST` and writes per-project `public/github-data/<slug>-roadmap.json` snapshots with GitHub issues, `blocked_by` dependency edges, dagre layout, and topological timeline phases. Honors `Retry-After` on 429/403 secondary rate limits and skips repos that return 404.
+- `profile-refresh-workflow.test.mjs` - Executes the snapshot workflow's actual shell step with isolated Git and GitHub command doubles. Run it with `pnpm test:ci-workflows`. It verifies ownership, expected-head branch updates, bounded observation, duplicate prevention, real CI dispatch, and SHA-bound squash auto-merge without contacting a forge. JSON parsing uses the existing Node runtime; the test fixtures deliberately make `jq` unavailable and enable forced color to verify that machine-readable values remain plain text.
 
 ## Behavior
 

@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,10 +9,17 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   lint:
     name: Lint & Typecheck
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -30,6 +38,9 @@ jobs:
       - name: Verify dependency security invariants
         run: pnpm test:dependency-security
 
+      - name: Verify checked snapshot refresh contracts
+        run: pnpm test:ci-workflows
+
       - name: Audit production dependencies
         run: pnpm audit --prod --audit-level high
 
@@ -44,7 +55,7 @@ jobs:
 
   e2e:
     name: Playwright E2E (${{ matrix.project }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -98,3 +109,18 @@ jobs:
           name: playwright-report-${{ matrix.project }}
           path: playwright-report/
           retention-days: 7
+
+  complete:
+    name: Profile CI complete
+    if: ${{ always() }}
+    needs: [lint, e2e]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require every original quality producer
+        env:
+          LINT_RESULT: ${{ needs.lint.result }}
+          E2E_RESULT: ${{ needs.e2e.result }}
+        run: |
+          set -euo pipefail
+          [[ "$LINT_RESULT" == success && "$E2E_RESULT" == success ]]
