@@ -10,7 +10,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  actions: write
   issues: read
 
 concurrency:
@@ -83,7 +82,7 @@ jobs:
                 for attempt in {1..12}; do
                   updated_sha="$(gh pr view "$pending_number" --json headRefOid --jq .headRefOid)"
                   if [[ "$updated_sha" =~ ^[0-9a-f]{40}$ && "$updated_sha" != "$pending_sha" ]]; then
-                    gh workflow run ci.yml --ref "$pending_branch"
+                    echo 'Approve the native pull-request workflow before protected auto-merge; dispatched checks cannot satisfy PR protection.'
                     exit 0
                   fi
                   printf 'Waiting for the generated branch update (%s/12).\n' "$attempt"
@@ -106,10 +105,10 @@ jobs:
             pr_url="$(gh pr create --base main --head "$branch" \
               --title 'chore(github-data): refresh release snapshot' \
               --body 'Refresh the committed GitHub snapshots with the existing generators. The complete profile CI must pass before this pull request can merge.')"
-            # A pull request created by GITHUB_TOKEN requires approval to run PR workflows.
-            # Dispatch the real workflow on the exact new branch instead.
-            gh workflow run ci.yml --ref "$branch"
+            # Token-created PRs require maintainer approval of their native PR workflow.
+            # Operator workflow_dispatch checks cannot satisfy required PR protection.
             gh pr merge "$pr_url" --auto --squash --match-head-commit "$head_sha"
+            echo 'Approve the native pull-request workflow before protected auto-merge; dispatched checks cannot satisfy PR protection.'
           else
             echo "No changes — skipping commit."
           fi
