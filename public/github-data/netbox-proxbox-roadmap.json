@@ -1,14 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-18T05:22:53.597Z",
+  "generated_at": "2026-11-18T09:12:20.791Z",
   "repo": "emersonfelipesp/netbox-proxbox",
   "counts": {
-    "open": 0,
+    "open": 1,
     "closed": 372,
     "edges": 93
   },
-  "viewBox": "0 0 1 1",
+  "viewBox": "0 0 272 128",
   "nodes": [
+    {
+      "number": 743,
+      "title": "[Bug] Cluster ownership conflict during sync",
+      "state": "open",
+      "url": "https://github.com/emersonfelipesp/netbox-proxbox/issues/743",
+      "closedAt": null,
+      "labels": [],
+      "milestone": null,
+      "x": 16,
+      "y": 16,
+      "w": 240,
+      "h": 96,
+      "blocked_by": []
+    },
     {
       "number": 737,
       "title": "Sync reports VM “Start on boot” as Off when Proxmox has it enabled (LXC and QEMU)",
@@ -8910,6 +8924,14 @@
         9,
         8,
         6
+      ]
+    },
+    {
+      "phase": 1,
+      "kind": "open",
+      "note": "start anywhere",
+      "issues": [
+        743
       ]
     }
   ],
