@@ -7,8 +7,12 @@ import test from "node:test";
 import { parse } from "yaml";
 import { assertRoadmapNotErased } from "./roadmap-snapshot-guard.mjs";
 
-test("the roadmap reader has read-only issue permission", () => {
-  assert.equal(workflow.permissions.issues, "read");
+test("refresh permissions retain read-only issues without workflow dispatch authority", () => {
+  assert.deepEqual(workflow.permissions, {
+    contents: "write",
+    "pull-requests": "write",
+    issues: "read",
+  });
 });
 
 test("an empty response cannot erase an existing populated roadmap", () => {
@@ -86,6 +90,7 @@ function runScenario({ pulls = [], changes = true, updateExit = 0, observedSha =
     const lines = readFileSync(callsFile, "utf8").trim();
     const calls = lines ? lines.split("\n").map(JSON.parse) : [];
     assert.equal(calls.some((call) => call[0] === "jq"), false, "The workflow must use the installed Node runtime for JSON parsing");
+    assert.equal(calls.some((call) => call[0] === "gh" && call[1] === "workflow"), false, "Snapshot automation must not dispatch workflows that cannot satisfy required PR checks");
     return { ...result, calls };
   } finally {
     rmSync(directory, { recursive: true, force: true });
@@ -103,15 +108,14 @@ test("unchanged snapshots do not invoke the pull-request API or push", () => {
   assert.equal(matchingCalls(result, ["git", "push"]).length, 0);
 });
 
-test("new snapshots require a normal branch push, real CI dispatch, and SHA-bound squash auto-merge", () => {
+test("new snapshots use a normal branch push and SHA-bound auto-merge with native PR approval", () => {
   const result = runScenario();
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(matchingCalls(result, ["git", "push"]), [
     ["git", "push", "origin", "HEAD:refs/heads/automation/github-data-200-1"],
   ]);
-  assert.deepEqual(matchingCalls(result, ["gh", "workflow"]), [
-    ["gh", "workflow", "run", "ci.yml", "--ref", "automation/github-data-200-1"],
-  ]);
+  assert.equal(matchingCalls(result, ["gh", "workflow"]).length, 0);
+  assert.match(result.stdout, /Approve the native pull-request workflow/);
   assert.deepEqual(matchingCalls(result, ["gh", "pr", "merge"]), [
     ["gh", "pr", "merge", "https://github.com/example/profile/pull/13", "--auto", "--squash", "--match-head-commit", newSha],
   ]);
@@ -133,15 +137,15 @@ test("the legacy GitHub Actions bot login retains the same ownership boundary", 
   assert.equal(matchingCalls(result, ["git", "push"]).length, 0);
 });
 
-test("a stale owned pull request uses the expected head and dispatches CI only after a new head is observed", () => {
+test("a stale owned pull request observes its expected-head update without dispatching CI", () => {
   const result = runScenario({ pulls: [{ ...ownedPull, mergeStateStatus: "BEHIND" }] });
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(matchingCalls(result, ["gh", "api"]), [
     ["gh", "api", "--method", "PUT", "repos/example/profile/pulls/12/update-branch", "-f", `expected_head_sha=${oldSha}`],
   ]);
-  assert.deepEqual(matchingCalls(result, ["gh", "workflow"]), [
-    ["gh", "workflow", "run", "ci.yml", "--ref", ownedPull.headRefName],
-  ]);
+  assert.equal(matchingCalls(result, ["gh", "workflow"]).length, 0);
+  assert.equal(matchingCalls(result, ["gh", "pr", "view"]).length, 1);
+  assert.match(result.stdout, /Approve the native pull-request workflow/);
   assert.equal(matchingCalls(result, ["git", "push"]).length, 0);
   assert.equal(matchingCalls(result, ["gh", "pr", "create"]).length, 0);
 });
