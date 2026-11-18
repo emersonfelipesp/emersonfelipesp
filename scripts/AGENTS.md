@@ -21,6 +21,8 @@ built-in test runner. These scripts are not part of the Next.js client bundle.
 - `sync-roadmaps.ts` - Iterates `PROJECT_LIST` and writes per-project `public/github-data/<slug>-roadmap.json` snapshots with GitHub issues, `blocked_by` dependency edges, dagre layout, and topological timeline phases. Honors `Retry-After` on 429/403 secondary rate limits and skips repos that return 404.
 - `profile-refresh-workflow.test.mjs` - Executes the snapshot workflow's actual shell step with isolated Git and GitHub command doubles. Run it with `pnpm test:ci-workflows`. It verifies ownership, expected-head branch updates, bounded observation, duplicate prevention, real CI dispatch, and SHA-bound squash auto-merge without contacting a forge. JSON parsing uses the existing Node runtime; the test fixtures deliberately make `jq` unavailable and enable forced color to verify that machine-readable values remain plain text.
 
+The refresh ownership filter requires a bot actor and recognizes the GitHub CLI's `app/github-actions` login plus the legacy `github-actions[bot]` spelling. Keep unrelated bots, human authors, and fork branches outside that ownership boundary.
+
 ## Behavior
 
 `sync-netbox-sdk-fixtures.ts`:

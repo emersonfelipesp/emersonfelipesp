@@ -16,7 +16,7 @@ const ownedPull = {
   number: 12,
   headRefName: "automation/github-data-100-1",
   headRefOid: oldSha,
-  author: { login: "github-actions[bot]" },
+  author: { login: "app/github-actions", is_bot: true },
   isCrossRepository: false,
   mergeStateStatus: "CLEAN",
 };
@@ -113,6 +113,14 @@ test("a current owned pull request prevents duplicate writes and dispatches", ()
   assert.equal(matchingCalls(result, ["git", "push"]).length, 0);
 });
 
+test("the legacy GitHub Actions bot login retains the same ownership boundary", () => {
+  const result = runScenario({ pulls: [{ ...ownedPull, author: { login: "github-actions[bot]", is_bot: true } }] });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(matchingCalls(result, ["gh", "api"]).length, 0);
+  assert.equal(matchingCalls(result, ["gh", "workflow"]).length, 0);
+  assert.equal(matchingCalls(result, ["git", "push"]).length, 0);
+});
+
 test("a stale owned pull request uses the expected head and dispatches CI only after a new head is observed", () => {
   const result = runScenario({ pulls: [{ ...ownedPull, mergeStateStatus: "BEHIND" }] });
   assert.equal(result.status, 0, result.stderr);
@@ -158,6 +166,8 @@ test("an invalid owned branch name cannot reach a write operation", () => {
 for (const [name, pull] of [
   ["a human pull request", { ...ownedPull, author: { login: "maintainer" } }],
   ["a pull request from a fork", { ...ownedPull, isCrossRepository: true }],
+  ["another bot's pull request", { ...ownedPull, author: { login: "app/dependabot", is_bot: true } }],
+  ["a non-bot actor with a matching label", { ...ownedPull, author: { login: "app/github-actions", is_bot: false } }],
 ]) {
   test(`${name} is never updated by snapshot automation`, () => {
     const result = runScenario({ pulls: [{ ...pull, mergeStateStatus: "BEHIND" }] });
