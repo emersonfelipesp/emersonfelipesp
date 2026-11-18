@@ -1,40 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-18T00:32:58.511Z",
+  "generated_at": "2026-11-18T04:43:24.694Z",
   "repo": "emersonfelipesp/netbox-openbao",
   "counts": {
-    "open": 1,
+    "open": 0,
     "closed": 0,
     "edges": 0
   },
-  "viewBox": "0 0 272 128",
-  "nodes": [
-    {
-      "number": 1,
-      "title": "Problem with installing netbox-openbao",
-      "state": "open",
-      "url": "https://github.com/emersonfelipesp/netbox-openbao/issues/1",
-      "closedAt": null,
-      "labels": [],
-      "milestone": null,
-      "x": 16,
-      "y": 16,
-      "w": 240,
-      "h": 96,
-      "blocked_by": []
-    }
-  ],
+  "viewBox": "0 0 1 1",
+  "nodes": [],
   "edges": [],
-  "timeline": [
-    {
-      "phase": 1,
-      "kind": "open",
-      "note": "start anywhere",
-      "issues": [
-        1
-      ]
-    }
-  ],
+  "timeline": [],
   "labels": [],
   "milestones": []
 }
