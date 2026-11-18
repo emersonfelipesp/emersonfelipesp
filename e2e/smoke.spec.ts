@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import proxboxRoadmap from "../public/github-data/netbox-proxbox-roadmap.json";
 
 const LIVE_DOCS_ACTIONS = [
   {
@@ -309,9 +310,14 @@ test("/netbox-proxbox/roadmap renders diagram and timeline", async ({
   await expect(timelineTab).toBeVisible();
 
   await expect(timelineTab).toHaveAttribute("data-active", "true");
-  await expect(
-    page.locator("h3").filter({ hasText: /\bphase 1\b/i }).first(),
-  ).toBeVisible();
+  const timelineHeadings = page.locator("main ol > li > h3");
+  await expect(timelineHeadings).toHaveCount(proxboxRoadmap.timeline.length);
+  for (const [index, phase] of proxboxRoadmap.timeline.entries()) {
+    const heading = timelineHeadings.nth(index);
+    const label = phase.kind === "shipped" ? "[shipped]" : `phase ${phase.phase}`;
+    await expect(heading).toContainText(label, { ignoreCase: true });
+    await expect(heading).toContainText(`${phase.issues.length} issues`);
+  }
 
   await diagramTab.click();
   await expect(diagramTab).toHaveAttribute("data-active", "true");

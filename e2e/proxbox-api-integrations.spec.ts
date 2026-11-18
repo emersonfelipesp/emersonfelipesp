@@ -105,6 +105,6 @@ test("/proxbox-api integration map has pt-br companion plugin copy", async ({
 
   await pluginRow.getByRole("link", { name: "netbox-pdm" }).focus();
   await expect(architecture.locator("#integ-tip-netbox-pdm")).toContainText(
-    "Plugin do NetBox para Proxmox Datacenter Manager",
+    "Scaffold publicado para futuro inventário somente leitura do Proxmox Datacenter Manager via proxbox-api; models e views de sync ainda não foram publicados.",
   );
 });

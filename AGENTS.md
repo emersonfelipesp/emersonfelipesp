@@ -19,7 +19,7 @@ deliberate terminal / CLI / NetDevOps aesthetic.
 |---|---|---|
 | Runtime | Node.js | 22.x |
 | Package manager | pnpm | 10.33.2 |
-| Framework | Next.js | 16.3.8 |
+| Framework | Next.js | 16.4.5 |
 | UI | React | 19.2 |
 | Language | TypeScript | 6.0 |
 | Styling | Tailwind CSS | 4.2 |
@@ -108,6 +108,7 @@ GitHub repo and release data is static at runtime:
 - Snapshots are committed under `public/github-data/<slug>.json`; `manifest.json` records sync status.
 - `lib/github.ts` reads and validates those files with Zod and returns release summaries, full snapshots, and static repo summaries.
 - `.github/workflows/sync-github-data.yml` refreshes the snapshots every 6 hours, manually, or through `repository_dispatch: refresh-github-data`.
+- Refreshes create a dedicated pull request and dispatch the complete profile CI on that branch because pull requests opened with `GITHUB_TOKEN` do not trigger pull-request workflows. Native squash auto-merge remains subject to the required `Profile CI complete` check and branch protection. The repository must permit Actions to create pull requests and must enable auto-merge before this workflow is activated.
 
 No component should fetch GitHub directly in the browser. Project pages receive `releases` and `repo` from `loadProjectShellData()`.
 

@@ -43,8 +43,8 @@ function isSecureBraceExpansion(version) {
 }
 
 test("direct framework and security overrides use reviewed floors", () => {
-  assert.equal(packageJson.dependencies.next, "16.3.8");
-  assert.equal(packageJson.devDependencies["eslint-config-next"], "16.3.8");
+  assert.equal(packageJson.dependencies.next, "16.4.5");
+  assert.equal(packageJson.devDependencies["eslint-config-next"], "16.4.5");
   assert.deepEqual(packageJson.pnpm.overrides, {
     "brace-expansion@>=4.0.0": "^5.0.12",
     "js-yaml@>=4.0.0 <5.0.0": "^4.3.2",
@@ -57,13 +57,15 @@ test("direct framework and security overrides use reviewed floors", () => {
     "deepmerge-ts": "^8.0.1",
     axios: "^1.20.0",
     "source-map-js": "^1.2.2",
-    dompurify: "^3.4.16",
+    dompurify: "^3.4.17",
+    "follow-redirects": "^1.16.2",
+    zod: "^4.6.6",
   });
 });
 
 test("the lock contains no package below a reviewed security floor", () => {
   const floors = new Map([
-    ["next", "16.3.8"],
+    ["next", "16.4.5"],
     ["js-yaml", "4.3.2"],
     ["sharp", "0.35.5"],
     ["fast-uri", "3.1.8"],
@@ -72,7 +74,9 @@ test("the lock contains no package below a reviewed security floor", () => {
     ["deepmerge-ts", "8.0.1"],
     ["axios", "1.20.0"],
     ["source-map-js", "1.2.2"],
-    ["dompurify", "3.4.16"],
+    ["dompurify", "3.4.17"],
+    ["follow-redirects", "1.16.2"],
+    ["zod", "4.6.6"],
   ]);
   for (const [packageName, floor] of floors) {
     const versions = lockedVersions(packageName);
