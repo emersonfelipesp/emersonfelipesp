@@ -52,9 +52,33 @@ jobs:
           set -euo pipefail
           if [[ -n "$(git status --porcelain public/github-data)" ]]; then
             pending="$(gh pr list --state open --base main --limit 100 \
-              --json headRefName,author \
-              --jq '.[] | select(.author.login == "github-actions[bot]" and (.headRefName | startswith("automation/github-data-"))) | .headRefName')"
-            if [[ -n "$pending" ]]; then
+              --json number,headRefName,headRefOid,author,isCrossRepository,mergeStateStatus \
+              --jq '[.[] | select(.author.login == "github-actions[bot]" and .isCrossRepository == false and (.headRefName | startswith("automation/github-data-")))]')"
+            pending_count="$(jq 'length' <<< "$pending")"
+            if (( pending_count > 1 )); then
+              echo 'Multiple generated snapshot pull requests need reconciliation.' >&2
+              exit 1
+            fi
+            if (( pending_count == 1 )); then
+              IFS=$'\t' read -r pending_number pending_branch pending_sha merge_state < <(
+                jq -r '.[0] | [.number, .headRefName, .headRefOid, .mergeStateStatus] | @tsv' <<< "$pending"
+              )
+              [[ "$pending_number" =~ ^[0-9]+$ && "$pending_branch" =~ ^automation/github-data-[0-9]+-[0-9]+$ && "$pending_sha" =~ ^[0-9a-f]{40}$ ]]
+              if [[ "$merge_state" == BEHIND ]]; then
+                gh api --method PUT "repos/$GH_REPO/pulls/$pending_number/update-branch" \
+                  -f "expected_head_sha=$pending_sha"
+                for attempt in {1..12}; do
+                  updated_sha="$(gh pr view "$pending_number" --json headRefOid --jq .headRefOid)"
+                  if [[ "$updated_sha" =~ ^[0-9a-f]{40}$ && "$updated_sha" != "$pending_sha" ]]; then
+                    gh workflow run ci.yml --ref "$pending_branch"
+                    exit 0
+                  fi
+                  printf 'Waiting for the generated branch update (%s/12).\n' "$attempt"
+                  sleep 5
+                done
+                echo 'The generated branch update did not complete within the observation window.' >&2
+                exit 1
+              fi
               echo 'A generated snapshot pull request is already pending.'
               exit 0
             fi

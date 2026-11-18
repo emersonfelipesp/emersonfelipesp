@@ -38,6 +38,9 @@ jobs:
       - name: Verify dependency security invariants
         run: pnpm test:dependency-security
 
+      - name: Verify checked snapshot refresh contracts
+        run: pnpm test:ci-workflows
+
       - name: Audit production dependencies
         run: pnpm audit --prod --audit-level high
 

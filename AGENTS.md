@@ -109,7 +109,7 @@ GitHub repo and release data is static at runtime:
 - `lib/github.ts` reads and validates those files with Zod and returns release summaries, full snapshots, and static repo summaries.
 - `.github/workflows/sync-github-data.yml` refreshes the snapshots every 6 hours, manually, or through `repository_dispatch: refresh-github-data`.
 - Public CI uses Ubuntu 24.04 because the locked Playwright release does not support Ubuntu 26.04. Preserve both complete browser projects.
-- Refreshes create a dedicated pull request and dispatch the complete profile CI on that branch because pull requests opened with `GITHUB_TOKEN` do not trigger pull-request workflows. Native squash auto-merge remains subject to the required `Profile CI complete` check and branch protection. The repository must permit Actions to create pull requests and must enable auto-merge before this workflow is activated.
+- Refreshes create a dedicated pull request and dispatch the complete profile CI on that branch because pull requests opened with `GITHUB_TOKEN` do not trigger pull-request workflows. An existing generated pull request that falls behind main is updated through the expected-head API, and CI is dispatched only after its new head is observed. Snapshot workflow contracts are checked by `pnpm test:ci-workflows`. Native squash auto-merge remains subject to the required `Profile CI complete` check and branch protection. The repository must permit Actions to create pull requests and must enable auto-merge before this workflow is activated.
 
 No component should fetch GitHub directly in the browser. Project pages receive `releases` and `repo` from `loadProjectShellData()`.
 
