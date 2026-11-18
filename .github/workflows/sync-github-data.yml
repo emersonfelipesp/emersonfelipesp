@@ -56,9 +56,9 @@ jobs:
             pending="$(PENDING_PULLS="$pending" node -e '
               const pulls = JSON.parse(process.env.PENDING_PULLS);
               const owned = pulls.filter((pull) => pull.author?.login === "github-actions[bot]" && pull.isCrossRepository === false && pull.headRefName?.startsWith("automation/github-data-"));
-              console.log(JSON.stringify(owned));
+              process.stdout.write(JSON.stringify(owned) + "\n");
             ')"
-            pending_count="$(PENDING_PULLS="$pending" node -p 'JSON.parse(process.env.PENDING_PULLS).length')"
+            pending_count="$(PENDING_PULLS="$pending" node -e 'process.stdout.write(String(JSON.parse(process.env.PENDING_PULLS).length))')"
             if (( pending_count > 1 )); then
               echo 'Multiple generated snapshot pull requests need reconciliation.' >&2
               exit 1
@@ -67,7 +67,7 @@ jobs:
               IFS=$'\t' read -r pending_number pending_branch pending_sha merge_state < <(
                 PENDING_PULLS="$pending" node -e '
                   const pull = JSON.parse(process.env.PENDING_PULLS)[0];
-                  console.log([pull.number, pull.headRefName, pull.headRefOid, pull.mergeStateStatus].join("\t"));
+                  process.stdout.write([pull.number, pull.headRefName, pull.headRefOid, pull.mergeStateStatus].join("\t") + "\n");
                 '
               )
               [[ "$pending_number" =~ ^[0-9]+$ && "$pending_branch" =~ ^automation/github-data-[0-9]+-[0-9]+$ && "$pending_sha" =~ ^[0-9a-f]{40}$ ]]

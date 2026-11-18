@@ -57,6 +57,7 @@ function runScenario({ pulls = [], changes = true, updateExit = 0, observedSha =
       encoding: "utf8",
       env: {
         ...process.env,
+        FORCE_COLOR: "1",
         PATH: `${directory}:${process.env.PATH}`,
         CALL_LOG: callsFile,
         HAS_CHANGES: String(changes),
